@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POAMS Quantum Cinematograph - Interactive Visualization</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <style>
+        :root {
+            --bg-dark: #1a1a2e;
+            --bg-light: #f5f5f5;
+            --text-dark: #eee;
+            --text-light: #333;
+            --gold: #c9a84c;
+            --blue: #4fc3f7;
+            --accent: #2d2d4a;
+            --accent-light: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-dark);
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+
+        body.light-theme {
+            background: var(--bg-light);
+            color: var(--text-light);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .film-strip-border {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 4px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--gold) 0px,
+                var(--gold) 10px,
+                transparent 10px,
+                transparent 20px
+            );
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--gold);
+            color: var(--bg-dark);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.05);
+        }
+
+        h1 {
+            color: var(--gold);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(201, 168, 76, 0.3);
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            color: var(--blue);
+            font-style: italic;
+        }
+
+        .intro-text {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 30px auto;
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        .visualization-section {
+            margin: 60px 0;
+            padding: 30px;
+            background: var(--accent);
+            border-radius: 15px;
+            border: 2px solid var(--gold);
+            position: relative;
+            overflow: hidden;
+        }
+
+        body.light-theme .visualization-section {
+            background: var(--accent-light);
+            border-color: var(--gold);
+        }
+
+        .visualization-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--gold) 0px,
+                var(--gold) 15px,
+                transparent 15px,
+                transparent 30px
+            );
+        }
+
+        .section-title {
+            color: var(--gold);
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .canvas-container {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            border: 1px solid var(--gold);
+        }
+
+        body.light-theme .canvas-container {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        canvas {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(201, 168, 76, 0.2);
+        }
+
+        .controls {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .control-group {
+            display: inline-block;
+            margin: 10px 20px;
+            vertical-align: top;
+        }
+
+        .control-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: var(--blue);
+        }
+
+        input[type="range"] {
+            width: 200px;
+            height: 8px;
+            border-radius: 4px;
+            background: var(--accent);
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--gold);
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(201, 168, 76, 0.5);
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--gold);
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 0 10px rgba(201, 168, 76, 0.5);
+        }
+
+        button {
+            background: var(--gold);
+            color: var(--bg-dark);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 5px;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(201, 168, 76, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .explanation {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin: 20px 0;
+        }
+
+        .key-insight {
+            background: linear-gradient(135deg, rgba(201, 168, 76, 0.1), rgba(79, 195, 247, 0.1));
+            border-left: 5px solid var(--gold);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 10px 10px 0;
+            font-style: italic;
+            font-size: 1.15rem;
+        }
+
+        .equation-box {
+            background: rgba(0, 0, 0, 0.4);
+            border: 2px solid var(--blue);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        body.light-theme .equation-box {
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .split-screen {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .split-panel {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        body.light-theme .split-panel {
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        .split-panel h3 {
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .split-screen {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .control-group {
+                display: block;
+                margin: 15px 0;
+            }
+            
+            input[type="range"] {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .visualization-section {
+                padding: 20px;
+                margin: 30px 0;
+            }
+        }
+
+        .status-display {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: var(--gold);
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+
+        .quantum-frame {
+            border: 2px solid var(--gold);
+            display: inline-block;
+            margin: 2px;
+            width: 40px;
+            height: 30px;
+            background: linear-gradient(45deg, rgba(201, 168, 76, 0.3), rgba(79, 195, 247, 0.3));
+            position: relative;
+        }
+
+        .quantum-frame::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            bottom: 2px;
+            left: -2px;
+            right: -2px;
+            border-left: 4px solid var(--gold);
+            border-right: 4px solid var(--gold);
+        }
+
+        .conceptual-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .concept-card {
+            background: var(--accent);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid var(--gold);
+            transition: transform 0.3s ease;
+        }
+
+        body.light-theme .concept-card {
+            background: var(--accent-light);
+        }
+
+        .concept-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(201, 168, 76, 0.2);
+        }
+
+        .concept-card h3 {
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">☀️ Light Mode</button>
+    
+    <div class="container">
+        <div class="header">
+            <div class="film-strip-border"></div>
+            <h1>POAMS Quantum Cinematograph</h1>
+            <p class="subtitle">Interactive Exploration of Pope's Revolutionary Physics</p>
+            <p class="intro-text">
+                Reality is not a continuous flow—it's a movie. Each quantum interaction is a discrete "frame" 
+                in the cosmic cinema, with apparent motion emerging from rapid sequencing. There is no action 
+                <em>within</em> the frames, only <em>between</em> them. Welcome to the quantum discretum.
+            </p>
+        </div>
+
+        <div class="conceptual-overview">
+            <div class="concept-card">
+                <h3>🎬 The Cinema Analogy</h3>
+                <p>Physical reality operates like digital cinema—composed of discrete quantum "stills" with apparent continuous motion emerging from rapid frame sequencing. There is NO continuous motion at the fundamental level.</p>
+            </div>
+            <div class="concept-card">
+                <h3>⚡ Instantaneous Touch</h3>
+                <p>Quantum interactions are proper-time instantaneous (τ=0), like instantaneous "touches" in a cosmic tag game. The appearance of time-delayed propagation comes from observational time t_R = s/c.</p>
+            </div>
+            <div class="concept-card">
+                <h3>🎯 Quantum Discretum</h3>
+                <p>Reality is fundamentally discrete—pixelated at the Planck scale. Between quantum events, there is no space, no time, no void—just statistical patterns creating the appearance of continuity.</p>
+            </div>
+            <div class="concept-card">
+                <h3>👻 Flickering Atoms</h3>
+                <p>Atoms don't exist continuously. They pop in and out of existence sporadically, existing only when interacting. Between interactions, they literally do nothing—consistent with Heisenberg uncertainty.</p>
+            </div>
+        </div>
+
+        <div class="visualization-section">
+            <h2 class="section-title">1. The Film Strip Visualizer</h2>
+            <div class="explanation">
+                <p>This is the heart of POAMS—the film strip analogy. Just as a movie creates the illusion of continuous motion from discrete still frames, physical reality creates the appearance of continuous change from discrete quantum events. Each "frame" is a complete, instantaneous quantum state. There are no "in-between" states.</p>
+                
+                <div class="key-insight">
+                    <strong>Pope's Key Insight:</strong> "The action is always BETWEEN the stills, not WITHIN them." Each quantum event is like a photograph—complete and instantaneous. Physical change happens in the transitions between events, not during them.
+                </div>
+            </div>
+            
+            <div class="canvas-container">
+                <canvas id="filmStripCanvas" width="800" height="200"></canvas>
+                <div class="status-display" id="filmStripStatus">Frame: 1 | Rate: 24 fps</div>
+            </div>
+            
+            <div class="controls">
+                <div class="control-group">
+                    <label for="frameRate">Frame Rate (Quantum Events/Second)</label>
+                    <input type="range" id="frameRate" min="1" max="60" value="24">
+                    <span id="frameRateValue">24 fps</span>
+                </div>
+                <div class="control-group">
+                    <button onclick="toggleFilmStrip()">▶️ Play/Pause</button>
+                    <button onclick="stepFrame()">⏭️ Step Frame</button>
+                    <button onclick="resetFilmStrip()">🔄 Reset</button>
+                </div>
+            </div>
+            
+            <div class="explanation">
+                <p><strong>What you're seeing:</strong> At high frame rates, the motion appears continuous—just like classical physics. Slow it down and you see the truth: reality is composed of discrete quantum events. At the slowest setting, each frame exists completely on its own. There's no gradual transition, no "morphing" between states—just instantaneous quantum jumps.</p>
+                
+                <div class="equation-box">
+                    <p><strong>Quantum Duration:</strong> $t = \frac{h}{E}$</p>
+                    <p>Higher energy quantum events have shorter duration. Time itself is discrete!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="visualization-section">
+            <h2 class="section-title">2. Instantaneous vs Time-Delayed Interaction</h2>
+            <div class="explanation">
+                <p>This visualization demonstrates the heart of POAMS: quantum interactions are proper-time instantaneous (τ=0), but we observe them with a time delay t_R = s/c. This resolves the EPR paradox—there's no "spooky action at a distance," just Pythagoras!</p>
+                
+                <div class="split-screen">
+                    <div class="split-panel">
+                        <h3>Proper Time (τ)</h3>
+                        <p>From the perspective of the interacting particles, the "touch" happens instantly. This is proper time τ = 0, regardless of spatial separation.</p>
+                    </div>
+                    <div class="split-panel">
+                        <h3>Observation Time (t_R)</h3>
+                        <p>From our external observation frame, we see the interaction after light has traveled distance s at speed c, giving us t_R = s/c.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="canvas-container">
+                <canvas id="timeDelayCanvas" width="800" height="300"></canvas>
+                <div class="status-display" id="timeDelayStatus">Distance: 1.0 ly | Proper Time: 0 | Observation Time: 1.0 years</div>
+            </div>
+            
+            <div class="controls">
+                <div class="control-group">
+                    <label for="separation">Spatial Separation (light-years)</label>
+                    <input type="range" id="separation" min="0.1" max="10" step="0.1" value="1.0">
+                    <span id="separationValue">1.0 ly</span>
+                </div>
+                <div class="control-group">
+                    <button onclick="triggerInteraction()">⚡ Trigger Quantum Touch</button>
+                    <button onclick="showPythagorean()">📐 Show Pythagorean Triangle</button>
+                </div>
+            </div>
+            
+            <div class="equation-box">
+                <p><strong>The Pythagorean Time Equation:</strong></p>
+                <p>$t_R^2 = \left(\frac{s}{c}\right)^2 + \tau^2$</p>
+                <p>When $\tau = 0$ (instantaneous proper time): $t_R = \frac{s}{c}$</p>
+                <p><em>The interaction is simultaneously instantaneous AND time-delayed—complementary aspects of the same event!</em></p>
+            </div>
+        </div>
+
+        <div class="visualization-section">
+            <h2 class="section-title">3. The Quantum Tag Game</h2>
+            <div class="explanation">
+                <p>Atoms interact like players in a cosmic game of tag. A "touches" B (instantly), then B "touches" C (instantly), and so on. These touches are intransitive—they don't all happen simultaneously (that would create stasis). The sporadicity ensures both continuity and fluidity, creating wave-like patterns from discrete interactions.</p>
+                
+                <div class="key-insight">
+                    <strong>No Photons!</strong> Light doesn't "travel" through space as particles or waves. Each interaction is a direct, instantaneous atomic touch. The appearance of light "traveling" at speed c comes from the time-sequenced observation of discrete events.
+                </div>
+            </div>
+            
+            <div class="canvas-container">
+                <canvas id="tagGameCanvas" width="800" height="400"></canvas>
+                <div class="status-display" id="tagGameStatus">Touches: 0 | Wave Speed: c</div>
+            </div>
+            
+            <div class="controls">
+                <div class="control-group">
+                    <label for="touchRate">Touch Propagation Rate</label>
+                    <input type="range" id="touchRate" min="0.1" max="2.0" step="0.1" value="1.0">
+                    <span id="touchRateValue">1.0c</span>
+                </div>
+                <div class="control-group">
+                    <button onclick="startTagGame()">🏃 Start Tag Chain</button>
+                    <button onclick="clickTouch()" id="clickTouchBtn">👆 Click to Touch</button>
+                    <button onclick="resetTagGame()">🔄 Reset</button>
+                </div>
+            </div>
+            
+            <div class="explanation">
+                <p><strong>Click anywhere on the canvas to trigger a quantum touch!</strong> Watch how individual instantaneous interactions create the appearance of wave propagation. Each touch is Newton's 3rd law in action—reciprocal and instantaneous. The wave-like behavior emerges from the statistical pattern of discrete touches.</p>
+            </div>
+        </div>
+
+        <div class="visualization-section">
+            <h2 class="section-title">4. EPR Non-Paradox Resolution</h2>
+            <div class="explanation">
+                <p>Einstein's "spooky action at a distance" concerned him because he thought quantum correlations implied faster-than-light signaling. POAMS shows this isn't paradoxical—it's just Pythagoras. The correlation exists in proper time (τ=0), while its observation takes time t_R = s/c.</p>
+            </div>
+            
+            <div class="split-screen">
+                <div class="split-panel">
+                    <h3>😰 Einstein's Concern</h3>
+                    <div class="canvas-container">
+                        <canvas id="eprEinsteinCanvas" width="350" height="200"></canvas>
+                    </div>
+                    <p>"How can particle A instantly affect particle B across vast distances? This violates relativity!"</p>
+                </div>
+                <div class="split-panel">
+                    <h3>🎯 POAMS Resolution</h3>
+                    <div class="canvas-container">
+                        <canvas id="eprPoamsCanvas" width="350" height="200"></canvas>
+                    </div>
+                    <p>"They're in direct contact (τ=0). We just observe it with delay t_R = s/c. No paradox!"</p>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <div class="control-group">
+                    <label for="eprDistance">Entanglement Distance (light-years)</label>
+                    <input type="range" id="eprDistance" min="1" max="100" value="10">
+                    <span id="eprDistanceValue">10 ly</span>
+                </div>
+                <div class="control-group">
+                    <button onclick="measureEntanglement()">🔍 Measure Particle A</button>
+                    <button onclick="showCorrelation()">🔗 Show Correlation</button>
+                </div>
+            </div>
+            
+            <div class="equation-box">
+                <p><strong>The Resolution:</strong> Entangled particles are in direct contact via proper time τ = 0</p>
+                <p>Measurement correlation: <strong>Instantaneous</strong></p>
+                <p>Observation of correlation: <strong>t_R = s/c</strong></p>
+                <p><em>"Spooky action at a distance" is just proper-time instantaneity observed with time delay!</em></p>
+            </div>
+        </div>
+
+        <div class="visualization-section">
+            <h2 class="section-title">5. The Flickering Atom</h2>
+            <div class="explanation">
+                <p>Atoms don't exist continuously like tiny billiard balls. They exist only when interacting—popping in and out of existence sporadically. Between interactions, an atom literally does nothing. It's a succession of discrete events, not a permanent object. This is perfectly consistent with Heisenberg uncertainty.</p>
+                
+                <div class="key-insight">
+                    <strong>Quantum Accumulator:</strong> An atom is like a movie character—it only exists in the frames where it appears. Between quantum events, there's no atom at all, just probability patterns governing when it might next manifest.
+                </div>
+            </div>
+            
+            <div class="canvas-container">
+                <canvas id="flickerCanvas" width="800" height="300"></canvas>
+                <div class="status-display" id="flickerStatus">Manifestations: 0 | Interaction Rate: Variable</div>
+            </div>
+            
+            <div class="controls">
+                <div class="control-group">
+                    <label for="flickerRate">Manifestation Frequency</label>
+                    <input type="range" id="flickerRate" min="0.1" max="5.0" step="0.1" value="1.0">
+                    <span id="flickerRateValue">1.0 Hz</span>
+                </div>
+                <div class="control-group">
+                    <label for="atomCount">Number of Atoms</label>
+                    <input type="range" id="atomCount" min="1" max="20" value="5">
+                    <span id="atomCountValue">5</span>
+                </div>
+                <div class="control-group">
+                    <button onclick="toggleFlicker()">⚡ Start/Stop Flickering</button>
+                    <button onclick="addInteraction()">💥 Force Interaction</button>
+                </div>
+            </div>
+            
+            <div class="explanation">
+                <p><strong>Watch the atoms flicker:</strong> Each bright flash is a quantum interaction—the only time the atom truly "exists." The ghostly probability clouds show where the atom might next appear. Multiple atoms create overlapping patterns that, when averaged over time, appear as solid matter. This is why classical objects seem continuous despite their quantum discrete nature.</p>
+            </div>
+        </div>
+
+        <div class="visualization-section">
+            <h2 class="section-title">6. Discretum vs Continuum</h2>
+            <div class="explanation">
+                <p>The fundamental difference between classical physics (continuous spacetime) and POAMS (quantum discretum). Classical physics treats space and time as smooth, infinitely divisible. POAMS reveals the pixelated, digital nature of reality at the Planck scale.</p>
+            </div>
+            
+            <div class="split-screen">
+                <div class="split-panel">
+                    <h3>🌊 Classical Continuum</h3>
+                    <div class="canvas-container">
+                        <canvas id="continuumCanvas" width="350" height="250"></canvas>
+                    </div>
+                    <p>Einstein's spacetime: Smooth, continuous, infinitely divisible. Like a perfect rubber sheet that can bend and stretch smoothly.</p>
+                </div>
+                <div class="split-panel">
+                    <h3>🎮 Quantum Discretum</h3>
+                    <div class="canvas-container">
+                        <canvas id="discretumCanvas" width="350" height="250"></canvas>
+                    </div>
+                    <p>POAMS reality: Pixelated at Planck scale. Discrete quantum events create the appearance of continuity through statistical averaging.</p>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <div class="control-group">
+                    <label for="zoomLevel">Zoom Level</label>
+                    <input type="range" id="zoomLevel" min="1" max="20" value="5">
+                    <span id="zoomLevelValue">5x</span>
+                </div>
+                <div class="control-group">
+                    <label for="pixelSize">Quantum Pixel Size</label>
+                    <input type="range" id="pixelSize" min="2" max="20" value="8">
+                    <span id="pixelSizeValue">8px</span>
+                </div>
+                <div class="control-group">
+                    <button onclick="animateContinuum()">🌊 Wave Animation</button>
+                    <button onclick="togglePixelation()">🎮 Toggle Pixels</button>
+                </div>
+            </div>
+            
+            <div class="explanation">
+                <p><strong>Zoom in to see the pixels!</strong> At high zoom levels, the discrete nature becomes obvious. Zoom out, and the discretum appears continuous—explaining why classical physics works at macro scales. The "pixels" are quantum events with size ~10⁻³⁵ meters (Planck length).</p>
+                
+                <div class="equation-box">
+                    <p><strong>Fundamental Constants:</strong></p>
+                    <p>Planck length: $l_P = \sqrt{\frac{\hbar G}{c^3}} \approx 1.6 \times 10^{-35}$ m</p>
+                    <p>Planck time: $t_P = \sqrt{\frac{\hbar G}{c^5}} \approx 5.4 \times 10^{-44}$ s</p>
+                    <p>Quantum of action: $h = 6.626 \times 10^{-34}$ J·s</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="visualization-section">
+            <h2 class="section-title">7. Pope's Key Insight: Action Between Frames</h2>
+            <div class="explanation">
+                <p>The revolutionary insight at the heart of POAMS: <strong>"The action is always BETWEEN the stills, not WITHIN them."</strong> Each quantum event is a complete, instantaneous "photograph" of reality. Physical change—motion, transformation, interaction—happens in the transitions between these discrete events.</p>
+                
+                <div class="key-insight">
+                    This is the conceptual breakthrough that bridges quantum mechanics and relativity. Quantum events are timelessly instantaneous (like movie frames), but sequences of events create the appearance of temporal flow and spatial motion.
+                </div>
+            </div>
+            
+            <div class="canvas-container">
+                <canvas id="betweenFramesCanvas" width="800" height="300"></canvas>
+                <div class="status-display" id="betweenFramesStatus">Current Frame: 1 | Showing: Individual Frame</div>
+            </div>
+            
+            <div class="controls">
+                <div class="control-group">
+                    <label for="demonstrationMode">Demonstration Mode</label>
+                    <select id="demonstrationMode">
+                        <option value="individual">Individual Frames</option>
+                        <option value="transition">Frame Transitions</option>
+                        <option value="continuous">Apparent Motion</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <button onclick="previousFrame()">⏮️ Previous Frame</button>
+                    <button onclick="playTransition()">▶️ Play Transition</button>
+                    <button onclick="nextFrame()">⏭️ Next Frame</button>
+                </div>
+                <div class="control-group">
+                    <button onclick="highlightAction()">✨ Highlight Action</button>
+                    <button onclick="showFrameAnalysis()">🔍 Analyze Frame</button>
+                </div>
+            </div>
+            
+            <div class="explanation">
+                <p><strong>Frame Analysis:</strong> Each frame is complete and self-contained. Notice that within any single frame, nothing is "moving"—motion exists only in the comparison between frames. The ball doesn't gradually slide from position A to position B; it exists at A in frame N and at B in frame N+1. The motion is in the discontinuous jump between frames.</p>
+                
+                <p><strong>This explains quantum tunneling:</strong> A particle doesn't gradually penetrate a barrier. It exists on one side in frame N and on the other side in frame N+1. The "tunneling" is simply the discontinuous transition between quantum events.</p>
+                
+                <div class="equation-box">
+                    <p><strong>Quantum Change:</strong> Δx between frames, not within frames</p>
+                    <p><strong>Classical Illusion:</strong> Continuous motion from rapid frame sequencing</p>
+                    <p><em>Reality is digital, not analog!</em></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="visualization-section">
+            <h2 class="section-title">The POAMS Revolution</h2>
+            <div class="explanation">
+                <p>POAMS (Pope's Objective Atomic Mechanics System) represents a fundamental reimagining of physical reality. By understanding reality as a quantum cinematograph—discrete frames creating apparent continuity—we resolve the deep tensions between quantum mechanics and relativity.</p>
+                
+                <h3 style="color: var(--gold); margin: 30px 0 20px 0;">Key Revolutionary Insights:</h3>
+                
+                <div class="conceptual-overview">
+                    <div class="concept-card">
+                        <h3>🎬 Cinema Model</h3>
+                        <p>Reality operates like digital cinema with discrete quantum "frames" and apparent motion from sequencing</p>
+                    </div>
+                    <div class="concept-card">
+                        <h3>⚡ Instantaneous Interactions</h3>
+                        <p>All quantum interactions are proper-time instantaneous (τ=0) but observed with delay t_R = s/c</p>
+                    </div>
+                    <div class="concept-card">
+                        <h3>🎯 No Photon Paradox</h3>
+                        <p>Light doesn't "travel"—each interaction is direct atomic contact, creating wave patterns through discrete touches</p>
+                    </div>
+                    <div class="concept-card">
+                        <h3>📐 Pythagorean Time</h3>
+                        <p>t_R² = (s/c)² + τ² resolves EPR "paradox"—correlations are instantaneous AND time-delayed simultaneously</p>
+                    </div>
+                    <div class="concept-card">
+                        <h3>👻 Sporadic Existence</h3>
+                        <p>Atoms exist only when interacting, popping in/out of existence consistent with Heisenberg uncertainty</p>
+                    </div>
+                    <div class="concept-card">
+                        <h3>🎮 Digital Reality</h3>
+                        <p>Spacetime is fundamentally discrete (pixelated) at Planck scale, appearing continuous through statistical averaging</p>
+                    </div>
+                </div>
+                
+                <div class="key-insight">
+                    <strong>The Ultimate Insight:</strong> Physical reality is not a continuous flow but a discrete sequence—like a cosmic movie where each quantum event is a complete "still frame" and all action happens between frames, not within them. This bridges the gap between the instantaneous nature of quantum interactions and the time-delayed nature of relativistic observations.
+                </div>
+                
+                <div class="equation-box">
+                    <p><strong>The Fundamental POAMS Equations:</strong></p>
+                    <p>Quantum Duration: $t = \frac{h}{E}$ (discrete time)</p>
+                    <p>Pythagorean Time: $t_R^2 = \left(\frac{s}{c}\right)^2 + \tau^2$ (instantaneous + delayed)</p>
+                    <p>Quantum Action: $S = nh$ (discrete action units)</p>
+                    <p>Interaction Frequency: $\nu = \frac{E}{h}$ (quantum event rate)</p>
+                    <p><em>Reality is quantized in space, time, and action—truly digital at its core!</em></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables for all visualizations
+        let isDarkTheme = true;
+        let animations = {};
+
+        // Film Strip Visualization
+        let filmStripPlaying = true;
+        let filmStripFrame = 0;
+        let filmStripRate = 24;
+
+        // Time Delay Visualization
+        let timeDelayAnimation = null;
+        let showingPythagorean = false;
+
+        // Tag Game Visualization
+        let tagGameActive = false;
+        let clickToTouchMode = false;
+        let touches = [];
+
+        // EPR Visualization
+        let eprDistance = 10;
+        let correlationShowing = false;
+
+        // Flicker Visualization
+        let flickerActive = false;
+        let atoms = [];
+        let manifestationCount = 0;
+
+        // Discretum Visualization
+        let continuumWave = 0;
+        let showPixels = true;
+
+        // Between Frames Visualization
+        let currentFrame = 0;
+        let demonstrationMode = 'individual';
+        let frameData = [];
+
+        function toggleTheme() {
+            isDarkTheme = !isDarkTheme;
+            document.body.classList.toggle('light-theme');
+            document.querySelector('.theme-toggle').innerHTML = isDarkTheme ? '☀️ Light Mode' : '🌙 Dark Mode';
+        }
+
+        // Initialize all visualizations
+        function initializeVisualizations() {
+            initFilmStrip();
+            initTimeDelay();
+            initTagGame();
+            initEPR();
+            initFlicker();
+            initDiscretum();
+            initBetweenFrames();
+        }
+
+        // Film Strip Implementation
+        function initFilmStrip() {
+            const canvas = document.getElementById('filmStripCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            function drawFilmStrip() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                // Draw film strip background
+                ctx.fillStyle = isDarkTheme ? '#2d2d4a' : '#e0e0e0';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                // Draw sprocket holes
+                ctx.fillStyle = isDarkTheme ? '#1a1a2e' : '#f5f5f5';
+                for (let x = 20; x < canvas.width; x += 40) {
+                    ctx.fillRect(x, 10, 15, 8);
+                    ctx.fillRect(x, canvas.height - 18, 15, 8);
+                }
+                
+                // Draw frames
+                const frameWidth = 100;
+                const frameHeight = canvas.height - 60;
+                const frameY = 30;
+                
+                for (let i = -1; i < Math.ceil(canvas.width / frameWidth) + 1; i++) {
+                    const frameX = (i * frameWidth) - (filmStripFrame * 2) % frameWidth;
+                    
+                    // Frame border
+                    ctx.strokeStyle = '#c9a84c';
+                    ctx.lineWidth = 2;
+                    ctx.strokeRect(frameX, frameY, frameWidth - 10, frameHeight);
+                    
+                    // Frame content - simple animated ball
+                    const ballX = frameX + 25 + ((filmStripFrame + i * 10) % 50);
+                    const ballY = frameY + frameHeight / 2;
+                    
+                    ctx.fillStyle = '#4fc3f7';
+                    ctx.beginPath();
+                    ctx.arc(ballX, ballY, 8, 0, 2 * Math.PI);
+                    ctx.fill();
+                    
+                    // Frame number
+                    ctx.fillStyle = '#c9a84c';
+                    ctx.font = '12px monospace';
+                    ctx.fillText(String((filmStripFrame + i) % 100), frameX + 5, frameY + frameHeight + 15);
+                }
+                
+                // Update status
+                document.getElementById('filmStripStatus').innerHTML = 
+                    `Frame: ${filmStripFrame} | Rate: ${filmStripRate} fps`;
+            }
+            
+            function animateFilmStrip() {
+                if (filmStripPlaying) {
+                    filmStripFrame += filmStripRate / 60;
+                }
+                drawFilmStrip();
+                requestAnimationFrame(animateFilmStrip);
+            }
+            
+            animateFilmStrip();
+            
+            // Event listeners
+            document.getElementById('frameRate').addEventListener('input', (e) => {
+                filmStripRate = parseInt(e.target.value);
+                document.getElementById('frameRateValue').textContent = filmStripRate + ' fps';
+            });
+        }
+
+        function toggleFilmStrip() {
+            filmStripPlaying = !filmStripPlaying;
+        }
+
+        function stepFrame() {
+            filmStripFrame += 1;
+        }
+
+        function resetFilmStrip() {
+            filmStripFrame = 0;
+        }
+
+        // Time Delay Implementation
+        function initTimeDelay() {
+            const canvas = document.getElementById('timeDelayCanvas');
+            const ctx = canvas.getContext('2d');
+            let animationTime = 0;
+            let interactionTriggered = false;
+            
+            function drawTimeDelay() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                const atomA_x = 100;
+                const atomB_x = canvas.width - 100;
+                const atomY = canvas.height / 2;
+                const distance = parseFloat(document.getElementById('separation').value);
+                
+                // Draw atoms
+                ctx.fillStyle = '#4fc3f7';
+                ctx.beginPath();
+                ctx.arc(atomA_x, atomY, 20, 0, 2 * Math.PI);
+                ctx.fill();
+                
+                ctx.beginPath();
+                ctx.arc(atomB_x, atomY, 20, 0, 2 * Math.PI);
+                ctx.fill();
+                
+                // Labels
+                ctx.fillStyle = '#c9a84c';
+                ctx.font = '16px sans-serif';
+                ctx.fillText('Atom A', atomA_x - 25, atomY - 30);
+                ctx.fillText('Atom B', atomB_x - 25, atomY - 30);
+                
+                if (interactionTriggered) {
+                    // Show instantaneous connection (proper time)
+                    ctx.strokeStyle = '#c9a84c';
+                    ctx.lineWidth = 3;
+                    ctx.setLineDash([]);
+                    ctx.beginPath();
+                    ctx.moveTo(atomA_x, atomY);
+                    ctx.lineTo(atomB_x, atomY);
+                    ctx.stroke();
+                    
+                    ctx.fillText('Instantaneous Touch (τ=0)', canvas.width/2 - 80, atomY - 40);
+                    
+                    // Show observation delay
+                    const observationProgress = (animationTime / distance) % 2;
+                    if (observationProgress < 1) {
+                        const lightX = atomA_x + (atomB_x - atomA_x) * observationProgress;
+                        ctx.fillStyle = '#ffff00';
+                        ctx.beginPath();
+                        ctx.arc(lightX, atomY + 40, 5, 0, 2 * Math.PI);
+                        ctx.fill();
+                        
+                        ctx.fillStyle = '#4fc3f7';
+                        ctx.fillText('Observer sees light travel', lightX - 70, atomY + 70);
+                    }
+                }
+                
+                if (showingPythagorean) {
+                    // Draw Pythagorean triangle
+                    const triangleY = atomY + 100;
+                    ctx.strokeStyle = '#c9a84c';
+                    ctx.lineWidth = 2;
+                    ctx.setLineDash([]);
+                    
+                    // Triangle
+                    ctx.beginPath();
+                    ctx.moveTo(atomA_x, triangleY);
+                    ctx.lineTo(atomB_x, triangleY);
+                    ctx.lineTo(atomB_x, triangleY - 50);
+                    ctx.lineTo(atomA_x, triangleY);
+                    ctx.stroke();
+                    
+                    // Labels
+                    ctx.font = '14px sans-serif';
+                    ctx.fillText('s/c', (atomA_x + atomB_x)/2, triangleY + 15);
+                    ctx.fillText('τ=0', atomB_x + 10, triangleY - 25);
+                    ctx.fillText('t_R', atomA_x + (atomB_x - atomA_x)/2 - 40, triangleY - 60);
+                }
+                
+                animationTime += 0.02;
+            }
+            
+            function animate() {
+                drawTimeDelay();
+                requestAnimationFrame(animate);
+            }
+            
+            animate();
+            
+            // Event listeners
+            document.getElementById('separation').addEventListener('input', (e) => {
+                const distance = parseFloat(e.target.value);
+                document.getElementById('separationValue').textContent = distance + ' ly';
+                document.getElementById('timeDelayStatus').innerHTML = 
+                    `Distance: ${distance} ly | Proper Time: 0 | Observation Time: ${distance} years`;
+            });
+        }
+
+        function triggerInteraction() {
+            timeDelayAnimation = Date.now();
+            interactionTriggered = true;
+        }
+
+        function showPythagorean() {
+            showingPythagorean = !showingPythagorean;
+        }
+
+        // Tag Game Implementation
+        function initTagGame() {
+            const canvas = document.getElementById('tagGameCanvas');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            let touchCount = 0;
+            
+            // Initialize particles
+            for (let i = 0; i < 20; i++) {
+                particles.push({
+                    x: 50 + i * 35,
+                    y: canvas.height / 2,
+                    touched: false,
+                    touchTime: 0,
+                    active: i === 0
+                });
+            }
+            
+            function drawTagGame() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                particles.forEach((particle, index) => {
+                    const timeSinceTouched = Date.now() - particle.touchTime;
+                    
+                    if (particle.active) {
+                        ctx.fillStyle = '#c9a84c';
+                        ctx.strokeStyle = '#ffff00';
+                        ctx.lineWidth = 3;
+                    } else if (particle.touched && timeSinceTouched < 1000) {
+                        const alpha = Math.max(0, 1 - timeSinceTouched / 1000);
+                        ctx.fillStyle = `rgba(79, 195, 247, ${alpha})`;
+                        ctx.strokeStyle = 'transparent';
+                    } else {
+                        ctx.fillStyle = '#4fc3f7';
+                        ctx.strokeStyle = 'transparent';
+                    }
+                    
+                    ctx.beginPath();
+                    ctx.arc(particle.x, particle.y, 15, 0, 2 * Math.PI);
+                    ctx.fill();
+                    if (ctx.strokeStyle !== 'transparent') {
+                        ctx.stroke();
+                    }
+                    
+                    // Show connections during touch
+                    if (particle.touched && timeSinceTouched < 200) {
+                        if (index < particles.length - 1) {
+                            ctx.strokeStyle = '#c9a84c';
+                            ctx.lineWidth = 2;
+                            ctx.beginPath();
+                            ctx.moveTo(particle.x, particle.y);
+                            ctx.lineTo(particles[index + 1].x, particles[index + 1].y);
+                            ctx.stroke();
+                        }
+                    }
+                });
+                
+                document.getElementById('tagGameStatus').innerHTML = 
+                    `Touches: ${touchCount} | Wave Speed: c`;
+            }
+            
+            function propagateTouch() {
+                if (!tagGameActive) return;
+                
+                const activeIndex = particles.findIndex(p => p.active);
+                if (activeIndex !== -1 && activeIndex < particles.length - 1) {
+                    particles[activeIndex].active = false;
+                    particles[activeIndex].touched = true;
+                    particles[activeIndex].touchTime = Date.now();
+                    
+                    particles[activeIndex + 1].active = true;
+                    touchCount++;
+                }
+                
+                setTimeout(propagateTouch, 100 / parseFloat(document.getElementById('touchRate').value));
+            }
+            
+            function animate() {
+                drawTagGame();
+                requestAnimationFrame(animate);
+            }
+            
+            animate();
+            
+            // Canvas click handler
+            canvas.addEventListener('click', (e) => {
+                if (clickToTouchMode) {
+                    const rect = canvas.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    // Find nearest particle
+                    let nearest = 0;
+                    let minDist = Infinity;
+                    particles.forEach((particle, index) => {
+                        const dist = Math.sqrt((particle.x - x) ** 2 + (particle.y - y) ** 2);
+                        if (dist < minDist) {
+                            minDist = dist;
+                            nearest = index;
+                        }
+                    });
+                    
+                    // Start touch from clicked particle
+                    particles.forEach(p => p.active = false);
+                    particles[nearest].active = true;
+                    tagGameActive = true;
+                    propagateTouch();
+                }
+            });
+            
+            document.getElementById('touchRate').addEventListener('input', (e) => {
+                document.getElementById('touchRateValue').textContent = e.target.value + 'c';
+            });
+        }
+
+        function startTagGame() {
+            tagGameActive = true;
+            touchCount = 0;
+            particles.forEach((p, i) => {
+                p.active = i === 0;
+                p.touched = false;
+            });
+        }
+
+        function clickTouch() {
+            clickToTouchMode = !clickToTouchMode;
+            const btn = document.getElementById('clickTouchBtn');
+            btn.textContent = clickToTouchMode ? '🎯 Click Mode ON' : '👆 Click to Touch';
+        }
+
+        function resetTagGame() {
+            tagGameActive = false;
+            clickToTouchMode = false;
+            touchCount = 0;
+            particles.forEach((p, i) => {
+                p.active = i === 0;
+                p.touched = false;
+            });
+            document.getElementById('clickTouchBtn').textContent = '👆 Click to Touch';
+        }
+
+        // EPR Implementation
+        function initEPR() {
+            const einsteinCanvas = document.getElementById('eprEinsteinCanvas');
+            const poamsCanvas = document.getElementById('eprPoamsCanvas');
+            const einsteinCtx = einsteinCanvas.getContext('2d');
+            const poamsCtx = poamsCanvas.getContext('2d');
+            
+            function drawEPR() {
+                // Einstein's view
+                einsteinCtx.clearRect(0, 0, einsteinCanvas.width, einsteinCanvas.height);
+                einsteinCtx.fillStyle = '#4fc3f7';
+                einsteinCtx.beginPath();
+                einsteinCtx.arc(50, 100, 15, 0, 2 * Math.PI);
+                einsteinCtx.fill();
+                einsteinCtx.beginPath();
+                einsteinCtx.arc(300, 100, 15, 0, 2 * Math.PI);
+                einsteinCtx.fill();
+                
+                if (correlationShowing) {
+                    einsteinCtx.strokeStyle = '#ff0000';
+                    einsteinCtx.lineWidth = 2;
+                    einsteinCtx.setLineDash([5, 5]);
+                    einsteinCtx.beginPath();
+                    einsteinCtx.moveTo(65, 100);
+                    einsteinCtx.lineTo(285, 100);
+                    einsteinCtx.stroke();
+                    einsteinCtx.fillText('Spooky!', 150, 90);
+                }
+                
+                // POAMS view
+                poamsCtx.clearRect(0, 0, poamsCanvas.width, poamsCanvas.height);
+                poamsCtx.fillStyle = '#4fc3f7';
+                poamsCtx.beginPath();
+                poamsCtx.arc(50, 100, 15, 0, 2 * Math.PI);
+                poamsCtx.fill();
+                poamsCtx.beginPath();
+                poamsCtx.arc(300, 100, 15, 0, 2 * Math.PI);
+                poamsCtx.fill();
+                
+                if (correlationShowing) {
+                    poamsCtx.strokeStyle = '#c9a84c';
+                    poamsCtx.lineWidth = 3;
+                    poamsCtx.setLineDash([]);
+                    poamsCtx.beginPath();
+                    poamsCtx.moveTo(65, 100);
+                    poamsCtx.lineTo(285, 100);
+                    poamsCtx.stroke();
+                    poamsCtx.fillText('Direct Contact', 130, 90);
+                    poamsCtx.fillText('τ=0', 160, 110);
+                }
+            }
+            
+            function animate() {
+                drawEPR();
+                requestAnimationFrame(animate);
+            }
+            
+            animate();
+            
+            document.getElementById('eprDistance').addEventListener('input', (e) => {
+                eprDistance = parseInt(e.target.value);
+                document.getElementById('eprDistanceValue').textContent = eprDistance + ' ly';
+            });
+        }
+
+        function measureEntanglement() {
+            correlationShowing = false;
+            setTimeout(() => {
+                correlationShowing = true;
+            }, 500);
+        }
+
+        function showCorrelation() {
+            correlationShowing = !correlationShowing;
+        }
+
+        // Flicker Implementation
+        function initFlicker() {
+            const canvas = document.getElementById('flickerCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Initialize atoms
+            atoms = [];
+            for (let i = 0; i < 5; i++) {
+                atoms.push({
+                    x: 100 + i * 120,
+                    y: canvas.height / 2,
+                    manifesting: false,
+                    lastManifestation: 0,
+                    probability: Math.random()
+                });
+            }
+            
+            function drawFlicker() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                atoms.forEach((atom, index) => {
+                    const now = Date.now();
+                    const timeSinceManifest = now - atom.lastManifestation;
+                    
+                    // Probability cloud (always visible)
+                    const cloudAlpha = 0.3;
+                    ctx.fillStyle = `rgba(79, 195, 247, ${cloudAlpha})`;
+                    ctx.beginPath();
+                    ctx.arc(atom.x, atom.y, 30, 0, 2 * Math.PI);
+                    ctx.fill();
+                    
+                    // Manifestation (sporadic)
+                    if (atom.manifesting && timeSinceManifest < 200) {
+                        const alpha = Math.max(0, 1 - timeSinceManifest / 200);
+                        ctx.fillStyle = `rgba(201, 168, 76, ${alpha})`;
+                        ctx.beginPath();
+                        ctx.arc(atom.x, atom.y, 12, 0, 2 * Math.PI);
+                        ctx.fill();
+                        
+                        // Flash effect
+                        ctx.strokeStyle = `rgba(255, 255, 255, ${alpha * 0.5})`;
+                        ctx.lineWidth = 3;
+                        ctx.beginPath();
+                        ctx.arc(atom.x, atom.y, 20, 0, 2 * Math.PI);
+                        ctx.stroke();
+                    }
+                    
+                    if (timeSinceManifest > 200) {
+                        atom.manifesting = false;
+                    }
+                });
+                
+                // Update manifestation count
+                document.getElementById('flickerStatus').innerHTML = 
+                    `Manifestations: ${manifestationCount} | Interaction Rate: Variable`;
+            }
+            
+            function triggerManifestation() {
+                if (!flickerActive) return;
+                
+                atoms.forEach(atom => {
+                    const rate = parseFloat(document.getElementById('flickerRate').value);
+                    if (Math.random() < rate * 0.01) {
+                        atom.manifesting = true;
+                        atom.lastManifestation = Date.now();
+                        manifestationCount++;
+                    }
+                });
+                
+                setTimeout(triggerManifestation, 50);
+            }
+            
+            function animate() {
+                drawFlicker();
+                requestAnimationFrame(animate);
+            }
+            
+            animate();
+            
+            document.getElementById('flickerRate').addEventListener('input', (e) => {
+                document.getElementById('flickerRateValue').textContent = e.target.value + ' Hz';
+            });
+            
+            document.getElementById('atomCount').addEventListener('input', (e) => {
+                const count = parseInt(e.target.value);
+                document.getElementById('atomCountValue').textContent = count;
+                
+                atoms = [];
+                for (let i = 0; i < count; i++) {
+                    atoms.push({
+                        x: 50 + (i * (canvas.width - 100) / (count - 1)),
+                        y: canvas.height / 2 + (Math.random() - 0.5) * 100,
+                        manifesting: false,
+                        lastManifestation: 0,
+                        probability: Math.random()
+                    });
+                }
+            });
+        }
+
+        function toggleFlicker() {
+            flickerActive = !flickerActive;
+            if (flickerActive) {
+                manifestationCount = 0;
+                triggerManifestation();
+            }
+        }
+
+        function addInteraction() {
+            atoms.forEach(atom => {
+                atom.manifesting = true;
+                atom.lastManifestation = Date.now();
+                manifestationCount++;
+            });
+        }
+
+        // Discretum Implementation
+        function initDiscretum() {
+            const continuumCanvas = document.getElementById('continuumCanvas');
+            const discretumCanvas = document.getElementById('discretumCanvas');
+            const continuumCtx = continuumCanvas.getContext('2d');
+            const discretumCtx = discretumCanvas.getContext('2d');
+            
+            function drawDiscretum() {
+                const zoom = parseInt(document.getElementById('zoomLevel').value);
+                const pixelSize = parseInt(document.getElementById('pixelSize').value);
+                
+                // Continuum (smooth wave)
+                continuumCtx.clearRect(0, 0, continuumCanvas.width, continuumCanvas.height);
+                continuumCtx.strokeStyle = '#4fc3f7';
+                continuumCtx.lineWidth = 2;
+                continuumCtx.beginPath();
+                
+                for (let x = 0; x < continuumCanvas.width; x++) {
+                    const y = continuumCanvas.height/2 + 
+                             Math.sin((x + continuumWave) * 0.02) * 50 +
+                             Math.sin((x + continuumWave) * 0.05) * 20;
+                    if (x === 0) {
+                        continuumCtx.moveTo(x, y);
+                    } else {
+                        continuumCtx.lineTo(x, y);
+                    }
+                }
+                continuumCtx.stroke();
+                
+                // Discretum (pixelated)
+                discretumCtx.clearRect(0, 0, discretumCanvas.width, discretumCanvas.height);
+                
+                if (showPixels && zoom > 3) {
+                    // Show individual pixels at high zoom
+                    for (let x = 0; x < discretumCanvas.width; x += pixelSize) {
+                        for (let y = 0; y < discretumCanvas.height; y += pixelSize) {
+                            const intensity = (Math.sin((x + continuumWave) * 0.02) + 
+                                             Math.sin((y + continuumWave) * 0.03)) * 0.5 + 0.5;
+                            const alpha = intensity * 0.8;
+                            discretumCtx.fillStyle = `rgba(79, 195, 247, ${alpha})`;
+                            discretumCtx.fillRect(x, y, pixelSize - 1, pixelSize - 1);
+                            
+                            // Pixel borders
+                            if (zoom > 10) {
+                                discretumCtx.strokeStyle = '#c9a84c';
+                                discretumCtx.lineWidth = 0.5;
+                                discretumCtx.strokeRect(x, y, pixelSize, pixelSize);
+                            }
+                        }
+                    }
+                } else {
+                    // Smooth approximation at low zoom
+                    discretumCtx.strokeStyle = '#4fc3f7';
+                    discretumCtx.lineWidth = 2;
+                    discretumCtx.beginPath();
+                    
+                    for (let x = 0; x < discretumCanvas.width; x++) {
+                        const y = discretumCanvas.height/2 + 
+                                 Math.sin((x + continuumWave) * 0.02) * 50 +
+                                 Math.sin((x + continuumWave) * 0.05) * 20;
+                        if (x === 0) {
+                            discretumCtx.moveTo(x, y);
+                        } else {
+                            discretumCtx.lineTo(x, y);
+                        }
+                    }
+                    discretumCtx.stroke();
+                }
+                
+                continuumWave += 1;
+            }
+            
+            function animate() {
+                drawDiscretum();
+                requestAnimationFrame(animate);
+            }
+            
+            animate();
+            
+            document.getElementById('zoomLevel').addEventListener('input', (e) => {
+                document.getElementById('zoomLevelValue').textContent = e.target.value + 'x';
+            });
+            
+            document.getElementById('pixelSize').addEventListener('input', (e) => {
+                document.getElementById('pixelSizeValue').textContent = e.target.value + 'px';
+            });
+        }
+
+        function animateContinuum() {
+            continuumWave += 50;
+        }
+
+        function togglePixelation() {
+            showPixels = !showPixels;
+        }
+
+        // Between Frames Implementation
+        function initBetweenFrames() {
+            const canvas = document.getElementById('betweenFramesCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Initialize frame data
+            frameData = [
+                { ball: { x: 100, y: 150 }, description: "Ball at rest, position A" },
+                { ball: { x: 200, y: 150 }, description: "Ball at position B - quantum jump!" },
+                { ball: { x: 300, y: 150 }, description: "Ball at position C - another jump!" },
+                { ball: { x: 400, y: 100 }, description: "Ball at higher position D" },
+                { ball: { x: 500, y: 150 }, description: "Ball back down at position E" }
+            ];
+            
+            function drawBetweenFrames() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                const mode = document.getElementById('demonstrationMode').value;
+                
+                // Draw frame border
+                ctx.strokeStyle = '#c9a84c';
+                ctx.lineWidth = 3;
+                ctx.strokeRect(50, 50, canvas.width - 100, canvas.height - 100);
+                
+                // Frame label
+                ctx.fillStyle = '#c9a84c';
+                ctx.font = '16px sans-serif';
+                ctx.fillText(`Frame ${currentFrame + 1}`, 60, 40);
+                
+                if (mode === 'individual') {
+                    // Show single frame
+                    const frame = frameData[currentFrame];
+                    ctx.fillStyle = '#4fc3f7';
+                    ctx.beginPath();
+                    ctx.arc(frame.ball.x, frame.ball.y, 20, 0, 2 * Math.PI);
+                    ctx.fill();
+                    
+                    ctx.fillStyle = '#eee';
+                    ctx.font = '14px sans-serif';
+                    ctx.fillText(frame.description, 60, canvas.height - 20);
+                    
+                } else if (mode === 'transition') {
+                    // Show transition between frames
+                    const currentFrame_data = frameData[currentFrame];
+                    const nextFrame = frameData[(currentFrame + 1) % frameData.length];
+                    
+                    // Current frame (solid)
+                    ctx.fillStyle = '#4fc3f7';
+                    ctx.beginPath();
+                    ctx.arc(currentFrame_data.ball.x, currentFrame_data.ball.y, 20, 0, 2 * Math.PI);
+                    ctx.fill();
+                    
+                    // Next frame (ghost)
+                    ctx.fillStyle = 'rgba(79, 195, 247, 0.3)';
+                    ctx.beginPath();
+                    ctx.arc(nextFrame.ball.x, nextFrame.ball.y, 20, 0, 2 * Math.PI);
+                    ctx.fill();
+                    
+                    // Action arrow
+                    ctx.strokeStyle = '#c9a84c';
+                    ctx.lineWidth = 3;
+                    ctx.setLineDash([5, 5]);
+                    ctx.beginPath();
+                    ctx.moveTo(currentFrame_data.ball.x, currentFrame_data.ball.y);
+                    ctx.lineTo(nextFrame.ball.x, nextFrame.ball.y);
+                    ctx.stroke();
+                    ctx.setLineDash([]);
+                    
+                    ctx.fillStyle = '#c9a84c';
+                    ctx.fillText('Action happens BETWEEN frames', 60, canvas.height - 20);
+                    
+                } else if (mode === 'continuous') {
+                    // Show all frames for apparent motion
+                    frameData.forEach((frame, i) => {
+                        const alpha = i === currentFrame ? 1 : 0.2;
+                        ctx.fillStyle = `rgba(79, 195, 247, ${alpha})`;
+                        ctx.beginPath();
+                        ctx.arc(frame.ball.x, frame.ball.y, 20, 0, 2 * Math.PI);
+                        ctx.fill();
+                    });
+                    
+                    ctx.fillStyle = '#eee';
+                    ctx.fillText('Apparent continuous motion from discrete frames', 60, canvas.height - 20);
+                }
+                
+                document.getElementById('betweenFramesStatus').innerHTML = 
+                    `Current Frame: ${currentFrame + 1} | Showing: ${mode}`;
+            }
+            
+            function animate() {
+                drawBetweenFrames();
+                requestAnimationFrame(animate);
+            }
+            
+            animate();
+            
+            document.getElementById('demonstrationMode').addEventListener('change', (e) => {
+                demonstrationMode = e.target.value;
+            });
+        }
+
+        function previousFrame() {
+            currentFrame = Math.max(0, currentFrame - 1);
+        }
+
+        function nextFrame() {
+            currentFrame = Math.min(frameData.length - 1, currentFrame + 1);
+        }
+
+        function playTransition() {
+            document.getElementById('demonstrationMode').value = 'transition';
+            demonstrationMode = 'transition';
+        }
+
+        function highlightAction() {
+            document.getElementById('demonstrationMode').value = 'transition';
+            demonstrationMode = 'transition';
+        }
+
+        function showFrameAnalysis() {
+            const frame = frameData[currentFrame];
+            alert(`Frame Analysis:\n\nFrame ${currentFrame + 1}:\n${frame.description}\n\nNotice: The ball exists at this exact position in this frame. It doesn't gradually move from the previous position - it instantaneously appears here. Motion is the discontinuous jump between frames, not gradual transition within frames.`);
+        }
+
+        // Initialize everything when page loads
+        window.addEventListener('load', initializeVisualizations);
+    </script>
+</body>
+</html>

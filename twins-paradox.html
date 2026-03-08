@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Twins Paradox Through POAMS | Interactive Visualization</title>
+    
+    <!-- MathJax Configuration -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <style>
+        :root {
+            --bg-primary: #1a1a2e;
+            --bg-secondary: #16213e;
+            --bg-tertiary: #0f172a;
+            --text-primary: #ffffff;
+            --text-secondary: #cbd5e1;
+            --accent-gold: #c9a84c;
+            --accent-blue: #4fc3f7;
+            --accent-green: #4ade80;
+            --accent-red: #ef4444;
+            --border-color: #334155;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-tertiary: #e2e8f0;
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --border-color: #e2e8f0;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: var(--bg-tertiary);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--accent-gold), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--accent-gold);
+            color: var(--bg-primary);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .panel {
+            background: var(--bg-secondary);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+        }
+
+        .panel h2 {
+            color: var(--accent-gold);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .panel h3 {
+            color: var(--accent-blue);
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .canvas-container {
+            position: relative;
+            background: var(--bg-tertiary);
+            border-radius: 10px;
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+        }
+
+        canvas {
+            width: 100%;
+            height: 400px;
+            border-radius: 8px;
+            cursor: grab;
+        }
+
+        canvas:active {
+            cursor: grabbing;
+        }
+
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1rem 0;
+            align-items: center;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .control-group label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .slider {
+            appearance: none;
+            width: 200px;
+            height: 6px;
+            border-radius: 3px;
+            background: var(--border-color);
+            outline: none;
+        }
+
+        .slider::-webkit-slider-thumb {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--accent-gold);
+            cursor: pointer;
+            border: 2px solid var(--bg-primary);
+        }
+
+        .slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--accent-gold);
+            cursor: pointer;
+            border: 2px solid var(--bg-primary);
+        }
+
+        .button {
+            background: linear-gradient(45deg, var(--accent-gold), var(--accent-blue));
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .twin-clocks {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .clock {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--bg-tertiary);
+            border-radius: 15px;
+            border: 2px solid var(--border-color);
+            min-width: 200px;
+        }
+
+        .clock.traveler {
+            border-color: var(--accent-blue);
+        }
+
+        .clock.earthbound {
+            border-color: var(--accent-green);
+        }
+
+        .clock-face {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid currentColor;
+            margin: 1rem auto;
+            position: relative;
+            background: var(--bg-primary);
+        }
+
+        .clock-hand {
+            position: absolute;
+            background: currentColor;
+            transform-origin: bottom center;
+            border-radius: 2px;
+        }
+
+        .hour-hand {
+            width: 4px;
+            height: 35px;
+            top: 25px;
+            left: 58px;
+        }
+
+        .minute-hand {
+            width: 2px;
+            height: 45px;
+            top: 15px;
+            left: 59px;
+        }
+
+        .clock-center {
+            width: 8px;
+            height: 8px;
+            background: currentColor;
+            border-radius: 50%;
+            position: absolute;
+            top: 56px;
+            left: 56px;
+        }
+
+        .time-display {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 0.5rem 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .explanation {
+            background: var(--bg-tertiary);
+            border-left: 4px solid var(--accent-gold);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .comparison-table th {
+            background: var(--bg-tertiary);
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: var(--bg-tertiary);
+        }
+
+        .equation {
+            font-size: 1.3rem;
+            text-align: center;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: var(--bg-tertiary);
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        .highlight {
+            background: linear-gradient(45deg, var(--accent-gold), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        .status-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--bg-tertiary);
+            border-top: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .slider {
+                width: 100%;
+            }
+            
+            .twin-clocks {
+                flex-direction: column;
+            }
+            
+            .theme-toggle {
+                position: relative;
+                top: auto;
+                right: auto;
+                margin: 1rem auto 0 auto;
+            }
+        }
+
+        /* Animation keyframes */
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px var(--accent-gold); }
+            50% { box-shadow: 0 0 30px var(--accent-blue); }
+        }
+
+        .animated {
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        /* Loading spinner */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid var(--border-color);
+            border-radius: 50%;
+            border-top-color: var(--accent-gold);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body data-theme="dark">
+    <header class="header">
+        <button class="theme-toggle" onclick="toggleTheme()">🌓 Toggle Theme</button>
+        <h1>The Twins Paradox Through POAMS</h1>
+        <p>An Interactive Exploration of Time Dilation via Pope-Osborne Angular Momentum Synthesis</p>
+    </header>
+
+    <div class="container">
+        <!-- Introduction Panel -->
+        <div class="panel">
+            <h2>🚀 Welcome to POAMS</h2>
+            <p>The <strong class="highlight">Pope-Osborne Angular Momentum Synthesis (POAMS)</strong> offers a revolutionary perspective on the twins paradox that eliminates the need for Einstein's light postulate. Instead of invoking the speed of light, POAMS reveals that time dilation emerges from pure <strong>Pythagorean geometry</strong> on a rectangular cone.</p>
+            
+            <div class="explanation">
+                <h3>Key POAMS Insights:</h3>
+                <ul>
+                    <li><strong>No Light Required:</strong> Time dilation is geometric, not optical</li>
+                    <li><strong>$c$ is a Conversion Factor:</strong> Not the speed of light, but a dimensional bridge between space and time</li>
+                    <li><strong>Cone Geometry:</strong> The equation $t^2 = \tau^2 + (s/c)^2$ describes a rectangular cone</li>
+                    <li><strong>Natural Orbital Motion:</strong> All motion is inherently orbital; straight-line motion is the limit as orbital radius → ∞</li>
+                    <li><strong>Geometric Asymmetry:</strong> The paradox resolves through acceleration-induced geometric changes</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 3D Cone Visualization -->
+        <div class="panel">
+            <h2>📐 The POAMS Cone: $t^2 = \tau^2 + (s/c)^2$</h2>
+            <p>This is the heart of POAMS: a rectangular cone where proper time $\tau$ forms the vertical axis, distance-time $s/c$ the horizontal axis, and observer time $t$ traces the cone's surface.</p>
+            
+            <div class="canvas-container">
+                <canvas id="coneCanvas" width="800" height="400"></canvas>
+                <div class="controls">
+                    <div class="control-group">
+                        <label>Rotation X:</label>
+                        <input type="range" id="rotX" class="slider" min="-180" max="180" value="-20" oninput="updateCone()">
+                    </div>
+                    <div class="control-group">
+                        <label>Rotation Y:</label>
+                        <input type="range" id="rotY" class="slider" min="-180" max="180" value="30" oninput="updateCone()">
+                    </div>
+                    <div class="control-group">
+                        <label>Velocity (v/c):</label>
+                        <input type="range" id="velocity" class="slider" min="0" max="0.99" step="0.01" value="0.6" oninput="updateCone()">
+                        <span id="velocityValue">0.60</span>
+                    </div>
+                    <button class="button" onclick="resetCone()">Reset View</button>
+                </div>
+            </div>
+            
+            <div class="explanation">
+                <p><strong>Interactive Guide:</strong></p>
+                <ul>
+                    <li><strong>Vertical Axis (τ):</strong> Proper time experienced by the traveler</li>
+                    <li><strong>Horizontal Plane (s/c):</strong> Distance-time in space units</li>
+                    <li><strong>Cone Surface:</strong> Observer time $t$ - the hypotenuse of the Pythagorean relationship</li>
+                    <li><strong>Green Line:</strong> Stay-at-home twin's worldline (along τ axis)</li>
+                    <li><strong>Blue Line:</strong> Traveling twin's worldline (on cone surface with kink at turnaround)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid">
+            <!-- Twin Journey Animation -->
+            <div class="panel">
+                <h2>⏰ The Twin Journey</h2>
+                <p>Watch as the twins' clocks diverge during the journey. The asymmetry arises from the traveler's change in geometry at the turnaround.</p>
+                
+                <div class="twin-clocks">
+                    <div class="clock earthbound">
+                        <h3>Earthbound Twin</h3>
+                        <div class="clock-face">
+                            <div class="clock-hand hour-hand" id="earthHour"></div>
+                            <div class="clock-hand minute-hand" id="earthMinute"></div>
+                            <div class="clock-center"></div>
+                        </div>
+                        <div class="time-display" id="earthTime">0.00 years</div>
+                        <small>Observer Time (t)</small>
+                    </div>
+                    
+                    <div class="clock traveler">
+                        <h3>Traveling Twin</h3>
+                        <div class="clock-face">
+                            <div class="clock-hand hour-hand" id="travelerHour"></div>
+                            <div class="clock-hand minute-hand" id="travelerMinute"></div>
+                            <div class="clock-center"></div>
+                        </div>
+                        <div class="time-display" id="travelerTime">0.00 years</div>
+                        <small>Proper Time (τ)</small>
+                    </div>
+                </div>
+                
+                <div class="controls">
+                    <button class="button" id="playButton" onclick="toggleAnimation()">▶ Start Journey</button>
+                    <button class="button" onclick="resetAnimation()">🔄 Reset</button>
+                    <div class="control-group">
+                        <label>Journey Speed:</label>
+                        <input type="range" id="animSpeed" class="slider" min="1" max="10" value="5">
+                    </div>
+                </div>
+                
+                <div id="journeyStatus" class="explanation">
+                    <p><strong>Status:</strong> Ready to begin journey</p>
+                    <p><strong>Phase:</strong> At rest</p>
+                </div>
+            </div>
+
+            <!-- Pythagorean Triangle -->
+            <div class="panel">
+                <h2>📊 The Pythagorean Triangle</h2>
+                <p>See the fundamental relationship $t^2 = \tau^2 + (s/c)^2$ as a right triangle. As velocity increases, proper time $\tau$ shrinks relative to observer time $t$.</p>
+                
+                <div class="canvas-container">
+                    <canvas id="triangleCanvas" width="400" height="400"></canvas>
+                </div>
+                
+                <div class="equation">
+                    $$t^2 = \tau^2 + \left(\frac{s}{c}\right)^2$$
+                </div>
+                
+                <div class="explanation">
+                    <p><strong>Dynamic Values:</strong></p>
+                    <p>Velocity (v/c): <span id="triangleVelocity">0.60</span></p>
+                    <p>Time Dilation Factor (γ): <span id="triangleGamma">1.25</span></p>
+                    <p>Proper Time Fraction (τ/t): <span id="triangleTauRatio">0.80</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Acceleration Asymmetry -->
+        <div class="panel">
+            <h2>⚡ The Source of Asymmetry: Acceleration</h2>
+            <p>The twins paradox resolves because the traveling twin experiences a <strong>geometric transformation</strong> during the turnaround. This acceleration creates a "kink" in their worldline on the cone surface, breaking the symmetry.</p>
+            
+            <div class="canvas-container">
+                <canvas id="asymmetryCanvas" width="800" height="400"></canvas>
+                <div class="controls">
+                    <button class="button" onclick="showAcceleration()">Show Acceleration Event</button>
+                    <button class="button" onclick="resetAsymmetry()">Reset</button>
+                </div>
+            </div>
+            
+            <div class="explanation">
+                <h3>Why the Asymmetry Matters:</h3>
+                <ul>
+                    <li><strong>Earthbound Twin:</strong> Follows a straight path along the τ axis - no geometry change</li>
+                    <li><strong>Traveling Twin:</strong> Changes direction at turnaround - experiences geometry change</li>
+                    <li><strong>The Kink:</strong> The sharp turn creates a discontinuity in the worldline's geometry</li>
+                    <li><strong>Result:</strong> The traveling twin ages less due to this geometric asymmetry</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Einstein vs POAMS Comparison -->
+        <div class="panel">
+            <h2>🔬 Einstein vs POAMS: Two Perspectives, Same Math</h2>
+            <p>Both approaches yield identical numerical results, but their conceptual foundations are radically different.</p>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Einstein's Relativity</th>
+                        <th>POAMS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Foundation</strong></td>
+                        <td>Light postulate: c is the speed of light</td>
+                        <td>Geometric postulate: c is a dimensional conversion factor</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Time Dilation Source</strong></td>
+                        <td>Relativistic effects due to light-speed limit</td>
+                        <td>Pythagorean geometry on a cone</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Motion Model</strong></td>
+                        <td>Straight-line inertial motion</td>
+                        <td>Natural orbital motion (straight-line is limit case)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Acceleration Role</strong></td>
+                        <td>Breaks symmetry, enables twin to "turn around"</td>
+                        <td>Creates geometric transformation on cone surface</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mathematical Result</strong></td>
+                        <td>$\Delta\tau = \Delta t \sqrt{1 - v^2/c^2}$</td>
+                        <td>$\Delta\tau = \Delta t \sqrt{1 - v^2/c^2}$</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="explanation">
+                <h3>The POAMS Advantage:</h3>
+                <ul>
+                    <li><strong>No Light Needed:</strong> Time dilation works even in a universe without photons</li>
+                    <li><strong>Pure Geometry:</strong> Based on fundamental geometric relationships</li>
+                    <li><strong>Intuitive Visualization:</strong> The cone model makes the physics transparent</li>
+                    <li><strong>Natural Orbital Framework:</strong> Explains why all motion tends toward circular/orbital forms</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Mathematical Deep Dive -->
+        <div class="panel">
+            <h2>🧮 Mathematical Framework</h2>
+            <p>The complete mathematical foundation of POAMS time dilation.</p>
+            
+            <div class="equation">
+                <h3>Core POAMS Equation:</h3>
+                $$t^2 = \tau^2 + \left(\frac{s}{c}\right)^2$$
+            </div>
+            
+            <div class="explanation">
+                <p><strong>Where:</strong></p>
+                <ul>
+                    <li>$t$ = observer time (coordinate time)</li>
+                    <li>$\tau$ = proper time (experienced by the moving object)</li>
+                    <li>$s$ = spatial distance traveled</li>
+                    <li>$c$ = dimensional conversion factor (units: distance/time)</li>
+                </ul>
+            </div>
+            
+            <div class="equation">
+                <h3>Time Dilation Factor:</h3>
+                $$\gamma = \frac{t}{\tau} = \frac{1}{\sqrt{1 - v^2/c^2}}$$
+            </div>
+            
+            <div class="equation">
+                <h3>Proper Time Differential:</h3>
+                $$d\tau = dt \sqrt{1 - v^2/c^2}$$
+            </div>
+            
+            <div class="explanation">
+                <h3>Cone Geometry Interpretation:</h3>
+                <p>The equation $t^2 = \tau^2 + (s/c)^2$ describes a <strong>rectangular cone</strong> in 3D space:</p>
+                <ul>
+                    <li><strong>Vertical axis:</strong> Proper time $\tau$</li>
+                    <li><strong>Horizontal plane:</strong> Spatial distance in time units $(s/c)$</li>
+                    <li><strong>Cone surface:</strong> All points where observer time $t$ equals the hypotenuse</li>
+                    <li><strong>Twin worldlines:</strong> Paths on this cone surface</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="status-bar">
+        <span>POAMS Twins Paradox Visualization</span>
+        <span>Interactive Educational Tool</span>
+        <span id="fps">FPS: --</span>
+    </div>
+
+    <script>
+        // Global state
+        let animationState = {
+            isRunning: false,
+            phase: 'outbound', // 'outbound', 'turnaround', 'return', 'complete'
+            earthTime: 0,
+            travelerTime: 0,
+            velocity: 0.6,
+            journeyDuration: 10, // years total
+            currentTime: 0
+        };
+
+        let frameCount = 0;
+        let lastFrameTime = 0;
+
+        // Theme toggle
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            body.setAttribute('data-theme', newTheme);
+            
+            // Update all canvases
+            updateCone();
+            updateTriangle();
+            updateAsymmetry();
+        }
+
+        // 3D Cone Visualization
+        class Cone3D {
+            constructor(canvas) {
+                this.canvas = canvas;
+                this.ctx = canvas.getContext('2d');
+                this.width = canvas.width;
+                this.height = canvas.height;
+                this.centerX = this.width / 2;
+                this.centerY = this.height / 2;
+                this.scale = 100;
+                
+                this.rotX = -20 * Math.PI / 180;
+                this.rotY = 30 * Math.PI / 180;
+                this.velocity = 0.6;
+            }
+
+            project3D(x, y, z) {
+                // Apply rotations
+                let cosX = Math.cos(this.rotX);
+                let sinX = Math.sin(this.rotX);
+                let cosY = Math.cos(this.rotY);
+                let sinY = Math.sin(this.rotY);
+                
+                // Rotate around X axis
+                let y1 = y * cosX - z * sinX;
+                let z1 = y * sinX + z * cosX;
+                
+                // Rotate around Y axis
+                let x2 = x * cosY + z1 * sinY;
+                let z2 = -x * sinY + z1 * cosY;
+                
+                // Simple perspective projection
+                let distance = 5;
+                let scale = distance / (distance + z2);
+                
+                return {
+                    x: this.centerX + x2 * this.scale * scale,
+                    y: this.centerY - y1 * this.scale * scale,
+                    z: z2
+                };
+            }
+
+            drawLine3D(x1, y1, z1, x2, y2, z2, color = '#4fc3f7', width = 1) {
+                let p1 = this.project3D(x1, y1, z1);
+                let p2 = this.project3D(x2, y2, z2);
+                
+                this.ctx.strokeStyle = color;
+                this.ctx.lineWidth = width;
+                this.ctx.beginPath();
+                this.ctx.moveTo(p1.x, p1.y);
+                this.ctx.lineTo(p2.x, p2.y);
+                this.ctx.stroke();
+            }
+
+            drawCone() {
+                // Clear canvas
+                this.ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--bg-tertiary');
+                this.ctx.fillRect(0, 0, this.width, this.height);
+                
+                // Draw cone structure
+                let maxRadius = 2;
+                let height = 3;
+                let steps = 20;
+                
+                // Draw cone surface lines (generatrices)
+                let angleStep = 2 * Math.PI / 12;
+                for (let i = 0; i < 12; i++) {
+                    let angle = i * angleStep;
+                    let x = maxRadius * Math.cos(angle);
+                    let z = maxRadius * Math.sin(angle);
+                    this.drawLine3D(0, 0, 0, x, height, z, '#334155', 1);
+                }
+                
+                // Draw horizontal circles at different heights
+                for (let h = 0; h <= height; h += height/4) {
+                    let radius = maxRadius * h / height;
+                    for (let i = 0; i < steps; i++) {
+                        let angle1 = (i * 2 * Math.PI) / steps;
+                        let angle2 = ((i + 1) * 2 * Math.PI) / steps;
+                        
+                        let x1 = radius * Math.cos(angle1);
+                        let z1 = radius * Math.sin(angle1);
+                        let x2 = radius * Math.cos(angle2);
+                        let z2 = radius * Math.sin(angle2);
+                        
+                        this.drawLine3D(x1, h, z1, x2, h, z2, '#334155', 1);
+                    }
+                }
+                
+                // Draw axes
+                this.drawLine3D(0, 0, 0, 0, height + 0.5, 0, '#4ade80', 2); // τ axis (proper time)
+                this.drawLine3D(-maxRadius - 0.3, 0, 0, maxRadius + 0.3, 0, 0, '#ef4444', 2); // s/c axis
+                this.drawLine3D(0, 0, -maxRadius - 0.3, 0, 0, maxRadius + 0.3, '#ef4444', 2); // s/c axis
+                
+                // Draw twin worldlines
+                this.drawTwinWorldlines();
+                
+                // Add labels
+                this.addLabels();
+            }
+
+            drawTwinWorldlines() {
+                let journeyTime = 4;
+                let gamma = 1 / Math.sqrt(1 - this.velocity * this.velocity);
+                let properTime = journeyTime / gamma;
+                
+                // Earthbound twin (straight up along τ axis)
+                this.drawLine3D(0, 0, 0, 0, journeyTime, 0, '#4ade80', 3);
+                
+                // Traveling twin (on cone surface)
+                let steps = 50;
+                let outboundTime = journeyTime / 2;
+                let distance = this.velocity * outboundTime;
+                
+                // Outbound leg
+                for (let i = 0; i < steps / 2; i++) {
+                    let t1 = (i * outboundTime) / (steps / 2);
+                    let t2 = ((i + 1) * outboundTime) / (steps / 2);
+                    
+                    let tau1 = t1 / gamma;
+                    let tau2 = t2 / gamma;
+                    let s1 = this.velocity * t1;
+                    let s2 = this.velocity * t2;
+                    
+                    this.drawLine3D(s1, tau1, 0, s2, tau2, 0, '#4fc3f7', 3);
+                }
+                
+                // Return leg
+                for (let i = 0; i < steps / 2; i++) {
+                    let t1 = outboundTime + (i * outboundTime) / (steps / 2);
+                    let t2 = outboundTime + ((i + 1) * outboundTime) / (steps / 2);
+                    
+                    let tau1 = t1 / gamma;
+                    let tau2 = t2 / gamma;
+                    let s1 = distance - this.velocity * (t1 - outboundTime);
+                    let s2 = distance - this.velocity * (t2 - outboundTime);
+                    
+                    this.drawLine3D(s1, tau1, 0, s2, tau2, 0, '#4fc3f7', 3);
+                }
+                
+                // Highlight the turnaround point
+                let turnTau = outboundTime / gamma;
+                this.drawPoint3D(distance, turnTau, 0, '#c9a84c', 6);
+            }
+
+            drawPoint3D(x, y, z, color, size) {
+                let p = this.project3D(x, y, z);
+                this.ctx.fillStyle = color;
+                this.ctx.beginPath();
+                this.ctx.arc(p.x, p.y, size, 0, 2 * Math.PI);
+                this.ctx.fill();
+            }
+
+            addLabels() {
+                this.ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--text-primary');
+                this.ctx.font = '16px sans-serif';
+                this.ctx.textAlign = 'center';
+                
+                // Axis labels
+                let tauLabel = this.project3D(0, 3.7, 0);
+                this.ctx.fillText('τ (proper time)', tauLabel.x, tauLabel.y - 10);
+                
+                let sLabel = this.project3D(2.5, -0.3, 0);
+                this.ctx.fillText('s/c (distance-time)', sLabel.x, sLabel.y + 20);
+                
+                // Worldline labels
+                let earthLabel = this.project3D(-0.5, 2, 0);
+                this.ctx.fillStyle = '#4ade80';
+                this.ctx.fillText('Earthbound', earthLabel.x, earthLabel.y);
+                
+                let travelerLabel = this.project3D(1.5, 1, 0);
+                this.ctx.fillStyle = '#4fc3f7';
+                this.ctx.fillText('Traveler', travelerLabel.x, travelerLabel.y);
+            }
+
+            setRotation(x, y) {
+                this.rotX = x * Math.PI / 180;
+                this.rotY = y * Math.PI / 180;
+            }
+
+            setVelocity(v) {
+                this.velocity = v;
+            }
+        }
+
+        // Initialize cone visualization
+        let coneViz;
+        document.addEventListener('DOMContentLoaded', function() {
+            const coneCanvas = document.getElementById('coneCanvas');
+            coneViz = new Cone3D(coneCanvas);
+            coneViz.drawCone();
+        });
+
+        function updateCone() {
+            if (!coneViz) return;
+            
+            const rotX = document.getElementById('rotX').value;
+            const rotY = document.getElementById('rotY').value;
+            const velocity = document.getElementById('velocity').value;
+            
+            document.getElementById('velocityValue').textContent = parseFloat(velocity).toFixed(2);
+            
+            coneViz.setRotation(parseFloat(rotX), parseFloat(rotY));
+            coneViz.setVelocity(parseFloat(velocity));
+            coneViz.drawCone();
+            
+            // Update other visualizations
+            updateTriangle();
+        }
+
+        function resetCone() {
+            document.getElementById('rotX').value = -20;
+            document.getElementById('rotY').value = 30;
+            document.getElementById('velocity').value = 0.6;
+            updateCone();
+        }
+
+        // Pythagorean Triangle Visualization
+        function updateTriangle() {
+            const canvas = document.getElementById('triangleCanvas');
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            const velocity = parseFloat(document.getElementById('velocity').value);
+            
+            // Clear canvas
+            ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--bg-tertiary');
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Calculate triangle dimensions
+            let t = 200; // Observer time (hypotenuse length in pixels)
+            let gamma = 1 / Math.sqrt(1 - velocity * velocity);
+            let tau = t / gamma; // Proper time
+            let s_over_c = Math.sqrt(t * t - tau * tau); // Distance-time
+            
+            // Triangle vertices
+            let centerX = canvas.width / 2;
+            let centerY = canvas.height / 2 + 50;
+            
+            let vertices = [
+                { x: centerX, y: centerY }, // Origin
+                { x: centerX, y: centerY - tau }, // τ vertex
+                { x: centerX + s_over_c, y: centerY } // s/c vertex
+            ];
+            
+            // Draw triangle
+            ctx.strokeStyle = '#4fc3f7';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(vertices[0].x, vertices[0].y);
+            ctx.lineTo(vertices[1].x, vertices[1].y);
+            ctx.lineTo(vertices[2].x, vertices[2].y);
+            ctx.closePath();
+            ctx.stroke();
+            
+            // Fill triangle with semi-transparent color
+            ctx.fillStyle = 'rgba(79, 195, 247, 0.1)';
+            ctx.fill();
+            
+            // Draw and label sides
+            ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--text-primary');
+            ctx.font = '14px sans-serif';
+            
+            // τ side (green)
+            ctx.strokeStyle = '#4ade80';
+            ctx.lineWidth = 4;
+            ctx.beginPath();
+            ctx.moveTo(vertices[0].x, vertices[0].y);
+            ctx.lineTo(vertices[1].x, vertices[1].y);
+            ctx.stroke();
+            ctx.fillStyle = '#4ade80';
+            ctx.textAlign = 'right';
+            ctx.fillText('τ (proper time)', vertices[1].x - 10, vertices[1].y + (vertices[0].y - vertices[1].y) / 2);
+            
+            // s/c side (red)
+            ctx.strokeStyle = '#ef4444';
+            ctx.beginPath();
+            ctx.moveTo(vertices[0].x, vertices[0].y);
+            ctx.lineTo(vertices[2].x, vertices[2].y);
+            ctx.stroke();
+            ctx.fillStyle = '#ef4444';
+            ctx.textAlign = 'center';
+            ctx.fillText('s/c (distance-time)', vertices[0].x + (vertices[2].x - vertices[0].x) / 2, vertices[0].y + 20);
+            
+            // t side (blue) - hypotenuse
+            ctx.strokeStyle = '#4fc3f7';
+            ctx.beginPath();
+            ctx.moveTo(vertices[1].x, vertices[1].y);
+            ctx.lineTo(vertices[2].x, vertices[2].y);
+            ctx.stroke();
+            ctx.fillStyle = '#4fc3f7';
+            ctx.textAlign = 'left';
+            let midX = vertices[1].x + (vertices[2].x - vertices[1].x) / 2;
+            let midY = vertices[1].y + (vertices[2].y - vertices[1].y) / 2;
+            ctx.fillText('t (observer time)', midX + 10, midY - 10);
+            
+            // Draw right angle indicator
+            let cornerSize = 20;
+            ctx.strokeStyle = '#666';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(vertices[0].x, vertices[0].y - cornerSize);
+            ctx.lineTo(vertices[0].x + cornerSize, vertices[0].y - cornerSize);
+            ctx.lineTo(vertices[0].x + cornerSize, vertices[0].y);
+            ctx.stroke();
+            
+            // Update display values
+            document.getElementById('triangleVelocity').textContent = velocity.toFixed(2);
+            document.getElementById('triangleGamma').textContent = gamma.toFixed(2);
+            document.getElementById('triangleTauRatio').textContent = (1/gamma).toFixed(2);
+        }
+
+        // Twin Animation System
+        function toggleAnimation() {
+            const button = document.getElementById('playButton');
+            
+            if (animationState.isRunning) {
+                animationState.isRunning = false;
+                button.innerHTML = '▶ Resume Journey';
+            } else {
+                animationState.isRunning = true;
+                button.innerHTML = '⏸ Pause Journey';
+                animateJourney();
+            }
+        }
+
+        function resetAnimation() {
+            animationState.isRunning = false;
+            animationState.phase = 'outbound';
+            animationState.earthTime = 0;
+            animationState.travelerTime = 0;
+            animationState.currentTime = 0;
+            
+            document.getElementById('playButton').innerHTML = '▶ Start Journey';
+            updateClocks();
+            updateJourneyStatus();
+        }
+
+        function animateJourney() {
+            if (!animationState.isRunning) return;
+            
+            const speed = document.getElementById('animSpeed').value / 100;
+            const velocity = parseFloat(document.getElementById('velocity').value);
+            const gamma = 1 / Math.sqrt(1 - velocity * velocity);
+            
+            // Update time progression
+            animationState.currentTime += speed;
+            animationState.earthTime = animationState.currentTime;
+            
+            // Calculate phases
+            let halfJourney = animationState.journeyDuration / 2;
+            
+            if (animationState.currentTime <= halfJourney) {
+                // Outbound phase
+                animationState.phase = 'outbound';
+                animationState.travelerTime = animationState.currentTime / gamma;
+            } else if (animationState.currentTime <= halfJourney + 0.1) {
+                // Turnaround phase (very brief)
+                animationState.phase = 'turnaround';
+                animationState.travelerTime = animationState.currentTime / gamma;
+            } else if (animationState.currentTime < animationState.journeyDuration) {
+                // Return phase
+                animationState.phase = 'return';
+                animationState.travelerTime = animationState.currentTime / gamma;
+            } else {
+                // Journey complete
+                animationState.phase = 'complete';
+                animationState.isRunning = false;
+                animationState.earthTime = animationState.journeyDuration;
+                animationState.travelerTime = animationState.journeyDuration / gamma;
+                document.getElementById('playButton').innerHTML = '✓ Journey Complete';
+            }
+            
+            updateClocks();
+            updateJourneyStatus();
+            
+            if (animationState.isRunning) {
+                requestAnimationFrame(animateJourney);
+            }
+        }
+
+        function updateClocks() {
+            // Update earth clock
+            updateClock('earth', animationState.earthTime);
+            document.getElementById('earthTime').textContent = animationState.earthTime.toFixed(2) + ' years';
+            
+            // Update traveler clock
+            updateClock('traveler', animationState.travelerTime);
+            document.getElementById('travelerTime').textContent = animationState.travelerTime.toFixed(2) + ' years';
+        }
+
+        function updateClock(type, time) {
+            const hourHand = document.getElementById(type + 'Hour');
+            const minuteHand = document.getElementById(type + 'Minute');
+            
+            // Convert years to hours for visual representation
+            const hours = (time * 365 * 24) % 12;
+            const minutes = ((time * 365 * 24) % 1) * 60;
+            
+            const hourAngle = (hours / 12) * 360 - 90;
+            const minuteAngle = (minutes / 60) * 360 - 90;
+            
+            hourHand.style.transform = `rotate(${hourAngle}deg)`;
+            minuteHand.style.transform = `rotate(${minuteAngle}deg)`;
+        }
+
+        function updateJourneyStatus() {
+            const statusDiv = document.getElementById('journeyStatus');
+            const velocity = parseFloat(document.getElementById('velocity').value);
+            const timeDiff = (animationState.earthTime - animationState.travelerTime).toFixed(2);
+            
+            let phaseText = '';
+            switch (animationState.phase) {
+                case 'outbound':
+                    phaseText = 'Accelerating away from Earth';
+                    break;
+                case 'turnaround':
+                    phaseText = 'Turning around (acceleration event)';
+                    break;
+                case 'return':
+                    phaseText = 'Returning to Earth';
+                    break;
+                case 'complete':
+                    phaseText = 'Journey complete - twins reunited!';
+                    break;
+                default:
+                    phaseText = 'At rest';
+            }
+            
+            statusDiv.innerHTML = `
+                <p><strong>Status:</strong> ${phaseText}</p>
+                <p><strong>Velocity:</strong> ${(velocity * 100).toFixed(0)}% of c</p>
+                <p><strong>Time Difference:</strong> ${timeDiff} years</p>
+                <p><strong>Age Difference:</strong> Traveler is ${timeDiff} years younger</p>
+            `;
+        }
+
+        // Asymmetry Visualization
+        function updateAsymmetry() {
+            const canvas = document.getElementById('asymmetryCanvas');
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            
+            // Clear canvas
+            ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--bg-tertiary');
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            drawAsymmetryDiagram(ctx);
+        }
+
+        function drawAsymmetryDiagram(ctx) {
+            const centerX = ctx.canvas.width / 2;
+            const centerY = ctx.canvas.height / 2;
+            const scale = 60;
+            
+            // Draw spacetime diagram
+            ctx.strokeStyle = '#334155';
+            ctx.lineWidth = 1;
+            
+            // Grid lines
+            for (let i = -5; i <= 5; i++) {
+                if (i !== 0) {
+                    // Vertical lines (space)
+                    ctx.beginPath();
+                    ctx.moveTo(centerX + i * scale, 50);
+                    ctx.lineTo(centerX + i * scale, ctx.canvas.height - 50);
+                    ctx.stroke();
+                    
+                    // Horizontal lines (time)
+                    ctx.beginPath();
+                    ctx.moveTo(50, centerY + i * scale);
+                    ctx.lineTo(ctx.canvas.width - 50, centerY + i * scale);
+                    ctx.stroke();
+                }
+            }
+            
+            // Draw axes
+            ctx.strokeStyle = '#4ade80';
+            ctx.lineWidth = 2;
+            // Time axis
+            ctx.beginPath();
+            ctx.moveTo(centerX, 50);
+            ctx.lineTo(centerX, ctx.canvas.height - 50);
+            ctx.stroke();
+            
+            ctx.strokeStyle = '#ef4444';
+            // Space axis
+            ctx.beginPath();
+            ctx.moveTo(50, centerY);
+            ctx.lineTo(ctx.canvas.width - 50, centerY);
+            ctx.stroke();
+            
+            // Draw worldlines
+            // Earthbound twin (vertical line)
+            ctx.strokeStyle = '#4ade80';
+            ctx.lineWidth = 4;
+            ctx.beginPath();
+            ctx.moveTo(centerX, centerY + 2 * scale);
+            ctx.lineTo(centerX, centerY - 2 * scale);
+            ctx.stroke();
+            
+            // Traveling twin (with kink)
+            ctx.strokeStyle = '#4fc3f7';
+            ctx.lineWidth = 4;
+            ctx.beginPath();
+            ctx.moveTo(centerX, centerY + 2 * scale); // Start
+            ctx.lineTo(centerX + 1.5 * scale, centerY); // Outbound
+            ctx.lineTo(centerX, centerY - 2 * scale); // Return
+            ctx.stroke();
+            
+            // Highlight the turnaround point
+            ctx.fillStyle = '#c9a84c';
+            ctx.beginPath();
+            ctx.arc(centerX + 1.5 * scale, centerY, 8, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            // Add labels
+            ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--text-primary');
+            ctx.font = '14px sans-serif';
+            ctx.textAlign = 'center';
+            
+            // Axis labels
+            ctx.fillText('Time →', centerX, 40);
+            ctx.fillText('Space →', ctx.canvas.width - 30, centerY + 5);
+            
+            // Worldline labels
+            ctx.fillStyle = '#4ade80';
+            ctx.fillText('Earthbound Twin', centerX - 80, centerY - 2.5 * scale);
+            
+            ctx.fillStyle = '#4fc3f7';
+            ctx.fillText('Traveling Twin', centerX + 100, centerY - 1.5 * scale);
+            
+            ctx.fillStyle = '#c9a84c';
+            ctx.fillText('Turnaround', centerX + 1.5 * scale + 50, centerY - 20);
+            ctx.fillText('(Acceleration)', centerX + 1.5 * scale + 50, centerY - 5);
+        }
+
+        function showAcceleration() {
+            const canvas = document.getElementById('asymmetryCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Add acceleration effect animation
+            let frame = 0;
+            function animateAcceleration() {
+                updateAsymmetry();
+                
+                // Add pulsing effect at turnaround point
+                const centerX = canvas.width / 2;
+                const centerY = canvas.height / 2;
+                const scale = 60;
+                
+                const pulse = Math.sin(frame * 0.3) * 0.5 + 0.5;
+                const radius = 8 + pulse * 15;
+                
+                ctx.fillStyle = `rgba(201, 168, 76, ${0.8 - pulse * 0.5})`;
+                ctx.beginPath();
+                ctx.arc(centerX + 1.5 * scale, centerY, radius, 0, 2 * Math.PI);
+                ctx.fill();
+                
+                frame++;
+                if (frame < 100) {
+                    requestAnimationFrame(animateAcceleration);
+                }
+            }
+            
+            animateAcceleration();
+        }
+
+        function resetAsymmetry() {
+            updateAsymmetry();
+        }
+
+        // FPS Counter
+        function updateFPS() {
+            const now = performance.now();
+            const delta = now - lastFrameTime;
+            lastFrameTime = now;
+            frameCount++;
+            
+            if (frameCount % 60 === 0) {
+                const fps = Math.round(1000 / delta);
+                document.getElementById('fps').textContent = `FPS: ${fps}`;
+            }
+            
+            requestAnimationFrame(updateFPS);
+        }
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCone();
+            updateTriangle();
+            updateAsymmetry();
+            updateClocks();
+            updateJourneyStatus();
+            updateFPS();
+            
+            // Set up velocity slider to update all visualizations
+            document.getElementById('velocity').addEventListener('input', function() {
+                animationState.velocity = parseFloat(this.value);
+                updateCone();
+                updateTriangle();
+            });
+            
+            // Responsive canvas sizing
+            function resizeCanvases() {
+                const canvases = document.querySelectorAll('canvas');
+                canvases.forEach(canvas => {
+                    const container = canvas.parentElement;
+                    const rect = container.getBoundingClientRect();
+                    canvas.style.width = '100%';
+                    canvas.style.height = '400px';
+                });
+                
+                // Redraw all visualizations
+                updateCone();
+                updateTriangle();
+                updateAsymmetry();
+            }
+            
+            window.addEventListener('resize', resizeCanvases);
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            switch(e.key) {
+                case ' ':
+                    e.preventDefault();
+                    toggleAnimation();
+                    break;
+                case 'r':
+                    if (e.ctrlKey || e.metaKey) {
+                        e.preventDefault();
+                        resetAnimation();
+                    }
+                    break;
+                case 't':
+                    if (e.ctrlKey || e.metaKey) {
+                        e.preventDefault();
+                        toggleTheme();
+                    }
+                    break;
+            }
+        });
+    </script>
+</body>
+</html>

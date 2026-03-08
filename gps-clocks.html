@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GPS Satellite Clock Demo — POAMS</title>
+<script>MathJax={tex:{inlineMath:[['$','$']],displayMath:[['$$','$$']]},svg:{fontCache:'global'}}</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#1a1a2e;color:#e0e0e0;font-family:Georgia,serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:20px}
+h1{color:#c9a84c;font-size:1.8em;margin-bottom:4px;text-align:center}
+.subtitle{color:#999;font-size:.9em;margin-bottom:20px;text-align:center}
+.container{max-width:1000px;width:100%;display:flex;flex-direction:column;gap:16px}
+.row{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
+.panel{background:#16213e;border:1px solid #333;border-radius:10px;padding:16px;flex:1;min-width:280px}
+.panel h2{color:#c9a84c;font-size:1.1em;margin-bottom:10px;border-bottom:1px solid #333;padding-bottom:6px}
+canvas{display:block;margin:0 auto;border-radius:10px}
+.clock-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.clock-card{background:#0f1a30;border:1px solid #444;border-radius:8px;padding:14px;text-align:center;flex:1;min-width:200px}
+.clock-card h3{font-size:.85em;color:#c9a84c;margin-bottom:6px}
+.clock-time{font-family:'Courier New',monospace;font-size:1.4em;color:#0f0;margin:4px 0}
+.clock-card.ground .clock-time{color:#4fc3f7}
+.clock-card.velocity .clock-time{color:#ff9800}
+.clock-card.full .clock-time{color:#4caf50}
+.drift{font-size:.8em;color:#aaa;margin-top:4px}
+.drift span{color:#fff;font-weight:bold}
+.error-display{background:#2a1a1a;border:1px solid #c62828;border-radius:8px;padding:14px;text-align:center}
+.error-display .big{font-size:1.6em;color:#ef5350;font-family:'Courier New',monospace}
+.error-display .label{font-size:.8em;color:#999;margin-top:2px}
+.controls{display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap}
+.controls label{font-size:.85em;color:#aaa}
+.controls input[type=range]{width:180px;accent-color:#c9a84c}
+.controls button{background:#c9a84c;color:#1a1a2e;border:none;padding:8px 18px;border-radius:6px;font-family:Georgia,serif;font-weight:bold;cursor:pointer;font-size:.9em}
+.controls button:hover{background:#dbb85c}
+.speed-label{color:#c9a84c;font-weight:bold;min-width:60px;text-align:center}
+.explain{font-size:.85em;line-height:1.6;color:#bbb}
+.explain em{color:#c9a84c;font-style:normal}
+.eq{color:#c9a84c;font-size:.9em;margin:6px 0}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.stat{text-align:center}
+.stat .val{font-size:1.1em;font-family:'Courier New',monospace;color:#fff}
+.stat .lbl{font-size:.7em;color:#888}
+</style>
+</head>
+<body>
+<h1>GPS Satellite Clock Demo</h1>
+<div class="subtitle">POAMS — Orbital Time Dilation (Osborne &amp; Pope)</div>
+
+<div class="container">
+<div class="row">
+<div class="panel" style="max-width:400px;display:flex;align-items:center;justify-content:center">
+<canvas id="orbit" width="360" height="360"></canvas>
+</div>
+<div class="panel" style="flex:1.2">
+<h2>Explanation</h2>
+<div class="explain">
+<p>GPS satellites must correct for time dilation effects. <em>POAMS predicts the same corrections as General Relativity</em> — derived purely from conservation of angular momentum and the time dilation formula, without Einstein's field equations.</p>
+<div class="eq" id="eq-render">
+Eq 2.9 (velocity only): &nbsp; $\tau = \sqrt{1 - \frac{GM}{rc^2}}\; t$<br><br>
+Eq 3.6 (full orbital): &nbsp; $\tau = \sqrt{1 - \frac{3GM}{rc^2}}\; t$
+</div>
+<p style="margin-top:8px">The factor of 3 in Eq 3.6 arises because orbital motion contributes <em>both</em> kinetic and gravitational time dilation — linked through angular momentum conservation. For a circular orbit, $v^2 = GM/r$, so the velocity term adds another $GM/rc^2$ on top of the gravitational $2GM/rc^2$.</p>
+<p style="margin-top:8px">For GPS at 26,571 km, the satellite clock runs ~38 μs/day <em>fast</em> relative to ground. Without correction, positioning errors grow by ~11.4 km/day.</p>
+</div>
+</div>
+</div>
+
+<div class="row clock-row">
+<div class="clock-card ground">
+<h3>🌍 Ground Clock</h3>
+<div class="clock-time" id="clk-ground">00:00:00.000000</div>
+<div class="drift">Reference (Earth surface, r = 6,371 km)</div>
+</div>
+<div class="clock-card velocity">
+<h3>🛰️ Satellite — Velocity Only</h3>
+<div class="clock-time" id="clk-vel">00:00:00.000000</div>
+<div class="drift">Drift: <span id="drift-vel">0.000</span> μs</div>
+</div>
+<div class="clock-card full">
+<h3>🛰️ Satellite — Full Orbital</h3>
+<div class="clock-time" id="clk-full">00:00:00.000000</div>
+<div class="drift">Drift: <span id="drift-full">0.000</span> μs</div>
+</div>
+</div>
+
+<div class="row">
+<div class="error-display" style="flex:1">
+<div style="font-size:.85em;color:#999;margin-bottom:4px">Position Error Without Correction</div>
+<div class="big" id="pos-error">0.000 m</div>
+<div class="label" id="pos-time">after 0.0 hours</div>
+</div>
+<div class="panel" style="flex:1">
+<h2>Statistics</h2>
+<div class="stats-grid">
+<div class="stat"><div class="val" id="s-vel-day">−7.1 μs</div><div class="lbl">Velocity drift / day</div></div>
+<div class="stat"><div class="val" id="s-grav-day">+45.6 μs</div><div class="lbl">Gravitational drift / day</div></div>
+<div class="stat"><div class="val" id="s-net-day">+38.5 μs</div><div class="lbl">Net drift / day</div></div>
+<div class="stat"><div class="val" id="s-km-day">11.5 km</div><div class="lbl">Position error / day</div></div>
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="panel" style="width:100%">
+<div class="controls">
+<button id="btn-start">▶ Start</button>
+<button id="btn-reset">⟲ Reset</button>
+<label>Speed:</label>
+<input type="range" id="speed" min="0" max="6" step="1" value="2">
+<span class="speed-label" id="speed-lbl">100×</span>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+// Physics constants
+const G = 6.674e-11;
+const M = 5.972e24;
+const c = 299792458;
+const c2 = c * c;
+const R_earth = 6.371e6;        // meters
+const R_gps = 26.571e6;         // meters (20,200 km altitude)
+const DAY = 86400;              // seconds
+
+// Time dilation rates (proper time per coordinate time)
+// Ground: stationary on surface, gravitational dilation only
+// τ_ground/t = sqrt(1 - 2GM/(r_earth * c²))
+const rate_ground = Math.sqrt(1 - 2*G*M/(R_earth*c2));
+
+// Satellite velocity-only (Eq 2.9): sqrt(1 - GM/(r*c²))
+// But we compare to ground, so relative rate = rate_sat / rate_ground
+const rate_sat_vel = Math.sqrt(1 - G*M/(R_gps*c2));
+
+// Satellite full orbital (Eq 3.6): sqrt(1 - 3GM/(r*c²))
+const rate_sat_full = Math.sqrt(1 - 3*G*M/(R_gps*c2));
+
+// Drift rates relative to ground (positive = satellite faster)
+const drift_vel = rate_sat_vel - rate_ground;    // satellite vs ground
+const drift_full = rate_sat_full - rate_ground;
+
+// Per day in microseconds
+const drift_vel_us_day = drift_vel * DAY * 1e6;
+const drift_full_us_day = drift_full * DAY * 1e6;
+
+// Update static stats
+document.getElementById('s-vel-day').textContent = (drift_vel_us_day > 0 ? '+' : '') + drift_vel_us_day.toFixed(1) + ' μs';
+document.getElementById('s-grav-day').textContent = 'see net';
+document.getElementById('s-net-day').textContent = (drift_full_us_day > 0 ? '+' : '') + drift_full_us_day.toFixed(1) + ' μs';
+document.getElementById('s-km-day').textContent = (Math.abs(drift_full_us_day) * 0.3).toFixed(1) + ' km';
+
+// Compute gravitational-only component for display
+const rate_sat_grav_only = Math.sqrt(1 - 2*G*M/(R_gps*c2));
+const drift_grav_only = rate_sat_grav_only - rate_ground;
+const drift_grav_us_day = drift_grav_only * DAY * 1e6;
+document.getElementById('s-grav-day').textContent = (drift_grav_us_day > 0 ? '+' : '') + drift_grav_us_day.toFixed(1) + ' μs';
+document.getElementById('s-vel-day').textContent = (drift_vel_us_day - drift_grav_us_day > 0 ? '+' : '') + (drift_vel_us_day - drift_grav_us_day).toFixed(1) + ' μs';
+
+// Simulation state
+let simTime = 0; // seconds of simulated time elapsed
+let running = false;
+let lastTimestamp = null;
+const speeds = [1, 10, 100, 1000, 10000, 100000, 1000000];
+let speedIdx = 2;
+
+const speedSlider = document.getElementById('speed');
+const speedLbl = document.getElementById('speed-lbl');
+const btnStart = document.getElementById('btn-start');
+const btnReset = document.getElementById('btn-reset');
+
+speedSlider.value = speedIdx;
+function updateSpeedLabel() {
+    speedIdx = parseInt(speedSlider.value);
+    const s = speeds[speedIdx];
+    speedLbl.textContent = s >= 1000000 ? (s/1000000)+'M×' : s >= 1000 ? (s/1000)+'k×' : s+'×';
+}
+updateSpeedLabel();
+speedSlider.addEventListener('input', updateSpeedLabel);
+
+btnStart.addEventListener('click', () => {
+    running = !running;
+    btnStart.textContent = running ? '⏸ Pause' : '▶ Start';
+    if (running) lastTimestamp = null;
+});
+
+btnReset.addEventListener('click', () => {
+    simTime = 0;
+    running = false;
+    lastTimestamp = null;
+    btnStart.textContent = '▶ Start';
+    updateDisplay();
+});
+
+function formatTime(seconds) {
+    const h = Math.floor(seconds / 3600) % 24;
+    const m = Math.floor(seconds / 60) % 60;
+    const s = seconds % 60;
+    const whole = Math.floor(s);
+    const frac = (s - whole).toFixed(6).slice(2);
+    return String(h).padStart(2,'0') + ':' + String(m).padStart(2,'0') + ':' + String(whole).padStart(2,'0') + '.' + frac;
+}
+
+function updateDisplay() {
+    // Ground clock shows simTime as reference
+    document.getElementById('clk-ground').textContent = formatTime(simTime % DAY);
+
+    // Velocity-only drift
+    const driftVelUs = drift_vel * simTime * 1e6;
+    const satVelTime = simTime + driftVelUs * 1e-6;
+    document.getElementById('clk-vel').textContent = formatTime(satVelTime % DAY);
+    document.getElementById('drift-vel').textContent = driftVelUs.toFixed(3);
+
+    // Full orbital drift
+    const driftFullUs = drift_full * simTime * 1e6;
+    const satFullTime = simTime + driftFullUs * 1e-6;
+    document.getElementById('clk-full').textContent = formatTime(satFullTime % DAY);
+    document.getElementById('drift-full').textContent = driftFullUs.toFixed(3);
+
+    // Position error (full orbital, uncorrected)
+    const posErrorM = Math.abs(driftFullUs) * 1e-6 * c;
+    const hours = simTime / 3600;
+    const pe = document.getElementById('pos-error');
+    if (posErrorM < 1000) {
+        pe.textContent = posErrorM.toFixed(1) + ' m';
+    } else {
+        pe.textContent = (posErrorM / 1000).toFixed(2) + ' km';
+    }
+    document.getElementById('pos-time').textContent = 'after ' + hours.toFixed(1) + ' hours';
+}
+
+// Orbit canvas
+const canvas = document.getElementById('orbit');
+const ctx = canvas.getContext('2d');
+const cx = 180, cy = 180;
+const earthR = 50;
+const orbitR = 50 * (R_gps / R_earth); // scale
+const satOrbitR = Math.min(orbitR, 155); // clamp to canvas
+const satAngleSpeed = 2 * Math.PI / (12 * 3600); // GPS period ~12h
+
+function drawOrbit() {
+    ctx.clearRect(0, 0, 360, 360);
+
+    // Stars
+    ctx.fillStyle = '#1a1a2e';
+    ctx.fillRect(0, 0, 360, 360);
+
+    // Orbit path
+    ctx.beginPath();
+    ctx.arc(cx, cy, satOrbitR, 0, 2*Math.PI);
+    ctx.strokeStyle = '#333';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([4,4]);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Earth
+    const grad = ctx.createRadialGradient(cx-10, cy-10, 10, cx, cy, earthR);
+    grad.addColorStop(0, '#4fc3f7');
+    grad.addColorStop(0.7, '#1565c0');
+    grad.addColorStop(1, '#0d47a1');
+    ctx.beginPath();
+    ctx.arc(cx, cy, earthR, 0, 2*Math.PI);
+    ctx.fillStyle = grad;
+    ctx.fill();
+
+    // Earth label
+    ctx.fillStyle = '#fff';
+    ctx.font = '11px Georgia';
+    ctx.textAlign = 'center';
+    ctx.fillText('Earth', cx, cy + 4);
+
+    // Satellite
+    const angle = satAngleSpeed * simTime - Math.PI/2;
+    const sx = cx + satOrbitR * Math.cos(angle);
+    const sy = cy + satOrbitR * Math.sin(angle);
+
+    ctx.beginPath();
+    ctx.arc(sx, sy, 6, 0, 2*Math.PI);
+    ctx.fillStyle = '#c9a84c';
+    ctx.fill();
+    ctx.strokeStyle = '#fff';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    // Satellite label
+    ctx.fillStyle = '#c9a84c';
+    ctx.font = '10px Georgia';
+    ctx.fillText('GPS', sx, sy - 10);
+
+    // Altitude labels
+    ctx.fillStyle = '#666';
+    ctx.font = '9px Georgia';
+    ctx.fillText('r = 6,371 km', cx, cy + earthR + 14);
+    ctx.fillText('r = 26,571 km', cx, cy + satOrbitR + 14);
+}
+
+function frame(ts) {
+    if (running) {
+        if (lastTimestamp !== null) {
+            const dt = (ts - lastTimestamp) / 1000;
+            simTime += dt * speeds[speedIdx];
+        }
+        lastTimestamp = ts;
+    } else {
+        lastTimestamp = null;
+    }
+    drawOrbit();
+    updateDisplay();
+    requestAnimationFrame(frame);
+}
+
+updateDisplay();
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>

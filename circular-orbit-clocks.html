@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Circular Orbit Clock Comparison — POAMS</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#1a1a2e;color:#e0e0e0;font-family:Georgia,serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:1rem}
+h1{color:#c9a84c;font-size:1.6rem;margin-bottom:.5rem;text-align:center}
+.subtitle{color:#999;font-size:.85rem;margin-bottom:1rem;text-align:center}
+.explanation{max-width:720px;background:#16213e;border:1px solid #0f3460;border-radius:8px;padding:1rem 1.2rem;margin-bottom:1rem;font-size:.9rem;line-height:1.55}
+.explanation p{margin-bottom:.5rem}
+.eq-label{color:#c9a84c;font-weight:bold}
+.blue{color:#4fc3f7}.gold{color:#c9a84c}
+
+.main-area{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;width:100%;max-width:900px}
+canvas{background:#0d1117;border-radius:8px;border:1px solid #222}
+.panel{display:flex;flex-direction:column;gap:.8rem;min-width:280px;flex:1}
+
+.clocks{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-bottom:.5rem}
+.clock-box{background:#0d1117;border-radius:8px;padding:.8rem 1rem;text-align:center;min-width:200px;flex:1;border:2px solid #333}
+.clock-box.dst{border-color:#4fc3f7}
+.clock-box.proper.blue-mode{border-color:#4fc3f7}
+.clock-box.proper.gold-mode{border-color:#c9a84c}
+.clock-label{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.3rem;color:#999}
+.clock-val{font-size:2rem;font-variant-numeric:tabular-nums;font-family:'Courier New',monospace;letter-spacing:.05em}
+.clock-box.dst .clock-val{color:#4fc3f7}
+.clock-box.proper.blue-mode .clock-val{color:#4fc3f7}
+.clock-box.proper.gold-mode .clock-val{color:#c9a84c}
+
+.controls{background:#16213e;border-radius:8px;padding:.8rem 1rem;border:1px solid #0f3460}
+.controls label{font-size:.85rem;display:block;margin-bottom:.3rem}
+.controls input[type=range]{width:100%;accent-color:#c9a84c;margin-bottom:.2rem}
+.range-info{font-size:.78rem;color:#999;display:flex;justify-content:space-between}
+
+.toggle-btn{display:inline-block;padding:.5rem 1rem;border:none;border-radius:6px;cursor:pointer;font-family:Georgia,serif;font-size:.85rem;transition:background .2s,color .2s;margin-top:.3rem;width:100%}
+.toggle-btn.velocity{background:#1a3a5c;color:#4fc3f7;border:1px solid #4fc3f7}
+.toggle-btn.orbital{background:#3a2e1a;color:#c9a84c;border:1px solid #c9a84c}
+
+.info-box{background:#0d1117;border-radius:8px;padding:.7rem 1rem;font-size:.85rem;line-height:1.5;border:1px solid #333}
+.info-box .factor{font-size:1.3rem;font-weight:bold}
+.info-box .factor.blue{color:#4fc3f7}.info-box .factor.gold{color:#c9a84c}
+
+.reset-btn{padding:.4rem .8rem;border:1px solid #555;background:transparent;color:#e0e0e0;border-radius:4px;cursor:pointer;font-family:Georgia,serif;font-size:.8rem;margin-top:.3rem}
+.reset-btn:hover{background:#333}
+
+.speed-controls{display:flex;gap:.5rem;align-items:center;margin-top:.3rem;font-size:.8rem}
+.speed-controls button{padding:.2rem .5rem;border:1px solid #555;background:transparent;color:#e0e0e0;border-radius:4px;cursor:pointer;font-family:Georgia,serif;font-size:.78rem}
+.speed-controls button.active{background:#c9a84c;color:#1a1a2e;border-color:#c9a84c}
+
+@media(max-width:600px){
+  canvas{width:100%!important;height:auto!important}
+  .clock-val{font-size:1.4rem}
+  h1{font-size:1.2rem}
+}
+</style>
+</head>
+<body>
+
+<h1>Circular Orbit Clock Comparison</h1>
+<p class="subtitle">From "Orbital Time Dilation" — Osborne &amp; Pope (POAMS)</p>
+
+<div class="explanation">
+<p>A particle <b>P</b> orbits a central mass <b>M</b> on a circular path at radius <i>r</i>. We compare two clocks:</p>
+<p><span class="blue">■</span> <b>Deep Space Time (DST)</b> — coordinate time <i>t</i>, far from any gravity.</p>
+<p><span class="gold">■</span> <b>Orbiter Proper Time</b> — time τ experienced by P.</p>
+<p><span class="eq-label">Eq 2.9 — Velocity-only (gravitational) dilation:</span><br>
+\(\displaystyle \tau = \sqrt{1 - \frac{GM}{rc^2}}\;\cdot\; t\)</p>
+<p><span class="eq-label">Eq 3.6 — True orbital dilation (gravity + orbital velocity):</span><br>
+\(\displaystyle \tau = \sqrt{1 - \frac{3GM}{rc^2}}\;\cdot\; t\)</p>
+<p style="color:#999;font-size:.82rem">Effect is exaggerated ~10⁹× for visibility. Adjust the radius slider to explore.</p>
+</div>
+
+<div class="main-area">
+<canvas id="orbitCanvas" width="360" height="360"></canvas>
+<div class="panel">
+  <div class="clocks">
+    <div class="clock-box dst">
+      <div class="clock-label">Deep Space Time (t)</div>
+      <div class="clock-val" id="dstClock">00:00:00.0</div>
+    </div>
+    <div class="clock-box proper gold-mode" id="properBox">
+      <div class="clock-label">Orbiter Proper Time (τ)</div>
+      <div class="clock-val" id="properClock">00:00:00.0</div>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <div>Mode: <span id="modeLabel" class="gold">True Orbital (Eq 3.6)</span></div>
+    <div>Dilation factor: <span id="factorVal" class="factor gold">—</span></div>
+    <div>Radius: <span id="radiusVal">—</span> km &nbsp;|&nbsp; Δτ lag: <span id="lagVal">0.0</span>s</div>
+  </div>
+
+  <div class="controls">
+    <label>Orbital Radius <i>r</i></label>
+    <input type="range" id="radiusSlider" min="10" max="200" value="80" step="1">
+    <div class="range-info"><span>Close (10)</span><span>Far (200)</span></div>
+
+    <button class="toggle-btn orbital" id="toggleBtn">Switch to Velocity-Only (Eq 2.9)</button>
+
+    <div class="speed-controls">
+      <span>Speed:</span>
+      <button data-speed="1" class="active">1×</button>
+      <button data-speed="3">3×</button>
+      <button data-speed="10">10×</button>
+    </div>
+
+    <button class="reset-btn" id="resetBtn">Reset Clocks</button>
+  </div>
+</div>
+</div>
+
+<script>
+(function(){
+  const canvas = document.getElementById('orbitCanvas');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height, cx = W/2, cy = H/2;
+
+  // Exaggerated GM/c² so dilation is visible. Real Schwarzschild radius of Earth ~ 9mm.
+  // We set GM/c² = 5 (in our radius units) so at r=10, factor=sqrt(1-3*5/10)=sqrt(-0.5) → clamp.
+  // At r=80 default, factor=sqrt(1-15/80)=sqrt(0.8125)≈0.90
+  const GMc2 = 5; // exaggerated
+
+  let mode = 'orbital'; // 'orbital' or 'velocity'
+  let angle = 0;
+  let dstTime = 0; // seconds of DST elapsed
+  let speed = 1;
+  let lastTs = null;
+
+  const radiusSlider = document.getElementById('radiusSlider');
+  const toggleBtn = document.getElementById('toggleBtn');
+  const resetBtn = document.getElementById('resetBtn');
+  const dstClock = document.getElementById('dstClock');
+  const properClock = document.getElementById('properClock');
+  const properBox = document.getElementById('properBox');
+  const modeLabel = document.getElementById('modeLabel');
+  const factorVal = document.getElementById('factorVal');
+  const radiusVal = document.getElementById('radiusVal');
+  const lagVal = document.getElementById('lagVal');
+
+  function getDilationFactor(r) {
+    const k = mode === 'orbital' ? 3 : 1;
+    const val = 1 - k * GMc2 / r;
+    return val > 0 ? Math.sqrt(val) : 0;
+  }
+
+  function formatTime(s) {
+    const h = Math.floor(s/3600);
+    const m = Math.floor((s%3600)/60);
+    const sec = s%60;
+    return String(h).padStart(2,'0')+':'+String(m).padStart(2,'0')+':'+sec.toFixed(1).padStart(4,'0');
+  }
+
+  function updateUI() {
+    const r = +radiusSlider.value;
+    const f = getDilationFactor(r);
+    const col = mode==='orbital'?'gold':'blue';
+    const colHex = mode==='orbital'?'#c9a84c':'#4fc3f7';
+
+    factorVal.textContent = f.toFixed(6);
+    factorVal.className = 'factor '+col;
+    radiusVal.textContent = (r*100).toLocaleString(); // pretend units: r*100 km
+
+    const properTime = dstTime * f;
+    dstClock.textContent = formatTime(dstTime);
+    properClock.textContent = formatTime(properTime);
+    lagVal.textContent = (dstTime - properTime).toFixed(2);
+
+    properBox.className = 'clock-box proper '+(col===  'gold'?'gold-mode':'blue-mode');
+    modeLabel.textContent = mode==='orbital'?'True Orbital (Eq 3.6)':'Velocity-Only (Eq 2.9)';
+    modeLabel.className = col;
+  }
+
+  function draw() {
+    const r = +radiusSlider.value;
+    const orbitR = 20 + (r-10)*1.3; // pixel radius
+    const f = getDilationFactor(r);
+    const colHex = mode==='orbital'?'#c9a84c':'#4fc3f7';
+
+    ctx.clearRect(0,0,W,H);
+
+    // grid
+    ctx.strokeStyle='#1a2240';ctx.lineWidth=1;
+    for(let i=40;i<W;i+=40){ctx.beginPath();ctx.moveTo(i,0);ctx.lineTo(i,H);ctx.stroke();ctx.beginPath();ctx.moveTo(0,i);ctx.lineTo(W,i);ctx.stroke()}
+
+    // orbit path
+    ctx.beginPath();ctx.arc(cx,cy,orbitR,0,Math.PI*2);ctx.strokeStyle=colHex+'55';ctx.lineWidth=1.5;ctx.stroke();
+
+    // central mass
+    const massR = 18;
+    const grad = ctx.createRadialGradient(cx,cy,0,cx,cy,massR);
+    grad.addColorStop(0,'#667');grad.addColorStop(1,'#222');
+    ctx.beginPath();ctx.arc(cx,cy,massR,0,Math.PI*2);ctx.fillStyle=grad;ctx.fill();
+    ctx.strokeStyle='#888';ctx.lineWidth=1;ctx.stroke();
+    ctx.fillStyle='#ccc';ctx.font='11px Georgia';ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillText('M',cx,cy);
+
+    // particle
+    const px = cx + orbitR*Math.cos(angle);
+    const py = cy + orbitR*Math.sin(angle);
+
+    // trail
+    ctx.beginPath();
+    ctx.arc(cx,cy,orbitR, angle-0.6, angle);
+    ctx.strokeStyle=colHex+'88';ctx.lineWidth=3;ctx.stroke();
+
+    ctx.beginPath();ctx.arc(px,py,6,0,Math.PI*2);ctx.fillStyle=colHex;ctx.fill();
+    ctx.fillStyle='#000';ctx.font='bold 8px Georgia';ctx.fillText('P',px,py+1);
+
+    // labels
+    ctx.fillStyle='#e0e0e0';ctx.font='12px Georgia';ctx.textAlign='left';
+    ctx.fillText('r = '+(r*100).toLocaleString()+' km',8,20);
+    ctx.fillStyle=colHex;
+    ctx.fillText('f = '+f.toFixed(4),8,36);
+  }
+
+  toggleBtn.addEventListener('click',()=>{
+    mode = mode==='orbital'?'velocity':'orbital';
+    toggleBtn.textContent = mode==='orbital'?'Switch to Velocity-Only (Eq 2.9)':'Switch to True Orbital (Eq 3.6)';
+    toggleBtn.className = 'toggle-btn '+(mode==='orbital'?'orbital':'velocity');
+    updateUI();
+  });
+
+  resetBtn.addEventListener('click',()=>{dstTime=0;lastTs=null;updateUI()});
+  radiusSlider.addEventListener('input',()=>updateUI());
+
+  document.querySelectorAll('.speed-controls button').forEach(b=>{
+    b.addEventListener('click',()=>{
+      speed=+b.dataset.speed;
+      document.querySelectorAll('.speed-controls button').forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+    });
+  });
+
+  function frame(ts){
+    if(lastTs!==null){
+      const dt = (ts-lastTs)/1000 * speed;
+      dstTime += dt;
+      const r = +radiusSlider.value;
+      const orbitR = 20 + (r-10)*1.3;
+      // angular speed: faster when closer
+      const omega = 80 / (orbitR * Math.sqrt(orbitR)) * speed;
+      angle += omega * (ts-lastTs)/1000;
+    }
+    lastTs = ts;
+    draw();
+    updateUI();
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elliptical Orbit Time Dilation — POAMS Exhibit</title>
+<script>window.MathJax={tex:{inlineMath:[['$','$']],displayMath:[['$$','$$']]},options:{skipHtmlTags:['script','noscript','style','textarea']}};</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#1a1a2e;color:#e0e0e0;font-family:Georgia,serif;overflow-x:hidden}
+h1{text-align:center;color:#c9a84c;padding:20px 10px 4px;font-size:clamp(1.2rem,3.5vw,1.8rem)}
+.subtitle{text-align:center;color:#888;font-size:0.95rem;margin-bottom:12px;padding:0 10px}
+.container{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;padding:10px 16px;max-width:1200px;margin:0 auto}
+.canvas-wrap{position:relative;flex:1 1 500px;min-width:300px;max-width:700px}
+canvas{width:100%;aspect-ratio:1;background:#12122a;border-radius:8px;border:1px solid #2a2a4a;display:block}
+.panel{flex:0 1 340px;min-width:260px;display:flex;flex-direction:column;gap:12px}
+.card{background:#12122a;border:1px solid #2a2a4a;border-radius:8px;padding:14px}
+.card h3{color:#c9a84c;font-size:0.95rem;margin-bottom:8px}
+label{display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;margin-bottom:4px}
+input[type=range]{width:100%;accent-color:#c9a84c;margin-bottom:8px}
+.clocks{display:flex;gap:12px}
+.clock-box{flex:1;text-align:center;padding:10px;border-radius:6px;background:#1a1a2e}
+.clock-box .label{font-size:0.75rem;color:#888;margin-bottom:2px}
+.clock-box .time{font-size:1.4rem;font-variant-numeric:tabular-nums;font-family:'Courier New',monospace;color:#e0e0e0}
+.clock-box.proper .time{color:#c9a84c}
+.stat{display:flex;justify-content:space-between;font-size:0.85rem;padding:2px 0;border-bottom:1px solid #1a1a2e}
+.stat .val{color:#c9a84c;font-variant-numeric:tabular-nums;font-family:'Courier New',monospace}
+.explanation{max-width:1200px;margin:16px auto;padding:10px 20px;font-size:0.9rem;line-height:1.6;color:#aaa}
+.explanation em{color:#c9a84c;font-style:normal}
+.btn-row{display:flex;gap:8px}
+.btn{flex:1;padding:8px;border:1px solid #c9a84c;background:transparent;color:#c9a84c;border-radius:4px;cursor:pointer;font-family:Georgia,serif;font-size:0.85rem}
+.btn:hover{background:#c9a84c22}
+.btn.active{background:#c9a84c33}
+.legend{display:flex;align-items:center;gap:6px;font-size:0.75rem;margin-top:4px}
+.legend-bar{height:10px;flex:1;border-radius:3px}
+</style>
+</head>
+<body>
+<h1>Elliptical Orbit Time Dilation</h1>
+<p class="subtitle">Equation (2.12) — Osborne &amp; Pope, <em>Orbital Time Dilation</em></p>
+
+<div class="container">
+  <div class="canvas-wrap">
+    <canvas id="cv"></canvas>
+  </div>
+  <div class="panel">
+    <div class="card">
+      <h3>Controls</h3>
+      <label>Eccentricity: <span id="eVal">0.60</span></label>
+      <input type="range" id="eSlider" min="0" max="90" value="60">
+      <label>Semi-major axis: <span id="aVal">1.00</span></label>
+      <input type="range" id="aSlider" min="20" max="100" value="50">
+      <label>Speed: <span id="sVal">1.0×</span></label>
+      <input type="range" id="sSlider" min="1" max="50" value="10">
+      <div class="btn-row">
+        <button class="btn active" id="playBtn">▶ Play</button>
+        <button class="btn" id="resetBtn">↺ Reset</button>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Clocks</h3>
+      <div class="clocks">
+        <div class="clock-box"><div class="label">Distant (coordinate)</div><div class="time" id="clockDST">0.000</div></div>
+        <div class="clock-box proper"><div class="label">Orbiter (proper τ)</div><div class="time" id="clockProper">0.000</div></div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Live Data</h3>
+      <div class="stat"><span>Orbital speed v/c</span><span class="val" id="dSpeed">—</span></div>
+      <div class="stat"><span>Distance r/a</span><span class="val" id="dDist">—</span></div>
+      <div class="stat"><span>Dilation factor</span><span class="val" id="dGamma">—</span></div>
+      <div class="stat"><span>Δτ per orbit</span><span class="val" id="dDelta">—</span></div>
+    </div>
+    <div class="card">
+      <h3>Dilation Legend</h3>
+      <div class="legend">
+        <span>Strong (periapsis)</span>
+        <div class="legend-bar" id="legBar"></div>
+        <span>Weak (apoapsis)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="explanation">
+  <p><em>$$\tau = \int \sqrt{1 - \frac{2GM}{rc^2} - \frac{v^2}{c^2}}\; dt$$</em></p>
+  <p style="margin-top:10px">In an elliptical orbit, time dilation varies continuously. The proper time integral (2.12) captures this — clocks tick slowest at periapsis (closest approach) and fastest at apoapsis (farthest point). This is a direct consequence of the combined gravitational and kinematic time dilation described in POAMS. The vis-viva equation $v^2 = GM\!\left(\frac{2}{r}-\frac{1}{a}\right)$ determines the speed at each point, while Kepler's second law ensures the orbiter sweeps equal areas in equal times, moving fastest at periapsis and slowest at apoapsis.</p>
+</div>
+
+<script>
+const cv = document.getElementById('cv');
+const ctx = cv.getContext('2d');
+
+// --- state ---
+let e = 0.6, aFrac = 0.5, speedMul = 1.0, playing = true;
+let coordTime = 0, properTime = 0, meanAnomaly = 0;
+let orbitProperTime = 0, orbitCoordTime = 0; // accumulators for per-orbit delta
+let lastOrbitDelta = 0;
+
+// Physics scaling: GM/c² expressed as fraction of semi-major axis
+// We want visible dilation, so set rs = 2GM/c² = schwRatio * a
+const schwRatio = 0.15; // Schwarzschild radius as fraction of a — exaggerated for visibility
+
+// --- sliders ---
+document.getElementById('eSlider').oninput = function(){ e = this.value/100; document.getElementById('eVal').textContent = e.toFixed(2); };
+document.getElementById('aSlider').oninput = function(){ aFrac = this.value/100; document.getElementById('aVal').textContent = (aFrac*2).toFixed(2); };
+document.getElementById('sSlider').oninput = function(){ speedMul = this.value/10; document.getElementById('sVal').textContent = speedMul.toFixed(1)+'×'; };
+document.getElementById('playBtn').onclick = function(){ playing=!playing; this.textContent=playing?'⏸ Pause':'▶ Play'; this.classList.toggle('active',playing); };
+document.getElementById('resetBtn').onclick = function(){ coordTime=0;properTime=0;meanAnomaly=0;orbitProperTime=0;orbitCoordTime=0;lastOrbitDelta=0; };
+
+// --- legend gradient ---
+(function(){
+  const bar = document.getElementById('legBar');
+  bar.style.background = 'linear-gradient(to right, #ff4422, #ff8844, #ffcc44, #44ccaa, #4488ff)';
+})();
+
+// --- Kepler solver ---
+function solveKepler(M, ecc) {
+  // M = mean anomaly, solve E - ecc*sin(E) = M
+  let E = M;
+  for (let i = 0; i < 20; i++) {
+    E = E - (E - ecc * Math.sin(E) - M) / (1 - ecc * Math.cos(E));
+  }
+  return E;
+}
+
+function trueAnomalyFromE(E, ecc) {
+  return 2 * Math.atan2(Math.sqrt(1+ecc)*Math.sin(E/2), Math.sqrt(1-ecc)*Math.cos(E/2));
+}
+
+function rFromTheta(a, ecc, theta) {
+  return a * (1 - ecc*ecc) / (1 + ecc * Math.cos(theta));
+}
+
+// Dilation color: maps dilation factor to color
+// dilationFactor near 1 = weak dilation = cool blue
+// dilationFactor smaller = strong dilation = hot red
+function dilationColor(factor, minF, maxF) {
+  if (maxF <= minF) return 'rgb(100,180,200)';
+  let t = (factor - minF) / (maxF - minF); // 0=strong, 1=weak
+  t = Math.max(0, Math.min(1, t));
+  // red(0) -> orange(0.25) -> yellow(0.5) -> cyan(0.75) -> blue(1)
+  let r, g, b;
+  if (t < 0.25) { let s=t/0.25; r=255; g=Math.round(68+s*68); b=Math.round(34+s*0); }
+  else if (t < 0.5) { let s=(t-0.25)/0.25; r=Math.round(255-s*200); g=Math.round(136+s*68); b=Math.round(34+s*100); }
+  else if (t < 0.75) { let s=(t-0.5)/0.25; r=Math.round(55-s*40); g=Math.round(204-s*4); b=Math.round(134+s*66); }
+  else { let s=(t-0.75)/0.25; r=Math.round(15+s*53); g=Math.round(200-s*64); b=Math.round(200+s*55); }
+  return `rgb(${r},${g},${b})`;
+}
+
+function computeDilationFactor(a, ecc, theta) {
+  const r = rFromTheta(a, ecc, theta);
+  const rs = schwRatio * a; // Schwarzschild radius
+  // v²/c² from vis-viva scaled: v²/c² = (rs/2)*(2/r - 1/a)  ... since GM/c² = rs/2
+  const v2c2 = (rs / 2) * (2/r - 1/a);
+  const grav = rs / r;
+  const val = 1 - grav - v2c2;
+  return val > 0 ? Math.sqrt(val) : 0.001;
+}
+
+// Precompute min/max dilation for current params
+function dilationRange(a, ecc) {
+  const fPeri = computeDilationFactor(a, ecc, 0);
+  const fApo = computeDilationFactor(a, ecc, Math.PI);
+  return { min: Math.min(fPeri, fApo), max: Math.max(fPeri, fApo) };
+}
+
+// --- resize ---
+function resize() {
+  const rect = cv.getBoundingClientRect();
+  const dpr = window.devicePixelRatio || 1;
+  cv.width = rect.width * dpr;
+  cv.height = rect.width * dpr; // square
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+resize();
+window.addEventListener('resize', resize);
+
+// --- animation ---
+let lastTime = 0;
+
+function frame(ts) {
+  requestAnimationFrame(frame);
+  if (!lastTime) { lastTime = ts; return; }
+  let dt = (ts - lastTime) / 1000;
+  lastTime = ts;
+  if (dt > 0.1) dt = 0.1;
+
+  const W = cv.getBoundingClientRect().width;
+  const H = W;
+  const cx = W / 2, cy = H / 2;
+  const a = (0.15 + aFrac * 0.25) * W; // semi-major in pixels
+  const b = a * Math.sqrt(1 - e * e);
+  // focus offset from center of ellipse
+  const foc = a * e;
+
+  // Orbital period (arbitrary units, scale for nice animation)
+  // T = 2π * sqrt(a³/GM). We set GM so period is reasonable.
+  // With our scaling GM/c²=schwRatio*a/2, GM = schwRatio*a*c²/2
+  // Use abstract time unit where T = 2π / n, n = mean motion
+  // Just pick n so orbit takes ~4 seconds at speed=1
+  const n = 0.4 * speedMul; // mean motion (rad/s of coordinate time)
+
+  if (playing) {
+    const dM = n * dt;
+    meanAnomaly += dM;
+
+    // Track orbit completion for delta
+    orbitCoordTime += dt * speedMul;
+
+    const E = solveKepler(meanAnomaly, e);
+    const theta = trueAnomalyFromE(E, e);
+    const factor = computeDilationFactor(1, e, theta); // a=1 normalized
+
+    const dTau = factor * (dM / n); // proper time increment = factor * dt
+    properTime += dTau;
+    coordTime += dM / n;
+    orbitProperTime += dTau;
+
+    // Check orbit completion
+    if (meanAnomaly >= 2 * Math.PI) {
+      lastOrbitDelta = orbitCoordTime / speedMul - orbitProperTime * (1/n) ;
+      // Simpler: track in mean anomaly units
+      lastOrbitDelta = (2*Math.PI/n) - orbitProperTime;
+      orbitProperTime = 0;
+      orbitCoordTime = 0;
+      meanAnomaly -= 2 * Math.PI;
+    }
+  }
+
+  // --- draw ---
+  ctx.clearRect(0, 0, W, H);
+
+  // Compute dilation range
+  const range = dilationRange(1, e);
+
+  // Draw orbit trail with color gradient
+  const segments = 200;
+  for (let i = 0; i < segments; i++) {
+    const t0 = (i / segments) * 2 * Math.PI;
+    const t1 = ((i + 1) / segments) * 2 * Math.PI;
+    const tMid = (t0 + t1) / 2;
+
+    // Ellipse parametric: x = a*cos(E), y = b*sin(E), shifted so focus at center
+    // But we want true anomaly-based coloring. Convert E to theta for color.
+    // Actually let's just parameterize by true anomaly for simplicity.
+    const r0 = rFromTheta(a, e, t0);
+    const r1 = rFromTheta(a, e, t1);
+    const x0 = cx + r0 * Math.cos(t0);
+    const y0 = cy - r0 * Math.sin(t0);
+    const x1 = cx + r1 * Math.cos(t1);
+    const y1 = cy - r1 * Math.sin(t1);
+
+    const f = computeDilationFactor(1, e, tMid);
+    ctx.strokeStyle = dilationColor(f, range.min, range.max);
+    ctx.lineWidth = 2.5;
+    ctx.beginPath();
+    ctx.moveTo(x0, y0);
+    ctx.lineTo(x1, y1);
+    ctx.stroke();
+  }
+
+  // Central mass
+  const massR = Math.max(6, W * 0.02);
+  const grd = ctx.createRadialGradient(cx, cy, 0, cx, cy, massR * 3);
+  grd.addColorStop(0, '#c9a84c');
+  grd.addColorStop(0.3, '#c9a84c88');
+  grd.addColorStop(1, 'transparent');
+  ctx.fillStyle = grd;
+  ctx.beginPath(); ctx.arc(cx, cy, massR*3, 0, Math.PI*2); ctx.fill();
+  ctx.fillStyle = '#c9a84c';
+  ctx.beginPath(); ctx.arc(cx, cy, massR, 0, Math.PI*2); ctx.fill();
+
+  // Orbiting particle
+  const E_now = solveKepler(meanAnomaly, e);
+  const theta_now = trueAnomalyFromE(E_now, e);
+  const r_now = rFromTheta(a, e, theta_now);
+  const px = cx + r_now * Math.cos(theta_now);
+  const py = cy - r_now * Math.sin(theta_now);
+
+  const fNow = computeDilationFactor(1, e, theta_now);
+  const col = dilationColor(fNow, range.min, range.max);
+
+  // Glow
+  const grd2 = ctx.createRadialGradient(px, py, 0, px, py, 14);
+  grd2.addColorStop(0, col);
+  grd2.addColorStop(1, 'transparent');
+  ctx.fillStyle = grd2;
+  ctx.beginPath(); ctx.arc(px, py, 14, 0, Math.PI*2); ctx.fill();
+
+  ctx.fillStyle = '#fff';
+  ctx.beginPath(); ctx.arc(px, py, 4, 0, Math.PI*2); ctx.fill();
+
+  // Periapsis / Apoapsis labels
+  ctx.font = '11px Georgia';
+  ctx.fillStyle = '#ff664488';
+  const rPeri = rFromTheta(a, e, 0);
+  ctx.fillText('P', cx + rPeri + 8, cy + 4);
+  ctx.fillStyle = '#4488ff88';
+  const rApo = rFromTheta(a, e, Math.PI);
+  ctx.fillText('A', cx - rApo - 16, cy + 4);
+
+  // --- update readouts ---
+  const r_norm = rFromTheta(1, e, theta_now);
+  const rs = schwRatio;
+  const v2c2 = (rs/2) * (2/r_norm - 1);
+  const vc = Math.sqrt(Math.max(0, v2c2));
+
+  document.getElementById('clockDST').textContent = coordTime.toFixed(3);
+  document.getElementById('clockProper').textContent = properTime.toFixed(3);
+  document.getElementById('dSpeed').textContent = vc.toFixed(4);
+  document.getElementById('dDist').textContent = r_norm.toFixed(3);
+  document.getElementById('dGamma').textContent = fNow.toFixed(5);
+  document.getElementById('dDelta').textContent = (lastOrbitDelta > 0 ? lastOrbitDelta.toFixed(4) : '—');
+}
+
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>

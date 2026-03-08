@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perihelion Precession — POAMS Exhibit</title>
+<script>window.MathJax={tex:{inlineMath:[['$','$']],displayMath:[['$$','$$']]},options:{skipHtmlTags:['script','noscript','style','textarea']}};</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#1a1a2e;color:#e0e0e0;font-family:Georgia,serif;min-height:100vh;display:flex;flex-direction:column;align-items:center}
+h1{color:#c9a84c;margin:20px 0 4px;font-size:1.6em;text-align:center}
+.subtitle{color:#999;font-size:.85em;margin-bottom:12px;text-align:center}
+.container{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;padding:0 16px 20px;max-width:1100px;width:100%}
+.canvas-wrap{position:relative;flex:1 1 500px;min-width:300px;max-width:600px}
+canvas{width:100%;aspect-ratio:1;background:#12121f;border:1px solid #2a2a4a;border-radius:8px;display:block}
+.panel{flex:1 1 300px;min-width:260px;max-width:420px;display:flex;flex-direction:column;gap:14px}
+.card{background:#12121f;border:1px solid #2a2a4a;border-radius:8px;padding:14px 16px}
+.card h3{color:#c9a84c;font-size:.95em;margin-bottom:8px}
+label{display:block;font-size:.82em;margin-bottom:4px;color:#bbb}
+input[type=range]{width:100%;accent-color:#c9a84c;margin-bottom:2px}
+.val{font-size:.78em;color:#c9a84c;float:right}
+.eq-highlight{color:#c9a84c;font-weight:bold}
+button{background:#c9a84c;color:#1a1a2e;border:none;padding:7px 16px;border-radius:4px;cursor:pointer;font-family:Georgia,serif;font-size:.85em;font-weight:bold}
+button:hover{background:#dabb5e}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap}
+.stats{font-size:.82em;line-height:1.7}
+.stats span{color:#c9a84c}
+.explain{font-size:.8em;line-height:1.55;color:#bbb}
+.explain strong{color:#e0e0e0}
+@media(max-width:640px){h1{font-size:1.2em}.panel{min-width:0;max-width:100%}}
+</style>
+</head>
+<body>
+<h1>Perihelion Precession</h1>
+<div class="subtitle">Equation (4.6) — "Orbital Time Dilation" by Osborne &amp; Pope</div>
+
+<div class="container">
+<div class="canvas-wrap">
+<canvas id="cv"></canvas>
+</div>
+<div class="panel">
+<div class="card">
+<h3>Equation (4.6)</h3>
+<div id="eqn" style="font-size:.9em">
+$$\left(\frac{du}{d\theta}\right)^{\!2} + u^2 = K^* + \frac{2\mathcal{M}c^2}{\beta^2}\,u + \class{eq-highlight}{2\mathcal{M}\,u^3}$$
+</div>
+<div style="font-size:.78em;color:#999;margin-top:4px">The <span style="color:#c9a84c">$2\mathcal{M}\,u^3$</span> term drives precession.</div>
+</div>
+
+<div class="card">
+<h3>Controls</h3>
+<label>Precession strength <span class="val" id="pVal">1.00×</span></label>
+<input type="range" id="pSlider" min="0" max="200" value="20" step="1">
+<label>Eccentricity <span class="val" id="eVal">0.206</span></label>
+<input type="range" id="eSlider" min="5" max="80" value="21" step="1">
+<label>Speed <span class="val" id="sVal">1.0×</span></label>
+<input type="range" id="sSlider" min="1" max="50" value="10" step="1">
+<div class="btn-row" style="margin-top:6px">
+<button id="resetBtn">Reset Trail</button>
+<button id="pauseBtn">Pause</button>
+</div>
+</div>
+
+<div class="card">
+<h3>Statistics</h3>
+<div class="stats">
+Precession per orbit: <span id="precVal">—</span><br>
+Mercury (observed): <span>43.1″/century ≈ 0.104″/orbit</span><br>
+Orbits completed: <span id="orbCount">0</span><br>
+Current angle: <span id="curAngle">0°</span>
+</div>
+</div>
+
+<div class="card">
+<h3>About This Exhibit</h3>
+<div class="explain">
+<strong>POAMS</strong> (Principles of Absolute Motion and Statics) derives perihelion precession from orbital time dilation — without invoking Einstein's field equations or curved spacetime geometry.<br><br>
+The key insight: a gravitational potential alters the rate of local clocks, modifying the effective orbital equation. The resulting <span style="color:#c9a84c">$2\mathcal{M}u^3$</span> correction term is identical in form to the GR prediction, producing the same 43 arcseconds/century for Mercury.<br><br>
+Move the <strong>precession slider</strong> to zero to see a closed Newtonian ellipse, then increase it to watch the perihelion advance — the hallmark signature that confirmed general relativity, here derived from first principles in POAMS.
+</div>
+</div>
+</div>
+</div>
+
+<script>
+(function(){
+const cv = document.getElementById('cv');
+const ctx = cv.getContext('2d');
+const pSlider = document.getElementById('pSlider');
+const eSlider = document.getElementById('eSlider');
+const sSlider = document.getElementById('sSlider');
+const pVal = document.getElementById('pVal');
+const eVal = document.getElementById('eVal');
+const sVal = document.getElementById('sVal');
+const precVal = document.getElementById('precVal');
+const orbCount = document.getElementById('orbCount');
+const curAngle = document.getElementById('curAngle');
+const resetBtn = document.getElementById('resetBtn');
+const pauseBtn = document.getElementById('pauseBtn');
+
+let paused = false;
+let trail = [];
+let theta = 0, u, du;
+let orbits = 0, lastPeriTheta = 0, lastR = 0, lastLastR = 0;
+let measuredPrec = 0;
+
+// Physics: d²u/dθ² + u = M + ε·3M·u²
+// where M = 1/(semi-latus rectum), ε = precession strength
+// We use normalized units: semi-latus rectum p = 1, so M_coeff = 1/p = 1
+
+function getParams() {
+  const ecc = eSlider.value / 100;
+  const precStrength = pSlider.value / 20; // 0 to 10
+  const speed = sSlider.value / 10;
+  return { ecc, precStrength, speed };
+}
+
+function initOrbit() {
+  const { ecc } = getParams();
+  // Start at perihelion: r_min = p/(1+e), u_max = (1+e)/p, du/dθ = 0
+  // p = 1 in our units
+  u = 1 + ecc;
+  du = 0;
+  theta = 0;
+  orbits = 0;
+  lastPeriTheta = 0;
+  lastR = 1/u;
+  lastLastR = lastR;
+  trail = [];
+  measuredPrec = 0;
+}
+
+function step(dtheta) {
+  const { ecc, precStrength } = getParams();
+  // d²u/dθ² = -u + 1 + precStrength * 3 * u²
+  // The "1" comes from GM/L² in normalized units where p=1
+  // precStrength scales the relativistic term
+  // For Mercury, the 3Mu² term is tiny; we exaggerate for visibility
+  const epsilon = precStrength * 0.01; // scale factor
+
+  // RK4 integration
+  const f = (u_val, du_val) => -u_val + 1 + epsilon * 3 * u_val * u_val;
+
+  const k1u = du;
+  const k1du = f(u, du);
+  const k2u = du + 0.5*dtheta*k1du;
+  const k2du = f(u + 0.5*dtheta*k1u, k2u);
+  const k3u = du + 0.5*dtheta*k2du;
+  const k3du = f(u + 0.5*dtheta*k2u, k3u);
+  const k4u = du + dtheta*k3du;
+  const k4du = f(u + dtheta*k3u, k4u);
+
+  u += dtheta/6 * (k1u + 2*k2u + 2*k3u + k4u);
+  du += dtheta/6 * (k1du + 2*k2du + 2*k3du + k4du);
+  theta += dtheta;
+
+  // Detect perihelion (r minimum = u maximum): when du crosses from + to -
+  // Actually du/dθ crossing zero from positive means u is at max (perihelion)
+}
+
+function resize() {
+  const rect = cv.getBoundingClientRect();
+  const dpr = window.devicePixelRatio || 1;
+  cv.width = rect.width * dpr;
+  cv.height = rect.height * dpr;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+
+function toScreen(r, angle, w, h) {
+  // Scale: max r ~ p/(1-e) = 1/(1-e). With e=0.8 max, that's 5. Give margin.
+  const { ecc } = getParams();
+  const maxR = 1/(1 - ecc) * 1.15;
+  const scale = Math.min(w, h) * 0.42 / maxR;
+  const cx = w/2, cy = h/2;
+  return [cx + r * Math.cos(angle) * scale, cy - r * Math.sin(angle) * scale];
+}
+
+let prevDu = 0;
+function update() {
+  if (paused) { requestAnimationFrame(update); return; }
+
+  const { speed } = getParams();
+  const stepsPerFrame = Math.max(1, Math.round(speed * 20));
+  const dtheta = 0.003;
+
+  for (let i = 0; i < stepsPerFrame; i++) {
+    prevDu = du;
+    step(dtheta);
+    if (u > 0) {
+      const r = 1/u;
+      trail.push([r, theta]);
+      // Detect perihelion: du went from positive to negative
+      if (prevDu > 0 && du <= 0) {
+        if (orbits > 0) {
+          const fullOrbitAngle = theta - lastPeriTheta;
+          measuredPrec = (fullOrbitAngle - 2*Math.PI) * (180/Math.PI) * 3600; // arcsec
+        }
+        lastPeriTheta = theta;
+        orbits++;
+      }
+    } else {
+      // u went negative (escaped), reset
+      initOrbit();
+      break;
+    }
+  }
+
+  // Keep trail manageable
+  if (trail.length > 80000) trail = trail.slice(-60000);
+
+  draw();
+  requestAnimationFrame(update);
+}
+
+function draw() {
+  const rect = cv.getBoundingClientRect();
+  const w = rect.width, h = rect.height;
+  ctx.clearRect(0, 0, w, h);
+
+  // Central mass
+  const [cx, cy] = toScreen(0, 0, w, h);
+  const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, 12);
+  grad.addColorStop(0, '#ffd966');
+  grad.addColorStop(0.6, '#c9a84c');
+  grad.addColorStop(1, 'transparent');
+  ctx.beginPath();
+  ctx.arc(cx, cy, 12, 0, 2*Math.PI);
+  ctx.fillStyle = grad;
+  ctx.fill();
+
+  // Trail
+  if (trail.length > 1) {
+    ctx.beginPath();
+    const [x0,y0] = toScreen(trail[0][0], trail[0][1], w, h);
+    ctx.moveTo(x0, y0);
+    // Draw every few points for perf
+    const skip = Math.max(1, Math.floor(trail.length / 15000));
+    for (let i = skip; i < trail.length; i += skip) {
+      const [x,y] = toScreen(trail[i][0], trail[i][1], w, h);
+      ctx.lineTo(x, y);
+    }
+    ctx.strokeStyle = 'rgba(100,160,255,0.35)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    // Recent trail brighter
+    const recent = trail.slice(-600);
+    if (recent.length > 1) {
+      ctx.beginPath();
+      const [rx0,ry0] = toScreen(recent[0][0], recent[0][1], w, h);
+      ctx.moveTo(rx0, ry0);
+      for (let i = 1; i < recent.length; i++) {
+        const [rx,ry] = toScreen(recent[i][0], recent[i][1], w, h);
+        ctx.lineTo(rx, ry);
+      }
+      ctx.strokeStyle = 'rgba(140,200,255,0.8)';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+    }
+  }
+
+  // Orbiting body
+  if (u > 0) {
+    const r = 1/u;
+    const [px,py] = toScreen(r, theta, w, h);
+    ctx.beginPath();
+    ctx.arc(px, py, 4, 0, 2*Math.PI);
+    ctx.fillStyle = '#8cf';
+    ctx.fill();
+    ctx.beginPath();
+    ctx.arc(px, py, 7, 0, 2*Math.PI);
+    ctx.strokeStyle = 'rgba(140,200,255,0.4)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+  }
+
+  // Update stats
+  const p = getParams();
+  precVal.textContent = orbits > 1 ? measuredPrec.toFixed(1) + '″' : '—';
+  orbCount.textContent = Math.max(0, orbits - 1);
+  curAngle.textContent = ((theta * 180/Math.PI) % 360).toFixed(1) + '°';
+}
+
+pSlider.addEventListener('input', () => {
+  const v = pSlider.value / 20;
+  pVal.textContent = v.toFixed(2) + '×';
+  initOrbit();
+});
+eSlider.addEventListener('input', () => {
+  const v = eSlider.value / 100;
+  eVal.textContent = v.toFixed(3);
+  initOrbit();
+});
+sSlider.addEventListener('input', () => {
+  sVal.textContent = (sSlider.value/10).toFixed(1) + '×';
+});
+resetBtn.addEventListener('click', initOrbit);
+pauseBtn.addEventListener('click', () => {
+  paused = !paused;
+  pauseBtn.textContent = paused ? 'Play' : 'Pause';
+});
+
+window.addEventListener('resize', resize);
+resize();
+initOrbit();
+// Set initial display values
+pVal.textContent = (pSlider.value/20).toFixed(2) + '×';
+eVal.textContent = (eSlider.value/100).toFixed(3);
+sVal.textContent = (sSlider.value/10).toFixed(1) + '×';
+requestAnimationFrame(update);
+})();
+</script>
+</body>
+</html>

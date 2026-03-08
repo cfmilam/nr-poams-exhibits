@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NR-POAMS Interactive Exhibits</title>
+<style>
+:root {
+  --bg: #1a1a2e; --fg: #e0e0e0; --accent: #c9a84c; --accent2: #8b6914;
+  --link: #c9a84c; --card-bg: rgba(255,255,255,0.03); --card-border: #333;
+}
+.light {
+  --bg: #faf8f2; --fg: #2a2a2a; --accent: #8b6914; --accent2: #c9a84c;
+  --link: #8b6914; --card-bg: rgba(0,0,0,0.02); --card-border: #ddd;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Georgia, serif; background: var(--bg); color: var(--fg); line-height: 1.6; font-size: 16px; }
+main { max-width: 800px; margin: 0 auto; padding: 3rem 2rem; }
+h1 { font-size: 2rem; color: var(--accent); margin-bottom: 0.3rem; }
+h2 { font-size: 1.3rem; color: var(--accent); margin: 2.5rem 0 0.8rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.3rem; }
+.subtitle { color: var(--accent2); margin-bottom: 0.5rem; font-size: 1rem; }
+.intro { color: var(--fg); opacity: 0.85; margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.7; }
+.nav-links { margin-bottom: 2rem; font-size: 0.9rem; }
+.nav-links a { color: var(--link); margin-right: 1.5rem; }
+.exhibit { margin: 0.8rem 0; padding: 1rem 1.2rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; transition: border-color 0.2s; }
+.exhibit:hover { border-color: var(--accent); }
+.exhibit h3 { font-size: 1.05rem; margin: 0 0 0.3rem; }
+.exhibit h3 a { color: var(--link); text-decoration: none; }
+.exhibit h3 a:hover { text-decoration: underline; }
+.exhibit .desc { font-size: 0.88rem; color: var(--fg); opacity: 0.8; line-height: 1.5; }
+.exhibit .tags { font-size: 0.78rem; color: var(--accent2); margin-top: 0.4rem; }
+.tag { display: inline-block; background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.2); border-radius: 4px; padding: 0.1rem 0.5rem; margin-right: 0.4rem; margin-top: 0.2rem; }
+#theme-btn {
+  position: fixed; top: 1rem; right: 1rem; z-index: 200;
+  background: var(--accent); color: var(--bg); border: none;
+  width: 40px; height: 40px; border-radius: 8px; font-size: 1.3rem;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+}
+footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--card-border); font-size: 0.85rem; color: var(--accent2); }
+footer a { color: var(--link); }
+@media (max-width: 768px) { main { padding: 2rem 1rem; } }
+</style>
+</head>
+<body>
+<button id="theme-btn" onclick="document.body.classList.toggle('light');localStorage.setItem('theme',document.body.classList.contains('light')?'light':'dark')" title="Toggle theme">🌙</button>
+<main>
+<h1>NR-POAMS Interactive Exhibits</h1>
+<p class="subtitle">Normal Realism &amp; the Pope-Osborne Angular Momentum Synthesis</p>
+
+<p class="intro">Interactive visualizations exploring the revolutionary physics framework of N. Vivian Pope and Anthony D. Osborne. These exhibits demonstrate how Pythagorean geometry, angular momentum conservation, and a rigorous phenomenalist philosophy unify relativity and quantum mechanics — without photons, without gravitational force, and without Einstein's light-speed postulate.</p>
+
+<div class="nav-links">
+  <a href="https://cfmilam.github.io/nr-poams-papers/">📄 Papers</a>
+  <a href="https://cfmilam.github.io/nr-poams-books/">📚 Books</a>
+</div>
+
+<h2>Core Framework</h2>
+
+<div class="exhibit">
+  <h3><a href="twins-paradox.html">The Twins Paradox — POAMS</a></h3>
+  <p class="desc">3D cone model visualization showing how time dilation emerges from pure Pythagoras (t² = τ² + (s/c)²). Animated twin clocks, the acceleration asymmetry, and a side-by-side comparison of Einstein's vs POAMS's explanation.</p>
+  <div class="tags"><span class="tag">Relativity</span><span class="tag">Cone Model</span><span class="tag">Time Dilation</span><span class="tag">Appendix 1</span></div>
+</div>
+
+<div class="exhibit">
+  <h3><a href="quantum-cinematograph.html">The Quantum Cinematograph</a></h3>
+  <p class="desc">Pope's central insight: reality operates like digital cinema — discrete quantum "stills" with action between frames, not within them. Visualizes the quantum discretum, the tag game of atomic interaction, the EPR non-paradox, and why there are no photons.</p>
+  <div class="tags"><span class="tag">Philosophy</span><span class="tag">Quantum</span><span class="tag">Discretum</span><span class="tag">EPR</span></div>
+</div>
+
+<div class="exhibit">
+  <h3><a href="balmer-rydberg-poams.html">Balmer-Rydberg: Quantization of Mass-Energy &amp; Time</a></h3>
+  <p class="desc">How POAMS derives the Balmer-Rydberg spectral formula directly from the time dilation equation by pure syllogistic — with no electrodynamics. Interactive energy levels, live hydrogen spectrum, and the quantization of time.</p>
+  <div class="tags"><span class="tag">Quantum</span><span class="tag">Spectroscopy</span><span class="tag">Appendix 2–3</span></div>
+</div>
+
+<div class="exhibit">
+  <h3><a href="varying-g.html">Varying G — From Planets to Atoms</a></h3>
+  <p class="desc">How spin angular momentum transforms the "gravitational constant" G into a variable G*, unifying gravity and electromagnetism. Interactive slider from planetary scale (G = 6.67×10⁻¹¹) to atomic scale (G* = 1.51×10²⁹). The hierarchy problem dissolved.</p>
+  <div class="tags"><span class="tag">Unification</span><span class="tag">Spin</span><span class="tag">Appendix 5</span></div>
+</div>
+
+<div class="exhibit">
+  <h3><a href="pioneer-anomaly.html">The Pioneer Anomaly &amp; Dark Matter</a></h3>
+  <p class="desc">NASA's spinning probes deviate sunward from Newtonian predictions — because Newton ignores spin angular momentum. The same principle explains galaxy rotation curves without dark matter. Trajectory simulator and rotation curve comparison.</p>
+  <div class="tags"><span class="tag">Pioneer</span><span class="tag">Dark Matter</span><span class="tag">Appendix 6</span></div>
+</div>
+
+<h2>Orbital Time Dilation — Osborne &amp; Pope</h2>
+<p class="intro" style="margin-bottom:1rem;">From the paper "Orbital Time Dilation" (<em>Galilean Electrodynamics</em>). These exhibits accompany the mathematical derivations showing how POAMS obtains General Relativity results without Einstein's field equations.</p>
+
+<div class="exhibit">
+  <h3><a href="circular-orbit-clocks.html">Circular Orbit Clock Comparison</a></h3>
+  <p class="desc">Compare Deep Space Time vs orbiter proper time on a circular geodesic. Toggle between velocity-only dilation (Eq 2.9) and true orbital dilation (Eq 3.6).</p>
+  <div class="tags"><span class="tag">Time Dilation</span><span class="tag">Circular Orbits</span></div>
+</div>
+
+<div class="exhibit">
+  <h3><a href="elliptical-dilation.html">Elliptical Orbit Dilation</a></h3>
+  <p class="desc">Time dilation varies around an elliptical orbit — faster at periapsis, slower at apoapsis. Animated orbit with real-time dilation factor display.</p>
+  <div class="tags"><span class="tag">Elliptical Orbits</span><span class="tag">Kepler</span></div>
+</div>
+
+<div class="exhibit">
+  <h3><a href="geodesic-proof.html">The a = 2 Geodesic Proof</a></h3>
+  <p class="desc">POAMS postulates an additional orbital dilation factor a. The proof that a = 2 (giving the Schwarzschild metric) follows from requiring geodesics to be the natural paths of freely moving particles.</p>
+  <div class="tags"><span class="tag">Schwarzschild</span><span class="tag">Geodesics</span></div>
+</div>
+
+<div class="exhibit">
+  <h3><a href="gps-clocks.html">GPS Satellite Clocks</a></h3>
+  <p class="desc">Real-world application: GPS satellites experience both velocity and gravitational time dilation. POAMS predicts the combined effect that GPS systems must correct for.</p>
+  <div class="tags"><span class="tag">GPS</span><span class="tag">Applied</span></div>
+</div>
+
+<div class="exhibit">
+  <h3><a href="perihelion-precession.html">Perihelion Precession of Mercury</a></h3>
+  <p class="desc">The famous 43 arcseconds per century. POAMS derives this from orbital time dilation on a cone — no Einstein field equations required.</p>
+  <div class="tags"><span class="tag">Mercury</span><span class="tag">Precession</span><span class="tag">General Relativity</span></div>
+</div>
+
+<footer>
+  <p>Based on the work of <strong>N. Vivian Pope</strong> and <strong>Anthony D. Osborne</strong>.</p>
+  <p style="margin-top:0.5rem;"><a href="https://cfmilam.github.io/nr-poams-papers/">Papers</a> · <a href="https://cfmilam.github.io/nr-poams-books/">Books</a> · <a href="https://github.com/cfmilam/nr-poams-exhibits">Source</a></p>
+</footer>
+</main>
+<script>
+if(localStorage.getItem('theme')==='light') document.body.classList.add('light');
+document.addEventListener('keydown',e=>{
+  if(e.key==='t'||e.key==='T'){document.body.classList.toggle('light');localStorage.setItem('theme',document.body.classList.contains('light')?'light':'dark');}
+});
+</script>
+</body>
+</html>

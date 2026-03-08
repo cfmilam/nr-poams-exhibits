@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The a = 2 Geodesic Proof — POAMS</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#1a1a2e;color:#e0e0e0;font-family:Georgia,serif;min-height:100vh;padding:1.5rem;line-height:1.6}
+h1{color:#c9a84c;text-align:center;font-size:1.8rem;margin-bottom:.3rem}
+.subtitle{text-align:center;font-style:italic;color:#999;margin-bottom:1.5rem;font-size:.95rem}
+.container{max-width:900px;margin:0 auto}
+.explanation{background:#16213e;border-left:3px solid #c9a84c;padding:1rem 1.2rem;margin-bottom:1.5rem;border-radius:0 6px 6px 0;font-size:.95rem}
+.controls{text-align:center;margin:1.5rem 0}
+.controls label{font-size:1.1rem;display:block;margin-bottom:.5rem}
+.slider-row{display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap}
+input[type=range]{width:min(400px,70vw);accent-color:#c9a84c;height:6px;cursor:pointer}
+.a-val{font-size:1.4rem;font-weight:bold;color:#c9a84c;min-width:3ch;text-align:center}
+.snap-btn{background:#c9a84c;color:#1a1a2e;border:none;padding:.45rem 1.2rem;border-radius:4px;font:inherit;font-size:.9rem;cursor:pointer;margin-top:.6rem}
+.snap-btn:hover{background:#dbb85c}
+.panels{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin:1.5rem 0}
+@media(max-width:640px){.panels{grid-template-columns:1fr}}
+.panel{background:#16213e;border-radius:8px;padding:1.2rem;position:relative}
+.panel h2{font-size:1rem;color:#c9a84c;margin-bottom:.8rem}
+canvas{display:block;margin:0 auto}
+.bars{display:flex;align-items:flex-end;justify-content:center;gap:2rem;height:160px;padding-top:1rem}
+.bar-wrap{display:flex;flex-direction:column;align-items:center;gap:.3rem}
+.bar{width:60px;border-radius:4px 4px 0 0;transition:height .15s,background .15s;min-height:4px}
+.bar-label{font-size:.75rem;color:#aaa}
+.bar-value{font-size:.85rem;font-weight:bold}
+.match-label{text-align:center;margin-top:.6rem;font-size:1rem;font-weight:bold;min-height:1.4em}
+.eqs{margin:1.5rem 0}
+.eqs .eq-row{background:#16213e;border-radius:6px;padding:.8rem 1rem;margin-bottom:.7rem}
+.eq-row .eq-label{font-size:.8rem;color:#888;margin-bottom:.2rem}
+.highlight{color:#c9a84c}
+.mismatch{color:#e74c3c}
+#orbitCanvas{background:#0f0f23;border-radius:8px}
+#barCanvas{background:#0f0f23;border-radius:8px}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>The \(a = 2\) Geodesic Proof</h1>
+<p class="subtitle">From "Orbital Time Dilation" — Osborne &amp; Pope (POAMS)</p>
+
+<div class="explanation">
+In POAMS, the constant <em>a</em> is determined by requiring that circular orbits be geodesics of the underlying space-time. Only <strong>a&nbsp;=&nbsp;2</strong> satisfies this condition — producing the same result as General Relativity.
+</div>
+
+<div class="controls">
+<label>Constant \(a\)</label>
+<div class="slider-row">
+<input type="range" id="aSlider" min="0" max="4" step="0.1" value="2">
+<span class="a-val" id="aDisplay">2.0</span>
+</div>
+<button class="snap-btn" id="snapBtn">Snap to \(a = 2\)</button>
+</div>
+
+<div class="panels">
+<div class="panel">
+<h2>Orbital Speeds</h2>
+<canvas id="barCanvas" width="280" height="200"></canvas>
+<div class="match-label" id="matchLabel"></div>
+</div>
+<div class="panel">
+<h2>Orbit Simulation</h2>
+<canvas id="orbitCanvas" width="280" height="280"></canvas>
+</div>
+</div>
+
+<div class="eqs">
+<div class="eq-row">
+<div class="eq-label">Eq 3.5 — Geodesic condition (required speed)</div>
+<div id="eq35">$$v^2_{\text{geo}} = \frac{a\,GM}{2r}$$</div>
+</div>
+<div class="eq-row">
+<div class="eq-label">Eq 2.8 — Circular orbit (actual speed)</div>
+<div>$$v^2_{\text{orb}} = \frac{GM}{r}$$</div>
+</div>
+<div class="eq-row">
+<div class="eq-label">Time dilation — updates with \(a\)</div>
+<div id="eqTD">$$\tau = \sqrt{1 - \frac{(1+a)\,GM}{rc^2}}\;\cdot\; t$$</div>
+</div>
+<div class="eq-row">
+<div class="eq-label" id="eq36label" style="color:#c9a84c">At \(a=2\): Eq 3.6 — matches GR</div>
+<div id="eq36">$$\tau = \sqrt{1 - \frac{3\,GM}{rc^2}}\;\cdot\; t$$</div>
+</div>
+</div>
+</div>
+
+<script>
+const slider = document.getElementById('aSlider');
+const aDisp = document.getElementById('aDisplay');
+const matchLabel = document.getElementById('matchLabel');
+const snapBtn = document.getElementById('snapBtn');
+const barCanvas = document.getElementById('barCanvas');
+const orbitCanvas = document.getElementById('orbitCanvas');
+const bctx = barCanvas.getContext('2d');
+const octx = orbitCanvas.getContext('2d');
+
+const GOLD = '#c9a84c';
+const RED = '#e74c3c';
+const BG = '#0f0f23';
+
+let a = 2, angle = 0, radius = 0, radVel = 0;
+let animId;
+
+function getA(){ return parseFloat(slider.value); }
+
+function updateEquations(a){
+  const coeff = (1+a).toFixed(1);
+  const isTwo = Math.abs(a-2)<0.05;
+  document.getElementById('eqTD').innerHTML =
+    `$$\\tau = \\sqrt{1 - \\frac{${isTwo?'3':coeff}\\,GM}{rc^2}}\\;\\cdot\\; t$$`;
+  document.getElementById('eq36label').style.display = isTwo ? '' : 'none';
+  document.getElementById('eq36').style.display = isTwo ? '' : 'none';
+  if(window.MathJax && MathJax.typeset) MathJax.typeset();
+}
+
+function drawBars(a){
+  const w=barCanvas.width, h=barCanvas.height;
+  bctx.clearRect(0,0,w,h);
+  // v²_geo = a/2 (normalized to GM/r), v²_orb = 1
+  const geo = a/2, orb = 1;
+  const maxV = Math.max(geo, orb, 0.1);
+  const barH = h - 60, barW = 50, gap = 40;
+  const x1 = w/2 - barW - gap/2, x2 = w/2 + gap/2;
+  const isMatch = Math.abs(a-2)<0.05;
+  const col = isMatch ? GOLD : RED;
+
+  const h1 = (geo/maxV)*barH*0.85;
+  const h2 = (orb/maxV)*barH*0.85;
+
+  bctx.fillStyle = col; bctx.globalAlpha=0.85;
+  bctx.fillRect(x1, h-30-h1, barW, h1);
+  bctx.fillStyle = '#5dade2'; bctx.globalAlpha=0.85;
+  bctx.fillRect(x2, h-30-h2, barW, h2);
+  bctx.globalAlpha=1;
+
+  bctx.fillStyle='#aaa'; bctx.font='11px Georgia';
+  bctx.textAlign='center';
+  bctx.fillText('Geodesic', x1+barW/2, h-14);
+  bctx.fillText('Orbital', x2+barW/2, h-14);
+
+  bctx.fillStyle='#e0e0e0'; bctx.font='bold 13px Georgia';
+  bctx.fillText((geo).toFixed(2), x1+barW/2, h-34-h1);
+  bctx.fillText((orb).toFixed(2), x2+barW/2, h-34-h2);
+
+  // units label
+  bctx.fillStyle='#666'; bctx.font='10px Georgia';
+  bctx.fillText('v² / (GM/r)', w/2, 14);
+
+  matchLabel.style.color = isMatch ? GOLD : RED;
+  matchLabel.textContent = isMatch ? '✓ Perfect match — geodesic condition satisfied' : '✗ Mismatch — orbit is NOT a geodesic';
+}
+
+// Orbit animation
+const cx=140, cy=140, baseR=80;
+function resetOrbit(){ radius=baseR; radVel=0; angle=0; }
+
+function drawOrbit(a){
+  const w=orbitCanvas.width, h=orbitCanvas.height;
+  octx.fillStyle='rgba(15,15,35,0.15)';
+  octx.fillRect(0,0,w,h);
+
+  // central mass
+  octx.beginPath(); octx.arc(cx,cy,8,0,Math.PI*2);
+  octx.fillStyle='#c9a84c'; octx.fill();
+
+  const isMatch = Math.abs(a-2)<0.05;
+  const speed = 0.03;
+  angle += speed;
+
+  if(isMatch){
+    radius = baseR;
+    radVel = 0;
+  } else {
+    // drift: if a<2 geodesic wants slower orbit → particle spirals in; a>2 spirals out
+    const drift = (a - 2) * 0.15;
+    radVel += drift * 0.01;
+    radVel *= 0.999;
+    radius += radVel;
+    if(radius < 20){ radius=baseR; radVel=0; }
+    if(radius > 130){ radius=baseR; radVel=0; }
+  }
+
+  const px = cx + radius * Math.cos(angle);
+  const py = cy + radius * Math.sin(angle);
+
+  // trail dot
+  octx.beginPath(); octx.arc(px,py,4,0,Math.PI*2);
+  octx.fillStyle = isMatch ? GOLD : RED;
+  octx.fill();
+
+  // guide circle
+  octx.beginPath(); octx.arc(cx,cy,baseR,0,Math.PI*2);
+  octx.strokeStyle='rgba(201,168,76,0.15)'; octx.lineWidth=1; octx.stroke();
+
+  // status
+  octx.fillStyle=isMatch?GOLD:RED; octx.font='bold 12px Georgia'; octx.textAlign='center';
+  octx.fillText(isMatch?'Stable geodesic':'Unstable — not a geodesic', cx, h-10);
+}
+
+function tick(){
+  const a = getA();
+  drawOrbit(a);
+  animId = requestAnimationFrame(tick);
+}
+
+function onSlider(){
+  const a = getA();
+  aDisp.textContent = a.toFixed(1);
+  drawBars(a);
+  updateEquations(a);
+}
+
+slider.addEventListener('input', onSlider);
+
+snapBtn.addEventListener('click', ()=>{
+  const start = getA(), end = 2, dur = 400;
+  const t0 = performance.now();
+  resetOrbit();
+  function anim(now){
+    const p = Math.min((now-t0)/dur,1);
+    const ease = p<0.5?2*p*p:1-Math.pow(-2*p+2,2)/2;
+    slider.value = (start+(end-start)*ease).toFixed(1);
+    onSlider();
+    if(p<1) requestAnimationFrame(anim);
+  }
+  requestAnimationFrame(anim);
+});
+
+// init
+onSlider();
+resetOrbit();
+// clear orbit canvas fully once
+octx.fillStyle=BG; octx.fillRect(0,0,orbitCanvas.width,orbitCanvas.height);
+tick();
+</script>
+</body>
+</html>
