@@ -293,6 +293,53 @@
             height: 100%;
         }
 
+        /* Spiral Visualization */
+        #spiralCanvas {
+            max-width: 100%;
+            max-height: 70vh;
+        }
+        
+        .spiral-element {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        
+        .spiral-element:hover {
+            transform: scale(1.5);
+            z-index: 100;
+        }
+        
+        .spiral-element.selected {
+            border: 2px solid var(--accent-gold);
+            box-shadow: 0 0 8px var(--accent-gold);
+        }
+        
+        .spiral-element.noble {
+            width: 12px;
+            height: 12px;
+            background: var(--accent-gold) !important;
+        }
+        
+        .spiral-animation {
+            opacity: 0;
+            animation: spiralAppear 0.5s ease forwards;
+        }
+        
+        @keyframes spiralAppear {
+            from {
+                opacity: 0;
+                transform: scale(0);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .periodic-table {
@@ -315,6 +362,13 @@
             
             .title {
                 font-size: 2rem;
+            }
+            
+            #spiralCanvas {
+                width: 90vw;
+                height: 90vw;
+                max-width: 600px;
+                max-height: 600px;
             }
         }
 
@@ -411,6 +465,7 @@
 
         <nav class="nav-tabs">
             <button class="tab-button active" onclick="showTab('table')">POAMS Periodic Table</button>
+            <button class="tab-button" onclick="showTab('spiral')">Spiral</button>
             <button class="tab-button" onclick="showTab('vortex')">Vortex Model</button>
             <button class="tab-button" onclick="showTab('explanation')">Framework</button>
             <button class="tab-button" onclick="showTab('forces')">Force Profile</button>
@@ -475,7 +530,49 @@
             </div>
         </div>
 
-        <!-- Tab 2: Vortex Model Interactive -->
+        <!-- Tab 2: Spiral Visualization -->
+        <div id="spiral" class="tab-content">
+            <h2 style="text-align: center; color: var(--accent-gold); margin-bottom: 10px;">
+                The Spiral of Accumulated Action
+            </h2>
+            <p style="text-align: center; font-size: 1rem; margin-bottom: 20px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                This spiral shows what the periodic table actually is: a single continuous accumulation of angular momentum quanta, from 1ħ (hydrogen) to 118ħ (oganesson). Each revolution completes a harmonic cycle. The traditional grid obscures this continuity by breaking it into disconnected rows and columns.
+            </p>
+            
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+                <canvas id="spiralCanvas" width="800" height="800" style="background: var(--card); border-radius: 10px; border: 2px solid var(--border); cursor: crosshair;"></canvas>
+                
+                <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap; justify-content: center;">
+                    <button id="playButton" style="background: var(--accent-gold); color: var(--bg); border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-family: inherit;">
+                        ▶️ Play Accumulation
+                    </button>
+                    
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <label for="spiralSpeed" style="color: var(--text);">Speed:</label>
+                        <input type="range" id="spiralSpeed" min="0.5" max="5" step="0.5" value="2" style="width: 100px;">
+                        <span id="speedValue">2x</span>
+                    </div>
+                    
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <label for="zoomSlider" style="color: var(--text);">Zoom:</label>
+                        <input type="range" id="zoomSlider" min="0.5" max="3" step="0.1" value="1" style="width: 100px;">
+                        <span id="zoomValue">1.0x</span>
+                    </div>
+                </div>
+                
+                <div id="spiralInfo" style="text-align: center; margin-top: 20px; padding: 20px; background: var(--card); border-radius: 10px; max-width: 600px; border: 2px solid var(--border);">
+                    <h3 id="spiralElementTitle">Click any element to explore</h3>
+                    <p id="spiralElementDescription">The spiral begins at the center with hydrogen (1ħ) and winds outward as angular momentum accumulates. Noble gases mark the completion of each harmonic cycle at the 12 o'clock position.</p>
+                    <div id="spiralVortexConfig" style="font-family: monospace; margin-top: 10px;">
+                        <strong>Mode Structure:</strong> Seven complete turns representing the seven harmonic modes<br>
+                        <strong>Noble Gas Positions:</strong> Always at 12:00 (completion axis)<br>
+                        <strong>Alkali Positions:</strong> Always at 12:01 (new cycle beginning)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 3: Vortex Model Interactive -->
         <div id="vortex" class="tab-content">
             <h2 style="text-align: center; color: var(--accent-gold); margin-bottom: 10px;">
                 The Same Vortex, Accumulated ħ
@@ -784,6 +881,370 @@
 
         let selectedElement = elements[0];
         let currentTheme = 'dark';
+        
+        // Spiral visualization state
+        let spiralCanvas, spiralCtx;
+        let spiralZoom = 1;
+        let spiralAnimation = null;
+        let animationIndex = 0;
+        let spiralElements = []; // Array to store element positions and data
+
+        // Define the harmonic cycles for the spiral
+        const harmonicCycles = [
+            { start: 1, end: 2, elements: 2, mode: 1 },     // H → He
+            { start: 3, end: 10, elements: 8, mode: 2 },    // Li → Ne
+            { start: 11, end: 18, elements: 8, mode: 3 },   // Na → Ar
+            { start: 19, end: 36, elements: 18, mode: 4 },  // K → Kr
+            { start: 37, end: 54, elements: 18, mode: 5 },  // Rb → Xe
+            { start: 55, end: 86, elements: 32, mode: 6 },  // Cs → Rn
+            { start: 87, end: 118, elements: 32, mode: 7 }  // Fr → Og
+        ];
+
+        function calculateSpiralPosition(elementN, canvasWidth, canvasHeight) {
+            const centerX = canvasWidth / 2;
+            const centerY = canvasHeight / 2;
+            const maxRadius = Math.min(canvasWidth, canvasHeight) * 0.4;
+            
+            // Find which harmonic cycle this element belongs to
+            const cycle = harmonicCycles.find(c => elementN >= c.start && elementN <= c.end);
+            if (!cycle) return { x: centerX, y: centerY };
+            
+            // Position within this cycle (0 to 1)
+            const positionInCycle = (elementN - cycle.start) / cycle.elements;
+            
+            // Radius increases with each mode (harmonic complexity)
+            const radius = (cycle.mode / 7) * maxRadius;
+            
+            // Angle: noble gases are at 12 o'clock (top), others distributed around
+            // Noble gases (last element in each cycle) are at angle 0 (12 o'clock)
+            // First element (alkalis) are at just past 0 (12:01)
+            const baseAngle = -Math.PI / 2; // Start at 12 o'clock
+            const fullRotation = 2 * Math.PI;
+            const angle = baseAngle + (positionInCycle * fullRotation);
+            
+            const x = centerX + radius * Math.cos(angle) * spiralZoom;
+            const y = centerY + radius * Math.sin(angle) * spiralZoom;
+            
+            return { x, y, cycle: cycle.mode, angle, radius };
+        }
+
+        function getElementTypeColor(type) {
+            const colors = {
+                'alkali': '#ff6b6b',
+                'alkaline': '#ffa726', 
+                'transition': '#42a5f5',
+                'metalloid': '#66bb6a',
+                'nonmetal': '#ab47bc',
+                'halogen': '#ec407a',
+                'noble': '#c9a84c',
+                'lanthanide': '#26c6da',
+                'actinide': '#ef5350'
+            };
+            return colors[type] || '#888888';
+        }
+
+        function initSpiralCanvas() {
+            spiralCanvas = document.getElementById('spiralCanvas');
+            if (!spiralCanvas) return;
+            
+            spiralCtx = spiralCanvas.getContext('2d');
+            
+            // Set up event listeners
+            spiralCanvas.addEventListener('click', handleSpiralClick);
+            spiralCanvas.addEventListener('wheel', handleSpiralZoom);
+            
+            // Initialize controls
+            const playButton = document.getElementById('playButton');
+            const speedSlider = document.getElementById('spiralSpeed');
+            const zoomSlider = document.getElementById('zoomSlider');
+            
+            if (playButton) {
+                playButton.addEventListener('click', toggleSpiralAnimation);
+            }
+            
+            if (speedSlider) {
+                speedSlider.addEventListener('input', (e) => {
+                    const speed = e.target.value;
+                    document.getElementById('speedValue').textContent = speed + 'x';
+                });
+            }
+            
+            if (zoomSlider) {
+                zoomSlider.addEventListener('input', (e) => {
+                    spiralZoom = parseFloat(e.target.value);
+                    document.getElementById('zoomValue').textContent = spiralZoom.toFixed(1) + 'x';
+                    drawSpiral();
+                });
+            }
+            
+            // Initial draw
+            drawSpiral();
+        }
+
+        function drawSpiral() {
+            if (!spiralCanvas || !spiralCtx) return;
+            
+            const width = spiralCanvas.width;
+            const height = spiralCanvas.height;
+            const centerX = width / 2;
+            const centerY = height / 2;
+            
+            // Clear canvas
+            spiralCtx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--card').trim();
+            spiralCtx.fillRect(0, 0, width, height);
+            
+            // Reset spiralElements array
+            spiralElements = [];
+            
+            // Draw mode labels around the perimeter
+            drawModeLabels();
+            
+            // Draw spiral path
+            drawSpiralPath();
+            
+            // Draw radial lines to noble gases (completion axis)
+            drawNobleGasLines();
+            
+            // Draw elements
+            elements.forEach((element, index) => {
+                const pos = calculateSpiralPosition(element.n, width, height);
+                spiralElements.push({
+                    element,
+                    x: pos.x,
+                    y: pos.y,
+                    cycle: pos.cycle,
+                    visible: spiralAnimation === null || index <= animationIndex
+                });
+                
+                if (spiralAnimation === null || index <= animationIndex) {
+                    drawSpiralElement(element, pos.x, pos.y);
+                }
+            });
+            
+            // Draw explanatory text
+            drawSpiralText();
+        }
+
+        function drawModeLabels() {
+            const width = spiralCanvas.width;
+            const height = spiralCanvas.height;
+            const centerX = width / 2;
+            const centerY = height / 2;
+            const maxRadius = Math.min(width, height) * 0.4;
+            
+            spiralCtx.font = '14px Georgia';
+            spiralCtx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--accent-blue').trim();
+            
+            harmonicCycles.forEach(cycle => {
+                const radius = (cycle.mode / 7) * maxRadius * spiralZoom + 20;
+                const x = centerX + radius * Math.cos(-Math.PI / 2);
+                const y = centerY + radius * Math.sin(-Math.PI / 2);
+                
+                spiralCtx.textAlign = 'center';
+                spiralCtx.fillText(`Mode ${cycle.mode}`, x, y - 10);
+            });
+        }
+
+        function drawSpiralPath() {
+            const width = spiralCanvas.width;
+            const height = spiralCanvas.height;
+            const centerX = width / 2;
+            const centerY = height / 2;
+            const maxRadius = Math.min(width, height) * 0.4;
+            
+            spiralCtx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--border').trim();
+            spiralCtx.lineWidth = 1;
+            spiralCtx.setLineDash([3, 3]);
+            
+            harmonicCycles.forEach(cycle => {
+                const radius = (cycle.mode / 7) * maxRadius * spiralZoom;
+                
+                spiralCtx.beginPath();
+                spiralCtx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+                spiralCtx.stroke();
+            });
+            
+            spiralCtx.setLineDash([]);
+        }
+
+        function drawNobleGasLines() {
+            const width = spiralCanvas.width;
+            const height = spiralCanvas.height;
+            const centerX = width / 2;
+            const centerY = height / 2;
+            const maxRadius = Math.min(width, height) * 0.4;
+            
+            spiralCtx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--accent-gold').trim();
+            spiralCtx.lineWidth = 1;
+            spiralCtx.setLineDash([5, 5]);
+            spiralCtx.globalAlpha = 0.5;
+            
+            // Draw line from center to top (12 o'clock) - the completion axis
+            spiralCtx.beginPath();
+            spiralCtx.moveTo(centerX, centerY);
+            spiralCtx.lineTo(centerX, centerY - maxRadius * spiralZoom);
+            spiralCtx.stroke();
+            
+            spiralCtx.setLineDash([]);
+            spiralCtx.globalAlpha = 1;
+        }
+
+        function drawSpiralElement(element, x, y) {
+            const radius = element.type === 'noble' ? 6 : 4;
+            
+            // Draw element dot
+            spiralCtx.beginPath();
+            spiralCtx.arc(x, y, radius, 0, 2 * Math.PI);
+            spiralCtx.fillStyle = getElementTypeColor(element.type);
+            spiralCtx.fill();
+            
+            // Add border for selected element
+            if (element.n === selectedElement.n) {
+                spiralCtx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--accent-gold').trim();
+                spiralCtx.lineWidth = 2;
+                spiralCtx.stroke();
+            }
+            
+            // Draw element symbol
+            spiralCtx.font = '10px Georgia';
+            spiralCtx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--text').trim();
+            spiralCtx.textAlign = 'center';
+            spiralCtx.fillText(element.symbol, x, y + radius + 12);
+        }
+
+        function drawSpiralText() {
+            const width = spiralCanvas.width;
+            
+            spiralCtx.font = '12px Georgia';
+            spiralCtx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--text').trim();
+            spiralCtx.textAlign = 'center';
+            
+            const text = "Continuous accumulation: 1ħ → 118ħ";
+            spiralCtx.fillText(text, width / 2, 30);
+        }
+
+        function handleSpiralClick(event) {
+            const rect = spiralCanvas.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+            
+            // Scale coordinates for canvas resolution
+            const scaleX = spiralCanvas.width / rect.width;
+            const scaleY = spiralCanvas.height / rect.height;
+            const canvasX = x * scaleX;
+            const canvasY = y * scaleY;
+            
+            // Find clicked element
+            for (let spiralEl of spiralElements) {
+                if (!spiralEl.visible) continue;
+                
+                const distance = Math.sqrt(
+                    Math.pow(canvasX - spiralEl.x, 2) + 
+                    Math.pow(canvasY - spiralEl.y, 2)
+                );
+                
+                if (distance <= 15) { // Click tolerance
+                    selectSpiralElement(spiralEl.element);
+                    break;
+                }
+            }
+        }
+
+        function handleSpiralZoom(event) {
+            event.preventDefault();
+            const delta = event.deltaY > 0 ? -0.1 : 0.1;
+            spiralZoom = Math.max(0.5, Math.min(3, spiralZoom + delta));
+            
+            // Update zoom slider
+            const zoomSlider = document.getElementById('zoomSlider');
+            if (zoomSlider) {
+                zoomSlider.value = spiralZoom;
+                document.getElementById('zoomValue').textContent = spiralZoom.toFixed(1) + 'x';
+            }
+            
+            drawSpiral();
+        }
+
+        function selectSpiralElement(element) {
+            selectedElement = element;
+            
+            // Update spiral display
+            drawSpiral();
+            
+            // Update info panel
+            updateSpiralInfo();
+            
+            // Sync with other tabs
+            const elementSelector = document.getElementById('elementSelector');
+            if (elementSelector) {
+                elementSelector.value = element.n;
+            }
+            updateVortexDisplay();
+        }
+
+        function updateSpiralInfo() {
+            const titleEl = document.getElementById('spiralElementTitle');
+            const descEl = document.getElementById('spiralElementDescription');
+            const configEl = document.getElementById('spiralVortexConfig');
+            
+            if (titleEl) {
+                titleEl.textContent = `${selectedElement.name} (${selectedElement.n}ħ)`;
+            }
+            
+            if (descEl) {
+                descEl.textContent = selectedElement.description;
+            }
+            
+            if (configEl) {
+                const cycle = harmonicCycles.find(c => selectedElement.n >= c.start && selectedElement.n <= c.end);
+                const position = cycle ? selectedElement.n - cycle.start + 1 : 1;
+                const total = cycle ? cycle.elements : 1;
+                
+                configEl.innerHTML = `
+                    <strong>Harmonic Mode:</strong> ${cycle ? cycle.mode : 1}<br>
+                    <strong>Position in Cycle:</strong> ${position}/${total}<br>
+                    <strong>Angular Momentum:</strong> ${selectedElement.n}ħ<br>
+                    <strong>Configuration:</strong> ${selectedElement.vortexConfig}
+                `;
+            }
+        }
+
+        function toggleSpiralAnimation() {
+            const playButton = document.getElementById('playButton');
+            
+            if (spiralAnimation) {
+                // Stop animation
+                clearInterval(spiralAnimation);
+                spiralAnimation = null;
+                animationIndex = 0;
+                if (playButton) {
+                    playButton.textContent = '▶️ Play Accumulation';
+                }
+                drawSpiral();
+            } else {
+                // Start animation
+                animationIndex = 0;
+                const speed = parseFloat(document.getElementById('spiralSpeed')?.value || 2);
+                const delay = 1000 / (speed * 2); // Adjust timing
+                
+                if (playButton) {
+                    playButton.textContent = '⏸️ Pause';
+                }
+                
+                spiralAnimation = setInterval(() => {
+                    animationIndex++;
+                    drawSpiral();
+                    
+                    if (animationIndex >= elements.length - 1) {
+                        clearInterval(spiralAnimation);
+                        spiralAnimation = null;
+                        if (playButton) {
+                            playButton.textContent = '▶️ Play Accumulation';
+                        }
+                    }
+                }, delay);
+            }
+        }
 
         function toggleTheme() {
             currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
@@ -791,6 +1252,9 @@
             document.querySelector('.theme-toggle').textContent = currentTheme === 'dark' ? '☀️ Light' : '🌙 Dark';
             if (document.getElementById('forceChart')) {
                 drawForceChart();
+            }
+            if (spiralCanvas) {
+                drawSpiral();
             }
         }
 
@@ -814,6 +1278,8 @@
             // Initialize tab-specific content
             if (tabName === 'forces') {
                 setTimeout(drawForceChart, 100);
+            } else if (tabName === 'spiral') {
+                setTimeout(initSpiralCanvas, 100);
             }
         }
 
@@ -988,13 +1454,21 @@
             
             // Update visual selection in table
             document.querySelectorAll('.element').forEach(el => el.classList.remove('selected'));
-            event.currentTarget.classList.add('selected');
+            if (event && event.currentTarget) {
+                event.currentTarget.classList.add('selected');
+            }
             
             // Update vortex display
             updateVortexDisplay();
             
             // Update element selector
             document.getElementById('elementSelector').value = element.n;
+            
+            // Update spiral display if canvas exists
+            if (spiralCanvas) {
+                drawSpiral();
+                updateSpiralInfo();
+            }
         }
 
         function generateElementSelector() {
