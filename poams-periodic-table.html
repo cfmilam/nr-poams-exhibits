@@ -1083,25 +1083,21 @@
                 canvas.height = 96;
                 const ctx = canvas.getContext('2d');
                 
-                // Draw element background
+                // Draw element background with rounded corners
                 const color = getElementTypeColor(element.type);
+                const cornerRadius = 10;
                 ctx.fillStyle = color;
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
-                
-                // Draw rounded corners effect
-                ctx.globalCompositeOperation = 'destination-out';
-                const cornerRadius = 8;
-                // Top-left
                 ctx.beginPath();
-                ctx.arc(cornerRadius, cornerRadius, cornerRadius, Math.PI, 1.5 * Math.PI);
-                ctx.arc(canvas.width - cornerRadius, cornerRadius, cornerRadius, 1.5 * Math.PI, 0);
-                ctx.arc(canvas.width - cornerRadius, canvas.height - cornerRadius, cornerRadius, 0, 0.5 * Math.PI);
-                ctx.arc(cornerRadius, canvas.height - cornerRadius, cornerRadius, 0.5 * Math.PI, Math.PI);
+                ctx.moveTo(cornerRadius, 0);
+                ctx.lineTo(canvas.width - cornerRadius, 0);
+                ctx.quadraticCurveTo(canvas.width, 0, canvas.width, cornerRadius);
+                ctx.lineTo(canvas.width, canvas.height - cornerRadius);
+                ctx.quadraticCurveTo(canvas.width, canvas.height, canvas.width - cornerRadius, canvas.height);
+                ctx.lineTo(cornerRadius, canvas.height);
+                ctx.quadraticCurveTo(0, canvas.height, 0, canvas.height - cornerRadius);
+                ctx.lineTo(0, cornerRadius);
+                ctx.quadraticCurveTo(0, 0, cornerRadius, 0);
                 ctx.closePath();
-                ctx.fill();
-                
-                ctx.globalCompositeOperation = 'source-over';
-                ctx.fillStyle = color;
                 ctx.fill();
                 
                 // Draw element symbol (white, bold)
@@ -1129,10 +1125,7 @@
                 const elementMesh = new THREE.Mesh(boxGeometry, materials);
                 elementMesh.position.set(pos.x, pos.y, pos.z);
                 
-                // Billboard effect - always face camera
-                elementMesh.lookAt = function() {
-                    this.lookAt(spiral3D.camera.position);
-                };
+                // Billboard handled in render loop
                 
                 // Store element data
                 elementMesh.userData = {
@@ -1145,8 +1138,9 @@
                 spiral3D.elementMeshes.push(elementMesh);
                 spiral3D.scene.add(elementMesh);
                 
-                // Initially hide elements for animation
-                elementMesh.visible = false;
+                // Start visible (animation will hide/reveal them if played)
+                elementMesh.visible = true;
+                elementMesh.userData.visible = true;
             }
         }
         
