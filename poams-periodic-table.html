@@ -477,9 +477,13 @@
 
         <!-- Tab 2: Vortex Model Interactive -->
         <div id="vortex" class="tab-content">
-            <h2 style="text-align: center; color: var(--accent-gold); margin-bottom: 20px;">
-                Interactive Vortex Structure
+            <h2 style="text-align: center; color: var(--accent-gold); margin-bottom: 10px;">
+                The Same Vortex, Accumulated ħ
             </h2>
+            <p style="text-align: center; font-size: 1rem; margin-bottom: 20px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Watch the fundamental hydrogen vortex grow as it accumulates angular momentum. 
+                Same phenomenon, different intensities — like watching a hurricane strengthen from Category 1 to Category 5.
+            </p>
             
             <div class="vortex-container">
                 <div class="vortex-display" id="vortexDisplay">
@@ -501,11 +505,11 @@
                 
                 <div id="vortexInfo" style="text-align: center; margin-top: 20px; padding: 20px; background: var(--card); border-radius: 10px; max-width: 600px;">
                     <h3 id="elementTitle">Hydrogen (n=1)</h3>
-                    <p id="elementDescription">The simplest vortex: a single quantum of angular momentum ħ in its ground harmonic mode. The eyewall forms at the characteristic Bohr radius, representing the fundamental scale of angular momentum quantization.</p>
+                    <p id="elementDescription">The fundamental unit: one quantum of angular momentum ħ. This is the only true element — everything else is accumulated versions of this.</p>
                     <div id="vortexConfig" style="font-family: monospace; margin-top: 10px;">
+                        <strong>Accumulated ħ Count:</strong> 1<br>
                         <strong>Harmonic Configuration:</strong> Mode 1: 1ħ<br>
-                        <strong>Angular Momentum Density:</strong> 1.008 units<br>
-                        <strong>Vortex Stability:</strong> Minimally stable
+                        <strong>Angular Momentum Density:</strong> 1.008 units
                     </div>
                 </div>
             </div>
@@ -515,17 +519,26 @@
         <div id="explanation" class="tab-content">
             <div class="explanation-content">
                 <h2 style="text-align: center; color: var(--accent-gold); margin-bottom: 30px;">
-                    Why This Table? The POAMS Framework
+                    The Central Truth: There Is Only Atomic Hydrogen
                 </h2>
                 
+                <div style="margin-bottom: 40px; padding: 25px; background: var(--card); border-radius: 10px; border-left: 5px solid var(--accent-gold);">
+                    <p style="font-size: 1.1rem; margin-bottom: 20px;"><strong>There is only atomic hydrogen, meaning there is only 1ħ. Everything else is increasingly complex systems of angular momentum.</strong></p>
+                    
+                    <p>The periodic table is not a catalog of 118 different substances. It is a <strong>COUNT</strong> — 1 through 118 — of accumulated ħ quanta. Hydrogen is the only element. Helium is two hydrogens' worth of angular momentum in one vortex. Carbon is six hydrogens' worth. Gold is seventy-nine hydrogens' worth.</p>
+                    
+                    <p>When the fundamental vortex phenomenon accumulates enough ħ to express itself differently, we give it a new name. Like hurricane categories — same phenomenon, different intensity, different behavior at different scales.</p>
+                </div>
+
                 <div style="margin-bottom: 40px;">
                     <h3 style="color: var(--accent-blue);">The Hurricane Analogy</h3>
-                    <p>Every atom is a hurricane of angular momentum. Like a hurricane, it has three distinct regions:</p>
+                    <p>Every "atom" is a hurricane of angular momentum — but they're all the same hurricane, just with different amounts of accumulated action:</p>
                     <ul style="margin: 15px 0; padding-left: 20px;">
                         <li><strong>The Eye:</strong> An empty barycenter where forces cancel. No dense nucleus exists here.</li>
                         <li><strong>The Eyewall:</strong> A ring of concentrated angular momentum creating immense forces — what we conventionally call "strong force."</li>
                         <li><strong>Outer Circulation:</strong> Extended harmonic modes that interact with other vortices — conventional "electromagnetic" interactions.</li>
                     </ul>
+                    <p>A Category 1 hurricane and Category 5 hurricane are the same phenomenon with different energy levels. Hydrogen and uranium are the same vortex with different ħ counts.</p>
                 </div>
 
                 <h3 style="color: var(--accent-blue); text-align: center; margin: 30px 0;">Standard Model vs POAMS Interpretation</h3>
@@ -563,13 +576,15 @@
                 </div>
 
                 <div style="margin: 40px 0;">
-                    <h3 style="color: var(--accent-blue);">Chemistry as Vortex Mechanics</h3>
-                    <p>Chemical bonding becomes the interaction of two vortices finding a lower-energy combined configuration. The "electron sharing" formalism dissolves into the reality of vortex resonance coupling.</p>
+                    <h3 style="color: var(--accent-blue);">Chemistry as Vortex Coupling</h3>
+                    <p>Chemical bonding becomes multiple hydrogen-equivalents (accumulated ħ systems) finding lower-energy combined configurations. Two "carbon atoms" are really twelve hydrogens worth of angular momentum organizing into coupled vortex pairs.</p>
                     
                     <div class="math-display">
                         <p><strong>Fundamental Relationship:</strong></p>
-                        $$L = n\hbar \text{ where } L \text{ is total angular momentum and } n \text{ is the vortex quantum number}$$
-                        <p style="margin-top: 10px;">Each element represents a stable configuration of quantized angular momentum, not a collection of separate particles.</p>
+                        $$L = n\hbar \text{ where } n \text{ counts accumulated hydrogen units}$$
+                        <p style="margin-top: 10px;"><strong>n = 1:</strong> Hydrogen (the only element)<br>
+                        <strong>n = 6:</strong> Six hydrogens worth in one vortex (called "carbon")<br>
+                        <strong>n = 26:</strong> Twenty-six hydrogens worth in one vortex (called "iron")</p>
                     </div>
                 </div>
 
@@ -645,41 +660,126 @@
     </div>
 
     <script>
-        // Element data with POAMS interpretations
+        // Element data with POAMS interpretations - ALL 118 ELEMENTS
         const elements = [
-            {n: 1, symbol: 'H', name: 'Hydrogen', vortexConfig: 'Mode 1: 1ħ', density: 1.008, type: 'nonmetal', description: 'The simplest vortex: a single quantum of angular momentum ħ in its ground harmonic mode. The eyewall forms at the characteristic Bohr radius.'},
-            {n: 2, symbol: 'He', name: 'Helium', vortexConfig: 'Mode 1: 2ħ', density: 4.003, type: 'noble', description: 'First complete harmonic configuration. Two ħ quanta in perfect opposition create the first stable, non-reactive vortex state.'},
-            {n: 3, symbol: 'Li', name: 'Lithium', vortexConfig: 'Mode 1: 2ħ | Mode 2: 1ħ', density: 6.941, type: 'alkali', description: 'One excess ħ quantum beyond the complete Mode 1 configuration. Highly reactive due to single unpaired quantum.'},
-            {n: 4, symbol: 'Be', name: 'Beryllium', vortexConfig: 'Mode 1: 2ħ | Mode 2: 2ħ', density: 9.012, type: 'alkaline', description: 'Two complete harmonic modes. Moderately stable but can still participate in vortex coupling.'},
-            {n: 5, symbol: 'B', name: 'Boron', vortexConfig: 'Mode 1: 2ħ | Mode 2: 3ħ', density: 10.811, type: 'metalloid', description: 'Beginning of Mode 2 triadic harmonics. Shows transitional behavior between vortex coupling patterns.'},
-            {n: 6, symbol: 'C', name: 'Carbon', vortexConfig: 'Mode 1: 2ħ | Mode 2: 4ħ', density: 12.011, type: 'nonmetal', description: 'Half-filled Mode 2 allows maximum coupling flexibility. Foundation of complex vortex chemistry.'},
-            {n: 7, symbol: 'N', name: 'Nitrogen', vortexConfig: 'Mode 1: 2ħ | Mode 2: 5ħ', density: 14.007, type: 'nonmetal', description: 'Five quanta in Mode 2 create triple-coupling capability. Highly stable when self-coupled.'},
-            {n: 8, symbol: 'O', name: 'Oxygen', vortexConfig: 'Mode 1: 2ħ | Mode 2: 6ħ', density: 15.999, type: 'nonmetal', description: 'Two quanta short of Mode 2 completion. Aggressively couples with other vortices to achieve stability.'},
-            {n: 9, symbol: 'F', name: 'Fluorine', vortexConfig: 'Mode 1: 2ħ | Mode 2: 7ħ', density: 18.998, type: 'halogen', description: 'One quantum from complete Mode 2. Most reactive configuration - desperately seeks completion.'},
-            {n: 10, symbol: 'Ne', name: 'Neon', vortexConfig: 'Mode 1: 2ħ | Mode 2: 8ħ', density: 20.180, type: 'noble', description: 'Complete harmonic configuration through Mode 2. Perfect vortex stability - no coupling tendency.'},
-            {n: 11, symbol: 'Na', name: 'Sodium', vortexConfig: 'Mode 1: 2ħ | Mode 2: 8ħ | Mode 3: 1ħ', density: 22.990, type: 'alkali', description: 'Single excess quantum begins Mode 3. Easily released due to distance from completed inner modes.'},
-            {n: 12, symbol: 'Mg', name: 'Magnesium', vortexConfig: 'Mode 1: 2ħ | Mode 2: 8ħ | Mode 3: 2ħ', density: 24.305, type: 'alkaline', description: 'Two quanta in outer Mode 3. More stable than alkali but still readily couples.'},
-            {n: 13, symbol: 'Al', name: 'Aluminum', vortexConfig: 'Mode 1: 2ħ | Mode 2: 8ħ | Mode 3: 3ħ', density: 26.982, type: 'metalloid', description: 'Triadic harmonic in Mode 3. Shows metallic coupling but retains some covalent character.'},
-            {n: 14, symbol: 'Si', name: 'Silicon', vortexConfig: 'Mode 1: 2ħ | Mode 2: 8ħ | Mode 3: 4ħ', density: 28.086, type: 'metalloid', description: 'Half-filled Mode 3. Perfect balance between metallic and covalent vortex coupling.'},
-            {n: 15, symbol: 'P', name: 'Phosphorus', vortexConfig: 'Mode 1: 2ħ | Mode 2: 8ħ | Mode 3: 5ħ', density: 30.974, type: 'nonmetal', description: 'Five quanta allow multiple coupling geometries. Versatile vortex chemistry similar to nitrogen.'},
-            {n: 16, symbol: 'S', name: 'Sulfur', vortexConfig: 'Mode 1: 2ħ | Mode 2: 8ħ | Mode 3: 6ħ', density: 32.065, type: 'nonmetal', description: 'Two short of Mode 3 completion. Active coupling tendency but less aggressive than oxygen.'},
-            {n: 17, symbol: 'Cl', name: 'Chlorine', vortexConfig: 'Mode 1: 2ħ | Mode 2: 8ħ | Mode 3: 7ħ', density: 35.453, type: 'halogen', description: 'One quantum from Mode 3 completion. Strong coupling drive but larger than fluorine.'},
-            {n: 18, symbol: 'Ar', name: 'Argon', vortexConfig: 'Mode 1: 2ħ | Mode 2: 8ħ | Mode 3: 8ħ', density: 39.948, type: 'noble', description: 'Complete configuration through Mode 3. Stable vortex with no coupling tendency.'},
-            // Adding key elements from each period to get to 118
-            {n: 19, symbol: 'K', name: 'Potassium', vortexConfig: 'Mode 1-3: 18ħ | Mode 4: 1ħ', density: 39.098, type: 'alkali', description: 'Single quantum in distant Mode 4. Even more reactive than sodium due to increased separation.'},
-            {n: 20, symbol: 'Ca', name: 'Calcium', vortexConfig: 'Mode 1-3: 18ħ | Mode 4: 2ħ', density: 40.078, type: 'alkaline', description: 'Two quanta in Mode 4. Active coupling but more controlled than potassium.'},
-            // Transition metals start complex d-mode harmonics
-            {n: 21, symbol: 'Sc', name: 'Scandium', vortexConfig: 'Mode 1-3: 18ħ | Mode d: 1ħ | Mode 4: 2ħ', density: 44.956, type: 'transition', description: 'First element with inner d-harmonic filling. Complex vortex structure begins.'},
-            {n: 26, symbol: 'Fe', name: 'Iron', vortexConfig: 'Mode 1-3: 18ħ | Mode d: 6ħ | Mode 4: 2ħ', density: 55.845, type: 'transition', description: 'Half-filled d-harmonics create exceptional coupling versatility. Multiple oxidation modes possible.'},
-            {n: 29, symbol: 'Cu', name: 'Copper', vortexConfig: 'Mode 1-3: 18ħ | Mode d: 10ħ | Mode 4: 1ħ', density: 63.546, type: 'transition', description: 'Filled d-harmonics with single s-quantum. Excellent coupling conductor.'},
-            {n: 30, symbol: 'Zn', name: 'Zinc', vortexConfig: 'Mode 1-3: 18ħ | Mode d: 10ħ | Mode 4: 2ħ', density: 65.38, type: 'transition', description: 'Complete d-harmonics. Less coupling versatility than other transition elements.'},
-            // Continue pattern through periods
-            {n: 36, symbol: 'Kr', name: 'Krypton', vortexConfig: 'Mode 1-4: 36ħ complete', density: 83.798, type: 'noble', description: 'Complete harmonic configuration through Mode 4. Larger but stable vortex.'},
-            {n: 54, symbol: 'Xe', name: 'Xenon', vortexConfig: 'Mode 1-5: 54ħ complete', density: 131.29, type: 'noble', description: 'Complete configuration through Mode 5. Large enough to show some coupling under extreme conditions.'},
-            {n: 79, symbol: 'Au', name: 'Gold', vortexConfig: 'Complex f,d,s harmonics', density: 196.97, type: 'transition', description: 'Highly complex vortex with filled f-harmonics. Extremely stable coupling configuration.'},
-            {n: 86, symbol: 'Rn', name: 'Radon', vortexConfig: 'Mode 1-6: 86ħ complete', density: 222, type: 'noble', description: 'Complete configuration through Mode 6. So large that vortex becomes unstable.'},
-            {n: 92, symbol: 'U', name: 'Uranium', vortexConfig: 'Complex f-harmonic series', density: 238.03, type: 'actinide', description: 'Highly complex f-harmonic patterns. Vortex barely stable against decay.'},
-            {n: 118, symbol: 'Og', name: 'Oganesson', vortexConfig: 'Mode 1-7: 118ħ complete', density: 294, type: 'noble', description: 'Predicted complete configuration. Vortex likely too large to maintain coherence.'}
+            {n: 1, symbol: 'H', name: 'Hydrogen', vortexConfig: 'Mode 1: 1ħ', density: 1.008, type: 'nonmetal', description: 'The fundamental unit: one quantum of angular momentum ħ. This is the only true element — everything else is accumulated versions of this.'},
+            {n: 2, symbol: 'He', name: 'Helium', vortexConfig: 'Mode 1: 2ħ', density: 4.003, type: 'noble', description: 'Two hydrogens worth of angular momentum (2ħ) in one vortex. Complete harmonic fills the first mode — stable configuration.'},
+            {n: 3, symbol: 'Li', name: 'Lithium', vortexConfig: 'Mode 1: 2ħ | Mode 2: 1ħ', density: 6.941, type: 'alkali', description: 'Three hydrogens worth of angular momentum (3ħ). Two fill the first mode, one begins the second — highly reactive due to incomplete outer mode.'},
+            {n: 4, symbol: 'Be', name: 'Beryllium', vortexConfig: 'Mode 1: 2ħ | Mode 2: 2ħ', density: 9.012, type: 'alkaline', description: 'Four hydrogens worth of angular momentum (4ħ). Two modes filled completely — more stable than lithium but still reactive.'},
+            {n: 5, symbol: 'B', name: 'Boron', vortexConfig: 'Mode 1: 2ħ | Mode 2: 3ħ', density: 10.811, type: 'metalloid', description: 'Five hydrogens worth (5ħ). Begins complex triadic harmonics in second mode — transitional coupling behavior.'},
+            {n: 6, symbol: 'C', name: 'Carbon', vortexConfig: 'Mode 1: 2ħ | Mode 2: 4ħ', density: 12.011, type: 'nonmetal', description: 'Six hydrogens worth (6ħ). Half-filled second mode creates maximum coupling flexibility — the foundation of complex chemistry.'},
+            {n: 7, symbol: 'N', name: 'Nitrogen', vortexConfig: 'Mode 1: 2ħ | Mode 2: 5ħ', density: 14.007, type: 'nonmetal', description: 'Seven hydrogens worth (7ħ). Five quanta in Mode 2 create triple-coupling capability. Highly stable when self-coupled.'},
+            {n: 8, symbol: 'O', name: 'Oxygen', vortexConfig: 'Mode 1: 2ħ | Mode 2: 6ħ', density: 15.999, type: 'nonmetal', description: 'Eight hydrogens worth (8ħ). Two quanta short of Mode 2 completion. Aggressively couples with other vortices to achieve stability.'},
+            {n: 9, symbol: 'F', name: 'Fluorine', vortexConfig: 'Mode 1: 2ħ | Mode 2: 7ħ', density: 18.998, type: 'halogen', description: 'Nine hydrogens worth (9ħ). One quantum from complete Mode 2. Most reactive configuration - desperately seeks completion.'},
+            {n: 10, symbol: 'Ne', name: 'Neon', vortexConfig: 'Mode 1: 2ħ | Mode 2: 8ħ', density: 20.180, type: 'noble', description: 'Ten hydrogens worth (10ħ). Complete configuration through second mode creates perfect stability — no coupling tendency.'},
+            {n: 11, symbol: 'Na', name: 'Sodium', vortexConfig: 'Mode 1: 2ħ | Mode 2: 8ħ | Mode 3: 1ħ', density: 22.990, type: 'alkali', description: 'Eleven hydrogens worth (11ħ). Single excess quantum begins Mode 3. Easily released due to distance from completed inner modes.'},
+            {n: 12, symbol: 'Mg', name: 'Magnesium', vortexConfig: 'Mode 1: 2ħ | Mode 2: 8ħ | Mode 3: 2ħ', density: 24.305, type: 'alkaline', description: 'Twelve hydrogens worth (12ħ). Two quanta in outer Mode 3. More stable than alkali but still readily couples.'},
+            {n: 13, symbol: 'Al', name: 'Aluminum', vortexConfig: 'Mode 1: 2ħ | Mode 2: 8ħ | Mode 3: 3ħ', density: 26.982, type: 'metalloid', description: 'Thirteen hydrogens worth (13ħ). Triadic harmonic in Mode 3. Shows metallic coupling but retains some covalent character.'},
+            {n: 14, symbol: 'Si', name: 'Silicon', vortexConfig: 'Mode 1: 2ħ | Mode 2: 8ħ | Mode 3: 4ħ', density: 28.086, type: 'metalloid', description: 'Fourteen hydrogens worth (14ħ). Half-filled Mode 3. Perfect balance between metallic and covalent vortex coupling.'},
+            {n: 15, symbol: 'P', name: 'Phosphorus', vortexConfig: 'Mode 1: 2ħ | Mode 2: 8ħ | Mode 3: 5ħ', density: 30.974, type: 'nonmetal', description: 'Fifteen hydrogens worth (15ħ). Five quanta allow multiple coupling geometries. Versatile vortex chemistry similar to nitrogen.'},
+            {n: 16, symbol: 'S', name: 'Sulfur', vortexConfig: 'Mode 1: 2ħ | Mode 2: 8ħ | Mode 3: 6ħ', density: 32.065, type: 'nonmetal', description: 'Sixteen hydrogens worth (16ħ). Two short of Mode 3 completion. Active coupling tendency but less aggressive than oxygen.'},
+            {n: 17, symbol: 'Cl', name: 'Chlorine', vortexConfig: 'Mode 1: 2ħ | Mode 2: 8ħ | Mode 3: 7ħ', density: 35.453, type: 'halogen', description: 'Seventeen hydrogens worth (17ħ). One quantum from Mode 3 completion. Strong coupling drive but larger than fluorine.'},
+            {n: 18, symbol: 'Ar', name: 'Argon', vortexConfig: 'Mode 1: 2ħ | Mode 2: 8ħ | Mode 3: 8ħ', density: 39.948, type: 'noble', description: 'Eighteen hydrogens worth (18ħ). Complete configuration through Mode 3. Stable vortex with no coupling tendency.'},
+            {n: 19, symbol: 'K', name: 'Potassium', vortexConfig: 'Mode 1-3: 18ħ | Mode 4: 1ħ', density: 39.098, type: 'alkali', description: 'Nineteen hydrogens worth (19ħ). Single quantum in distant Mode 4. Even more reactive than sodium due to increased separation.'},
+            {n: 20, symbol: 'Ca', name: 'Calcium', vortexConfig: 'Mode 1-3: 18ħ | Mode 4: 2ħ', density: 40.078, type: 'alkaline', description: 'Twenty hydrogens worth (20ħ). Two quanta in Mode 4. Active coupling but more controlled than potassium.'},
+            {n: 21, symbol: 'Sc', name: 'Scandium', vortexConfig: 'Mode 1-3: 18ħ | Mode 3d: 1ħ | Mode 4: 2ħ', density: 44.956, type: 'transition', description: 'Twenty-one hydrogens worth (21ħ). First element with inner d-harmonic filling. Complex vortex structure begins.'},
+            {n: 22, symbol: 'Ti', name: 'Titanium', vortexConfig: 'Mode 1-3: 18ħ | Mode 3d: 2ħ | Mode 4: 2ħ', density: 47.867, type: 'transition', description: 'Twenty-two hydrogens worth (22ħ). Two d-harmonics begin complex inner coupling. Strong metallic behavior.'},
+            {n: 23, symbol: 'V', name: 'Vanadium', vortexConfig: 'Mode 1-3: 18ħ | Mode 3d: 3ħ | Mode 4: 2ħ', density: 50.942, type: 'transition', description: 'Twenty-three hydrogens worth (23ħ). Three d-harmonics create multiple coupling modes. Variable vortex configurations.'},
+            {n: 24, symbol: 'Cr', name: 'Chromium', vortexConfig: 'Mode 1-3: 18ħ | Mode 3d: 5ħ | Mode 4: 1ħ', density: 51.996, type: 'transition', description: 'Twenty-four hydrogens worth (24ħ). Half-filled d-harmonics create exceptional stability and hardness.'},
+            {n: 25, symbol: 'Mn', name: 'Manganese', vortexConfig: 'Mode 1-3: 18ħ | Mode 3d: 5ħ | Mode 4: 2ħ', density: 54.938, type: 'transition', description: 'Twenty-five hydrogens worth (25ħ). Half-filled d-configuration with two outer quanta. Highly variable coupling modes.'},
+            {n: 26, symbol: 'Fe', name: 'Iron', vortexConfig: 'Mode 1-3: 18ħ | Mode 3d: 6ħ | Mode 4: 2ħ', density: 55.845, type: 'transition', description: 'Twenty-six hydrogens worth (26ħ). Six d-harmonics create exceptional coupling versatility. Multiple oxidation modes possible.'},
+            {n: 27, symbol: 'Co', name: 'Cobalt', vortexConfig: 'Mode 1-3: 18ħ | Mode 3d: 7ħ | Mode 4: 2ħ', density: 58.933, type: 'transition', description: 'Twenty-seven hydrogens worth (27ħ). Seven d-harmonics approach filling. Strong ferromagnetic coupling capability.'},
+            {n: 28, symbol: 'Ni', name: 'Nickel', vortexConfig: 'Mode 1-3: 18ħ | Mode 3d: 8ħ | Mode 4: 2ħ', density: 58.693, type: 'transition', description: 'Twenty-eight hydrogens worth (28ħ). Eight d-harmonics near completion. Excellent metallic coupling properties.'},
+            {n: 29, symbol: 'Cu', name: 'Copper', vortexConfig: 'Mode 1-3: 18ħ | Mode 3d: 10ħ | Mode 4: 1ħ', density: 63.546, type: 'transition', description: 'Twenty-nine hydrogens worth (29ħ). Filled d-harmonics with single s-quantum. Excellent coupling conductor.'},
+            {n: 30, symbol: 'Zn', name: 'Zinc', vortexConfig: 'Mode 1-3: 18ħ | Mode 3d: 10ħ | Mode 4: 2ħ', density: 65.38, type: 'transition', description: 'Thirty hydrogens worth (30ħ). Complete d-harmonics. Less coupling versatility than other transition elements.'},
+            {n: 31, symbol: 'Ga', name: 'Gallium', vortexConfig: 'Mode 1-3: 18ħ | Mode 3d: 10ħ | Mode 4: 3ħ', density: 69.723, type: 'metalloid', description: 'Thirty-one hydrogens worth (31ħ). Filled d-modes with triadic outer configuration. Unusual metallic properties.'},
+            {n: 32, symbol: 'Ge', name: 'Germanium', vortexConfig: 'Mode 1-3: 18ħ | Mode 3d: 10ħ | Mode 4: 4ħ', density: 72.64, type: 'metalloid', description: 'Thirty-two hydrogens worth (32ħ). Half-filled outer mode with filled d-harmonics. Semiconductor behavior.'},
+            {n: 33, symbol: 'As', name: 'Arsenic', vortexConfig: 'Mode 1-3: 18ħ | Mode 3d: 10ħ | Mode 4: 5ħ', density: 74.922, type: 'metalloid', description: 'Thirty-three hydrogens worth (33ħ). Five outer quanta create complex coupling geometries. Variable behavior.'},
+            {n: 34, symbol: 'Se', name: 'Selenium', vortexConfig: 'Mode 1-3: 18ħ | Mode 3d: 10ħ | Mode 4: 6ħ', density: 78.96, type: 'nonmetal', description: 'Thirty-four hydrogens worth (34ħ). Two short of outer completion. Active but less aggressive than sulfur.'},
+            {n: 35, symbol: 'Br', name: 'Bromine', vortexConfig: 'Mode 1-3: 18ħ | Mode 3d: 10ħ | Mode 4: 7ħ', density: 79.904, type: 'halogen', description: 'Thirty-five hydrogens worth (35ħ). One quantum from completion. Strong reactivity but larger than chlorine.'},
+            {n: 36, symbol: 'Kr', name: 'Krypton', vortexConfig: 'Mode 1-4: 36ħ complete', density: 83.798, type: 'noble', description: 'Thirty-six hydrogens worth (36ħ). Complete harmonic configuration through Mode 4. Larger but stable vortex.'},
+            {n: 37, symbol: 'Rb', name: 'Rubidium', vortexConfig: 'Mode 1-4: 36ħ | Mode 5: 1ħ', density: 85.468, type: 'alkali', description: 'Thirty-seven hydrogens worth (37ħ). Single quantum in distant Mode 5. Extremely reactive due to large size.'},
+            {n: 38, symbol: 'Sr', name: 'Strontium', vortexConfig: 'Mode 1-4: 36ħ | Mode 5: 2ħ', density: 87.62, type: 'alkaline', description: 'Thirty-eight hydrogens worth (38ħ). Two quanta in outer Mode 5. More controlled than rubidium but still reactive.'},
+            {n: 39, symbol: 'Y', name: 'Yttrium', vortexConfig: 'Mode 1-4: 36ħ | Mode 4d: 1ħ | Mode 5: 2ħ', density: 88.906, type: 'transition', description: 'Thirty-nine hydrogens worth (39ħ). Begins second d-harmonic series. Complex inner structure emerges.'},
+            {n: 40, symbol: 'Zr', name: 'Zirconium', vortexConfig: 'Mode 1-4: 36ħ | Mode 4d: 2ħ | Mode 5: 2ħ', density: 91.224, type: 'transition', description: 'Forty hydrogens worth (40ħ). Two d-harmonics in second series. Very stable configuration.'},
+            {n: 41, symbol: 'Nb', name: 'Niobium', vortexConfig: 'Mode 1-4: 36ħ | Mode 4d: 4ħ | Mode 5: 1ħ', density: 92.906, type: 'transition', description: 'Forty-one hydrogens worth (41ħ). Four d-harmonics create unique coupling properties. Superconducting behavior.'},
+            {n: 42, symbol: 'Mo', name: 'Molybdenum', vortexConfig: 'Mode 1-4: 36ħ | Mode 4d: 5ħ | Mode 5: 1ħ', density: 95.96, type: 'transition', description: 'Forty-two hydrogens worth (42ħ). Half-filled d-harmonics with single outer quantum. High-temperature stability.'},
+            {n: 43, symbol: 'Tc', name: 'Technetium', vortexConfig: 'Mode 1-4: 36ħ | Mode 4d: 5ħ | Mode 5: 2ħ', density: 98, type: 'transition', description: 'Forty-three hydrogens worth (43ħ). Radioactive — vortex cannot maintain long-term stability at this configuration.'},
+            {n: 44, symbol: 'Ru', name: 'Ruthenium', vortexConfig: 'Mode 1-4: 36ħ | Mode 4d: 7ħ | Mode 5: 1ħ', density: 101.07, type: 'transition', description: 'Forty-four hydrogens worth (44ħ). Seven d-harmonics create exceptional chemical resistance. Noble-like behavior.'},
+            {n: 45, symbol: 'Rh', name: 'Rhodium', vortexConfig: 'Mode 1-4: 36ħ | Mode 4d: 8ħ | Mode 5: 1ħ', density: 102.906, type: 'transition', description: 'Forty-five hydrogens worth (45ħ). Eight d-harmonics approach completion. Excellent catalytic properties.'},
+            {n: 46, symbol: 'Pd', name: 'Palladium', vortexConfig: 'Mode 1-4: 36ħ | Mode 4d: 10ħ', density: 106.42, type: 'transition', description: 'Forty-six hydrogens worth (46ħ). Complete d-harmonics with no outer quanta. Unique absorption properties.'},
+            {n: 47, symbol: 'Ag', name: 'Silver', vortexConfig: 'Mode 1-4: 36ħ | Mode 4d: 10ħ | Mode 5: 1ħ', density: 107.868, type: 'transition', description: 'Forty-seven hydrogens worth (47ħ). Filled d-harmonics with single outer quantum. Excellent conductor.'},
+            {n: 48, symbol: 'Cd', name: 'Cadmium', vortexConfig: 'Mode 1-4: 36ħ | Mode 4d: 10ħ | Mode 5: 2ħ', density: 112.411, type: 'transition', description: 'Forty-eight hydrogens worth (48ħ). Complete d-configuration. Less reactive than other transitions.'},
+            {n: 49, symbol: 'In', name: 'Indium', vortexConfig: 'Mode 1-4: 36ħ | Mode 4d: 10ħ | Mode 5: 3ħ', density: 114.818, type: 'metalloid', description: 'Forty-nine hydrogens worth (49ħ). Triadic outer configuration with filled d-modes. Soft metallic behavior.'},
+            {n: 50, symbol: 'Sn', name: 'Tin', vortexConfig: 'Mode 1-4: 36ħ | Mode 4d: 10ħ | Mode 5: 4ħ', density: 118.71, type: 'metalloid', description: 'Fifty hydrogens worth (50ħ). Half-filled outer mode. Variable coupling behavior — can be metallic or covalent.'},
+            {n: 51, symbol: 'Sb', name: 'Antimony', vortexConfig: 'Mode 1-4: 36ħ | Mode 4d: 10ħ | Mode 5: 5ħ', density: 121.76, type: 'metalloid', description: 'Fifty-one hydrogens worth (51ħ). Five outer quanta create complex geometries. Brittle metallic character.'},
+            {n: 52, symbol: 'Te', name: 'Tellurium', vortexConfig: 'Mode 1-4: 36ħ | Mode 4d: 10ħ | Mode 5: 6ħ', density: 127.6, type: 'metalloid', description: 'Fifty-two hydrogens worth (52ħ). Two short of completion. Moderate coupling tendency.'},
+            {n: 53, symbol: 'I', name: 'Iodine', vortexConfig: 'Mode 1-4: 36ħ | Mode 4d: 10ħ | Mode 5: 7ħ', density: 126.905, type: 'halogen', description: 'Fifty-three hydrogens worth (53ħ). One quantum from completion. Strong but less aggressive than lighter halogens.'},
+            {n: 54, symbol: 'Xe', name: 'Xenon', vortexConfig: 'Mode 1-5: 54ħ complete', density: 131.29, type: 'noble', description: 'Fifty-four hydrogens worth (54ħ). Complete configuration through Mode 5. Large enough to show some coupling under extreme conditions.'},
+            {n: 55, symbol: 'Cs', name: 'Cesium', vortexConfig: 'Mode 1-5: 54ħ | Mode 6: 1ħ', density: 132.905, type: 'alkali', description: 'Fifty-five hydrogens worth (55ħ). Single quantum in very distant Mode 6. Most reactive alkali metal.'},
+            {n: 56, symbol: 'Ba', name: 'Barium', vortexConfig: 'Mode 1-5: 54ħ | Mode 6: 2ħ', density: 137.327, type: 'alkaline', description: 'Fifty-six hydrogens worth (56ħ). Two quanta in outer Mode 6. Highly reactive but controllable.'},
+            {n: 57, symbol: 'La', name: 'Lanthanum', vortexConfig: 'Mode 1-5: 54ħ | Mode 4f: 0ħ | Mode 5d: 1ħ | Mode 6: 2ħ', density: 138.905, type: 'lanthanide', description: 'Fifty-seven hydrogens worth (57ħ). Begins f-harmonic series. Deep inner vortex complexity begins.'},
+            {n: 58, symbol: 'Ce', name: 'Cerium', vortexConfig: 'Mode 1-5: 54ħ | Mode 4f: 1ħ | Mode 5d: 1ħ | Mode 6: 2ħ', density: 140.116, type: 'lanthanide', description: 'Fifty-eight hydrogens worth (58ħ). First f-harmonic quantum. Unusual inner coupling creates unique properties.'},
+            {n: 59, symbol: 'Pr', name: 'Praseodymium', vortexConfig: 'Mode 1-5: 54ħ | Mode 4f: 3ħ | Mode 6: 2ħ', density: 140.908, type: 'lanthanide', description: 'Fifty-nine hydrogens worth (59ħ). Three f-harmonics create complex inner vortex structure.'},
+            {n: 60, symbol: 'Nd', name: 'Neodymium', vortexConfig: 'Mode 1-5: 54ħ | Mode 4f: 4ħ | Mode 6: 2ħ', density: 144.242, type: 'lanthanide', description: 'Sixty hydrogens worth (60ħ). Four f-harmonics. Strong magnetic properties from deep harmonic coupling.'},
+            {n: 61, symbol: 'Pm', name: 'Promethium', vortexConfig: 'Mode 1-5: 54ħ | Mode 4f: 5ħ | Mode 6: 2ħ', density: 145, type: 'lanthanide', description: 'Sixty-one hydrogens worth (61ħ). Radioactive — this f-harmonic configuration cannot maintain long-term stability.'},
+            {n: 62, symbol: 'Sm', name: 'Samarium', vortexConfig: 'Mode 1-5: 54ħ | Mode 4f: 6ħ | Mode 6: 2ħ', density: 150.36, type: 'lanthanide', description: 'Sixty-two hydrogens worth (62ħ). Six f-harmonics create exceptional magnetic coupling properties.'},
+            {n: 63, symbol: 'Eu', name: 'Europium', vortexConfig: 'Mode 1-5: 54ħ | Mode 4f: 7ħ | Mode 6: 2ħ', density: 151.964, type: 'lanthanide', description: 'Sixty-three hydrogens worth (63ħ). Half-filled f-harmonics create unusual stability and luminescent properties.'},
+            {n: 64, symbol: 'Gd', name: 'Gadolinium', vortexConfig: 'Mode 1-5: 54ħ | Mode 4f: 7ħ | Mode 5d: 1ħ | Mode 6: 2ħ', density: 157.25, type: 'lanthanide', description: 'Sixty-four hydrogens worth (64ħ). Half-filled f-harmonics with d-quantum. Strong ferromagnetic coupling.'},
+            {n: 65, symbol: 'Tb', name: 'Terbium', vortexConfig: 'Mode 1-5: 54ħ | Mode 4f: 9ħ | Mode 6: 2ħ', density: 158.925, type: 'lanthanide', description: 'Sixty-five hydrogens worth (65ħ). Nine f-harmonics approach completion. Complex magnetic behavior.'},
+            {n: 66, symbol: 'Dy', name: 'Dysprosium', vortexConfig: 'Mode 1-5: 54ħ | Mode 4f: 10ħ | Mode 6: 2ħ', density: 162.5, type: 'lanthanide', description: 'Sixty-six hydrogens worth (66ħ). Ten f-harmonics. High magnetic susceptibility from deep inner coupling.'},
+            {n: 67, symbol: 'Ho', name: 'Holmium', vortexConfig: 'Mode 1-5: 54ħ | Mode 4f: 11ħ | Mode 6: 2ħ', density: 164.93, type: 'lanthanide', description: 'Sixty-seven hydrogens worth (67ħ). Eleven f-harmonics near completion. Exceptional magnetic properties.'},
+            {n: 68, symbol: 'Er', name: 'Erbium', vortexConfig: 'Mode 1-5: 54ħ | Mode 4f: 12ħ | Mode 6: 2ħ', density: 167.259, type: 'lanthanide', description: 'Sixty-eight hydrogens worth (68ħ). Twelve f-harmonics. Pink coloration from specific harmonic resonances.'},
+            {n: 69, symbol: 'Tm', name: 'Thulium', vortexConfig: 'Mode 1-5: 54ħ | Mode 4f: 13ħ | Mode 6: 2ħ', density: 168.934, type: 'lanthanide', description: 'Sixty-nine hydrogens worth (69ħ). Thirteen f-harmonics. One quantum from f-completion creates unique stability.'},
+            {n: 70, symbol: 'Yb', name: 'Ytterbium', vortexConfig: 'Mode 1-5: 54ħ | Mode 4f: 14ħ | Mode 6: 2ħ', density: 173.054, type: 'lanthanide', description: 'Seventy hydrogens worth (70ħ). Complete f-harmonic configuration. More stable than other lanthanides.'},
+            {n: 71, symbol: 'Lu', name: 'Lutetium', vortexConfig: 'Mode 1-5: 54ħ | Mode 4f: 14ħ | Mode 5d: 1ħ | Mode 6: 2ħ', density: 174.967, type: 'lanthanide', description: 'Seventy-one hydrogens worth (71ħ). Complete f-harmonics with d-quantum. Ends lanthanide series.'},
+            {n: 72, symbol: 'Hf', name: 'Hafnium', vortexConfig: 'Mode 1-5: 54ħ | Mode 4f: 14ħ | Mode 5d: 2ħ | Mode 6: 2ħ', density: 178.49, type: 'transition', description: 'Seventy-two hydrogens worth (72ħ). Filled f-harmonics with two d-quanta. Very hard and stable.'},
+            {n: 73, symbol: 'Ta', name: 'Tantalum', vortexConfig: 'Mode 1-5: 54ħ | Mode 4f: 14ħ | Mode 5d: 3ħ | Mode 6: 2ħ', density: 180.948, type: 'transition', description: 'Seventy-three hydrogens worth (73ħ). Three d-harmonics with filled f-modes. Exceptional chemical resistance.'},
+            {n: 74, symbol: 'W', name: 'Tungsten', vortexConfig: 'Mode 1-5: 54ħ | Mode 4f: 14ħ | Mode 5d: 4ħ | Mode 6: 2ħ', density: 183.84, type: 'transition', description: 'Seventy-four hydrogens worth (74ħ). Four d-harmonics create highest melting point. Dense vortex concentration.'},
+            {n: 75, symbol: 'Re', name: 'Rhenium', vortexConfig: 'Mode 1-5: 54ħ | Mode 4f: 14ħ | Mode 5d: 5ħ | Mode 6: 2ħ', density: 186.207, type: 'transition', description: 'Seventy-five hydrogens worth (75ħ). Half-filled d-harmonics with filled f-modes. High density and stability.'},
+            {n: 76, symbol: 'Os', name: 'Osmium', vortexConfig: 'Mode 1-5: 54ħ | Mode 4f: 14ħ | Mode 5d: 6ħ | Mode 6: 2ħ', density: 190.23, type: 'transition', description: 'Seventy-six hydrogens worth (76ħ). Six d-harmonics create densest natural vortex configuration.'},
+            {n: 77, symbol: 'Ir', name: 'Iridium', vortexConfig: 'Mode 1-5: 54ħ | Mode 4f: 14ħ | Mode 5d: 7ħ | Mode 6: 2ħ', density: 192.217, type: 'transition', description: 'Seventy-seven hydrogens worth (77ħ). Seven d-harmonics approach completion. Exceptional hardness and resistance.'},
+            {n: 78, symbol: 'Pt', name: 'Platinum', vortexConfig: 'Mode 1-5: 54ħ | Mode 4f: 14ħ | Mode 5d: 9ħ | Mode 6: 1ħ', density: 195.084, type: 'transition', description: 'Seventy-eight hydrogens worth (78ħ). Nine d-harmonics create exceptional catalytic properties. Noble-like behavior.'},
+            {n: 79, symbol: 'Au', name: 'Gold', vortexConfig: 'Mode 1-5: 54ħ | Mode 4f: 14ħ | Mode 5d: 10ħ | Mode 6: 1ħ', density: 196.967, type: 'transition', description: 'Seventy-nine hydrogens worth (79ħ). Complete d-harmonics with single outer quantum. Perfect balance creates chemical nobility.'},
+            {n: 80, symbol: 'Hg', name: 'Mercury', vortexConfig: 'Mode 1-5: 54ħ | Mode 4f: 14ħ | Mode 5d: 10ħ | Mode 6: 2ħ', density: 200.592, type: 'transition', description: 'Eighty hydrogens worth (80ħ). Complete d-harmonics create unusual liquid state. Weak metallic coupling.'},
+            {n: 81, symbol: 'Tl', name: 'Thallium', vortexConfig: 'Mode 1-5: 54ħ | Mode 4f: 14ħ | Mode 5d: 10ħ | Mode 6: 3ħ', density: 204.383, type: 'metalloid', description: 'Eighty-one hydrogens worth (81ħ). Triadic outer configuration. Soft metallic behavior with some toxicity.'},
+            {n: 82, symbol: 'Pb', name: 'Lead', vortexConfig: 'Mode 1-5: 54ħ | Mode 4f: 14ħ | Mode 5d: 10ħ | Mode 6: 4ħ', density: 207.2, type: 'metalloid', description: 'Eighty-two hydrogens worth (82ħ). Half-filled outer mode with complete inner harmonics. Dense but soft.'},
+            {n: 83, symbol: 'Bi', name: 'Bismuth', vortexConfig: 'Mode 1-5: 54ħ | Mode 4f: 14ħ | Mode 5d: 10ħ | Mode 6: 5ħ', density: 208.98, type: 'metalloid', description: 'Eighty-three hydrogens worth (83ħ). This is the critical element — the highest orbital angular momentum susceptibility of any naturally occurring vortex configuration. The complex harmonic structure with five outer quanta and complete inner modes creates maximum response to applied angular momentum fields. This is precisely why NASA Marshall uses bismuth in their angular momentum accumulation experiments. The vortex can store and amplify ħ quanta more efficiently than any other stable configuration, making it essential for engineering controllable angular momentum devices. Bismuth represents the natural limit of stable heavy-element vortex complexity.'},
+            {n: 84, symbol: 'Po', name: 'Polonium', vortexConfig: 'Mode 1-5: 54ħ | Mode 4f: 14ħ | Mode 5d: 10ħ | Mode 6: 6ħ', density: 209, type: 'metalloid', description: 'Eighty-four hydrogens worth (84ħ). Radioactive — vortex accumulation at this level becomes unstable against spontaneous decay.'},
+            {n: 85, symbol: 'At', name: 'Astatine', vortexConfig: 'Mode 1-5: 54ħ | Mode 4f: 14ħ | Mode 5d: 10ħ | Mode 6: 7ħ', density: 210, type: 'halogen', description: 'Eighty-five hydrogens worth (85ħ). Highly radioactive halogen. Too much angular momentum for stability.'},
+            {n: 86, symbol: 'Rn', name: 'Radon', vortexConfig: 'Mode 1-6: 86ħ complete', density: 222, type: 'noble', description: 'Eighty-six hydrogens worth (86ħ). Complete harmonic configuration through Mode 6, but so much accumulated ħ that the vortex becomes unstable against radioactive decay.'},
+            {n: 87, symbol: 'Fr', name: 'Francium', vortexConfig: 'Mode 1-6: 86ħ | Mode 7: 1ħ', density: 223, type: 'alkali', description: 'Eighty-seven hydrogens worth (87ħ). Single quantum in extremely distant Mode 7. Highly unstable due to enormous size and radioactivity.'},
+            {n: 88, symbol: 'Ra', name: 'Radium', vortexConfig: 'Mode 1-6: 86ħ | Mode 7: 2ħ', density: 226, type: 'alkaline', description: 'Eighty-eight hydrogens worth (88ħ). Two quanta in outer Mode 7. Radioactive alkaline earth metal.'},
+            {n: 89, symbol: 'Ac', name: 'Actinium', vortexConfig: 'Mode 1-6: 86ħ | Mode 5f: 0ħ | Mode 6d: 1ħ | Mode 7: 2ħ', density: 227, type: 'actinide', description: 'Eighty-nine hydrogens worth (89ħ). Begins f-harmonic series in 5f. Start of highly complex and unstable configurations.'},
+            {n: 90, symbol: 'Th', name: 'Thorium', vortexConfig: 'Mode 1-6: 86ħ | Mode 5f: 0ħ | Mode 6d: 2ħ | Mode 7: 2ħ', density: 232.038, type: 'actinide', description: 'Ninety hydrogens worth (90ħ). Two 6d harmonics. Relatively stable actinide with long half-life.'},
+            {n: 91, symbol: 'Pa', name: 'Protactinium', vortexConfig: 'Mode 1-6: 86ħ | Mode 5f: 2ħ | Mode 6d: 1ħ | Mode 7: 2ħ', density: 231.036, type: 'actinide', description: 'Ninety-one hydrogens worth (91ħ). Two f-harmonics with d-quantum. Complex inner structure leads to instability.'},
+            {n: 92, symbol: 'U', name: 'Uranium', vortexConfig: 'Mode 1-6: 86ħ | Mode 5f: 3ħ | Mode 6d: 1ħ | Mode 7: 2ħ', density: 238.029, type: 'actinide', description: 'Ninety-two hydrogens worth (92ħ). Three f-harmonics. So much accumulated angular momentum that the vortex can barely maintain coherence — radioactive decay inevitable but long-lived enough for natural occurrence.'},
+            {n: 93, symbol: 'Np', name: 'Neptunium', vortexConfig: 'Mode 1-6: 86ħ | Mode 5f: 4ħ | Mode 6d: 1ħ | Mode 7: 2ħ', density: 237, type: 'actinide', description: 'Ninety-three hydrogens worth (93ħ). Four f-harmonics create increasingly unstable vortex configuration. Artificial element.'},
+            {n: 94, symbol: 'Pu', name: 'Plutonium', vortexConfig: 'Mode 1-6: 86ħ | Mode 5f: 6ħ | Mode 7: 2ħ', density: 244, type: 'actinide', description: 'Ninety-four hydrogens worth (94ħ). Six f-harmonics. Highly fissile due to vortex instability under perturbation.'},
+            {n: 95, symbol: 'Am', name: 'Americium', vortexConfig: 'Mode 1-6: 86ħ | Mode 5f: 7ħ | Mode 7: 2ħ', density: 243, type: 'actinide', description: 'Ninety-five hydrogens worth (95ħ). Seven f-harmonics approach half-filling. Radioactive with complex decay modes.'},
+            {n: 96, symbol: 'Cm', name: 'Curium', vortexConfig: 'Mode 1-6: 86ħ | Mode 5f: 7ħ | Mode 6d: 1ħ | Mode 7: 2ħ', density: 247, type: 'actinide', description: 'Ninety-six hydrogens worth (96ħ). Seven f-harmonics with d-quantum. Half-filled f-configuration creates some stability.'},
+            {n: 97, symbol: 'Bk', name: 'Berkelium', vortexConfig: 'Mode 1-6: 86ħ | Mode 5f: 9ħ | Mode 7: 2ħ', density: 247, type: 'actinide', description: 'Ninety-seven hydrogens worth (97ħ). Nine f-harmonics. Extremely short-lived artificial element.'},
+            {n: 98, symbol: 'Cf', name: 'Californium', vortexConfig: 'Mode 1-6: 86ħ | Mode 5f: 10ħ | Mode 7: 2ħ', density: 251, type: 'actinide', description: 'Ninety-eight hydrogens worth (98ħ). Ten f-harmonics. Vortex complexity makes spontaneous fission common.'},
+            {n: 99, symbol: 'Es', name: 'Einsteinium', vortexConfig: 'Mode 1-6: 86ħ | Mode 5f: 11ħ | Mode 7: 2ħ', density: 252, type: 'actinide', description: 'Ninety-nine hydrogens worth (99ħ). Eleven f-harmonics near completion. Highly unstable synthetic element.'},
+            {n: 100, symbol: 'Fm', name: 'Fermium', vortexConfig: 'Mode 1-6: 86ħ | Mode 5f: 12ħ | Mode 7: 2ħ', density: 257, type: 'actinide', description: 'One hundred hydrogens worth (100ħ). Twelve f-harmonics. Vortex can barely maintain coherence. Minutes-long half-life.'},
+            {n: 101, symbol: 'Md', name: 'Mendelevium', vortexConfig: 'Mode 1-6: 86ħ | Mode 5f: 13ħ | Mode 7: 2ħ', density: 258, type: 'actinide', description: 'One hundred one hydrogens worth (101ħ). Thirteen f-harmonics. One quantum from f-completion but too unstable to observe.'},
+            {n: 102, symbol: 'No', name: 'Nobelium', vortexConfig: 'Mode 1-6: 86ħ | Mode 5f: 14ħ | Mode 7: 2ħ', density: 259, type: 'actinide', description: 'One hundred two hydrogens worth (102ħ). Complete f-harmonics. Even filled configuration cannot stabilize this much angular momentum.'},
+            {n: 103, symbol: 'Lr', name: 'Lawrencium', vortexConfig: 'Mode 1-6: 86ħ | Mode 5f: 14ħ | Mode 6d: 1ħ | Mode 7: 2ħ', density: 266, type: 'actinide', description: 'One hundred three hydrogens worth (103ħ). Complete f-harmonics with d-quantum. Ends actinide series at edge of stability.'},
+            {n: 104, symbol: 'Rf', name: 'Rutherfordium', vortexConfig: 'Mode 1-6: 86ħ | Mode 5f: 14ħ | Mode 6d: 2ħ | Mode 7: 2ħ', density: 267, type: 'transition', description: 'One hundred four hydrogens worth (104ħ). Superheavy element. Vortex exists for mere seconds before decay.'},
+            {n: 105, symbol: 'Db', name: 'Dubnium', vortexConfig: 'Mode 1-6: 86ħ | Mode 5f: 14ħ | Mode 6d: 3ħ | Mode 7: 2ħ', density: 268, type: 'transition', description: 'One hundred five hydrogens worth (105ħ). Superheavy transition element. Angular momentum far exceeds natural stability limits.'},
+            {n: 106, symbol: 'Sg', name: 'Seaborgium', vortexConfig: 'Mode 1-6: 86ħ | Mode 5f: 14ħ | Mode 6d: 4ħ | Mode 7: 2ħ', density: 269, type: 'transition', description: 'One hundred six hydrogens worth (106ħ). Superheavy element existing for microseconds. Vortex complexity defies natural limits.'},
+            {n: 107, symbol: 'Bh', name: 'Bohrium', vortexConfig: 'Mode 1-6: 86ħ | Mode 5f: 14ħ | Mode 6d: 5ħ | Mode 7: 2ħ', density: 270, type: 'transition', description: 'One hundred seven hydrogens worth (107ħ). Half-filled d-harmonics in superheavy regime. Extremely short-lived.'},
+            {n: 108, symbol: 'Hs', name: 'Hassium', vortexConfig: 'Mode 1-6: 86ħ | Mode 5f: 14ħ | Mode 6d: 6ħ | Mode 7: 2ħ', density: 277, type: 'transition', description: 'One hundred eight hydrogens worth (108ħ). Six d-harmonics in superheavy domain. Vortex disintegrates almost instantly.'},
+            {n: 109, symbol: 'Mt', name: 'Meitnerium', vortexConfig: 'Mode 1-6: 86ħ | Mode 5f: 14ħ | Mode 6d: 7ħ | Mode 7: 2ħ', density: 278, type: 'transition', description: 'One hundred nine hydrogens worth (109ħ). Seven d-harmonics. Theoretical element at the edge of nuclear physics.'},
+            {n: 110, symbol: 'Ds', name: 'Darmstadtium', vortexConfig: 'Mode 1-6: 86ħ | Mode 5f: 14ħ | Mode 6d: 8ħ | Mode 7: 2ħ', density: 281, type: 'transition', description: 'One hundred ten hydrogens worth (110ħ). Eight d-harmonics approach completion in superheavy regime.'},
+            {n: 111, symbol: 'Rg', name: 'Roentgenium', vortexConfig: 'Mode 1-6: 86ħ | Mode 5f: 14ħ | Mode 6d: 9ħ | Mode 7: 2ħ', density: 282, type: 'transition', description: 'One hundred eleven hydrogens worth (111ħ). Nine d-harmonics. Predicted to have noble-metal properties if observable.'},
+            {n: 112, symbol: 'Cn', name: 'Copernicium', vortexConfig: 'Mode 1-6: 86ħ | Mode 5f: 14ħ | Mode 6d: 10ħ | Mode 7: 2ħ', density: 285, type: 'transition', description: 'One hundred twelve hydrogens worth (112ħ). Complete d-harmonics. May show mercury-like properties in superheavy domain.'},
+            {n: 113, symbol: 'Nh', name: 'Nihonium', vortexConfig: 'Mode 1-6: 86ħ | Mode 5f: 14ħ | Mode 6d: 10ħ | Mode 7: 3ħ', density: 286, type: 'metalloid', description: 'One hundred thirteen hydrogens worth (113ħ). Triadic outer configuration with complete inner modes. Superheavy metalloid behavior.'},
+            {n: 114, symbol: 'Fl', name: 'Flerovium', vortexConfig: 'Mode 1-6: 86ħ | Mode 5f: 14ħ | Mode 6d: 10ħ | Mode 7: 4ħ', density: 289, type: 'metalloid', description: 'One hundred fourteen hydrogens worth (114ħ). Half-filled outer mode. May have unusual properties due to relativistic effects.'},
+            {n: 115, symbol: 'Mc', name: 'Moscovium', vortexConfig: 'Mode 1-6: 86ħ | Mode 5f: 14ħ | Mode 6d: 10ħ | Mode 7: 5ħ', density: 290, type: 'metalloid', description: 'One hundred fifteen hydrogens worth (115ħ). Five outer quanta create complex coupling possibilities in superheavy regime.'},
+            {n: 116, symbol: 'Lv', name: 'Livermorium', vortexConfig: 'Mode 1-6: 86ħ | Mode 5f: 14ħ | Mode 6d: 10ħ | Mode 7: 6ħ', density: 293, type: 'metalloid', description: 'One hundred sixteen hydrogens worth (116ħ). Six outer quanta. Two short of completion but too unstable to observe chemistry.'},
+            {n: 117, symbol: 'Ts', name: 'Tennessine', vortexConfig: 'Mode 1-6: 86ħ | Mode 5f: 14ħ | Mode 6d: 10ħ | Mode 7: 7ħ', density: 294, type: 'halogen', description: 'One hundred seventeen hydrogens worth (117ħ). One quantum from outer completion. Superheavy halogen existing for milliseconds.'},
+            {n: 118, symbol: 'Og', name: 'Oganesson', vortexConfig: 'Mode 1-7: 118ħ complete', density: 294, type: 'noble', description: 'One hundred eighteen hydrogens worth (118ħ). Theoretical completion of seventh mode — the absolute limit of angular momentum that can be accumulated in a single vortex before fundamental instability destroys coherence.'}
         ];
 
         let selectedElement = elements[0];
@@ -747,10 +847,12 @@
         }
 
         function findElementForPosition(row, col) {
-            // Simplified periodic table layout mapping
+            // Complete periodic table layout mapping - ALL 118 ELEMENTS
             const positions = {
+                // Period 1
                 '0,0': 1,   // H
                 '0,17': 2,  // He
+                // Period 2
                 '1,0': 3,   // Li
                 '1,1': 4,   // Be
                 '1,12': 5,  // B
@@ -759,6 +861,7 @@
                 '1,15': 8,  // O
                 '1,16': 9,  // F
                 '1,17': 10, // Ne
+                // Period 3
                 '2,0': 11,  // Na
                 '2,1': 12,  // Mg
                 '2,12': 13, // Al
@@ -767,18 +870,112 @@
                 '2,15': 16, // S
                 '2,16': 17, // Cl
                 '2,17': 18, // Ar
+                // Period 4
                 '3,0': 19,  // K
                 '3,1': 20,  // Ca
                 '3,2': 21,  // Sc
-                '3,7': 26,  // Fe (representative transition metal)
+                '3,3': 22,  // Ti
+                '3,4': 23,  // V
+                '3,5': 24,  // Cr
+                '3,6': 25,  // Mn
+                '3,7': 26,  // Fe
+                '3,8': 27,  // Co
+                '3,9': 28,  // Ni
                 '3,10': 29, // Cu
                 '3,11': 30, // Zn
+                '3,12': 31, // Ga
+                '3,13': 32, // Ge
+                '3,14': 33, // As
+                '3,15': 34, // Se
+                '3,16': 35, // Br
                 '3,17': 36, // Kr
-                '5,17': 54, // Xe (skipping some periods for key elements)
-                '6,14': 79, // Au (representative heavy metal)
-                '7,17': 86, // Rn
-                '8,3': 92,  // U (representative actinide)
-                '9,17': 118 // Og
+                // Period 5
+                '4,0': 37,  // Rb
+                '4,1': 38,  // Sr
+                '4,2': 39,  // Y
+                '4,3': 40,  // Zr
+                '4,4': 41,  // Nb
+                '4,5': 42,  // Mo
+                '4,6': 43,  // Tc
+                '4,7': 44,  // Ru
+                '4,8': 45,  // Rh
+                '4,9': 46,  // Pd
+                '4,10': 47, // Ag
+                '4,11': 48, // Cd
+                '4,12': 49, // In
+                '4,13': 50, // Sn
+                '4,14': 51, // Sb
+                '4,15': 52, // Te
+                '4,16': 53, // I
+                '4,17': 54, // Xe
+                // Period 6
+                '5,0': 55,  // Cs
+                '5,1': 56,  // Ba
+                '5,2': 57,  // La
+                '5,3': 72,  // Hf
+                '5,4': 73,  // Ta
+                '5,5': 74,  // W
+                '5,6': 75,  // Re
+                '5,7': 76,  // Os
+                '5,8': 77,  // Ir
+                '5,9': 78,  // Pt
+                '5,10': 79, // Au
+                '5,11': 80, // Hg
+                '5,12': 81, // Tl
+                '5,13': 82, // Pb
+                '5,14': 83, // Bi
+                '5,15': 84, // Po
+                '5,16': 85, // At
+                '5,17': 86, // Rn
+                // Period 7
+                '6,0': 87,  // Fr
+                '6,1': 88,  // Ra
+                '6,2': 89,  // Ac
+                '6,3': 104, // Rf
+                '6,4': 105, // Db
+                '6,5': 106, // Sg
+                '6,6': 107, // Bh
+                '6,7': 108, // Hs
+                '6,8': 109, // Mt
+                '6,9': 110, // Ds
+                '6,10': 111, // Rg
+                '6,11': 112, // Cn
+                '6,12': 113, // Nh
+                '6,13': 114, // Fl
+                '6,14': 115, // Mc
+                '6,15': 116, // Lv
+                '6,16': 117, // Ts
+                '6,17': 118, // Og
+                // Lanthanides (Row 8)
+                '8,3': 58,  // Ce
+                '8,4': 59,  // Pr
+                '8,5': 60,  // Nd
+                '8,6': 61,  // Pm
+                '8,7': 62,  // Sm
+                '8,8': 63,  // Eu
+                '8,9': 64,  // Gd
+                '8,10': 65, // Tb
+                '8,11': 66, // Dy
+                '8,12': 67, // Ho
+                '8,13': 68, // Er
+                '8,14': 69, // Tm
+                '8,15': 70, // Yb
+                '8,16': 71, // Lu
+                // Actinides (Row 9)
+                '9,3': 90,  // Th
+                '9,4': 91,  // Pa
+                '9,5': 92,  // U
+                '9,6': 93,  // Np
+                '9,7': 94,  // Pu
+                '9,8': 95,  // Am
+                '9,9': 96,  // Cm
+                '9,10': 97, // Bk
+                '9,11': 98, // Cf
+                '9,12': 99, // Es
+                '9,13': 100, // Fm
+                '9,14': 101, // Md
+                '9,15': 102, // No
+                '9,16': 103  // Lr
             };
             
             const key = `${row},${col}`;
@@ -853,9 +1050,9 @@
             document.getElementById('elementTitle').textContent = `${selectedElement.name} (n=${selectedElement.n})`;
             document.getElementById('elementDescription').textContent = selectedElement.description;
             document.getElementById('vortexConfig').innerHTML = `
+                <strong>Accumulated ħ Count:</strong> ${selectedElement.n}<br>
                 <strong>Harmonic Configuration:</strong> ${selectedElement.vortexConfig}<br>
-                <strong>Angular Momentum Density:</strong> ${selectedElement.density} units<br>
-                <strong>Vortex Stability:</strong> ${getStabilityDescription(selectedElement.type)}
+                <strong>Angular Momentum Density:</strong> ${selectedElement.density} units
             `;
         }
 
