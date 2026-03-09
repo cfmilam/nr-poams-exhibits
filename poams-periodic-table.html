@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Elements — A POAMS Restatement</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <style>
+        :root {
+            --bg-dark: #1a1a2e;
+            --bg-light: #f8f9fa;
+            --text-dark: #e0e0e0;
+            --text-light: #2c3e50;
+            --accent-gold: #c9a84c;
+            --accent-blue: #4fc3f7;
+            --card-dark: #2d2d44;
+            --card-light: #ffffff;
+            --border-dark: #444;
+            --border-light: #ddd;
+        }
+
+        [data-theme="dark"] {
+            --bg: var(--bg-dark);
+            --text: var(--text-dark);
+            --card: var(--card-dark);
+            --border: var(--border-dark);
+        }
+
+        [data-theme="light"] {
+            --bg: var(--bg-light);
+            --text: var(--text-light);
+            --card: var(--card-light);
+            --border: var(--border-light);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid var(--accent-gold);
+            padding-bottom: 20px;
+        }
+
+        .title {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 10px;
+            font-weight: normal;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--accent-blue);
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--accent-gold);
+            color: var(--bg);
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tab-button {
+            background: var(--card);
+            border: 2px solid var(--border);
+            color: var(--text);
+            padding: 12px 24px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .tab-button.active,
+        .tab-button:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Periodic Table Styles */
+        .periodic-table {
+            display: grid;
+            grid-template-columns: repeat(18, 1fr);
+            gap: 2px;
+            max-width: 100%;
+            overflow-x: auto;
+            padding: 20px;
+            background: var(--card);
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .element {
+            aspect-ratio: 1;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            padding: 4px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .element:hover {
+            transform: scale(1.05);
+            border-color: var(--accent-gold);
+            z-index: 10;
+        }
+
+        .element.selected {
+            border: 2px solid var(--accent-gold);
+            box-shadow: 0 0 10px var(--accent-gold);
+        }
+
+        .element-symbol {
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--text);
+            margin-bottom: 2px;
+        }
+
+        .element-number {
+            font-family: 'Courier New', monospace;
+            font-size: 9px;
+            color: var(--accent-blue);
+        }
+
+        .element-name {
+            font-size: 8px;
+            text-align: center;
+            line-height: 1.1;
+        }
+
+        /* Element type colors */
+        .alkali { background: #ff6b6b; }
+        .alkaline { background: #ffa726; }
+        .transition { background: #42a5f5; }
+        .metalloid { background: #66bb6a; }
+        .nonmetal { background: #ab47bc; }
+        .halogen { background: #ec407a; }
+        .noble { background: var(--accent-gold); }
+        .lanthanide { background: #26c6da; }
+        .actinide { background: #ef5350; }
+
+        /* Vortex Visualization */
+        .vortex-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .vortex-display {
+            width: 400px;
+            height: 400px;
+            position: relative;
+            border: 2px solid var(--accent-blue);
+            border-radius: 50%;
+            background: radial-gradient(circle, transparent 20%, var(--card) 20%, var(--card) 25%, transparent 25%);
+            overflow: hidden;
+        }
+
+        .vortex-ring {
+            position: absolute;
+            border: 2px solid var(--accent-blue);
+            border-radius: 50%;
+            opacity: 0.7;
+        }
+
+        .eyewall {
+            position: absolute;
+            border: 4px solid var(--accent-gold);
+            border-radius: 50%;
+            top: 40%;
+            left: 40%;
+            width: 20%;
+            height: 20%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .vortex-controls {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .element-selector {
+            background: var(--card);
+            border: 2px solid var(--border);
+            color: var(--text);
+            padding: 10px;
+            border-radius: 5px;
+            font-family: inherit;
+            min-width: 120px;
+        }
+
+        /* Force Profile */
+        .force-profile {
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            margin: 20px auto;
+            position: relative;
+            background: var(--card);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .force-chart {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            border-left: 2px solid var(--text);
+            border-bottom: 2px solid var(--text);
+        }
+
+        .force-curve {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .periodic-table {
+                font-size: 8px;
+                grid-template-columns: repeat(9, 1fr);
+            }
+            
+            .element {
+                font-size: 8px;
+            }
+            
+            .element-symbol {
+                font-size: 10px;
+            }
+            
+            .vortex-display {
+                width: 300px;
+                height: 300px;
+            }
+            
+            .title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Explanatory text styles */
+        .explanation-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .comparison-table {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .comparison-column {
+            background: var(--card);
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid var(--border);
+        }
+
+        .comparison-column h3 {
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .poams-column {
+            border-color: var(--accent-gold);
+        }
+
+        .standard-column {
+            border-color: var(--accent-blue);
+        }
+
+        .standard-column h3 {
+            color: var(--accent-blue);
+        }
+
+        .concept-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .concept-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .concept-list li:last-child {
+            border-bottom: none;
+        }
+
+        .math-display {
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background: var(--card);
+            border-radius: 5px;
+        }
+
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 12px;
+        }
+
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body data-theme="dark">
+    <button class="theme-toggle" onclick="toggleTheme()">☀️ Light</button>
+    
+    <div class="container">
+        <header>
+            <h1 class="title">The Elements — A POAMS Restatement</h1>
+            <p class="subtitle">Reimagining the Periodic Table through the Normal Realism / Pope-Osborne Angular Momentum Synthesis Framework</p>
+        </header>
+
+        <nav class="nav-tabs">
+            <button class="tab-button active" onclick="showTab('table')">POAMS Periodic Table</button>
+            <button class="tab-button" onclick="showTab('vortex')">Vortex Model</button>
+            <button class="tab-button" onclick="showTab('explanation')">Framework</button>
+            <button class="tab-button" onclick="showTab('forces')">Force Profile</button>
+        </nav>
+
+        <!-- Tab 1: POAMS Periodic Table -->
+        <div id="table" class="tab-content active">
+            <h2 style="text-align: center; color: var(--accent-gold); margin-bottom: 10px;">
+                There Is Only Atomic Hydrogen
+            </h2>
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 20px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                This table is a <strong>count</strong> — 1ħ through 118ħ — of accumulated angular momentum quanta. 
+                Hydrogen is the only element. Everything else is more of it. When the same vortex phenomenon 
+                accumulates enough ħ to express itself differently, we give it a new name.
+            </p>
+            
+            <div class="periodic-table" id="periodicTable">
+                <!-- Elements will be generated by JavaScript -->
+            </div>
+            
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color alkali"></div>
+                    <span>Alkali: Single excess ħ quantum</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color alkaline"></div>
+                    <span>Alkaline Earth: Two excess ħ quanta</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color transition"></div>
+                    <span>Transition: Complex harmonic filling</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color noble"></div>
+                    <span>Noble: Complete harmonic configuration</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color halogen"></div>
+                    <span>Halogen: One ħ quantum below completion</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color nonmetal"></div>
+                    <span>Nonmetal: Partially filled harmonics</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color metalloid"></div>
+                    <span>Metalloid: Transitional configurations</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color lanthanide"></div>
+                    <span>Lanthanide: Deep harmonic modes</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color actinide"></div>
+                    <span>Actinide: Highly complex vortex patterns</span>
+                </div>
+            </div>
+            
+            <div style="margin-top: 30px; text-align: center;">
+                <p><strong>Click any element</strong> to explore its vortex configuration in the Vortex Model tab.</p>
+            </div>
+        </div>
+
+        <!-- Tab 2: Vortex Model Interactive -->
+        <div id="vortex" class="tab-content">
+            <h2 style="text-align: center; color: var(--accent-gold); margin-bottom: 20px;">
+                Interactive Vortex Structure
+            </h2>
+            
+            <div class="vortex-container">
+                <div class="vortex-display" id="vortexDisplay">
+                    <div class="eyewall" id="eyewall"></div>
+                    <!-- Vortex rings will be generated by JavaScript -->
+                </div>
+                
+                <div class="vortex-controls">
+                    <select class="element-selector" id="elementSelector">
+                        <option value="1">Hydrogen (n=1)</option>
+                        <!-- Options will be generated by JavaScript -->
+                    </select>
+                    
+                    <div style="text-align: center;">
+                        <label for="animationSpeed">Animation Speed:</label>
+                        <input type="range" id="animationSpeed" min="0.5" max="3" step="0.5" value="1">
+                    </div>
+                </div>
+                
+                <div id="vortexInfo" style="text-align: center; margin-top: 20px; padding: 20px; background: var(--card); border-radius: 10px; max-width: 600px;">
+                    <h3 id="elementTitle">Hydrogen (n=1)</h3>
+                    <p id="elementDescription">The simplest vortex: a single quantum of angular momentum ħ in its ground harmonic mode. The eyewall forms at the characteristic Bohr radius, representing the fundamental scale of angular momentum quantization.</p>
+                    <div id="vortexConfig" style="font-family: monospace; margin-top: 10px;">
+                        <strong>Harmonic Configuration:</strong> Mode 1: 1ħ<br>
+                        <strong>Angular Momentum Density:</strong> 1.008 units<br>
+                        <strong>Vortex Stability:</strong> Minimally stable
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 3: Framework Explanation -->
+        <div id="explanation" class="tab-content">
+            <div class="explanation-content">
+                <h2 style="text-align: center; color: var(--accent-gold); margin-bottom: 30px;">
+                    Why This Table? The POAMS Framework
+                </h2>
+                
+                <div style="margin-bottom: 40px;">
+                    <h3 style="color: var(--accent-blue);">The Hurricane Analogy</h3>
+                    <p>Every atom is a hurricane of angular momentum. Like a hurricane, it has three distinct regions:</p>
+                    <ul style="margin: 15px 0; padding-left: 20px;">
+                        <li><strong>The Eye:</strong> An empty barycenter where forces cancel. No dense nucleus exists here.</li>
+                        <li><strong>The Eyewall:</strong> A ring of concentrated angular momentum creating immense forces — what we conventionally call "strong force."</li>
+                        <li><strong>Outer Circulation:</strong> Extended harmonic modes that interact with other vortices — conventional "electromagnetic" interactions.</li>
+                    </ul>
+                </div>
+
+                <h3 style="color: var(--accent-blue); text-align: center; margin: 30px 0;">Standard Model vs POAMS Interpretation</h3>
+                
+                <div class="comparison-table">
+                    <div class="comparison-column standard-column">
+                        <h3>Standard Model Formalism</h3>
+                        <ul class="concept-list">
+                            <li><strong>"Electrons":</strong> Point particles with charge -e</li>
+                            <li><strong>"Protons":</strong> Composite particles with charge +e</li>
+                            <li><strong>"Neutrons":</strong> Neutral composite particles</li>
+                            <li><strong>"Nucleus":</strong> Dense core of protons and neutrons</li>
+                            <li><strong>"Orbitals":</strong> Probability clouds for electron position</li>
+                            <li><strong>"Strong Force":</strong> Separate fundamental force</li>
+                            <li><strong>"Electromagnetic Force":</strong> Another separate force</li>
+                            <li><strong>"Charge":</strong> Fundamental property</li>
+                            <li><strong>"Mass":</strong> Intrinsic property of matter</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="comparison-column poams-column">
+                        <h3>POAMS Reality</h3>
+                        <ul class="concept-list">
+                            <li><strong>Outer Circulation:</strong> Harmonic modes of the vortex</li>
+                            <li><strong>Eyewall Momentum:</strong> Concentrated angular momentum</li>
+                            <li><strong>No separate particles:</strong> Different aspects of same vortex</li>
+                            <li><strong>Empty Barycenter:</strong> Calm eye of the angular momentum storm</li>
+                            <li><strong>Harmonic Shapes:</strong> Real resonant modes of the vortex</li>
+                            <li><strong>Eyewall Force:</strong> Angular momentum conservation through the wall</li>
+                            <li><strong>Outer Force:</strong> Same conservation at larger radii</li>
+                            <li><strong>No charge:</strong> Formalism with no physical reality</li>
+                            <li><strong>Angular Momentum Density:</strong> Mass IS concentrated rotation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="margin: 40px 0;">
+                    <h3 style="color: var(--accent-blue);">Chemistry as Vortex Mechanics</h3>
+                    <p>Chemical bonding becomes the interaction of two vortices finding a lower-energy combined configuration. The "electron sharing" formalism dissolves into the reality of vortex resonance coupling.</p>
+                    
+                    <div class="math-display">
+                        <p><strong>Fundamental Relationship:</strong></p>
+                        $$L = n\hbar \text{ where } L \text{ is total angular momentum and } n \text{ is the vortex quantum number}$$
+                        <p style="margin-top: 10px;">Each element represents a stable configuration of quantized angular momentum, not a collection of separate particles.</p>
+                    </div>
+                </div>
+
+                <div style="margin: 40px 0;">
+                    <h3 style="color: var(--accent-blue);">Why Periodic Trends Make More Sense</h3>
+                    <ul style="padding-left: 20px;">
+                        <li><strong>Ionization Energy:</strong> The energy needed to excite the vortex out of its current harmonic mode</li>
+                        <li><strong>Atomic Radius:</strong> The characteristic scale of the vortex's outer circulation</li>
+                        <li><strong>Electronegativity:</strong> How strongly a vortex can couple with another vortex's harmonic modes</li>
+                        <li><strong>Metallic Character:</strong> The degree to which vortices can form extended coupled configurations</li>
+                    </ul>
+                    <p style="margin-top: 15px;">These aren't separate properties requiring separate explanations — they're all manifestations of the vortex's angular momentum structure.</p>
+                </div>
+
+                <div style="margin: 40px 0; padding: 20px; background: var(--card); border-radius: 10px; border-left: 4px solid var(--accent-gold);">
+                    <h3 style="color: var(--accent-gold);">The Deep Truth</h3>
+                    <p>Reality is not made of particles, forces, and charges. These are mathematical conveniences — shadows on the wall of the cave. Reality is the accumulation and organization of action (ħ), manifested as angular momentum, experienced as duration. The periodic table is the inventory of all stable ways that action can accumulate and persist.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 4: Force Profile -->
+        <div id="forces" class="tab-content">
+            <h2 style="text-align: center; color: var(--accent-gold); margin-bottom: 20px;">
+                The Eyewall Force Profile
+            </h2>
+            
+            <div style="text-align: center; margin-bottom: 30px;">
+                <p>One force profile explains all conventional "fundamental forces" — they are simply angular momentum conservation at different radial distances from the vortex barycenter.</p>
+            </div>
+            
+            <div class="force-profile">
+                <canvas id="forceChart" width="560" height="360"></canvas>
+            </div>
+            
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-top: 30px;">
+                    <div style="text-align: center; padding: 20px; background: var(--card); border-radius: 10px; border-top: 4px solid #4CAF50;">
+                        <h4 style="color: #4CAF50;">The Eye</h4>
+                        <p><strong>r &lt; r_eyewall</strong></p>
+                        <p>Asymptotic freedom. Forces approach zero as you approach the barycenter. This is what conventional physics calls the "absence of strong force" at very short distances.</p>
+                    </div>
+                    
+                    <div style="text-align: center; padding: 20px; background: var(--card); border-radius: 10px; border-top: 4px solid var(--accent-gold);">
+                        <h4 style="color: var(--accent-gold);">The Eyewall</h4>
+                        <p><strong>r ≈ r_eyewall</strong></p>
+                        <p>Enormous force as you cross through the concentrated angular momentum. This is the conventional "strong force" — not a separate phenomenon, but angular momentum conservation through the wall.</p>
+                    </div>
+                    
+                    <div style="text-align: center; padding: 20px; background: var(--card); border-radius: 10px; border-top: 4px solid var(--accent-blue);">
+                        <h4 style="color: var(--accent-blue);">Outer Circulation</h4>
+                        <p><strong>r &gt; r_eyewall</strong></p>
+                        <p>Inverse-square falloff with distance. This is conventional "electromagnetic force" — the same angular momentum conservation operating in the extended harmonic modes.</p>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 30px; padding: 20px; background: var(--card); border-radius: 10px;">
+                    <h3 style="color: var(--accent-gold); text-align: center;">One Profile, All Forces</h3>
+                    <p style="text-align: center;">The conventional "four fundamental forces" are artifacts of not recognizing the unified angular momentum structure:</p>
+                    
+                    <div class="math-display">
+                        $$F(r) = \begin{cases}
+                        0 & \text{(Eye: } r \to 0 \text{)} \\
+                        \infty & \text{(Eyewall: } r = r_{\text{wall}} \text{)} \\
+                        \frac{k}{r^2} & \text{(Outer: } r \gg r_{\text{wall}} \text{)}
+                        \end{cases}$$
+                    </div>
+                    
+                    <p>This single profile contains what conventional physics calls strong force, weak force, electromagnetic force, and even gravitational effects (when you account for the spin-dependence of the dimensional constant G).</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Element data with POAMS interpretations
+        const elements = [
+            {n: 1, symbol: 'H', name: 'Hydrogen', vortexConfig: 'Mode 1: 1ħ', density: 1.008, type: 'nonmetal', description: 'The simplest vortex: a single quantum of angular momentum ħ in its ground harmonic mode. The eyewall forms at the characteristic Bohr radius.'},
+            {n: 2, symbol: 'He', name: 'Helium', vortexConfig: 'Mode 1: 2ħ', density: 4.003, type: 'noble', description: 'First complete harmonic configuration. Two ħ quanta in perfect opposition create the first stable, non-reactive vortex state.'},
+            {n: 3, symbol: 'Li', name: 'Lithium', vortexConfig: 'Mode 1: 2ħ | Mode 2: 1ħ', density: 6.941, type: 'alkali', description: 'One excess ħ quantum beyond the complete Mode 1 configuration. Highly reactive due to single unpaired quantum.'},
+            {n: 4, symbol: 'Be', name: 'Beryllium', vortexConfig: 'Mode 1: 2ħ | Mode 2: 2ħ', density: 9.012, type: 'alkaline', description: 'Two complete harmonic modes. Moderately stable but can still participate in vortex coupling.'},
+            {n: 5, symbol: 'B', name: 'Boron', vortexConfig: 'Mode 1: 2ħ | Mode 2: 3ħ', density: 10.811, type: 'metalloid', description: 'Beginning of Mode 2 triadic harmonics. Shows transitional behavior between vortex coupling patterns.'},
+            {n: 6, symbol: 'C', name: 'Carbon', vortexConfig: 'Mode 1: 2ħ | Mode 2: 4ħ', density: 12.011, type: 'nonmetal', description: 'Half-filled Mode 2 allows maximum coupling flexibility. Foundation of complex vortex chemistry.'},
+            {n: 7, symbol: 'N', name: 'Nitrogen', vortexConfig: 'Mode 1: 2ħ | Mode 2: 5ħ', density: 14.007, type: 'nonmetal', description: 'Five quanta in Mode 2 create triple-coupling capability. Highly stable when self-coupled.'},
+            {n: 8, symbol: 'O', name: 'Oxygen', vortexConfig: 'Mode 1: 2ħ | Mode 2: 6ħ', density: 15.999, type: 'nonmetal', description: 'Two quanta short of Mode 2 completion. Aggressively couples with other vortices to achieve stability.'},
+            {n: 9, symbol: 'F', name: 'Fluorine', vortexConfig: 'Mode 1: 2ħ | Mode 2: 7ħ', density: 18.998, type: 'halogen', description: 'One quantum from complete Mode 2. Most reactive configuration - desperately seeks completion.'},
+            {n: 10, symbol: 'Ne', name: 'Neon', vortexConfig: 'Mode 1: 2ħ | Mode 2: 8ħ', density: 20.180, type: 'noble', description: 'Complete harmonic configuration through Mode 2. Perfect vortex stability - no coupling tendency.'},
+            {n: 11, symbol: 'Na', name: 'Sodium', vortexConfig: 'Mode 1: 2ħ | Mode 2: 8ħ | Mode 3: 1ħ', density: 22.990, type: 'alkali', description: 'Single excess quantum begins Mode 3. Easily released due to distance from completed inner modes.'},
+            {n: 12, symbol: 'Mg', name: 'Magnesium', vortexConfig: 'Mode 1: 2ħ | Mode 2: 8ħ | Mode 3: 2ħ', density: 24.305, type: 'alkaline', description: 'Two quanta in outer Mode 3. More stable than alkali but still readily couples.'},
+            {n: 13, symbol: 'Al', name: 'Aluminum', vortexConfig: 'Mode 1: 2ħ | Mode 2: 8ħ | Mode 3: 3ħ', density: 26.982, type: 'metalloid', description: 'Triadic harmonic in Mode 3. Shows metallic coupling but retains some covalent character.'},
+            {n: 14, symbol: 'Si', name: 'Silicon', vortexConfig: 'Mode 1: 2ħ | Mode 2: 8ħ | Mode 3: 4ħ', density: 28.086, type: 'metalloid', description: 'Half-filled Mode 3. Perfect balance between metallic and covalent vortex coupling.'},
+            {n: 15, symbol: 'P', name: 'Phosphorus', vortexConfig: 'Mode 1: 2ħ | Mode 2: 8ħ | Mode 3: 5ħ', density: 30.974, type: 'nonmetal', description: 'Five quanta allow multiple coupling geometries. Versatile vortex chemistry similar to nitrogen.'},
+            {n: 16, symbol: 'S', name: 'Sulfur', vortexConfig: 'Mode 1: 2ħ | Mode 2: 8ħ | Mode 3: 6ħ', density: 32.065, type: 'nonmetal', description: 'Two short of Mode 3 completion. Active coupling tendency but less aggressive than oxygen.'},
+            {n: 17, symbol: 'Cl', name: 'Chlorine', vortexConfig: 'Mode 1: 2ħ | Mode 2: 8ħ | Mode 3: 7ħ', density: 35.453, type: 'halogen', description: 'One quantum from Mode 3 completion. Strong coupling drive but larger than fluorine.'},
+            {n: 18, symbol: 'Ar', name: 'Argon', vortexConfig: 'Mode 1: 2ħ | Mode 2: 8ħ | Mode 3: 8ħ', density: 39.948, type: 'noble', description: 'Complete configuration through Mode 3. Stable vortex with no coupling tendency.'},
+            // Adding key elements from each period to get to 118
+            {n: 19, symbol: 'K', name: 'Potassium', vortexConfig: 'Mode 1-3: 18ħ | Mode 4: 1ħ', density: 39.098, type: 'alkali', description: 'Single quantum in distant Mode 4. Even more reactive than sodium due to increased separation.'},
+            {n: 20, symbol: 'Ca', name: 'Calcium', vortexConfig: 'Mode 1-3: 18ħ | Mode 4: 2ħ', density: 40.078, type: 'alkaline', description: 'Two quanta in Mode 4. Active coupling but more controlled than potassium.'},
+            // Transition metals start complex d-mode harmonics
+            {n: 21, symbol: 'Sc', name: 'Scandium', vortexConfig: 'Mode 1-3: 18ħ | Mode d: 1ħ | Mode 4: 2ħ', density: 44.956, type: 'transition', description: 'First element with inner d-harmonic filling. Complex vortex structure begins.'},
+            {n: 26, symbol: 'Fe', name: 'Iron', vortexConfig: 'Mode 1-3: 18ħ | Mode d: 6ħ | Mode 4: 2ħ', density: 55.845, type: 'transition', description: 'Half-filled d-harmonics create exceptional coupling versatility. Multiple oxidation modes possible.'},
+            {n: 29, symbol: 'Cu', name: 'Copper', vortexConfig: 'Mode 1-3: 18ħ | Mode d: 10ħ | Mode 4: 1ħ', density: 63.546, type: 'transition', description: 'Filled d-harmonics with single s-quantum. Excellent coupling conductor.'},
+            {n: 30, symbol: 'Zn', name: 'Zinc', vortexConfig: 'Mode 1-3: 18ħ | Mode d: 10ħ | Mode 4: 2ħ', density: 65.38, type: 'transition', description: 'Complete d-harmonics. Less coupling versatility than other transition elements.'},
+            // Continue pattern through periods
+            {n: 36, symbol: 'Kr', name: 'Krypton', vortexConfig: 'Mode 1-4: 36ħ complete', density: 83.798, type: 'noble', description: 'Complete harmonic configuration through Mode 4. Larger but stable vortex.'},
+            {n: 54, symbol: 'Xe', name: 'Xenon', vortexConfig: 'Mode 1-5: 54ħ complete', density: 131.29, type: 'noble', description: 'Complete configuration through Mode 5. Large enough to show some coupling under extreme conditions.'},
+            {n: 79, symbol: 'Au', name: 'Gold', vortexConfig: 'Complex f,d,s harmonics', density: 196.97, type: 'transition', description: 'Highly complex vortex with filled f-harmonics. Extremely stable coupling configuration.'},
+            {n: 86, symbol: 'Rn', name: 'Radon', vortexConfig: 'Mode 1-6: 86ħ complete', density: 222, type: 'noble', description: 'Complete configuration through Mode 6. So large that vortex becomes unstable.'},
+            {n: 92, symbol: 'U', name: 'Uranium', vortexConfig: 'Complex f-harmonic series', density: 238.03, type: 'actinide', description: 'Highly complex f-harmonic patterns. Vortex barely stable against decay.'},
+            {n: 118, symbol: 'Og', name: 'Oganesson', vortexConfig: 'Mode 1-7: 118ħ complete', density: 294, type: 'noble', description: 'Predicted complete configuration. Vortex likely too large to maintain coherence.'}
+        ];
+
+        let selectedElement = elements[0];
+        let currentTheme = 'dark';
+
+        function toggleTheme() {
+            currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.body.setAttribute('data-theme', currentTheme);
+            document.querySelector('.theme-toggle').textContent = currentTheme === 'dark' ? '☀️ Light' : '🌙 Dark';
+            if (document.getElementById('forceChart')) {
+                drawForceChart();
+            }
+        }
+
+        function showTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+            
+            // Initialize tab-specific content
+            if (tabName === 'forces') {
+                setTimeout(drawForceChart, 100);
+            }
+        }
+
+        function generatePeriodicTable() {
+            const table = document.getElementById('periodicTable');
+            table.innerHTML = '';
+            
+            // Create full 18x10 grid with proper element placement
+            for (let row = 0; row < 10; row++) {
+                for (let col = 0; col < 18; col++) {
+                    const element = findElementForPosition(row, col);
+                    const cell = document.createElement('div');
+                    cell.className = 'element';
+                    
+                    if (element) {
+                        cell.classList.add(element.type);
+                        cell.innerHTML = `
+                            <div class="element-number">n=${element.n}</div>
+                            <div class="element-symbol">${element.symbol}</div>
+                            <div class="element-name">${element.name}</div>
+                        `;
+                        cell.onclick = () => selectElement(element);
+                        cell.title = `${element.name}: ${element.vortexConfig}\nAngular Momentum: ${element.density}`;
+                    } else {
+                        cell.style.visibility = 'hidden';
+                    }
+                    
+                    table.appendChild(cell);
+                }
+            }
+        }
+
+        function findElementForPosition(row, col) {
+            // Simplified periodic table layout mapping
+            const positions = {
+                '0,0': 1,   // H
+                '0,17': 2,  // He
+                '1,0': 3,   // Li
+                '1,1': 4,   // Be
+                '1,12': 5,  // B
+                '1,13': 6,  // C
+                '1,14': 7,  // N
+                '1,15': 8,  // O
+                '1,16': 9,  // F
+                '1,17': 10, // Ne
+                '2,0': 11,  // Na
+                '2,1': 12,  // Mg
+                '2,12': 13, // Al
+                '2,13': 14, // Si
+                '2,14': 15, // P
+                '2,15': 16, // S
+                '2,16': 17, // Cl
+                '2,17': 18, // Ar
+                '3,0': 19,  // K
+                '3,1': 20,  // Ca
+                '3,2': 21,  // Sc
+                '3,7': 26,  // Fe (representative transition metal)
+                '3,10': 29, // Cu
+                '3,11': 30, // Zn
+                '3,17': 36, // Kr
+                '5,17': 54, // Xe (skipping some periods for key elements)
+                '6,14': 79, // Au (representative heavy metal)
+                '7,17': 86, // Rn
+                '8,3': 92,  // U (representative actinide)
+                '9,17': 118 // Og
+            };
+            
+            const key = `${row},${col}`;
+            const elementN = positions[key];
+            return elements.find(el => el.n === elementN);
+        }
+
+        function selectElement(element) {
+            selectedElement = element;
+            
+            // Update visual selection in table
+            document.querySelectorAll('.element').forEach(el => el.classList.remove('selected'));
+            event.currentTarget.classList.add('selected');
+            
+            // Update vortex display
+            updateVortexDisplay();
+            
+            // Update element selector
+            document.getElementById('elementSelector').value = element.n;
+        }
+
+        function generateElementSelector() {
+            const selector = document.getElementById('elementSelector');
+            selector.innerHTML = '';
+            
+            elements.forEach(element => {
+                const option = document.createElement('option');
+                option.value = element.n;
+                option.textContent = `${element.name} (n=${element.n})`;
+                selector.appendChild(option);
+            });
+            
+            selector.onchange = () => {
+                const n = parseInt(selector.value);
+                selectedElement = elements.find(el => el.n === n);
+                updateVortexDisplay();
+            };
+        }
+
+        function updateVortexDisplay() {
+            const display = document.getElementById('vortexDisplay');
+            const info = document.getElementById('vortexInfo');
+            
+            // Clear existing rings
+            document.querySelectorAll('.vortex-ring').forEach(ring => ring.remove());
+            
+            // Add rings based on element's vortex structure
+            const numModes = Math.min(selectedElement.n, 7); // Max 7 visible modes
+            const maxRadius = 180;
+            
+            for (let i = 1; i <= numModes; i++) {
+                const ring = document.createElement('div');
+                ring.className = 'vortex-ring';
+                const radius = (i / numModes) * maxRadius;
+                const size = radius * 2;
+                
+                ring.style.width = `${size}px`;
+                ring.style.height = `${size}px`;
+                ring.style.top = `50%`;
+                ring.style.left = `50%`;
+                ring.style.transform = `translate(-50%, -50%)`;
+                ring.style.borderColor = i % 2 === 0 ? 'var(--accent-gold)' : 'var(--accent-blue)';
+                ring.style.opacity = Math.max(0.3, 1 - (i * 0.1));
+                
+                // Add animation
+                ring.style.animation = `pulse ${2 + i * 0.5}s infinite alternate`;
+                
+                display.appendChild(ring);
+            }
+            
+            // Update info panel
+            document.getElementById('elementTitle').textContent = `${selectedElement.name} (n=${selectedElement.n})`;
+            document.getElementById('elementDescription').textContent = selectedElement.description;
+            document.getElementById('vortexConfig').innerHTML = `
+                <strong>Harmonic Configuration:</strong> ${selectedElement.vortexConfig}<br>
+                <strong>Angular Momentum Density:</strong> ${selectedElement.density} units<br>
+                <strong>Vortex Stability:</strong> ${getStabilityDescription(selectedElement.type)}
+            `;
+        }
+
+        function getStabilityDescription(type) {
+            const descriptions = {
+                'noble': 'Maximally stable - complete harmonic configuration',
+                'alkali': 'Unstable - single excess quantum',
+                'alkaline': 'Moderately stable - two excess quanta',
+                'halogen': 'Highly reactive - one quantum short of completion',
+                'transition': 'Complex stability - multiple coupling modes',
+                'nonmetal': 'Variable - depends on harmonic filling',
+                'metalloid': 'Transitional - intermediate coupling behavior',
+                'lanthanide': 'Deep harmonic complexity',
+                'actinide': 'Barely stable - approaching vortex limit'
+            };
+            return descriptions[type] || 'Complex vortex behavior';
+        }
+
+        function drawForceChart() {
+            const canvas = document.getElementById('forceChart');
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            const width = canvas.width;
+            const height = canvas.height;
+            
+            // Clear canvas
+            ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--card').trim();
+            ctx.fillRect(0, 0, width, height);
+            
+            // Set up coordinate system
+            const margin = 40;
+            const plotWidth = width - 2 * margin;
+            const plotHeight = height - 2 * margin;
+            
+            const textColor = getComputedStyle(document.documentElement).getPropertyValue('--text').trim();
+            const goldColor = getComputedStyle(document.documentElement).getPropertyValue('--accent-gold').trim();
+            const blueColor = getComputedStyle(document.documentElement).getPropertyValue('--accent-blue').trim();
+            
+            ctx.strokeStyle = textColor;
+            ctx.fillStyle = textColor;
+            ctx.font = '12px Georgia';
+            
+            // Draw axes
+            ctx.beginPath();
+            ctx.moveTo(margin, margin);
+            ctx.lineTo(margin, height - margin);
+            ctx.lineTo(width - margin, height - margin);
+            ctx.stroke();
+            
+            // Draw labels
+            ctx.fillText('Force', 10, margin - 10);
+            ctx.fillText('Distance from Barycenter', width / 2 - 80, height - 10);
+            
+            // Draw force curve
+            ctx.beginPath();
+            ctx.strokeStyle = goldColor;
+            ctx.lineWidth = 3;
+            
+            const eyewallPos = 0.3; // Eyewall at 30% of the distance
+            const maxForce = plotHeight * 0.8;
+            
+            // Eye region (calm)
+            for (let x = 0; x < eyewallPos * plotWidth; x++) {
+                const normalizedX = x / plotWidth;
+                const force = maxForce * Math.exp(-10 * normalizedX); // Exponential decay toward center
+                const screenX = margin + x;
+                const screenY = height - margin - force;
+                
+                if (x === 0) {
+                    ctx.moveTo(screenX, screenY);
+                } else {
+                    ctx.lineTo(screenX, screenY);
+                }
+            }
+            
+            // Eyewall spike
+            const eyewallX = margin + eyewallPos * plotWidth;
+            ctx.lineTo(eyewallX, margin + plotHeight * 0.1);
+            
+            // Outer circulation (inverse square)
+            for (let x = eyewallPos * plotWidth; x < plotWidth; x++) {
+                const normalizedX = (x / plotWidth - eyewallPos) / (1 - eyewallPos);
+                const force = maxForce * 0.3 / Math.pow(normalizedX + 0.1, 2); // Inverse square with offset
+                const screenX = margin + x;
+                const screenY = height - margin - Math.min(force, plotHeight);
+                
+                ctx.lineTo(screenX, screenY);
+            }
+            
+            ctx.stroke();
+            
+            // Add region labels
+            ctx.fillStyle = '#4CAF50';
+            ctx.font = '14px Georgia';
+            ctx.fillText('Eye', margin + plotWidth * 0.1, height - margin - plotHeight * 0.8);
+            
+            ctx.fillStyle = goldColor;
+            ctx.fillText('Eyewall', margin + plotWidth * 0.25, margin + 30);
+            
+            ctx.fillStyle = blueColor;
+            ctx.fillText('Outer Circulation', margin + plotWidth * 0.6, height - margin - plotHeight * 0.3);
+            
+            // Add vertical line at eyewall
+            ctx.setLineDash([5, 5]);
+            ctx.strokeStyle = goldColor;
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(eyewallX, margin);
+            ctx.lineTo(eyewallX, height - margin);
+            ctx.stroke();
+            ctx.setLineDash([]);
+        }
+
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', () => {
+            generatePeriodicTable();
+            generateElementSelector();
+            updateVortexDisplay();
+            
+            // Set up animation speed control
+            document.getElementById('animationSpeed').oninput = (e) => {
+                const speed = e.target.value;
+                document.documentElement.style.setProperty('--animation-speed', `${1/speed}s`);
+            };
+        });
+    </script>
+</body>
+</html>
