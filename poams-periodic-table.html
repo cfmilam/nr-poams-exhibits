@@ -14,6 +14,16 @@
             }
         };
     </script>
+    
+    <!-- Three.js Import Map -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+            "OrbitControls": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/controls/OrbitControls.js"
+        }
+    }
+    </script>
     <style>
         :root {
             --bg-dark: #1a1a2e;
@@ -293,51 +303,67 @@
             height: 100%;
         }
 
-        /* Spiral Visualization */
-        #spiralCanvas {
-            max-width: 100%;
-            max-height: 70vh;
+        /* 3D Spiral Visualization */
+        #spiralContainer {
+            width: 100%;
+            height: 70vh;
+            min-height: 500px;
+            max-height: 800px;
+            background: var(--card);
+            border-radius: 10px;
+            border: 2px solid var(--border);
+            overflow: hidden;
+            position: relative;
         }
         
-        .spiral-element {
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
+        .spiral-controls {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .control-group label {
+            color: var(--text);
+            font-size: 14px;
+            white-space: nowrap;
+        }
+        
+        .control-group input[type="range"] {
+            width: 80px;
+        }
+        
+        .control-group input[type="checkbox"] {
+            transform: scale(1.2);
+        }
+        
+        .control-group button {
+            background: var(--accent-gold);
+            color: var(--bg);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
             cursor: pointer;
-            transition: transform 0.2s ease;
+            font-family: inherit;
+            font-size: 14px;
         }
         
-        .spiral-element:hover {
-            transform: scale(1.5);
-            z-index: 100;
+        .control-group button:hover {
+            opacity: 0.8;
         }
         
-        .spiral-element.selected {
-            border: 2px solid var(--accent-gold);
-            box-shadow: 0 0 8px var(--accent-gold);
-        }
-        
-        .spiral-element.noble {
-            width: 12px;
-            height: 12px;
-            background: var(--accent-gold) !important;
-        }
-        
-        .spiral-animation {
-            opacity: 0;
-            animation: spiralAppear 0.5s ease forwards;
-        }
-        
-        @keyframes spiralAppear {
-            from {
-                opacity: 0;
-                transform: scale(0);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+        #spiral3D {
+            width: 100%;
+            height: 100%;
+            display: block;
         }
 
         /* Responsive */
@@ -530,7 +556,7 @@
             </div>
         </div>
 
-        <!-- Tab 2: Spiral Visualization -->
+        <!-- Tab 2: 3D Spiral Visualization -->
         <div id="spiral" class="tab-content">
             <h2 style="text-align: center; color: var(--accent-gold); margin-bottom: 10px;">
                 The Spiral of Accumulated Action
@@ -540,23 +566,28 @@
             </p>
             
             <div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
-                <canvas id="spiralCanvas" width="800" height="800" style="background: var(--card); border-radius: 10px; border: 2px solid var(--border); cursor: crosshair;"></canvas>
+                <div id="spiralContainer">
+                    <canvas id="spiral3D"></canvas>
+                </div>
                 
-                <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap; justify-content: center;">
-                    <button id="playButton" style="background: var(--accent-gold); color: var(--bg); border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-family: inherit;">
-                        ▶️ Play Accumulation
-                    </button>
+                <div class="spiral-controls">
+                    <div class="control-group">
+                        <button id="playButton">▶️ Play Accumulation</button>
+                    </div>
                     
-                    <div style="display: flex; align-items: center; gap: 10px;">
-                        <label for="spiralSpeed" style="color: var(--text);">Speed:</label>
-                        <input type="range" id="spiralSpeed" min="0.5" max="5" step="0.5" value="2" style="width: 100px;">
+                    <div class="control-group">
+                        <label for="spiralSpeed">Speed:</label>
+                        <input type="range" id="spiralSpeed" min="0.5" max="5" step="0.5" value="2">
                         <span id="speedValue">2x</span>
                     </div>
                     
-                    <div style="display: flex; align-items: center; gap: 10px;">
-                        <label for="zoomSlider" style="color: var(--text);">Zoom:</label>
-                        <input type="range" id="zoomSlider" min="0.5" max="3" step="0.1" value="1" style="width: 100px;">
-                        <span id="zoomValue">1.0x</span>
+                    <div class="control-group">
+                        <label for="autoRotate">Auto-Rotate:</label>
+                        <input type="checkbox" id="autoRotate">
+                    </div>
+                    
+                    <div class="control-group">
+                        <button id="resetView">Reset View</button>
                     </div>
                 </div>
                 
@@ -882,12 +913,20 @@
         let selectedElement = elements[0];
         let currentTheme = 'dark';
         
-        // Spiral visualization state
-        let spiralCanvas, spiralCtx;
-        let spiralZoom = 1;
-        let spiralAnimation = null;
-        let animationIndex = 0;
-        let spiralElements = []; // Array to store element positions and data
+        // 3D Spiral visualization state
+        let spiral3D = {
+            scene: null,
+            camera: null,
+            renderer: null,
+            controls: null,
+            elementMeshes: [],
+            animation: null,
+            animationIndex: 0,
+            autoRotate: false,
+            spiralPath: null,
+            completionLine: null,
+            modeLabels: []
+        };
 
         // Define the harmonic cycles for the spiral
         const harmonicCycles = [
@@ -900,32 +939,32 @@
             { start: 87, end: 118, elements: 32, mode: 7 }  // Fr → Og
         ];
 
-        function calculateSpiralPosition(elementN, canvasWidth, canvasHeight) {
-            const centerX = canvasWidth / 2;
-            const centerY = canvasHeight / 2;
-            const maxRadius = Math.min(canvasWidth, canvasHeight) * 0.4;
-            
+        function calculate3DSpiralPosition(elementN) {
             // Find which harmonic cycle this element belongs to
             const cycle = harmonicCycles.find(c => elementN >= c.start && elementN <= c.end);
-            if (!cycle) return { x: centerX, y: centerY };
+            if (!cycle) return { x: 0, y: 0, z: 0 };
             
             // Position within this cycle (0 to 1)
             const positionInCycle = (elementN - cycle.start) / cycle.elements;
             
-            // Radius increases with each mode (harmonic complexity)
-            const radius = (cycle.mode / 7) * maxRadius;
+            // Height increases linearly with element number
+            const maxHeight = 15; // Total spiral height
+            const y = ((elementN - 1) / 117) * maxHeight - maxHeight / 2; // Center around y=0
             
-            // Angle: noble gases are at 12 o'clock (top), others distributed around
-            // Noble gases (last element in each cycle) are at angle 0 (12 o'clock)
-            // First element (alkalis) are at just past 0 (12:01)
-            const baseAngle = -Math.PI / 2; // Start at 12 o'clock
+            // Radius increases with each mode (harmonic complexity)
+            const baseRadius = 2;
+            const maxRadius = 8;
+            const radius = baseRadius + ((cycle.mode - 1) / 6) * (maxRadius - baseRadius);
+            
+            // Angle: noble gases align vertically at 12 o'clock, others distributed
+            const baseAngle = -Math.PI / 2; // Start at 12 o'clock 
             const fullRotation = 2 * Math.PI;
             const angle = baseAngle + (positionInCycle * fullRotation);
             
-            const x = centerX + radius * Math.cos(angle) * spiralZoom;
-            const y = centerY + radius * Math.sin(angle) * spiralZoom;
+            const x = radius * Math.cos(angle);
+            const z = radius * Math.sin(angle);
             
-            return { x, y, cycle: cycle.mode, angle, radius };
+            return { x, y, z, cycle: cycle.mode, angle, radius };
         }
 
         function getElementTypeColor(type) {
@@ -943,25 +982,288 @@
             return colors[type] || '#888888';
         }
 
-        function initSpiralCanvas() {
-            spiralCanvas = document.getElementById('spiralCanvas');
-            if (!spiralCanvas) return;
+        // Three.js 3D Spiral Implementation
+        async function init3DSpiral() {
+            const container = document.getElementById('spiralContainer');
+            if (!container) return;
             
-            spiralCtx = spiralCanvas.getContext('2d');
+            const canvas = document.getElementById('spiral3D');
+            if (!canvas) return;
             
-            // Set up event listeners
-            spiralCanvas.addEventListener('click', handleSpiralClick);
-            spiralCanvas.addEventListener('wheel', handleSpiralZoom);
+            try {
+                // Dynamically import Three.js modules
+                const THREE = await import('three');
+                const { OrbitControls } = await import('OrbitControls');
+                
+                // Scene setup
+                spiral3D.scene = new THREE.Scene();
+                const bgColor = currentTheme === 'dark' ? '#1a1a2e' : '#f8f9fa';
+                spiral3D.scene.background = new THREE.Color(bgColor);
+                
+                // Camera setup
+                spiral3D.camera = new THREE.PerspectiveCamera(
+                    75, 
+                    container.clientWidth / container.clientHeight, 
+                    0.1, 
+                    1000
+                );
+                spiral3D.camera.position.set(15, 8, 15);
+                
+                // Renderer setup
+                spiral3D.renderer = new THREE.WebGLRenderer({ 
+                    canvas: canvas,
+                    antialias: true,
+                    alpha: false
+                });
+                spiral3D.renderer.setSize(container.clientWidth, container.clientHeight);
+                spiral3D.renderer.setPixelRatio(window.devicePixelRatio);
+                spiral3D.renderer.shadowMap.enabled = true;
+                spiral3D.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+                
+                // Lighting
+                const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+                spiral3D.scene.add(ambientLight);
+                
+                const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+                directionalLight.position.set(10, 10, 5);
+                directionalLight.castShadow = true;
+                directionalLight.shadow.mapSize.width = 1024;
+                directionalLight.shadow.mapSize.height = 1024;
+                spiral3D.scene.add(directionalLight);
+                
+                // Controls
+                spiral3D.controls = new OrbitControls(spiral3D.camera, spiral3D.renderer.domElement);
+                spiral3D.controls.enableDamping = true;
+                spiral3D.controls.dampingFactor = 0.05;
+                spiral3D.controls.enableZoom = true;
+                spiral3D.controls.enableRotate = true;
+                spiral3D.controls.autoRotate = false;
+                spiral3D.controls.autoRotateSpeed = 2;
+                
+                // Create 3D elements
+                await create3DElements(THREE);
+                
+                // Create helical path
+                createHelicalPath(THREE);
+                
+                // Create completion axis
+                createCompletionAxis(THREE);
+                
+                // Create mode labels
+                createModeLabels(THREE);
+                
+                // Set up event listeners
+                setup3DEventListeners();
+                
+                // Start render loop
+                animate();
+                
+            } catch (error) {
+                console.error('Failed to initialize 3D spiral:', error);
+                // Fallback message
+                container.innerHTML = '<div style="display: flex; align-items: center; justify-content: center; height: 100%; color: var(--text);">3D spiral failed to load. Please refresh the page.</div>';
+            }
+        }
+
+        async function create3DElements(THREE) {
+            spiral3D.elementMeshes = [];
             
-            // Initialize controls
-            const playButton = document.getElementById('playButton');
-            const speedSlider = document.getElementById('spiralSpeed');
-            const zoomSlider = document.getElementById('zoomSlider');
+            for (let i = 0; i < elements.length; i++) {
+                const element = elements[i];
+                const pos = calculate3DSpiralPosition(element.n);
+                
+                // Create element box (rounded cube)
+                const isNoble = element.type === 'noble';
+                const boxSize = isNoble ? 0.8 : 0.6;
+                const boxGeometry = new THREE.BoxGeometry(boxSize, boxSize * 0.8, 0.1);
+                
+                // Create canvas texture for element text
+                const canvas = document.createElement('canvas');
+                canvas.width = 128;
+                canvas.height = 96;
+                const ctx = canvas.getContext('2d');
+                
+                // Draw element background
+                const color = getElementTypeColor(element.type);
+                ctx.fillStyle = color;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                // Draw rounded corners effect
+                ctx.globalCompositeOperation = 'destination-out';
+                const cornerRadius = 8;
+                // Top-left
+                ctx.beginPath();
+                ctx.arc(cornerRadius, cornerRadius, cornerRadius, Math.PI, 1.5 * Math.PI);
+                ctx.arc(canvas.width - cornerRadius, cornerRadius, cornerRadius, 1.5 * Math.PI, 0);
+                ctx.arc(canvas.width - cornerRadius, canvas.height - cornerRadius, cornerRadius, 0, 0.5 * Math.PI);
+                ctx.arc(cornerRadius, canvas.height - cornerRadius, cornerRadius, 0.5 * Math.PI, Math.PI);
+                ctx.closePath();
+                ctx.fill();
+                
+                ctx.globalCompositeOperation = 'source-over';
+                ctx.fillStyle = color;
+                ctx.fill();
+                
+                // Draw element symbol (white, bold)
+                ctx.fillStyle = '#ffffff';
+                ctx.font = `bold ${isNoble ? 36 : 32}px Arial`;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(element.symbol, canvas.width / 2, canvas.height / 2 - 8);
+                
+                // Draw quantum number (white, smaller)
+                ctx.font = `${isNoble ? 16 : 14}px Arial`;
+                ctx.fillText(element.n + 'ħ', canvas.width / 2, canvas.height / 2 + 20);
+                
+                // Create texture and material
+                const texture = new THREE.CanvasTexture(canvas);
+                const materials = [
+                    new THREE.MeshLambertMaterial({ color: color }), // Right
+                    new THREE.MeshLambertMaterial({ color: color }), // Left
+                    new THREE.MeshLambertMaterial({ color: color }), // Top
+                    new THREE.MeshLambertMaterial({ color: color }), // Bottom
+                    new THREE.MeshLambertMaterial({ map: texture }), // Front (with text)
+                    new THREE.MeshLambertMaterial({ color: color })  // Back
+                ];
+                
+                const elementMesh = new THREE.Mesh(boxGeometry, materials);
+                elementMesh.position.set(pos.x, pos.y, pos.z);
+                
+                // Billboard effect - always face camera
+                elementMesh.lookAt = function() {
+                    this.lookAt(spiral3D.camera.position);
+                };
+                
+                // Store element data
+                elementMesh.userData = {
+                    element: element,
+                    originalPosition: pos,
+                    index: i,
+                    visible: false
+                };
+                
+                spiral3D.elementMeshes.push(elementMesh);
+                spiral3D.scene.add(elementMesh);
+                
+                // Initially hide elements for animation
+                elementMesh.visible = false;
+            }
+        }
+        
+        function createHelicalPath(THREE) {
+            const points = [];
+            const maxHeight = 15;
             
-            if (playButton) {
-                playButton.addEventListener('click', toggleSpiralAnimation);
+            // Create helical path connecting all elements
+            for (let i = 0; i <= 118; i++) {
+                const t = i / 118;
+                const y = t * maxHeight - maxHeight / 2;
+                
+                // Find which cycle this belongs to for radius
+                let radius = 2;
+                for (const cycle of harmonicCycles) {
+                    if (i + 1 >= cycle.start && i + 1 <= cycle.end) {
+                        const baseRadius = 2;
+                        const maxRadius = 8;
+                        radius = baseRadius + ((cycle.mode - 1) / 6) * (maxRadius - baseRadius);
+                        break;
+                    }
+                }
+                
+                // Calculate angle based on accumulated elements
+                let totalAngle = 0;
+                for (const cycle of harmonicCycles) {
+                    if (i + 1 > cycle.end) {
+                        totalAngle += 2 * Math.PI; // Complete revolution
+                    } else if (i + 1 >= cycle.start) {
+                        const progressInCycle = (i + 1 - cycle.start) / cycle.elements;
+                        totalAngle += progressInCycle * 2 * Math.PI;
+                        break;
+                    }
+                }
+                
+                const angle = -Math.PI / 2 + totalAngle;
+                
+                const x = radius * Math.cos(angle);
+                const z = radius * Math.sin(angle);
+                
+                points.push(new THREE.Vector3(x, y, z));
             }
             
+            const pathGeometry = new THREE.BufferGeometry().setFromPoints(points);
+            const pathMaterial = new THREE.LineBasicMaterial({ 
+                color: currentTheme === 'dark' ? '#444' : '#ccc',
+                opacity: 0.6,
+                transparent: true
+            });
+            
+            spiral3D.spiralPath = new THREE.Line(pathGeometry, pathMaterial);
+            spiral3D.scene.add(spiral3D.spiralPath);
+        }
+        
+        function createCompletionAxis(THREE) {
+            // Vertical line through noble gas positions (completion axis)
+            const points = [];
+            const maxHeight = 15;
+            points.push(new THREE.Vector3(0, -maxHeight / 2, 0));
+            points.push(new THREE.Vector3(0, maxHeight / 2, 0));
+            
+            const axisGeometry = new THREE.BufferGeometry().setFromPoints(points);
+            const axisMaterial = new THREE.LineBasicMaterial({ 
+                color: '#c9a84c', // Gold color
+                opacity: 0.8,
+                transparent: true
+            });
+            
+            spiral3D.completionLine = new THREE.Line(axisGeometry, axisMaterial);
+            spiral3D.scene.add(spiral3D.completionLine);
+        }
+        
+        function createModeLabels(THREE) {
+            // Create floating text labels for each harmonic mode
+            spiral3D.modeLabels = [];
+            
+            harmonicCycles.forEach((cycle, index) => {
+                const canvas = document.createElement('canvas');
+                canvas.width = 128;
+                canvas.height = 32;
+                const ctx = canvas.getContext('2d');
+                
+                ctx.fillStyle = currentTheme === 'dark' ? '#4fc3f7' : '#2196f3';
+                ctx.font = 'bold 16px Arial';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(`Mode ${cycle.mode}`, canvas.width / 2, canvas.height / 2);
+                
+                const texture = new THREE.CanvasTexture(canvas);
+                const material = new THREE.SpriteMaterial({ map: texture });
+                const sprite = new THREE.Sprite(material);
+                
+                // Position near the outer edge of each cycle
+                const baseRadius = 2;
+                const maxRadius = 8;
+                const radius = baseRadius + ((cycle.mode - 1) / 6) * (maxRadius - baseRadius) + 1.5;
+                
+                const avgElement = (cycle.start + cycle.end) / 2;
+                const y = ((avgElement - 1) / 117) * 15 - 7.5;
+                
+                sprite.position.set(radius, y, 0);
+                sprite.scale.set(2, 0.5, 1);
+                
+                spiral3D.modeLabels.push(sprite);
+                spiral3D.scene.add(sprite);
+            });
+        }
+
+        function setup3DEventListeners() {
+            // Play/Pause button
+            const playButton = document.getElementById('playButton');
+            if (playButton) {
+                playButton.addEventListener('click', toggle3DAnimation);
+            }
+            
+            // Speed control
+            const speedSlider = document.getElementById('spiralSpeed');
             if (speedSlider) {
                 speedSlider.addEventListener('input', (e) => {
                     const speed = e.target.value;
@@ -969,235 +1271,230 @@
                 });
             }
             
-            if (zoomSlider) {
-                zoomSlider.addEventListener('input', (e) => {
-                    spiralZoom = parseFloat(e.target.value);
-                    document.getElementById('zoomValue').textContent = spiralZoom.toFixed(1) + 'x';
-                    drawSpiral();
+            // Auto-rotate toggle
+            const autoRotateCheckbox = document.getElementById('autoRotate');
+            if (autoRotateCheckbox) {
+                autoRotateCheckbox.addEventListener('change', (e) => {
+                    spiral3D.autoRotate = e.target.checked;
+                    if (spiral3D.controls) {
+                        spiral3D.controls.autoRotate = spiral3D.autoRotate;
+                    }
                 });
             }
             
-            // Initial draw
-            drawSpiral();
+            // Reset view button
+            const resetButton = document.getElementById('resetView');
+            if (resetButton) {
+                resetButton.addEventListener('click', reset3DView);
+            }
+            
+            // Mouse click for element selection
+            const canvas = document.getElementById('spiral3D');
+            if (canvas) {
+                canvas.addEventListener('click', handle3DClick);
+            }
+            
+            // Window resize
+            window.addEventListener('resize', onResize3D);
+        }
+        
+        function handle3DClick(event) {
+            if (!spiral3D.camera || !spiral3D.scene) return;
+            
+            const rect = event.target.getBoundingClientRect();
+            const x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+            const y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+            
+            const THREE = window.THREE || (async () => await import('three'))();
+            
+            const raycaster = new THREE.Raycaster();
+            raycaster.setFromCamera({ x, y }, spiral3D.camera);
+            
+            const visibleMeshes = spiral3D.elementMeshes.filter(mesh => mesh.visible);
+            const intersects = raycaster.intersectObjects(visibleMeshes);
+            
+            if (intersects.length > 0) {
+                const clickedMesh = intersects[0].object;
+                const element = clickedMesh.userData.element;
+                selectSpiralElement(element);
+            }
+        }
+        
+        function onResize3D() {
+            if (!spiral3D.camera || !spiral3D.renderer) return;
+            
+            const container = document.getElementById('spiralContainer');
+            if (!container) return;
+            
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+            
+            spiral3D.camera.aspect = width / height;
+            spiral3D.camera.updateProjectionMatrix();
+            spiral3D.renderer.setSize(width, height);
+        }
+        
+        function reset3DView() {
+            if (!spiral3D.camera || !spiral3D.controls) return;
+            
+            spiral3D.camera.position.set(15, 8, 15);
+            spiral3D.camera.lookAt(0, 0, 0);
+            spiral3D.controls.target.set(0, 0, 0);
+            spiral3D.controls.update();
         }
 
-        function drawSpiral() {
-            if (!spiralCanvas || !spiralCtx) return;
+        function toggle3DAnimation() {
+            const playButton = document.getElementById('playButton');
             
-            const width = spiralCanvas.width;
-            const height = spiralCanvas.height;
-            const centerX = width / 2;
-            const centerY = height / 2;
-            
-            // Clear canvas
-            spiralCtx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--card').trim();
-            spiralCtx.fillRect(0, 0, width, height);
-            
-            // Reset spiralElements array
-            spiralElements = [];
-            
-            // Draw mode labels around the perimeter
-            drawModeLabels();
-            
-            // Draw spiral path
-            drawSpiralPath();
-            
-            // Draw radial lines to noble gases (completion axis)
-            drawNobleGasLines();
-            
-            // Draw elements
-            elements.forEach((element, index) => {
-                const pos = calculateSpiralPosition(element.n, width, height);
-                spiralElements.push({
-                    element,
-                    x: pos.x,
-                    y: pos.y,
-                    cycle: pos.cycle,
-                    visible: spiralAnimation === null || index <= animationIndex
+            if (spiral3D.animation) {
+                // Stop animation
+                clearInterval(spiral3D.animation);
+                spiral3D.animation = null;
+                spiral3D.animationIndex = 0;
+                if (playButton) {
+                    playButton.textContent = '▶️ Play Accumulation';
+                }
+                // Show all elements
+                spiral3D.elementMeshes.forEach(mesh => {
+                    mesh.visible = true;
+                    mesh.userData.visible = true;
+                });
+            } else {
+                // Start animation
+                spiral3D.animationIndex = 0;
+                const speed = parseFloat(document.getElementById('spiralSpeed')?.value || 2);
+                const delay = 1000 / (speed * 3); // Adjust timing
+                
+                if (playButton) {
+                    playButton.textContent = '⏸️ Pause';
+                }
+                
+                // Hide all elements initially
+                spiral3D.elementMeshes.forEach(mesh => {
+                    mesh.visible = false;
+                    mesh.userData.visible = false;
                 });
                 
-                if (spiralAnimation === null || index <= animationIndex) {
-                    drawSpiralElement(element, pos.x, pos.y);
+                spiral3D.animation = setInterval(() => {
+                    if (spiral3D.animationIndex < spiral3D.elementMeshes.length) {
+                        const mesh = spiral3D.elementMeshes[spiral3D.animationIndex];
+                        mesh.visible = true;
+                        mesh.userData.visible = true;
+                        
+                        // Add entrance animation
+                        mesh.scale.set(0, 0, 0);
+                        const targetScale = mesh.userData.element.type === 'noble' ? 1.2 : 1.0;
+                        
+                        // Animate scale up
+                        let scaleProgress = 0;
+                        const scaleAnimation = setInterval(() => {
+                            scaleProgress += 0.1;
+                            const scale = scaleProgress * targetScale;
+                            mesh.scale.set(scale, scale, scale);
+                            
+                            if (scaleProgress >= 1) {
+                                clearInterval(scaleAnimation);
+                                mesh.scale.set(targetScale, targetScale, targetScale);
+                            }
+                        }, 16); // ~60fps
+                        
+                        spiral3D.animationIndex++;
+                    } else {
+                        clearInterval(spiral3D.animation);
+                        spiral3D.animation = null;
+                        if (playButton) {
+                            playButton.textContent = '▶️ Play Accumulation';
+                        }
+                    }
+                }, delay);
+            }
+        }
+        
+        function animate() {
+            if (!spiral3D.renderer || !spiral3D.scene || !spiral3D.camera) return;
+            
+            requestAnimationFrame(animate);
+            
+            // Update controls
+            if (spiral3D.controls) {
+                spiral3D.controls.update();
+            }
+            
+            // Billboard effect - make element boxes always face camera
+            spiral3D.elementMeshes.forEach(mesh => {
+                if (mesh.visible) {
+                    // Calculate direction to camera
+                    const direction = new (spiral3D.camera.constructor.prototype.constructor.prototype.Vector3 || THREE.Vector3)();
+                    direction.subVectors(spiral3D.camera.position, mesh.position).normalize();
+                    
+                    // Look at camera but maintain upright orientation
+                    mesh.lookAt(spiral3D.camera.position);
                 }
             });
             
-            // Draw explanatory text
-            drawSpiralText();
-        }
-
-        function drawModeLabels() {
-            const width = spiralCanvas.width;
-            const height = spiralCanvas.height;
-            const centerX = width / 2;
-            const centerY = height / 2;
-            const maxRadius = Math.min(width, height) * 0.4;
-            
-            spiralCtx.font = '14px Georgia';
-            spiralCtx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--accent-blue').trim();
-            
-            harmonicCycles.forEach(cycle => {
-                const radius = (cycle.mode / 7) * maxRadius * spiralZoom + 20;
-                const x = centerX + radius * Math.cos(-Math.PI / 2);
-                const y = centerY + radius * Math.sin(-Math.PI / 2);
+            // Update selection highlighting
+            spiral3D.elementMeshes.forEach(mesh => {
+                const isSelected = mesh.userData.element.n === selectedElement.n;
+                const scale = isSelected ? 1.3 : (mesh.userData.element.type === 'noble' ? 1.2 : 1.0);
                 
-                spiralCtx.textAlign = 'center';
-                spiralCtx.fillText(`Mode ${cycle.mode}`, x, y - 10);
-            });
-        }
-
-        function drawSpiralPath() {
-            const width = spiralCanvas.width;
-            const height = spiralCanvas.height;
-            const centerX = width / 2;
-            const centerY = height / 2;
-            const maxRadius = Math.min(width, height) * 0.4;
-            
-            spiralCtx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--border').trim();
-            spiralCtx.lineWidth = 1;
-            spiralCtx.setLineDash([3, 3]);
-            
-            harmonicCycles.forEach(cycle => {
-                const radius = (cycle.mode / 7) * maxRadius * spiralZoom;
-                
-                spiralCtx.beginPath();
-                spiralCtx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
-                spiralCtx.stroke();
-            });
-            
-            spiralCtx.setLineDash([]);
-        }
-
-        function drawNobleGasLines() {
-            const width = spiralCanvas.width;
-            const height = spiralCanvas.height;
-            const centerX = width / 2;
-            const centerY = height / 2;
-            const maxRadius = Math.min(width, height) * 0.4;
-            
-            spiralCtx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--accent-gold').trim();
-            spiralCtx.lineWidth = 1;
-            spiralCtx.setLineDash([5, 5]);
-            spiralCtx.globalAlpha = 0.5;
-            
-            // Draw line from center to top (12 o'clock) - the completion axis
-            spiralCtx.beginPath();
-            spiralCtx.moveTo(centerX, centerY);
-            spiralCtx.lineTo(centerX, centerY - maxRadius * spiralZoom);
-            spiralCtx.stroke();
-            
-            spiralCtx.setLineDash([]);
-            spiralCtx.globalAlpha = 1;
-        }
-
-        function drawSpiralElement(element, x, y) {
-            const isNoble = element.type === 'noble';
-            const isSelected = element.n === selectedElement.n;
-            const boxW = isNoble ? 38 : 32;
-            const boxH = isNoble ? 34 : 28;
-            const color = getElementTypeColor(element.type);
-            
-            // Draw colored box
-            spiralCtx.fillStyle = color;
-            const bx = x - boxW / 2;
-            const by = y - boxH / 2;
-            const cornerR = 4;
-            spiralCtx.beginPath();
-            spiralCtx.moveTo(bx + cornerR, by);
-            spiralCtx.lineTo(bx + boxW - cornerR, by);
-            spiralCtx.quadraticCurveTo(bx + boxW, by, bx + boxW, by + cornerR);
-            spiralCtx.lineTo(bx + boxW, by + boxH - cornerR);
-            spiralCtx.quadraticCurveTo(bx + boxW, by + boxH, bx + boxW - cornerR, by + boxH);
-            spiralCtx.lineTo(bx + cornerR, by + boxH);
-            spiralCtx.quadraticCurveTo(bx, by + boxH, bx, by + boxH - cornerR);
-            spiralCtx.lineTo(bx, by + cornerR);
-            spiralCtx.quadraticCurveTo(bx, by, bx + cornerR, by);
-            spiralCtx.closePath();
-            spiralCtx.fill();
-            
-            // Selection highlight
-            if (isSelected) {
-                spiralCtx.strokeStyle = '#ffffff';
-                spiralCtx.lineWidth = 2.5;
-                spiralCtx.stroke();
-            } else if (isNoble) {
-                spiralCtx.strokeStyle = 'rgba(255,255,255,0.4)';
-                spiralCtx.lineWidth = 1.5;
-                spiralCtx.stroke();
-            }
-            
-            // Element symbol — white, bold
-            spiralCtx.font = `bold ${isNoble ? 14 : 12}px Georgia`;
-            spiralCtx.fillStyle = '#ffffff';
-            spiralCtx.textAlign = 'center';
-            spiralCtx.textBaseline = 'middle';
-            spiralCtx.fillText(element.symbol, x, y - 3);
-            
-            // Vortex quantum number — white, smaller
-            spiralCtx.font = `${isNoble ? 10 : 9}px Georgia`;
-            spiralCtx.fillText(element.n + 'ħ', x, y + (isNoble ? 11 : 9));
-            
-            // Reset baseline
-            spiralCtx.textBaseline = 'alphabetic';
-        }
-
-        function drawSpiralText() {
-            const width = spiralCanvas.width;
-            
-            spiralCtx.font = '12px Georgia';
-            spiralCtx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--text').trim();
-            spiralCtx.textAlign = 'center';
-            
-            const text = "Continuous accumulation: 1ħ → 118ħ";
-            spiralCtx.fillText(text, width / 2, 30);
-        }
-
-        function handleSpiralClick(event) {
-            const rect = spiralCanvas.getBoundingClientRect();
-            const x = event.clientX - rect.left;
-            const y = event.clientY - rect.top;
-            
-            // Scale coordinates for canvas resolution
-            const scaleX = spiralCanvas.width / rect.width;
-            const scaleY = spiralCanvas.height / rect.height;
-            const canvasX = x * scaleX;
-            const canvasY = y * scaleY;
-            
-            // Find clicked element
-            for (let spiralEl of spiralElements) {
-                if (!spiralEl.visible) continue;
-                
-                const distance = Math.sqrt(
-                    Math.pow(canvasX - spiralEl.x, 2) + 
-                    Math.pow(canvasY - spiralEl.y, 2)
-                );
-                
-                if (distance <= 22) { // Click tolerance
-                    selectSpiralElement(spiralEl.element);
-                    break;
+                if (mesh.visible) {
+                    mesh.scale.set(scale, scale, scale);
+                    
+                    // Add glow effect for selected element
+                    if (isSelected && mesh.material && Array.isArray(mesh.material)) {
+                        mesh.material.forEach(mat => {
+                            if (mat.emissive) {
+                                mat.emissive.setHex(0x222222);
+                            }
+                        });
+                    }
                 }
+            });
+            
+            // Render the scene
+            spiral3D.renderer.render(spiral3D.scene, spiral3D.camera);
+        }
+        
+        function update3DTheme() {
+            if (!spiral3D.scene || !spiral3D.renderer) return;
+            
+            const bgColor = currentTheme === 'dark' ? '#1a1a2e' : '#f8f9fa';
+            spiral3D.scene.background.setHex(bgColor.replace('#', '0x'));
+            
+            // Update spiral path color
+            if (spiral3D.spiralPath && spiral3D.spiralPath.material) {
+                const pathColor = currentTheme === 'dark' ? '#444' : '#ccc';
+                spiral3D.spiralPath.material.color.setHex(pathColor.replace('#', '0x'));
             }
+            
+            // Update mode labels
+            spiral3D.modeLabels.forEach(label => {
+                // Recreate texture with new theme colors
+                const canvas = document.createElement('canvas');
+                canvas.width = 128;
+                canvas.height = 32;
+                const ctx = canvas.getContext('2d');
+                
+                ctx.fillStyle = currentTheme === 'dark' ? '#4fc3f7' : '#2196f3';
+                ctx.font = 'bold 16px Arial';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(`Mode ${harmonicCycles.find(cycle => 
+                    spiral3D.modeLabels.indexOf(label) === harmonicCycles.indexOf(cycle))?.mode}`, 
+                    canvas.width / 2, canvas.height / 2);
+                
+                const THREE = window.THREE;
+                if (THREE && label.material && label.material.map) {
+                    label.material.map.dispose();
+                    label.material.map = new THREE.CanvasTexture(canvas);
+                }
+            });
         }
 
-        function handleSpiralZoom(event) {
-            event.preventDefault();
-            const delta = event.deltaY > 0 ? -0.1 : 0.1;
-            spiralZoom = Math.max(0.5, Math.min(3, spiralZoom + delta));
-            
-            // Update zoom slider
-            const zoomSlider = document.getElementById('zoomSlider');
-            if (zoomSlider) {
-                zoomSlider.value = spiralZoom;
-                document.getElementById('zoomValue').textContent = spiralZoom.toFixed(1) + 'x';
-            }
-            
-            drawSpiral();
-        }
+
 
         function selectSpiralElement(element) {
             selectedElement = element;
-            
-            // Update spiral display
-            drawSpiral();
             
             // Update info panel
             updateSpiralInfo();
@@ -1237,42 +1534,7 @@
             }
         }
 
-        function toggleSpiralAnimation() {
-            const playButton = document.getElementById('playButton');
-            
-            if (spiralAnimation) {
-                // Stop animation
-                clearInterval(spiralAnimation);
-                spiralAnimation = null;
-                animationIndex = 0;
-                if (playButton) {
-                    playButton.textContent = '▶️ Play Accumulation';
-                }
-                drawSpiral();
-            } else {
-                // Start animation
-                animationIndex = 0;
-                const speed = parseFloat(document.getElementById('spiralSpeed')?.value || 2);
-                const delay = 1000 / (speed * 2); // Adjust timing
-                
-                if (playButton) {
-                    playButton.textContent = '⏸️ Pause';
-                }
-                
-                spiralAnimation = setInterval(() => {
-                    animationIndex++;
-                    drawSpiral();
-                    
-                    if (animationIndex >= elements.length - 1) {
-                        clearInterval(spiralAnimation);
-                        spiralAnimation = null;
-                        if (playButton) {
-                            playButton.textContent = '▶️ Play Accumulation';
-                        }
-                    }
-                }, delay);
-            }
-        }
+
 
         function toggleTheme() {
             currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
@@ -1281,9 +1543,8 @@
             if (document.getElementById('forceChart')) {
                 drawForceChart();
             }
-            if (spiralCanvas) {
-                drawSpiral();
-            }
+            // Update 3D spiral theme
+            update3DTheme();
         }
 
         function showTab(tabName) {
@@ -1307,7 +1568,11 @@
             if (tabName === 'forces') {
                 setTimeout(drawForceChart, 100);
             } else if (tabName === 'spiral') {
-                setTimeout(initSpiralCanvas, 100);
+                setTimeout(() => {
+                    if (!spiral3D.renderer) {
+                        init3DSpiral();
+                    }
+                }, 100);
             }
         }
 
@@ -1680,6 +1945,21 @@
                 const speed = e.target.value;
                 document.documentElement.style.setProperty('--animation-speed', `${1/speed}s`);
             };
+        });
+    </script>
+    
+    <!-- Three.js 3D Spiral Module -->
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'OrbitControls';
+        
+        // Make THREE available globally for other functions
+        window.THREE = THREE;
+        window.OrbitControls = OrbitControls;
+        
+        // Initialize 3D spiral when spiral tab is first opened
+        window.addEventListener('load', () => {
+            // The init3DSpiral function will be called when the spiral tab is activated
         });
     </script>
 </body>
