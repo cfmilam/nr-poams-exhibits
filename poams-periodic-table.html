@@ -1090,26 +1090,54 @@
         }
 
         function drawSpiralElement(element, x, y) {
-            const radius = element.type === 'noble' ? 6 : 4;
+            const isNoble = element.type === 'noble';
+            const isSelected = element.n === selectedElement.n;
+            const boxW = isNoble ? 38 : 32;
+            const boxH = isNoble ? 34 : 28;
+            const color = getElementTypeColor(element.type);
             
-            // Draw element dot
+            // Draw colored box
+            spiralCtx.fillStyle = color;
+            const bx = x - boxW / 2;
+            const by = y - boxH / 2;
+            const cornerR = 4;
             spiralCtx.beginPath();
-            spiralCtx.arc(x, y, radius, 0, 2 * Math.PI);
-            spiralCtx.fillStyle = getElementTypeColor(element.type);
+            spiralCtx.moveTo(bx + cornerR, by);
+            spiralCtx.lineTo(bx + boxW - cornerR, by);
+            spiralCtx.quadraticCurveTo(bx + boxW, by, bx + boxW, by + cornerR);
+            spiralCtx.lineTo(bx + boxW, by + boxH - cornerR);
+            spiralCtx.quadraticCurveTo(bx + boxW, by + boxH, bx + boxW - cornerR, by + boxH);
+            spiralCtx.lineTo(bx + cornerR, by + boxH);
+            spiralCtx.quadraticCurveTo(bx, by + boxH, bx, by + boxH - cornerR);
+            spiralCtx.lineTo(bx, by + cornerR);
+            spiralCtx.quadraticCurveTo(bx, by, bx + cornerR, by);
+            spiralCtx.closePath();
             spiralCtx.fill();
             
-            // Add border for selected element
-            if (element.n === selectedElement.n) {
-                spiralCtx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--accent-gold').trim();
-                spiralCtx.lineWidth = 2;
+            // Selection highlight
+            if (isSelected) {
+                spiralCtx.strokeStyle = '#ffffff';
+                spiralCtx.lineWidth = 2.5;
+                spiralCtx.stroke();
+            } else if (isNoble) {
+                spiralCtx.strokeStyle = 'rgba(255,255,255,0.4)';
+                spiralCtx.lineWidth = 1.5;
                 spiralCtx.stroke();
             }
             
-            // Draw element symbol
-            spiralCtx.font = '10px Georgia';
-            spiralCtx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--text').trim();
+            // Element symbol — white, bold
+            spiralCtx.font = `bold ${isNoble ? 14 : 12}px Georgia`;
+            spiralCtx.fillStyle = '#ffffff';
             spiralCtx.textAlign = 'center';
-            spiralCtx.fillText(element.symbol, x, y + radius + 12);
+            spiralCtx.textBaseline = 'middle';
+            spiralCtx.fillText(element.symbol, x, y - 3);
+            
+            // Vortex quantum number — white, smaller
+            spiralCtx.font = `${isNoble ? 10 : 9}px Georgia`;
+            spiralCtx.fillText(element.n + 'ħ', x, y + (isNoble ? 11 : 9));
+            
+            // Reset baseline
+            spiralCtx.textBaseline = 'alphabetic';
         }
 
         function drawSpiralText() {
@@ -1143,7 +1171,7 @@
                     Math.pow(canvasY - spiralEl.y, 2)
                 );
                 
-                if (distance <= 15) { // Click tolerance
+                if (distance <= 22) { // Click tolerance
                     selectSpiralElement(spiralEl.element);
                     break;
                 }
