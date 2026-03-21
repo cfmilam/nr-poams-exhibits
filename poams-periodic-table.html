@@ -761,7 +761,7 @@
                         <input type="range" id="animationSpeed" min="0.5" max="3" step="0.5" value="1">
                     </div>
                     <button id="toggleModesBtn" onclick="toggleVortexModes()" style="padding: 6px 14px; border-radius: 6px; border: 1px solid var(--accent, #c9a84c); background: transparent; color: var(--accent, #c9a84c); cursor: pointer; font-size: 0.85rem; font-weight: 600; transition: all 0.2s;">Hide Modes</button>
-                    <button id="toggleSpacingBtn" onclick="toggleSpacing()" style="padding: 6px 14px; border-radius: 6px; border: 1px solid var(--accent, #c9a84c); background: transparent; color: var(--accent, #c9a84c); cursor: pointer; font-size: 0.85rem; font-weight: 600; transition: all 0.2s;">Proportional</button>
+
                 </div>
 
                 <div id="vortex3DContainer">
@@ -1811,7 +1811,7 @@
             spiralPath: null,
             completionLine: null,
             modeLabels: [],
-            proportionalSpacing: false
+            proportionalSpacing: true
         };
 
         // ========================================================================
@@ -2047,23 +2047,13 @@
                 }
             }
 
-            // Assign radii — schematic (linear) or proportional (n² scaling)
+            // Assign radii — proportional n² scaling (true geometric spacing)
             const numShells = subshells.length;
-            const useProportional = vortex3D.proportionalSpacing || false;
 
             subshells.forEach((sh, idx) => {
-                let shellR;
-                if (useProportional) {
-                    // n² scaling — true geometric spacing
-                    // n=1 → r=0.6, scale by n²/maxN² to fit in view
-                    const maxN = subshells[subshells.length - 1].n;
-                    const minR = 0.3, maxR = 4.5;
-                    shellR = minR + (sh.n * sh.n / (maxN * maxN)) * (maxR - minR);
-                } else {
-                    // Schematic — evenly spaced for visual clarity
-                    const minR = 0.6, maxR = 4.0;
-                    shellR = numShells <= 1 ? 1.5 : minR + (idx / (numShells - 1)) * (maxR - minR);
-                }
+                const maxN = subshells[subshells.length - 1].n;
+                const minR = 0.3, maxR = 4.5;
+                const shellR = minR + (sh.n * sh.n / (maxN * maxN)) * (maxR - minR);
                 const subName = SUBMODE_NAMES[sh.l];
                 const color = colorMap[subName] || 0x888888;
                 const lobeScale = 0.25 + sh.l * 0.15; // bigger lobes for higher l
@@ -2288,16 +2278,7 @@
             }
         }
 
-        function toggleSpacing() {
-            vortex3D.proportionalSpacing = !vortex3D.proportionalSpacing;
-            const btn = document.getElementById('toggleSpacingBtn');
-            if (btn) btn.textContent = vortex3D.proportionalSpacing ? 'Schematic' : 'Proportional';
-            // Rebuild current element with new spacing
-            const selector = document.getElementById('elementSelector');
-            if (selector) buildVortex3DForElement(elements.find(e => e.n == selector.value));
-        }
-
-        function toggleVortexModes() {
+                function toggleVortexModes() {
             if (!vortex3D.harmonicGroup) return;
             const btn = document.getElementById('toggleModesBtn');
             vortex3D.harmonicGroup.visible = !vortex3D.harmonicGroup.visible;
