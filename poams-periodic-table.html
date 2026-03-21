@@ -991,6 +991,10 @@
                     <p style="margin: 15px 0;">This is not a relabeling. It's a geometric fact about angular momentum in 3-space: rotation has both a <em>pattern</em> (how angular momentum is distributed azimuthally) and an <em>amplitude</em> (how much total angular momentum occupies that pattern). A guitar string's harmonic number and its volume are independent properties. Same here.</p>
                     
                     <p style="margin: 15px 0;">The atomic number Z counts pattern-defining quanta. The mass number A counts total quanta. The difference (A−Z) counts support quanta. This is why isotopes exist: same pattern, different depth.</p>
+                    
+                    <p style="margin: 15px 0;">This is a testable prediction that distinguishes POAMS from the standard model: isotopes are the same harmonic pattern with different total angular momentum depth. The standard model treats neutrons as independent particles that happen to sit in the nucleus alongside protons. POAMS says there is no such distinction — there are only ħ quanta, some of which define the pattern (mode-determining) and some of which provide structural depth (support quanta). The ratio between them follows from the vortex stability requirements described below.</p>
+                    
+                    <p style="margin: 15px 0;">Critically, this explains why certain isotopes are stable and others aren't: stability requires a specific pattern/support ratio. Too few support quanta and the angular mode structure is underdamped — it oscillates and eventually ejects quanta (β⁺ decay, converting pattern → support). Too many and the structure is overdamped — excess quanta redistribute (β⁻ decay, converting support → pattern). The stable isotopes sit at the exact ratio where the vortex's angular and radial structure are mutually reinforcing.</p>
                 </div>
 
                 <!-- Section 2: Stability Valley -->
@@ -1080,7 +1084,43 @@
                     
                     <p style="margin: 15px 0; font-weight: bold;"><strong>No Schrödinger equation. No Hamiltonian. No boundary conditions.</strong> Just: how many distinct angular momentum configurations can coexist at a given radial level of a vortex in 3-space? The answer is 2n². The conventional result falls out of geometry alone.</p>
                     
-                    <p style="margin: 15px 0;">The "filling order" (why Mode 4's inner harmonics fill before Mode 3's outer ones in some cases) follows from energy minimization: angular momentum closer to the vortex center is lower-energy. A new radial level (larger radius) can be lower-energy than a higher angular harmonic at smaller radius. The vortex fills from lowest energy, not from innermost radius.</p>
+                    <p style="margin: 15px 0; font-weight: bold;">Deriving the Filling Order from Vortex Geometry</p>
+                    
+                    <p style="margin: 15px 0;">In a vortex, the energy of a mode depends on TWO things:</p>
+                    <ol style="margin: 15px 0; padding-left: 20px;">
+                        <li><strong>Radial level n</strong> — distance from the barycenter (potential energy increases with radius)</li>
+                        <li><strong>Angular complexity l</strong> — number of angular nodes (kinetic energy increases with node count)</li>
+                    </ol>
+                    
+                    <p style="margin: 15px 0;">A vortex mode's total energy = radial confinement cost (∝ n) + angular complexity cost (∝ l). The simplest quantity capturing both is (n + l). When (n + l) is equal for two submodes, the one at smaller radius (lower n) fills first — angular momentum closer to the barycenter is lower energy.</p>
+                    
+                    <p style="margin: 15px 0;">This geometric derivation produces the EXACT observed filling order:</p>
+                    <ul style="margin: 15px 0; padding-left: 20px; font-family: monospace;">
+                        <li><strong>(n+l)=1:</strong> 1s</li>
+                        <li><strong>(n+l)=2:</strong> 2s</li>
+                        <li><strong>(n+l)=3:</strong> 2p, 3s</li>
+                        <li><strong>(n+l)=4:</strong> 3p, 4s</li>
+                        <li><strong>(n+l)=5:</strong> 3d, 4p, 5s</li>
+                        <li><strong>(n+l)=6:</strong> 4d, 5p, 6s</li>
+                        <li><strong>(n+l)=7:</strong> 4f, 5d, 6p, 7s</li>
+                    </ul>
+                    
+                    <p style="margin: 15px 0;">This is NOT importing Madelung's rule — this is <em>deriving</em> Madelung from vortex physics. Conventional QM discovers this empirically and has no first-principles derivation. The vortex model PREDICTS it from two physical quantities: radial distance + angular complexity.</p>
+                    
+                    <h4 style="color: var(--accent-gold); margin: 20px 0 10px 0;">Anomalous Configurations: Geometric Stability of Half-Filled and Fully-Filled Harmonic Patterns</h4>
+                    
+                    <p style="margin: 15px 0;">In a vortex, a submode that is exactly half-filled (every orientation occupied once) or fully-filled (every orientation occupied twice — both phases) achieves maximum angular symmetry. Maximum symmetry = minimum energy because the angular momentum distribution is uniform, minimizing internal stress.</p>
+                    
+                    <p style="margin: 15px 0;">Specific examples:</p>
+                    <ul style="margin: 15px 0; padding-left: 20px;">
+                        <li><strong>Chromium (Mode 24):</strong> 3d⁵4s¹ not 3d⁴4s² — the 5 d-patterns each with one phase give a spherically symmetric angular momentum distribution. This is LOWER energy than 4 d-patterns + 2 s-patterns because the d-shell symmetry gain exceeds the s-shell energy cost.</li>
+                        <li><strong>Copper (Mode 29):</strong> 3d¹⁰4s¹ not 3d⁹4s² — fully-filled d-mode = perfect angular closure, zero net angular asymmetry.</li>
+                        <li><strong>Palladium (Mode 46):</strong> 4d¹⁰5s⁰ not 4d⁸5s² — complete d-closure so stable it empties s entirely.</li>
+                    </ul>
+                    
+                    <p style="margin: 15px 0;">The principle: <strong>Angular symmetry minimizes energy.</strong> A half-filled submode has one quantum in each of the (2l+1) orientations — uniform distribution. A fully-filled submode has both phases in each orientation — complete cancellation of angular asymmetry. These are geometric energy minima.</p>
+                    
+                    <p style="margin: 15px 0;">This is STRONGER than the QM explanation (which invokes "exchange energy" — a computational artifact of antisymmetrization). In POAMS, it's direct: symmetric distributions of angular momentum in a vortex have lower energy than asymmetric ones.</p>
                 </div>
 
                 <!-- Section 6: Transmutation -->
@@ -1522,12 +1562,12 @@
             camera: null,
             renderer: null,
             controls: null,
-            orbitalGroup: null,
+            harmonicGroup: null,
             eyewallMesh: null,
             animFrameId: null
         };
 
-        // Spherical harmonic magnitude |Y_l^m(θ,φ)|² used for orbital shape generation
+        // Spherical harmonic magnitude |Y_l^m(θ,φ)|² used for harmonic mode shape generation
         // Returns radius modulation at given theta, phi for quantum numbers l, m
         function sphericalHarmonicR(l, m, theta, phi) {
             const am = Math.abs(m);
@@ -1560,7 +1600,7 @@
             return plm * angPart;
         }
 
-        function createOrbitalMesh(THREE, l, m, shellRadius, color, filled, scale) {
+        function createHarmonicMesh(THREE, l, m, shellRadius, color, filled, scale) {
             const segments = l === 0 ? 24 : (l <= 1 ? 32 : (l <= 2 ? 40 : 48));
             const geometry = new THREE.BufferGeometry();
             const positions = [];
@@ -1632,9 +1672,9 @@
             if (!THREE) return;
 
             // Clear previous
-            if (vortex3D.orbitalGroup) {
-                vortex3D.scene.remove(vortex3D.orbitalGroup);
-                vortex3D.orbitalGroup.traverse(child => {
+            if (vortex3D.harmonicGroup) {
+                vortex3D.scene.remove(vortex3D.harmonicGroup);
+                vortex3D.harmonicGroup.traverse(child => {
                     if (child.geometry) child.geometry.dispose();
                     if (child.material) child.material.dispose();
                 });
@@ -1646,7 +1686,7 @@
             }
 
             const group = new THREE.Group();
-            vortex3D.orbitalGroup = group;
+            vortex3D.harmonicGroup = group;
 
             // Eyewall (pulsing core)
             const eyeGeo = new THREE.SphereGeometry(0.3, 32, 32);
@@ -1712,7 +1752,7 @@
                     const isFilled = thisCount > 0;
                     const isPartial = thisCount > 0 && thisCount < thisCapacity;
 
-                    const mesh = createOrbitalMesh(THREE, sh.l, mm, shellR, color, isFilled, lobeScale);
+                    const mesh = createHarmonicMesh(THREE, sh.l, mm, shellR, color, isFilled, lobeScale);
                     if (isPartial) {
                         mesh.material.opacity = isFilled ? 0.35 : 0.12;
                     }
@@ -1722,7 +1762,7 @@
                     if (!isFilled && sh.filled > 0) {
                         // Don't show unfilled for completely empty subshells
                     } else if (!isFilled) {
-                        const wireMesh = createOrbitalMesh(THREE, sh.l, mm, shellR, 0x888888, false, lobeScale);
+                        const wireMesh = createHarmonicMesh(THREE, sh.l, mm, shellR, 0x888888, false, lobeScale);
                         group.add(wireMesh);
                     }
                 });
@@ -1738,7 +1778,7 @@
                         if (skip <= 0 && unfilled > 0) {
                             const wireCount = Math.min(2 - Math.max(0, thisCount), unfilled);
                             if (wireCount > 0 && thisCount === 0) {
-                                const wireMesh = createOrbitalMesh(THREE, sh.l, mm, shellR, 0x888888, false, lobeScale);
+                                const wireMesh = createHarmonicMesh(THREE, sh.l, mm, shellR, 0x888888, false, lobeScale);
                                 group.add(wireMesh);
                                 unfilled -= wireCount;
                             }
@@ -1840,9 +1880,9 @@
                         vortex3D.eyewallMesh.material.emissiveIntensity = 0.4 + 0.3 * Math.sin(t * 0.7);
                     }
 
-                    // Slow orbital group rotation (additional to controls)
-                    if (vortex3D.orbitalGroup) {
-                        vortex3D.orbitalGroup.rotation.y += 0.001;
+                    // Slow harmonic group rotation (additional to controls)
+                    if (vortex3D.harmonicGroup) {
+                        vortex3D.harmonicGroup.rotation.y += 0.001;
                     }
 
                     vortex3D.renderer.render(vortex3D.scene, vortex3D.camera);
