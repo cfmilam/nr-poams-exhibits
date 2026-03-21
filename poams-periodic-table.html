@@ -2293,7 +2293,7 @@
             if (btn) btn.textContent = vortex3D.proportionalSpacing ? 'Schematic' : 'Proportional';
             // Rebuild current element with new spacing
             const selector = document.getElementById('elementSelector');
-            if (selector) buildVortex3DForElement(elements.find(e => e.atomicNumber == selector.value));
+            if (selector) buildVortex3DForElement(elements.find(e => e.n == selector.value));
         }
 
         function toggleVortexModes() {
