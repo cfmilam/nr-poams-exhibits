@@ -748,7 +748,7 @@
             <p style="text-align: center; font-size: 1rem; margin-bottom: 20px; max-width: 700px; margin-left: auto; margin-right: auto;">
                 Watch the fundamental hydrogen vortex grow as it accumulates angular momentum. 
                 Each concentric shell shows harmonic mode patterns — s (gold), p (blue), d (green), f (cyan).
-                Filled patterns shown as solid surfaces with characteristic lobe geometry.
+                All modes rendered as wireframes for visual clarity — filled modes at full brightness, unfilled (available) positions dimmed. This lets you see through overlapping shells and read the internal structure.
             </p>
             
             <div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
@@ -778,7 +778,7 @@
                     <div class="legend-3d-item legend-toggle" data-pattern="p" onclick="togglePattern('p', this)" style="cursor:pointer;"><div class="legend-3d-swatch" style="background:#4fc3f7;"></div><span>p-pattern (angular)</span></div>
                     <div class="legend-3d-item legend-toggle" data-pattern="d" onclick="togglePattern('d', this)" style="cursor:pointer;"><div class="legend-3d-swatch" style="background:#66bb6a;"></div><span>d-pattern (higher angular)</span></div>
                     <div class="legend-3d-item legend-toggle" data-pattern="f" onclick="togglePattern('f', this)" style="cursor:pointer;"><div class="legend-3d-swatch" style="background:#26c6da;"></div><span>f-pattern (highest angular)</span></div>
-
+                    <div class="legend-3d-item"><div class="legend-3d-swatch" style="background:rgba(128,128,128,0.15); border:1px dashed #888;"></div><span>Unfilled (dimmed wireframe)</span></div>
                 </div>
 
                 <div id="vortexScalingNote" style="max-width: 700px; margin: 15px auto 0; padding: 15px 20px; background: rgba(201, 168, 76, 0.06); border: 1px solid rgba(201, 168, 76, 0.15); border-radius: 8px; font-size: 0.85rem; line-height: 1.6;">
