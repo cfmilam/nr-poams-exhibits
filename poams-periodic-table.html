@@ -1937,43 +1937,14 @@
             const toggleBtn = document.getElementById('toggleModesBtn');
             if (toggleBtn) toggleBtn.textContent = 'Hide Modes';
 
-            // Eyewall — empty barycenter with a faint boundary ring (eye of the hurricane)
-            const eyeRadius = 0.2 + 0.1 * Math.min((element.hbar || element.massNumber || 1) / 294, 1);
-            const eyeGeo = new THREE.TorusGeometry(eyeRadius, 0.008, 16, 64);
-            const eyeMat = new THREE.MeshPhongMaterial({
-                color: 0xc9a84c,
-                emissive: 0xc9a84c,
-                emissiveIntensity: 0.8,
-                transparent: true,
-                opacity: 0.5
+            // Barycenter — black void at the center (devoid of light, the "hole in space")
+            const eyeRadius = 0.12 + 0.08 * Math.min((element.hbar || element.massNumber || 1) / 294, 1);
+            const eyeGeo = new THREE.SphereGeometry(eyeRadius, 32, 32);
+            const eyeMat = new THREE.MeshBasicMaterial({
+                color: 0x000000,
+                transparent: false
             });
             vortex3D.eyewallMesh = new THREE.Mesh(eyeGeo, eyeMat);
-            // Add two more rings at different orientations to show spherical boundary
-            const eyeGeo2 = new THREE.TorusGeometry(eyeRadius, 0.008, 16, 64);
-            const eyeMat2 = eyeMat.clone();
-            eyeMat2.opacity = 0.3;
-            const eyeRing2 = new THREE.Mesh(eyeGeo2, eyeMat2);
-            eyeRing2.rotation.x = Math.PI / 2;
-            const eyeRing3 = new THREE.Mesh(eyeGeo2, eyeMat2.clone());
-            eyeRing3.rotation.z = Math.PI / 2;
-            vortex3D.eyewallMesh.add(eyeRing2);
-            vortex3D.eyewallMesh.add(eyeRing3);
-
-            // Equatorial accumulation disk — flattened plane where ħ quanta spiral in
-            const diskRadius = eyeRadius * 1.3;
-            const diskGeo = new THREE.RingGeometry(eyeRadius * 0.3, diskRadius, 64);
-            const diskMat = new THREE.MeshPhongMaterial({
-                color: 0xc9a84c,
-                emissive: 0xc9a84c,
-                emissiveIntensity: 0.4,
-                transparent: true,
-                opacity: 0.12,
-                side: THREE.DoubleSide,
-                depthWrite: false
-            });
-            const diskMesh = new THREE.Mesh(diskGeo, diskMat);
-            vortex3D.eyewallMesh.add(diskMesh);
-
             vortex3D.scene.add(vortex3D.eyewallMesh);
 
             // --- ħ Accumulation Particles ---
@@ -2197,17 +2168,8 @@
                     vortex3D.animFrameId = requestAnimationFrame(animateVortex);
                     if (vortex3D.controls) vortex3D.controls.update();
 
-                    // Eyewall pulse — rings breathe and glow
-                    if (vortex3D.eyewallMesh) {
-                        const t = Date.now() * 0.003;
-                        const scale = 1 + 0.08 * Math.sin(t);
-                        vortex3D.eyewallMesh.scale.set(scale, scale, scale);
-                        vortex3D.eyewallMesh.material.emissiveIntensity = 0.5 + 0.4 * Math.sin(t * 0.7);
-                        vortex3D.eyewallMesh.material.opacity = 0.3 + 0.25 * Math.sin(t * 0.5);
-                        // Slowly tumble the ring set for visual interest
-                        vortex3D.eyewallMesh.rotation.x += 0.002;
-                        vortex3D.eyewallMesh.rotation.z += 0.001;
-                    }
+                    // Barycenter — black void, perfectly still (the absence at the center)
+                    // No animation — the void doesn't move, everything else moves around it
 
                     // Slow harmonic group rotation (additional to controls)
                     if (vortex3D.harmonicGroup) {
@@ -2228,25 +2190,26 @@
                             const speed = d.seeds[i * 3 + 1];
                             const phase = d.seeds[i * 3 + 2];
 
-                            // Radial phase cycles 0→1 then resets (particle respawns at outer edge)
-                            let t = (phase + now * speed * 0.15) % 1;
-                            const r = d.outerR + (d.innerR - d.outerR) * t; // outer → inner
-                            // Spiral angle increases as particle moves inward (3 full turns)
-                            const angle = baseAngle + t * Math.PI * 6;
-                            // Slight vertical wobble
-                            const y = Math.sin(t * Math.PI * 4 + baseAngle) * 0.05 * (1 - t);
+                            // Each particle has a fixed position along the spiral (phase 0-1)
+                            // The whole spiral ROTATES, but particles don't teleport
+                            const t = phase; // fixed radial position (0=outer, 1=core)
+                            const r = d.outerR + (d.innerR - d.outerR) * t;
+                            // Spiral rotates continuously — all particles move together
+                            const angle = baseAngle + t * Math.PI * 6 + now * 0.3;
+                            // Flatten into disk plane — y compression increases toward core
+                            const flattenFactor = 0.08 * (1 - t * 0.8);
+                            const y = Math.sin(baseAngle * 2.3 + t * Math.PI) * flattenFactor;
 
                             pos[i * 3]     = r * Math.cos(angle);
                             pos[i * 3 + 1] = y;
                             pos[i * 3 + 2] = r * Math.sin(angle);
 
-                            // Fade in at outer edge, brighten near core
-                            alp[i] = 0.15 + 0.85 * t;
+                            // Brighter toward core (accumulating into the void)
+                            alp[i] = 0.3 + 0.7 * t;
                         }
                         p.geometry.attributes.position.needsUpdate = true;
                         p.geometry.attributes.alpha.needsUpdate = true;
-                        // Use opacity to approximate per-particle alpha (Points limitation)
-                        p.material.opacity = 0.6 + 0.3 * Math.sin(Date.now() * 0.002);
+                        p.material.opacity = 0.85;
                     }
 
                     vortex3D.renderer.render(vortex3D.scene, vortex3D.camera);
