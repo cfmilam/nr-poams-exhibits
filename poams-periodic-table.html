@@ -1920,16 +1920,27 @@
             const toggleBtn = document.getElementById('toggleModesBtn');
             if (toggleBtn) toggleBtn.textContent = 'Hide Modes';
 
-            // Eyewall (pulsing core)
-            const eyeGeo = new THREE.SphereGeometry(0.3, 32, 32);
+            // Eyewall — empty barycenter with a faint boundary ring (eye of the hurricane)
+            const eyeRadius = 0.2 + 0.1 * Math.min((element.hbar || element.massNumber || 1) / 294, 1);
+            const eyeGeo = new THREE.TorusGeometry(eyeRadius, 0.015, 16, 64);
             const eyeMat = new THREE.MeshPhongMaterial({
                 color: 0xc9a84c,
                 emissive: 0xc9a84c,
-                emissiveIntensity: 0.6,
+                emissiveIntensity: 0.8,
                 transparent: true,
-                opacity: 0.9
+                opacity: 0.5
             });
             vortex3D.eyewallMesh = new THREE.Mesh(eyeGeo, eyeMat);
+            // Add two more rings at different orientations to show spherical boundary
+            const eyeGeo2 = new THREE.TorusGeometry(eyeRadius, 0.012, 16, 64);
+            const eyeMat2 = eyeMat.clone();
+            eyeMat2.opacity = 0.3;
+            const eyeRing2 = new THREE.Mesh(eyeGeo2, eyeMat2);
+            eyeRing2.rotation.x = Math.PI / 2;
+            const eyeRing3 = new THREE.Mesh(eyeGeo2, eyeMat2.clone());
+            eyeRing3.rotation.z = Math.PI / 2;
+            vortex3D.eyewallMesh.add(eyeRing2);
+            vortex3D.eyewallMesh.add(eyeRing3);
             vortex3D.scene.add(vortex3D.eyewallMesh);
 
             // --- ħ Accumulation Particles ---
@@ -1941,17 +1952,14 @@
             }
 
             const totalH = element.hbar || element.massNumber || 1;
-            const particleCount = Math.min(30 + Math.floor(totalH / 4), 100);
-            const eyeRadius = 0.2 + 0.1 * Math.min(totalH / 294, 1);
-            // Scale eyewall to reflect total ħ
-            vortex3D.eyewallMesh.geometry.dispose();
-            vortex3D.eyewallMesh.geometry = new THREE.SphereGeometry(eyeRadius, 32, 32);
+            // Particle count = actual ħ count (capped at 300 for performance)
+            const particleCount = Math.min(totalH, 300);
 
             const pGeo = new THREE.BufferGeometry();
             const positions = new Float32Array(particleCount * 3);
             const alphas = new Float32Array(particleCount);
             const seeds = new Float32Array(particleCount * 3); // angle, speed, phase
-            const outerR = 0.55, innerR = eyeRadius + 0.02;
+            const outerR = 0.8, innerR = eyeRadius + 0.03;
 
             for (let i = 0; i < particleCount; i++) {
                 const angle = Math.random() * Math.PI * 2;
@@ -1971,7 +1979,7 @@
 
             const pMat = new THREE.PointsMaterial({
                 color: 0xffe0a0,
-                size: 0.04,
+                size: 0.025,
                 transparent: true,
                 opacity: 0.9,
                 blending: THREE.AdditiveBlending,
@@ -2156,12 +2164,16 @@
                     vortex3D.animFrameId = requestAnimationFrame(animateVortex);
                     if (vortex3D.controls) vortex3D.controls.update();
 
-                    // Eyewall pulse
+                    // Eyewall pulse — rings breathe and glow
                     if (vortex3D.eyewallMesh) {
                         const t = Date.now() * 0.003;
-                        const scale = 1 + 0.15 * Math.sin(t);
+                        const scale = 1 + 0.08 * Math.sin(t);
                         vortex3D.eyewallMesh.scale.set(scale, scale, scale);
-                        vortex3D.eyewallMesh.material.emissiveIntensity = 0.4 + 0.3 * Math.sin(t * 0.7);
+                        vortex3D.eyewallMesh.material.emissiveIntensity = 0.5 + 0.4 * Math.sin(t * 0.7);
+                        vortex3D.eyewallMesh.material.opacity = 0.3 + 0.25 * Math.sin(t * 0.5);
+                        // Slowly tumble the ring set for visual interest
+                        vortex3D.eyewallMesh.rotation.x += 0.002;
+                        vortex3D.eyewallMesh.rotation.z += 0.001;
                     }
 
                     // Slow harmonic group rotation (additional to controls)
