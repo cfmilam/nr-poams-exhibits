@@ -1913,24 +1913,13 @@
             geometry.setIndex(indices);
 
             let material;
-            if (filled) {
-                material = new THREE.MeshPhongMaterial({
-                    color: color,
-                    transparent: true,
-                    opacity: 0.55,
-                    shininess: 40,
-                    side: THREE.DoubleSide,
-                    depthWrite: false
-                });
-            } else {
-                material = new THREE.MeshBasicMaterial({
-                    color: color,
-                    wireframe: true,
-                    transparent: true,
-                    opacity: 0.12,
-                    depthWrite: false
-                });
-            }
+            material = new THREE.MeshBasicMaterial({
+                color: color,
+                wireframe: true,
+                transparent: true,
+                opacity: filled ? 0.45 : 0.15,
+                depthWrite: false
+            });
 
             return new THREE.Mesh(geometry, material);
         }
@@ -2085,15 +2074,10 @@
                     const thisCount = Math.min(filledRemaining, thisCapacity);
                     filledRemaining -= thisCount;
 
-                    if (thisCount <= 0) return; // Only show what's actually there
+                    const isFilled = thisCount > 0;
 
-                    const isPartial = thisCount < thisCapacity;
-
-                    const mesh = createHarmonicMesh(THREE, sh.l, mm, shellR, color, true, lobeScale, attenuation);
+                    const mesh = createHarmonicMesh(THREE, sh.l, mm, shellR, color, isFilled, lobeScale, attenuation);
                     mesh.userData.patternType = subName; // 's', 'p', 'd', or 'f'
-                    if (isPartial) {
-                        mesh.material.opacity = 0.35; // Half-filled m-value
-                    }
                     group.add(mesh);
                 });
             });
