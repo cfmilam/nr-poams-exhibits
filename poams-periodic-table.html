@@ -769,10 +769,10 @@
                 </div>
 
                 <div class="vortex-3d-legend">
-                    <div class="legend-3d-item"><div class="legend-3d-swatch" style="background:#c9a84c;"></div><span>s-pattern (radial)</span></div>
-                    <div class="legend-3d-item"><div class="legend-3d-swatch" style="background:#4fc3f7;"></div><span>p-pattern (angular)</span></div>
-                    <div class="legend-3d-item"><div class="legend-3d-swatch" style="background:#66bb6a;"></div><span>d-pattern (higher angular)</span></div>
-                    <div class="legend-3d-item"><div class="legend-3d-swatch" style="background:#26c6da;"></div><span>f-pattern (highest angular)</span></div>
+                    <div class="legend-3d-item legend-toggle" data-pattern="s" onclick="togglePattern('s', this)" style="cursor:pointer;"><div class="legend-3d-swatch" style="background:#c9a84c;"></div><span>s-pattern (radial)</span></div>
+                    <div class="legend-3d-item legend-toggle" data-pattern="p" onclick="togglePattern('p', this)" style="cursor:pointer;"><div class="legend-3d-swatch" style="background:#4fc3f7;"></div><span>p-pattern (angular)</span></div>
+                    <div class="legend-3d-item legend-toggle" data-pattern="d" onclick="togglePattern('d', this)" style="cursor:pointer;"><div class="legend-3d-swatch" style="background:#66bb6a;"></div><span>d-pattern (higher angular)</span></div>
+                    <div class="legend-3d-item legend-toggle" data-pattern="f" onclick="togglePattern('f', this)" style="cursor:pointer;"><div class="legend-3d-swatch" style="background:#26c6da;"></div><span>f-pattern (highest angular)</span></div>
                     <div class="legend-3d-item"><div class="legend-3d-swatch" style="background:rgba(128,128,128,0.3); border:1px dashed #888;"></div><span>Unfilled (available)</span></div>
                 </div>
 
@@ -1948,6 +1948,15 @@
             const group = new THREE.Group();
             vortex3D.harmonicGroup = group;
 
+            // Apply current pattern visibility filters
+            if (typeof patternVisibility !== 'undefined') {
+                group.traverse(child => {
+                    if (child.userData && child.userData.patternType && !patternVisibility[child.userData.patternType]) {
+                        child.visible = false;
+                    }
+                });
+            }
+
             // Reset toggle button state
             const toggleBtn = document.getElementById('toggleModesBtn');
             if (toggleBtn) toggleBtn.textContent = 'Hide Modes';
@@ -2075,6 +2084,7 @@
                     const isPartial = thisCount > 0 && thisCount < thisCapacity;
 
                     const mesh = createHarmonicMesh(THREE, sh.l, mm, shellR, color, isFilled, lobeScale);
+                    mesh.userData.patternType = subName; // 's', 'p', 'd', or 'f'
                     if (isPartial) {
                         mesh.material.opacity = isFilled ? 0.35 : 0.12;
                     }
@@ -2085,6 +2095,7 @@
                         // Don't show unfilled for completely empty subshells
                     } else if (!isFilled) {
                         const wireMesh = createHarmonicMesh(THREE, sh.l, mm, shellR, 0x888888, false, lobeScale);
+                        wireMesh.userData.patternType = subName;
                         group.add(wireMesh);
                     }
                 });
@@ -2256,6 +2267,24 @@
             vortex3D.camera.aspect = w / h;
             vortex3D.camera.updateProjectionMatrix();
             vortex3D.renderer.setSize(w, h);
+        }
+
+        // Track which pattern types are visible (all on by default)
+        const patternVisibility = { s: true, p: true, d: true, f: true };
+
+        function togglePattern(type, legendEl) {
+            patternVisibility[type] = !patternVisibility[type];
+            const on = patternVisibility[type];
+            // Dim the legend item when off
+            if (legendEl) legendEl.style.opacity = on ? '1' : '0.3';
+            // Toggle visibility of matching meshes in the harmonic group
+            if (vortex3D.harmonicGroup) {
+                vortex3D.harmonicGroup.traverse(child => {
+                    if (child.userData && child.userData.patternType === type) {
+                        child.visible = on;
+                    }
+                });
+            }
         }
 
         function toggleSpacing() {
