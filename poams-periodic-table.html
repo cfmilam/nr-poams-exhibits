@@ -760,6 +760,7 @@
                         <label for="animationSpeed">Animation Speed:</label>
                         <input type="range" id="animationSpeed" min="0.5" max="3" step="0.5" value="1">
                     </div>
+                    <button id="toggleModesBtn" onclick="toggleVortexModes()" style="padding: 6px 14px; border-radius: 6px; border: 1px solid var(--accent, #c9a84c); background: transparent; color: var(--accent, #c9a84c); cursor: pointer; font-size: 0.85rem; font-weight: 600; transition: all 0.2s;">Hide Modes</button>
                 </div>
 
                 <div id="vortex3DContainer">
@@ -1915,6 +1916,10 @@
             const group = new THREE.Group();
             vortex3D.harmonicGroup = group;
 
+            // Reset toggle button state
+            const toggleBtn = document.getElementById('toggleModesBtn');
+            if (toggleBtn) toggleBtn.textContent = 'Hide Modes';
+
             // Eyewall (pulsing core)
             const eyeGeo = new THREE.SphereGeometry(0.3, 32, 32);
             const eyeMat = new THREE.MeshPhongMaterial({
@@ -1926,6 +1931,58 @@
             });
             vortex3D.eyewallMesh = new THREE.Mesh(eyeGeo, eyeMat);
             vortex3D.scene.add(vortex3D.eyewallMesh);
+
+            // --- ħ Accumulation Particles ---
+            // Clean up previous particles
+            if (vortex3D.hbarParticles) {
+                vortex3D.scene.remove(vortex3D.hbarParticles);
+                vortex3D.hbarParticles.geometry.dispose();
+                vortex3D.hbarParticles.material.dispose();
+            }
+
+            const totalH = element.hbar || element.massNumber || 1;
+            const particleCount = Math.min(30 + Math.floor(totalH / 4), 100);
+            const eyeRadius = 0.2 + 0.1 * Math.min(totalH / 294, 1);
+            // Scale eyewall to reflect total ħ
+            vortex3D.eyewallMesh.geometry.dispose();
+            vortex3D.eyewallMesh.geometry = new THREE.SphereGeometry(eyeRadius, 32, 32);
+
+            const pGeo = new THREE.BufferGeometry();
+            const positions = new Float32Array(particleCount * 3);
+            const alphas = new Float32Array(particleCount);
+            const seeds = new Float32Array(particleCount * 3); // angle, speed, phase
+            const outerR = 0.55, innerR = eyeRadius + 0.02;
+
+            for (let i = 0; i < particleCount; i++) {
+                const angle = Math.random() * Math.PI * 2;
+                const speed = 0.3 + Math.random() * 0.7; // radial progress rate
+                const phase = Math.random(); // initial radial phase 0-1 (0=outer, 1=core)
+                seeds[i * 3] = angle;
+                seeds[i * 3 + 1] = speed;
+                seeds[i * 3 + 2] = phase;
+                // Initial positions will be set in animation loop
+                positions[i * 3] = 0;
+                positions[i * 3 + 1] = 0;
+                positions[i * 3 + 2] = 0;
+                alphas[i] = 0;
+            }
+            pGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            pGeo.setAttribute('alpha', new THREE.BufferAttribute(alphas, 1));
+
+            const pMat = new THREE.PointsMaterial({
+                color: 0xffe0a0,
+                size: 0.04,
+                transparent: true,
+                opacity: 0.9,
+                blending: THREE.AdditiveBlending,
+                depthWrite: false,
+                sizeAttenuation: true
+            });
+
+            const particles = new THREE.Points(pGeo, pMat);
+            particles.userData = { seeds, outerR, innerR, totalH, spiralSpeed: 0.5 + Math.min(totalH / 294, 1) * 1.5 };
+            vortex3D.hbarParticles = particles;
+            vortex3D.scene.add(particles);
 
             // Parse element config into shells
             const config = element.config; // [[n, l, count], ...]
@@ -2112,6 +2169,41 @@
                         vortex3D.harmonicGroup.rotation.y += 0.001;
                     }
 
+                    // ħ accumulation particles — spiral inward
+                    if (vortex3D.hbarParticles) {
+                        const p = vortex3D.hbarParticles;
+                        const d = p.userData;
+                        const pos = p.geometry.attributes.position.array;
+                        const alp = p.geometry.attributes.alpha.array;
+                        const count = pos.length / 3;
+                        const now = Date.now() * 0.001 * d.spiralSpeed;
+
+                        for (let i = 0; i < count; i++) {
+                            const baseAngle = d.seeds[i * 3];
+                            const speed = d.seeds[i * 3 + 1];
+                            const phase = d.seeds[i * 3 + 2];
+
+                            // Radial phase cycles 0→1 then resets (particle respawns at outer edge)
+                            let t = (phase + now * speed * 0.15) % 1;
+                            const r = d.outerR + (d.innerR - d.outerR) * t; // outer → inner
+                            // Spiral angle increases as particle moves inward (3 full turns)
+                            const angle = baseAngle + t * Math.PI * 6;
+                            // Slight vertical wobble
+                            const y = Math.sin(t * Math.PI * 4 + baseAngle) * 0.05 * (1 - t);
+
+                            pos[i * 3]     = r * Math.cos(angle);
+                            pos[i * 3 + 1] = y;
+                            pos[i * 3 + 2] = r * Math.sin(angle);
+
+                            // Fade in at outer edge, brighten near core
+                            alp[i] = 0.15 + 0.85 * t;
+                        }
+                        p.geometry.attributes.position.needsUpdate = true;
+                        p.geometry.attributes.alpha.needsUpdate = true;
+                        // Use opacity to approximate per-particle alpha (Points limitation)
+                        p.material.opacity = 0.6 + 0.3 * Math.sin(Date.now() * 0.002);
+                    }
+
                     vortex3D.renderer.render(vortex3D.scene, vortex3D.camera);
                 }
                 animateVortex();
@@ -2130,6 +2222,13 @@
             vortex3D.camera.aspect = w / h;
             vortex3D.camera.updateProjectionMatrix();
             vortex3D.renderer.setSize(w, h);
+        }
+
+        function toggleVortexModes() {
+            if (!vortex3D.harmonicGroup) return;
+            const btn = document.getElementById('toggleModesBtn');
+            vortex3D.harmonicGroup.visible = !vortex3D.harmonicGroup.visible;
+            if (btn) btn.textContent = vortex3D.harmonicGroup.visible ? 'Hide Modes' : 'Show Modes';
         }
 
         // ========================================================================
