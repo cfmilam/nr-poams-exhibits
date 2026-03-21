@@ -2085,13 +2085,14 @@
                     const thisCount = Math.min(filledRemaining, thisCapacity);
                     filledRemaining -= thisCount;
 
-                    const isFilled = thisCount > 0;
-                    const isPartial = thisCount > 0 && thisCount < thisCapacity;
+                    if (thisCount <= 0) return; // Only show what's actually there
 
-                    const mesh = createHarmonicMesh(THREE, sh.l, mm, shellR, color, isFilled, lobeScale, attenuation);
+                    const isPartial = thisCount < thisCapacity;
+
+                    const mesh = createHarmonicMesh(THREE, sh.l, mm, shellR, color, true, lobeScale, attenuation);
                     mesh.userData.patternType = subName; // 's', 'p', 'd', or 'f'
                     if (isPartial) {
-                        mesh.material.opacity = isFilled ? 0.35 : 0.12;
+                        mesh.material.opacity = 0.35; // Half-filled m-value
                     }
                     group.add(mesh);
                 });
