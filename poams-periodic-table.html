@@ -2258,14 +2258,14 @@
             vortex3D.renderer.setSize(w, h);
         }
 
-            function toggleSpacing() {
-                vortex3D.proportionalSpacing = !vortex3D.proportionalSpacing;
-                const btn = document.getElementById('toggleSpacingBtn');
-                if (btn) btn.textContent = vortex3D.proportionalSpacing ? 'Schematic' : 'Proportional';
-                // Rebuild current element with new spacing
-                const selector = document.getElementById('elementSelector');
-                if (selector) buildVortex3DForElement(elements.find(e => e.atomicNumber == selector.value));
-            }
+        function toggleSpacing() {
+            vortex3D.proportionalSpacing = !vortex3D.proportionalSpacing;
+            const btn = document.getElementById('toggleSpacingBtn');
+            if (btn) btn.textContent = vortex3D.proportionalSpacing ? 'Schematic' : 'Proportional';
+            // Rebuild current element with new spacing
+            const selector = document.getElementById('elementSelector');
+            if (selector) buildVortex3DForElement(elements.find(e => e.atomicNumber == selector.value));
+        }
 
         function toggleVortexModes() {
             if (!vortex3D.harmonicGroup) return;
