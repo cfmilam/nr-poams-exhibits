@@ -2296,8 +2296,14 @@
                 function toggleVortexModes() {
             if (!vortex3D.harmonicGroup) return;
             const btn = document.getElementById('toggleModesBtn');
-            vortex3D.harmonicGroup.visible = !vortex3D.harmonicGroup.visible;
-            if (btn) btn.textContent = vortex3D.harmonicGroup.visible ? 'Hide Modes' : 'Show Modes';
+            const showing = btn.textContent === 'Hide Modes';
+            // Toggle only shell meshes (patternType tagged), not eyewall or particles
+            vortex3D.harmonicGroup.traverse(child => {
+                if (child.userData && child.userData.patternType) {
+                    child.visible = !showing;
+                }
+            });
+            if (btn) btn.textContent = showing ? 'Show Modes' : 'Hide Modes';
         }
 
         // ========================================================================
