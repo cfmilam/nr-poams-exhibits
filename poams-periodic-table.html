@@ -761,6 +761,7 @@
                         <input type="range" id="animationSpeed" min="0.5" max="3" step="0.5" value="1">
                     </div>
                     <button id="toggleModesBtn" onclick="toggleVortexModes()" style="padding: 6px 14px; border-radius: 6px; border: 1px solid var(--accent, #c9a84c); background: transparent; color: var(--accent, #c9a84c); cursor: pointer; font-size: 0.85rem; font-weight: 600; transition: all 0.2s;">Hide Modes</button>
+                    <button id="toggleSpacingBtn" onclick="toggleSpacing()" style="padding: 6px 14px; border-radius: 6px; border: 1px solid var(--accent, #c9a84c); background: transparent; color: var(--accent, #c9a84c); cursor: pointer; font-size: 0.85rem; font-weight: 600; transition: all 0.2s;">Proportional</button>
                 </div>
 
                 <div id="vortex3DContainer">
@@ -773,6 +774,19 @@
                     <div class="legend-3d-item"><div class="legend-3d-swatch" style="background:#66bb6a;"></div><span>d-pattern (higher angular)</span></div>
                     <div class="legend-3d-item"><div class="legend-3d-swatch" style="background:#26c6da;"></div><span>f-pattern (highest angular)</span></div>
                     <div class="legend-3d-item"><div class="legend-3d-swatch" style="background:rgba(128,128,128,0.3); border:1px dashed #888;"></div><span>Unfilled (available)</span></div>
+                </div>
+
+                <div id="vortexScalingNote" style="max-width: 700px; margin: 15px auto 0; padding: 15px 20px; background: rgba(201, 168, 76, 0.06); border: 1px solid rgba(201, 168, 76, 0.15); border-radius: 8px; font-size: 0.85rem; line-height: 1.6;">
+                    <p style="margin-bottom: 10px;"><strong style="color: var(--accent-gold);">On Distances and Shapes</strong></p>
+                    <p style="margin-bottom: 10px;"><strong>Radial spacing is schematic, not to scale.</strong> The characteristic radius of each mode scales as <strong>n²</strong> relative to the fundamental — this is pure geometry, not a QM artifact. It falls straight out of angular momentum quantization: for a vortex with L&nbsp;=&nbsp;nħ at mode n, the equilibrium radius where centripetal geometry balances goes as n².</p>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li>1s sits at r</li>
+                        <li>2s/2p sit at ~4r</li>
+                        <li>3s/3p/3d sit at ~9r</li>
+                        <li>4s/4p/4d/4f sit at ~16r</li>
+                    </ul>
+                    <p style="margin-bottom: 10px;">The inner modes are compressed together and the outer modes are vastly further apart than shown here. Drawn to scale, the 1s would be a tiny speck and the outer modes would be enormous — the same problem every chemistry textbook faces. Use the spacing toggle above to switch between schematic and proportional views.</p>
+                    <p style="margin-bottom: 0;"><strong>Angular mode patterns (lobe count, nodal planes, symmetry) are geometric necessities</strong> — the only possible distinct angular configurations of momentum on a sphere. These are not QM constructions; Laplace and Kelvin had them decades before Schrödinger. The topology is real. The rendered surface boundary (where we cut off each shape) is a visualization choice.</p>
                 </div>
 
                 <div class="vortex-detail-panel">
@@ -1796,7 +1810,8 @@
             autoRotate: false,
             spiralPath: null,
             completionLine: null,
-            modeLabels: []
+            modeLabels: [],
+            proportionalSpacing: false
         };
 
         // ========================================================================
@@ -2023,12 +2038,23 @@
                 }
             }
 
-            // Assign radii — spread shells from 0.6 to 4.0
+            // Assign radii — schematic (linear) or proportional (n² scaling)
             const numShells = subshells.length;
-            const minR = 0.6, maxR = 4.0;
+            const useProportional = vortex3D.proportionalSpacing || false;
 
             subshells.forEach((sh, idx) => {
-                const shellR = numShells <= 1 ? 1.5 : minR + (idx / (numShells - 1)) * (maxR - minR);
+                let shellR;
+                if (useProportional) {
+                    // n² scaling — true geometric spacing
+                    // n=1 → r=0.6, scale by n²/maxN² to fit in view
+                    const maxN = subshells[subshells.length - 1].n;
+                    const minR = 0.3, maxR = 4.5;
+                    shellR = minR + (sh.n * sh.n / (maxN * maxN)) * (maxR - minR);
+                } else {
+                    // Schematic — evenly spaced for visual clarity
+                    const minR = 0.6, maxR = 4.0;
+                    shellR = numShells <= 1 ? 1.5 : minR + (idx / (numShells - 1)) * (maxR - minR);
+                }
                 const subName = SUBMODE_NAMES[sh.l];
                 const color = colorMap[subName] || 0x888888;
                 const lobeScale = 0.25 + sh.l * 0.15; // bigger lobes for higher l
@@ -2231,6 +2257,15 @@
             vortex3D.camera.updateProjectionMatrix();
             vortex3D.renderer.setSize(w, h);
         }
+
+            function toggleSpacing() {
+                vortex3D.proportionalSpacing = !vortex3D.proportionalSpacing;
+                const btn = document.getElementById('toggleSpacingBtn');
+                if (btn) btn.textContent = vortex3D.proportionalSpacing ? 'Schematic' : 'Proportional';
+                // Rebuild current element with new spacing
+                const selector = document.getElementById('elementSelector');
+                if (selector) buildVortex3DForElement(elements.find(e => e.atomicNumber == selector.value));
+            }
 
         function toggleVortexModes() {
             if (!vortex3D.harmonicGroup) return;
