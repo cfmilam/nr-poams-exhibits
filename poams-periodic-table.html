@@ -760,6 +760,11 @@
                         <label for="animationSpeed">Animation Speed:</label>
                         <input type="range" id="animationSpeed" min="0.5" max="3" step="0.5" value="1">
                     </div>
+                    <div style="text-align: center;">
+                        <label for="observeRadius">Observation Distance:</label>
+                        <input type="range" id="observeRadius" min="0" max="100" step="1" value="0">
+                        <div id="observeRadiusLabel" style="font-size: 0.75rem; color: #999; margin-top: 2px;">At shell surface</div>
+                    </div>
                     <button id="toggleModesBtn" onclick="toggleVortexModes()" style="padding: 6px 14px; border-radius: 6px; border: 1px solid var(--accent, #c9a84c); background: transparent; color: var(--accent, #c9a84c); cursor: pointer; font-size: 0.85rem; font-weight: 600; transition: all 0.2s;">Hide Modes</button>
 
                 </div>
@@ -786,7 +791,8 @@
                         <li>4s/4p/4d/4f sit at ~16r</li>
                     </ul>
                     <p style="margin-bottom: 10px;">The inner modes are compressed together and the outer modes are vastly further apart than shown here. Drawn to scale, the 1s would be a tiny speck and the outer modes would be enormous — the same problem every chemistry textbook faces.</p>
-                    <p style="margin-bottom: 0;"><strong>Angular mode patterns (lobe count, nodal planes, symmetry) are geometric necessities</strong> — the only possible distinct angular configurations of momentum on a sphere. These are not QM constructions; Laplace and Kelvin had them decades before Schrödinger. The topology is real. The rendered surface boundary (where we cut off each shape) is a visualization choice.</p>
+                    <p style="margin-bottom: 10px;"><strong>Angular mode patterns (lobe count, nodal planes, symmetry) are geometric necessities</strong> — the only possible distinct angular configurations of momentum on a sphere. These are not QM constructions; Laplace and Kelvin had them decades before Schrödinger. The topology is real. The rendered surface boundary (where we cut off each shape) is where we sample the angular momentum density at a chosen amplitude threshold — the lobes get fatter or thinner, but the topology (number of lobes, nodal planes, symmetry) is fixed.</p>
+                    <p style="margin-bottom: 0;"><strong>Use the Observation Distance slider</strong> to see what happens as you move outward from the eyewall. Per Bertrand's theorem, the 1/r² falloff is not arbitrary — it is the <em>only</em> radial profile (besides the harmonic oscillator) that produces closed, stable orbits. Higher angular modes (d, f) attenuate faster than lower ones (s, p), because a multipole of order l falls off as 1/r<sup>l+1</sup>. At sufficient distance, all structure dissolves into near-isotropy. What we perceive as "empty space" <em>is</em> this angular momentum field — still there, still structured, just attenuated below our threshold of detection.</p>
                 </div>
 
                 <div class="vortex-detail-panel">
@@ -1860,7 +1866,10 @@
             return plm * angPart;
         }
 
-        function createHarmonicMesh(THREE, l, m, shellRadius, color, filled, scale) {
+        function createHarmonicMesh(THREE, l, m, shellRadius, color, filled, scale, attenuation) {
+            // attenuation: multipole falloff factor (0-1), applied per l-order
+            const atten = typeof attenuation === 'number' ? attenuation : 1;
+            scale = scale * atten;
             const segments = l === 0 ? 24 : (l <= 1 ? 32 : (l <= 2 ? 40 : 48));
             const geometry = new THREE.BufferGeometry();
             const positions = [];
@@ -2058,6 +2067,12 @@
                 const color = colorMap[subName] || 0x888888;
                 const lobeScale = 0.25 + sh.l * 0.15; // bigger lobes for higher l
 
+                // Multipole attenuation: field of order l falls off as 1/r^(l+1)
+                // observeRadius slider: 0 = at surface (no attenuation), 100 = far field
+                const obsSlider = parseFloat(document.getElementById('observeRadius')?.value || 0);
+                const distMult = 1 + obsSlider * 0.05; // 1× at surface, 6× at max
+                const attenuation = Math.pow(1 / distMult, sh.l + 1);
+
                 // Generate m values for this l
                 const mValues = [];
                 for (let mm = -sh.l; mm <= sh.l; mm++) mValues.push(mm);
@@ -2073,7 +2088,7 @@
                     const isFilled = thisCount > 0;
                     const isPartial = thisCount > 0 && thisCount < thisCapacity;
 
-                    const mesh = createHarmonicMesh(THREE, sh.l, mm, shellR, color, isFilled, lobeScale);
+                    const mesh = createHarmonicMesh(THREE, sh.l, mm, shellR, color, isFilled, lobeScale, attenuation);
                     mesh.userData.patternType = subName; // 's', 'p', 'd', or 'f'
                     if (isPartial) {
                         mesh.material.opacity = isFilled ? 0.35 : 0.12;
@@ -2084,7 +2099,7 @@
                     if (!isFilled && sh.filled > 0) {
                         // Don't show unfilled for completely empty subshells
                     } else if (!isFilled) {
-                        const wireMesh = createHarmonicMesh(THREE, sh.l, mm, shellR, 0x888888, false, lobeScale);
+                        const wireMesh = createHarmonicMesh(THREE, sh.l, mm, shellR, 0x888888, false, lobeScale, attenuation);
                         wireMesh.userData.patternType = subName;
                         group.add(wireMesh);
                     }
@@ -2101,7 +2116,7 @@
                         if (skip <= 0 && unfilled > 0) {
                             const wireCount = Math.min(2 - Math.max(0, thisCount), unfilled);
                             if (wireCount > 0 && thisCount === 0) {
-                                const wireMesh = createHarmonicMesh(THREE, sh.l, mm, shellR, 0x888888, false, lobeScale);
+                                const wireMesh = createHarmonicMesh(THREE, sh.l, mm, shellR, 0x888888, false, lobeScale, attenuation);
                                 wireMesh.userData.patternType = subName;
                                 group.add(wireMesh);
                                 unfilled -= wireCount;
@@ -3154,6 +3169,25 @@
                 selectedElement = elements.find(el => el.n === n);
                 updateVortexDisplay();
             };
+
+            // Observation distance slider — rebuild 3D with multipole attenuation
+            const obsSlider = document.getElementById('observeRadius');
+            const obsLabel = document.getElementById('observeRadiusLabel');
+            if (obsSlider) {
+                obsSlider.oninput = () => {
+                    const v = parseFloat(obsSlider.value);
+                    const distMult = 1 + v * 0.05;
+                    if (v === 0) {
+                        obsLabel.textContent = 'At shell surface';
+                    } else {
+                        obsLabel.textContent = `${distMult.toFixed(1)}× shell radius — higher modes attenuated by 1/r^(l+1)`;
+                    }
+                    // Rebuild with new attenuation
+                    if (typeof buildVortex3DForElement === 'function' && selectedElement) {
+                        buildVortex3DForElement(selectedElement);
+                    }
+                };
+            }
         }
 
         function updateVortexDisplay() {
