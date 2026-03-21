@@ -748,7 +748,7 @@
             <p style="text-align: center; font-size: 1rem; margin-bottom: 20px; max-width: 700px; margin-left: auto; margin-right: auto;">
                 Watch the fundamental hydrogen vortex grow as it accumulates angular momentum. 
                 Each concentric shell shows harmonic mode patterns — s (gold), p (blue), d (green), f (cyan).
-                Filled patterns are solid; available positions are translucent wireframe.
+                Filled patterns shown as solid surfaces with characteristic lobe geometry.
             </p>
             
             <div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
@@ -778,7 +778,7 @@
                     <div class="legend-3d-item legend-toggle" data-pattern="p" onclick="togglePattern('p', this)" style="cursor:pointer;"><div class="legend-3d-swatch" style="background:#4fc3f7;"></div><span>p-pattern (angular)</span></div>
                     <div class="legend-3d-item legend-toggle" data-pattern="d" onclick="togglePattern('d', this)" style="cursor:pointer;"><div class="legend-3d-swatch" style="background:#66bb6a;"></div><span>d-pattern (higher angular)</span></div>
                     <div class="legend-3d-item legend-toggle" data-pattern="f" onclick="togglePattern('f', this)" style="cursor:pointer;"><div class="legend-3d-swatch" style="background:#26c6da;"></div><span>f-pattern (highest angular)</span></div>
-                    <div class="legend-3d-item"><div class="legend-3d-swatch" style="background:rgba(128,128,128,0.3); border:1px dashed #888;"></div><span>Unfilled (available)</span></div>
+
                 </div>
 
                 <div id="vortexScalingNote" style="max-width: 700px; margin: 15px auto 0; padding: 15px 20px; background: rgba(201, 168, 76, 0.06); border: 1px solid rgba(201, 168, 76, 0.15); border-radius: 8px; font-size: 0.85rem; line-height: 1.6;">
@@ -2050,7 +2050,7 @@
                     seen.add(key);
                     const filled = shellMap[key] || 0;
                     const cap = SUBMODE_CAPACITY[l];
-                    if (filled > 0 || shouldShowUnfilled(element, n, l)) {
+                    if (filled > 0) {
                         subshells.push({ n, l, key, filled, cap });
                     }
                 }
@@ -2094,51 +2094,10 @@
                         mesh.material.opacity = isFilled ? 0.35 : 0.12;
                     }
                     group.add(mesh);
-
-                    // Show unfilled as wireframe if nothing was filled in this m
-                    if (!isFilled && sh.filled > 0) {
-                        // Don't show unfilled for completely empty subshells
-                    } else if (!isFilled) {
-                        const wireMesh = createHarmonicMesh(THREE, sh.l, mm, shellR, 0x888888, false, lobeScale, attenuation);
-                        wireMesh.userData.patternType = subName;
-                        group.add(wireMesh);
-                    }
                 });
-
-                // If subshell has unfilled positions, show remaining as wireframe
-                if (sh.filled < sh.cap && sh.filled > 0) {
-                    let unfilled = sh.cap - sh.filled;
-                    let mIdx = 0;
-                    let skip = sh.filled;
-                    mValues.forEach((mm) => {
-                        const thisCount = Math.min(skip, 2);
-                        skip -= thisCount;
-                        if (skip <= 0 && unfilled > 0) {
-                            const wireCount = Math.min(2 - Math.max(0, thisCount), unfilled);
-                            if (wireCount > 0 && thisCount === 0) {
-                                const wireMesh = createHarmonicMesh(THREE, sh.l, mm, shellR, 0x888888, false, lobeScale, attenuation);
-                                wireMesh.userData.patternType = subName;
-                                group.add(wireMesh);
-                                unfilled -= wireCount;
-                            }
-                        }
-                    });
-                }
             });
 
             vortex3D.scene.add(group);
-        }
-
-        // Show unfilled subshells only for the current period's valence shell
-        function shouldShowUnfilled(element, n, l) {
-            const config = element.config;
-            const shellMap = configToMap(config);
-            // Show if any subshell at this n has filling
-            for (const sub of SUBMODE_NAMES) {
-                const key = `${n}${sub}`;
-                if (shellMap[key] && shellMap[key] > 0) return true;
-            }
-            return false;
         }
 
         async function initVortex3D() {
