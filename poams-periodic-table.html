@@ -1978,23 +1978,29 @@
             }
 
             const totalH = element.hbar || element.massNumber || 1;
-            // Particle count = actual ħ count (capped at 300 for performance)
-            const particleCount = Math.min(totalH, 300);
+            const supportQ = totalH - (element.atomicNumber || element.n || 1); // A - Z = support quanta
+            // Particle count = support quanta count (capped at 300 for performance)
+            const particleCount = Math.min(Math.max(supportQ, 1), 300);
+
+            // Eyewall geometry: tight band just outside the barycenter
+            const eyewallR = eyeRadius + 0.06; // tight against the void
+            const bandWidth = 0.04 + 0.02 * Math.min(totalH / 294, 1); // narrow band, slightly wider for heavy elements
+            const numArms = Math.max(2, Math.min(Math.round(Math.sqrt(particleCount / 8)), 6)); // 2-6 spiral arms
 
             const pGeo = new THREE.BufferGeometry();
             const positions = new Float32Array(particleCount * 3);
             const alphas = new Float32Array(particleCount);
-            const seeds = new Float32Array(particleCount * 3); // angle, speed, phase
-            const outerR = 0.8, innerR = eyeRadius + 0.03;
+            const seeds = new Float32Array(particleCount * 4); // arm, armPhase, radialJitter, verticalJitter
 
             for (let i = 0; i < particleCount; i++) {
-                const angle = Math.random() * Math.PI * 2;
-                const speed = 0.3 + Math.random() * 0.7; // radial progress rate
-                const phase = Math.random(); // initial radial phase 0-1 (0=outer, 1=core)
-                seeds[i * 3] = angle;
-                seeds[i * 3 + 1] = speed;
-                seeds[i * 3 + 2] = phase;
-                // Initial positions will be set in animation loop
+                const arm = i % numArms; // which spiral arm
+                const armPhase = Math.floor(i / numArms) / Math.max(1, Math.floor(particleCount / numArms)); // 0-1 along arm
+                const radialJitter = (Math.random() - 0.5) * bandWidth; // tight radial scatter
+                const verticalJitter = (Math.random() - 0.5) * 0.03; // very flat disk
+                seeds[i * 4] = arm;
+                seeds[i * 4 + 1] = armPhase;
+                seeds[i * 4 + 2] = radialJitter;
+                seeds[i * 4 + 3] = verticalJitter;
                 positions[i * 3] = 0;
                 positions[i * 3 + 1] = 0;
                 positions[i * 3 + 2] = 0;
@@ -2005,16 +2011,19 @@
 
             const pMat = new THREE.PointsMaterial({
                 color: 0xffe0a0,
-                size: 0.025,
+                size: 0.03,
                 transparent: true,
-                opacity: 0.9,
+                opacity: 0.95,
                 blending: THREE.AdditiveBlending,
                 depthWrite: false,
                 sizeAttenuation: true
             });
 
             const particles = new THREE.Points(pGeo, pMat);
-            particles.userData = { seeds, outerR, innerR, totalH, spiralSpeed: 0.5 + Math.min(totalH / 294, 1) * 1.5 };
+            particles.userData = {
+                seeds, eyewallR, bandWidth, numArms, totalH, supportQ: particleCount,
+                spiralSpeed: 0.5 + Math.min(totalH / 294, 1) * 1.5
+            };
             vortex3D.hbarParticles = particles;
             group.add(particles);
 
@@ -2170,33 +2179,32 @@
                         const pos = p.geometry.attributes.position.array;
                         const alp = p.geometry.attributes.alpha.array;
                         const count = pos.length / 3;
-                        const now = Date.now() * 0.001 * d.spiralSpeed;
 
                         for (let i = 0; i < count; i++) {
-                            const baseAngle = d.seeds[i * 3];
-                            const speed = d.seeds[i * 3 + 1];
-                            const phase = d.seeds[i * 3 + 2];
+                            const arm = d.seeds[i * 4];
+                            const armPhase = d.seeds[i * 4 + 1];
+                            const radialJitter = d.seeds[i * 4 + 2];
+                            const verticalJitter = d.seeds[i * 4 + 3];
 
-                            // Each particle has a fixed position along the spiral (phase 0-1)
-                            // The whole spiral ROTATES, but particles don't teleport
-                            const t = phase; // fixed radial position (0=outer, 1=core)
-                            const r = d.outerR + (d.innerR - d.outerR) * t;
-                            // Spiral pattern is fixed in the group frame — co-rotates with shells
-                            const angle = baseAngle + t * Math.PI * 6;
-                            // Flatten into disk plane — y compression increases toward core
-                            const flattenFactor = 0.08 * (1 - t * 0.8);
-                            const y = Math.sin(baseAngle * 2.3 + t * Math.PI) * flattenFactor;
+                            // Tight eyewall band with spiral arm structure
+                            const r = d.eyewallR + radialJitter;
+                            // Each arm is evenly spaced, particles distributed along the arm
+                            const armBaseAngle = (arm / d.numArms) * Math.PI * 2;
+                            // Spiral winding: particles further along the arm are slightly ahead angularly
+                            const windAngle = armPhase * Math.PI * 0.8; // ~half turn per arm
+                            const angle = armBaseAngle + windAngle;
+                            const y = verticalJitter; // very flat disk
 
                             pos[i * 3]     = r * Math.cos(angle);
                             pos[i * 3 + 1] = y;
                             pos[i * 3 + 2] = r * Math.sin(angle);
 
-                            // Brighter toward core (accumulating into the void)
-                            alp[i] = 0.3 + 0.7 * t;
+                            // All bright — these are real quanta in a dense structure
+                            alp[i] = 0.7 + 0.3 * (1 - armPhase);
                         }
                         p.geometry.attributes.position.needsUpdate = true;
                         p.geometry.attributes.alpha.needsUpdate = true;
-                        p.material.opacity = 0.85;
+                        p.material.opacity = 0.95;
                     }
 
                     vortex3D.renderer.render(vortex3D.scene, vortex3D.camera);
