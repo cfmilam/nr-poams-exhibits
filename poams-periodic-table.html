@@ -1982,25 +1982,26 @@
             // Particle count = support quanta count (capped at 300 for performance)
             const particleCount = Math.min(Math.max(supportQ, 1), 300);
 
-            // Eyewall geometry: tight band just outside the barycenter
-            const eyewallR = eyeRadius + 0.06; // tight against the void
-            const bandWidth = 0.04 + 0.02 * Math.min(totalH / 294, 1); // narrow band, slightly wider for heavy elements
-            const numArms = Math.max(2, Math.min(Math.round(Math.sqrt(particleCount / 8)), 6)); // 2-6 spiral arms
+            // Eyewall geometry: clean concentric rings just outside the barycenter
+            const eyewallR = eyeRadius + 0.06; // first ring radius
+            const ringSpacing = 0.035; // gap between rings
+            // Distribute particles into rings — fill each ring evenly before adding another
+            const maxPerRing = Math.max(8, Math.round(particleCount / 2)); // at least 2 rings for heavier elements
+            const numRings = Math.max(1, Math.ceil(particleCount / maxPerRing));
+            const perRing = Math.ceil(particleCount / numRings);
 
             const pGeo = new THREE.BufferGeometry();
             const positions = new Float32Array(particleCount * 3);
             const alphas = new Float32Array(particleCount);
-            const seeds = new Float32Array(particleCount * 4); // arm, armPhase, radialJitter, verticalJitter
+            const seeds = new Float32Array(particleCount * 2); // ring index, angle position
 
             for (let i = 0; i < particleCount; i++) {
-                const arm = i % numArms; // which spiral arm
-                const armPhase = Math.floor(i / numArms) / Math.max(1, Math.floor(particleCount / numArms)); // 0-1 along arm
-                const radialJitter = (Math.random() - 0.5) * bandWidth; // tight radial scatter
-                const verticalJitter = (Math.random() - 0.5) * 0.03; // very flat disk
-                seeds[i * 4] = arm;
-                seeds[i * 4 + 1] = armPhase;
-                seeds[i * 4 + 2] = radialJitter;
-                seeds[i * 4 + 3] = verticalJitter;
+                const ring = Math.floor(i / perRing);
+                const indexInRing = i - ring * perRing;
+                const countInThisRing = Math.min(perRing, particleCount - ring * perRing);
+                const angle = (indexInRing / countInThisRing) * Math.PI * 2;
+                seeds[i * 2] = ring;
+                seeds[i * 2 + 1] = angle;
                 positions[i * 3] = 0;
                 positions[i * 3 + 1] = 0;
                 positions[i * 3 + 2] = 0;
@@ -2021,7 +2022,7 @@
 
             const particles = new THREE.Points(pGeo, pMat);
             particles.userData = {
-                seeds, eyewallR, bandWidth, numArms, totalH, supportQ: particleCount,
+                seeds, eyewallR, ringSpacing, numRings, totalH, supportQ: particleCount,
                 spiralSpeed: 0.5 + Math.min(totalH / 294, 1) * 1.5
             };
             vortex3D.hbarParticles = particles;
@@ -2181,26 +2182,18 @@
                         const count = pos.length / 3;
 
                         for (let i = 0; i < count; i++) {
-                            const arm = d.seeds[i * 4];
-                            const armPhase = d.seeds[i * 4 + 1];
-                            const radialJitter = d.seeds[i * 4 + 2];
-                            const verticalJitter = d.seeds[i * 4 + 3];
+                            const ring = d.seeds[i * 2];
+                            const angle = d.seeds[i * 2 + 1];
 
-                            // Tight eyewall band with spiral arm structure
-                            const r = d.eyewallR + radialJitter;
-                            // Each arm is evenly spaced, particles distributed along the arm
-                            const armBaseAngle = (arm / d.numArms) * Math.PI * 2;
-                            // Spiral winding: particles further along the arm are slightly ahead angularly
-                            const windAngle = armPhase * Math.PI * 0.8; // ~half turn per arm
-                            const angle = armBaseAngle + windAngle;
-                            const y = verticalJitter; // very flat disk
+                            // Clean concentric rings, no jitter
+                            const r = d.eyewallR + ring * d.ringSpacing;
+                            const y = 0; // perfectly flat disk
 
                             pos[i * 3]     = r * Math.cos(angle);
                             pos[i * 3 + 1] = y;
                             pos[i * 3 + 2] = r * Math.sin(angle);
 
-                            // All bright — these are real quanta in a dense structure
-                            alp[i] = 0.7 + 0.3 * (1 - armPhase);
+                            alp[i] = 0.85;
                         }
                         p.geometry.attributes.position.needsUpdate = true;
                         p.geometry.attributes.alpha.needsUpdate = true;
