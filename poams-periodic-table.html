@@ -1982,26 +1982,16 @@
             // Particle count = support quanta count (capped at 300 for performance)
             const particleCount = Math.min(Math.max(supportQ, 1), 300);
 
-            // Eyewall geometry: clean concentric rings just outside the barycenter
-            const eyewallR = eyeRadius + 0.06; // first ring radius
-            const ringSpacing = 0.035; // gap between rings
-            // Distribute particles into rings — fill each ring evenly before adding another
-            const maxPerRing = Math.max(8, Math.round(particleCount / 2)); // at least 2 rings for heavier elements
-            const numRings = Math.max(1, Math.ceil(particleCount / maxPerRing));
-            const perRing = Math.ceil(particleCount / numRings);
+            // Eyewall geometry: single tight ring just outside the barycenter
+            const eyewallR = eyeRadius + 0.04;
 
             const pGeo = new THREE.BufferGeometry();
             const positions = new Float32Array(particleCount * 3);
             const alphas = new Float32Array(particleCount);
-            const seeds = new Float32Array(particleCount * 2); // ring index, angle position
+            const seeds = new Float32Array(particleCount); // angle position
 
             for (let i = 0; i < particleCount; i++) {
-                const ring = Math.floor(i / perRing);
-                const indexInRing = i - ring * perRing;
-                const countInThisRing = Math.min(perRing, particleCount - ring * perRing);
-                const angle = (indexInRing / countInThisRing) * Math.PI * 2;
-                seeds[i * 2] = ring;
-                seeds[i * 2 + 1] = angle;
+                seeds[i] = (i / particleCount) * Math.PI * 2;
                 positions[i * 3] = 0;
                 positions[i * 3 + 1] = 0;
                 positions[i * 3 + 2] = 0;
@@ -2012,7 +2002,7 @@
 
             const pMat = new THREE.PointsMaterial({
                 color: 0xffe0a0,
-                size: 0.03,
+                size: 0.018,
                 transparent: true,
                 opacity: 0.95,
                 blending: THREE.AdditiveBlending,
@@ -2022,7 +2012,7 @@
 
             const particles = new THREE.Points(pGeo, pMat);
             particles.userData = {
-                seeds, eyewallR, ringSpacing, numRings, totalH, supportQ: particleCount,
+                seeds, eyewallR, totalH, supportQ: particleCount,
                 spiralSpeed: 0.5 + Math.min(totalH / 294, 1) * 1.5
             };
             vortex3D.hbarParticles = particles;
@@ -2182,15 +2172,11 @@
                         const count = pos.length / 3;
 
                         for (let i = 0; i < count; i++) {
-                            const ring = d.seeds[i * 2];
-                            const angle = d.seeds[i * 2 + 1];
-
-                            // Clean concentric rings, no jitter
-                            const r = d.eyewallR + ring * d.ringSpacing;
-                            const y = 0; // perfectly flat disk
+                            const angle = d.seeds[i];
+                            const r = d.eyewallR;
 
                             pos[i * 3]     = r * Math.cos(angle);
-                            pos[i * 3 + 1] = y;
+                            pos[i * 3 + 1] = 0;
                             pos[i * 3 + 2] = r * Math.sin(angle);
 
                             alp[i] = 0.85;
