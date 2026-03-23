@@ -1946,15 +1946,6 @@
             const group = new THREE.Group();
             vortex3D.harmonicGroup = group;
 
-            // Apply current pattern visibility filters
-            if (typeof patternVisibility !== 'undefined') {
-                group.traverse(child => {
-                    if (child.userData && child.userData.patternType && !patternVisibility[child.userData.patternType]) {
-                        child.visible = false;
-                    }
-                });
-            }
-
             // Reset toggle button state
             const toggleBtn = document.getElementById('toggleModesBtn');
             if (toggleBtn) toggleBtn.textContent = 'Hide Modes';
@@ -2081,6 +2072,15 @@
                     group.add(mesh);
                 });
             });
+
+            // Apply current pattern visibility filters AFTER all meshes are added
+            if (typeof patternVisibility !== 'undefined') {
+                group.traverse(child => {
+                    if (child.userData && child.userData.patternType && !patternVisibility[child.userData.patternType]) {
+                        child.visible = false;
+                    }
+                });
+            }
 
             vortex3D.scene.add(group);
         }
