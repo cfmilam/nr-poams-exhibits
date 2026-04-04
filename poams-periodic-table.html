@@ -1076,7 +1076,7 @@
                     <p style="margin: 15px 0;">This is exactly how hurricanes work: a given circulation pattern requires sufficient energy input to maintain. Starve it and the pattern degrades. Overfeed it and it becomes unstable, shedding energy in bursts.</p>
                     
                     <div style="text-align: center; margin: 30px 0;">
-                        <canvas id="stabilityValleyChart" width="600" height="400" style="border: 2px solid var(--border); border-radius: 10px; background: var(--bg);"></canvas>
+                        <canvas id="stabilityValleyChart" width="600" height="400" style="border: 2px solid var(--border); border-radius: 10px; background: var(--card);"></canvas>
                         <p style="margin-top: 10px; font-size: 14px; color: var(--accent-blue);">Stability valley showing the optimal pattern/support ratio (N vs Z)</p>
                     </div>
                 </div>
@@ -1116,7 +1116,7 @@
                     <p style="margin: 15px 0;">The mass defect per quantum follows a curve that peaks at iron.</p>
                     
                     <div style="text-align: center; margin: 30px 0;">
-                        <canvas id="bindingEnergyChart" width="600" height="400" style="border: 2px solid var(--border); border-radius: 10px; background: var(--bg);"></canvas>
+                        <canvas id="bindingEnergyChart" width="600" height="400" style="border: 2px solid var(--border); border-radius: 10px; background: var(--card);"></canvas>
                         <p style="margin-top: 10px; font-size: 14px; color: var(--accent-blue);">Binding energy per ħ quantum showing iron's maximum efficiency</p>
                     </div>
                 </div>
@@ -3641,8 +3641,8 @@
             const height = canvas.height;
             
             // Clear canvas
-            const bgColor = getComputedStyle(document.documentElement).getPropertyValue('--bg').trim();
-            ctx.fillStyle = bgColor;
+            const cardColor = getComputedStyle(document.documentElement).getPropertyValue('--card').trim();
+            ctx.fillStyle = cardColor;
             ctx.fillRect(0, 0, width, height);
             
             // Set up coordinate system
@@ -3774,8 +3774,8 @@
             const height = canvas.height;
             
             // Clear canvas
-            const bgColor = getComputedStyle(document.documentElement).getPropertyValue('--bg').trim();
-            ctx.fillStyle = bgColor;
+            const cardColor = getComputedStyle(document.documentElement).getPropertyValue('--card').trim();
+            ctx.fillStyle = cardColor;
             ctx.fillRect(0, 0, width, height);
             
             // Set up coordinate system
