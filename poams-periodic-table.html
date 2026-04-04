@@ -3697,7 +3697,7 @@
             }
             
             // Draw stability valley (colored band)
-            ctx.fillStyle = isDark ? 'rgba(201, 168, 76, 0.55)' : 'rgba(201, 168, 76, 0.15)';
+            ctx.fillStyle = isDark ? 'rgba(201, 168, 76, 0.55)' : 'rgba(180, 140, 50, 0.30)';
             ctx.beginPath();
             
             // Upper boundary of stability valley
@@ -3733,6 +3733,10 @@
             
             ctx.closePath();
             ctx.fill();
+            // Stroke the valley outline
+            ctx.strokeStyle = isDark ? 'rgba(201, 168, 76, 0.7)' : 'rgba(150, 110, 30, 0.6)';
+            ctx.lineWidth = 1.5;
+            ctx.stroke();
             
             // Draw stable isotopes as dots
             ctx.fillStyle = isDark ? '#FFD700' : '#B8860B';
