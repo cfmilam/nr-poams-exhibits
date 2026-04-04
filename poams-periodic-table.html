@@ -618,12 +618,12 @@
         </header>
 
         <nav class="nav-tabs">
-            <button class="tab-button active" onclick="showTab('table')">POAMS Periodic Table</button>
-            <button class="tab-button" onclick="showTab('spiral')">Spiral</button>
-            <button class="tab-button" onclick="showTab('vortex')">Vortex Model</button>
-            <button class="tab-button" onclick="showTab('explanation')">Framework</button>
-            <button class="tab-button" onclick="showTab('forces')">Force Profile</button>
-            <button class="tab-button" onclick="showTab('deep')">Deep Structure</button>
+            <button class="tab-button active" onclick="showTab('table', this)">POAMS Periodic Table</button>
+            <button class="tab-button" onclick="showTab('spiral', this)">Spiral</button>
+            <button class="tab-button" onclick="showTab('vortex', this)">Vortex Model</button>
+            <button class="tab-button" onclick="showTab('explanation', this)">Framework</button>
+            <button class="tab-button" onclick="showTab('forces', this)">Force Profile</button>
+            <button class="tab-button" onclick="showTab('deep', this)">Deep Structure</button>
         </nav>
 
         <!-- Tab 1: POAMS Periodic Table -->
@@ -2148,7 +2148,7 @@
         }).sort((a, b) => a.n - b.n);
 
         let selectedElement = elements[0];
-        let currentTheme = 'dark';
+        let currentTheme = localStorage.getItem('poams-theme') || 'dark';
         
         // 3D Spiral visualization state
         let spiral3D = {
@@ -3189,6 +3189,7 @@
 
         function toggleTheme() {
             currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            localStorage.setItem('poams-theme', currentTheme);
             document.body.setAttribute('data-theme', currentTheme);
             document.querySelector('.theme-toggle').textContent = currentTheme === 'dark' ? '☀️ Light' : '🌙 Dark';
             if (document.getElementById('forceChart')) {
@@ -3209,7 +3210,8 @@
             }
         }
 
-        function showTab(tabName) {
+        function showTab(tabName, clickedBtn) {
+            localStorage.setItem('poams-tab', tabName);
             // Hide all tab contents
             document.querySelectorAll('.tab-content').forEach(content => {
                 content.classList.remove('active');
@@ -3224,7 +3226,8 @@
             document.getElementById(tabName).classList.add('active');
             
             // Add active class to clicked button
-            event.target.classList.add('active');
+            const btn = clickedBtn || document.querySelector(`.tab-button[onclick*="'${tabName}'"]`);
+            if (btn) btn.classList.add('active');
             
             // Initialize tab-specific content
             if (tabName === 'forces') {
@@ -3926,9 +3929,21 @@
 
         // Initialize everything
         document.addEventListener('DOMContentLoaded', () => {
+            // Restore saved theme
+            if (currentTheme !== 'dark') {
+                document.body.setAttribute('data-theme', currentTheme);
+                document.querySelector('.theme-toggle').textContent = currentTheme === 'dark' ? '☀️ Light' : '🌙 Dark';
+            }
+            
             generatePeriodicTable();
             generateElementSelector();
             updateVortexDisplay();
+            
+            // Restore saved tab
+            const savedTab = localStorage.getItem('poams-tab');
+            if (savedTab && savedTab !== 'table') {
+                showTab(savedTab);
+            }
             
             // Set up animation speed control
             document.getElementById('animationSpeed').oninput = (e) => {
