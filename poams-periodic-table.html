@@ -3696,7 +3696,7 @@
             }
             
             // Draw stability valley (colored band)
-            ctx.fillStyle = currentTheme === 'dark' ? 'rgba(201, 168, 76, 0.55)' : 'rgba(201, 168, 76, 0.4)';
+            ctx.fillStyle = currentTheme === 'dark' ? 'rgba(201, 168, 76, 0.55)' : 'rgba(180, 140, 20, 0.45)';
             ctx.beginPath();
             
             // Upper boundary of stability valley
@@ -3734,7 +3734,7 @@
             ctx.fill();
             
             // Draw stable isotopes as dots
-            ctx.fillStyle = '#FFD700';
+            ctx.fillStyle = currentTheme === 'dark' ? '#FFD700' : '#B8860B';
             const stableIsotopes = [
                 {z: 1, n: 0}, {z: 2, n: 2}, {z: 6, n: 6}, {z: 8, n: 8}, {z: 10, n: 10},
                 {z: 12, n: 12}, {z: 14, n: 14}, {z: 16, n: 16}, {z: 18, n: 22}, {z: 20, n: 20},
@@ -3751,16 +3751,16 @@
             });
             
             // Add region labels
-            ctx.fillStyle = '#FF7777';
+            ctx.fillStyle = currentTheme === 'dark' ? '#FF7777' : '#CC0000';
             ctx.font = 'bold 14px Georgia';
             ctx.fillText('Pattern-Rich Decay', margin + plotWidth * 0.1, margin + plotHeight * 0.2);
             ctx.fillText('(β⁺ emission)', margin + plotWidth * 0.1, margin + plotHeight * 0.25);
             
-            ctx.fillStyle = '#66FF66';
+            ctx.fillStyle = currentTheme === 'dark' ? '#66FF66' : '#007700';
             ctx.fillText('Support-Rich Decay', margin + plotWidth * 0.7, height - margin - plotHeight * 0.1);
             ctx.fillText('(β⁻ emission)', margin + plotWidth * 0.7, height - margin - plotHeight * 0.05);
             
-            ctx.fillStyle = '#FFD700';
+            ctx.fillStyle = currentTheme === 'dark' ? '#FFD700' : '#8B6914';
             ctx.font = 'bold 15px Georgia';
             ctx.fillText('Stable Valley', margin + plotWidth * 0.4, height - margin - plotHeight * 0.5);
         }
@@ -3830,7 +3830,7 @@
             
             // Draw binding energy curve
             ctx.beginPath();
-            ctx.strokeStyle = currentTheme === 'dark' ? '#64E0FF' : '#0288D1';
+            ctx.strokeStyle = currentTheme === 'dark' ? '#64E0FF' : '#0055AA';
             ctx.lineWidth = 3.5;
             
             for (let a = 1; a <= 260; a++) {
@@ -3867,28 +3867,28 @@
             const ironX = margin + (56 / 260) * plotWidth;
             const ironY = height - margin - (8.8 / 9) * plotHeight;
             
-            ctx.fillStyle = '#FFD700';
+            ctx.fillStyle = currentTheme === 'dark' ? '#FFD700' : '#B8860B';
             ctx.beginPath();
             ctx.arc(ironX, ironY, 7, 0, 2 * Math.PI);
             ctx.fill();
             
-            ctx.fillStyle = '#FFD700';
+            ctx.fillStyle = currentTheme === 'dark' ? '#FFD700' : '#8B6914';
             ctx.font = 'bold 15px Georgia';
             ctx.fillText('Fe-56', ironX + 10, ironY - 5);
             ctx.fillText('Peak Efficiency', ironX + 10, ironY + 10);
             
             // Add region labels
-            ctx.fillStyle = '#66FF66';
+            ctx.fillStyle = currentTheme === 'dark' ? '#66FF66' : '#007700';
             ctx.font = 'bold 13px Georgia';
             ctx.fillText('FUSION', margin + plotWidth * 0.15, margin + plotHeight * 0.3);
             ctx.fillText('Releases Energy', margin + plotWidth * 0.1, margin + plotHeight * 0.35);
             
-            ctx.fillStyle = '#FF7777';
+            ctx.fillStyle = currentTheme === 'dark' ? '#FF7777' : '#CC0000';
             ctx.fillText('FISSION', margin + plotWidth * 0.75, margin + plotHeight * 0.4);
             ctx.fillText('Releases Energy', margin + plotWidth * 0.7, margin + plotHeight * 0.45);
             
             // Draw arrows
-            ctx.strokeStyle = '#66FF66';
+            ctx.strokeStyle = currentTheme === 'dark' ? '#66FF66' : '#007700';
             ctx.lineWidth = 2.5;
             // Fusion arrow (pointing toward iron)
             ctx.beginPath();
@@ -3903,7 +3903,7 @@
             ctx.lineTo(ironX - 25, ironY + 30);
             ctx.stroke();
             
-            ctx.strokeStyle = '#FF7777';
+            ctx.strokeStyle = currentTheme === 'dark' ? '#FF7777' : '#CC0000';
             ctx.lineWidth = 2.5;
             // Fission arrow (pointing away from iron)
             ctx.beginPath();
