@@ -362,8 +362,90 @@
             }
         }
     </style>
+<style>
+    /* ── POAMS Hub Nav ── */
+    #poams-hub-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 9999;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1rem;
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.25);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 13px;
+      box-sizing: border-box;
+    }
+    [data-theme="light"] #poams-hub-nav,
+    body.light #poams-hub-nav {
+      background: rgba(250, 248, 242, 0.95);
+      border-bottom-color: rgba(139, 105, 20, 0.25);
+    }
+    #poams-hub-nav a {
+      color: #c9a84c;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 10px;
+      border-radius: 6px;
+      transition: background 0.2s, color 0.2s;
+      white-space: nowrap;
+      font-weight: 500;
+    }
+    [data-theme="light"] #poams-hub-nav a,
+    body.light #poams-hub-nav a { color: #8b6914; }
+    #poams-hub-nav a:hover { background: rgba(201, 168, 76, 0.12); }
+    #poams-hub-nav .phn-disabled {
+      color: rgba(201, 168, 76, 0.28);
+      padding: 5px 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+    }
+    #poams-hub-nav .phn-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      line-height: 1.2;
+    }
+    #poams-hub-nav .phn-title {
+      font-weight: 600;
+      color: #e8e4d8;
+      font-size: 12px;
+    }
+    [data-theme="light"] #poams-hub-nav .phn-title,
+    body.light #poams-hub-nav .phn-title { color: #2a2318; }
+    #poams-hub-nav .phn-pos {
+      font-size: 10px;
+      color: rgba(201, 168, 76, 0.6);
+      letter-spacing: 0.05em;
+    }
+    /* push body content below fixed nav */
+    body { padding-top: 44px !important; }
+
+    </style>
 </head>
 <body>
+<div id="poams-hub-nav">
+  <a href="./perihelion-precession.html" title="Perihelion Precession">← <span class="phn-hide-sm">Perihelion Precession</span></a>
+  <div class="phn-center">
+    <a href="./index.html" style="flex-direction:column;gap:2px;padding:4px 12px;">
+      <span class="phn-title">Varying G</span>
+      <span class="phn-pos">10 of 13 · POAMS</span>
+    </a>
+  </div>
+  <a href="./pioneer-anomaly.html" title="Pioneer Anomaly"><span class="phn-hide-sm">Pioneer Anomaly</span> →</a>
+</div>
+
     <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
     
     <div class="container">

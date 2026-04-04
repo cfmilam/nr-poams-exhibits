@@ -1,149 +1,727 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NR-POAMS Interactive Exhibits</title>
+<title>POAMS — The Normal Realism Collection</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
+/* ─── Design Tokens ─────────────────────────────────────────────────── */
 :root {
-  --bg: #1a1a2e; --fg: #e0e0e0; --accent: #c9a84c; --accent2: #8b6914;
-  --link: #c9a84c; --card-bg: rgba(255,255,255,0.03); --card-border: #333;
+  --bg:         #1a1a2e;
+  --bg2:        #16213e;
+  --bg3:        #0f172a;
+  --surface:    rgba(255,255,255,0.04);
+  --surface2:   rgba(255,255,255,0.07);
+  --border:     rgba(255,255,255,0.08);
+  --border-h:   #c9a84c;
+  --fg:         #e8e4d8;
+  --fg2:        #a09880;
+  --gold:       #c9a84c;
+  --gold2:      #e8c96a;
+  --blue:       #4fc3f7;
+  --radius:     12px;
+  --shadow:     0 8px 32px rgba(0,0,0,0.4);
+  --shadow-h:   0 16px 48px rgba(201,168,76,0.15);
+  --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
 }
-.light {
-  --bg: #faf8f2; --fg: #2a2a2a; --accent: #8b6914; --accent2: #c9a84c;
-  --link: #8b6914; --card-bg: rgba(0,0,0,0.02); --card-border: #ddd;
+[data-theme="light"] {
+  --bg:         #faf8f2;
+  --bg2:        #f0ebe0;
+  --bg3:        #e8e2d4;
+  --surface:    rgba(0,0,0,0.03);
+  --surface2:   rgba(0,0,0,0.06);
+  --border:     rgba(0,0,0,0.10);
+  --fg:         #2a2318;
+  --fg2:        #6b5d48;
+  --gold:       #8b6914;
+  --gold2:      #6b5210;
+  --blue:       #0369a1;
+  --shadow:     0 8px 32px rgba(0,0,0,0.10);
+  --shadow-h:   0 16px 48px rgba(139,105,20,0.15);
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: Georgia, serif; background: var(--bg); color: var(--fg); line-height: 1.6; font-size: 16px; }
-main { max-width: 800px; margin: 0 auto; padding: 3rem 2rem; }
-h1 { font-size: 2rem; color: var(--accent); margin-bottom: 0.3rem; }
-h2 { font-size: 1.3rem; color: var(--accent); margin: 2.5rem 0 0.8rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.3rem; }
-.subtitle { color: var(--accent2); margin-bottom: 0.5rem; font-size: 1rem; }
-.intro { color: var(--fg); opacity: 0.85; margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.7; }
-.nav-links { margin-bottom: 2rem; font-size: 0.9rem; }
-.nav-links a { color: var(--link); margin-right: 1.5rem; }
-.exhibit { margin: 0.8rem 0; padding: 1rem 1.2rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; transition: border-color 0.2s; }
-.exhibit:hover { border-color: var(--accent); }
-.exhibit h3 { font-size: 1.05rem; margin: 0 0 0.3rem; }
-.exhibit h3 a { color: var(--link); text-decoration: none; }
-.exhibit h3 a:hover { text-decoration: underline; }
-.exhibit .desc { font-size: 0.88rem; color: var(--fg); opacity: 0.8; line-height: 1.5; }
-.exhibit .tags { font-size: 0.78rem; color: var(--accent2); margin-top: 0.4rem; }
-.tag { display: inline-block; background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.2); border-radius: 4px; padding: 0.1rem 0.5rem; margin-right: 0.4rem; margin-top: 0.2rem; }
+
+/* ─── Reset ─────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.7;
+  font-size: 16px;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* ─── Theme Toggle ───────────────────────────────────────────────────── */
 #theme-btn {
-  position: fixed; top: 1rem; right: 1rem; z-index: 200;
-  background: var(--accent); color: var(--bg); border: none;
-  width: 40px; height: 40px; border-radius: 8px; font-size: 1.3rem;
-  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  position: fixed;
+  top: 1.2rem;
+  right: 1.4rem;
+  z-index: 500;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--gold);
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: var(--transition);
+  backdrop-filter: blur(8px);
 }
-footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--card-border); font-size: 0.85rem; color: var(--accent2); }
-footer a { color: var(--link); }
-@media (max-width: 768px) { main { padding: 2rem 1rem; } }
+#theme-btn:hover { background: var(--surface2); border-color: var(--gold); transform: rotate(20deg); }
+
+/* ─── Hero ───────────────────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  padding: 7rem 2rem 5rem;
+  text-align: center;
+  overflow: hidden;
+  background: linear-gradient(160deg, var(--bg3) 0%, var(--bg2) 50%, var(--bg) 100%);
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 0%, rgba(201,168,76,0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 30% at 80% 80%, rgba(79,195,247,0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  opacity: 0.85;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.6rem, 6vw, 5rem);
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--fg);
+  margin-bottom: 1.2rem;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold);
+}
+.hero-sub {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--fg2);
+  max-width: 640px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.6;
+}
+.hero-meta {
+  font-size: 0.85rem;
+  color: var(--fg2);
+  letter-spacing: 0.05em;
+}
+.hero-meta strong { color: var(--gold); font-weight: 500; }
+
+/* ─── Section wrapper ────────────────────────────────────────────────── */
+.section { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+/* ─── Arc Section ────────────────────────────────────────────────────── */
+.arc-wrap {
+  padding: 5rem 0;
+  background: var(--bg);
+}
+.arc-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.arc-header h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 400;
+  color: var(--fg);
+  margin-bottom: 0.6rem;
+}
+.arc-header p {
+  font-size: 0.95rem;
+  color: var(--fg2);
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* ─── Arc Steps ──────────────────────────────────────────────────────── */
+.arc-steps {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.arc-steps::before {
+  content: '';
+  position: absolute;
+  left: 28px;
+  top: 24px;
+  bottom: 24px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--gold), rgba(201,168,76,0.1));
+  border-radius: 2px;
+}
+@media (max-width: 680px) {
+  .arc-steps::before { left: 18px; }
+}
+
+.arc-step {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 0 1.5rem;
+  padding: 2rem 0;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.arc-step.visible { opacity: 1; transform: none; }
+
+.step-num {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 2px;
+}
+.step-num span {
+  width: 58px; height: 58px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  background: var(--bg);
+  color: var(--gold);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  transition: var(--transition);
+}
+.arc-step:hover .step-num span {
+  background: var(--gold);
+  color: var(--bg);
+  box-shadow: 0 0 24px rgba(201,168,76,0.35);
+}
+
+.step-body { padding-bottom: 0.5rem; }
+
+.step-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.35rem;
+  opacity: 0.7;
+}
+.step-body h3 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+  font-weight: 400;
+  color: var(--fg);
+  margin-bottom: 0.6rem;
+  line-height: 1.2;
+}
+.step-body p {
+  font-size: 0.93rem;
+  color: var(--fg2);
+  max-width: 640px;
+  margin-bottom: 1.1rem;
+  line-height: 1.7;
+}
+.step-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+}
+.step-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--gold);
+  text-decoration: none;
+  padding: 0.35rem 0.85rem;
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 999px;
+  background: rgba(201,168,76,0.06);
+  transition: var(--transition);
+  white-space: nowrap;
+}
+.step-link:hover {
+  background: rgba(201,168,76,0.15);
+  border-color: var(--gold);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(201,168,76,0.2);
+}
+.step-link.paper {
+  color: var(--blue);
+  border-color: rgba(79,195,247,0.3);
+  background: rgba(79,195,247,0.05);
+}
+.step-link.paper:hover {
+  background: rgba(79,195,247,0.12);
+  border-color: var(--blue);
+}
+.step-link-icon { font-size: 0.9em; }
+
+/* ─── Library ────────────────────────────────────────────────────────── */
+.library-wrap {
+  padding: 5rem 0 6rem;
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+  border-top: 1px solid var(--border);
+}
+.library-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+.library-header h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 400;
+  color: var(--fg);
+  margin-bottom: 0.5rem;
+}
+.library-header p {
+  font-size: 0.93rem;
+  color: var(--fg2);
+}
+
+.library-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+@media (max-width: 900px) { .library-cols { grid-template-columns: 1fr; gap: 1.2rem; } }
+
+.lib-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.8rem;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+.lib-card:hover {
+  background: var(--surface2);
+  border-color: rgba(201,168,76,0.35);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-h);
+}
+
+.lib-card-icon {
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+}
+.lib-card h3 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--gold);
+  margin-bottom: 0.3rem;
+}
+.lib-card > p {
+  font-size: 0.83rem;
+  color: var(--fg2);
+  margin-bottom: 1.2rem;
+  line-height: 1.5;
+  flex: 1;
+}
+.lib-list {
+  list-style: none;
+  margin-bottom: 1.3rem;
+}
+.lib-list li {
+  border-top: 1px solid var(--border);
+  padding: 0.5rem 0;
+}
+.lib-list li:last-child { border-bottom: 1px solid var(--border); }
+.lib-list a {
+  font-size: 0.85rem;
+  color: var(--fg);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  transition: color 0.2s;
+}
+.lib-list a:hover { color: var(--gold); }
+.lib-list a::after {
+  content: '→';
+  font-size: 0.75rem;
+  color: var(--fg2);
+  flex-shrink: 0;
+  transition: transform 0.2s, color 0.2s;
+}
+.lib-list a:hover::after { transform: translateX(3px); color: var(--gold); }
+.lib-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gold);
+  text-decoration: none;
+  margin-top: auto;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 8px;
+  background: rgba(201,168,76,0.06);
+  transition: var(--transition);
+  align-self: flex-start;
+}
+.lib-cta:hover {
+  background: rgba(201,168,76,0.14);
+  border-color: var(--gold);
+  transform: translateX(3px);
+}
+.lib-featured-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--fg2);
+  margin: 0.2rem 0 0.6rem;
+  font-weight: 500;
+}
+
+/* ─── Footer ─────────────────────────────────────────────────────────── */
+footer {
+  background: var(--bg3);
+  border-top: 1px solid var(--border);
+  padding: 3rem 2rem;
+  text-align: center;
+}
+.footer-inner { max-width: 700px; margin: 0 auto; }
+.footer-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--gold);
+  margin-bottom: 0.8rem;
+}
+.footer-names {
+  font-size: 0.95rem;
+  color: var(--fg);
+  margin-bottom: 0.5rem;
+}
+.footer-names strong { color: var(--gold); font-weight: 500; }
+.footer-tagline {
+  font-size: 0.8rem;
+  color: var(--fg2);
+  letter-spacing: 0.08em;
+  margin-bottom: 1.5rem;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.footer-links a {
+  font-size: 0.82rem;
+  color: var(--fg2);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--gold); }
+
+/* ─── Divider ─────────────────────────────────────────────────────────── */
+.divider {
+  max-width: 200px;
+  margin: 2rem auto;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  opacity: 0.35;
+}
+
+@media (max-width: 680px) {
+  .hero { padding: 5rem 1.2rem 4rem; }
+  .section { padding: 0 1.2rem; }
+  .arc-step { grid-template-columns: 48px 1fr; gap: 0 1rem; }
+  .step-num span { width: 44px; height: 44px; font-size: 1.2rem; }
+  .arc-steps::before { left: 15px; }
+  .lib-card { padding: 1.4rem; }
+}
 </style>
 </head>
 <body>
-<button id="theme-btn" onclick="document.body.classList.toggle('light');localStorage.setItem('theme',document.body.classList.contains('light')?'light':'dark')" title="Toggle theme">🌙</button>
-<main>
-<h1>NR-POAMS Interactive Exhibits</h1>
-<p class="subtitle">Normal Realism &amp; the Pope-Osborne Angular Momentum Synthesis</p>
 
-<p class="intro">Interactive visualizations exploring the revolutionary physics framework of N. Vivian Pope and Anthony D. Osborne. These exhibits demonstrate how Pythagorean geometry, angular momentum conservation, and a rigorous phenomenalist philosophy unify relativity and quantum mechanics — without photons, without gravitational force, and without Einstein's light-speed postulate.</p>
+<button id="theme-btn" title="Toggle theme">🌙</button>
 
-<div class="nav-links">
-  <a href="https://cfmilam.github.io/nr-poams-papers/">📄 Papers</a>
-  <a href="https://cfmilam.github.io/nr-poams-books/">📚 Books</a>
-  <a href="https://cfmilam.github.io/nr-poams-engineering/">⚙️ Engineering</a>
-</div>
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-eyebrow">Normal Realism · POAMS</div>
+  <h1>One Substance.<br><em>All of Physics.</em></h1>
+  <p class="hero-sub">Angular momentum is not just a property of matter — it <em>is</em> matter. Every particle, every force, every clock is organized ħ quanta in motion.</p>
+  <p class="hero-meta">
+    <strong>Viv Pope &amp; Anthony Osborne</strong> &ensp;·&ensp; 50 years of work &ensp;·&ensp; 13 interactive exhibits
+  </p>
+</section>
 
-<h2>Overview</h2>
+<!-- ── THE ARGUMENT ── -->
+<section class="arc-wrap">
+  <div class="section">
+    <div class="arc-header">
+      <h2>The Argument</h2>
+      <p>A logical arc — from the nature of substance to the design of experiments that test it.</p>
+    </div>
 
-<div class="exhibit">
-  <h3><a href="poams-analysis.html">The POAMS Framework: A Comprehensive Analysis</a></h3>
-  <p class="desc">A complete survey of Normal Realism and POAMS — philosophy, mathematics, derivations, and implications. Based on analysis of 74 papers and 7 books by Pope, Osborne, and collaborators. Start here.</p>
-  <div class="tags"><span class="tag">Summary</span><span class="tag">Philosophy</span><span class="tag">Mathematics</span><span class="tag">Start Here</span></div>
-</div>
+    <div class="arc-steps">
 
-<h2>Core Framework</h2>
+      <!-- 1 -->
+      <div class="arc-step">
+        <div class="step-num"><span>1</span></div>
+        <div class="step-body">
+          <div class="step-label">Foundation</div>
+          <h3>One Substance</h3>
+          <p>Angular momentum is the fundamental substance of nature — not a property of matter but what matter <em>is</em>. All particles are organized ħ quanta arranged in vortex shells. There is nothing else. No aether, no fields in the classical sense — only quantized spin.</p>
+          <div class="step-links">
+            <a class="step-link" href="./poams-periodic-table.html">
+              <span class="step-link-icon">⚛</span> Periodic Table Exhibit
+            </a>
+            <a class="step-link" href="https://cfmilam.github.io/nr-poams-books/eye-of-beholder.html" target="_blank">
+              <span class="step-link-icon">📖</span> Eye of the Beholder (book)
+            </a>
+          </div>
+        </div>
+      </div>
 
-<div class="exhibit">
-  <h3><a href="twins-paradox.html">The Twins Paradox — POAMS</a></h3>
-  <p class="desc">3D cone model visualization showing how time dilation emerges from pure Pythagoras (t² = τ² + (s/c)²). Animated twin clocks, the acceleration asymmetry, and a side-by-side comparison of Einstein's vs POAMS's explanation.</p>
-  <div class="tags"><span class="tag">Relativity</span><span class="tag">Cone Model</span><span class="tag">Time Dilation</span><span class="tag">Appendix 1</span></div>
-</div>
+      <!-- 2 -->
+      <div class="arc-step">
+        <div class="step-num"><span>2</span></div>
+        <div class="step-body">
+          <div class="step-label">Structure</div>
+          <h3>Quantized Structure</h3>
+          <p>If matter is organized ħ, then the periodic table is not an empirical catalogue — it is a mathematical necessity. Shell closures, spectral lines, and the Balmer-Rydberg formula all fall out of first principles. There is no Bohr postulate; there is only angular momentum arithmetic.</p>
+          <div class="step-links">
+            <a class="step-link" href="./balmer-rydberg-poams.html">
+              <span class="step-link-icon">〰</span> Balmer-Rydberg Exhibit
+            </a>
+            <a class="step-link" href="./ladder-of-octaves.html">
+              <span class="step-link-icon">🎵</span> Ladder of Octaves Exhibit
+            </a>
+          </div>
+        </div>
+      </div>
 
-<div class="exhibit">
-  <h3><a href="quantum-cinematograph.html">The Quantum Cinematograph</a></h3>
-  <p class="desc">Pope's central insight: reality operates like digital cinema — discrete quantum "stills" with action between frames, not within them. Visualizes the quantum discretum, the tag game of atomic interaction, the EPR non-paradox, and why there are no photons.</p>
-  <div class="tags"><span class="tag">Philosophy</span><span class="tag">Quantum</span><span class="tag">Discretum</span><span class="tag">EPR</span></div>
-</div>
+      <!-- 3 -->
+      <div class="arc-step">
+        <div class="step-num"><span>3</span></div>
+        <div class="step-body">
+          <div class="step-label">Relativity</div>
+          <h3>Time Is Geometry</h3>
+          <p>Einsteinian relativity is replaced by a Pythagorean cone. Time dilation is not a postulate — it is the Pythagorean theorem applied to the cone of orbital motion: t² = τ² + (s/c)². The GPS works. The clocks agree. No spacetime curvature required.</p>
+          <div class="step-links">
+            <a class="step-link" href="./twins-paradox.html">
+              <span class="step-link-icon">⏱</span> Twins Paradox
+            </a>
+            <a class="step-link" href="./circular-orbit-clocks.html">
+              <span class="step-link-icon">🔄</span> Circular Orbit Clocks
+            </a>
+            <a class="step-link" href="./elliptical-dilation.html">
+              <span class="step-link-icon">🥚</span> Elliptical Dilation
+            </a>
+            <a class="step-link" href="./gps-clocks.html">
+              <span class="step-link-icon">🛰</span> GPS Clocks
+            </a>
+            <a class="step-link" href="./perihelion-precession.html">
+              <span class="step-link-icon">☀</span> Perihelion Precession
+            </a>
+            <a class="step-link" href="./geodesic-proof.html">
+              <span class="step-link-icon">📐</span> Geodesic Proof
+            </a>
+            <a class="step-link paper" href="https://cfmilam.github.io/nr-poams-papers/" target="_blank">
+              <span class="step-link-icon">📄</span> Time Dilation Is The Pythagorean Theorem
+            </a>
+            <a class="step-link paper" href="https://cfmilam.github.io/nr-poams-papers/" target="_blank">
+              <span class="step-link-icon">📄</span> How Pythagorean Geometry Replaces Einsteinian Relativity
+            </a>
+            <a class="step-link paper" href="https://cfmilam.github.io/nr-poams-papers/" target="_blank">
+              <span class="step-link-icon">📄</span> Orbital Time Dilation (Osborne)
+            </a>
+          </div>
+        </div>
+      </div>
 
-<div class="exhibit">
-  <h3><a href="balmer-rydberg-poams.html">Balmer-Rydberg: Quantization of Mass-Energy &amp; Time</a></h3>
-  <p class="desc">How POAMS derives the Balmer-Rydberg spectral formula directly from the time dilation equation by pure syllogistic — with no electrodynamics. Interactive energy levels, live hydrogen spectrum, and the quantization of time.</p>
-  <div class="tags"><span class="tag">Quantum</span><span class="tag">Spectroscopy</span><span class="tag">Appendix 2–3</span></div>
-</div>
+      <!-- 4 -->
+      <div class="arc-step">
+        <div class="step-num"><span>4</span></div>
+        <div class="step-body">
+          <div class="step-label">Unification</div>
+          <h3>Forces Unify</h3>
+          <p>Gravity and electromagnetism are not separate forces but the same angular momentum mechanism operating at different scales. The variation of G with distance follows from vortex geometry. The Pioneer anomaly is not an anomaly. No dark matter needed — ever.</p>
+          <div class="step-links">
+            <a class="step-link" href="./varying-g.html">
+              <span class="step-link-icon">🌀</span> Varying G Exhibit
+            </a>
+            <a class="step-link" href="./pioneer-anomaly.html">
+              <span class="step-link-icon">🚀</span> Pioneer Anomaly Exhibit
+            </a>
+          </div>
+        </div>
+      </div>
 
-<div class="exhibit">
-  <h3><a href="ladder-of-octaves.html">The Ladder of Octaves — Angular Momentum Quantization from Proton to Planet</a></h3>
-  <p class="desc">D.L. Hotson's discovery: solar system timescales fall on exact octave progressions (powers of 2) of fundamental time quantum τ = 2e²/3mc³. Interactive chart spanning 33+ orders of magnitude from proton to Neptune. POAMS explains why: angular momentum is quantized at ALL scales.</p>
-  <div class="tags"><span class="tag">Quantization</span><span class="tag">Solar System</span><span class="tag">Octaves</span><span class="tag">Hotson Data</span></div>
-</div>
+      <!-- 5 -->
+      <div class="arc-step">
+        <div class="step-num"><span>5</span></div>
+        <div class="step-body">
+          <div class="step-label">Quanta</div>
+          <h3>The Quantum</h3>
+          <p>Reality is discrete — a cinematograph of quantum stills. There are no photons traveling through space. Electromagnetic interaction is instantaneous action-at-a-distance between resonant ħ shells. Wave-particle duality dissolves. EPR is not a paradox — it is ordinary quantum arithmetic.</p>
+          <div class="step-links">
+            <a class="step-link" href="./quantum-cinematograph.html">
+              <span class="step-link-icon">🎞</span> Quantum Cinematograph Exhibit
+            </a>
+          </div>
+        </div>
+      </div>
 
-<div class="exhibit">
-  <h3><a href="varying-g.html">Varying G — From Planets to Atoms</a></h3>
-  <p class="desc">How spin angular momentum transforms the "gravitational constant" G into a variable G*, unifying gravity and electromagnetism. Interactive slider from planetary scale (G = 6.67×10⁻¹¹) to atomic scale (G* = 1.51×10²⁹). The hierarchy problem dissolved.</p>
-  <div class="tags"><span class="tag">Unification</span><span class="tag">Spin</span><span class="tag">Appendix 5</span></div>
-</div>
+      <!-- 6 -->
+      <div class="arc-step">
+        <div class="step-num"><span>6</span></div>
+        <div class="step-body">
+          <div class="step-label">Experiment</div>
+          <h3>The Experiment</h3>
+          <p>If angular momentum is substance, then altering the spin state of a macroscopic system should produce a measurable gravitational consequence. The YIG ferrite phase rotation experiment is designed to test precisely this. This is the falsifiable prediction.</p>
+          <div class="step-links">
+            <a class="step-link" href="https://cfmilam.github.io/nr-poams-engineering/" target="_blank">
+              <span class="step-link-icon">⚙</span> Engineering Design
+            </a>
+            <a class="step-link paper" href="https://cfmilam.github.io/nr-poams-engineering/" target="_blank">
+              <span class="step-link-icon">📄</span> YIG Phase Rotation Paper
+            </a>
+          </div>
+        </div>
+      </div>
 
-<div class="exhibit">
-  <h3><a href="pioneer-anomaly.html">The Pioneer Anomaly &amp; Dark Matter</a></h3>
-  <p class="desc">NASA's spinning probes deviate sunward from Newtonian predictions — because Newton ignores spin angular momentum. The same principle explains galaxy rotation curves without dark matter. Trajectory simulator and rotation curve comparison.</p>
-  <div class="tags"><span class="tag">Pioneer</span><span class="tag">Dark Matter</span><span class="tag">Appendix 6</span></div>
-</div>
+    </div><!-- /arc-steps -->
+  </div>
+</section>
 
-<h2>Orbital Time Dilation — Osborne &amp; Pope</h2>
-<p class="intro" style="margin-bottom:1rem;">From the paper "Orbital Time Dilation" (<em>Galilean Electrodynamics</em>). These exhibits accompany the mathematical derivations showing how POAMS obtains General Relativity results without Einstein's field equations.</p>
+<!-- ── THE LIBRARY ── -->
+<section class="library-wrap">
+  <div class="section">
+    <div class="library-header">
+      <h2>The Library</h2>
+      <p>Books, papers, and engineering documents from five decades of work.</p>
+    </div>
+    <div class="library-cols">
 
-<div class="exhibit">
-  <h3><a href="circular-orbit-clocks.html">Circular Orbit Clock Comparison</a></h3>
-  <p class="desc">Compare Deep Space Time vs orbiter proper time on a circular geodesic. Toggle between velocity-only dilation (Eq 2.9) and true orbital dilation (Eq 3.6).</p>
-  <div class="tags"><span class="tag">Time Dilation</span><span class="tag">Circular Orbits</span></div>
-</div>
+      <!-- Books -->
+      <div class="lib-card">
+        <div class="lib-card-icon">📚</div>
+        <h3>Books</h3>
+        <p>Seven books by Pope and Osborne tracing the development of Normal Realism from first principles to full elaboration.</p>
+        <ul class="lib-list">
+          <li><a href="https://cfmilam.github.io/nr-poams-books/eye-of-beholder.html" target="_blank">Eye of the Beholder</a></li>
+          <li><a href="https://cfmilam.github.io/nr-poams-books/einsteins-lost-legacy.html" target="_blank">Einstein's Lost Legacy</a></li>
+          <li><a href="https://cfmilam.github.io/nr-poams-books/gods-country.html" target="_blank">God's Country</a></li>
+          <li><a href="https://cfmilam.github.io/nr-poams-books/immediate-distant-action.html" target="_blank">Immediate Distant Action</a></li>
+          <li><a href="https://cfmilam.github.io/nr-poams-books/osborne-2007-book-v3.html" target="_blank">Osborne 2007</a></li>
+          <li><a href="https://cfmilam.github.io/nr-poams-books/the-odyssey.html" target="_blank">The Odyssey</a></li>
+          <li><a href="https://cfmilam.github.io/nr-poams-books/wondering-wilderness.html" target="_blank">Wondering Wilderness</a></li>
+        </ul>
+        <a class="lib-cta" href="https://cfmilam.github.io/nr-poams-books/" target="_blank">Full book archive →</a>
+      </div>
 
-<div class="exhibit">
-  <h3><a href="elliptical-dilation.html">Elliptical Orbit Dilation</a></h3>
-  <p class="desc">Time dilation varies around an elliptical orbit — faster at periapsis, slower at apoapsis. Animated orbit with real-time dilation factor display.</p>
-  <div class="tags"><span class="tag">Elliptical Orbits</span><span class="tag">Kepler</span></div>
-</div>
+      <!-- Papers -->
+      <div class="lib-card">
+        <div class="lib-card-icon">📄</div>
+        <h3>Papers</h3>
+        <p>~170 papers and monographs. Browse the complete archive, or start with these foundational texts.</p>
+        <div class="lib-featured-label">Key Texts</div>
+        <ul class="lib-list">
+          <li><a href="https://cfmilam.github.io/nr-poams-papers/" target="_blank">A Synopsis of Normal Realism (revised)</a></li>
+          <li><a href="https://cfmilam.github.io/nr-poams-papers/" target="_blank">POAMS — A Short Definitive Description</a></li>
+          <li><a href="https://cfmilam.github.io/nr-poams-papers/" target="_blank">The Relativity Theory of Pythagoras</a></li>
+          <li><a href="https://cfmilam.github.io/nr-poams-papers/" target="_blank">Time Dilation Is The Pythagorean Theorem</a></li>
+          <li><a href="https://cfmilam.github.io/nr-poams-papers/" target="_blank">How Pythagorean Geometry Replaces Einsteinian Relativity</a></li>
+          <li><a href="https://cfmilam.github.io/nr-poams-papers/" target="_blank">Orbital Time Dilation (Osborne)</a></li>
+        </ul>
+        <a class="lib-cta" href="https://cfmilam.github.io/nr-poams-papers/" target="_blank">Browse complete archive →</a>
+      </div>
 
-<div class="exhibit">
-  <h3><a href="geodesic-proof.html">The a = 2 Geodesic Proof</a></h3>
-  <p class="desc">POAMS postulates an additional orbital dilation factor a. The proof that a = 2 (giving the Schwarzschild metric) follows from requiring geodesics to be the natural paths of freely moving particles.</p>
-  <div class="tags"><span class="tag">Schwarzschild</span><span class="tag">Geodesics</span></div>
-</div>
+      <!-- Engineering -->
+      <div class="lib-card">
+        <div class="lib-card-icon">⚙️</div>
+        <h3>Engineering</h3>
+        <p>Technical design documents for the proposed YIG ferrite experiment — the physical test of the POAMS prediction.</p>
+        <ul class="lib-list">
+          <li><a href="https://cfmilam.github.io/nr-poams-engineering/" target="_blank">Cone Model Paper</a></li>
+          <li><a href="https://cfmilam.github.io/nr-poams-engineering/" target="_blank">YIG Levitation Experiment</a></li>
+          <li><a href="https://cfmilam.github.io/nr-poams-engineering/" target="_blank">Engineering Review</a></li>
+        </ul>
+        <a class="lib-cta" href="https://cfmilam.github.io/nr-poams-engineering/" target="_blank">Engineering repository →</a>
+      </div>
 
-<div class="exhibit">
-  <h3><a href="gps-clocks.html">GPS Satellite Clocks</a></h3>
-  <p class="desc">Real-world application: GPS satellites experience both velocity and gravitational time dilation. POAMS predicts the combined effect that GPS systems must correct for.</p>
-  <div class="tags"><span class="tag">GPS</span><span class="tag">Applied</span></div>
-</div>
+    </div>
+  </div>
+</section>
 
-<div class="exhibit">
-  <h3><a href="perihelion-precession.html">Perihelion Precession of Mercury</a></h3>
-  <p class="desc">The famous 43 arcseconds per century. POAMS derives this from orbital time dilation on a cone — no Einstein field equations required.</p>
-  <div class="tags"><span class="tag">Mercury</span><span class="tag">Precession</span><span class="tag">General Relativity</span></div>
-</div>
-
+<!-- ── FOOTER ── -->
 <footer>
-  <p>Based on the work of <strong>N. Vivian Pope</strong> and <strong>Anthony D. Osborne</strong>.</p>
-  <p style="margin-top:0.5rem;"><a href="https://cfmilam.github.io/nr-poams-papers/">Papers</a> · <a href="https://cfmilam.github.io/nr-poams-books/">Books</a> · <a href="https://github.com/cfmilam/nr-poams-exhibits">Source</a></p>
+  <div class="footer-inner">
+    <div class="footer-title">50 years of work. One logical reconsideration.</div>
+    <div class="footer-names">
+      <strong>N. Vivian Pope</strong> &ensp;&amp;&ensp; <strong>Anthony D. Osborne</strong>
+    </div>
+    <div class="footer-tagline">Pope–Osborne Angular Momentum Synthesis &nbsp;·&nbsp; Normal Realism</div>
+    <div class="footer-links">
+      <a href="https://cfmilam.github.io/nr-poams-papers/" target="_blank">Papers Archive</a>
+      <a href="https://cfmilam.github.io/nr-poams-books/" target="_blank">Books</a>
+      <a href="https://cfmilam.github.io/nr-poams-engineering/" target="_blank">Engineering</a>
+      <a href="./poams-analysis.html">POAMS Analysis Exhibit</a>
+    </div>
+  </div>
 </footer>
-</main>
+
 <script>
-if(localStorage.getItem('theme')==='light') document.body.classList.add('light');
-document.addEventListener('keydown',e=>{
-  if(e.key==='t'||e.key==='T'){document.body.classList.toggle('light');localStorage.setItem('theme',document.body.classList.contains('light')?'light':'dark');}
+/* ── Theme ── */
+(function() {
+  const saved = localStorage.getItem('poams-hub-theme');
+  if (saved === 'light') {
+    document.documentElement.dataset.theme = 'light';
+    document.getElementById('theme-btn').textContent = '☀️';
+  }
+})();
+
+document.getElementById('theme-btn').addEventListener('click', function() {
+  const html = document.documentElement;
+  const isLight = html.dataset.theme === 'light';
+  html.dataset.theme = isLight ? 'dark' : 'light';
+  this.textContent = isLight ? '🌙' : '☀️';
+  localStorage.setItem('poams-hub-theme', isLight ? 'dark' : 'light');
 });
+
+/* ── Scroll animations ── */
+const steps = document.querySelectorAll('.arc-step');
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 80);
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+steps.forEach(s => obs.observe(s));
 </script>
+
 </body>
 </html>
