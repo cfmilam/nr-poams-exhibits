@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Elements — A POAMS Restatement</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         window.MathJax = {
             tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']]
             }
         };
     </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     
     <!-- Three.js Import Map -->
     <script type="importmap">
@@ -783,7 +783,7 @@
 
                 <div id="vortexScalingNote" style="max-width: 700px; margin: 15px auto 0; padding: 15px 20px; background: rgba(201, 168, 76, 0.06); border: 1px solid rgba(201, 168, 76, 0.15); border-radius: 8px; font-size: 0.85rem; line-height: 1.6;">
                     <p style="margin-bottom: 10px;"><strong style="color: var(--accent-gold);">On Distances and Shapes</strong></p>
-                    <p style="margin-bottom: 10px;">The characteristic radius of each mode scales as <strong>n²</strong> relative to the fundamental — this is pure geometry, not a QM artifact. It falls straight out of angular momentum quantization: for a vortex with L&nbsp;=&nbsp;nħ at mode n, the equilibrium radius where centripetal geometry balances goes as n².</p>
+                    <p style="margin-bottom: 10px;">The characteristic radius of each mode scales as \( n^2 \) relative to the fundamental — this is pure geometry, not a QM artifact. It falls straight out of angular momentum quantization: for a vortex with \( L = n\hbar \) at mode n, the equilibrium radius where centripetal geometry balances goes as \( n^2 \).</p>
                     <ul style="margin: 10px 0; padding-left: 20px;">
                         <li>1s sits at r</li>
                         <li>2s/2p sit at ~4r</li>
@@ -792,7 +792,7 @@
                     </ul>
                     <p style="margin-bottom: 10px;">The inner modes are compressed together and the outer modes are vastly further apart than shown here. Drawn to scale, the 1s would be a tiny speck and the outer modes would be enormous — the same problem every chemistry textbook faces.</p>
                     <p style="margin-bottom: 10px;"><strong>Angular mode patterns (lobe count, nodal planes, symmetry) are geometric necessities</strong> — the only possible distinct angular configurations of momentum on a sphere. These are not QM constructions; Laplace and Kelvin had them decades before Schrödinger. The topology is real. The rendered surface boundary (where we cut off each shape) is where we sample the angular momentum density at a chosen amplitude threshold — the lobes get fatter or thinner, but the topology (number of lobes, nodal planes, symmetry) is fixed.</p>
-                    <p style="margin-bottom: 0;"><strong>Use the Observation Distance slider</strong> to see what happens as you move outward from the eyewall. Per Joseph Bertrand's theorem (1873), the 1/r² falloff is not arbitrary — it is the <em>only</em> radial profile (besides the harmonic oscillator) that produces closed, stable orbits. This means Newton and Coulomb didn't discover a force law — they discovered the only geometry that permits stable orbits to exist. Higher angular modes (d, f) attenuate faster than lower ones (s, p), because a multipole of order l falls off as 1/r<sup>l+1</sup>. At sufficient distance, all structure dissolves into near-isotropy. What we perceive as "empty space" <em>is</em> this angular momentum — still there, still structured, just attenuated below our threshold of detection.</p>
+                    <p style="margin-bottom: 0;"><strong>Use the Observation Distance slider</strong> to see what happens as you move outward from the eyewall. Per Joseph Bertrand's theorem (1873), the \( 1/r^2 \) falloff is not arbitrary — it is the <em>only</em> radial profile (besides the harmonic oscillator) that produces closed, stable orbits. This means Newton and Coulomb didn't discover a force law — they discovered the only geometry that permits stable orbits to exist. Higher angular modes (d, f) attenuate faster than lower ones (s, p), because a multipole of order \( l \) falls off as \( 1/r^{l+1} \). At sufficient distance, all structure dissolves into near-isotropy. What we perceive as "empty space" <em>is</em> this angular momentum — still there, still structured, just attenuated below our threshold of detection.</p>
                 </div>
 
                 <div class="vortex-detail-panel">
@@ -1004,18 +1004,14 @@
                     
                     <p style="margin-bottom: 15px;">If time is relative, then so is mass. Mass is, virtually by definition, the resistance to acceleration of a free-moving body. As the speed v/c of the body approaches unity in the relative time equation, the resistance to relative acceleration increases with the relative time until, at theoretical unity, they both become infinite.</p>
                     
-                    <p style="margin-bottom: 15px;">Since the proportion of the relative increase in mass, m<sub>R</sub>/m, is equal to that of the relative increase in time, t<sub>R</sub>/t<sub>P</sub>:</p>
+                    <p style="margin-bottom: 15px;">Since the proportion of the relative increase in mass, \( m_R/m \), is equal to that of the relative increase in time, \( t_R/t_P \):</p>
                     
                     <div style="text-align: center; margin: 20px 0; font-size: 1.3em;">
-                        <span style="display: inline-block; vertical-align: middle;">
-                            m<sub>R</sub> / m = t<sub>R</sub> / t<sub>P</sub> = 1 / √(1 − v²/c²)
-                        </span>
+                        \[ \frac{m_R}{m} = \frac{t_R}{t_P} = \frac{1}{\sqrt{1 - v^2/c^2}} \]
                     </div>
                     
                     <div style="text-align: center; margin: 20px 0; font-size: 1.3em;">
-                        <span style="display: inline-block; vertical-align: middle;">
-                            m<sub>R</sub> = m / √(1 − v²/c²)
-                        </span>
+                        \[ m_R = \frac{m}{\sqrt{1 - v^2/c^2}} \]
                     </div>
                     
                     <p style="margin-bottom: 15px;">This is not a property that mass <em>acquires</em> at high speed. It is what mass <em>is</em>. Mass and time are the same Pythagorean relationship — the hypotenuse of the right triangle formed by proper and relative quantities on a cone. What we call "mass" is simply the rate of angular change of a vortex system. More angular momentum = more resistance to acceleration = more mass. No separate substance required.</p>
@@ -1136,18 +1132,18 @@
                         <li><strong>Angular harmonics:</strong> The circumference at radius n supports n distinct angular harmonic patterns (l = 0, 1, 2, ... n−1). This is geometric — how many distinct stable angular configurations fit the circumference.</li>
                         <li><strong>Orientational modes:</strong> Each angular harmonic l can be oriented in (2l+1) ways in 3-dimensional space. This is also geometric — the number of distinguishable orientations of a pattern with l angular nodes.</li>
                         <li><strong>Phase duality:</strong> Every harmonic pattern has two phase states — leading or lagging (clockwise or counterclockwise phase offset). This is the physical reality behind what conventional QM calls "spin."</li>
-                        <li><strong>Total capacity:</strong> 2 × Σ(2l+1) from l=0 to n−1 = 2n²</li>
+                        <li><strong>Total capacity:</strong> \( 2 \times \sum_{l=0}^{n-1}(2l+1) = 2n^2 \)</li>
                     </ol>
                     
                     <p style="margin-bottom: 15px;">So:</p>
                     <ul style="margin: 15px 0; padding-left: 20px;">
-                        <li>Mode 1 (n=1): 2(1²) = <strong>2ħ</strong> — one angular pattern, two phases</li>
-                        <li>Mode 2 (n=2): 2(2²) = <strong>8ħ</strong> — four angular patterns × two phases</li>
-                        <li>Mode 3 (n=3): 2(3²) = <strong>18ħ</strong> — nine angular patterns × two phases</li>
-                        <li>Mode 4 (n=4): 2(4²) = <strong>32ħ</strong> — sixteen angular patterns × two phases</li>
+                        <li>Mode 1 (n=1): \( 2(1^2) = \) <strong>2ħ</strong> — one angular pattern, two phases</li>
+                        <li>Mode 2 (n=2): \( 2(2^2) = \) <strong>8ħ</strong> — four angular patterns × two phases</li>
+                        <li>Mode 3 (n=3): \( 2(3^2) = \) <strong>18ħ</strong> — nine angular patterns × two phases</li>
+                        <li>Mode 4 (n=4): \( 2(4^2) = \) <strong>32ħ</strong> — sixteen angular patterns × two phases</li>
                     </ul>
                     
-                    <p style="margin: 15px 0; font-weight: bold;"><strong>No Schrödinger equation. No Hamiltonian. No boundary conditions.</strong> Just: how many distinct angular momentum configurations can coexist at a given radial level of a vortex in 3-space? The answer is 2n². The conventional result falls out of geometry alone.</p>
+                    <p style="margin: 15px 0; font-weight: bold;"><strong>No Schrödinger equation. No Hamiltonian. No boundary conditions.</strong> Just: how many distinct angular momentum configurations can coexist at a given radial level of a vortex in 3-space? The answer is \( 2n^2 \). The conventional result falls out of geometry alone.</p>
                     
                     <p style="margin: 15px 0; font-weight: bold;">Deriving the Filling Order from Vortex Geometry</p>
                     
@@ -1157,17 +1153,17 @@
                         <li><strong>Angular complexity l</strong> — number of angular nodes (kinetic energy increases with node count)</li>
                     </ol>
                     
-                    <p style="margin: 15px 0;">A vortex mode's total energy = radial confinement cost (∝ n) + angular complexity cost (∝ l). The simplest quantity capturing both is (n + l). When (n + l) is equal for two submodes, the one at smaller radius (lower n) fills first — angular momentum closer to the barycenter is lower energy.</p>
+                    <p style="margin: 15px 0;">A vortex mode's total energy = radial confinement cost (\( \propto n \)) + angular complexity cost (\( \propto l \)). The simplest quantity capturing both is \( n + l \). When \( n + l \) is equal for two submodes, the one at smaller radius (lower n) fills first — angular momentum closer to the barycenter is lower energy.</p>
                     
                     <p style="margin: 15px 0;">This geometric derivation produces the EXACT observed filling order:</p>
                     <ul style="margin: 15px 0; padding-left: 20px; font-family: monospace;">
-                        <li><strong>(n+l)=1:</strong> 1s</li>
-                        <li><strong>(n+l)=2:</strong> 2s</li>
-                        <li><strong>(n+l)=3:</strong> 2p, 3s</li>
-                        <li><strong>(n+l)=4:</strong> 3p, 4s</li>
-                        <li><strong>(n+l)=5:</strong> 3d, 4p, 5s</li>
-                        <li><strong>(n+l)=6:</strong> 4d, 5p, 6s</li>
-                        <li><strong>(n+l)=7:</strong> 4f, 5d, 6p, 7s</li>
+                        <li><strong>\( n+l=1 \):</strong> 1s</li>
+                        <li><strong>\( n+l=2 \):</strong> 2s</li>
+                        <li><strong>\( n+l=3 \):</strong> 2p, 3s</li>
+                        <li><strong>\( n+l=4 \):</strong> 3p, 4s</li>
+                        <li><strong>\( n+l=5 \):</strong> 3d, 4p, 5s</li>
+                        <li><strong>\( n+l=6 \):</strong> 4d, 5p, 6s</li>
+                        <li><strong>\( n+l=7 \):</strong> 4f, 5d, 6p, 7s</li>
                     </ul>
                     
                     <p style="margin: 15px 0;">This is NOT importing Madelung's rule — this is <em>deriving</em> Madelung from vortex physics. Conventional QM discovers this empirically and has no first-principles derivation. The vortex model PREDICTS it from two physical quantities: radial distance + angular complexity.</p>
@@ -1264,7 +1260,7 @@
                     <p style="margin: 15px 0;">The chain of reasoning is direct:</p>
 
                     <ol style="margin: 15px 0; padding-left: 20px; line-height: 1.8;">
-                        <li><strong>Phase advance is angular momentum.</strong> Angular momentum is action per angle: L&nbsp;=&nbsp;dS/dθ. When the cavity drive coherently advances the precession phase of 10²² aligned vortices, the system accumulates real, macroscopic angular momentum. Each FMR cycle adds a small increment δL to every aligned vortex simultaneously. At 5.6 GHz, that is 5.6 billion increments per second.</li>
+                        <li><strong>Phase advance is angular momentum.</strong> Angular momentum is action per angle: \( L = dS/d\theta \). When the cavity drive coherently advances the precession phase of \( 10^{22} \) aligned vortices, the system accumulates real, macroscopic angular momentum. Each FMR cycle adds a small increment \( \delta L \) to every aligned vortex simultaneously. At 5.6 GHz, that is 5.6 billion increments per second.</li>
                         <li style="margin-top: 8px;"><strong>Angular momentum determines orbital radius.</strong> In POAMS, every orbiting body occupies a natural force-free radius set by its total angular momentum relative to the central body. This is not a new claim — it is Kepler's second law read as a definition: r&nbsp;=&nbsp;L/mv. Change L, change r.</li>
                         <li style="margin-top: 8px;"><strong>Weight is the constraint force that prevents occupation of the natural radius.</strong> A test mass on a laboratory bench cannot move to its natural orbital radius because the bench is in the way. The force the bench exerts to prevent that motion is what we call weight. If the natural radius changes (because L changed), the constraint force changes proportionally.</li>
                         <li style="margin-top: 8px;"><strong>The experiment changes L without changing the material.</strong> Phase advance rotates the collective angular momentum vector without adding ħ to any individual vortex (which would be transmutation). The atoms remain iron. The ensemble gains net angular momentum. The direction of the gain — co-spin or anti-spin relative to Earth's rotation — determines whether the natural radius contracts (heavier) or extends (lighter).</li>
@@ -1299,7 +1295,7 @@
                     
                     <p style="margin: 15px 0;"><strong>Double/triple bonds:</strong> Multiple unfilled positions shared simultaneously. Carbon's 4 positions can share 2 with another carbon (double bond) leaving 2 for other couplings. Triple bond = 3 shared positions. The GEOMETRY constrains this — you can't form a quadruple bond between two carbons because the remaining position orientations are not spatially compatible for simultaneous overlap.</p>
                     
-                    <p style="margin: 15px 0;"><strong>Bond angles:</strong> The ORIENTATIONS of the unfilled positions determine geometry. sp³ hybridization (in conventional language) is the vortex's 4 outer coupling positions arranging themselves at maximum angular separation — tetrahedral, 109.5°. This follows from angular momentum vectors minimizing mutual repulsion in 3-space. sp² = 3 positions at 120° (trigonal planar). sp = 2 positions at 180° (linear).</p>
+                    <p style="margin: 15px 0;"><strong>Bond angles:</strong> The ORIENTATIONS of the unfilled positions determine geometry. \( sp^3 \) hybridization (in conventional language) is the vortex's 4 outer coupling positions arranging themselves at maximum angular separation — tetrahedral, \( 109.5° \). This follows from angular momentum vectors minimizing mutual repulsion in 3-space. \( sp^2 \) = 3 positions at \( 120° \) (trigonal planar). \( sp \) = 2 positions at \( 180° \) (linear).</p>
                     
                     <p style="margin: 15px 0; font-weight: bold;"><strong>PREDICTION vs Standard Model:</strong> Standard QM must solve the molecular Schrödinger equation numerically for anything beyond H₂. POAMS predicts bond count, type, and geometry from MODE STRUCTURE ALONE — no computation required. The valence rules that chemists memorize as heuristics are DERIVED from vortex harmonic geometry.</p>
                 </div>
@@ -1320,15 +1316,17 @@
                     
                     <p style="margin: 15px 0;"><strong>Hydrogen spectrum (the acid test):</strong> Hydrogen has one pattern quantum. Its ground state is 1s (n=1, l=0). Excitation moves it to 2s, 2p, 3s, 3p, 3d, etc. The energy levels follow:</p>
                     
-                    <p style="text-align: center; margin: 20px 0;">E_n ∝ −1/n²</p>
+                    <div style="text-align: center; margin: 20px 0;">
+                        \[ E_n \propto -\frac{1}{n^2} \]
+                    </div>
                     
-                    <p style="margin: 15px 0;">This is the GEOMETRIC consequence of angular momentum confinement at radius n in a vortex. The 1/n² comes from the radial dependence of confinement energy — identical to the result Bohr derived (which he got from angular momentum quantization — the SAME starting point as POAMS, but Bohr didn't realize he was describing a vortex).</p>
+                    <p style="margin: 15px 0;">This is the GEOMETRIC consequence of angular momentum confinement at radius n in a vortex. The \( 1/n^2 \) comes from the radial dependence of confinement energy — identical to the result Bohr derived (which he got from angular momentum quantization — the SAME starting point as POAMS, but Bohr didn't realize he was describing a vortex).</p>
                     
-                    <p style="margin: 15px 0;">The Balmer series (visible hydrogen lines): transitions from n≥3 to n=2. The Lyman series: transitions to n=1. The Paschen series: transitions to n=3. All predicted by the same 1/n² geometric law.</p>
+                    <p style="margin: 15px 0;">The Balmer series (visible hydrogen lines): transitions from n≥3 to n=2. The Lyman series: transitions to n=1. The Paschen series: transitions to n=3. All predicted by the same \( 1/n^2 \) geometric law.</p>
                     
-                    <p style="margin: 15px 0;"><strong>Selection rules:</strong> Not all transitions are equally probable. The vortex can most easily redistribute angular momentum when Δl = ±1 (changing angular complexity by one step). This is because the electromagnetic field couples to the angular momentum distribution, and a dipole transition (Δl = ±1) is the simplest mode of energy exchange. Higher-order transitions (Δl = ±2, etc.) are possible but suppressed.</p>
+                    <p style="margin: 15px 0;"><strong>Selection rules:</strong> Not all transitions are equally probable. The vortex can most easily redistribute angular momentum when \( \Delta l = \pm 1 \) (changing angular complexity by one step). This is because the electromagnetic field couples to the angular momentum distribution, and a dipole transition (\( \Delta l = \pm 1 \)) is the simplest mode of energy exchange. Higher-order transitions (\( \Delta l = \pm 2 \), etc.) are possible but suppressed.</p>
                     
-                    <p style="margin: 15px 0;"><strong>Fine structure:</strong> The splitting of spectral lines comes from the coupling between the pattern quantum's angular harmonic (l) and its phase state (leading/lagging). This spin-orbit coupling (in conventional language) is a GEOMETRIC effect: the phase state interacts with the angular mode structure, creating slightly different energies for different phase-mode combinations. The fine structure constant α governs the magnitude of this splitting — see Section 14 below.</p>
+                    <p style="margin: 15px 0;"><strong>Fine structure:</strong> The splitting of spectral lines comes from the coupling between the pattern quantum's angular harmonic (l) and its phase state (leading/lagging). This spin-orbit coupling (in conventional language) is a GEOMETRIC effect: the phase state interacts with the angular mode structure, creating slightly different energies for different phase-mode combinations. The fine structure constant \( \alpha \) governs the magnitude of this splitting — see Section 14 below.</p>
                     
                     <p style="margin: 15px 0;"><strong>Multi-electron spectra:</strong> For heavier elements, the mode structure is more complex, but the principle is identical: transitions between discrete (n,l) positions within the vortex. The additional complexity comes from inter-quantum interactions within the mode structure — quanta in the same submode affect each other's energy through angular momentum coupling.</p>
                     
@@ -1343,7 +1341,7 @@
                     
                     <p style="margin-bottom: 15px;">Two vortices at distance r interact because their outer circulation patterns overlap. The interaction is angular momentum conservation: the combined system seeks the lowest total angular momentum configuration.</p>
                     
-                    <p style="margin: 15px 0;"><strong>The 1/r² law:</strong> Angular momentum flux from a 3D vortex falls off as the surface area of the sphere it passes through: 4πr². This is pure geometry — the same reason gravity and light intensity follow 1/r². No "force carrier" is needed. No "photon" mediates the interaction. The vortex's angular momentum field extends through space and interacts directly with other vortices' fields.</p>
+                    <p style="margin: 15px 0;"><strong>The 1/r² law:</strong> Angular momentum flux from a 3D vortex falls off as the surface area of the sphere it passes through: \( 4\pi r^2 \). This is pure geometry — the same reason gravity and light intensity follow \( 1/r^2 \). No "force carrier" is needed. No "photon" mediates the interaction. The vortex's angular momentum field extends through space and interacts directly with other vortices' fields.</p>
                     
                     <p style="margin: 15px 0;"><strong>"Positive" and "negative":</strong> What we call positive and negative charge is the PHASE of the outer harmonic circulation. A vortex with fewer ħ quanta than its neutral mode structure (what conventional physics calls a "positive ion") has outer circulation in one phase state. A vortex with additional ħ quanta beyond its neutral structure (what conventional physics calls a "negative ion") has outer circulation in the opposite phase state. Opposite phases attract (angular momentum cancellation = lower energy). Same phases repel (angular momentum addition = higher energy).</p>
                     
@@ -1351,9 +1349,11 @@
                     
                     <p style="margin: 15px 0;"><strong>Coulomb's law derived:</strong> The force between two vortices at distance r:</p>
                     
-                    <p style="text-align: center; margin: 20px 0;">F = k × (L₁ · L₂) / r²</p>
+                    <div style="text-align: center; margin: 20px 0;">
+                        \[ F = k \cdot \frac{L_1 \cdot L_2}{r^2} \]
+                    </div>
                     
-                    <p style="margin: 15px 0;">Where L₁ and L₂ are the net outer angular momentum magnitudes (what conventional physics calls charges q₁ and q₂), and k is a geometric constant that depends on the angular momentum-to-force conversion (related to α). The law is identical in form to Coulomb's law because the geometry is identical — it's the same 1/r² flux argument.</p>
+                    <p style="margin: 15px 0;">Where \( L_1 \) and \( L_2 \) are the net outer angular momentum magnitudes (what conventional physics calls charges \( q_1 \) and \( q_2 \)), and \( k \) is a geometric constant that depends on the angular momentum-to-force conversion (related to \( \alpha \)). The law is identical in form to Coulomb's law because the geometry is identical — it's the same \( 1/r^2 \) flux argument.</p>
                     
                     <p style="margin: 15px 0;"><strong>No action-at-a-distance problem:</strong> In POAMS, vortices don't "send signals" to each other. The angular momentum field IS the vortex — it extends through space as a physical reality. Two overlapping vortex fields interact locally at every point of overlap. There is no instantaneous action at a distance and no need for force-carrying particles.</p>
                 </div>
@@ -1391,7 +1391,7 @@
                     
                     <p style="margin: 15px 0;">At some critical mode number, the eyewall angular momentum gradient cannot sustain the pattern complexity. The vortex becomes unstable to ANY perturbation and decays faster than it can be formed.</p>
                     
-                    <p style="margin: 15px 0;"><strong>Why ~118:</strong> Mode 7 can hold up to 2(7²) = 98 quanta in its complete configuration. Through Mode 7, the cumulative capacity is 2(1² + 2² + 3² + 4² + 5² + 6² + 7²) = 2(1+4+9+16+25+36+49) = 2(140) = 280 quanta. But the actual elements show that Mode 7 only partially fills before instability dominates. The practical limit is:</p>
+                    <p style="margin: 15px 0;"><strong>Why ~118:</strong> Mode 7 can hold up to \( 2(7^2) = 98 \) quanta in its complete configuration. Through Mode 7, the cumulative capacity is \( 2(1^2 + 2^2 + 3^2 + 4^2 + 5^2 + 6^2 + 7^2) = 2(1+4+9+16+25+36+49) = 2(140) = 280 \) quanta. But the actual elements show that Mode 7 only partially fills before instability dominates. The practical limit is:</p>
                     <ul style="margin: 15px 0; padding-left: 20px;">
                         <li>Mode 7s fills (2 quanta) — Z=87-88 (Fr, Ra) — already highly unstable</li>
                         <li>Mode 6d fills (10 quanta) — Z=89-103 (actinides) — most are synthetic, sub-second half-lives</li>
@@ -1415,7 +1415,7 @@
                     
                     <p style="margin: 15px 0;">This is not "same particle with opposite charge." It's a geometrically distinct object: same angular momentum magnitude, same harmonic structure, opposite topological handedness.</p>
                     
-                    <p style="margin: 15px 0;"><strong>Annihilation:</strong> When a vortex and its counter-rotating counterpart meet, their angular momenta cancel — the structure is destroyed. The total angular momentum doesn't vanish (conservation law), but it can no longer sustain a vortex structure. It's released as radiation — angular momentum in transit rather than angular momentum in organized structure. The energy released (E = mc²) is precisely the total angular momentum content converted from structural to radiative form.</p>
+                    <p style="margin: 15px 0;"><strong>Annihilation:</strong> When a vortex and its counter-rotating counterpart meet, their angular momenta cancel — the structure is destroyed. The total angular momentum doesn't vanish (conservation law), but it can no longer sustain a vortex structure. It's released as radiation — angular momentum in transit rather than angular momentum in organized structure. The energy released (\( E = mc^2 \)) is precisely the total angular momentum content converted from structural to radiative form.</p>
                     
                     <p style="margin: 15px 0;"><strong>Why annihilation produces specific products:</strong> Electron-positron annihilation produces two gamma rays (or rarely three) because angular momentum conservation requires the radiation to carry away the original angular momentum vectors. Two back-to-back radiation quanta is the simplest configuration that conserves both total angular momentum and linear momentum. Three-body final states are suppressed but allowed — exactly as observed.</p>
                     
@@ -1481,16 +1481,16 @@
                 <div style="margin-bottom: 40px; padding: 25px; background: var(--card); border-radius: 10px; border-left: 5px solid var(--accent-blue);">
                     <h3 style="color: var(--accent-blue); margin-bottom: 20px;">The Fine Structure Constant — Self-Knowledge of Angular Momentum</h3>
                     
-                    <p style="margin-bottom: 15px;">The fine structure constant, α ≈ 1/137.036, is one of the most important numbers in physics. It appears in the splitting of spectral lines, in the strength of every electromagnetic interaction, in the size of atoms relative to their constituent quanta. Richard Feynman called it "one of the greatest damn mysteries of physics" — a number that all good theoretical physicists put up on their wall and worry about.</p>
+                    <p style="margin-bottom: 15px;">The fine structure constant, \( \alpha \approx 1/137.036 \), is one of the most important numbers in physics. It appears in the splitting of spectral lines, in the strength of every electromagnetic interaction, in the size of atoms relative to their constituent quanta. Richard Feynman called it "one of the greatest damn mysteries of physics" — a number that all good theoretical physicists put up on their wall and worry about.</p>
 
-                    <p style="margin: 15px 0;">In the standard model of particle physics, α is the "electromagnetic coupling constant." It is one of approximately 19 free parameters — numbers that must be measured experimentally because the theory provides no way to calculate them. The standard model can tell you what happens <em>given</em> α = 1/137.036, but it cannot tell you <em>why</em> that number and not some other.</p>
+                    <p style="margin: 15px 0;">In the standard model of particle physics, \( \alpha \) is the "electromagnetic coupling constant." It is one of approximately 19 free parameters — numbers that must be measured experimentally because the theory provides no way to calculate them. The standard model can tell you what happens <em>given</em> \( \alpha = 1/137.036 \), but it cannot tell you <em>why</em> that number and not some other.</p>
 
-                    <p style="margin: 15px 0;">In POAMS, α is not a parameter at all. It is not an input to the theory. It is a <em>derivable consequence</em> of the geometry of angular momentum — a self-ratio as inevitable as π is to a circle.</p>
+                    <p style="margin: 15px 0;">In POAMS, \( \alpha \) is not a parameter at all. It is not an input to the theory. It is a <em>derivable consequence</em> of the geometry of angular momentum — a self-ratio as inevitable as \( \pi \) is to a circle.</p>
 
                     <!-- Layer 1: What α IS -->
-                    <h4 style="color: var(--accent-gold); margin: 20px 0 10px;">1. What α measures — and why the question requires a different ontology</h4>
+                    <h4 style="color: var(--accent-gold); margin: 20px 0 10px;">1. What \( \alpha \) measures — and why the question requires a different ontology</h4>
                     
-                    <p style="margin: 15px 0;">To understand what α is, we first need to correct a deep assumption that pervades conventional physics: the assumption that space is a container — an empty stage on which things happen, a void through which forces propagate and particles move.</p>
+                    <p style="margin: 15px 0;">To understand what \( \alpha \) is, we first need to correct a deep assumption that pervades conventional physics: the assumption that space is a container — an empty stage on which things happen, a void through which forces propagate and particles move.</p>
 
                     <p style="margin: 15px 0;">POAMS begins from a different premise. The fundamental substance of reality is angular momentum — the quantity measured in units of ℏ (the reduced Planck constant). Angular momentum is not something that exists <em>within</em> space. Rather, what we experience as "three-dimensional space" is the expression of the three independent ways angular momentum can organize itself.</p>
 
@@ -1498,20 +1498,20 @@
 
                     <p style="margin: 15px 0;">When we include the time dimension, the relevant structure becomes SO(3,1) — the Lorentz group, with six generators total. Three describe what we conventionally call "rotations" (angular momentum organizing within a reference state). Three describe what we conventionally call "boosts" (how angular momentum modes relate <em>across</em> different reference states — i.e., relative motion). These six degrees of freedom are not operations performed on a four-dimensional container. They are the complete description of how angular momentum can organize and relate to itself.</p>
 
-                    <p style="margin: 15px 0;"><strong>With this foundation, α has a precise meaning:</strong></p>
+                    <p style="margin: 15px 0;"><strong>With this foundation, \( \alpha \) has a precise meaning:</strong></p>
 
-                    <p style="margin: 15px 0; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 8px; font-size: 1.05em;"><strong>α is the fraction of the total angular momentum configuration structure that one fundamental mode (one ℏ quantum in its ground state) represents.</strong></p>
+                    <p style="margin: 15px 0; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 8px; font-size: 1.05em;"><strong>\( \alpha \) is the fraction of the total angular momentum configuration structure that one fundamental mode (one \( \hbar \) quantum in its ground state) represents.</strong></p>
 
-                    <p style="margin: 15px 0;">This is not a measurement of something situated <em>in</em> something else. It is a self-ratio. Consider an analogy: π is the ratio of a circle's circumference to its diameter. You don't need an external reference frame to define π. It is intrinsic to circularity itself. Every circle, everywhere, has the same π — not because circles were all manufactured to the same specification, but because π is what circularity IS.</p>
+                    <p style="margin: 15px 0;">This is not a measurement of something situated <em>in</em> something else. It is a self-ratio. Consider an analogy: \( \pi \) is the ratio of a circle's circumference to its diameter. You don't need an external reference frame to define \( \pi \). It is intrinsic to circularity itself. Every circle, everywhere, has the same \( \pi \) — not because circles were all manufactured to the same specification, but because \( \pi \) is what circularity IS.</p>
 
-                    <p style="margin: 15px 0;">In exactly the same way, α is intrinsic to angular momentum topology. A hydrogen atom doesn't <em>measure</em> α by interacting with some external standard. A hydrogen atom IS α — it is one fundamental mode of angular momentum, and α describes that mode's relationship to the total structure. The number 1/137.036 is angular momentum knowing its own geometry.</p>
+                    <p style="margin: 15px 0;">In exactly the same way, \( \alpha \) is intrinsic to angular momentum topology. A hydrogen atom doesn't <em>measure</em> \( \alpha \) by interacting with some external standard. A hydrogen atom IS \( \alpha \) — it is one fundamental mode of angular momentum, and \( \alpha \) describes that mode's relationship to the total structure. The number \( 1/137.036 \) is angular momentum knowing its own geometry.</p>
 
                     <!-- Layer 1b: The Derivation -->
                     <h4 style="color: var(--accent-gold); margin: 20px 0 10px;">The derivation from first principles</h4>
 
-                    <p style="margin: 15px 0;">If α is truly geometric — determined by the topology of angular momentum rather than set by some external mechanism — then it must be calculable from first principles, with no measured inputs and no free parameters. In 1969, the Swiss mathematician Armand Wyler showed that this is possible.</p>
+                    <p style="margin: 15px 0;">If \( \alpha \) is truly geometric — determined by the topology of angular momentum rather than set by some external mechanism — then it must be calculable from first principles, with no measured inputs and no free parameters. In 1969, the Swiss mathematician Armand Wyler showed that this is possible.</p>
 
-                    <p style="margin: 15px 0;">Wyler's derivation has been largely ignored by mainstream physics, partly because it was published without the physical interpretation that POAMS provides. In conventional physics, where α is assumed to be a contingent parameter, a geometric derivation seems unmotivated — why <em>should</em> a coupling constant come from geometry? But in POAMS, where the geometry IS the physics, Wyler's result is exactly what we would expect.</p>
+                    <p style="margin: 15px 0;">Wyler's derivation has been largely ignored by mainstream physics, partly because it was published without the physical interpretation that POAMS provides. In conventional physics, where \( \alpha \) is assumed to be a contingent parameter, a geometric derivation seems unmotivated — why <em>should</em> a coupling constant come from geometry? But in POAMS, where the geometry IS the physics, Wyler's result is exactly what we would expect.</p>
 
                     <p style="margin: 15px 0;"><strong>The mathematical structure:</strong></p>
 
@@ -1519,19 +1519,19 @@
 
                     <p style="margin: 15px 0;">This group possesses what mathematicians call a <em>bounded symmetric domain</em> — a compact region in abstract configuration space. Specifically, it is a 5-complex-dimensional domain of Cartan type IV. The <strong>volume</strong> of this domain measures the total number of distinguishable ways angular momentum can organize itself within the 3+1 topology. The <strong>boundary</strong> of this domain is 4-real-dimensional, and it measures the "surface" on which observable modes can exist.</p>
 
-                    <p style="margin: 15px 0;">The coupling constant α is then the ratio between what one fundamental mode contributes and the total geometric measure. Wyler's formula is:</p>
+                    <p style="margin: 15px 0;">The coupling constant \( \alpha \) is then the ratio between what one fundamental mode contributes and the total geometric measure. Wyler's formula is:</p>
 
-                    <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 8px; margin: 20px 0; font-family: serif; font-size: 1.15em; text-align: center;">
-                        α = (9 / 8π⁴) × (π⁵ / 2⁴ · 5!)<sup style="font-size: 0.7em;">1/4</sup>
+                    <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 8px; margin: 20px 0; text-align: center;">
+                        \[ \alpha = \frac{9}{8\pi^4} \left( \frac{\pi^5}{2^4 \cdot 5!} \right)^{1/4} \]
                     </div>
 
-                    <p style="margin: 15px 0;">This is a single expression built entirely from π, integers, and factorials — the language of geometry. Every factor has a specific meaning:</p>
+                    <p style="margin: 15px 0;">This is a single expression built entirely from \( \pi \), integers, and factorials — the language of geometry. Every factor has a specific meaning:</p>
 
                     <ul style="margin: 15px 0; padding-left: 20px; line-height: 1.8;">
-                        <li><strong>8π⁴</strong> — This is the measure (generalized surface area) of the 4-dimensional boundary of the configuration domain. It represents the <em>totality</em> — the complete "surface" on which angular momentum modes can be organized. Think of it as the total "capacity" of the topology, analogous to how 4π is the total solid angle of a sphere.</li>
-                        <li style="margin-top: 10px;"><strong>π⁵ / (2⁴ · 5!)</strong> — This is the volume of the bounded symmetric domain itself. The factor 5! = 120 arises because the domain has 5 complex dimensions (equivalently, 10 real dimensions). The factorial reflects the number of ways these dimensions can be permuted — a standard result from the theory of symmetric spaces. This measures the total <em>interior</em> of the configuration structure: all possible internal arrangements of angular momentum.</li>
+                        <li>\( 8\pi^4 \) — This is the measure (generalized surface area) of the 4-dimensional boundary of the configuration domain. It represents the <em>totality</em> — the complete "surface" on which angular momentum modes can be organized. Think of it as the total "capacity" of the topology, analogous to how \( 4\pi \) is the total solid angle of a sphere.</li>
+                        <li style="margin-top: 10px;">\( \pi^5 / (2^4 \cdot 5!) \) — This is the volume of the bounded symmetric domain itself. The factor \( 5! = 120 \) arises because the domain has 5 complex dimensions (equivalently, 10 real dimensions). The factorial reflects the number of ways these dimensions can be permuted — a standard result from the theory of symmetric spaces. This measures the total <em>interior</em> of the configuration structure: all possible internal arrangements of angular momentum.</li>
                         <li style="margin-top: 10px;"><strong>The ¼ power (fourth root)</strong> — The coupling between the interior structure and the boundary involves a dimensional reduction: the interior is 10-real-dimensional while the boundary is 4-real-dimensional. The fourth root is the geometric mean that correctly maps between these different dimensionalities. It is the same kind of operation as taking a square root to go from an area to a length.</li>
-                        <li style="margin-top: 10px;"><strong>The factor of 9</strong> — This arises from how the Lorentz group SO(3,1) embeds within the conformal group SO(4,2). The three angular organization modes can each couple with the three reference-state modes, giving 3 × 3 = 9 coupling channels. The fundamental mode — one ℏ quantum in its ground state — is one of these nine.</li>
+                        <li style="margin-top: 10px;"><strong>The factor of 9</strong> — This arises from how the Lorentz group SO(3,1) embeds within the conformal group SO(4,2). The three angular organization modes can each couple with the three reference-state modes, giving \( 3 \times 3 = 9 \) coupling channels. The fundamental mode — one \( \hbar \) quantum in its ground state — is one of these nine.</li>
                     </ul>
 
                     <p style="margin: 20px 0 10px;"><strong>Computing the result step by step:</strong></p>
@@ -1539,15 +1539,15 @@
                         <table style="font-family: serif; font-size: 1.05em; border-collapse: collapse; width: 100%;">
                             <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
                                 <td style="padding: 8px 15px 8px 0; color: var(--accent-gold);">Interior volume:</td>
-                                <td style="padding: 8px 0;">π⁵ / (16 × 120) = π⁵ / 1920 ≈ 0.15938</td>
+                                <td style="padding: 8px 0;">\( \pi^5 / (16 \times 120) = \pi^5 / 1920 \approx 0.15938 \)</td>
                             </tr>
                             <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
                                 <td style="padding: 8px 15px 8px 0; color: var(--accent-gold);">Fourth root:</td>
-                                <td style="padding: 8px 0;">(0.15938)<sup>1/4</sup> ≈ 0.63180</td>
+                                <td style="padding: 8px 0;">\( (0.15938)^{1/4} \approx 0.63180 \)</td>
                             </tr>
                             <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
                                 <td style="padding: 8px 15px 8px 0; color: var(--accent-gold);">Boundary measure:</td>
-                                <td style="padding: 8px 0;">8π⁴ ≈ 779.274</td>
+                                <td style="padding: 8px 0;">\( 8\pi^4 \approx 779.274 \)</td>
                             </tr>
                             <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
                                 <td style="padding: 8px 15px 8px 0; color: var(--accent-gold);">Coupling fraction:</td>
@@ -1555,34 +1555,34 @@
                             </tr>
                             <tr>
                                 <td style="padding: 8px 15px 8px 0; color: var(--accent-gold); font-weight: bold;">Result:</td>
-                                <td style="padding: 8px 0; font-weight: bold;">α ≈ 0.011549 × 0.63180 ≈ 0.0072973 ≈ 1/137.036</td>
+                                <td style="padding: 8px 0; font-weight: bold;">\( \alpha \approx 0.011549 \times 0.63180 \approx 0.0072973 \approx 1/137.036 \)</td>
                             </tr>
                         </table>
                     </div>
 
-                    <p style="margin: 15px 0;">The measured value of α is 0.0072973525693 ± 0.0000000000011 (CODATA 2018). Wyler's geometric derivation yields approximately 1/137.03608, matching to better than 5 significant figures. No physical measurements were used. No parameters were adjusted. The number emerges from pure topology — from π, from factorials, from the dimensionality of angular momentum itself.</p>
+                    <p style="margin: 15px 0;">The measured value of \( \alpha \) is \( 0.0072973525693 \pm 0.0000000000011 \) (CODATA 2018). Wyler's geometric derivation yields approximately \( 1/137.03608 \), matching to better than 5 significant figures. No physical measurements were used. No parameters were adjusted. The number emerges from pure topology — from \( \pi \), from factorials, from the dimensionality of angular momentum itself.</p>
 
                     <!-- Layer 2: Why it's universal -->
-                    <h4 style="color: var(--accent-gold); margin: 20px 0 10px;">2. Why α is universal — every observer IS the geometry</h4>
+                    <h4 style="color: var(--accent-gold); margin: 20px 0 10px;">2. Why \( \alpha \) is universal — every observer IS the geometry</h4>
 
-                    <p style="margin: 15px 0;">One of the striking facts about α is that it appears to be exactly the same everywhere — in every atom, in every galaxy, at every epoch. In conventional physics, this universality is simply assumed. α is a constant of nature, and that's that. But this raises an uncomfortable question: what <em>enforces</em> this universality? Why should a number measured in a laboratory on Earth be the same as the number governing atomic spectra in a quasar twelve billion light-years away?</p>
+                    <p style="margin: 15px 0;">One of the striking facts about \( \alpha \) is that it appears to be exactly the same everywhere — in every atom, in every galaxy, at every epoch. In conventional physics, this universality is simply assumed. \( \alpha \) is a constant of nature, and that's that. But this raises an uncomfortable question: what <em>enforces</em> this universality? Why should a number measured in a laboratory on Earth be the same as the number governing atomic spectra in a quasar twelve billion light-years away?</p>
 
                     <p style="margin: 15px 0;">POAMS provides a natural answer, rooted in its ontology of the observer.</p>
 
                     <p style="margin: 15px 0;">In POAMS, there is no "God's-eye view" — no perspective from outside the system looking in. Every observation is made from <em>within</em> angular momentum, <em>by</em> angular momentum. An atom is not a small object sitting in space, being observed by a large object (a physicist) also sitting in space. An atom IS a structured mode of angular momentum, and the physicist IS a vastly more complex structured mode of the same angular momentum. Both are observers — each to its capacity. The atom "observes" (interacts with, responds to) its environment in simple ways. The physicist does so in extraordinarily complex ways. But both are the substance observing itself.</p>
 
-                    <p style="margin: 15px 0;">Because every observer is made of the same substance with the same topology, every observer inherits the same geometric ratios. The 3+1 structure is not imposed from outside — it is what angular momentum IS. So every atom, everywhere, has the same relationship between its fundamental mode and the total topology. That relationship is α.</p>
+                    <p style="margin: 15px 0;">Because every observer is made of the same substance with the same topology, every observer inherits the same geometric ratios. The 3+1 structure is not imposed from outside — it is what angular momentum IS. So every atom, everywhere, has the same relationship between its fundamental mode and the total topology. That relationship is \( \alpha \).</p>
 
                     <p style="margin: 15px 0;">What prevents this observer-dependent picture from collapsing into solipsism — where each observer lives in its own private reality — is the <em>sharing of information</em> between observers. When two atoms interact, when a photon is absorbed and re-emitted, when a physicist reads a spectrometer, information passes between structured modes of angular momentum. The stable, consistent, everyday "Cartesian" world we experience is <em>constructed</em> from these exchanges. It is not a pre-existing container that observers inhabit — it is the coherent picture that emerges when observers with identical topology share what they know.</p>
 
-                    <p style="margin: 15px 0;">α is universal because the topology is universal. Not by coincidence, not by decree, but by necessity — there is only one substance, and it has only one geometry.</p>
+                    <p style="margin: 15px 0;">\( \alpha \) is universal because the topology is universal. Not by coincidence, not by decree, but by necessity — there is only one substance, and it has only one geometry.</p>
 
                     <!-- Layer 3: Why the question dissolves -->
                     <h4 style="color: var(--accent-gold); margin: 20px 0 10px;">3. Why the question "why 1/137?" dissolves</h4>
 
-                    <p style="margin: 15px 0;">In the standard model, since α is a free parameter, you can in principle imagine a universe where α has a different value. Set α = 1/100 or α = 1/200, recalculate, and see what happens. This thought experiment has spawned an enormous literature on "fine-tuning" — the observation that if α were even slightly different, atoms wouldn't form, chemistry wouldn't work, and life would be impossible. This in turn motivates the "anthropic principle" (we observe this α because only this α permits observers) and the "multiverse" (all possible values of α exist somewhere, and we happen to be in the one compatible with our existence).</p>
+                    <p style="margin: 15px 0;">In the standard model, since \( \alpha \) is a free parameter, you can in principle imagine a universe where \( \alpha \) has a different value. Set \( \alpha = 1/100 \) or \( \alpha = 1/200 \), recalculate, and see what happens. This thought experiment has spawned an enormous literature on "fine-tuning" — the observation that if \( \alpha \) were even slightly different, atoms wouldn't form, chemistry wouldn't work, and life would be impossible. This in turn motivates the "anthropic principle" (we observe this \( \alpha \) because only this \( \alpha \) permits observers) and the "multiverse" (all possible values of \( \alpha \) exist somewhere, and we happen to be in the one compatible with our existence).</p>
 
-                    <p style="margin: 15px 0;">POAMS dissolves this entire chain of reasoning. If α is not a parameter but a geometric ratio — as inevitable as π is to circles — then asking "why this α?" is asking the wrong question. It is like asking: "Why does a sphere have the surface-to-volume ratio it has? Couldn't it be different?" No. The ratio is determined by the geometry. There is no degree of freedom to adjust.</p>
+                    <p style="margin: 15px 0;">POAMS dissolves this entire chain of reasoning. If \( \alpha \) is not a parameter but a geometric ratio — as inevitable as \( \pi \) is to circles — then asking "why this \( \alpha \)?" is asking the wrong question. It is like asking: "Why does a sphere have the surface-to-volume ratio it has? Couldn't it be different?" No. The ratio is determined by the geometry. There is no degree of freedom to adjust.</p>
 
                     <p style="margin: 15px 0;">The number 137 is not mysterious, not fine-tuned, not selected from a multiverse. It arises because:</p>
                     <ul style="margin: 15px 0; padding-left: 20px; line-height: 1.8;">
@@ -1590,25 +1590,25 @@
                         <li>That structure has a bounded symmetric domain with 5 complex dimensions (giving the 5! = 120 in the denominator)</li>
                         <li>The boundary of that domain is 4-real-dimensional (giving the fourth root)</li>
                         <li>The Lorentz subgroup contributes 9 coupling channels (giving the factor of 9)</li>
-                        <li>Combine these with π (the universal constant of angular measure) and you get 1/137.036</li>
+                        <li>Combine these with \( \pi \) (the universal constant of angular measure) and you get \( 1/137.036 \)</li>
                     </ul>
 
-                    <p style="margin: 15px 0;">Change the dimensionality and you would change α — in a hypothetical 2+1 topology, the conformal group would be different, the domain would have different dimensions, and a different ratio would emerge. But 3+1 is not a choice. It is not one option among many. It is what angular momentum IS — three independent modes of organization plus their temporal evolution. There is no vantage point from outside angular momentum from which things could be otherwise, because there is no outside. The question is not unanswered. The question dissolves.</p>
+                    <p style="margin: 15px 0;">Change the dimensionality and you would change \( \alpha \) — in a hypothetical 2+1 topology, the conformal group would be different, the domain would have different dimensions, and a different ratio would emerge. But \( 3+1 \) is not a choice. It is not one option among many. It is what angular momentum IS — three independent modes of organization plus their temporal evolution. There is no vantage point from outside angular momentum from which things could be otherwise, because there is no outside. The question is not unanswered. The question dissolves.</p>
 
-                    <p style="margin: 15px 0;">α is ℏ knowing its own geometry. That knowledge is complete, exact, and necessary.</p>
+                    <p style="margin: 15px 0;">\( \alpha \) is \( \hbar \) knowing its own geometry. That knowledge is complete, exact, and necessary.</p>
 
                     <!-- Empirical consequences -->
                     <h4 style="color: var(--accent-gold); margin: 20px 0 10px;">Empirical consequences</h4>
 
-                    <p style="margin: 15px 0;"><strong>Why α governs everything electromagnetic:</strong> Every interaction between vortex modes involves the coupling of angular momentum structures. When two modes exchange energy, the strength of that exchange depends on what fraction each quantum represents of the total topology. That fraction is α. It sets the scale of every electromagnetic process:</p>
+                    <p style="margin: 15px 0;"><strong>Why \( \alpha \) governs everything electromagnetic:</strong> Every interaction between vortex modes involves the coupling of angular momentum structures. When two modes exchange energy, the strength of that exchange depends on what fraction each quantum represents of the total topology. That fraction is \( \alpha \). It sets the scale of every electromagnetic process:</p>
 
                     <ul style="margin: 15px 0; padding-left: 20px; line-height: 1.8;">
-                        <li><strong>Spectral fine structure:</strong> When an atom emits light, the spectral lines are not perfectly sharp — they are split into closely-spaced doublets. This "fine structure" splitting is proportional to α². Why squared? Because it involves the product of TWO angular momentum couplings: the phase state (spin) coupling to the angular mode (orbital angular momentum), and the angular mode coupling to the radial structure. Each coupling contributes one factor of α. ✓</li>
-                        <li style="margin-top: 10px;"><strong>Lamb shift:</strong> Even finer corrections to atomic energy levels scale as α³ and higher powers. These represent higher-order geometric corrections — the mode structure interacting with itself through increasingly subtle topological channels. ✓</li>
-                        <li style="margin-top: 10px;"><strong>Anomalous magnetic moment:</strong> A single quantum's intrinsic angular momentum (spin) is not exactly ½ℏ — it has a tiny correction proportional to α/2π. This is the Schwinger correction (1948), and it represents the first-order interaction of a mode with its own vortex structure. In POAMS terms: the fundamental mode's self-knowledge includes not just its ground-state ratio (α) but corrections from its own internal geometry (α/2π, then α²/π², and so on). ✓</li>
+                        <li><strong>Spectral fine structure:</strong> When an atom emits light, the spectral lines are not perfectly sharp — they are split into closely-spaced doublets. This "fine structure" splitting is proportional to \( \alpha^2 \). Why squared? Because it involves the product of TWO angular momentum couplings: the phase state (spin) coupling to the angular mode (orbital angular momentum), and the angular mode coupling to the radial structure. Each coupling contributes one factor of \( \alpha \). ✓</li>
+                        <li style="margin-top: 10px;"><strong>Lamb shift:</strong> Even finer corrections to atomic energy levels scale as \( \alpha^3 \) and higher powers. These represent higher-order geometric corrections — the mode structure interacting with itself through increasingly subtle topological channels. ✓</li>
+                        <li style="margin-top: 10px;"><strong>Anomalous magnetic moment:</strong> A single quantum's intrinsic angular momentum (spin) is not exactly \( \tfrac{1}{2}\hbar \) — it has a tiny correction proportional to \( \alpha/2\pi \). This is the Schwinger correction (1948), and it represents the first-order interaction of a mode with its own vortex structure. In POAMS terms: the fundamental mode's self-knowledge includes not just its ground-state ratio (\( \alpha \)) but corrections from its own internal geometry (\( \alpha/2\pi \), then \( \alpha^2/\pi^2 \), and so on). ✓</li>
                     </ul>
 
-                    <p style="margin: 15px 0;"><strong>The POAMS prediction:</strong> Because α is geometric, it is exactly calculable — no free parameters. Wyler's 1969 derivation yields α ≈ 1/137.03608, matching the experimentally measured value to 5 significant figures. The small remaining discrepancy may reflect either higher-order corrections to Wyler's formula or limitations in his original computation. But the key point is this: the standard model cannot derive α at all. It must measure it. POAMS, through the geometric framework, derives it from first principles. This is not a refinement — it is a qualitative difference in explanatory power.</p>
+                    <p style="margin: 15px 0;"><strong>The POAMS prediction:</strong> Because \( \alpha \) is geometric, it is exactly calculable — no free parameters. Wyler's 1969 derivation yields \( \alpha \approx 1/137.03608 \), matching the experimentally measured value to 5 significant figures. The small remaining discrepancy may reflect either higher-order corrections to Wyler's formula or limitations in his original computation. But the key point is this: the standard model cannot derive \( \alpha \) at all. It must measure it. POAMS, through the geometric framework, derives it from first principles. This is not a refinement — it is a qualitative difference in explanatory power.</p>
 
                     <p style="margin: 15px 0;">The standard model requires ~19 free parameters. POAMS aims for zero. The fine structure constant is the first and most important target for exact derivation, and through Wyler's geometry, reinterpreted within the POAMS ontology, that derivation exists.</p>
                 </div>
@@ -1617,21 +1617,21 @@
                 <div style="margin-bottom: 40px; padding: 25px; background: var(--card); border-radius: 10px; border-left: 5px solid var(--accent-blue);">
                     <h3 style="color: var(--accent-blue); margin-bottom: 20px;">Information All the Way Down</h3>
                     
-                    <p style="margin-bottom: 15px;">L = mvr. In conventional physics, these are three independent quantities — mass, velocity, radius — whose product happens to be conserved. In POAMS, m is itself accumulated ħ, so it's angular momentum all the way down. The "information" in L isn't a description <em>of</em> something. It <em>is</em> the something.</p>
+                    <p style="margin-bottom: 15px;">\( L = mvr \). In conventional physics, these are three independent quantities — mass, velocity, radius — whose product happens to be conserved. In POAMS, m is itself accumulated ħ, so it's angular momentum all the way down. The "information" in L isn't a description <em>of</em> something. It <em>is</em> the something.</p>
 
-                    <p style="margin: 15px 0;">Claude Shannon proved in 1948 that information is physical. It has entropy. It occupies real degrees of freedom. It is subject to conservation laws and thermodynamic constraints. Rolf Landauer confirmed the bridge in 1961: erasing one bit of information costs a minimum of kT ln 2 in energy — roughly 3 × 10⁻²¹ joules at room temperature. Information isn't abstraction. It's thermodynamics.</p>
+                    <p style="margin: 15px 0;">Claude Shannon proved in 1948 that information is physical. It has entropy. It occupies real degrees of freedom. It is subject to conservation laws and thermodynamic constraints. Rolf Landauer confirmed the bridge in 1961: erasing one bit of information costs a minimum of \( kT \ln 2 \) in energy — roughly \( 3 \times 10^{-21} \) joules at room temperature. Information isn't abstraction. It's thermodynamics.</p>
 
                     <p style="margin: 15px 0;">This closes a circle that conventional physics has never closed:</p>
 
                     <ul style="margin: 15px 0; padding-left: 20px; line-height: 1.8;">
                         <li><strong>Matter is organized angular momentum.</strong> Every element in this table is a count of ħ quanta in harmonic modes — vortex structures with specific topology.</li>
-                        <li style="margin-top: 8px;"><strong>Angular momentum is geometric information.</strong> L = mvr encodes configuration, not abstraction. The geometry of the vortex IS the information.</li>
+                        <li style="margin-top: 8px;"><strong>Angular momentum is geometric information.</strong> \( L = mvr \) encodes configuration, not abstraction. The geometry of the vortex IS the information.</li>
                         <li style="margin-top: 8px;"><strong>Information is physical.</strong> Shannon and Landauer proved it costs energy to create, store, and destroy. It has entropy. It is real.</li>
                     </ul>
 
                     <p style="margin: 15px 0;">The circle closes without ever leaving physics. There is no gap — no point where you must invoke something non-physical to explain how organized matter carries information, or how information gives rise to physical behavior. They were never separate.</p>
 
-                    <p style="margin: 15px 0;">This dissolves the so-called "hard problem" of consciousness — how mind arises from mindless matter. The premise is wrong. Matter was never mindless. Every ħ quantum carries its geometric configuration as intrinsic information. A hydrogen atom doesn't need to be <em>told</em> what α is. It <em>is</em> α, expressed as one mode of the structure. An atom "knows" its own geometry — not in the sense of conscious reflection, but in the deeper sense that its behavior IS that knowledge, enacted.</p>
+                    <p style="margin: 15px 0;">This dissolves the so-called "hard problem" of consciousness — how mind arises from mindless matter. The premise is wrong. Matter was never mindless. Every \( \hbar \) quantum carries its geometric configuration as intrinsic information. A hydrogen atom doesn't need to be <em>told</em> what \( \alpha \) is. It <em>is</em> \( \alpha \), expressed as one mode of the structure. An atom "knows" its own geometry — not in the sense of conscious reflection, but in the deeper sense that its behavior IS that knowledge, enacted.</p>
 
                     <p style="margin: 15px 0;">What makes this dynamic rather than static is the rate of angular change. A vortex is not a frozen crystal of information. It is a living, circulating, self-sustaining pattern. The vortex doesn't <em>have</em> information. The vortex <em>is</em> information, persisting through continuous circulation. Mass — the resistance to acceleration — is simply the measure of how much angular change the system contains.</p>
 
@@ -1649,9 +1649,9 @@
                     <ul style="margin: 15px 0; padding-left: 20px; line-height: 1.8;">
                         <li><strong>One conserved substance:</strong> ħ angular momentum. Not a hypothesis about what matter is "made of" — the substance IS matter, IS energy, IS what we call "force."</li>
                         <li style="margin-top: 8px;"><strong>One geometric relationship:</strong> The Pythagorean cone. Time, mass, and energy are projections on the same right triangle. The Lorentz transformation is Pythagoras, not a postulate.</li>
-                        <li style="margin-top: 8px;"><strong>α derived, not measured:</strong> The fine structure constant emerges from the topology of SO(4,2) — the conformal structure of 3+1 angular momentum. Wyler's formula yields 1/137.036 from π, integers, and factorials alone.</li>
+                        <li style="margin-top: 8px;"><strong>\( \alpha \) derived, not measured:</strong> The fine structure constant emerges from the topology of SO(4,2) — the conformal structure of 3+1 angular momentum. Wyler's formula yields \( 1/137.036 \) from \( \pi \), integers, and factorials alone.</li>
                         <li style="margin-top: 8px;"><strong>The periodic table is the theory:</strong> Elements are ħ quanta accumulating in harmonic modes. No separate nuclear physics, no separate atomic physics — one table, one count, one geometry.</li>
-                        <li style="margin-top: 8px;"><strong>Mass is derived:</strong> m<sub>R</sub> = m / √(1 − v²/c²). Mass is the rate of angular change, not a property conferred by a field.</li>
+                        <li style="margin-top: 8px;"><strong>Mass is derived:</strong> \( m_R = m / \sqrt{1 - v^2/c^2} \). Mass is the rate of angular change, not a property conferred by a field.</li>
                         <li style="margin-top: 8px;"><strong>Gravity is derived:</strong> Constraint force from angular momentum conservation. No separate "gravitational field" — just the geometry of the cone.</li>
                         <li style="margin-top: 8px;"><strong>Free parameters: zero.</strong> Every quantity is a geometric consequence of angular momentum topology.</li>
                     </ul>
@@ -1664,7 +1664,7 @@
                         <li style="margin-top: 8px;"><strong>Four forces that resist unification:</strong> Electromagnetism, weak, strong, gravity — fifty years of effort to unify them has produced no experimental confirmation. POAMS doesn't unify them because it never separated them.</li>
                         <li style="margin-top: 8px;"><strong>95% of the universe unexplained:</strong> "Dark matter" and "dark energy" are names for the discrepancy between what the model predicts and what is observed. They are not explanations. They are placeholders.</li>
                         <li style="margin-top: 8px;"><strong>The Higgs mechanism:</strong> A field invented to explain why particles have mass — but it doesn't explain mass itself. It explains why <em>some</em> particles have <em>the particular masses they have</em>, and even then, the Higgs coupling constants are themselves free parameters.</li>
-                        <li style="margin-top: 8px;"><strong>α not derived:</strong> The most important dimensionless number in physics must be measured experimentally. The theory offers no mechanism, no calculation, no reason.</li>
+                        <li style="margin-top: 8px;"><strong>\( \alpha \) not derived:</strong> The most important dimensionless number in physics must be measured experimentally. The theory offers no mechanism, no calculation, no reason.</li>
                         <li style="margin-top: 8px;"><strong>Gravity excluded:</strong> After a century of effort, general relativity and quantum mechanics have not been reconciled. The Standard Model simply does not include gravity.</li>
                     </ul>
 
@@ -1689,32 +1689,40 @@
 
                     <ol style="margin: 20px 0; padding-left: 20px; line-height: 2.0;">
 
-                        <li style="margin-top: 12px;"><strong>Mode capacities derived from pure geometry.</strong> Why shells hold 2, 8, 18, 32 quanta: at radial level n, the number of distinct angular momentum configurations is 2 × Σ(2l+1) from l=0 to n−1.
-                            <div style="text-align: center; margin: 10px 0; font-family: serif; font-size: 1.15em;">Capacity = 2n²</div>
+                        <li style="margin-top: 12px;"><strong>Mode capacities derived from pure geometry.</strong> Why shells hold 2, 8, 18, 32 quanta: at radial level n, the number of distinct angular momentum configurations is \( 2 \times \sum_{l=0}^{n-1}(2l+1) \).
+                            <div style="text-align: center; margin: 10px 0;">
+                                \[ \text{Capacity} = 2n^2 \]
+                            </div>
                             No Schrödinger equation. No Hamiltonian. No boundary conditions. Just: how many distinct angular momentum configurations can coexist at a given radial level of a vortex in 3-space?</li>
 
                         <li style="margin-top: 12px;"><strong>Nuclear magic numbers</strong> (2, 8, 20, 28, 50, 82, 126). Inner vortex (eyewall) resonances — harmonic closure points of the core angular momentum disk.</li>
 
                         <li style="margin-top: 12px;"><strong>Orbital magic numbers</strong> (2, 10, 18, 36, 54, 86). Outer vortex (circulation) resonances. The same model that predicts inner resonances predicts outer resonances. Two magic number sequences from one geometry, where conventional physics requires two completely separate theories (nuclear shell model + atomic orbital theory).</li>
 
-                        <li style="margin-top: 12px;"><strong>The fine structure constant α — derived, not measured.</strong> One ħ mode's share of the total angular momentum topology, calculated from the conformal structure of 3+1 dimensions via Wyler's formula:
-                            <div style="text-align: center; margin: 10px 0; font-family: serif; font-size: 1.15em;">α = (9 / 8π⁴) × (π⁵ / 2⁴ · 5!)<sup style="font-size: 0.7em;">1/4</sup> ≈ 1/137.036</div>
-                            Pure topology — π, integers, and factorials. Matches the measured value to better than 5 significant figures. No physical measurements used. The fine-tuning problem and the multiverse dissolve: α is geometric, like π.</li>
+                        <li style="margin-top: 12px;"><strong>The fine structure constant \( \alpha \) — derived, not measured.</strong> One \( \hbar \) mode's share of the total angular momentum topology, calculated from the conformal structure of 3+1 dimensions via Wyler's formula:
+                            <div style="text-align: center; margin: 10px 0;">
+                                \[ \alpha = \frac{9}{8\pi^4} \left( \frac{\pi^5}{2^4 \cdot 5!} \right)^{1/4} \approx 1/137.036 \]
+                            </div>
+                            Pure topology — \( \pi \), integers, and factorials. Matches the measured value to better than 5 significant figures. No physical measurements used. The fine-tuning problem and the multiverse dissolve: \( \alpha \) is geometric, like \( \pi \).</li>
 
                         <li style="margin-top: 12px;"><strong>Redundancy of the strong force.</strong> Not a separate force. Angular momentum conservation through the eyewall: asymptotic freedom at the core, enormous force at the wall — one profile at different radial positions.</li>
 
                         <li style="margin-top: 12px;"><strong>Redundancy of the weak force.</strong> Not a force carrier exchange. A vortex reorganization — mode restructuring when the angular/radial quanta ratio is wrong. What we call beta decay.</li>
 
                         <li style="margin-top: 12px;"><strong>Coulomb's inverse square law derived.</strong> Angular momentum gradient interaction between vortex outer circulations:
-                            <div style="text-align: center; margin: 10px 0; font-family: serif; font-size: 1.15em;">F = k × (L₁ · L₂) / r²</div>
-                            where L₁ and L₂ are the net outer angular momentum magnitudes. The 1/r² follows from angular momentum flux through a spherical surface (4πr²) — pure geometry.</li>
+                            <div style="text-align: center; margin: 10px 0;">
+                                \[ F = k \cdot \frac{L_1 \cdot L_2}{r^2} \]
+                            </div>
+                            where \( L_1 \) and \( L_2 \) are the net outer angular momentum magnitudes. The \( 1/r^2 \) follows from angular momentum flux through a spherical surface (\( 4\pi r^2 \)) — pure geometry.</li>
 
-                        <li style="margin-top: 12px;"><strong>Newton's gravitational inverse square law derived.</strong> Same angular momentum flux argument at larger scale. One profile, all forces. Joseph Bertrand proved in 1873 that 1/r² is the <em>only</em> radial profile that produces closed, stable orbits. Newton and Coulomb didn't discover a force law — they discovered the only geometry that permits stable orbits to exist.</li>
+                        <li style="margin-top: 12px;"><strong>Newton's gravitational inverse square law derived.</strong> Same angular momentum flux argument at larger scale. One profile, all forces. Joseph Bertrand proved in 1873 that \( 1/r^2 \) is the <em>only</em> radial profile that produces closed, stable orbits. Newton and Coulomb didn't discover a force law — they discovered the only geometry that permits stable orbits to exist.</li>
 
                         <li style="margin-top: 12px;"><strong>Pauli exclusion explained.</strong> Not an axiom. A geometric impossibility — two identical angular momentum vectors at the same position would be a single vector of twice the magnitude, which is a different configuration, not two copies of the same one.</li>
 
                         <li style="margin-top: 12px;"><strong>Mass as the rate of angular change.</strong>
-                            <div style="text-align: center; margin: 10px 0; font-family: serif; font-size: 1.15em;">m<sub>R</sub> / m = t<sub>R</sub> / t<sub>P</sub> = 1 / √(1 − v²/c²)</div>
+                            <div style="text-align: center; margin: 10px 0;">
+                                \[ \frac{m_R}{m} = \frac{t_R}{t_P} = \frac{1}{\sqrt{1 - v^2/c^2}} \]
+                            </div>
                             Mass is not a property conferred by a field. It is the rate of angular change of a vortex system. More angular momentum = more resistance to acceleration. No Higgs required.</li>
 
                         <li style="margin-top: 12px;"><strong>The stability valley.</strong> Why heavy nuclei need proportionally more radial quanta. Vortex geometry: higher angular modes create more angular momentum, requiring more radial support for stability.</li>
@@ -1723,8 +1731,10 @@
 
                         <li style="margin-top: 12px;"><strong>Isotope stability.</strong> Requires specific angular/radial quanta ratios. Too few radial → underdamped (β⁺ decay). Too many → overdamped (β⁻ decay). Stable isotopes sit at the geometric sweet spot.</li>
 
-                        <li style="margin-top: 12px;"><strong>Spectral lines (Rydberg formula).</strong> The 1/n² radial dependence from angular momentum confinement:
-                            <div style="text-align: center; margin: 10px 0; font-family: serif; font-size: 1.15em;">E<sub>n</sub> ∝ 1/n²</div>
+                        <li style="margin-top: 12px;"><strong>Spectral lines (Rydberg formula).</strong> The \( 1/n^2 \) radial dependence from angular momentum confinement:
+                            <div style="text-align: center; margin: 10px 0;">
+                                \[ E_n \propto \frac{1}{n^2} \]
+                            </div>
                             Same result Bohr derived, but from vortex geometry instead of ad hoc quantization.</li>
 
                         <li style="margin-top: 12px;"><strong>Fine structure splitting.</strong> Geometric coupling between the angular harmonic mode (l) and the phase state (leading/lagging). The vortex's angular and radial structure interacting — no mystery, just geometry.</li>
@@ -1735,17 +1745,17 @@
 
                         <li style="margin-top: 12px;"><strong>Why the periodic table ends.</strong> Maximum stable harmonic mode — the vortex cannot sustain higher complexity beyond a threshold.</li>
 
-                        <li style="margin-top: 12px;"><strong>What space is.</strong> Not a container. The angular momentum field itself, attenuated below detection threshold. Per Bertrand's theorem, the 1/r² falloff is the only profile that permits stable structure.</li>
+                        <li style="margin-top: 12px;"><strong>What space is.</strong> Not a container. The angular momentum field itself, attenuated below detection threshold. Per Bertrand's theorem, the \( 1/r^2 \) falloff is the only profile that permits stable structure.</li>
 
                         <li style="margin-top: 12px;"><strong>Core flattening — a testable prediction.</strong> Pierre-Simon Laplace proved that conserved angular momentum systems must flatten. Heavy nuclei should show anisotropy in their deep structure (a preferred disk plane) even when outer modes are spherically symmetric. Standard QM does not predict this.</li>
 
-                        <li style="margin-top: 12px;"><strong>The fine-tuning problem dissolved.</strong> No multiverse. No anthropic principle. α is not adjustable — it is geometric like π. The question "why 1/137?" is as ill-formed as "why does a sphere have the surface-to-volume ratio it has?"</li>
+                        <li style="margin-top: 12px;"><strong>The fine-tuning problem dissolved.</strong> No multiverse. No anthropic principle. \( \alpha \) is not adjustable — it is geometric like \( \pi \). The question "why \( 1/137 \)?" is as ill-formed as "why does a sphere have the surface-to-volume ratio it has?"</li>
 
-                        <li style="margin-top: 12px;"><strong>Information all the way down.</strong> L = mvr → Shannon → Landauer. Angular momentum is geometric information. Information is physical (costs kT ln 2 to erase one bit). Matter is organized information. The hard problem of consciousness dissolves: matter was never mindless.</li>
+                        <li style="margin-top: 12px;"><strong>Information all the way down.</strong> \( L = mvr \) → Shannon → Landauer. Angular momentum is geometric information. Information is physical (costs \( kT \ln 2 \) to erase one bit). Matter is organized information. The hard problem of consciousness dissolves: matter was never mindless.</li>
 
                         <li style="margin-top: 12px;"><strong>Redundancy of charge as a fundamental property.</strong> What conventional physics calls "charge" is the net angular momentum of the vortex's outer circulation. Positive/negative is the phase direction. "Opposite charges attract" because counter-rotating circulations can couple to a lower energy state. Charge isn't a property matter has — it's a description of how the vortex is rotating.</li>
 
-                        <li style="margin-top: 12px;"><strong>Why POAMS closes.</strong> One substance (ħ), zero free parameters. Every quantity is a geometric consequence of angular momentum topology. The Standard Model requires 61 particles and 19+ free parameters and still cannot derive α, explain mass, unify forces, or account for 95% of the universe. A theory with free parameters is open by definition.</li>
+                        <li style="margin-top: 12px;"><strong>Why POAMS closes.</strong> One substance (ħ), zero free parameters. Every quantity is a geometric consequence of angular momentum topology. The Standard Model requires 61 particles and 19+ free parameters and still cannot derive \( \alpha \), explain mass, unify forces, or account for 95% of the universe. A theory with free parameters is open by definition.</li>
 
                     </ol>
 
