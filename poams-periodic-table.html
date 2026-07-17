@@ -72,6 +72,18 @@
             padding: 20px;
         }
 
+        /* Content hyperlinks — readable in both themes. Default browser link
+           color (#0000EE) is unreadable on the dark-navy background; give links
+           the site accent instead. Hub-nav keeps its own more-specific rule. */
+        .container a {
+            color: var(--accent-blue);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+        .container a:hover { color: var(--accent-gold); }
+        [data-theme="light"] .container a { color: #1565c0; }
+        [data-theme="light"] .container a:hover { color: #0d47a1; }
+
         header {
             text-align: center;
             margin-bottom: 40px;
