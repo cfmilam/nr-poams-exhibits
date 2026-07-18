@@ -955,11 +955,16 @@
         function drawAtom() {
             if (!atomCtx) return;
             const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v);
-            const cx = atomCanvas.width / 2;
-            const cy = atomCanvas.height / 2;
-            const baseRadius = 28;                 // radial step per harmonic mode (n r0)
-            const maxR = Math.min(cx, cy) - 30;
-            const R = baseRadius * currentN;       // mode radius
+            const W = atomCanvas.width, H = atomCanvas.height;
+            const cx = W / 2;
+            const titleBand = 46;                  // reserved top band for the "n = N" heading
+            const labelBand = 30;                  // reserved bottom band for the mode label
+            const cy = titleBand + (H - titleBand - labelBand) / 2;
+            const usableR = Math.min(cx - 6, cy - titleBand, (H - labelBand) - cy);
+            const outerPad = 34;                   // arrow gap + glow + crest pulse + margin
+            const baseRadius = Math.max(14, (usableR - outerPad) / (7 * 1.14)); // derived so n=1..7 all fit
+            const maxR = usableR - outerPad;       // hard clamp so nothing exits the usable area
+            const R = baseRadius * currentN;       // mode radius (grows linearly, n r0)
             const Rfit = Math.min(R, maxR);
             const A = Math.max(6, Rfit * 0.14);    // lobe amplitude
             const phase = time * 0.03;             // circulation phase (winds -> accumulates L = n hbar)
