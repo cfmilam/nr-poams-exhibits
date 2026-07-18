@@ -489,7 +489,7 @@
             <div class="explanation">
                 <p><strong>POAMS</strong> (Pythagorean Orbital Angular Momentum Substance) revolutionizes our understanding of atomic structure by treating <strong>angular momentum as the fundamental substance</strong> of reality, quantized in units of ℏ = h/2π.</p>
                 
-                <p>Unlike traditional quantum mechanics, POAMS derives the Balmer-Rydberg formula through pure geometry and angular momentum, without invoking mysterious "forces" or "charges." Instead, what we call "electrostatic charge" is revealed to be spin kinetic energy, following the insights of Uhlenbeck and Goudsmit.</p>
+                <p>Unlike traditional quantum mechanics, POAMS derives the Balmer-Rydberg formula through pure geometry and angular momentum, without invoking mysterious "forces" or "charges." In POAMS <strong>there is no charge at all</strong>: what textbooks bundle under that one word splits into two features a spinning vortex already has — its <em>sign</em> is the <strong>phase sense</strong> (the binary sign of the vortex's intrinsic spin circulation, ∮dφ = ±2πn), and its <em>binding</em> is <strong>spin kinetic energy</strong> ("charge," in coulombs, cashed out entirely in joules — following Uhlenbeck and Goudsmit). No third thing called "charge" is left over.</p>
             </div>
             
             <div class="formula-box">
@@ -503,7 +503,7 @@
         <div class="section">
             <h2>1. The POAMS Atom Visualizer</h2>
             <div class="explanation">
-                <p><strong>A note on the picture:</strong> it is often convenient to <em>visualise</em> the POAMS atom as an "electron-proton pair orbiting a common barycenter," and we use that image below. But this is a <strong>convenience-mapping, not a claim about structure</strong>. Following Pope and Osborne explicitly: the "electron" and "proton" are convenient labels for measures of one angular-momentum whole, and POAMS does <em>not</em> imply this is the physical structure of the atom — "it makes no sense to investigate the physical nature of these labels." What is real is the configuration of pure angular momentum, quantised in units of ℏ. There are no charges and no forces; the barycenter-orbit image is a scaffold for intuition, discarded once the angular-momentum account stands on its own. In the current POAMS treatment that account is the vortex's <strong>harmonic modes</strong>; the orbiting-pair image here is the older Bohr-style scaffold, kept only because the 1/n² derivation reads cleanly on it — the structural picture is the mode account (see the Elements restatement).</p>
+                <p><strong>What you are looking at:</strong> the POAMS atom is a <strong>standing angular-momentum vortex</strong>, shown here in its <em>n</em>th <strong>harmonic mode</strong> — a closed circulating wave whose <strong>winding number</strong> is n (∮dφ = 2πn), carrying net angular momentum L = nℏ. The n gold crests are the mode's ℏ-quanta; the mode radius grows as n·r₀. The two counter-rotating tracings are the vortex's <strong>two phase senses</strong> — the solid blue is this vortex's sense, the faint dashed is its opposite — the one binary that conventional physics misnames "spin" and "charge sign." Following Pope and Osborne, the older "electron–proton pair orbiting a barycenter" image is a <strong>convenience-mapping, not a claim about structure</strong>: the "electron" and "proton" are convenient labels for measures of one angular-momentum whole, and "it makes no sense to investigate the physical nature of these labels." We keep that orbiting-pair scaffold only in the algebra of §7, where the 1/n² formula reads cleanly off L = mvr = nℏ; the structural picture is this mode account (see the Elements restatement).</p>
             </div>
             
             <div class="canvas-container">
@@ -571,9 +571,9 @@
 
         <!-- Charge to Spin Collapse -->
         <div class="section">
-            <h2>3. Charge → Spin Collapse Visualization</h2>
+            <h2>3. "Charge" → Spin Collapse Visualization</h2>
             <div class="explanation">
-                <p>The revolutionary insight: "electrostatic charge" is actually spin kinetic energy. When we replace the concept of charge with spin energy (≈ 2.18×10⁻¹⁸ J), the orbital radius collapses dramatically from ~10²⁹ m to the Bohr radius (~10⁻¹¹ m).</p>
+                <p>The demonstration: there is no "charge" to replace — its <em>binding</em> aspect simply <em>is</em> <strong>spin kinetic energy</strong> (its <em>sign</em> being the separate phase-sense binary). Drop the charge fiction and use that spin energy directly (≈ 2.18×10⁻¹⁸ J) and the orbital radius collapses dramatically from ~10²⁹ m — the radius a purely gravitational binding would demand — to the Bohr radius (~10⁻¹¹ m).</p>
             </div>
             
             <div class="controls">
@@ -728,7 +728,7 @@
                 <h3>Key POAMS Discoveries:</h3>
                 <ul style="margin-left: 20px; margin-top: 15px;">
                     <li><strong>Angular momentum is the fundamental substance</strong> — the irreducible "atom" of reality</li>
-                    <li><strong>Charge is spin kinetic energy</strong> — following Uhlenbeck & Goudsmit's original insight</li>
+                    <li><strong>There is no charge</strong> — its <em>sign</em> is phase sense (the sign of intrinsic spin), its <em>binding</em> is spin kinetic energy (Uhlenbeck & Goudsmit); no third "charge" property remains</li>
                     <li><strong>Time is quantized</strong> — discrete "ticks" of duration t = h/E, not continuous flow</li>
                     <li><strong>Mass-energy is quantized</strong> — comes in discrete packets tied to angular momentum</li>
                     <li><strong>Relativity and quantum mechanics unify</strong> — through the same Pythagorean geometry</li>
@@ -954,67 +954,117 @@
 
         function drawAtom() {
             if (!atomCtx) return;
+            const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v);
+            const cx = atomCanvas.width / 2;
+            const cy = atomCanvas.height / 2;
+            const baseRadius = 28;                 // radial step per harmonic mode (n r0)
+            const maxR = Math.min(cx, cy) - 30;
+            const R = baseRadius * currentN;       // mode radius
+            const Rfit = Math.min(R, maxR);
+            const A = Math.max(6, Rfit * 0.14);    // lobe amplitude
+            const phase = time * 0.03;             // circulation phase (winds -> accumulates L = n hbar)
 
-            const centerX = atomCanvas.width / 2;
-            const centerY = atomCanvas.height / 2;
-            const baseRadius = 50;
-            const orbitRadius = baseRadius * currentN;
-
-            // Clear canvas
-            atomCtx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--bg-dark');
+            // Clear
+            atomCtx.fillStyle = css('--bg-dark');
             atomCtx.fillRect(0, 0, atomCanvas.width, atomCanvas.height);
 
-            // Draw orbits for reference (n=1 to n=7)
-            atomCtx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--border');
+            // Faint reference mode-rings (n = 1..7): the quantized mode radii
+            atomCtx.strokeStyle = css('--border');
             atomCtx.lineWidth = 1;
-            for (let n = 1; n <= 7; n++) {
-                const r = baseRadius * n;
-                if (r < centerX) {
-                    atomCtx.beginPath();
-                    atomCtx.arc(centerX, centerY, r, 0, 2 * Math.PI);
-                    atomCtx.stroke();
-                }
-            }
-
-            // Draw current orbit
-            atomCtx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--accent-blue');
-            atomCtx.lineWidth = 2;
-            if (orbitRadius < centerX) {
+            atomCtx.globalAlpha = 0.55;
+            for (let k = 1; k <= 7; k++) {
+                const r = baseRadius * k;
+                if (r > maxR) break;
                 atomCtx.beginPath();
-                atomCtx.arc(centerX, centerY, orbitRadius, 0, 2 * Math.PI);
+                atomCtx.arc(cx, cy, r, 0, 2 * Math.PI);
                 atomCtx.stroke();
             }
+            atomCtx.globalAlpha = 1;
 
-            // Draw proton at center
-            atomCtx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--h-alpha');
+            // Vortex core ("the eye") -- a soft radial gradient, not a "proton"
+            const eyeR = baseRadius * 0.75;
+            const grd = atomCtx.createRadialGradient(cx, cy, 0, cx, cy, eyeR);
+            grd.addColorStop(0, css('--accent-gold'));
+            grd.addColorStop(1, 'rgba(0,0,0,0)');
+            atomCtx.globalAlpha = 0.4;
+            atomCtx.fillStyle = grd;
             atomCtx.beginPath();
-            atomCtx.arc(centerX, centerY, 6, 0, 2 * Math.PI);
+            atomCtx.arc(cx, cy, eyeR, 0, 2 * Math.PI);
             atomCtx.fill();
+            atomCtx.globalAlpha = 1;
 
-            // Draw electron
-            if (orbitRadius < centerX) {
-                const electronX = centerX + orbitRadius * Math.cos(time * 0.02);
-                const electronY = centerY + orbitRadius * Math.sin(time * 0.02);
-                
-                atomCtx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--accent-blue');
+            // Trace a closed winding wave: radius(theta) = R0 + amp*cos(n*theta - sense*phase)
+            function traceWave(sense, amp, R0) {
+                const steps = 240;
                 atomCtx.beginPath();
-                atomCtx.arc(electronX, electronY, 4, 0, 2 * Math.PI);
-                atomCtx.fill();
-
-                // Draw angular momentum vector
-                atomCtx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--accent-gold');
-                atomCtx.lineWidth = 2;
-                atomCtx.beginPath();
-                atomCtx.moveTo(centerX, centerY);
-                atomCtx.lineTo(electronX, electronY);
-                atomCtx.stroke();
+                for (let i = 0; i <= steps; i++) {
+                    const th = (i / steps) * 2 * Math.PI;
+                    const rr = R0 + amp * Math.cos(currentN * th - sense * phase);
+                    const x = cx + rr * Math.cos(th);
+                    const y = cy + rr * Math.sin(th);
+                    if (i === 0) atomCtx.moveTo(x, y); else atomCtx.lineTo(x, y);
+                }
+                atomCtx.closePath();
             }
 
-            // Draw quantum number label
-            atomCtx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--accent-gold');
-            atomCtx.font = 'bold 24px Arial';
+            // The opposite phase sense (faint, dashed) -- the counter-rotating twin
+            atomCtx.save();
+            atomCtx.setLineDash([4, 6]);
+            atomCtx.globalAlpha = 0.3;
+            atomCtx.strokeStyle = '#9966ff';
+            atomCtx.lineWidth = 1.5;
+            traceWave(-1, A * 0.9, Rfit);
+            atomCtx.stroke();
+            atomCtx.restore();
+
+            // This vortex's phase sense -- the primary circulating harmonic mode
+            atomCtx.strokeStyle = css('--accent-blue');
+            atomCtx.lineWidth = 2.5;
+            atomCtx.shadowColor = css('--accent-blue');
+            atomCtx.shadowBlur = 12;
+            traceWave(1, A, Rfit);
+            atomCtx.stroke();
+            atomCtx.shadowBlur = 0;
+
+            // The n crests = the n hbar-quanta of the mode (pulsing)
+            const pulse = 3 + Math.sin(time * 0.08) * 1.3;
+            atomCtx.fillStyle = css('--accent-gold');
+            for (let k = 0; k < currentN; k++) {
+                const th = (2 * Math.PI * k + phase) / currentN;
+                const rr = Rfit + A;
+                const x = cx + rr * Math.cos(th);
+                const y = cy + rr * Math.sin(th);
+                atomCtx.beginPath();
+                atomCtx.arc(x, y, pulse, 0, 2 * Math.PI);
+                atomCtx.fill();
+            }
+
+            // Phase-sense circulation arrow (direction of winding)
+            const aR = Math.min(Rfit + A + 12, Math.min(cx, cy) - 4);
+            atomCtx.strokeStyle = css('--accent-blue');
+            atomCtx.lineWidth = 2;
+            atomCtx.beginPath();
+            atomCtx.arc(cx, cy, aR, -Math.PI / 2 - 0.55, -Math.PI / 2 + 0.55);
+            atomCtx.stroke();
+            const ea = -Math.PI / 2 + 0.55;
+            const ex = cx + aR * Math.cos(ea);
+            const ey = cy + aR * Math.sin(ea);
+            const tx = -Math.sin(ea), ty = Math.cos(ea);   // tangent, increasing theta
+            atomCtx.beginPath();
+            atomCtx.moveTo(ex, ey);
+            atomCtx.lineTo(ex - 8 * tx + 4 * Math.cos(ea), ey - 8 * ty + 4 * Math.sin(ea));
+            atomCtx.moveTo(ex, ey);
+            atomCtx.lineTo(ex - 8 * tx - 4 * Math.cos(ea), ey - 8 * ty - 4 * Math.sin(ea));
+            atomCtx.stroke();
+
+            // Labels
+            atomCtx.fillStyle = css('--accent-gold');
+            atomCtx.font = 'bold 22px Arial';
             atomCtx.textAlign = 'center';
-            atomCtx.fillText(`n = ${currentN}`, centerX, centerY - orbitRadius - 20);
+            atomCtx.fillText(`n = ${currentN}`, cx, 32);
+            atomCtx.font = '13px Arial';
+            atomCtx.fillStyle = css('--text-dim');
+            atomCtx.fillText(`harmonic mode  ·  L = ${currentN}ℏ  ·  winding ∮dφ = 2π·${currentN}`, cx, atomCanvas.height - 16);
         }
 
         function drawCollapse(progress) {
