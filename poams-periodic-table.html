@@ -841,8 +841,8 @@
             </h2>
             <p style="text-align: center; font-size: 1rem; margin-bottom: 20px; max-width: 700px; margin-left: auto; margin-right: auto;">
                 Watch the fundamental hydrogen vortex grow as it accumulates angular momentum. 
-                Each concentric shell shows harmonic mode patterns — s (gold), p (blue), d (green), f (cyan).
-                All modes rendered as wireframes for visual clarity — filled modes at full brightness, unfilled (available) positions dimmed. This lets you see through overlapping shells and read the internal structure.
+                Each concentric mode shows its harmonic sub-patterns — s (gold), p (blue), d (green), f (cyan).
+                All modes rendered as wireframes for visual clarity — filled modes at full brightness, unfilled (available) positions dimmed. This lets you see through overlapping modes and read the internal structure.
             </p>
             
             <div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
@@ -857,7 +857,7 @@
                     <div style="text-align: center;">
                         <label for="observeRadius">Observation Distance:</label>
                         <input type="range" id="observeRadius" min="0" max="100" step="1" value="0">
-                        <div id="observeRadiusLabel" style="font-size: 0.75rem; color: #999; margin-top: 2px;">At shell surface</div>
+                        <div id="observeRadiusLabel" style="font-size: 0.75rem; color: #999; margin-top: 2px;">At mode surface</div>
                     </div>
                     <button id="toggleModesBtn" onclick="toggleVortexModes()" style="padding: 6px 14px; border-radius: 6px; border: 1px solid var(--accent, #c9a84c); background: transparent; color: var(--accent, #c9a84c); cursor: pointer; font-size: 0.85rem; font-weight: 600; transition: all 0.2s;">Hide Modes</button>
 
@@ -939,8 +939,8 @@
                 <div style="margin-bottom: 40px;">
                     <h3 style="color: var(--accent-blue);">Harmonic Mode Physics: What Is Derived, and What Is Assumed</h3>
                     <p>Two logically separate things are in play, and intellectual honesty requires keeping them apart — claiming exactly what the mode structure forces, and no more.</p>
-                    <p><strong>Derived — forced by mode counting, no free parameters.</strong> Each angular harmonic \( l \) supports \( 2l+1 \) orientational modes; the two phase senses (the binary sign of internal circulation) double this. So the sub-capacities are <strong>s = 2, p = 6, d = 10, f = 14</strong> \( = 2(2l+1) \), and a complete radial–angular shell holds \( 2n^2 = 2, 8, 18, 32,\ldots \). These integers are <em>outputs</em> of the angular-momentum mode structure, not inputs — pure eigen-counting, requiring no energy assumption. Note that these bare shell totals are \( 2, 8, 18, 32 \) — <em>not yet</em> the observed period lengths, which show the characteristic doubling; that doubling comes only with the ordering postulate below.</p>
-                    <p><strong>Assumed — an ordering postulate of exactly the same status as the conventional Madelung \( (n+l) \) rule.</strong> To turn those sub-capacities into the observed period lengths, POAMS <em>assumes</em> that mode energies order by increasing \( (n+l) \), ties broken by \( n \) — physically, that opening a new radial node at larger radius can cost less energy than completing a higher angular harmonic at smaller radius (e.g. the 4th radial mode filling before the smaller-radius d-harmonic is complete). <em>Given</em> this ordering, the period lengths <strong>2, 8, 8, 18, 18, 32, 32</strong> — including the characteristic doubling (8 and 8, 18 and 18, 32 and 32) — follow from the counting above with no further freedom: under the \( (n+l) \) ordering the subshells fill in the sequence \( 1s\,|\,2s\,2p\,|\,3s\,3p\,|\,4s\,3d\,4p\,|\,5s\,4d\,5p\,|\,6s\,4f\,5d\,6p\,|\,7s\,5f\,6d\,7p \), where each bar marks a noble-gas closure. Reading off the capacity between successive closures gives the period lengths directly: <strong>2, 8, 8, 18, 18, 32, 32</strong>. The characteristic doubling — the repeats <strong>8,8</strong>, <strong>18,18</strong>, <strong>32,32</strong> — arises because each newly-available angular block first appears in one period and then recurs one radial step later: the \( s\!+\!p \) blocks give \( 2s2p \) then \( 3s3p \) (the <strong>8,8</strong>); adding the \( d \) block gives \( 4s3d4p \) then \( 5s4d5p \) (the <strong>18,18</strong>); adding the \( f \) block gives \( 6s4f5d6p \) then \( 7s5f6d7p \) (the <strong>32,32</strong>). Each repeat is a block recurring at the next radius, which is exactly what the \( (n+l) \) ordering dictates. So the doubling is a direct consequence of the ordering postulate, not a separate assumption — though, to be exact, each period is stitched from parts of two different \( (n+l) \) groups (the standard interleaving), not a single tidy group per period.</p>
+                    <p><strong>Derived — forced by mode counting, no free parameters.</strong> Each angular harmonic \( l \) supports \( 2l+1 \) orientational modes; the two phase senses (the binary sign of internal circulation) double this. So the sub-capacities are <strong>s = 2, p = 6, d = 10, f = 14</strong> \( = 2(2l+1) \), and a complete mode holds \( 2n^2 = 2, 8, 18, 32,\ldots \). These integers are <em>outputs</em> of the angular-momentum mode structure, not inputs — pure eigen-counting, requiring no energy assumption. Note that these bare mode totals are \( 2, 8, 18, 32 \) — <em>not yet</em> the observed period lengths, which show the characteristic doubling; that doubling comes only with the ordering postulate below.</p>
+                    <p><strong>Assumed — an ordering postulate of exactly the same status as the conventional Madelung \( (n+l) \) rule.</strong> To turn those sub-capacities into the observed period lengths, POAMS <em>assumes</em> that mode energies order by increasing \( (n+l) \), ties broken by \( n \) — physically, that opening a new radial node at larger radius can cost less energy than completing a higher angular harmonic at smaller radius (e.g. the 4th radial mode filling before the smaller-radius d-harmonic is complete). <em>Given</em> this ordering, the period lengths <strong>2, 8, 8, 18, 18, 32, 32</strong> — including the characteristic doubling (8 and 8, 18 and 18, 32 and 32) — follow from the counting above with no further freedom: under the \( (n+l) \) ordering the sub-patterns fill in the sequence \( 1s\,|\,2s\,2p\,|\,3s\,3p\,|\,4s\,3d\,4p\,|\,5s\,4d\,5p\,|\,6s\,4f\,5d\,6p\,|\,7s\,5f\,6d\,7p \), where each bar marks a noble-gas closure. Reading off the capacity between successive closures gives the period lengths directly: <strong>2, 8, 8, 18, 18, 32, 32</strong>. The characteristic doubling — the repeats <strong>8,8</strong>, <strong>18,18</strong>, <strong>32,32</strong> — arises because each newly-available angular block first appears in one period and then recurs one radial step later: the \( s\!+\!p \) blocks give \( 2s2p \) then \( 3s3p \) (the <strong>8,8</strong>); adding the \( d \) block gives \( 4s3d4p \) then \( 5s4d5p \) (the <strong>18,18</strong>); adding the \( f \) block gives \( 6s4f5d6p \) then \( 7s5f6d7p \) (the <strong>32,32</strong>). Each repeat is a block recurring at the next radius, which is exactly what the \( (n+l) \) ordering dictates. So the doubling is a direct consequence of the ordering postulate, not a separate assumption — though, to be exact, each period is stitched from parts of two different \( (n+l) \) groups (the standard interleaving), not a single tidy group per period.</p>
                     <p>(For completeness: grouping strictly by \( k=n+l \) gives the group capacities \( 2(\lfloor(k-1)/2\rfloor+1)^2 = 2,2,8,8,18,18,32,32 \); the periods above are the same multiset from the second term onward, reindexed by where the noble-gas closures actually fall.) Concretely, <em>given</em> that ordering the harmonics fill so: mode&nbsp;1 (2ħ, the fundamental dipole with two phase senses); mode&nbsp;2 (8ħ, 2 s + 6 p); mode&nbsp;3 (8ħ, the s+p pattern again at larger radius — this repeat <em>is</em> the doubling); mode&nbsp;4 (18ħ, 2 s + 6 p + 10 d); mode&nbsp;5 (18ħ, that pattern again at larger radius); mode&nbsp;6 (32ħ, 2 s + 6 p + 10 d + 14 f); mode&nbsp;7 (32ħ, its repeat). Each "repeat at larger radius" is precisely a step the ordering postulate licenses — not an independent output of the counting.</p>
                     <p><strong>The honest boundary (an open problem, not a solved result).</strong> The \( (n+l) \) ordering itself is <em>not yet derived</em> from vortex energetics. The two energy functionals that pure angular-momentum dynamics most naturally produces bracket the answer but neither hits it: radial confinement \( \propto 1/n^2 \) (Coulomb-like) gives \( 2,8,18,32,50 \) with <em>no</em> doubling, while an angular-gradient \( \propto l(l+1) \) (oscillator-like) gives the nuclear pattern \( 2,8,20,40 \). The Madelung point sits between them. Reproducing it requires the vortex analogue of core-penetration/screening — a self-interaction that breaks the \( l \)-degeneracy by precisely the Madelung amount — which POAMS does not yet supply; here it <em>restates</em> the ordering rather than computing it. This is no worse than standard quantum mechanics <em>as a rule</em> (the \( (n+l) \) rule is itself semi-empirical; its analytic derivation is Löwdin's long-standing open problem), though standard QM can at least reproduce the filling order numerically from the many-body Hamiltonian, which the vortex energetics cannot yet do. <strong>Deriving the \( (n+l) \) ordering from vortex self-interaction is a genuine POAMS research frontier — and would answer a question standard physics has left open since 1969.</strong></p>
                 </div>
@@ -1109,24 +1109,24 @@
                     <p style="margin-top: 15px; font-size: 0.9em; color: var(--text-muted); font-style: italic;">— After N.V. Pope, <em>The Eye of the Beholder</em></p>
                 </div>
 
-                <!-- Section 1: Angular-Radial Distinction -->
+                <!-- Section 1: Spherical-Planar Distinction -->
                 <div style="margin-bottom: 40px; padding: 25px; background: var(--card); border-radius: 10px; border-left: 5px solid var(--accent-gold);">
-                    <h3 style="color: var(--accent-gold); margin-bottom: 20px;">One Substance, Two Geometries: The Angular-Radial Distinction</h3>
+                    <h3 style="color: var(--accent-gold); margin-bottom: 20px;">One Substance, Two Geometries: The Spherical–Planar Distinction</h3>
                     
                     <p style="margin-bottom: 15px;">The vortex has two organizational axes:</p>
                     
                     <ul style="margin: 15px 0; padding-left: 20px;">
-                        <li><strong>Angular structure</strong> (azimuthal) — the harmonic pattern/topology. The ħ quanta organized here define what we call "atomic number" and determine chemical behavior. Think: the <em>shape</em> of the hurricane — how many bands, what symmetry.</li>
-                        <li><strong>Radial structure</strong> (depth) — provides structural support and stability. The ħ quanta accumulated here (what conventional physics calls "neutrons") don't change the pattern — they reinforce it. Think: the <em>intensity/depth</em> of the hurricane at a given pattern.</li>
+                        <li><strong>Spherical structure</strong> (the harmonic modes, distributed angularly) — the pattern. The ħ quanta organized here define what we call "atomic number" and determine chemical behavior. Think: the <em>shape</em> of the hurricane — how many bands, what symmetry.</li>
+                        <li><strong>Planar structure</strong> (the accumulation disk) — provides structural support and stability. The ħ quanta accumulated here (what conventional physics calls "neutrons") don't change the pattern — they reinforce it. Think: the <em>intensity/depth</em> of the hurricane at a given pattern.</li>
                     </ul>
                     
                     <p style="margin: 15px 0;">This is not a relabeling. It's a geometric fact about angular momentum in 3-space: rotation has both a <em>pattern</em> (how angular momentum is distributed azimuthally) and an <em>amplitude</em> (how much total angular momentum occupies that pattern). A guitar string's harmonic number and its volume are independent properties. Same here.</p>
                     
-                    <p style="margin: 15px 0;">The atomic number Z counts ħ quanta organized in the angular pattern. The mass number A counts total ħ quanta. The difference \( A - Z \) counts ħ quanta providing radial depth. This is why isotopes exist: same pattern, different depth.</p>
+                    <p style="margin: 15px 0;">The atomic number Z counts ħ quanta organized in the harmonic pattern. The mass number A counts total ħ quanta. The difference \( A - Z \) counts the planar quanta providing structural depth. This is why isotopes exist: same pattern, different depth.</p>
                     
-                    <p style="margin: 15px 0;">This is a testable prediction that distinguishes POAMS from the standard model: isotopes are the same harmonic pattern with different total angular momentum depth. The standard model treats neutrons as independent particles that happen to sit in the nucleus alongside protons. POAMS says there is no such distinction — there are only ħ quanta, Some are organized in the angular pattern, some provide radial depth. The ratio between them follows from the vortex stability requirements described below.</p>
+                    <p style="margin: 15px 0;">This is a testable prediction that distinguishes POAMS from the standard model: isotopes are the same harmonic pattern with different total angular momentum depth. The standard model treats neutrons as independent particles that happen to sit in the nucleus alongside protons. POAMS says there is no such distinction — there are only ħ quanta; some are organized in the harmonic pattern (spherical), some provide structural depth (planar). The ratio between them follows from the vortex stability requirements described below.</p>
                     
-                    <p style="margin: 15px 0;">Critically, this explains why certain isotopes are stable and others aren't: stability requires a specific pattern/support ratio. Too few radial quanta and the angular mode structure is underdamped — it oscillates and eventually ejects quanta (\( \beta^+ \) decay, ħ quanta shifting from angular to radial organization). Too many and the structure is overdamped — excess quanta redistribute (\( \beta^- \) decay, radial quanta reorganizing into the angular pattern). The stable isotopes sit at the exact ratio where the vortex's angular and radial structure are mutually reinforcing.</p>
+                    <p style="margin: 15px 0;">Critically, this explains why certain isotopes are stable and others aren't: stability requires a specific pattern/support ratio. Too few planar quanta and the mode structure is underdamped — it oscillates and eventually ejects quanta (\( \beta^+ \) decay, ħ quanta shifting from the spherical pattern into planar support). Too many and the structure is overdamped — excess quanta redistribute (\( \beta^- \) decay, planar quanta reorganizing into the spherical pattern). The stable isotopes sit at the exact ratio where the vortex's spherical and planar structure are mutually reinforcing.</p>
                     <div style="margin-top: 25px; padding: 20px; background: rgba(201, 168, 76, 0.08); border-radius: 8px; border: 1px solid rgba(201, 168, 76, 0.2);">
                         <h4 style="color: var(--accent-gold); margin-bottom: 15px;">The Geometry of Accumulation: Why the Core Flattens</h4>
                         
@@ -1138,13 +1138,13 @@
                         
                         <p style="margin-bottom: 15px;">Think of it this way: a hurricane has a flat disk of circulation, but the <em>pressure field</em> it creates extends three-dimensionally above and below the plane. The disk is where energy flows. The three-dimensional structure is where the stable pattern exists. Similarly: the core disk is where angular momentum accumulates. The spherical harmonic modes are the stable configurations that this accumulation supports.</p>
                         
-                        <p style="margin-bottom: 15px;"><strong>This makes a testable prediction that standard QM does not:</strong> The outer harmonic pattern of a filled shell is spherically symmetric, but the inner core structure has a preferred plane defined by the net angular momentum vector. Heavy nuclei should show anisotropy in their deep structure — a preferential disk — even when the outer modes are spherically distributed.</p>
+                        <p style="margin-bottom: 15px;"><strong>This makes a testable prediction that standard QM does not:</strong> The outer harmonic pattern of a completed mode is spherically symmetric, but the inner core structure has a preferred plane defined by the net angular momentum vector. Heavy nuclei should show anisotropy in their deep structure — a preferential disk — even when the outer modes are spherically distributed.</p>
                         
                         <p style="margin: 15px 0;">Nuclear physics already sees evidence of this: nuclear deformation, prolate/oblate shapes, and rotational bands in heavy nuclei. Standard physics treats these as "collective excitations" — unexplained departures from an assumed spherical baseline. POAMS says the baseline <em>is</em> a disk, and the "deformations" are the natural geometry of accumulated angular momentum becoming visible.</p>
                         
                         <p style="margin: 15px 0;"><strong>The 3D visualization above reflects this dual geometry:</strong> the ħ quanta spiral inward as a flattened disk at the core (flowing accumulation), while the harmonic modes extend spherically outward (stable geometric configurations). Both are correct simultaneously — they represent two fundamentally different organizational regimes of the same vortex.</p>
 
-                        <p style="margin: 15px 0;">We name the two regimes for the adjective that fits each quantum's closure, not for a thing it belongs to: the inner accumulation flattens into a Laplace disk built of <strong>planar quanta</strong> (2D — the spin circulation, solid angle 2π), while the outer harmonic modes stand as <strong>spherical quanta</strong> (3D — the orbital modes, solid angle 4π). These are not two kinds of substance — every quantum is one ħ of the same continuous winding; the adjective only records whether that quantum's closure is planar or spherical. In the two-axis language above, the <strong>planar (radial)</strong> quanta supply the radial depth that provides structural <strong>support</strong>, while the <strong>spherical (angular)</strong> quanta carry the angular <strong>pattern</strong> — the harmonic modes that fix chemical behavior. We still name <em>the disk</em> and <em>the shells</em> themselves — those are the real shapes the quanta build; only the quanta stay adjectival, so the count never hardens into two "kinds." Same substance, same ħ; only how each turn closes tells them apart.</p>
+                        <p style="margin: 15px 0;">We name the two regimes for the adjective that fits each quantum's closure, not for a thing it belongs to: the inner accumulation flattens into a Laplace disk built of <strong>planar quanta</strong> (2D — the spin circulation, solid angle 2π), while the outer harmonic modes stand as <strong>spherical quanta</strong> (3D — the orbital modes, solid angle 4π). These are not two kinds of substance — every quantum is one ħ of the same continuous winding; the adjective only records whether that quantum's closure is planar or spherical. In the two-axis language above, the <strong>planar</strong> quanta supply the structural <strong>support</strong> (the disk's depth), while the <strong>spherical</strong> quanta carry the harmonic <strong>pattern</strong> — the modes that fix chemical behavior. We still name <em>the disk</em>, because a spinning accumulation <em>must</em> flatten (Laplace) — that shape is forced. But the outer region is not a set of "shells": nothing forces the spherical quanta into thin nested layers; they are <strong>harmonic modes</strong>, a family of differently-shaped standing patterns that sum to spherical symmetry only once a mode is complete. The disk earns its name as a shape; the modes keep theirs as modes — and only the quanta stay adjectival, so the count never hardens into two "kinds." Same substance, same ħ; only how each turn closes tells them apart.</p>
                     </div>
 
                     <div style="margin-top: 25px; padding: 20px; background: rgba(79, 195, 247, 0.08); border-radius: 8px; border: 1px solid rgba(79, 195, 247, 0.25);">
@@ -1159,16 +1159,16 @@
                 <div style="margin-bottom: 40px; padding: 25px; background: var(--card); border-radius: 10px; border-left: 5px solid var(--accent-blue);">
                     <h3 style="color: var(--accent-blue); margin-bottom: 20px;">The Stability Valley: Why Heavy Vortices Need More Support</h3>
                     
-                    <p style="margin-bottom: 15px;">As harmonic modes grow more complex (higher Z), they develop more angular nodes — more intricate patterns that require more radial depth to maintain coherence. A simple dipole (Mode 1) needs minimal support. A complex f-harmonic configuration needs substantial radial reinforcement.</p>
+                    <p style="margin-bottom: 15px;">As harmonic modes grow more complex (higher Z), they develop more angular nodes — more intricate patterns that require more structural depth to maintain coherence. A simple dipole (Mode 1) needs minimal support. A complex f-harmonic configuration needs substantial planar reinforcement.</p>
                     
                     <p style="margin-bottom: 15px;">Quantitatively:</p>
                     <ul style="margin: 15px 0; padding-left: 20px;">
-                        <li>Light elements (\( Z < 20 \)): \( A \approx 2Z \) — roughly equal angular and radial quanta</li>
+                        <li>Light elements (\( Z < 20 \)): \( A \approx 2Z \) — roughly equal spherical and planar quanta</li>
                         <li>Medium elements (\( Z \sim 26\text{-}50 \)): \( A \approx 2.1\text{-}2.3Z \) — growing asymmetry</li>
                         <li>Heavy elements (\( Z > 80 \)): \( A \approx 2.5Z+ \) — complex modes demand proportionally more support</li>
                     </ul>
                     
-                    <p style="margin: 15px 0;">The "valley of stability" is the set of configurations where the pattern/support ratio allows coherent vortex structure. Too few radial quanta → pattern collapses (what conventional physics calls "proton-rich decay"). Too many → pattern overloaded, excess quanta ejected (what conventional physics calls "neutron-rich decay").</p>
+                    <p style="margin: 15px 0;">The "valley of stability" is the set of configurations where the pattern/support ratio allows coherent vortex structure. Too few planar quanta → pattern collapses (what conventional physics calls "proton-rich decay"). Too many → pattern overloaded, excess quanta ejected (what conventional physics calls "neutron-rich decay").</p>
                     
                     <p style="margin: 15px 0;">This is exactly how hurricanes work: a given circulation pattern requires sufficient energy input to maintain. Starve it and the pattern degrades. Overfeed it and it becomes unstable, shedding energy in bursts.</p>
                     
@@ -1186,8 +1186,8 @@
                     
                     <p style="margin-bottom: 15px;">The vortex has two distinct radial zones:</p>
                     <ul style="margin: 15px 0; padding-left: 20px;">
-                        <li><strong>Eyewall region</strong> (small radius, steep angular momentum gradient): the <strong>planar (radial)</strong> quanta — the support quanta — organize here. Magic numbers: 2, 8, 20, 28, 50, 82, 126.</li>
-                        <li><strong>Outer circulation</strong> (larger radius, shallow gradient): the <strong>spherical (angular)</strong> quanta — the pattern quanta — organize here. Closure numbers: 2, 10, 18, 36, 54, 86, 118.</li>
+                        <li><strong>Eyewall region</strong> (small radius, steep angular momentum gradient): the <strong>planar</strong> quanta — the support quanta — organize here. Magic numbers: 2, 8, 20, 28, 50, 82, 126.</li>
+                        <li><strong>Outer circulation</strong> (larger radius, shallow gradient): the <strong>spherical</strong> quanta — the pattern quanta — organize here. Closure numbers: 2, 10, 18, 36, 54, 86, 118.</li>
                     </ul>
                     
                     <p style="margin: 15px 0;">Different radial zones experience different effective conditions — specifically, the angular momentum gradient (∂L/∂r) is steep near the eyewall and shallow at distance. Different gradients produce different resonance structures, just as a vibrating string under high tension produces different harmonics than one under low tension.</p>
@@ -1271,7 +1271,7 @@
                     
                     <p style="margin: 15px 0;">Specific examples:</p>
                     <ul style="margin: 15px 0; padding-left: 20px;">
-                        <li><strong>Chromium (Mode 24):</strong> \( 3d^5 4s^1 \) not \( 3d^4 4s^2 \) — the 5 d-patterns each with one phase give a spherically symmetric angular momentum distribution. This is LOWER energy than 4 d-patterns + 2 s-patterns because the d-shell symmetry gain exceeds the s-shell energy cost.</li>
+                        <li><strong>Chromium (Mode 24):</strong> \( 3d^5 4s^1 \) not \( 3d^4 4s^2 \) — the 5 d-patterns each with one phase give a spherically symmetric angular momentum distribution. This is LOWER energy than 4 d-patterns + 2 s-patterns because the d-pattern symmetry gain exceeds the s-pattern energy cost.</li>
                         <li><strong>Copper (Mode 29):</strong> \( 3d^{10} 4s^1 \) not \( 3d^9 4s^2 \) — fully-filled d-mode = perfect angular closure, zero net angular asymmetry.</li>
                         <li><strong>Palladium (Mode 46):</strong> \( 4d^{10} 5s^0 \) not \( 4d^8 5s^2 \) — complete d-closure so stable it empties s entirely.</li>
                     </ul>
@@ -1681,7 +1681,7 @@
                     <p style="margin: 15px 0;"><strong>Why \( \alpha \) governs everything electromagnetic:</strong> Every interaction between vortex modes involves the coupling of angular momentum structures. When two modes exchange energy, the strength of that exchange depends on what fraction each quantum represents of the total topology. That fraction is \( \alpha \). It sets the scale of every electromagnetic process:</p>
 
                     <ul style="margin: 15px 0; padding-left: 20px; line-height: 1.8;">
-                        <li><strong>Spectral fine structure:</strong> When an atom emits light, the spectral lines are not perfectly sharp — they are split into closely-spaced doublets. This "fine structure" splitting is proportional to \( \alpha^2 \). Why squared? Because it involves the product of TWO angular momentum couplings: the phase state (spin) coupling to the angular mode (orbital angular momentum), and the angular mode coupling to the radial structure. Each coupling contributes one factor of \( \alpha \). ✓</li>
+                        <li><strong>Spectral fine structure:</strong> When an atom emits light, the spectral lines are not perfectly sharp — they are split into closely-spaced doublets. This "fine structure" splitting is proportional to \( \alpha^2 \). Why squared? Because it involves the product of TWO angular momentum couplings: the phase state (spin) coupling to the angular mode (orbital angular momentum), and the angular mode (l) coupling to the radial (n) structure. Each coupling contributes one factor of \( \alpha \). ✓</li>
                         <li style="margin-top: 10px;"><strong>Lamb shift:</strong> Even finer corrections to atomic energy levels scale as \( \alpha^3 \) and higher powers. These represent higher-order geometric corrections — the mode structure interacting with itself through increasingly subtle topological channels. ✓</li>
                         <li style="margin-top: 10px;"><strong>Anomalous magnetic moment:</strong> A single quantum's intrinsic angular momentum (spin) is not exactly \( \tfrac{1}{2}\hbar \) — it has a tiny correction proportional to \( \alpha/2\pi \). This is the Schwinger correction (1948), and it represents the first-order interaction of a mode with its own vortex structure. In POAMS terms: the fundamental mode's self-knowledge includes not just its ground-state ratio (\( \alpha \)) but corrections from its own internal geometry (\( \alpha/2\pi \), then \( \alpha^2/\pi^2 \), and so on). ✓</li>
                     </ul>
@@ -1767,7 +1767,7 @@
 
                     <ol style="margin: 20px 0; padding-left: 20px; line-height: 2.0;">
 
-                        <li style="margin-top: 12px;"><strong>Mode capacities derived from pure geometry.</strong> Why shells hold 2, 8, 18, 32 quanta: at radial level n, the number of distinct angular momentum configurations is \( 2 \times \sum_{l=0}^{n-1}(2l+1) \).
+                        <li style="margin-top: 12px;"><strong>Mode capacities derived from pure geometry.</strong> Why modes hold 2, 8, 18, 32 quanta: at radial level n, the number of distinct angular momentum configurations is \( 2 \times \sum_{l=0}^{n-1}(2l+1) \).
                             <div style="text-align: center; margin: 10px 0;">
                                 \[ \text{Capacity} = 2n^2 \]
                             </div>
@@ -1781,7 +1781,7 @@
 
                         <li style="margin-top: 12px;"><strong>Redundancy of the strong force.</strong> Not a separate force. Angular momentum conservation through the eyewall: asymptotic freedom at the core, enormous force at the wall — one profile at different radial positions.</li>
 
-                        <li style="margin-top: 12px;"><strong>Redundancy of the weak force.</strong> Not a force carrier exchange. A vortex reorganization — mode restructuring when the angular/radial quanta ratio is wrong. What we call beta decay.</li>
+                        <li style="margin-top: 12px;"><strong>Redundancy of the weak force.</strong> Not a force carrier exchange. A vortex reorganization — mode restructuring when the spherical/planar quanta ratio is wrong. What we call beta decay.</li>
 
                         <li style="margin-top: 12px;"><strong>Coulomb's inverse square law derived.</strong> Angular momentum gradient interaction between vortex outer circulations:
                             <div style="text-align: center; margin: 10px 0;">
@@ -1799,11 +1799,11 @@
                             </div>
                             Mass is not a property conferred by a field. It is the rate of angular change of a vortex system. More angular momentum = more resistance to acceleration. No Higgs required.</li>
 
-                        <li style="margin-top: 12px;"><strong>The stability valley.</strong> Why heavy nuclei need proportionally more radial quanta. Vortex geometry: higher angular modes create more angular momentum, requiring more radial support for stability.</li>
+                        <li style="margin-top: 12px;"><strong>The stability valley.</strong> Why heavy nuclei need proportionally more planar quanta. Vortex geometry: higher modes create more angular momentum, requiring more planar support for stability.</li>
 
                         <li style="margin-top: 12px;"><strong>Mass defect (binding energy).</strong> The angular momentum spent creating the vortex structure itself. Naturally predicts the iron-56 peak and the fusion/fission asymmetry.</li>
 
-                        <li style="margin-top: 12px;"><strong>Isotope stability.</strong> Requires specific angular/radial quanta ratios. Too few radial → underdamped (\( \beta^+ \) decay). Too many → overdamped (\( \beta^- \) decay). Stable isotopes sit at the geometric sweet spot.</li>
+                        <li style="margin-top: 12px;"><strong>Isotope stability.</strong> Requires specific spherical/planar quanta ratios. Too few planar → underdamped (\( \beta^+ \) decay). Too many → overdamped (\( \beta^- \) decay). Stable isotopes sit at the geometric sweet spot.</li>
 
                         <li style="margin-top: 12px;"><strong>Spectral lines (Rydberg formula).</strong> The \( 1/n^2 \) radial dependence from angular momentum confinement:
                             <div style="text-align: center; margin: 10px 0;">
@@ -1811,7 +1811,7 @@
                             </div>
                             Same result Bohr derived, but from vortex geometry instead of ad hoc quantization.</li>
 
-                        <li style="margin-top: 12px;"><strong>Fine structure splitting.</strong> Geometric coupling between the angular harmonic mode (l) and the phase state (leading/lagging). The vortex's angular and radial structure interacting — no mystery, just geometry.</li>
+                        <li style="margin-top: 12px;"><strong>Fine structure splitting.</strong> Geometric coupling between the angular harmonic mode (l) and the phase state (leading/lagging). The mode's angular (l) and radial (n) structure interacting — no mystery, just geometry.</li>
 
                         <li style="margin-top: 12px;"><strong>Chemical bonding derived from mode structure.</strong> Covalent, ionic, metallic bonding all follow from vortex mode coupling. Bond count, type, and geometry from mode structure alone — no molecular Schrödinger equation needed.</li>
 
@@ -2109,7 +2109,7 @@
             26: 'Fifty-six ħ. Maximum binding energy efficiency — the deepest point in the vortex stability curve. Six d-harmonics.',
             27: 'Fifty-nine ħ. Seven d-harmonics. Magnetic vortex coupling. Essential in biological systems.',
             28: 'Fifty-eight ħ. Eight d-harmonics. Highly stable, excellent coupling conductor.',
-            29: 'Sixty-three ħ. ANOMALY: Filled d-harmonics (10) with single 4s — full d-shell stability. Premier conductor.',
+            29: 'Sixty-three ħ. ANOMALY: Filled d-harmonics (10) with single 4s — full d-pattern stability. Premier conductor.',
             30: 'Sixty-five ħ. Complete d-harmonics with filled 4s. Less coupling versatility than other transitions.',
             31: 'Sixty-nine ħ. Begins Mode 4 p-patterns. Liquid near room temperature — weak inter-vortex coupling.',
             32: 'Seventy-three ħ. Metalloid — transitional p-pattern filling. Semiconductor applications.',
@@ -3536,9 +3536,9 @@
                     const v = parseFloat(obsSlider.value);
                     const distMult = 1 + v * 0.05;
                     if (v === 0) {
-                        obsLabel.textContent = 'At shell surface';
+                        obsLabel.textContent = 'At mode surface';
                     } else {
-                        obsLabel.textContent = `${distMult.toFixed(1)}× shell radius — higher modes attenuated by 1/r^(l+1)`;
+                        obsLabel.textContent = `${distMult.toFixed(1)}× mode radius — higher modes attenuated by 1/r^(l+1)`;
                     }
                     // Rebuild with new attenuation
                     if (typeof buildVortex3DForElement === 'function' && selectedElement) {
