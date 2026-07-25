@@ -940,12 +940,12 @@
                     // Frame number
                     ctx.fillStyle = '#c9a84c';
                     ctx.font = '12px monospace';
-                    ctx.fillText(String((filmStripFrame + i) % 100), frameX + 5, frameY + frameHeight + 15);
+                    ctx.fillText(String((Math.floor(filmStripFrame) + i) % 100), frameX + 5, frameY + frameHeight + 15);
                 }
                 
                 // Update status
                 document.getElementById('filmStripStatus').innerHTML = 
-                    `Frame: ${filmStripFrame} | Rate: ${filmStripRate} fps`;
+                    `Frame: ${Math.floor(filmStripFrame)} | Rate: ${filmStripRate} fps`;
             }
             
             function animateFilmStrip() {
