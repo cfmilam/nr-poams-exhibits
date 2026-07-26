@@ -18,7 +18,7 @@
     <style>
         :root {
             --bg-dark: #1a1a2e;
-            --bg-light: #f8f9fa;
+            --bg-light: #faf8f2;
             --text-dark: #e0e0e0;
             --text-light: #2c3e50;
             --accent-gold: #c9a84c;
@@ -452,8 +452,11 @@
     body { padding-top: 44px !important; }
 
     </style>
+<style id="poams-btn-normalize">
+.theme-toggle,#theme-btn{position:fixed !important;top:54px;right:12px;z-index:1200;width:40px;height:40px;padding:0;border:none;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;line-height:1;cursor:pointer;background:var(--accent-gold,var(--accent,var(--gold,#8b6914)));color:var(--bg,var(--bg-dark,var(--bg-primary,#faf8f2)));box-shadow:0 2px 8px rgba(0,0,0,.18);}
+</style>
 </head>
-<body data-theme="dark">
+<body data-theme="light">
 <div id="poams-hub-nav">
   <a href="./balmer-rydberg-poams.html" title="Spectral Lines">← <span class="phn-hide-sm">Spectral Lines</span></a>
   <div class="phn-center">
@@ -465,7 +468,7 @@
   <a href="./twins-paradox.html" title="Twins Paradox"><span class="phn-hide-sm">Twins Paradox</span> →</a>
 </div>
 
-    <button class="theme-toggle" onclick="toggleTheme()">☀️ Light</button>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle light/dark theme">🌙</button>
     
     <div class="container">
         <header>
@@ -712,10 +715,10 @@
             
             if (body.getAttribute('data-theme') === 'dark') {
                 body.setAttribute('data-theme', 'light');
-                themeBtn.textContent = '🌙 Dark';
+                themeBtn.textContent = '🌙';
             } else {
                 body.setAttribute('data-theme', 'dark');
-                themeBtn.textContent = '☀️ Light';
+                themeBtn.textContent = '☀️';
             }
             
             // Redraw chart with new theme

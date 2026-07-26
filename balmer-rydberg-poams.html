@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,8 +39,8 @@
         }
 
         [data-theme="light"] {
-            --bg-dark: #f8f9fa;
-            --bg-darker: #e9ecef;
+            --bg-dark: #faf8f2;
+            --bg-darker: #f0ebe0;
             --accent-gold: #b8860b;
             --accent-blue: #0277bd;
             --text-light: #212529;
@@ -459,8 +459,11 @@
     body { padding-top: 44px !important; }
 
     </style>
+<style id="poams-btn-normalize">
+.theme-toggle,#theme-btn{position:fixed !important;top:54px;right:12px;z-index:1200;width:40px;height:40px;padding:0;border:none;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;line-height:1;cursor:pointer;background:var(--accent-gold,var(--accent,var(--gold,#8b6914)));color:var(--bg,var(--bg-dark,var(--bg-primary,#faf8f2)));box-shadow:0 2px 8px rgba(0,0,0,.18);}
+</style>
 </head>
-<body data-theme="dark">
+<body>
 <div id="poams-hub-nav">
   <a href="./poams-periodic-table.html" title="The Elements">← <span class="phn-hide-sm">The Elements</span></a>
   <div class="phn-center">
@@ -472,7 +475,7 @@
   <a href="./ladder-of-octaves.html" title="Ladder of Octaves"><span class="phn-hide-sm">Ladder of Octaves</span> →</a>
 </div>
 
-    <button class="theme-toggle" onclick="toggleTheme()">🌙/☀️</button>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle light/dark theme">🌙</button>
     
     <header>
         <h1>POAMS Theory</h1>
@@ -1248,9 +1251,10 @@
 
         function toggleTheme() {
             const body = document.body;
-            const currentTheme = body.getAttribute('data-theme');
+            const currentTheme = document.documentElement.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            body.setAttribute('data-theme', newTheme);
+            document.documentElement.setAttribute('data-theme', newTheme);
+            var _tb = document.querySelector('.theme-toggle'); if (_tb) _tb.textContent = newTheme === 'dark' ? '☀️' : '🌙';
             
             // Redraw canvases with new theme
             setTimeout(() => {
