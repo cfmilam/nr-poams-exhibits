@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,6 +32,20 @@
             --border: #2a2a3e;
             --danger: #ff6b6b;
             --success: #51cf66;
+        }
+
+        /* corpus light-default palette (opens light; toggle to dark) */
+        [data-theme="light"] {
+            --bg-primary: #faf8f2;
+            --bg-secondary: #f0ebe0;
+            --bg-tertiary: #e3dcc9;
+            --gold: #8b6914;
+            --blue: #0369a1;
+            --text-primary: #2a2318;
+            --text-secondary: #6b5d48;
+            --border: #d8d0be;
+            --danger: #c0392b;
+            --success: #2e7d32;
         }
 
         body {
@@ -106,7 +120,7 @@
         }
 
         canvas {
-            background: var(--bg-primary);
+            background: #14213e; /* fixed dark viz panel — charts are drawn light-on-dark, legible in both themes */
             border: 2px solid var(--border);
             border-radius: 10px;
             width: 100%;
@@ -472,7 +486,7 @@
   <a href="./quantum-cinematograph.html" title="Quantum Cinematograph"><span class="phn-hide-sm">Quantum Cinematograph</span> →</a>
 </div>
 
-    <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle light/dark theme">🌙</button>
     
     <div class="container">
         <header>
@@ -1448,11 +1462,13 @@
             document.getElementById('agreement').textContent = Math.max(0, agreement).toFixed(1);
         }
 
-        // Theme toggle functionality
+        // Theme toggle — corpus convention: opens light (data-theme="light" on <html>), toggles to dark, no persistence
         function toggleTheme() {
-            // This is a placeholder for theme toggle functionality
-            // In a full implementation, this would switch between light and dark themes
-            console.log('Theme toggle clicked');
+            var h = document.documentElement;
+            var dark = h.getAttribute('data-theme') === 'dark';
+            h.setAttribute('data-theme', dark ? 'light' : 'dark');
+            var b = document.querySelector('.theme-toggle');
+            if (b) b.textContent = dark ? '🌙' : '☀️';
         }
 
         // Initialize everything when the page loads
