@@ -27,7 +27,7 @@
     <style>
         :root {
             --bg-dark: #1a1a2e;
-            --bg-light: #f8f9fa;
+            --bg-light: #faf8f2;
             --text-dark: #e0e0e0;
             --text-light: #2c3e50;
             --accent-gold: #c9a84c;
@@ -1242,7 +1242,7 @@
                     
                     <p style="margin: 15px 0; font-weight: bold;"><strong>No Schrödinger equation. No Hamiltonian. No boundary conditions.</strong> Just: how many distinct angular momentum configurations can coexist at a given radial level of a vortex in 3-space? The answer is \( 2n^2 \). The conventional result falls out of geometry alone.</p>
                     
-                    <p style="margin: 15px 0; font-weight: bold;">Deriving the Filling Order from Vortex Geometry</p>
+                    <p style="margin: 15px 0; font-weight: bold;">Motivating the Filling Order from Vortex Geometry (Not Yet Deriving It)</p>
                     
                     <p style="margin: 15px 0;">In a vortex, the energy of a mode depends on TWO things:</p>
                     <ol style="margin: 15px 0; padding-left: 20px;">
@@ -1250,9 +1250,9 @@
                         <li><strong>Angular complexity l</strong> — number of angular nodes (kinetic energy increases with node count)</li>
                     </ol>
                     
-                    <p style="margin: 15px 0;">A vortex mode's total energy = radial confinement cost (\( \propto n \)) + angular complexity cost (\( \propto l \)). The simplest quantity capturing both is \( n + l \). When \( n + l \) is equal for two submodes, the one at smaller radius (lower n) fills first — angular momentum closer to the barycenter is lower energy.</p>
+                    <p style="margin: 15px 0;">A vortex mode's total energy rises with both radial extent and angular complexity, and the simplest combination capturing both is \( n + l \); when \( n + l \) is equal for two submodes, the one at smaller radius (lower n) fills first. But this is a <em>motivation</em>, not a derivation: writing the two costs as linear \( \propto n \) and \( \propto l \) and adding them is an assumption, not a result of vortex bookkeeping — the functionals the dynamics actually produces are \( 1/n^2 \) (radial, and \( l \)-degenerate) and \( l(l+1) \) (angular), which <em>bracket</em> \( n+l \) without forcing it. So what follows reproduces the order; it does not yet compute it.</p>
                     
-                    <p style="margin: 15px 0;">This geometric derivation produces the EXACT observed filling order:</p>
+                    <p style="margin: 15px 0;">Under this \( (n+l) \) heuristic the observed filling order reads off directly:</p>
                     <ul style="margin: 15px 0; padding-left: 20px; font-family: monospace;">
                         <li><strong>\( n+l=1 \):</strong> 1s</li>
                         <li><strong>\( n+l=2 \):</strong> 2s</li>
@@ -1263,7 +1263,7 @@
                         <li><strong>\( n+l=7 \):</strong> 4f, 5d, 6p, 7s</li>
                     </ul>
                     
-                    <p style="margin: 15px 0;">This is NOT importing Madelung's rule — this is <em>deriving</em> Madelung from vortex physics. Conventional QM discovers this empirically and has no first-principles derivation. The vortex model PREDICTS it from two physical quantities: radial distance + angular complexity.</p>
+                    <p style="margin: 15px 0;">This <em>motivates</em> Madelung from vortex quantities rather than importing it blind — it shows \( n+l \) is the natural combination of the two costs — but it does <strong>not</strong> yet <em>derive</em> the ordering from vortex energetics, and should not be read as doing so. Conventional QM is in the same position: the \( (n+l) \) rule is semi-empirical, its analytic derivation Löwdin's open problem since 1969. What would genuinely close the gap is computing the inter-harmonic circulation coupling that lifts the \( 1/n^2 \) \( l \)-degeneracy by the observed order-1 amount — the frontier framed just below in <em>One Ladder, Two \( l \)-Lifts</em>.</p>
                     
                     <h4 style="color: var(--accent-gold); margin: 20px 0 10px 0;">Anomalous Configurations: Geometric Stability of Half-Filled and Fully-Filled Harmonic Patterns</h4>
                     
@@ -1279,6 +1279,23 @@
                     <p style="margin: 15px 0;">The principle: <strong>Angular symmetry minimizes energy.</strong> A half-filled submode has one quantum in each of the (2l+1) orientations — uniform distribution. A fully-filled submode has both phases in each orientation — complete cancellation of angular asymmetry. These are geometric energy minima.</p>
                     
                     <p style="margin: 15px 0;">This is STRONGER than the QM explanation (which invokes "exchange energy" — a computational artifact of antisymmetrization). In POAMS, it's direct: symmetric distributions of angular momentum in a vortex have lower energy than asymmetric ones.</p>
+                </div>
+
+                <!-- Bridge: One Ladder, Two l-Lifts (fuses fine-structure + Madelung honest boundary; Opus doctrine sign-off + Sol adversarial pass 2026-07-26) -->
+                <div style="margin-bottom: 40px; padding: 25px; background: var(--card); border-radius: 10px; border-left: 5px solid var(--accent-blue);">
+                    <h3 style="color: var(--accent-blue); margin-bottom: 20px;">One Ladder, Two l-Lifts: How Fine Structure and Chemistry Break the Same Degeneracy</h3>
+
+                    <p style="margin: 15px 0;">The spectrum POAMS derives is the gross \( 1/n^2 \) ladder, \( E_n = mc^2(1-1/n^2) \) — an energy that depends on the radial mode \( n \) <em>alone</em>. To that level of approximation every angular harmonic \( l \) at a given \( n \) rides the same rung: the gross ladder is <strong>\( l \)-degenerate</strong>. That degeneracy is a feature of the \( 1/n^2 \) <em>approximation</em>, not of the full vortex — additional angular-momentum bookkeeping lifts it. And it is lifted in two very different ways: an \( \alpha^2 \)-tiny lift and an order-1 lift.</p>
+
+                    <p style="margin: 15px 0;"><strong>The small lift — fine structure.</strong> Within a rung, states of different \( (l,\ \text{phase-sense}) \) sit at fractionally different energies. POAMS derives the <em>mechanism</em>: the geometric coupling of a mode&rsquo;s angular harmonic \( l \) to its phase-sense (leading/lagging) circulation — a twist&ndash;writhe coupling, a second Pythagorean nesting of time-flows inside the first, hence a second-order, &ldquo;\( \alpha^2 \)-shaped&rdquo; effect (Section 14 below). This lift already exists for a <em>single</em> harmonic — nothing else need be present. Its mechanism is derived; its one magnitude is a flat direction (Section 14).</p>
+
+                    <p style="margin: 15px 0;"><strong>The large lift — the chemistry lift (core-penetration / screening).</strong> In a populated core, different \( l \)-harmonics settle at different natural-orbit radii and therefore overlap differently with the core&rsquo;s own circulation; the result is an <em>order-unity</em> separation of different \( l \) at the same \( n \). This is the lift that would reorder the ladder into the observed filling sequence — the \( (n+l) \) / Madelung ordering, with its period doubling \( 8,8\,/\,18,18\,/\,32,32 \). But naming the effect is not deriving it: the observed lift requires an explicit inter-harmonic circulation-coupling functional, and POAMS <strong>has not yet derived that functional, its sign, or the \( (n+l) \) ordering from it</strong>. Here the exhibit <em>restates</em> the ordering (the honest boundary in the Harmonic Mode Physics panel); it does not compute it.</p>
+
+                    <p style="margin: 15px 0;"><strong>The point — one degeneracy, two different lifts of it.</strong> Standard physics files these as unrelated animals: fine structure a &ldquo;relativistic spin-orbit&rdquo; correction, chemical screening an &ldquo;electrostatic many-body&rdquo; effect. POAMS places both in <em>one broad bookkeeping class</em> — additional angular-momentum couplings that resolve the gross ladder&rsquo;s \( l \)-degeneracy. That is a <em>classification, not a shared mechanism</em>: the unity is categorical. One lift is an intrinsic single-harmonic twist&ndash;writhe coupling; the other cannot exist without coupling between an \( l \)-harmonic and populated-core circulation. The small lift has a derived mechanism with an unfixed scale; the large lift still lacks both its explicit inter-harmonic functional and its derived ordering.</p>
+
+                    <p style="margin: 15px 0;"><strong>Guardrail — category, not magnitude, and not one mechanism.</strong> These are two <em>different</em> lifts, not one term wearing two masks. Fine structure is \( \alpha^2 \)-tiny and survives with a single harmonic; the chemistry lift is order-1 and needs a populated core. Nothing here sets one by the other — to identify the two sizes, or to <em>assume</em> a single functional produces both, would be precisely the numerology POAMS refuses (the Wyler error). What the two share is only the thing they act on: one \( l \)-degeneracy of the gross ladder.</p>
+
+                    <p style="margin: 15px 0;"><strong>What it buys — two hedges, one coordinated frontier.</strong> The exhibit has been carrying two separately-flagged admissions: the fine-structure magnitude &ldquo;not forced,&rdquo; and the \( (n+l) \) ordering &ldquo;not derived.&rdquo; Read as two resolutions of one degeneracy, they become a coordinated target rather than scattered caveats: <strong>first, identify the populated-core inter-harmonic circulation functional that produces the order-1 lift</strong> (its functional form, its sign, and the ordering it implies); <strong>then test whether its weak-coupling limit shares any geometry with the already-derived fine-structure mechanism.</strong> That is a sharper program than either hedge alone — and it is careful to promise a <em>test</em> of common geometry, not to assume one.</p>
                 </div>
 
                 <!-- Section 6: Transmutation -->
@@ -2220,7 +2237,7 @@
         }).sort((a, b) => a.n - b.n);
 
         let selectedElement = elements[0];
-        let currentTheme = localStorage.getItem('poams-theme') || 'dark';
+        let currentTheme = 'light';  // corpus light-default: always opens light (theme not persisted; tab selection still persisted below)
         
         // 3D Spiral visualization state
         let spiral3D = {
@@ -2515,7 +2532,7 @@
 
                 // Scene
                 vortex3D.scene = new THREE.Scene();
-                const bgColor = currentTheme === 'dark' ? '#1a1a2e' : '#f8f9fa';
+                const bgColor = currentTheme === 'dark' ? '#1a1a2e' : '#faf8f2';
                 vortex3D.scene.background = new THREE.Color(bgColor);
 
                 // Camera
@@ -2728,7 +2745,7 @@
                 
                 // Scene setup
                 spiral3D.scene = new THREE.Scene();
-                const bgColor = currentTheme === 'dark' ? '#1a1a2e' : '#f8f9fa';
+                const bgColor = currentTheme === 'dark' ? '#1a1a2e' : '#faf8f2';
                 spiral3D.scene.background = new THREE.Color(bgColor);
                 
                 // Camera setup
@@ -3185,7 +3202,7 @@
         function update3DTheme() {
             if (!spiral3D.scene || !spiral3D.renderer) return;
             
-            const bgColor = currentTheme === 'dark' ? '#1a1a2e' : '#f8f9fa';
+            const bgColor = currentTheme === 'dark' ? '#1a1a2e' : '#faf8f2';
             spiral3D.scene.background.setHex(bgColor.replace('#', '0x'));
             
             // Update spiral path color
@@ -3277,7 +3294,7 @@
             update3DTheme();
             // Update vortex 3D theme
             if (vortex3D.scene) {
-                const bgColor = currentTheme === 'dark' ? '#1a1a2e' : '#f8f9fa';
+                const bgColor = currentTheme === 'dark' ? '#1a1a2e' : '#faf8f2';
                 vortex3D.scene.background = new window.THREE.Color(bgColor);
             }
         }
