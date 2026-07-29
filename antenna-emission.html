@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POAMS: The Antenna, Demystified — Radio Emission as Angular-Momentum Bookkeeping</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+    svg: { fontCache: 'global' }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+:root{
+  --bg:#1a1a2e; --bg2:#16213e; --bg3:#0f172a;
+  --surface:rgba(255,255,255,0.04); --surface2:rgba(255,255,255,0.07);
+  --border:rgba(255,255,255,0.08);
+  --fg:#e8e4d8; --fg2:#a09880;
+  --gold:#c9a84c; --gold2:#e8c96a; --blue:#4fc3f7; --red:#e8735a;
+  --radius:12px; --shadow:0 8px 32px rgba(0,0,0,0.4); --shadow-h:0 16px 48px rgba(201,168,76,0.15);
+  --transition:all .3s cubic-bezier(.4,0,.2,1);
+}
+[data-theme="light"]{
+  --bg:#faf8f2; --bg2:#f0ebe0; --bg3:#e8e2d4;
+  --surface:rgba(0,0,0,0.03); --surface2:rgba(0,0,0,0.06); --border:rgba(0,0,0,0.10);
+  --fg:#2a2318; --fg2:#6b5d48; --gold:#8b6914; --gold2:#6b5210; --blue:#0369a1; --red:#b4462f;
+  --shadow:0 8px 32px rgba(0,0,0,0.10); --shadow-h:0 16px 48px rgba(139,105,20,0.15);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--fg);line-height:1.7;font-size:16px;transition:background .4s ease,color .4s ease}
+#theme-btn{position:fixed;top:1.2rem;right:1.4rem;z-index:500;background:var(--gold);border:none;color:var(--bg);width:40px;height:40px;border-radius:8px;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:var(--transition)}
+#theme-btn:hover{transform:rotate(20deg)}
+.back{position:fixed;top:1.3rem;left:1.4rem;z-index:500;font-size:.8rem;color:var(--fg2);text-decoration:none;letter-spacing:.05em;transition:color .2s}
+.back:hover{color:var(--gold)}
+.section{max-width:1000px;margin:0 auto;padding:0 2rem}
+/* hero */
+.hero{position:relative;padding:7rem 2rem 4rem;text-align:center;overflow:hidden;background:linear-gradient(160deg,var(--bg3) 0%,var(--bg2) 50%,var(--bg) 100%)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(201,168,76,.12) 0%,transparent 70%),radial-gradient(ellipse 40% 30% at 80% 80%,rgba(79,195,247,.06) 0%,transparent 60%);pointer-events:none}
+.hero-eyebrow{font-size:.75rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;opacity:.85}
+.hero h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2.6rem,6vw,4.6rem);font-weight:300;line-height:1.12;letter-spacing:-.01em;color:var(--fg);margin-bottom:1.2rem}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero-sub{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1.05rem,2vw,1.4rem);font-weight:300;font-style:italic;color:var(--fg2);max-width:660px;margin:0 auto 2rem;line-height:1.6}
+.hero-meta{font-size:.85rem;color:var(--fg2);letter-spacing:.05em}
+.hero-meta strong{color:var(--gold);font-weight:500}
+/* bands */
+.band{padding:4rem 0;border-top:1px solid var(--border)}
+.band.alt{background:var(--bg2)}
+.eyebrow{font-size:.72rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.85;margin-bottom:.9rem}
+h2.head{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:400;color:var(--fg);line-height:1.2;margin-bottom:1.2rem}
+h3.sub{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1.3rem,2.4vw,1.7rem);font-weight:400;color:var(--fg);margin:1.6rem 0 .6rem}
+p{font-size:1rem;color:var(--fg2);margin-bottom:1.1rem;max-width:760px}
+p strong{color:var(--fg);font-weight:600}
+p em{color:var(--gold2);font-style:italic}
+.lead{font-size:1.12rem;color:var(--fg);max-width:780px}
+/* touchstone */
+.touchstone{max-width:780px;margin:0 auto;background:var(--surface);border:1px solid var(--border);border-top:3px solid var(--gold);border-radius:var(--radius);padding:2.2rem 2.4rem;box-shadow:var(--shadow)}
+.touchstone p:last-child{margin-bottom:0}
+/* two-column compare */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin:1.5rem 0}
+@media(max-width:760px){.compare{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem 1.7rem}
+.card.old{border-left:3px solid var(--red)}
+.card.new{border-left:3px solid var(--gold)}
+.card .tag{font-size:.68rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;margin-bottom:.7rem}
+.card.old .tag{color:var(--red)}
+.card.new .tag{color:var(--gold)}
+.card h4{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.35rem;font-weight:400;color:var(--fg);margin-bottom:.6rem}
+.card p{font-size:.92rem;margin-bottom:.7rem}
+.card p:last-child{margin-bottom:0}
+/* steps */
+.steps{position:relative;margin-top:1.5rem}
+.steps::before{content:'';position:absolute;left:26px;top:20px;bottom:20px;width:2px;background:linear-gradient(to bottom,var(--gold),rgba(201,168,76,.1))}
+@media(max-width:680px){.steps::before{left:17px}}
+.step{display:grid;grid-template-columns:56px 1fr;gap:0 1.4rem;padding:1.5rem 0}
+.step .num{width:54px;height:54px;border-radius:50%;border:2px solid var(--gold);background:var(--bg);color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:1.4rem;display:flex;align-items:center;justify-content:center;position:relative;z-index:1}
+.step .lbl{font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);opacity:.75;margin-bottom:.3rem}
+.step h3{font-family:'Cormorant Garamond',serif;font-size:clamp(1.3rem,2.3vw,1.7rem);font-weight:400;color:var(--fg);margin-bottom:.5rem;line-height:1.2}
+@media(max-width:680px){.step{grid-template-columns:44px 1fr;gap:0 1rem}.step .num{width:42px;height:42px;font-size:1.15rem}}
+/* eq */
+.eq{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.3rem 1.6rem;margin:1.2rem 0;overflow-x:auto}
+.eq .cap{font-size:.85rem;color:var(--fg2);margin-top:.6rem;margin-bottom:0}
+/* figure */
+.figwrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.2rem;margin:1.5rem auto;max-width:760px}
+canvas{width:100%;height:auto;display:block;border-radius:8px;background:radial-gradient(ellipse at center,rgba(79,195,247,.05),transparent 70%)}
+.figcap{font-size:.85rem;color:var(--fg2);margin-top:.9rem;text-align:center;font-style:italic}
+.pill-row{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;margin-top:.8rem;font-size:.8rem;color:var(--fg2)}
+.pill-row span{display:inline-flex;align-items:center;gap:.4rem}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+/* callout */
+.callout{background:linear-gradient(135deg,rgba(201,168,76,.08),rgba(79,195,247,.05));border:1px solid rgba(201,168,76,.25);border-radius:var(--radius);padding:1.6rem 1.8rem;margin:1.5rem 0}
+.callout p{color:var(--fg);margin-bottom:.6rem}
+.callout p:last-child{margin-bottom:0}
+.expts{max-width:760px;margin:.2rem 0 1.1rem;padding-left:1.15rem}
+.expts li{font-size:.96rem;color:var(--fg2);margin-bottom:.55rem;line-height:1.6}
+.expts li strong{color:var(--fg)}
+.quote{border-left:3px solid var(--gold);padding:.4rem 0 .4rem 1.1rem;margin:1.1rem 0;font-style:italic;color:var(--fg);max-width:760px}
+/* scope table */
+.scope{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.92rem}
+.scope th,.scope td{text-align:left;padding:.8rem 1rem;border-bottom:1px solid var(--border);vertical-align:top}
+.scope th{color:var(--gold);font-weight:600;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase}
+.scope td:first-child{color:var(--fg);font-weight:500;width:34%}
+.scope td{color:var(--fg2)}
+/* footer */
+footer{background:var(--bg3);border-top:1px solid var(--border);padding:3rem 2rem;text-align:center;margin-top:2rem}
+.footer-inner{max-width:700px;margin:0 auto}
+.footer-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;font-style:italic;color:var(--gold);margin-bottom:.8rem}
+.footer-names{font-size:.95rem;color:var(--fg);margin-bottom:.5rem}
+.footer-names strong{color:var(--gold);font-weight:500}
+.footer-tagline{font-size:.8rem;color:var(--fg2);letter-spacing:.08em;margin-bottom:1.5rem}
+.footer-links{display:flex;justify-content:center;gap:1.4rem;flex-wrap:wrap}
+.footer-links a{font-size:.82rem;color:var(--fg2);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--gold)}
+.divider{max-width:200px;margin:2rem auto;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent);opacity:.35}
+</style>
+</head>
+<body>
+<a class="back" href="./index.html">← The Collection</a>
+<button id="theme-btn" title="Toggle theme">🌙</button>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Normal Realism · POAMS · Electromagnetism</div>
+  <h1>The Antenna,<br><em>Demystified</em></h1>
+  <p class="hero-sub">A powered antenna does not fling energy into empty space. It keeps a ledger. Radio emission restated as angular momentum balancing its books — no field in a void, no particle in flight, no magic.</p>
+  <p class="hero-meta"><strong>POAMS</strong> &ensp;·&ensp; Pope–Osborne Angular Momentum Synthesis &ensp;·&ensp; radio emission</p>
+</section>
+
+<!-- TOUCHSTONE -->
+<section class="band alt">
+  <div class="section">
+    <div class="touchstone">
+      <div class="eyebrow">The Touchstone · How to read this</div>
+      <p>Every claim here must cash out as <strong>angular momentum keeping its books</strong> — a real circulation, a winding or a twist, a phase that advances. If a step needs a <em>field standing in empty space</em>, a <em>particle crossing a void</em>, or a <em>force reaching across a gap</em>, it has smuggled the old stage back in and must be refused.</p>
+      <p>One scope note up front, stated plainly. Most of antenna engineering's arithmetic — radiation pattern, gain, resonance — is <strong>correct</strong> observer-time bookkeeping and stays correct; POAMS supplies what it is <em>about</em>. But there is one place where the field picture is not merely mispictured but <strong>empirically incomplete</strong> — the <em>longitudinal</em> force it cannot represent — and the corpus is emphatic about it. That crucial inconsistency is faced squarely below, not papered over.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY BLACK MAGIC -->
+<section class="band">
+  <div class="section">
+    <div class="eyebrow">The Problem</div>
+    <h2 class="head">Why antennas feel like black magic</h2>
+    <p class="lead">Feed alternating current into a bare metal rod and — somehow — a room away, another bare rod stirs. Nothing visible connects them. The textbook account, faithfully applied, works beautifully and explains nothing you can picture:</p>
+    <div class="compare">
+      <div class="card old">
+        <div class="tag">The conventional picture</div>
+        <h4>Charge shakes a void</h4>
+        <p>An oscillating <em>current</em> — charge accelerating up and down the rod — sets up a time-varying electric field. A changing electric field makes a magnetic field; a changing magnetic field remakes the electric one. This self-chasing pair <em>detaches</em> from the antenna and propagates through empty space at $c$, carrying energy to the horizon.</p>
+        <p>The mysteries left on the table: <strong>What</strong> is waving, and <strong>in what</strong>? How does a wire "let go" of a field into nothing? Why does the near field cling but the far field leave? Where does <em>radiation resistance</em> — a real load the transmitter must drive — come from, if the rod pushes against vacuum?</p>
+      </div>
+      <div class="card new">
+        <div class="tag">The POAMS picture</div>
+        <h4>Accumulators keep a ledger</h4>
+        <p>There is one substance — angular momentum — and it is <strong>conserved</strong>. The conductor is a lattice of tiny AM accumulators (its electrons, each a vortex whose intrinsic spin-sense we <em>call</em> "charge"). Driving the antenna does not shove charge through emptiness; it <strong>advances and reverses their collective phase</strong>, banking and unbanking angular momentum.</p>
+        <p>What "radiates" is not a thing thrown into a void. It is the ledger balancing: AM handed off from accumulators here to accumulators elsewhere. The far field is simply the portion whose books <em>can only close</em> by being taken up somewhere else. Nothing crosses a gap that isn't already the one substance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FIGURE -->
+<section class="band alt">
+  <div class="section">
+    <div class="eyebrow">A picture worth keeping</div>
+    <h2 class="head">Not a wave <em>in</em> space — a pattern <em>of</em> phase</h2>
+    <p>The dipole below is driven at its resonance. Watch what actually happens in the POAMS reading: the rod's accumulators advance their phase together, hand off quanta, and the surrounding one-substance re-organizes into an expanding pattern of <em>rotational time</em>. The rings are not stuff flying outward — they are where the phase-ledger reads the same value. The apparent outward "speed" is the exchange rate $c$ between the space-measure and the time-measure of that ledger, not a rim of anything crossing a stage.</p>
+    <div class="figwrap">
+      <canvas id="dipole" width="720" height="360" aria-label="Oscillating dipole shedding phase rings"></canvas>
+      <div class="pill-row">
+        <span><span class="dot" style="background:var(--gold)"></span> phase-advance of accumulators (the "current")</span>
+        <span><span class="dot" style="background:var(--blue)"></span> banked / handed-off AM (the transverse "field")</span>
+        <span><span class="dot" style="background:var(--gold2)"></span> longitudinal instantaneous hand-off → absorber</span>
+      </div>
+      <p class="figcap">An oscillating dipole read as a phase-ledger. The rings are iso-phase surfaces of the one substance, not matter in motion — read the rate (rad/s), never a rim-speed (m/s). The dashed line is the <em>longitudinal, instantaneous</em> emitter→absorber hand-off that Maxwell's purely transverse wave omits.</p>
+    </div>
+  </div>
+</section>
+
+<!-- THE REFRAME -->
+<section class="band">
+  <div class="section">
+    <div class="eyebrow">The Reframe</div>
+    <h2 class="head">Radio emission, rebuilt from the substance</h2>
+    <div class="steps">
+
+      <div class="step">
+        <div class="num">1</div>
+        <div>
+          <div class="lbl">Refuse the stage</div>
+          <h3>No charge-thing, no field-in-void</h3>
+          <p>"Charge" is not a substance the rod contains. It is the <strong>sign of intrinsic spin</strong> — the sense in which a vortex winds, $\oint d\varphi = \pm 2\pi n$. Coulombs are cashed out as the kinetic energy of that spin, in joules. So a conductor is not a pipe full of charge; it is a dense population of angular-momentum accumulators, each keeping its own books.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num">2</div>
+        <div>
+          <div class="lbl">What "current" really is</div>
+          <h3>A coordinated advance of phase</h3>
+          <p>An electric current is not marbles rolling down a tube. It is the accumulators' phase <em>advancing together</em> — the same mechanism POAMS uses to drive spin coherently in the YIG experiment. Alternating current at radio frequency is that phase <strong>advanced and reversed, cyclically</strong>: the antenna's ledger is written forward, erased, written backward, millions to billions of times a second. Ask for the phase rate, not a drift speed.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num">3</div>
+        <div>
+          <div class="lbl">The elementary event</div>
+          <h3>Emission is a hand-off — a <em>photum</em></h3>
+          <p>The irreducible act is one quantum $h$ <strong>lost by one accumulator and gained by another</strong> — Pope's <em>photum</em>, not a "photon" particle in flight. Intrinsically, in its own proper time, that transfer is <strong>instantaneous</strong>; there is no little packet crossing the room with energy to spare for the trip. A "radio wave" is the statistical envelope of astronomically many such hand-offs, and only in that observer-time statistics does the transfer appear time-delayed.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num">4</div>
+        <div>
+          <div class="lbl">What $c$ is</div>
+          <h3>An exchange rate, not a speed</h3>
+          <p>$c$ is a <strong>dimensional conversion factor</strong> relating the unit of observed distance to the unit of observed time — not the velocity of a thing crossing space. The "wave travelling at $c$" is the ledger's space-measure and time-measure locked by that exchange rate. This is why the far-field delay $t = r/c$ is exact <em>and</em> why nothing needs to physically fly the distance: the delay is the accounting, not a journey.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num">5</div>
+        <div>
+          <div class="lbl">Near vs far</div>
+          <h3>Bound books vs balanced-elsewhere books</h3>
+          <p>The <strong>near field</strong> is AM still bound to the rod's own accumulators — banked, reactive, returned each cycle; energy that never left the local ledger. The <strong>far field</strong> is the fraction whose books <em>cannot</em> close locally and only balance when another accumulator, anywhere, takes the hand-off. "Detachment" is not a field ripping free of a wire; it is the point beyond which conservation can only be satisfied non-locally.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num">6</div>
+        <div>
+          <div class="lbl">Why length ≈ λ/2</div>
+          <h3>The ledger must close on the structure</h3>
+          <p>A resonant antenna is $\ell \approx \lambda/2$ for the same reason a spectral line is where it is: the phase-winding has to <strong>close its books on the structure</strong> — a standing pattern of angular momentum, an integer accounting. "Impedance matching" is nothing more exotic than <em>ledger matching</em>: letting the drive's books and the accumulators' books balance so hand-offs proceed without reflection.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num">7</div>
+        <div>
+          <div class="lbl">The load from nowhere</div>
+          <h3>Radiation resistance is the bill</h3>
+          <p>The transmitter feels a genuine load — <em>radiation resistance</em> — even into "empty" space. In POAMS this is no puzzle: the accumulators keep handing angular momentum <strong>outward and not returning it</strong>, so the drive must keep resupplying it. The resistance is the <strong>conservation bill</strong> for AM leaving the local ledger — the exact analogue of weight being "the bill for standing off your natural orbit." Not friction against vacuum; bookkeeping.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num">8</div>
+        <div>
+          <div class="lbl">Symmetry &amp; polarization</div>
+          <h3>Reciprocity, because a ledger runs both ways</h3>
+          <p>An antenna receives with exactly the pattern it transmits. Of course: banking and unbanking are one transaction run forward or backward. <strong>Polarization</strong> is simply the <em>twist-sense</em> of the transacted angular momentum — the same phase-sign that stood in for "charge" in step 1, now carried by the hand-off itself.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- THE CRUCIAL INCONSISTENCY -->
+<section class="band" id="longitudinal">
+  <div class="section">
+    <div class="eyebrow">The Crucial Inconsistency · why this is more than a restatement</div>
+    <h2 class="head">The force Maxwell's field cannot hold</h2>
+    <p class="lead">It would be too easy to say POAMS merely re-narrates Maxwell. The corpus presses a sharper, older charge — and it lands with special force on an <em>antenna</em>, because an antenna is nothing but a driven conductor, and the driven conductor is exactly where the field theory is caught short.</p>
+
+    <h3 class="sub">Maxwell's wave has no length</h3>
+    <p>In the electrodynamics of Faraday and Maxwell the radiated wave is <strong>purely transverse</strong>: the electric and magnetic vectors sit at right angles to each other and to the line of travel. <em>There is no longitudinal vector to the wave</em> — nothing directed <strong>along</strong> the line joining emitter and absorber. Yet that line is precisely where the real connection lives. Maxwell kept the sideways “bumpety-bump” and discarded the end-to-end link — then had it propagate through a vacuum in which, by definition, there is nothing to wave.</p>
+
+    <h3 class="sub">…but the laboratory keeps producing longitudinal forces</h3>
+    <p>Ampère's <em>original</em> force law between current elements carried a longitudinal term — a push-and-pull <strong>along</strong> the wire. The later Grassmann–Biot–Savart–Lorentz form that Maxwell's theory inherited drops it. For the net force on a <em>separate</em> circuit the two agree, which is why the omission hid for a century; but <strong>within</strong> a conductor they disagree — and there the experiments side with Ampère:</p>
+    <ul class="expts">
+      <li><strong>Exploding wires</strong> rupture in <em>tension</em>, snapping into segments as if pulled apart lengthwise — an Ampère longitudinal stress the Lorentz force does not predict.</li>
+      <li><strong>Rail and cannon recoil</strong> shows longitudinal reaction on the fixed conductor that the field-momentum account struggles to book.</li>
+      <li><strong>Graneau's water-arc</strong> experiments jet water explosively <em>along</em> the current path — longitudinal force made visible.</li>
+    </ul>
+    <p class="quote">“The manifest existence of longitudinal electrodynamic forces which have no representation in modern textbooks is cause enough for a thorough re-evaluation of the subject.” &mdash; Neal Graneau</p>
+    <p>Neither the Lorentz force nor the field-energy concept, the corpus argues, is fully consistent with these simple laboratory results.</p>
+
+    <div class="callout">
+      <p><strong>The tell, and the resolution.</strong> Maxwell's equations are also not invariant under a plain Galilean change of frame — the very defect that pushed Einstein into Special Relativity. POAMS reads that non-invariance not as a summons to reshape space and time, but as the <em>signature of a wrong ontology</em>: a field-in-a-void that never was there. The repair is to return to the <strong>direct-action, non-field electrodynamics of Ampère, Neumann, Weber and Helmholtz</strong> — Galilean-invariant, instantaneous, free of the self-energy infinities that plague field theory, and later preferred in the direct-action work of Feynman and Wheeler.</p>
+    </div>
+
+    <h3 class="sub">Why this <em>completes</em> the antenna picture</h3>
+    <p>The longitudinal connection the field theory threw away is exactly the <strong>hand-off</strong> of steps 3–7: the instantaneous, end-to-end transfer of angular momentum from emitter-accumulator to absorber-accumulator, directed <em>along</em> the line between them, in the proper time of the transaction. The finite-$c$ transverse wave is the <strong>local, observer-time</strong> cinematic sequence of quantum stills; the instantaneous longitudinal link is the <strong>non-local</strong> reality that sequence is <em>of</em>. Maxwell described the film; the longitudinal hand-off is the projector. An antenna needs both — and only one of them is in the textbook.</p>
+  </div>
+</section>
+
+<!-- EQUATIONS -->
+<section class="band alt" id="eqs">
+  <div class="section">
+    <div class="eyebrow">The bookkeeping, in symbols</div>
+    <h2 class="head">Same equations, honest referents</h2>
+    <p>POAMS keeps antenna engineering's equations and re-reads what each symbol <em>is</em>. A few anchors:</p>
+
+    <div class="eq">
+      $$ \text{“charge”} \;\longleftrightarrow\; \oint d\varphi = \pm 2\pi n \qquad\Longrightarrow\qquad q\,[\text{C}] \;\text{cashed out as spin energy}\;[\text{J}] $$
+      <p class="cap">Charge is the sign and count of intrinsic winding, not a stored fluid.</p>
+    </div>
+
+    <div class="eq">
+      $$ \Delta E = h\nu \quad\text{— one photum: banked by emitter, un-banked by absorber} $$
+      <p class="cap">The elementary event is a transfer of a quantum between accumulators — intrinsically instantaneous; time-delayed only in the statistics of many.</p>
+    </div>
+
+    <div class="eq">
+      $$ s = c\,t \qquad [\,c\,] = \frac{\text{unit of observed distance}}{\text{unit of observed time}} $$
+      <p class="cap">$c$ is a units bridge, so the far-field delay $t=r/c$ is exact <em>without</em> anything travelling. This is Einstein's "velocity of light in vacuo" recognised as a conversion factor.</p>
+    </div>
+
+    <div class="eq">
+      $$ \ell \approx \tfrac{1}{2}\lambda \qquad\Longleftrightarrow\qquad \text{phase-winding closes on the structure (an integer ledger)} $$
+      <p class="cap">Resonant length and impedance match are ledger-closure conditions, kin to the standing-wave arithmetic that fixes a spectral line.</p>
+    </div>
+
+    <div class="callout">
+      <p><strong>The Larmor reading.</strong> Conventionally, radiated power goes as the square of a charge's acceleration, $P \propto \dot{\;}\!\!\ddot{q}^{\,2}$. POAMS keeps the number and renames the cause: there is no charge being <em>accelerated through space</em>. The rate that matters is the <strong>second rate of change of the accumulators' phase</strong> — how sharply the banking is being driven — and the radiated power is the <strong>angular momentum shed outward per unit time</strong>. Power out = AM leaving the ledger; nothing is thrown, something is handed on.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SCOPE -->
+<section class="band">
+  <div class="section">
+    <div class="eyebrow">Honest scope</div>
+    <h2 class="head">What changes — and what does not</h2>
+    <p>Kept plain, so the exhibit passes its own touchstone:</p>
+    <table class="scope">
+      <tr><th>Question</th><th>Answer</th></tr>
+      <tr><td>Do the engineering equations change?</td><td>Mostly no — radiation pattern, gain, resonance and radiation resistance stand as correct observer-time statistics. The <strong>one substantive exception is the force law</strong>: POAMS follows Ampère's original (longitudinal-carrying, Galilean-invariant, direct-action) form over the Grassmann–Lorentz form, matching the exploding-wire and water-arc results.</td></tr>
+      <tr><td>What is the crucial inconsistency?</td><td>Maxwell's purely transverse field has <em>no longitudinal vector</em>, yet longitudinal forces are experimentally manifest in conductors (Ampère / Graneau) and the true emitter→absorber hand-off is longitudinal and instantaneous. The field theory discarded exactly the component that carries the physics.</td></tr>
+      <tr><td>What is being replaced?</td><td>The <em>ontology</em>: field-in-a-void, charge-as-substance, and photon-particle-in-flight are refused — and the field <em>formulation</em> itself gives way to direct-action (Ampère–Weber–Helmholtz) electrodynamics. In their place: one substance (angular momentum) keeping conserved books.</td></tr>
+      <tr><td>Is this a new quantitative prediction?</td><td>No — this exhibit is a <strong>restatement</strong>, not a fresh derivation. It removes the mystery from a working technology; it does not (here) compute a new number. The falsifiable quantitative test of the whole programme is the YIG experiment.</td></tr>
+      <tr><td>Does it survive the five-point test?</td><td>Yes: it names the real circulation (the accumulators' phase), it is bookkeeping not force (conservation of AM), it never conflates the phase-<em>rate</em> with a rim-speed, and it inserts no fitted constant to "reach" an answer.</td></tr>
+    </table>
+    <div class="divider"></div>
+    <p class="lead" style="text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold2)">The rod does not shout into the dark. It hands its angular momentum to the world, and the world keeps the books. That is all a radio ever was.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-title">One substance. Even the airwaves.</div>
+    <div class="footer-names"><strong>N. Vivian Pope</strong> &ensp;&amp;&ensp; <strong>Anthony D. Osborne</strong></div>
+    <div class="footer-tagline">Pope–Osborne Angular Momentum Synthesis &nbsp;·&nbsp; Normal Realism</div>
+    <div class="footer-links">
+      <a href="./index.html">← The Collection</a>
+      <a href="./quantum-cinematograph.html">Quantum Cinematograph</a>
+      <a href="./varying-g.html">Varying G</a>
+      <a href="https://cfmilam.github.io/nr-poams-papers/photon-concept-of.html" target="_blank">“The Photon: Concept Of” (Pope)</a>
+      <a href="https://cfmilam.github.io/nr-poams-books/immediate-distant-action.html" target="_blank">Immediate Distant Action (direct-action e/m)</a>
+      <a href="https://cfmilam.github.io/nr-poams-engineering/" target="_blank">YIG Experiment</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* theme */
+document.getElementById('theme-btn').addEventListener('click', function(){
+  const h=document.documentElement, light=h.dataset.theme==='light';
+  h.dataset.theme=light?'dark':'light';
+  this.textContent=light?'🌙':'☀️';
+});
+
+/* dipole phase-ring animation — illustrative, not a field solver */
+(function(){
+  const cv=document.getElementById('dipole'); if(!cv||!cv.getContext) return;
+  const ctx=cv.getContext('2d'); const W=cv.width, H=cv.height, cx=W/2, cy=H/2;
+  let t=0;
+  function css(v){return getComputedStyle(document.documentElement).getPropertyValue(v).trim();}
+  function frame(){
+    const gold=css('--gold')||'#c9a84c', blue=css('--blue')||'#4fc3f7', fg2=css('--fg2')||'#a09880';
+    ctx.clearRect(0,0,W,H);
+    // expanding iso-phase rings (banked/handed-off AM)
+    const speed=1.4, spacing=46, maxR=Math.hypot(W,H)/2;
+    for(let k=0;k<14;k++){
+      let r=((t*speed + k*spacing) % (maxR+spacing));
+      if(r<2) continue;
+      const fade=Math.max(0,1-r/maxR);
+      const phase=Math.sin((k*spacing)*0.14 - t*0.06);
+      ctx.beginPath();
+      // vertical dipole -> toroidal pattern: squash horizontally a touch
+      ctx.ellipse(cx,cy,r*1.15,r,0,0,Math.PI*2);
+      ctx.strokeStyle = (phase>=0? hexA(blue,0.55*fade) : hexA(gold,0.5*fade));
+      ctx.lineWidth = 2; ctx.stroke();
+    }
+    // longitudinal instantaneous hand-off line (emitter -> a distant absorber)
+    const ax=W-70, ay=cy-70;
+    const pulse=(Math.sin(t*0.14)+1)/2;
+    ctx.save();
+    ctx.setLineDash([6,7]); ctx.lineDashOffset=-(t*2)%13;
+    ctx.strokeStyle=hexA(css('--gold2')||'#e8c96a', .35+0.4*pulse); ctx.lineWidth=2;
+    ctx.beginPath(); ctx.moveTo(cx,cy); ctx.lineTo(ax,ay); ctx.stroke();
+    ctx.restore();
+    // the absorber accumulator
+    ctx.beginPath(); ctx.arc(ax,ay,5+3*pulse,0,Math.PI*2);
+    ctx.fillStyle=hexA(css('--gold2')||'#e8c96a', .9); ctx.fill();
+    // the rod
+    const amp=Math.sin(t*0.14), rod=54;
+    ctx.strokeStyle=fg2; ctx.lineWidth=6; ctx.lineCap='round';
+    ctx.beginPath(); ctx.moveTo(cx,cy-rod); ctx.lineTo(cx,cy+rod); ctx.stroke();
+    // accumulators advancing phase (gold nodes pulsing along the rod)
+    for(let i=-1;i<=1;i+=2){
+      const y=cy + i*rod*0.55*Math.sign(amp||1);
+      const gr=6+4*Math.abs(amp);
+      ctx.beginPath(); ctx.arc(cx, cy + i*rod*0.5*amp, gr,0,Math.PI*2);
+      ctx.fillStyle=hexA(gold, .85); ctx.fill();
+    }
+    // feed point
+    ctx.beginPath(); ctx.arc(cx,cy,4,0,Math.PI*2); ctx.fillStyle=fg2; ctx.fill();
+    t+=1; requestAnimationFrame(frame);
+  }
+  function hexA(hex,a){
+    hex=hex.replace('#','');
+    if(hex.length===3) hex=hex.split('').map(c=>c+c).join('');
+    const n=parseInt(hex,16); if(isNaN(n)) return 'rgba(200,168,76,'+a+')';
+    const r=(n>>16)&255,g=(n>>8)&255,b=n&255;
+    return 'rgba('+r+','+g+','+b+','+a+')';
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
