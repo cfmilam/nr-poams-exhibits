@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +27,7 @@
     <style>
         :root {
             --bg-dark: #1a1a2e;
-            --bg-light: #faf8f2;
+            --bg-light: #ffffff;
             --text-dark: #e0e0e0;
             --text-light: #2c3e50;
             --accent-gold: #c9a84c;
@@ -2532,7 +2532,7 @@
 
                 // Scene
                 vortex3D.scene = new THREE.Scene();
-                const bgColor = currentTheme === 'dark' ? '#1a1a2e' : '#faf8f2';
+                const bgColor = currentTheme === 'dark' ? '#1a1a2e' : '#ffffff';
                 vortex3D.scene.background = new THREE.Color(bgColor);
 
                 // Camera
@@ -2745,7 +2745,7 @@
                 
                 // Scene setup
                 spiral3D.scene = new THREE.Scene();
-                const bgColor = currentTheme === 'dark' ? '#1a1a2e' : '#faf8f2';
+                const bgColor = currentTheme === 'dark' ? '#1a1a2e' : '#ffffff';
                 spiral3D.scene.background = new THREE.Color(bgColor);
                 
                 // Camera setup
@@ -3202,7 +3202,7 @@
         function update3DTheme() {
             if (!spiral3D.scene || !spiral3D.renderer) return;
             
-            const bgColor = currentTheme === 'dark' ? '#1a1a2e' : '#faf8f2';
+            const bgColor = currentTheme === 'dark' ? '#1a1a2e' : '#ffffff';
             spiral3D.scene.background.setHex(bgColor.replace('#', '0x'));
             
             // Update spiral path color
@@ -3294,7 +3294,7 @@
             update3DTheme();
             // Update vortex 3D theme
             if (vortex3D.scene) {
-                const bgColor = currentTheme === 'dark' ? '#1a1a2e' : '#faf8f2';
+                const bgColor = currentTheme === 'dark' ? '#1a1a2e' : '#ffffff';
                 vortex3D.scene.background = new window.THREE.Color(bgColor);
             }
         }
