@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>POAMS — The Normal Realism Collection</title>
+<title>Normal Realism / POAMS — The Collection</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -480,7 +480,7 @@ footer {
   <div class="hero-eyebrow">Normal Realism · POAMS</div>
   <h1>One Substance.<br><em>All of Physics.</em></h1>
   <p class="hero-meta">
-    <strong>Viv Pope &amp; Anthony Osborne</strong> &ensp;·&ensp; 50 years of work &ensp;·&ensp; <span id="exhibit-count">16</span> interactive exhibits
+    <strong>Viv Pope &amp; Anthony Osborne</strong> &ensp;·&ensp; 50 years of work &ensp;·&ensp; <span id="exhibit-count">17</span> interactive exhibits
   </p>
 </section>
 
@@ -593,10 +593,13 @@ footer {
             <a class="step-link" href="./varying-g.html">
               <span class="step-link-icon">🌀</span> Varying G Exhibit
             </a>
-                        <a class="step-link" href="./navigation-engine.html">
+            <a class="step-link" href="./angular-momentum-calculator.html">
+              <span class="step-link-icon">🧮</span> Keren Li AM Calculator <span style="color:#4fc3f7;font-size:.8em">(preserved)</span>
+            </a>
+            <a class="step-link" href="./navigation-engine.html">
               <span class="step-link-icon">🧭</span> The Navigation Engine <span style="color:#4fc3f7;font-size:.8em">(operational)</span>
             </a>
-<a class="step-link" href="./pioneer-anomaly.html">
+            <a class="step-link" href="./pioneer-anomaly.html">
               <span class="step-link-icon">🚀</span> Pioneer Anomaly Exhibit
             </a>
           </div>
@@ -766,7 +769,7 @@ steps.forEach(s => obs.observe(s));
 /* ── Auto exhibit counter ── keeps the hero tally in sync with the exhibit cards.
    Counts local exhibit step-links (a.step-link -> ./<name>.html); external
    links (books/engineering) and the analysis doc are excluded automatically.
-   Add an exhibit card and this updates itself; 16 is the static fallback. */
+   Add an exhibit card and this updates itself; 17 is the static fallback. */
 (function () {
   var cards = document.querySelectorAll('a.step-link[href^="./"][href$=".html"]');
   var el = document.getElementById('exhibit-count');

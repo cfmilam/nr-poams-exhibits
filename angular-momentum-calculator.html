@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Normal Realism / POAMS — Keren Li Angular-Momentum Calculator</title>
+<style>
+:root{
+  --bg:#1a1a2e;--bg2:#16213e;--bg3:#0f172a;--surface:rgba(255,255,255,.045);--surface2:rgba(255,255,255,.075);
+  --border:rgba(255,255,255,.11);--fg:#eee9dd;--fg2:#b8ad91;--gold:#c9a84c;--gold2:#e8c96a;--blue:#4fc3f7;--red:#ff6b6b;--green:#63d471;
+  --mono:'SFMono-Regular','Menlo','Consolas',monospace;--sans:'Inter','Segoe UI',system-ui,sans-serif;--serif:'Cormorant Garamond',Georgia,serif;
+}
+[data-theme="light"]{--bg:#fff;--bg2:#f4f1e9;--bg3:#e9ebef;--surface:rgba(0,0,0,.035);--surface2:rgba(0,0,0,.065);--border:rgba(0,0,0,.13);--fg:#241f18;--fg2:#655a47;--gold:#8b6914;--gold2:#6b5210;--blue:#0369a1;--red:#b42318;--green:#167a3a;}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 50% 0,rgba(201,168,76,.10),transparent 34rem),linear-gradient(160deg,var(--bg3),var(--bg));color:var(--fg);font:16px/1.65 var(--sans)}
+a{color:var(--blue)}button,input,select{font:inherit}button{cursor:pointer}
+#theme-btn{position:fixed;top:54px;right:1rem;z-index:900;background:var(--gold);color:var(--bg);border:0;border-radius:9px;width:40px;height:40px;font-size:1.1rem;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+#poams-hub-nav{position:fixed;top:0;left:0;right:0;z-index:800;min-height:42px;padding:4px 12px;display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center;background:rgba(10,14,30,.88);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,.22);font-size:.86rem}
+[data-theme="light"] #poams-hub-nav{background:rgba(255,255,255,.9)}#poams-hub-nav a,#poams-hub-nav .phn-disabled{display:flex;align-items:center;gap:6px;color:var(--fg2);text-decoration:none;padding:5px 8px;border-radius:8px;min-height:30px}#poams-hub-nav a:hover{color:var(--gold);background:var(--surface2)}#poams-hub-nav> :last-child{justify-content:flex-end}.phn-center a{align-items:center!important}.phn-title{color:var(--gold);font-weight:650}.phn-pos{font-size:.72rem;color:var(--fg2);letter-spacing:.06em;text-transform:uppercase}.phn-disabled{opacity:.35}.phn-hide-sm{display:inline}@media(max-width:680px){.phn-hide-sm{display:none}#poams-hub-nav{font-size:.78rem}}
+.hero{padding:7.5rem 1.3rem 4rem;text-align:center}.eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:.24em;font-weight:700;font-size:.74rem}.hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(2.25rem,6vw,5rem);line-height:1.05;margin:.7rem auto 1rem;max-width:1050px}.hero p{max-width:780px;margin:0 auto;color:var(--fg2);font-size:1.08rem}.badge-row{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;margin-top:1.5rem}.badge{border:1px solid var(--border);background:var(--surface);color:var(--fg2);padding:.42rem .7rem;border-radius:999px;font-size:.84rem}.badge strong{color:var(--gold)}
+main{max-width:1180px;margin:0 auto;padding:0 1.1rem 5rem}.panel{background:linear-gradient(180deg,var(--surface2),var(--surface));border:1px solid var(--border);border-radius:18px;padding:1.4rem;margin:0 0 1.15rem;box-shadow:0 14px 40px rgba(0,0,0,.22)}.panel h2{font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.35rem);font-weight:400;line-height:1.15;margin:.1rem 0 .85rem;color:var(--gold)}.panel h3{margin:1.1rem 0 .45rem;color:var(--gold2)}.panel p{color:var(--fg2);margin:.55rem 0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}@media(max-width:880px){.grid,.grid-3{grid-template-columns:1fr}.hero{text-align:left}.badge-row{justify-content:flex-start}}
+.callout{border-left:4px solid var(--gold);background:rgba(201,168,76,.08);padding:1rem 1.1rem;border-radius:12px}.warning{border-left-color:var(--red);background:rgba(255,107,107,.08)}.success{border-left-color:var(--green);background:rgba(99,212,113,.08)}
+.calc{display:grid;grid-template-columns:minmax(290px,.9fr) minmax(320px,1.1fr);gap:1rem}@media(max-width:960px){.calc{grid-template-columns:1fr}}.controls{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}@media(max-width:620px){.controls{grid-template-columns:1fr}}
+label{display:block;color:var(--fg2);font-size:.83rem;margin:0 0 .18rem}input,select{width:100%;background:var(--bg);color:var(--fg);border:1px solid var(--border);border-radius:10px;padding:.62rem .7rem}input:focus,select:focus{outline:2px solid rgba(79,195,247,.35);border-color:var(--blue)}.preset-row{display:flex;flex-wrap:wrap;gap:.5rem;margin:.9rem 0}.preset-row button,.mini-btn{background:var(--surface2);border:1px solid var(--border);color:var(--fg);border-radius:999px;padding:.48rem .7rem}.preset-row button:hover,.mini-btn:hover{border-color:var(--gold);color:var(--gold)}
+.results{display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem}@media(max-width:680px){.results{grid-template-columns:1fr}}.metric{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:.85rem}.metric .k{color:var(--fg2);font-size:.78rem;text-transform:uppercase;letter-spacing:.08em}.metric .v{font-family:var(--mono);font-size:1.1rem;color:var(--fg);word-break:break-word}.metric .note{font-size:.78rem;color:var(--fg2);margin-top:.2rem}.bigmetric{grid-column:1/-1;border-color:rgba(201,168,76,.45)}.bigmetric .v{font-size:clamp(1.4rem,4vw,2.2rem);color:var(--gold2)}
+code,pre{font-family:var(--mono);background:var(--bg);border:1px solid var(--border);border-radius:12px;color:var(--fg);font-size:.9rem}code{padding:.08rem .28rem}pre{overflow:auto;padding:1rem;line-height:1.5}.table-wrap{overflow:auto;border:1px solid var(--border);border-radius:14px}table{width:100%;border-collapse:collapse;min-width:720px}th,td{padding:.7rem .8rem;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}th{color:var(--gold);background:var(--surface2);font-size:.8rem;text-transform:uppercase;letter-spacing:.07em}td{color:var(--fg2)}td code{color:var(--fg)}
+.viz{height:320px;border:1px solid var(--border);border-radius:16px;background:var(--bg);position:relative;overflow:hidden}.viz canvas{width:100%;height:100%;display:block}.viz-label{position:absolute;left:12px;top:10px;color:var(--fg2);font-size:.8rem;background:rgba(0,0,0,.35);padding:.25rem .5rem;border-radius:8px}.source-list li{margin:.4rem 0;color:var(--fg2)}.footer{padding:2rem 1rem;text-align:center;color:var(--fg2);font-size:.86rem}
+</style>
+</head>
+<body>
+<div id="poams-hub-nav">
+  <a href="./varying-g.html" title="Varying G">← <span class="phn-hide-sm">Varying G</span></a>
+  <div class="phn-center">
+    <a href="./index.html" style="flex-direction:column;gap:2px;padding:4px 12px;">
+      <span class="phn-title">AM Calculator</span>
+      <span class="phn-pos">11 of 17 · POAMS</span>
+    </a>
+  </div>
+  <a href="./navigation-engine.html" title="Navigation Engine"><span class="phn-hide-sm">Navigation Engine</span> →</a>
+</div>
+<button id="theme-btn" aria-label="Toggle light/dark theme">☀️</button>
+<header class="hero">
+  <div class="eyebrow">Normal Realism / POAMS · preserved 2013 calculation</div>
+  <h1>Keren Li’s Angular-Momentum Calculator</h1>
+<p class="nr-provenance" style="font-size:0.8em;font-style:italic;opacity:0.72;line-height:1.5;margin:0.5em 0 1em">This exhibit is an extrapolation of the foundational work of N. Vivian (Viv) Pope and Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
+  <p>A faithful reconstruction of the Java/Excel calculator, with the modern correction made explicit: the finite body is the calculation. A point-mass spin limit drives the required angular velocity to infinity.</p>
+  <div class="badge-row">
+    <span class="badge"><strong>Original archive:</strong> preserved intact</span>
+    <span class="badge"><strong>Core result:</strong> mass cancels</span>
+    <span class="badge"><strong>Correction:</strong> no point-body spin shortcut</span>
+  </div>
+</header>
+<main>
+  <section class="panel">
+    <h2>Two layers, kept separate</h2>
+    <div class="grid">
+      <div class="callout success">
+        <h3>Historical layer</h3>
+        <p>Keren’s calculator asks how much rigid-body spin energy is required if a constrained orbit is compared with its force-free natural orbit. It implements a clean energy ledger:</p>
+        <pre>v* = GME/(v rO)
+KS = 1/2 m |v*² − v²|
+ω  = sign √(2KS/I)</pre>
+      </div>
+      <div class="callout warning">
+        <h3>Modern correction</h3>
+        <p>The calculation only works for a finite object with finite moment of inertia. If the small body is treated as a classical point, then <code>I → 0</code>, and the required <code>ω</code> diverges.</p>
+        <pre>I = C m R²
+ω² = |v*² − v²|/(C R²)
+R → 0 ⇒ ω → ∞</pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel calc" id="calculator">
+    <div>
+      <h2>Faithful calculator</h2>
+      <p>Defaults and formulas follow the Java bytecode and workbook sheets. Use the presets to reproduce the preserved examples.</p>
+      <div class="preset-row">
+        <button type="button" data-preset="notes">Keren notes sphere</button>
+        <button type="button" data-preset="posdisk">Excel positive disk</button>
+        <button type="button" data-preset="negdisk">Excel negative disk</button>
+        <button type="button" data-preset="java">Java defaults</button>
+      </div>
+      <div class="controls">
+        <div><label for="shape">Shape</label><select id="shape"><option value="sphere">Solid sphere</option><option value="disk">Disk</option><option value="cylinder">Hollow cylinder</option><option value="torus">Torus</option></select></div>
+        <div><label for="unit">Displayed spin unit</label><select id="unit"><option value="rad">rad/s</option><option value="revs">rev/s</option><option value="rpm">rpm</option></select></div>
+        <div><label for="v">Constrained linear velocity v (m/s)</label><input id="v" type="number" step="any"></div>
+        <div><label for="ro">Orbital radius rO (m)</label><input id="ro" type="number" step="any"></div>
+        <div><label for="mass">Body mass m (kg)</label><input id="mass" type="number" step="any"></div>
+        <div><label for="R">Outer/body radius R (m)</label><input id="R" type="number" step="any"></div>
+        <div id="innerWrap"><label for="a">Inner/cross-section radius a (m)</label><input id="a" type="number" step="any"></div>
+        <div><label for="G">G</label><input id="G" type="number" step="any"></div>
+        <div><label for="ME">Earth mass ME (kg)</label><input id="ME" type="number" step="any"></div>
+      </div>
+      <p style="font-size:.86rem">The sign branch is automatic: if the constrained orbital kinetic energy is larger than the natural-orbit kinetic energy, the calculator returns negative spin.</p>
+    </div>
+    <div>
+      <h2>Output</h2>
+      <div class="results">
+        <div class="metric bigmetric"><div class="k">Required spin</div><div class="v" id="spinOut">—</div><div class="note" id="spinNote">—</div></div>
+        <div class="metric"><div class="k">Natural speed v*</div><div class="v" id="vstarOut">—</div><div class="note">GME/(v rO)</div></div>
+        <div class="metric"><div class="k">Spin kinetic energy KS</div><div class="v" id="ksOut">—</div><div class="note">1/2 m |v*² − v²|</div></div>
+        <div class="metric"><div class="k">Moment of inertia I</div><div class="v" id="iOut">—</div><div class="note" id="iNote">—</div></div>
+        <div class="metric"><div class="k">Orbital kinetic energy KO</div><div class="v" id="koOut">—</div><div class="note">1/2 m v²</div></div>
+        <div class="metric"><div class="k">Mass-cancelled ω</div><div class="v" id="cancelOut">—</div><div class="note">same spin for any m at fixed shape/radius</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Why mass does not rescue it</h2>
+    <div class="grid">
+      <div>
+        <p>Both the required spin energy and the rigid-body moment of inertia scale linearly with body mass. For any fixed geometry:</p>
+        <pre>KS = 1/2 m |v*² − v²|
+I  = C m R²
+ω² = 2KS/I = |v*² − v²|/(C R²)</pre>
+        <p>The mass disappears. This is the sharp result in Keren’s work: density changes do not fix the spin requirement when the size and shape stay fixed.</p>
+      </div>
+      <div class="viz">
+        <div class="viz-label">Point-limit divergence: shrinking R drives ω upward</div>
+        <canvas id="divCanvas" width="900" height="520"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Formulas recovered from Java and Excel</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Item</th><th>Recovered formula</th><th>Source match</th></tr></thead>
+        <tbody>
+          <tr><td>Natural orbit speed</td><td><code>v* = GME/(v rO)</code></td><td>Java <code>calculateSpinKineticEnergy()</code>; Excel <code>D19=D8*D9/(D15*D14)</code></td></tr>
+          <tr><td>Positive branch</td><td><code>KS = 1/2 m v*² − KO</code></td><td>Excel positive sheet <code>D21=0.5*(D13*D19^2)-D20</code></td></tr>
+          <tr><td>Negative branch</td><td><code>KS = KO − 1/2 m v*²</code>, then <code>ω&lt;0</code></td><td>Java negative flag; Excel negative sheet <code>D23=-sqrt(2D21/D22)</code></td></tr>
+          <tr><td>Torus inertia</td><td><code>I = m(R² + 3a²/4)</code></td><td>Java and Excel <code>((R)^2+0.75(a)^2)m</code></td></tr>
+          <tr><td>Hollow cylinder inertia</td><td><code>I = 1/2 m(R²+a²)</code></td><td>Java and Excel</td></tr>
+          <tr><td>Disk inertia</td><td><code>I = 1/2 mR²</code></td><td>Java and Excel</td></tr>
+          <tr><td>Solid sphere inertia</td><td><code>I = 2mR²/5</code></td><td>Java sphere method; handwritten notes</td></tr>
+          <tr><td>Unit conversion</td><td><code>rpm = 9.54929659643 rad/s</code>; <code>rev/s = rpm/60</code></td><td>Java converter; radian conversion workbook</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>The preserved 2013 result</h2>
+    <p>The handwritten pages use a 100 kg, 0.3 m-radius solid sphere with Earth-surface co-rotation values. They report:</p>
+    <pre>v* ≈ 134,658 m/s
+KO ≈ 1.08 × 10⁷ J
+KS ≈ 9.07 × 10¹¹ J
+I  = 3.6 kg m²
+ω  ≈ 7.10 × 10⁵ rad/s ≈ 1.13 × 10⁵ rev/s</pre>
+    <div class="callout warning">
+      <p><strong>Historical wording corrected:</strong> the notes say “geosynchronous,” but the numbers are Earth radius and equatorial surface speed. That means co-rotating at Earth angular rate at the surface, not a satellite at true geosynchronous radius.</p>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Normal Realism / POAMS reading</h2>
+    <p>Read historically, this is an early AM-first feasibility calculation: if spin energy is asked to change the natural-orbit ledger, ordinary rigid rotation demands absurd angular velocity.</p>
+    <p>Read through the current touchstone, it also marks a trap. Orbit and spin are distinct channels. A finite rigid body has classical moment of inertia; a point body does not. So the modern exhibit preserves Keren’s computation while refusing the silent point-mass shortcut.</p>
+    <div class="callout">
+      <p><strong>What this does not prove:</strong> no Hayasaka-style handedness/sign claim is present in the notes. Sign belongs to the modern channel question—twist through variable-G versus writhe through orbital AM—not to a retroactive claim about Keren’s calculation.</p>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Audit trail</h2>
+    <ul class="source-list">
+      <li>Preserved source folder: <code>poams-source-archive/keren-li-am-calculator/original</code></li>
+      <li>Hash manifest: <code>poams-source-archive/keren-li-am-calculator/SHA256SUMS.txt</code></li>
+      <li>Java bytecode audit: <code>audit/logs/javap-CalculationUtility.txt</code></li>
+      <li>Workbook extraction: <code>audit/spreadsheets/all-cells.tsv</code> and <code>all-workbooks.json</code></li>
+      <li>Notes/PDF report: <code>audit/notes-report.md</code></li>
+      <li>Preservation report: <code>audit/keren-am-calculator-report.md</code></li>
+    </ul>
+  </section>
+</main>
+<footer class="footer">Normal Realism / POAMS exhibit · historical calculator preserved, correction stated.</footer>
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  const els={shape:$('shape'),unit:$('unit'),v:$('v'),ro:$('ro'),mass:$('mass'),R:$('R'),a:$('a'),G:$('G'),ME:$('ME')};
+  const presets={
+    notes:{shape:'sphere',unit:'rad',v:464.74,ro:6.373e6,mass:100,R:.3,a:.1,G:6.67384e-11,ME:5.976e24},
+    posdisk:{shape:'disk',unit:'rad',v:465.1,ro:6378100,mass:25000,R:17.841,a:7.986,G:6.67384e-11,ME:5.972e24},
+    negdisk:{shape:'disk',unit:'rad',v:40000,ro:6378100,mass:25000,R:17.841,a:7.986,G:6.67384e-11,ME:5.972e24},
+    java:{shape:'sphere',unit:'revs',v:465.1,ro:6378100,mass:100,R:.3,a:.1,G:6.67384e-11,ME:5.972e24}
+  };
+  function setPreset(name){const p=presets[name];Object.entries(p).forEach(([k,v])=>{els[k].value=v}); update();}
+  function num(el){return Number(el.value)}
+  function fmt(x,unit=''){
+    if(!Number.isFinite(x)) return '—';
+    const ax=Math.abs(x); let s;
+    if(ax===0) s='0'; else if(ax>=1e6||ax<1e-3) s=x.toExponential(6); else s=x.toLocaleString(undefined,{maximumSignificantDigits:8});
+    return unit?`${s} ${unit}`:s;
+  }
+  function inertia(shape,m,R,a){
+    if(shape==='torus') return {I:m*(R*R+.75*a*a), C:(R*R+.75*a*a)/(R*R), note:'m(R² + 3a²/4)'};
+    if(shape==='cylinder') return {I:.5*m*(R*R+a*a), C:.5*(1+(a*a)/(R*R)), note:'1/2 m(R²+a²)'};
+    if(shape==='disk') return {I:.5*m*R*R, C:.5, note:'1/2 mR²'};
+    return {I:2*m*R*R/5, C:.4, note:'2mR²/5'};
+  }
+  function calc(){
+    const shape=els.shape.value,v=num(els.v),ro=num(els.ro),m=num(els.mass),R=num(els.R),a=num(els.a),G=num(els.G),ME=num(els.ME);
+    if(v<=0||ro<=0||m<=0||R<=0||G<=0||ME<=0) return null;
+    if((shape==='torus'||shape==='cylinder') && (a<=0||a>=R)) return null;
+    const vstar=G*ME/(v*ro), ko=.5*m*v*v, natural=.5*m*vstar*vstar, neg=v*v>G*ME/ro;
+    const ks=Math.abs(natural-ko), inf=inertia(shape,m,R,a), rad=(neg?-1:1)*Math.sqrt(2*ks/inf.I);
+    const massCancelled=(neg?-1:1)*Math.sqrt(Math.abs(vstar*vstar-v*v)/(inf.C*R*R));
+    return {shape,v,ro,m,R,a,G,ME,vstar,ko,ks,I:inf.I,inote:inf.note,rad,massCancelled,neg};
+  }
+  function converted(rad){if(els.unit.value==='rpm') return {x:rad*9.54929659643,u:'rpm'}; if(els.unit.value==='revs') return {x:rad*9.54929659643/60,u:'rev/s'}; return {x:rad,u:'rad/s'};}
+  function update(){
+    $('innerWrap').style.display=(els.shape.value==='torus'||els.shape.value==='cylinder')?'block':'none';
+    const r=calc();
+    if(!r){['spinOut','spinNote','vstarOut','ksOut','iOut','koOut','cancelOut'].forEach(id=>$(id).textContent='—'); draw(null); return;}
+    const c=converted(r.rad), cm=converted(r.massCancelled);
+    $('spinOut').textContent=fmt(c.x,c.u);
+    $('spinNote').textContent=r.neg?'negative-spin branch: constrained kinetic energy exceeds natural-orbit energy':'positive-spin branch: natural-orbit energy exceeds constrained kinetic energy';
+    $('vstarOut').textContent=fmt(r.vstar,'m/s'); $('ksOut').textContent=fmt(r.ks,'J'); $('iOut').textContent=fmt(r.I,'kg m²'); $('iNote').textContent=r.inote; $('koOut').textContent=fmt(r.ko,'J'); $('cancelOut').textContent=fmt(cm.x,cm.u);
+    draw(r);
+  }
+  function draw(r){
+    const canvas=$('divCanvas'),ctx=canvas.getContext('2d'),w=canvas.width,h=canvas.height;ctx.clearRect(0,0,w,h);ctx.fillStyle=getComputedStyle(document.documentElement).getPropertyValue('--bg').trim();ctx.fillRect(0,0,w,h);
+    ctx.strokeStyle='rgba(201,168,76,.22)';ctx.lineWidth=1;for(let i=0;i<7;i++){let y=45+i*(h-85)/6;ctx.beginPath();ctx.moveTo(55,y);ctx.lineTo(w-25,y);ctx.stroke()}for(let i=0;i<8;i++){let x=55+i*(w-90)/7;ctx.beginPath();ctx.moveTo(x,28);ctx.lineTo(x,h-45);ctx.stroke()}
+    ctx.fillStyle=getComputedStyle(document.documentElement).getPropertyValue('--fg2').trim();ctx.font='22px SFMono-Regular, Menlo, monospace';ctx.fillText('R → 0',55,h-16);ctx.fillText('larger R',w-145,h-16);ctx.save();ctx.translate(22,h/2+70);ctx.rotate(-Math.PI/2);ctx.fillText('|ω|',0,0);ctx.restore();
+    const rr=r||calc(); if(!rr){return} const sign=Math.sign(rr.rad)||1; const base=Math.abs(rr.massCancelled*rr.R); // |ω|*R for selected geometry approximately constant
+    const xmin=Math.log10(Math.max(rr.R/120,1e-5)),xmax=Math.log10(Math.max(rr.R*8,1e-4)); const ymax=Math.log10(base/Math.pow(10,xmin)),ymin=Math.log10(base/Math.pow(10,xmax));
+    function X(R){return 55+(Math.log10(R)-xmin)/(xmax-xmin)*(w-90)} function Y(om){return h-45-(Math.log10(om)-ymin)/(ymax-ymin)*(h-85)}
+    ctx.strokeStyle=getComputedStyle(document.documentElement).getPropertyValue('--blue').trim();ctx.lineWidth=4;ctx.beginPath();for(let i=0;i<260;i++){let lr=xmin+(xmax-xmin)*i/259,R=Math.pow(10,lr),om=base/R,x=X(R),y=Y(om);if(i)ctx.lineTo(x,y);else ctx.moveTo(x,y)}ctx.stroke();
+    const x=X(rr.R),y=Y(Math.abs(rr.massCancelled));ctx.fillStyle=getComputedStyle(document.documentElement).getPropertyValue('--gold').trim();ctx.beginPath();ctx.arc(x,y,8,0,Math.PI*2);ctx.fill();ctx.fillStyle=getComputedStyle(document.documentElement).getPropertyValue('--fg').trim();ctx.font='24px SFMono-Regular, Menlo, monospace';ctx.fillText('current finite R',Math.min(x+13,w-250),Math.max(y-12,40));
+  }
+  document.querySelectorAll('[data-preset]').forEach(b=>b.addEventListener('click',()=>setPreset(b.dataset.preset)));
+  Object.values(els).forEach(el=>el.addEventListener('input',update)); Object.values(els).forEach(el=>el.addEventListener('change',update));
+  $('theme-btn').addEventListener('click',function(){const html=document.documentElement,isLight=html.dataset.theme==='light';html.dataset.theme=isLight?'dark':'light';this.textContent=isLight?'☀️':'🌙';localStorage.setItem('poams-theme',html.dataset.theme);draw(calc());});
+  const saved=localStorage.getItem('poams-theme'); if(saved){document.documentElement.dataset.theme=saved;$('theme-btn').textContent=saved==='light'?'🌙':'☀️'}
+  setPreset('notes');
+})();
+</script>
+</body>
+</html>
