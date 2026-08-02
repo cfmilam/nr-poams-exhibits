@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Navigation Engine — Operational POAMS</title>
+<script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},svg:{fontCache:'global'}}</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+:root{--bg:#1a1a2e;--bg2:#16213e;--gold:#c9a84c;--blue:#4fc3f7;--fg:#e0e0e0;--dim:#a0a0b0;--border:#3a3a5e;--card:#24244a;--good:#66d996;--bad:#ff8585}
+[data-theme="light"]{--bg:#ffffff;--bg2:#f3f4f6;--gold:#b8860b;--blue:#0277bd;--fg:#212529;--dim:#6c757d;--border:#dee2e6;--card:#ffffff}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:Georgia,'Times New Roman',serif;line-height:1.65;padding:0 0 4rem}
+#poams-hub-nav{display:flex;align-items:center;justify-content:space-between;gap:.5rem;padding:.5rem 1rem;background:var(--bg2);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;font-size:.9rem}
+#poams-hub-nav a{color:var(--gold);text-decoration:none;padding:4px 10px;border-radius:6px;display:flex;align-items:center;gap:4px}
+#poams-hub-nav a:hover{background:rgba(201,168,76,.12)}
+#poams-hub-nav .phn-center{flex:1;display:flex;justify-content:center}
+#poams-hub-nav .phn-title{color:var(--gold);font-weight:700}#poams-hub-nav .phn-pos{color:var(--dim);font-size:.78rem}
+.theme-toggle{position:fixed;top:.55rem;right:.7rem;z-index:1200;width:38px;height:38px;border:none;border-radius:8px;background:var(--gold);color:var(--bg);font-size:1.1rem;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+main{max-width:920px;margin:0 auto;padding:1.5rem}
+h1{color:var(--gold);font-size:2rem;text-align:center;margin:.6rem 0 .2rem}
+.subtitle{text-align:center;color:var(--dim);font-style:italic;margin-bottom:1.5rem}
+h2{color:var(--gold);font-size:1.4rem;margin:2.4rem 0 .8rem;border-bottom:1px solid var(--border);padding-bottom:.3rem}
+h3{color:var(--blue);font-size:1.1rem;margin:1.3rem 0 .5rem}
+p{margin:.7rem 0}a{color:var(--gold)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.4rem;margin:1.2rem 0}
+.panel{display:grid;grid-template-columns:1fr 360px;gap:1.4rem;align-items:start}
+@media(max-width:760px){.panel{grid-template-columns:1fr}}
+.controls label{display:block;margin:.7rem 0 .2rem;font-size:.9rem;color:var(--dim)}
+.controls input[type=range]{width:100%;accent-color:var(--gold)}
+.val{color:var(--gold);font-weight:700;font-family:'Courier New',monospace}
+.readout{font-family:'Courier New',monospace;font-size:.92rem;line-height:1.9}
+.readout .k{color:var(--dim);display:inline-block;min-width:200px}
+.readout .v{color:var(--blue);font-weight:700}
+canvas{background:#0f1830;border:1px solid var(--border);border-radius:10px;display:block;margin:0 auto;max-width:100%}
+[data-theme="light"] canvas{background:#eef1f7}
+.gauge{height:26px;background:var(--bg2);border:1px solid var(--border);border-radius:13px;overflow:hidden;margin:.5rem 0;position:relative}
+.gauge-fill{height:100%;background:linear-gradient(90deg,var(--blue),var(--gold));transition:width .1s,background .1s}
+.eqbox{background:var(--bg2);border-left:3px solid var(--gold);padding:.6rem 1rem;margin:.8rem 0;overflow-x:auto}
+.tag{display:inline-block;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:10px;margin-right:6px}
+.tag.keep{background:rgba(102,217,150,.16);color:var(--good)}.tag.drop{background:rgba(255,133,133,.16);color:var(--bad)}
+.keepdrop li{margin:.5rem 0;list-style:none}
+.note{color:var(--dim);font-size:.85rem}
+button.run{background:var(--gold);color:var(--bg);border:none;border-radius:8px;padding:.5rem 1.1rem;font-size:.95rem;cursor:pointer;font-weight:700;margin-top:.6rem}
+</style>
+</head>
+<body>
+<div id="poams-hub-nav">
+  <a href="./varying-g.html" title="Varying G">← <span>Varying&nbsp;G</span></a>
+  <div class="phn-center"><a href="./index.html" style="flex-direction:column;gap:2px;">
+    <span class="phn-title">The Navigation Engine</span><span class="phn-pos">Operational · POAMS</span></a></div>
+  <a href="https://cfmilam.github.io/nr-poams-papers/" target="_blank" title="Papers"><span>Papers</span> →</a>
+</div>
+<button class="theme-toggle" onclick="toggleTheme()">☀️</button>
+
+<main>
+<h1>The Navigation Engine</h1>
+<p class="subtitle">Operational POAMS orbital mechanics — the useful core distilled from Max Franks &amp; A. D. Osborne's <em>Mathematical Extrapolation of the Synthesis</em></p>
+
+<div class="card">
+<p>In POAMS there is no gravitational <em>force</em>. A free body rides its <b>natural (force‑free) orbit</b>; "weight" is only the bill for holding it <em>off</em> that orbit, and every orbital quantity is angular‑momentum keeping its books. Max Franks — an aeronautical engineer working with Anthony Osborne — pushed that idea toward something an engineer can actually fly: <b>equations of motion built from observed angular momentum instead of Newton's&nbsp;$G$.</b></p>
+<p>This exhibit pulls out the parts of that work that are genuinely operational and POAMS‑clean, and turns them into a working tool. The parts that lean on constructs POAMS sets out to dissolve — or that contradict the Liturgy — are named and left aside at the bottom, not carried forward.</p>
+</div>
+
+<h2>A · Orbit From Observables</h2>
+<p>Franks' first practical result: an orbit is fully fixed by <b>locally measured</b> speeds and radii — <em>without</em> knowing the central mass or&nbsp;$G$. Conservation of angular momentum gives the far speed, and the <b>natural velocity</b> is simply the mean of the apoapsis and periapsis speeds:</p>
+<div class="eqbox">$$r_a v_a = r_p v_p \qquad v_0=\tfrac12\,(v_a+v_p)\qquad r_0=\frac{2\,r_a r_p}{r_a+r_p}\qquad \beta=\frac{a}{b^2}=\frac1{r_0}$$</div>
+<div class="card panel">
+  <div class="controls">
+    <label>Apoapsis radius $r_a$: <span class="val" id="ra_v"></span> ×10⁶ m</label>
+    <input type="range" id="ra" min="6.6" max="60" step="0.1" value="12">
+    <label>Apoapsis speed $v_a$: <span class="val" id="va_v"></span> km/s</label>
+    <input type="range" id="va" min="1" max="9" step="0.05" value="5.2">
+    <label>Periapsis radius $r_p$: <span class="val" id="rp_v"></span> ×10⁶ m</label>
+    <input type="range" id="rp" min="6.6" max="60" step="0.1" value="6.9">
+    <div class="readout" id="outA" style="margin-top:1rem"></div>
+    <p class="note">Everything on the right is derived from the three sliders alone — no $M$, no $G$. $\mu=h\,v_0$ is the <em>measured orbital invariant</em> (numerically equal to $GM$, but obtained from observation, not postulated as a force).</p>
+  </div>
+  <canvas id="orbitCanvas" width="340" height="340"></canvas>
+</div>
+
+<h2>B · Spin and the Weight Sign</h2>
+<p>Add a second rotation — <b>spin</b> — and its kinetic energy enters the force bookkeeping as a ratio $K_s/K_n$ tilted by the angle $\theta$ between the spin and orbital axes. Aligned spin stiffens the natural orbit (heavier); opposed spin loosens it (lighter), reaching a <b>force‑free, weightless</b> state when the two match:</p>
+<div class="eqbox">$$F=\frac{L\,v_n}{r^2}\sqrt{1+\frac{K_s}{K_n}\cos\theta}\qquad\Rightarrow\qquad F\to 0 \ \text{ when spin opposes orbit, } \ \tfrac{K_s}{K_n}\cos\theta\to-1$$</div>
+<div class="card panel">
+  <div class="controls">
+    <label>Spin / orbital energy $K_s/K_n$: <span class="val" id="ks_v"></span></label>
+    <input type="range" id="ks" min="0" max="1" step="0.01" value="0.35">
+    <label>Spin–orbit angle $\theta$: <span class="val" id="th_v"></span>°</label>
+    <input type="range" id="th" min="0" max="180" step="1" value="35">
+    <div class="readout" id="outB" style="margin-top:1rem"></div>
+    <div class="gauge"><div class="gauge-fill" id="wgauge"></div></div>
+    <p class="note">This is the POAMS variable‑$G$ / weight‑sign channel made operational: co‑sense spin → heavier, anti‑sense → lighter, equal‑and‑opposed → weightless. It is exactly the effect the <a href="./varying-g.html">YIG weight‑change experiment</a> is built to read off by the <em>sign</em> of its result.</p>
+  </div>
+  <canvas id="spinCanvas" width="340" height="340"></canvas>
+</div>
+
+<h2>C · The G‑free Equations of Motion</h2>
+<p>The pay‑off: a Lagrangian in which the central body's mass and $G$ never appear — only the measured geometric invariant $\beta=1/r_0$ and the coordinates. This is the propagator a navigation system actually integrates.</p>
+<div class="eqbox">$$\mathcal L=\tfrac{m}{2}\!\left(\dot r^2+r^2\dot\theta^2\sin^2\!\phi+r^2\dot\phi^2\right)+m\beta\!\left(r\dot r^2+r^3\dot\theta^2\sin^2\!\phi+r^3\dot\phi^2\right)$$</div>
+<p>Take the planar case ($\phi=\tfrac\pi2$) and propagate a body from apoapsis using only the invariant $\mu=h\,v_0$ read off in Panel&nbsp;A. The trajectory it draws <em>is</em> the ellipse — the observable‑built engine flies the orbit:</p>
+<div class="card panel">
+  <div class="controls">
+    <p class="readout" id="outC"></p>
+    <button class="run" id="runBtn">▶ Propagate from apoapsis</button>
+    <p class="note">Velocity‑Verlet integration of $\ddot{\vec r}=-\mu\,\hat r/r^2$ with $\mu=h\,v_0$ from Panel A. No gravitational‑force postulate is used — $\mu$ is the invariant the orbit itself hands you. Change Panel A and re‑propagate.</p>
+  </div>
+  <canvas id="propCanvas" width="340" height="340"></canvas>
+</div>
+
+<h2>What was kept — and what was left aside</h2>
+<div class="card keepdrop">
+<p style="margin-top:0"><b>Preserved</b> (operational, POAMS‑clean):</p>
+<ul>
+<li><span class="tag keep">KEPT</span> Orbit from observables — $v_0=\tfrac12(v_a+v_p)$, natural radius $r_0$, invariant $\mu=h v_0$ — a real navigation hook.</li>
+<li><span class="tag keep">KEPT</span> Spin as an energy ratio $K_s/K_n$ setting the weight sign — the variable‑$G$ mechanism, testable by the YIG experiment.</li>
+<li><span class="tag keep">KEPT</span> The $G$‑free Lagrangian and equations of motion as the navigation propagator.</li>
+</ul>
+<p><b>Set aside</b> (would dilute or contradict the synthesis):</p>
+<ul>
+<li><span class="tag drop">ASIDE</span> The rest‑energy section — it inserts $E=mc^2$ and treats $c$ as a <em>velocity</em>, directly contradicting Exhibit I's central point that $c$ is a pure constant, not a speed. Dimensionally inconsistent as written.</li>
+<li><span class="tag drop">ASIDE</span> The Coulomb re‑derivation — it is the Bohr model re‑expressed, inserting $\alpha$ and $c$ to land a number it already assumed. No new prediction.</li>
+<li><span class="tag drop">ASIDE</span> "Relative angular momentum" left undefined — it quietly mixes <em>spin</em> with <em>relative orbital</em> angular momentum (the orbit‑vs‑spin conflation POAMS specifically warns against).</li>
+<li><span class="tag drop">ASIDE</span> The strong/weak "nuclear force" reading of a sign change — asserted, not derived.</li>
+</ul>
+<p class="note">$\mu=h v_0$ is honest bookkeeping, not a derivation of gravity: it equals $GM$ and is <em>obtained by measurement</em>. The value of Franks' work is that it makes POAMS <b>compute</b> — the philosophy becomes a propagator you can fly.</p>
+</div>
+<p class="note" style="text-align:center;margin-top:2rem">Distilled from <em>An Extrapolation of the Mathematics Related to An Angular Momentum Synthesis of 'Gravitational' and 'Electrostatic' Forces</em> — Max Franks &amp; Anthony Osborne (QMC Exhibit III, 2019). Operational recasting, POAMS reality‑checked.</p>
+</main>
+
+<script>
+function toggleTheme(){const h=document.documentElement;const l=h.getAttribute('data-theme')==='light';h.setAttribute('data-theme',l?'dark':'light');document.querySelector('.theme-toggle').textContent=l?'☀️':'🌙';drawOrbit();drawSpin();}
+const $=id=>document.getElementById(id);
+function gc(v){return getComputedStyle(document.documentElement).getPropertyValue(v).trim();}
+
+// ---------- Panel A ----------
+let A={};
+function computeA(){
+  const ra=+$('ra').value*1e6, va=+$('va').value*1e3, rp=+$('rp').value*1e6;
+  const vp=ra*va/rp;                     // AM conservation
+  const v0=0.5*(va+vp);                  // natural velocity
+  const r0=2*ra*rp/(ra+rp);             // natural radius (harmonic mean)
+  const a=0.5*(ra+rp), b=Math.sqrt(ra*rp), beta=a/(b*b);
+  const h=ra*va;                         // specific angular momentum
+  const mu=h*v0;                         // measured invariant (=GM)
+  A={ra,va,rp,vp,v0,r0,a,b,beta,h,mu};
+  $('ra_v').textContent=(+$('ra').value).toFixed(1);
+  $('va_v').textContent=(+$('va').value).toFixed(2);
+  $('rp_v').textContent=(+$('rp').value).toFixed(1);
+  $('outA').innerHTML=
+    `<div><span class="k">periapsis speed $v_p$</span><span class="v">${(vp/1e3).toFixed(2)} km/s</span></div>`+
+    `<div><span class="k">natural velocity $v_0$</span><span class="v">${(v0/1e3).toFixed(2)} km/s</span></div>`+
+    `<div><span class="k">natural radius $r_0$</span><span class="v">${(r0/1e6).toFixed(2)} ×10⁶ m</span></div>`+
+    `<div><span class="k">specific AM $h$</span><span class="v">${(h/1e9).toFixed(2)} ×10⁹</span></div>`+
+    `<div><span class="k">$\\beta=1/r_0$</span><span class="v">${(beta*1e6).toFixed(3)} ×10⁻⁶</span></div>`+
+    `<div><span class="k">invariant $\\mu=h v_0$</span><span class="v">${(mu/1e14).toFixed(3)} ×10¹⁴</span></div>`;
+  if(window.MathJax&&MathJax.typesetPromise)MathJax.typesetPromise([$('outA')]);
+  $('outC').innerHTML=`Propagating with the Panel A invariant &nbsp;<span class="v" style="color:var(--gold)">μ = ${(A.mu/1e14).toFixed(3)}×10¹⁴ m³s⁻²</span>, launched at apoapsis (r=${(ra/1e6).toFixed(1)}×10⁶ m, v=${(va/1e3).toFixed(2)} km/s).`;
+  drawOrbit();
+}
+function drawOrbit(){
+  const c=$('orbitCanvas'),x=c.getContext('2d'),W=c.width,H=c.height;x.clearRect(0,0,W,H);
+  const a=A.a,b=A.b,cx=W/2,cy=H/2,pad=28;const sc=Math.min((W/2-pad)/a,(H/2-pad)/b);
+  const foc=Math.sqrt(Math.max(a*a-b*b,0));
+  // natural-radius circle
+  x.strokeStyle=gc('--dim');x.setLineDash([4,4]);x.beginPath();x.arc(cx+foc*sc,cy,A.r0*sc,0,7);x.stroke();x.setLineDash([]);
+  // ellipse (focus at center of attraction)
+  x.strokeStyle=gc('--gold');x.lineWidth=2;x.beginPath();x.ellipse(cx,cy,a*sc,b*sc,0,0,7);x.stroke();
+  // central body at focus
+  x.fillStyle=gc('--blue');x.beginPath();x.arc(cx+foc*sc,cy,5,0,7);x.fill();
+  // apo (left) / peri (right)
+  x.fillStyle=gc('--gold');
+  x.beginPath();x.arc(cx-a*sc,cy,4,0,7);x.fill();
+  x.beginPath();x.arc(cx+a*sc,cy,4,0,7);x.fill();
+  x.fillStyle=gc('--fg');x.font='11px Georgia';x.fillText('apo',cx-a*sc+2,cy-9);x.textAlign='right';x.fillText('peri',cx+a*sc-2,cy-9);x.textAlign='left';
+  x.fillStyle=gc('--dim');x.fillText('r₀',cx+foc*sc+4,cy+14);
+}
+
+// ---------- Panel B ----------
+function computeB(){
+  const ks=+$('ks').value, th=+$('th').value*Math.PI/180;
+  const inside=1+ks*Math.cos(th);
+  const factor=inside>0?Math.sqrt(inside):0;
+  $('ks_v').textContent=ks.toFixed(2);$('th_v').textContent=Math.round(th*180/Math.PI);
+  const dW=(factor-1)*100;
+  const state=factor<0.02?'weightless (force‑free)':dW>0.5?'heavier (co‑sense)':dW<-0.5?'lighter (anti‑sense)':'≈ natural';
+  $('outB').innerHTML=
+    `<div><span class="k">force factor $\\sqrt{1+\\frac{K_s}{K_n}\\cos\\theta}$</span><span class="v">${factor.toFixed(3)}</span></div>`+
+    `<div><span class="k">weight change</span><span class="v" style="color:${dW>0?'var(--bad)':'var(--good)'}">${dW>0?'+':''}${dW.toFixed(1)}%</span></div>`+
+    `<div><span class="k">state</span><span class="v">${state}</span></div>`;
+  if(window.MathJax&&MathJax.typesetPromise)MathJax.typesetPromise([$('outB')]);
+  const g=$('wgauge');const pct=Math.max(2,Math.min(100,factor/1.5*100));
+  g.style.width=pct+'%';g.style.background=dW>0.5?'linear-gradient(90deg,#c9a84c,#ff8585)':dW<-0.5?'linear-gradient(90deg,#4fc3f7,#66d996)':'linear-gradient(90deg,#4fc3f7,#c9a84c)';
+  drawSpin(ks,th);
+}
+function drawSpin(ks,th){
+  ks=ks??+$('ks').value; th=th??(+$('th').value*Math.PI/180);
+  const c=$('spinCanvas'),x=c.getContext('2d'),W=c.width,H=c.height,cx=W/2,cy=H/2;x.clearRect(0,0,W,H);
+  // orbital plane ring
+  x.strokeStyle=gc('--gold');x.lineWidth=2;x.beginPath();x.ellipse(cx,cy,110,42,0,0,7);x.stroke();
+  // orbital axis (up)
+  x.strokeStyle=gc('--blue');x.lineWidth=3;arrow(x,cx,cy,cx,cy-95);
+  x.fillStyle=gc('--blue');x.font='12px Georgia';x.textAlign='right';x.fillText('orbit L',cx-8,cy-88);x.textAlign='left';
+  // spin axis tilted by theta, length ~ sqrt(ks)
+  const len=60+60*Math.sqrt(ks);
+  const sx=cx+len*Math.sin(th), sy=cy-len*Math.cos(th);
+  x.strokeStyle=gc('--gold');x.lineWidth=3;arrow(x,cx,cy,sx,sy);
+  x.fillStyle=gc('--gold');x.fillText('spin (θ)',sx+6,sy-2);
+  x.fillStyle=gc('--dim');x.font='11px Georgia';x.fillText('body',cx-14,cy+58);
+  x.fillStyle=gc('--blue');x.beginPath();x.arc(cx,cy,7,0,7);x.fill();
+}
+function arrow(x,x1,y1,x2,y2){x.beginPath();x.moveTo(x1,y1);x.lineTo(x2,y2);x.stroke();const a=Math.atan2(y2-y1,x2-x1);x.beginPath();x.moveTo(x2,y2);x.lineTo(x2-9*Math.cos(a-0.4),y2-9*Math.sin(a-0.4));x.lineTo(x2-9*Math.cos(a+0.4),y2-9*Math.sin(a+0.4));x.closePath();x.fill?x.fill():0;x.stroke();}
+
+// ---------- Panel C : propagate ----------
+let anim=null;
+function propagate(){
+  if(anim)cancelAnimationFrame(anim);
+  const c=$('propCanvas'),x=c.getContext('2d'),W=c.width,H=c.height;
+  const mu=A.mu; let px=-A.ra, py=0, vx=0, vy=A.va;   // launch at apoapsis (left), velocity up
+  const a=A.a,b=A.b,foc=Math.sqrt(Math.max(a*a-b*b,0));
+  const pad=28,sc=Math.min((W/2-pad)/a,(H/2-pad)/b),cx=W/2-foc*sc,cy=H/2; // focus centered
+  const dt=6, steps=4; const pts=[];
+  x.clearRect(0,0,W,H);
+  function acc(rx,ry){const r=Math.hypot(rx,ry);const f=-mu/(r*r*r);return [f*rx,f*ry];}
+  let n=0,maxN=2600;
+  function step(){
+    for(let s=0;s<steps;s++){
+      let [ax,ay]=acc(px,py);
+      vx+=ax*dt/2; vy+=ay*dt/2; px+=vx*dt; py+=vy*dt;
+      let [ax2,ay2]=acc(px,py); vx+=ax2*dt/2; vy+=ay2*dt/2; n++;
+      pts.push([cx+px*sc,cy+py*sc]);
+    }
+    x.clearRect(0,0,W,H);
+    // reference ellipse (faint)
+    x.strokeStyle=gc('--border');x.lineWidth=1;x.beginPath();x.ellipse(W/2,cy,a*sc,b*sc,0,0,7);x.stroke();
+    x.fillStyle=gc('--blue');x.beginPath();x.arc(cx,cy,5,0,7);x.fill(); // central body at focus
+    x.strokeStyle=gc('--gold');x.lineWidth=2;x.beginPath();pts.forEach((p,i)=>i?x.lineTo(p[0],p[1]):x.moveTo(p[0],p[1]));x.stroke();
+    const last=pts[pts.length-1];x.fillStyle=gc('--good');x.beginPath();x.arc(last[0],last[1],4,0,7);x.fill();
+    if(n<maxN)anim=requestAnimationFrame(step);
+  }
+  step();
+}
+
+['ra','va','rp'].forEach(id=>$(id).addEventListener('input',computeA));
+['ks','th'].forEach(id=>$(id).addEventListener('input',computeB));
+$('runBtn').addEventListener('click',propagate);
+computeA();computeB();
+</script>
+</body>
+</html>
