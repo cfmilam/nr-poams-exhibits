@@ -479,9 +479,9 @@ footer {
 <section class="hero">
   <div class="hero-eyebrow">Normal Realism · POAMS</div>
   <h1>One Substance.<br><em>All of Physics.</em></h1>
-  <p class="hero-sub">Angular momentum is not just a property of matter — it <em>is</em> matter. Every particle, every force, every clock is organized ħ quanta in motion.</p>
+  <p class="hero-sub">Angular momentum is not just a property of matter — it <em>is</em> matter.</p>
   <p class="hero-meta">
-    <strong>Viv Pope &amp; Anthony Osborne</strong> &ensp;·&ensp; 50 years of work &ensp;·&ensp; 16 interactive exhibits
+    <strong>Viv Pope &amp; Anthony Osborne</strong> &ensp;·&ensp; 50 years of work &ensp;·&ensp; <span id="exhibit-count">16</span> interactive exhibits
   </p>
 </section>
 
@@ -763,6 +763,16 @@ const obs = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12 });
 steps.forEach(s => obs.observe(s));
+
+/* ── Auto exhibit counter ── keeps the hero tally in sync with the exhibit cards.
+   Counts local exhibit step-links (a.step-link -> ./<name>.html); external
+   links (books/engineering) and the analysis doc are excluded automatically.
+   Add an exhibit card and this updates itself; 16 is the static fallback. */
+(function () {
+  var cards = document.querySelectorAll('a.step-link[href^="./"][href$=".html"]');
+  var el = document.getElementById('exhibit-count');
+  if (el && cards.length) el.textContent = cards.length;
+})();
 </script>
 
 </body>
