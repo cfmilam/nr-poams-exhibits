@@ -144,6 +144,23 @@ body {
 .touchstone strong { color: var(--fg); font-weight: 600; }
 .touchstone em { color: var(--gold2); font-style: italic; }
 
+/* ─── Creed masthead (Discreteum) ───────────────────────────────────── */
+.creed-wrap { padding: 3.4rem 0 3.6rem; background: linear-gradient(180deg, var(--bg) 0%, var(--bg3) 100%); border-top: 1px solid var(--border); }
+.creed { max-width: 880px; margin: 0 auto; padding: 0 1.4rem; text-align: center; }
+.creed .eyebrow { font-family:'Inter',sans-serif; font-size:0.72rem; font-weight:600; letter-spacing:0.24em; text-transform:uppercase; color:var(--gold); opacity:0.85; margin-bottom:0.8rem; }
+.creed h2 { font-family:'Cormorant Garamond',Georgia,serif; font-weight:400; font-size:clamp(1.9rem,3.4vw,2.9rem); line-height:1.12; color:var(--fg); margin-bottom:0.5rem; }
+.creed h2 em { font-style:italic; color:var(--gold2); }
+.creed .creed-sub { font-size:0.95rem; color:var(--fg2); max-width:600px; margin:0 auto 2rem; }
+.creed-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); }
+@media(max-width:720px){ .creed-grid{ grid-template-columns:1fr; } }
+.creed-cell { background:var(--bg2); padding:1.3rem 1.25rem; text-align:left; transition:var(--transition); }
+.creed-cell:hover { background:var(--surface2); }
+.creed-cell .n { font-family:'Cormorant Garamond',Georgia,serif; font-size:1.1rem; color:var(--gold); opacity:0.7; }
+.creed-cell h3 { font-family:'Inter',sans-serif; font-size:0.95rem; font-weight:600; color:var(--fg); margin:0.15rem 0 0.4rem; letter-spacing:0.01em; }
+.creed-cell p { font-size:0.85rem; line-height:1.55; color:var(--fg2); margin:0; }
+.creed-cell p em { color:var(--blue); font-style:normal; }
+.creed-cell code { font-family:'SF Mono',ui-monospace,Menlo,monospace; font-size:0.8rem; color:var(--gold2); background:var(--surface); padding:0.05em 0.35em; border-radius:4px; }
+
 /* ─── Arc Section ────────────────────────────────────────────────────── */
 .arc-wrap {
   padding: 5rem 0;
@@ -482,6 +499,47 @@ footer {
   <p class="hero-meta">
     <strong>Viv Pope &amp; Anthony Osborne</strong> &ensp;·&ensp; 50 years of work &ensp;·&ensp; <span id="exhibit-count">18</span> interactive exhibits
   </p>
+</section>
+
+<!-- ── THE CREED (Discreteum masthead) ── -->
+<section class="creed-wrap">
+  <div class="creed">
+    <div class="eyebrow">The First Principle</div>
+    <h2>Discreteum, <em>not</em> Continuum.</h2>
+    <p class="creed-sub">Reality is discrete. Any information-based world must be — discrete, unconnected bits are the datum, not a thing derived from a smooth substrate. Continuity is only what the discrete <em>looks like</em> scaled out.</p>
+    <div class="creed-grid">
+      <div class="creed-cell">
+        <div class="n">i</div>
+        <h3>Discreteum, not continuum</h3>
+        <p>The one substance is itself discrete — whole ħ turns. <em>Monism, not continuism</em>: one substance does not mean a continuous one.</p>
+      </div>
+      <div class="creed-cell">
+        <div class="n">ii</div>
+        <h3>Integers are primary</h3>
+        <p>Only completed closures exist and can be counted (∮dφ = 2πn). A fractional turn is not a smaller thing — it is <em>no</em> thing.</p>
+      </div>
+      <div class="creed-cell">
+        <div class="n">iii</div>
+        <h3>Continuity is appearance</h3>
+        <p>Smoothness is the far-field look of many turns at once — the movie from its frames. Never a substrate beneath them.</p>
+      </div>
+      <div class="creed-cell">
+        <div class="n">iv</div>
+        <h3>Integrate, don’t differentiate</h3>
+        <p>Sum the discrete turns to recover the apparent curve. Do not differentiate a fictional continuum forever.</p>
+      </div>
+      <div class="creed-cell">
+        <div class="n">v</div>
+        <h3>The staircase under the ramp</h3>
+        <p><code>L = dS/dθ</code> is the macro representation — the ramp drawn through the integer staircase <code>ΔS = ħΔn</code>.</p>
+      </div>
+      <div class="creed-cell">
+        <div class="n">vi</div>
+        <h3>Kinematic, not mechanistic</h3>
+        <p>Reality is turning — angular momentum, time. Forces and machines are artifacts of the map; <em>mechanistic only in representation</em>.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ── THE TOUCHSTONE (reality check) ── -->

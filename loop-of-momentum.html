@@ -36,6 +36,14 @@
   #info li:last-child{margin-bottom:0;}
   #info b{color:var(--blue);} #info .g{color:var(--gold);}
   #info .k{font-weight:700;}
+  #creed{display:flex;flex-wrap:wrap;gap:0;align-items:stretch;
+    border-top:1px solid var(--edge);background:#10101c;font-size:10.5px;}
+  #creed .c{flex:1;min-width:120px;padding:7px 12px;border-right:1px solid var(--edge);
+    color:var(--muted);line-height:1.4;}
+  #creed .c:last-child{border-right:none;}
+  #creed .c b{color:var(--gold);display:block;font-size:10px;letter-spacing:.02em;margin-bottom:1px;}
+  #creed code{font-family:ui-monospace,Menlo,monospace;color:var(--blue);font-size:10px;}
+  @media(max-width:720px){#creed{display:none;}}
   #infoToggle{position:absolute;top:14px;right:14px;font-size:11px;color:var(--muted);
     background:rgba(13,13,24,.72);border:1px solid var(--edge);border-radius:7px;padding:5px 9px;
     cursor:pointer;display:none;}
@@ -67,6 +75,14 @@
     <h1>A Closed Loop of Twisted Momentum</h1>
     <p>There is <i>no thing</i> here — no rim, no strip, no stuff in a void. Only <b>phase</b>: an angle that closes on itself (∮dφ = 2πn) and keeps turning (that turning <i>is</i> time). The one real, countable quantity is the integer <b>linking number</b>. Where "twist" ends and "writhe" begins is a smooth representational choice — only their sum is invariant.</p>
   </header>
+  <div id="creed">
+    <div class="c"><b>Discreteum, not continuum</b>the substance is discrete — whole ħ turns</div>
+    <div class="c"><b>Integers primary</b>only closures exist; a partial turn is no thing</div>
+    <div class="c"><b>Continuity = appearance</b>the smooth look of many turns at once</div>
+    <div class="c"><b>Integrate, don’t differentiate</b>sum turns; don’t differentiate a continuum</div>
+    <div class="c"><b>Staircase under the ramp</b><code>L=dS/dθ</code> over <code>ΔS=ħΔn</code></div>
+    <div class="c"><b>Kinematic, not mechanistic</b>turning is real; mechanism is representation</div>
+  </div>
   <div id="stage">
     <canvas id="c"></canvas>
     <div id="hud">
