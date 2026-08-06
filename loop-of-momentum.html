@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Closed Loop of Twisted Momentum — depicting the non-thing</title>
+<style>
+  :root{
+    --bg:#0d0d18; --card:#1c1c30; --text:#e8e8f0; --muted:#9a9ab0;
+    --gold:#c9a84c; --blue:#4fc3f7; --edge:#2c2c46;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;height:100%;background:var(--bg);color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;}
+  #wrap{display:flex;flex-direction:column;height:100%;}
+  header{padding:13px 22px;border-bottom:1px solid var(--edge);}
+  header h1{margin:0;font-size:18px;color:var(--gold);font-weight:600;}
+  header p{margin:4px 0 0;font-size:12.5px;color:var(--muted);max-width:900px;}
+  header b{color:var(--blue);} header i{color:var(--gold);font-style:normal;}
+  #stage{flex:1;position:relative;min-height:0;}
+  #c{display:block;width:100%;height:100%;}
+  #hud{position:absolute;top:14px;left:14px;font-size:12px;color:var(--muted);
+    background:rgba(13,13,24,.62);padding:9px 13px;border-radius:8px;border:1px solid var(--edge);
+    max-width:330px;line-height:1.55;}
+  #hud .lk{color:var(--gold);font-weight:700;font-size:14px;}
+  #hud .sp{color:var(--blue);}
+  #hud .em{color:#6f6f88;}
+  #info{position:absolute;top:14px;right:14px;width:322px;max-width:44vw;font-size:11.5px;
+    color:var(--muted);background:rgba(13,13,24,.72);padding:12px 14px 13px;border-radius:9px;
+    border:1px solid var(--edge);line-height:1.5;max-height:calc(100% - 28px);overflow:auto;}
+  #info h2{margin:0 0 7px;font-size:12.5px;color:var(--gold);font-weight:700;letter-spacing:.2px;}
+  #info ul{margin:0;padding:0;list-style:none;}
+  #info li{margin:0 0 7px;padding-left:14px;position:relative;}
+  #info li:before{content:"";position:absolute;left:0;top:6px;width:5px;height:5px;border-radius:50%;
+    background:var(--gold);opacity:.8;}
+  #info li:last-child{margin-bottom:0;}
+  #info b{color:var(--blue);} #info .g{color:var(--gold);}
+  #info .k{font-weight:700;}
+  #infoToggle{position:absolute;top:14px;right:14px;font-size:11px;color:var(--muted);
+    background:rgba(13,13,24,.72);border:1px solid var(--edge);border-radius:7px;padding:5px 9px;
+    cursor:pointer;display:none;}
+  #info .close{position:absolute;top:8px;right:10px;color:#6f6f88;cursor:pointer;font-size:14px;line-height:1;}
+  @media(max-width:720px){#info{display:none;}#infoToggle{display:none;}}
+  #panel{padding:13px 22px;border-top:1px solid var(--edge);background:var(--card);
+    display:flex;flex-wrap:wrap;gap:22px;align-items:center;}
+  .ctl{display:flex;flex-direction:column;gap:5px;min-width:210px;flex:1;}
+  .ctl label{font-size:12px;color:var(--muted);display:flex;justify-content:space-between;}
+  .ctl label b{color:var(--text);}
+  .ends{font-size:11px;color:var(--muted);display:flex;justify-content:space-between;margin-top:2px;}
+  .ends .a{color:var(--gold);} .ends .b{color:var(--blue);}
+  input[type=range]{width:100%;accent-color:var(--gold);}
+  .toggles{display:flex;gap:16px;font-size:12px;color:var(--muted);}
+  .toggles label{display:flex;align-items:center;gap:6px;cursor:pointer;}
+  .caption{font-size:12px;color:var(--muted);line-height:1.5;max-width:500px;flex:2;min-width:280px;}
+  .caption b{color:var(--gold);} .caption i{color:var(--blue);font-style:normal;}
+</style>
+<script type="importmap">
+{ "imports":{
+  "three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "OrbitControls":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/controls/OrbitControls.js"
+}}
+</script>
+</head>
+<body>
+<div id="wrap">
+  <header>
+    <h1>A Closed Loop of Twisted Momentum</h1>
+    <p>There is <i>no thing</i> here — no rim, no strip, no stuff in a void. Only <b>phase</b>: an angle that closes on itself (∮dφ = 2πn) and keeps turning (that turning <i>is</i> time). The one real, countable quantity is the integer <b>linking number</b>. Where "twist" ends and "writhe" begins is a smooth representational choice — only their sum is invariant.</p>
+  </header>
+  <div id="stage">
+    <canvas id="c"></canvas>
+    <div id="hud">
+      <div><span class="lk">Lk = <span id="lk">3</span></span> &nbsp;<span class="em">— integer, invariant, the only real quantity</span></div>
+      <div style="margin-top:5px;">= Twist <span class="sp" id="tw">3.0</span> + Writhe <span class="sp" id="wr">0.0</span> &nbsp;<span class="em">(a continuous split — not fundamental)</span></div>
+      <div style="margin-top:6px;" class="em">Barycenter empty — nothing reaches r = 0. Nothing is solid; this is phase, not matter.</div>
+    </div>
+    <div id="info">
+      <span class="close" id="infoClose" title="hide">×</span>
+      <h2>How to read a no-thing</h2>
+      <ul>
+        <li>There is <b class="k">no object here</b> — no rim, no strip, no stuff in a void. The glowing strokes are not matter; each is only <span class="g">where the phase points now</span> — the local <b>sense of rotation</b>.</li>
+        <li>The faint ellipse is not a wire. It is the <span class="g">closed locus the phase winds around</span> — a relation, not a thing.</li>
+        <li>The strokes <b>circulate</b> because the substance <span class="g">is its own turning</span>. That turning <b class="k">is time</b> (L = dS/dθ) — there is nothing else underneath.</li>
+        <li>The one real, countable quantity is the integer <b class="k">linking number Lk</b> — how many times the phase closes on itself (∮dφ = 2πn).</li>
+        <li><b>Twist ↔ Writhe:</b> drag it and spin trades for coil, yet <span class="g">Lk never moves</span>. Which part we <i>call</i> spin vs orbit is a <b>viewpoint</b>; only the invariant sum is real (Călugăreanu: Lk = Tw + Wr).</li>
+        <li><b class="k">Discreteum, not continuum:</b> at low Lk you can count the turns. Crank it high and they blur into an apparent smooth glow — <span class="g">continuity is just many turns seen at once</span>, never a substance beneath them.</li>
+      </ul>
+    </div>
+    <button id="infoToggle">ℹ guide</button>
+  </div>
+  <div id="panel">
+    <div class="ctl" style="min-width:190px;flex:0;">
+      <label>Linking number (Lk = n) <b id="nv">3</b></label>
+      <input id="n" type="range" min="1" max="16" step="1" value="3">
+      <div class="ends"><span class="a">count the turns</span><span class="b">many → looks smooth</span></div>
+    </div>
+    <div class="ctl">
+      <label>Twist ↔ Writhe <b id="sv">0%</b> writhe</label>
+      <input id="s" type="range" min="0" max="1" step="0.01" value="0">
+      <div class="ends"><span class="a">all twist (spin)</span><span class="b">all writhe (coil)</span></div>
+    </div>
+    <div class="ctl" style="min-width:150px;flex:0;">
+      <div class="toggles">
+        <label><input type="checkbox" id="flow" checked> phase flows</label>
+        <label><input type="checkbox" id="spin" checked> rotate</label>
+      </div>
+    </div>
+    <div class="caption" id="cap"></div>
+  </div>
+</div>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'OrbitControls';
+
+const cv = document.getElementById('c');
+const renderer = new THREE.WebGLRenderer({canvas:cv, antialias:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x0d0d18);
+
+const camera = new THREE.PerspectiveCamera(46,1,0.1,100);
+camera.position.set(3.4,3.9,5.4);
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true; controls.dampingFactor = 0.08;
+controls.minDistance = 3; controls.maxDistance = 20;
+
+// ---- empty barycenter (the eye): faint ring + void, NO solid mass ----
+const eyeGrp = new THREE.Group(); scene.add(eyeGrp);
+const ring = new THREE.Mesh(new THREE.TorusGeometry(0.26,0.006,8,64),
+  new THREE.MeshBasicMaterial({color:0x44445f,transparent:true,opacity:0.8}));
+ring.rotation.x=Math.PI/2; eyeGrp.add(ring);
+
+// ---- the phase loop: rendered ONLY as glowing phase, no surface ----
+const loop = new THREE.Group(); scene.add(loop);
+let rungs=null, ends=null, spine=null;
+
+const R=1.75, COILAMP=0.52, HAND=0.30;   // loop radius, writhe-coil amplitude, phase-hand half-length
+let n=3, sWrithe=0.0, phase0=0;
+
+function Tw(){ return Math.round(n*(1-sWrithe)); }
+function Wr(){ return n-Tw(); }
+
+// closed centerline; writhe w = number of times the closed locus coils through its own plane
+function centerline(t){
+  const w=Wr(), ang=2*Math.PI*t, coil=2*Math.PI*w*t;
+  const rad=R + (w>0?COILAMP*Math.cos(coil):0);
+  const y = w>0 ? COILAMP*Math.sin(coil) : 0;
+  return new THREE.Vector3(rad*Math.cos(ang), y, rad*Math.sin(ang));
+}
+function frame(t){
+  const e=6e-4;
+  const T=centerline((t+e+1)%1).sub(centerline((t-e+1)%1)).normalize();
+  const up=new THREE.Vector3(0,1,0);
+  let B=new THREE.Vector3().crossVectors(T,up).normalize();
+  if(!isFinite(B.x)||B.lengthSq()<1e-6) B.set(1,0,0);
+  const N=new THREE.Vector3().crossVectors(B,T).normalize();
+  return {p:centerline(t),N,B};
+}
+
+function build(){
+  [rungs,ends,spine].forEach(o=>{if(o){loop.remove(o);o.geometry.dispose();o.material.dispose();}});
+  const twc=Tw(), wrc=Wr();
+  // discrete phase-hands: a local sense-of-rotation sampled around the closed locus.
+  // NOT a surface, NOT stuff — each stroke is where the phase points right now.
+  const K = Math.min(Math.max(Math.round(n*26),56),380);
+  const hp=[], hc=[], sp=[], sc=[];
+  const SS=360;
+  for(let i=0;i<K;i++){
+    const t=i/K;
+    const f=frame(t);
+    const th=2*Math.PI*twc*t + phase0;            // local phase = twist winding + flow (time)
+    const dir=f.N.clone().multiplyScalar(Math.cos(th)).add(f.B.clone().multiplyScalar(Math.sin(th)));
+    const a=f.p.clone().add(dir.clone().multiplyScalar(HAND));
+    const b=f.p.clone().add(dir.clone().multiplyScalar(-HAND));
+    const hue=((twc*t) + phase0/(2*Math.PI)) % 1;
+    const col=new THREE.Color().setHSL((hue+1)%1,0.92,0.62);
+    const dim=col.clone().multiplyScalar(0.18);
+    // bright tip -> dim center: a directed stroke, reads as rotational sense not a bar
+    hp.push(a.x,a.y,a.z, f.p.x,f.p.y,f.p.z,  f.p.x,f.p.y,f.p.z, b.x,b.y,b.z);
+    hc.push(col.r,col.g,col.b, dim.r,dim.g,dim.b,  dim.r,dim.g,dim.b, col.r,col.g,col.b);
+  }
+  for(let i=0;i<=SS;i++){ const f=frame((i%SS)/SS); sp.push(f.p.x,f.p.y,f.p.z); sc.push(0.30,0.30,0.42); }
+  const mk=(pos,col)=>{
+    const g=new THREE.BufferGeometry();
+    g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));
+    g.setAttribute('color',new THREE.Float32BufferAttribute(col,3));
+    return g;
+  };
+  // the phase-hands (the star): discrete strokes of rotational sense, glowing, additively blended
+  rungs=new THREE.LineSegments(mk(hp,hc),
+    new THREE.LineBasicMaterial({vertexColors:true,transparent:true,opacity:0.95,
+      blending:THREE.AdditiveBlending,depthWrite:false}));
+  loop.add(rungs);
+  // bright bead at each hand tip so you can COUNT the turns at low n
+  ends=new THREE.Points(mk(hp,hc),
+    new THREE.PointsMaterial({size:0.055,vertexColors:true,transparent:true,opacity:0.9,
+      blending:THREE.AdditiveBlending,depthWrite:false,sizeAttenuation:true}));
+  loop.add(ends);
+  // the closed locus itself: very dim — a relation the phase winds around, not a wire of stuff
+  spine=new THREE.Line(mk(sp,sc),
+    new THREE.LineBasicMaterial({vertexColors:true,transparent:true,opacity:0.4,depthWrite:false}));
+  loop.add(spine);
+
+  document.getElementById('lk').textContent=n;
+  document.getElementById('nv').textContent=n;
+  document.getElementById('tw').textContent=twc;
+  document.getElementById('wr').textContent=wrc;
+  document.getElementById('sv').textContent=Math.round(sWrithe*100)+'%';
+}
+
+// ---- UI ----
+const nEl=document.getElementById('n'), sEl=document.getElementById('s');
+const flowEl=document.getElementById('flow'), spinEl=document.getElementById('spin');
+const cap=document.getElementById('cap');
+function caption(){
+  if(sWrithe<0.08){
+    cap.innerHTML='<b>All twist.</b> The phase spins about the loop\u2019s own axis \u2014 <i>spin</i>. Count the colour-cycles: that count is the integer. Nothing is spinning <i>in</i> anything; the turning is the whole of it.';
+  }else if(sWrithe>0.92){
+    cap.innerHTML='<b>All writhe.</b> The same linking, now spent on the loop <i>coiling through space</i> \u2014 <i>orbit</i>. Twist and writhe traded freely, yet <b>Lk stayed fixed</b>. The integer is conserved; its split is just how we choose to read it.';
+  }else{
+    cap.innerHTML='<b>Twist + writhe, summing to Lk.</b> Spin trades for coil while the integer never moves. Which part we <i>call</i> spin vs orbit is a viewpoint; the integer sum is the <b>reality</b> (C\u0103lug\u0103reanu: Lk = Tw + Wr).';
+  }
+  if(n>=11) cap.innerHTML+=' <span style="color:#6f6f88">\u2014 crank n high and the beads blur into an apparent smooth glow: continuity is just many turns seen at once.</span>';
+}
+function refresh(){ build(); caption(); }
+nEl.addEventListener('input',()=>{n=parseInt(nEl.value);refresh();});
+sEl.addEventListener('input',()=>{sWrithe=parseFloat(sEl.value);refresh();});
+refresh();
+
+function resize(){
+  const r=cv.getBoundingClientRect();
+  renderer.setSize(r.width,r.height,false);
+  camera.aspect=r.width/r.height; camera.updateProjectionMatrix();
+}
+window.addEventListener('resize',resize); resize();
+
+// info box show/hide
+const infoBox=document.getElementById('info'), infoClose=document.getElementById('infoClose'), infoToggle=document.getElementById('infoToggle');
+infoClose.addEventListener('click',()=>{infoBox.style.display='none';infoToggle.style.display='block';});
+infoToggle.addEventListener('click',()=>{infoBox.style.display='block';infoToggle.style.display='none';});
+
+let last=performance.now();
+function anim(now){
+  requestAnimationFrame(anim);
+  const dt=(now-last)/1000; last=now;
+  if(flowEl.checked){ phase0 += dt*1.1; build(); }   // phase advances = time = L=dS/dθ
+  if(spinEl.checked){ loop.rotation.y+=0.0032; eyeGrp.rotation.y+=0.0032; }
+  controls.update();
+  renderer.render(scene,camera);
+}
+requestAnimationFrame(anim);
+</script>
+</body>
+</html>
