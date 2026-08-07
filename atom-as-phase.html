@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Atom as Organized Phase — Carbon &amp; Iron</title>
+<style>
+  :root{
+    --bg:#0d0d18; --card:#1c1c30; --text:#e8e8f0; --muted:#9a9ab0;
+    --gold:#c9a84c; --blue:#4fc3f7; --green:#66bb6a; --edge:#2c2c46;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;height:100%;background:var(--bg);color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;}
+  #wrap{display:flex;flex-direction:column;height:100%;}
+  header{padding:13px 22px;border-bottom:1px solid var(--edge);}
+  header h1{margin:0;font-size:18px;color:var(--gold);font-weight:600;}
+  header p{margin:4px 0 0;font-size:12.5px;color:var(--muted);max-width:960px;}
+  header b{color:var(--blue);} header i{color:var(--gold);font-style:normal;}
+  #creed{display:flex;flex-wrap:wrap;gap:0;align-items:stretch;
+    border-top:1px solid var(--edge);background:#10101c;font-size:10.5px;}
+  #creed .c{flex:1;min-width:120px;padding:7px 12px;border-right:1px solid var(--edge);
+    color:var(--muted);line-height:1.4;}
+  #creed .c:last-child{border-right:none;}
+  #creed .c b{color:var(--gold);display:block;font-size:10px;letter-spacing:.02em;margin-bottom:1px;}
+  #creed code{font-family:ui-monospace,Menlo,monospace;color:var(--blue);font-size:10px;}
+  @media(max-width:720px){#creed{display:none;}}
+  #stage{flex:1;position:relative;min-height:0;}
+  #c{display:block;width:100%;height:100%;}
+  #hud{position:absolute;top:14px;left:14px;font-size:12px;color:var(--muted);
+    background:rgba(13,13,24,.66);padding:10px 13px;border-radius:8px;border:1px solid var(--edge);
+    max-width:360px;line-height:1.6;}
+  #hud .z{color:var(--gold);font-weight:700;font-size:14px;}
+  #hud .em{color:#6f6f88;}
+  #hud .fill span{font-weight:700;}
+  #hud .s{color:var(--gold);} #hud .p{color:var(--blue);} #hud .d{color:var(--green);}
+  #hud .net{margin-top:6px;color:var(--text);}
+  #info{position:absolute;top:14px;right:14px;width:330px;max-width:44vw;font-size:11.5px;
+    color:var(--muted);background:rgba(13,13,24,.74);padding:12px 14px 13px;border-radius:9px;
+    border:1px solid var(--edge);line-height:1.5;max-height:calc(100% - 28px);overflow:auto;}
+  #info h2{margin:0 0 7px;font-size:12.5px;color:var(--gold);font-weight:700;letter-spacing:.2px;}
+  #info ul{margin:0;padding:0;list-style:none;}
+  #info li{margin:0 0 7px;padding-left:14px;position:relative;}
+  #info li:before{content:"";position:absolute;left:0;top:6px;width:5px;height:5px;border-radius:50%;
+    background:var(--gold);opacity:.8;}
+  #info li:last-child{margin-bottom:0;}
+  #info b{color:var(--blue);} #info .g{color:var(--gold);} #info .gr{color:var(--green);}
+  #info .k{font-weight:700;}
+  #info .close{position:absolute;top:8px;right:10px;color:#6f6f88;cursor:pointer;font-size:14px;line-height:1;}
+  #infoToggle{position:absolute;top:14px;right:14px;font-size:11px;color:var(--muted);
+    background:rgba(13,13,24,.72);border:1px solid var(--edge);border-radius:7px;padding:5px 9px;
+    cursor:pointer;display:none;}
+  @media(max-width:720px){#info{display:none;}#infoToggle{display:none;}}
+  #panel{padding:13px 22px;border-top:1px solid var(--edge);background:var(--card);
+    display:flex;flex-wrap:wrap;gap:22px;align-items:center;}
+  .ctl{display:flex;flex-direction:column;gap:5px;min-width:200px;flex:1;}
+  .ctl label{font-size:12px;color:var(--muted);display:flex;justify-content:space-between;}
+  .ctl label b{color:var(--text);}
+  .ends{font-size:11px;color:var(--muted);display:flex;justify-content:space-between;margin-top:2px;}
+  .ends .a{color:var(--gold);} .ends .b{color:var(--blue);}
+  input[type=range]{width:100%;accent-color:var(--gold);}
+  .toggles{display:flex;gap:16px;font-size:12px;color:var(--muted);}
+  .toggles label{display:flex;align-items:center;gap:6px;cursor:pointer;}
+  .elpick{display:flex;gap:8px;}
+  .elpick button{padding:7px 16px;border-radius:7px;border:1px solid var(--edge);
+    background:transparent;color:var(--muted);cursor:pointer;font-size:13px;font-weight:600;}
+  .elpick button.on{border-color:var(--gold);color:var(--gold);background:rgba(201,168,76,.08);}
+  .caption{font-size:12px;color:var(--muted);line-height:1.5;max-width:520px;flex:2;min-width:280px;}
+  .caption b{color:var(--gold);} .caption i{color:var(--blue);font-style:normal;}
+  .caption .gr{color:var(--green);}
+</style>
+<script type="importmap">
+{ "imports":{
+  "three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "OrbitControls":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/controls/OrbitControls.js"
+}}
+</script>
+</head>
+<body>
+<div id="wrap">
+  <header>
+    <h1>The Atom as Organized Phase — Carbon &amp; Iron</h1>
+    <p>No electrons orbit here, because there are no electrons — there is <i>one circulation</i>, and what chemistry counts are its <b>angular harmonic modes</b>. Every glowing ring is the same object: a <i>closed streamline of phase</i>. The bright crest moving along each ring is its winding made visible — count crests and you have counted the integers. Counter-flowing senses cancel (closed shells sit calm); uncancelled senses add (iron's magnetism is four of them, turning together). The barycenter is empty. Nothing is solid. This is phase, not matter.</p>
+  </header>
+  <div id="creed">
+    <div class="c"><b>Discreteum, not continuum</b>the substance is discrete — whole ħ turns</div>
+    <div class="c"><b>Integers primary</b>mode capacities 2, 6, 10 are eigen-counting, not fit</div>
+    <div class="c"><b>Continuity = appearance</b>a "shell" is many turns seen at once</div>
+    <div class="c"><b>No things, no void</b>rings are streamlines of phase, not stuff</div>
+    <div class="c"><b>Staircase under the ramp</b><code>L=dS/dθ</code> over <code>ΔS=ħΔn</code></div>
+    <div class="c"><b>Kinematic, not mechanistic</b>turning is real; mechanism is representation</div>
+  </div>
+  <div id="stage">
+    <canvas id="c"></canvas>
+    <div id="hud">
+      <div><span class="z" id="hudTitle">C-12 — harmonic mode 6</span></div>
+      <div id="hudLedger" class="em"></div>
+      <div id="hudFill" class="fill" style="margin-top:5px;"></div>
+      <div id="hudNet" class="net"></div>
+      <div style="margin-top:6px;" class="em">Barycenter empty — nothing reaches r = 0.</div>
+    </div>
+    <div id="info">
+      <span class="close" id="infoClose" title="hide">×</span>
+      <h2>How to read an atom that is not made of things</h2>
+      <ul>
+        <li><b class="k">No electrons.</b> A "mode-unit" (convention: an electron) is one ħ of organized turning. Each is drawn as its <span class="g">closed streamlines</span> — the rings along which its circulation actually flows about its own axis.</li>
+        <li><b>Streamlines, not lobes.</b> Textbook lobes picture amplitude; these rings carry <span class="g">the turning itself</span>. Every ring in this atom — planar core included — is one and the same object: a closed loop of phase.</li>
+        <li><b class="k">Count the crests.</b> The bright wave circling a ring is its phase crest — the winding number made visible: <span style="color:var(--blue)">p-rings carry 1 crest</span>, <span class="gr">d-rings 2</span>; <span class="g">s-rings breathe uniformly</span> (winding 0 — near-pure internal twist, no transport). The crest is a <b>wave of turning, not a thing going around</b>.</li>
+        <li><b>Orientations are derived, not assumed:</b> each angular harmonic l admits exactly 2l+1 orientations × 2 phase senses — <span class="g">s&nbsp;=&nbsp;2</span>, <span style="color:var(--blue)">p&nbsp;=&nbsp;6</span>, <span class="gr">d&nbsp;=&nbsp;10</span>. Pure eigen-counting on a sphere. (Each orientation is drawn in its maximal-circulation form about its own axis; the counting is untouched.)</li>
+        <li><b>Paired senses counter-flow and cancel</b> — a closed pair is two adjacent rings whose crests chase in opposite directions, drawn calm and dim. <b class="k">Unpaired senses co-flow</b> bright: carbon's two open p-rings are its chemistry; iron's <span class="gr">four co-turning d-rings</span> are a net twist — its magnetism, with no "spin of a particle" anywhere. <b>Slide "closed pairs" down</b> to watch the cancellations fall silent: what survives is the atom's <span class="g">net circulation</span> — for iron, four green rings and the core. The pairs are still there (the counting never changes); zero is just what their sum looks like.</li>
+        <li><b>Shells are radial harmonics</b> (n = 1, 2, 3…). True spacing goes as <span class="g">n²</span> — compressed here for display (slider below), the same compromise every textbook makes.</li>
+        <li><b>The planar core</b> is the standalone <span class="g">closed loop of twisted momentum</span>, embedded at the atom's heart doing structural duty: its integer twist count IS the extra ħ that deepens the vortex without changing its pattern (convention: neutrons). C-12 carries <span class="g">Tw = +6</span> — count the colour cycles; Fe-56 carries +30, blurring toward apparent smoothness (the discreteum lesson again).</li>
+        <li>Dim grey ghost rings mark <b>derived-but-unoccupied orientations</b> (carbon shows 2 of 6 p-positions lit). Chemistry is the reach toward closing them.</li>
+      </ul>
+    </div>
+    <button id="infoToggle">ℹ guide</button>
+  </div>
+  <div id="panel">
+    <div class="ctl" style="min-width:150px;flex:0;">
+      <label style="justify-content:flex-start;">Element</label>
+      <div class="elpick">
+        <button id="elC" class="on">C-12</button>
+        <button id="elFe">Fe-56</button>
+      </div>
+    </div>
+    <div class="ctl" style="min-width:190px;">
+      <label>Radial display <b id="rpv">compressed</b></label>
+      <input id="rp" type="range" min="1" max="2" step="0.01" value="1.45">
+      <div class="ends"><span class="a">compressed (display)</span><span class="b">true n² spacing</span></div>
+    </div>
+    <div class="ctl" style="min-width:190px;">
+      <label>Closed pairs <b id="pvv">50%</b></label>
+      <input id="pv" type="range" min="0" max="1" step="0.01" value="0.5">
+      <div class="ends"><span class="a">net circulation only</span><span class="b">every turn shown</span></div>
+    </div>
+    <div class="ctl" style="min-width:150px;flex:0;">
+      <div class="toggles">
+        <label><input type="checkbox" id="flow" checked> phase flows</label>
+        <label><input type="checkbox" id="spin" checked> rotate</label>
+        <label><input type="checkbox" id="ghosts" checked> ghosts</label>
+      </div>
+    </div>
+    <div class="caption" id="cap"></div>
+  </div>
+</div>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'OrbitControls';
+
+const cv = document.getElementById('c');
+const renderer = new THREE.WebGLRenderer({canvas:cv, antialias:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x0d0d18);
+const camera = new THREE.PerspectiveCamera(46,1,0.1,300);
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true; controls.dampingFactor = 0.08;
+
+// ---------- palette ----------
+const LCOL = { 0:0xc9a84c, 1:0x4fc3f7, 2:0x66bb6a };   // s gold, p blue, d green (house)
+const GHOST = 0x55556e;
+
+// ---------- element data ----------
+const AX = {
+  z:[0,0,1], x:[1,0,0], y:[0,1,0],
+  d1:[0,0,1], d2:[1,1,1], d3:[1,-1,1], d4:[-1,1,1], d5:[-1,-1,1]
+};
+function pairsOf(n,l,axes){ const u=[];
+  for(const a of axes){ u.push({n,l,axis:a,sense:+1},{n,l,axis:a,sense:-1}); } return u; }
+const ELEMENTS = {
+  C: {
+    label:'C-12 — harmonic mode 6', Z:6, A:12, disk:6, camD:7.5,
+    fill:'<span class="s">1s²</span> <span class="s">2s²</span> <span class="p">2p²</span> — 2p holds <span class="p">2 of 6</span>',
+    net:'2 uncancelled senses (2p, co-flowing) — open orientations: this is carbon\u2019s chemistry.',
+    units:[
+      ...pairsOf(1,0,['z']),
+      ...pairsOf(2,0,['z']),
+      {n:2,l:1,axis:'x',sense:+1},{n:2,l:1,axis:'y',sense:+1}
+    ],
+    ghosts:[ {n:2,l:1,axis:'z'} ],
+    cap:'<b>Carbon.</b> Two closed s-pairs sit calm (counter-chasing crests cancel). Two p-rings carry their single crest <i>uncancelled, co-sense</i> about the x and y axes; the z-orientation is a grey ghost. Four mode-units short of closure — <b>tetravalence as unfinished counting</b>, no bonds-as-sticks required.'
+  },
+  Fe: {
+    label:'Fe-56 — harmonic mode 26', Z:26, A:56, disk:30, camD:16.5,
+    fill:'<span class="s">1s²2s²</span><span class="p">2p⁶</span> <span class="s">3s²</span><span class="p">3p⁶</span> <span class="s">4s²</span> <span class="d">3d⁶</span> — 3d holds <span class="d">6 of 10</span>',
+    net:'4 uncancelled senses (3d, co-flowing) = net internal twist = <b>ferromagnetism</b> — no particle "spins" anywhere.',
+    units:[
+      ...pairsOf(1,0,['z']),
+      ...pairsOf(2,0,['z']), ...pairsOf(2,1,['x','y','z']),
+      ...pairsOf(3,0,['z']), ...pairsOf(3,1,['x','y','z']),
+      ...pairsOf(4,0,['z']),
+      ...pairsOf(3,2,['d1']),
+      {n:3,l:2,axis:'d2',sense:+1},{n:3,l:2,axis:'d3',sense:+1},
+      {n:3,l:2,axis:'d4',sense:+1},{n:3,l:2,axis:'d5',sense:+1}
+    ],
+    ghosts:[],
+    cap:'<b>Iron.</b> Eleven closed pairs cancel into calm shells. In the green d-harmonic one orientation is paired — and <span class="gr">four rings run their two crests co-sense, uncancelled</span>. Their sum is a net twist the whole vortex carries: <b>ferromagnetism as bookkeeping</b>. Pull “closed pairs” to zero and the magnet stands alone. This is the handle the YIG experiment grabs.'
+  }
+};
+
+// ---------- scaffolding ----------
+const eyeGrp = new THREE.Group(); scene.add(eyeGrp);
+const eyeRing = new THREE.Mesh(new THREE.TorusGeometry(0.22,0.006,8,64),
+  new THREE.MeshBasicMaterial({color:0x44445f,transparent:true,opacity:0.8}));
+eyeRing.rotation.x=Math.PI/2; eyeGrp.add(eyeRing);
+
+const atom = new THREE.Group(); scene.add(atom);
+let rings=[];            // Ring instances (incl. core)
+let statics=[];          // shell-hint objects
+let el='C', rp=1.45, flowT=0;
+const rShell = n => 0.95*Math.pow(n,rp);
+
+// ================= Ring: a closed streamline of phase =================
+// One grammar for everything. Hands tilt through the (radial, axis) plane with
+// angle ψ = w·φ + σ·flow; brightness crest at cos(w·φ − σ·flow). Winding w is the
+// countable integer: core = extra-ħ twist; p = 1; d = 2; s = 0 (internal twist only).
+let PAIRVIS=0.5;
+const pairFac=()=>0.10+0.90*PAIRVIS;
+class Ring{
+  constructor(o){
+    // o: axisV, lat (deg), R (sphere radius), w (winding), sense, colorHex,
+    //    bright, K, handLen, mode ('crest'|'rainbow'|'uniform'|'ghost'), beads, pairedFlag
+    Object.assign(this,o);
+    const th=(90-this.lat)*Math.PI/180;
+    this.center=this.axisV.clone().multiplyScalar(this.R*Math.cos(th));
+    this.rho=this.R*Math.sin(th);
+    // in-plane basis
+    const up=Math.abs(this.axisV.y)<0.93?new THREE.Vector3(0,1,0):new THREE.Vector3(1,0,0);
+    this.e1=new THREE.Vector3().crossVectors(this.axisV,up).normalize();
+    this.e2=new THREE.Vector3().crossVectors(this.axisV,this.e1).normalize();
+    const K=this.K;
+    this.posH=new Float32Array(K*4*3); this.colH=new Float32Array(K*4*3);
+    this.gH=new THREE.BufferGeometry();
+    this.gH.setAttribute('position',new THREE.BufferAttribute(this.posH,3));
+    this.gH.setAttribute('color',new THREE.BufferAttribute(this.colH,3));
+    this.hands=new THREE.LineSegments(this.gH,new THREE.LineBasicMaterial({vertexColors:true,
+      transparent:true,opacity:this.bright,blending:THREE.AdditiveBlending,depthWrite:false}));
+    this.grp=new THREE.Group(); this.grp.add(this.hands);
+    this.mats=[this.hands.material];
+    if(this.beads){
+      this.posB=new Float32Array(K*3); this.colB=new Float32Array(K*3);
+      this.gB=new THREE.BufferGeometry();
+      this.gB.setAttribute('position',new THREE.BufferAttribute(this.posB,3));
+      this.gB.setAttribute('color',new THREE.BufferAttribute(this.colB,3));
+      const bm=new THREE.PointsMaterial({size:0.05,vertexColors:true,
+        transparent:true,opacity:0.9,blending:THREE.AdditiveBlending,depthWrite:false,sizeAttenuation:true});
+      this.grp.add(new THREE.Points(this.gB,bm)); this.mats.push(bm);
+    }
+    // dim spine: the closed locus — a relation, not a wire
+    const sp=[]; for(let i=0;i<=100;i++){const a=i/100*2*Math.PI;
+      const p=this.pt(a); sp.push(p.x,p.y,p.z);}
+    const gS=new THREE.BufferGeometry();
+    gS.setAttribute('position',new THREE.Float32BufferAttribute(sp,3));
+    const sm=new THREE.LineBasicMaterial({color:0x3c3c58,
+      transparent:true,opacity:this.mode==='ghost'?0.25:0.4,depthWrite:false});
+    this.grp.add(new THREE.Line(gS,sm)); this.mats.push(sm);
+    atom.add(this.grp);
+    this.baseCol=new THREE.Color(this.colorHex);
+    this.baseOps=this.mats.map(m=>m.opacity);
+    this.applyVis();
+    this.update(0);
+  }
+  applyVis(){
+    const f=this.pairedFlag?pairFac():1;
+    this.mats.forEach((m,i)=>{m.opacity=this.baseOps[i]*f;});
+  }
+  pt(phi){
+    return this.center.clone()
+      .add(this.e1.clone().multiplyScalar(this.rho*Math.cos(phi)))
+      .add(this.e2.clone().multiplyScalar(this.rho*Math.sin(phi)));
+  }
+  update(flow){
+    const K=this.K, w=this.w, s=this.sense, len=this.handLen;
+    const hsl={h:0,s:0,l:0}; this.baseCol.getHSL(hsl);
+    const c=new THREE.Color(), dim=new THREE.Color();
+    for(let i=0;i<K;i++){
+      const phi=i/K*2*Math.PI;
+      const p=this.pt(phi);
+      const u=p.clone().sub(this.center).normalize();          // in-plane radial
+      const ax=this.axisV;                                     // ring axis direction
+      const psi=w*phi + s*flow;                                // hand tilt = local phase
+      const dir=u.clone().multiplyScalar(Math.cos(psi)).add(ax.clone().multiplyScalar(Math.sin(psi)));
+      const a=p.clone().add(dir.clone().multiplyScalar(len));
+      const b=p.clone().add(dir.clone().multiplyScalar(-len*0.55));
+      // colour by mode
+      if(this.mode==='rainbow'){
+        c.setHSL((((w*phi)/(2*Math.PI) + flow/(2*Math.PI))%1+1)%1,0.92,0.62);
+      }else if(this.mode==='crest'){
+        const crest=0.5+0.5*Math.cos(w*phi - s*flow);
+        c.setHSL(hsl.h,Math.min(1,hsl.s*1.05),0.38+0.48*crest);
+      }else if(this.mode==='uniform'){
+        const br=0.5+0.18*Math.cos(s*flow*0.6);
+        c.setHSL(hsl.h,hsl.s*0.9,0.40+0.24*br);
+      }else{ c.set(GHOST).multiplyScalar(0.9); }
+      dim.copy(c).multiplyScalar(0.34);
+      const o=i*12;
+      this.posH[o]=a.x;this.posH[o+1]=a.y;this.posH[o+2]=a.z;
+      this.posH[o+3]=p.x;this.posH[o+4]=p.y;this.posH[o+5]=p.z;
+      this.posH[o+6]=p.x;this.posH[o+7]=p.y;this.posH[o+8]=p.z;
+      this.posH[o+9]=b.x;this.posH[o+10]=b.y;this.posH[o+11]=b.z;
+      this.colH[o]=c.r;this.colH[o+1]=c.g;this.colH[o+2]=c.b;
+      this.colH[o+3]=dim.r;this.colH[o+4]=dim.g;this.colH[o+5]=dim.b;
+      this.colH[o+6]=dim.r;this.colH[o+7]=dim.g;this.colH[o+8]=dim.b;
+      this.colH[o+9]=c.r;this.colH[o+10]=c.g;this.colH[o+11]=c.b;
+      if(this.beads){
+        const q=i*3;
+        this.posB[q]=a.x;this.posB[q+1]=a.y;this.posB[q+2]=a.z;
+        this.colB[q]=c.r;this.colB[q+1]=c.g;this.colB[q+2]=c.b;
+      }
+    }
+    this.gH.attributes.position.needsUpdate=true;
+    this.gH.attributes.color.needsUpdate=true;
+    if(this.beads){this.gB.attributes.position.needsUpdate=true;this.gB.attributes.color.needsUpdate=true;}
+  }
+  dispose(){
+    atom.remove(this.grp);
+    this.grp.traverse(o=>{if(o.geometry)o.geometry.dispose();if(o.material)o.material.dispose();});
+  }
+}
+
+// ---------- unit → streamline rings ----------
+function ringsForUnit(u,ghost){
+  const axisV=new THREE.Vector3(...AX[u.axis]).normalize();
+  const R=rShell(u.n), out=[];
+  const col=ghost?GHOST:LCOL[u.l];
+  const mkK=(rho,w)=>Math.min(Math.max(Math.round(rho*58+w*30),48),150);
+  if(ghost){
+    const rho=R;
+    out.push(new Ring({axisV,lat:0,R,w:u.l,sense:+1,colorHex:col,bright:0.22,
+      K:Math.round(mkK(rho,u.l)*0.6),handLen:0.10*Math.max(1,R*0.5),mode:'ghost',beads:false}));
+    return out;
+  }
+  if(u.l===0){
+    // s: winding 0 — near-pure internal twist. Small calm ring; the pair straddles ±40°.
+    const lat=u.sense>0?40:-40;
+    out.push(new Ring({axisV,lat,R,w:0,sense:u.sense,colorHex:col,bright:u.paired?0.62:0.9,
+      K:52,handLen:0.08*Math.max(1,R*0.5),mode:'uniform',beads:false,pairedFlag:!!u.paired}));
+    return out;
+  }
+  const paired=u.paired;
+  const latOff=paired?(u.sense>0?5:-5):0;      // pair = two adjacent counter-chasing rings
+  const mainLen=0.16*Math.max(1,R*0.45);
+  out.push(new Ring({axisV,lat:latOff,R,w:u.l,sense:u.sense,colorHex:col,
+    bright:paired?0.52:1.0,K:mkK(R,u.l),handLen:mainLen,mode:'crest',beads:!paired,pairedFlag:paired}));
+  if(!paired){
+    const fl=u.l===1?33:19;
+    for(const f of [fl,-fl]){
+      out.push(new Ring({axisV,lat:f,R,w:u.l,sense:u.sense,colorHex:col,bright:0.38,
+        K:Math.round(mkK(R,u.l)*0.7),handLen:mainLen*0.75,mode:'crest',beads:false}));
+    }
+  }
+  return out;
+}
+
+// ---------- planar core: the standalone loop, embedded ----------
+function coreRing(count){
+  return new Ring({axisV:new THREE.Vector3(0,1,0),lat:0,R:0.58,w:count,sense:+1,
+    colorHex:0xffffff,bright:0.95,K:Math.min(Math.max(count*10,90),340),
+    handLen:0.15,mode:'rainbow',beads:true});
+}
+
+function markPairs(units){
+  const seen={};
+  for(const u of units){ const k=u.n+'-'+u.l+'-'+u.axis; (seen[k]=seen[k]||[]).push(u); }
+  for(const k in seen) if(seen[k].length===2) seen[k].forEach(u=>u.paired=true);
+}
+
+function makeShellHints(ns){
+  for(const n of ns){
+    const R=rShell(n), pos=[];
+    for(let i=0;i<=140;i++){const a=i/140*2*Math.PI;pos.push(R*Math.cos(a),0,R*Math.sin(a));}
+    const geo=new THREE.BufferGeometry();
+    geo.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));
+    const ln=new THREE.LineLoop(geo,new THREE.LineBasicMaterial({color:0x22223a,transparent:true,opacity:0.5}));
+    atom.add(ln); statics.push(ln);
+  }
+}
+
+function build(){
+  for(const r of rings) r.dispose(); rings=[];
+  for(const s of statics){atom.remove(s);s.geometry.dispose();s.material.dispose();} statics=[];
+  const E=ELEMENTS[el];
+  markPairs(E.units);
+  makeShellHints([...new Set(E.units.map(u=>u.n))]);
+  for(const u of E.units) rings.push(...ringsForUnit(u,false));
+  if(document.getElementById('ghosts').checked)
+    for(const g of E.ghosts) rings.push(...ringsForUnit({...g,sense:+1},true));
+  rings.push(coreRing(E.disk));
+  for(const r of rings) r.update(flowT);
+  document.getElementById('hudTitle').textContent=E.label;
+  document.getElementById('hudLedger').innerHTML=
+    `${E.A}ħ total = <b style="color:var(--text)">${E.Z}ħ</b> spherical pattern + <b style="color:var(--text)">${E.disk}ħ</b> planar core (Tw = ${E.disk})`;
+  document.getElementById('hudFill').innerHTML=E.fill;
+  document.getElementById('hudNet').innerHTML=E.net;
+  document.getElementById('cap').innerHTML=E.cap+
+    ' <span style="color:#6f6f88">Radial spacing compressed for display; truth is n².</span>';
+}
+
+function setElement(e){
+  el=e;
+  document.getElementById('elC').classList.toggle('on',e==='C');
+  document.getElementById('elFe').classList.toggle('on',e==='Fe');
+  const E=ELEMENTS[el];
+  camera.position.set(E.camD*0.62,E.camD*0.66,E.camD);
+  controls.target.set(0,0,0);
+  build();
+}
+document.getElementById('elC').addEventListener('click',()=>setElement('C'));
+document.getElementById('elFe').addEventListener('click',()=>setElement('Fe'));
+document.getElementById('ghosts').addEventListener('change',build);
+const rpEl=document.getElementById('rp');
+rpEl.addEventListener('input',()=>{rp=parseFloat(rpEl.value);
+  document.getElementById('rpv').textContent=rp>1.9?'true n²':(rp<1.15?'linear':'compressed');
+  build();});
+const pvEl=document.getElementById('pv');
+pvEl.addEventListener('input',()=>{PAIRVIS=parseFloat(pvEl.value);
+  document.getElementById('pvv').textContent=Math.round(PAIRVIS*100)+'%';
+  for(const r of rings) r.applyVis();});
+
+function resize(){
+  const r=cv.getBoundingClientRect();
+  renderer.setSize(r.width,r.height,false);
+  camera.aspect=r.width/r.height; camera.updateProjectionMatrix();
+}
+window.addEventListener('resize',resize); resize();
+setElement('C');
+
+const infoBox=document.getElementById('info'), infoClose=document.getElementById('infoClose'), infoToggle=document.getElementById('infoToggle');
+infoClose.addEventListener('click',()=>{infoBox.style.display='none';infoToggle.style.display='block';});
+infoToggle.addEventListener('click',()=>{infoBox.style.display='block';infoToggle.style.display='none';});
+
+window.__cam=(x,y,z)=>{camera.position.set(x,y,z);controls.target.set(0,0,0);controls.update();};
+const flowEl=document.getElementById('flow'), spinEl=document.getElementById('spin');
+let last=performance.now();
+function anim(now){
+  requestAnimationFrame(anim);
+  const dt=(now-last)/1000; last=now;
+  if(flowEl.checked){ flowT+=dt*1.15; for(const r of rings) r.update(flowT); }
+  if(spinEl.checked){ atom.rotation.y+=0.0026; eyeGrp.rotation.y+=0.0026; }
+  controls.update();
+  renderer.render(scene,camera);
+}
+requestAnimationFrame(anim);
+</script>
+</body>
+</html>
