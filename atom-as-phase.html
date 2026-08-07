@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Atom as Organized Phase — Carbon &amp; Iron</title>
+<title>The Atom as Organized Phase — Every Element</title>
 <style>
   :root{
     --bg:#0d0d18; --card:#1c1c30; --text:#e8e8f0; --muted:#9a9ab0;
-    --gold:#c9a84c; --blue:#4fc3f7; --green:#66bb6a; --edge:#2c2c46;
+    --gold:#c9a84c; --blue:#4fc3f7; --green:#66bb6a; --cyan:#26c6da; --edge:#2c2c46;
   }
   *{box-sizing:border-box;}
   html,body{margin:0;height:100%;background:var(--bg);color:var(--text);
@@ -29,11 +29,11 @@
   #c{display:block;width:100%;height:100%;}
   #hud{position:absolute;top:14px;left:14px;font-size:12px;color:var(--muted);
     background:rgba(13,13,24,.66);padding:10px 13px;border-radius:8px;border:1px solid var(--edge);
-    max-width:360px;line-height:1.6;}
+    max-width:380px;line-height:1.6;max-height:calc(100% - 28px);overflow:auto;}
   #hud .z{color:var(--gold);font-weight:700;font-size:14px;}
   #hud .em{color:#6f6f88;}
   #hud .fill span{font-weight:700;}
-  #hud .s{color:var(--gold);} #hud .p{color:var(--blue);} #hud .d{color:var(--green);}
+  #hud .s{color:var(--gold);} #hud .p{color:var(--blue);} #hud .d{color:var(--green);} #hud .f{color:var(--cyan);}
   #hud .net{margin-top:6px;color:var(--text);}
   #info{position:absolute;top:14px;right:14px;width:330px;max-width:44vw;font-size:11.5px;
     color:var(--muted);background:rgba(13,13,24,.74);padding:12px 14px 13px;border-radius:9px;
@@ -44,7 +44,7 @@
   #info li:before{content:"";position:absolute;left:0;top:6px;width:5px;height:5px;border-radius:50%;
     background:var(--gold);opacity:.8;}
   #info li:last-child{margin-bottom:0;}
-  #info b{color:var(--blue);} #info .g{color:var(--gold);} #info .gr{color:var(--green);}
+  #info b{color:var(--blue);} #info .g{color:var(--gold);} #info .gr{color:var(--green);} #info .cy{color:var(--cyan);}
   #info .k{font-weight:700;}
   #info .close{position:absolute;top:8px;right:10px;color:#6f6f88;cursor:pointer;font-size:14px;line-height:1;}
   #infoToggle{position:absolute;top:14px;right:14px;font-size:11px;color:var(--muted);
@@ -59,15 +59,18 @@
   .ends{font-size:11px;color:var(--muted);display:flex;justify-content:space-between;margin-top:2px;}
   .ends .a{color:var(--gold);} .ends .b{color:var(--blue);}
   input[type=range]{width:100%;accent-color:var(--gold);}
-  .toggles{display:flex;gap:16px;font-size:12px;color:var(--muted);}
+  .toggles{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:12px;color:var(--muted);}
   .toggles label{display:flex;align-items:center;gap:6px;cursor:pointer;}
-  .elpick{display:flex;gap:8px;}
-  .elpick button{padding:7px 16px;border-radius:7px;border:1px solid var(--edge);
+  .elpick{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+  .elpick button{padding:7px 14px;border-radius:7px;border:1px solid var(--edge);
     background:transparent;color:var(--muted);cursor:pointer;font-size:13px;font-weight:600;}
   .elpick button.on{border-color:var(--gold);color:var(--gold);background:rgba(201,168,76,.08);}
+  .elpick button.step{padding:7px 10px;font-size:14px;line-height:1;}
+  #elsel{background:#14142400;background-color:#141424;color:var(--text);border:1px solid var(--edge);
+    border-radius:7px;padding:7px 8px;font-size:12.5px;max-width:230px;}
   .caption{font-size:12px;color:var(--muted);line-height:1.5;max-width:520px;flex:2;min-width:280px;}
   .caption b{color:var(--gold);} .caption i{color:var(--blue);font-style:normal;}
-  .caption .gr{color:var(--green);}
+  .caption .gr{color:var(--green);} .caption .cy{color:var(--cyan);}
 </style>
 <script type="importmap">
 { "imports":{
@@ -79,12 +82,12 @@
 <body>
 <div id="wrap">
   <header>
-    <h1>The Atom as Organized Phase — Carbon &amp; Iron</h1>
-    <p>No electrons orbit here, because there are no electrons — there is <i>one circulation</i>, and what chemistry counts are its <b>angular harmonic modes</b>. Every glowing ring is the same object: a <i>closed streamline of phase</i>. The bright crest moving along each ring is its winding made visible — count crests and you have counted the integers. Counter-flowing senses cancel (closed shells sit calm); uncancelled senses add (iron's magnetism is four of them, turning together). The barycenter is empty. Nothing is solid. This is phase, not matter.</p>
+    <h1>The Atom as Organized Phase — Every Element</h1>
+    <p>No electrons orbit here, because there are no electrons — there is <i>one circulation</i>, and what chemistry counts are its <b>angular harmonic modes</b>. Every glowing ring is the same object: a <i>closed streamline of phase</i>. The bright crest moving along each ring is its winding made visible — count crests and you have counted the integers. Counter-flowing senses cancel (closed shells sit calm); uncancelled senses add (iron's magnetism is four of them, turning together). The barycenter is empty. Nothing is solid. This is phase, not matter — any of the 118 named organizations of it.</p>
   </header>
   <div id="creed">
     <div class="c"><b>Discreteum, not continuum</b>the substance is discrete — whole ħ turns</div>
-    <div class="c"><b>Integers primary</b>mode capacities 2, 6, 10 are eigen-counting, not fit</div>
+    <div class="c"><b>Integers primary</b>mode capacities 2, 6, 10, 14 are eigen-counting, not fit</div>
     <div class="c"><b>Continuity = appearance</b>a "shell" is many turns seen at once</div>
     <div class="c"><b>No things, no void</b>rings are streamlines of phase, not stuff</div>
     <div class="c"><b>Staircase under the ramp</b><code>L=dS/dθ</code> over <code>ΔS=ħΔn</code></div>
@@ -93,7 +96,7 @@
   <div id="stage">
     <canvas id="c"></canvas>
     <div id="hud">
-      <div><span class="z" id="hudTitle">C-12 — harmonic mode 6</span></div>
+      <div><span class="z" id="hudTitle"></span></div>
       <div id="hudLedger" class="em"></div>
       <div id="hudFill" class="fill" style="margin-top:5px;"></div>
       <div id="hudNet" class="net"></div>
@@ -105,35 +108,38 @@
       <ul>
         <li><b class="k">No electrons.</b> A "mode-unit" (convention: an electron) is one ħ of organized turning. Each is drawn as its <span class="g">closed streamlines</span> — the rings along which its circulation actually flows about its own axis.</li>
         <li><b>Streamlines, not lobes.</b> Textbook lobes picture amplitude; these rings carry <span class="g">the turning itself</span>. Every ring in this atom — planar core included — is one and the same object: a closed loop of phase.</li>
-        <li><b class="k">Count the crests.</b> The bright wave circling a ring is its phase crest — the winding number made visible: <span style="color:var(--blue)">p-rings carry 1 crest</span>, <span class="gr">d-rings 2</span>; <span class="g">s-rings breathe uniformly</span> (winding 0 — near-pure internal twist, no transport). The crest is a <b>wave of turning, not a thing going around</b>.</li>
-        <li><b>Orientations are derived, not assumed:</b> each angular harmonic l admits exactly 2l+1 orientations × 2 phase senses — <span class="g">s&nbsp;=&nbsp;2</span>, <span style="color:var(--blue)">p&nbsp;=&nbsp;6</span>, <span class="gr">d&nbsp;=&nbsp;10</span>. Pure eigen-counting on a sphere. (Each orientation is drawn in its maximal-circulation form about its own axis; the counting is untouched.)</li>
-        <li><b>Paired senses counter-flow and cancel</b> — a closed pair is two adjacent rings whose crests chase in opposite directions, drawn calm and dim. <b class="k">Unpaired senses co-flow</b> bright: carbon's two open p-rings are its chemistry; iron's <span class="gr">four co-turning d-rings</span> are a net twist — its magnetism, with no "spin of a particle" anywhere. <b>Slide "closed pairs" down</b> to watch the cancellations fall silent: what survives is the atom's <span class="g">net circulation</span> — for iron, four green rings and the core. The pairs are still there (the counting never changes); zero is just what their sum looks like.</li>
+        <li><b class="k">Count the crests.</b> The bright wave circling a ring is its phase crest — the winding number made visible: <span style="color:var(--blue)">p-rings carry 1 crest</span>, <span class="gr">d-rings 2</span>, <span class="cy">f-rings 3</span>; <span class="g">s-rings breathe uniformly</span> (winding 0 — near-pure internal twist, no transport). The crest is a <b>wave of turning, not a thing going around</b>.</li>
+        <li><b>Orientations are derived, not assumed:</b> each angular harmonic l admits exactly 2l+1 orientations × 2 phase senses — <span class="g">s&nbsp;=&nbsp;2</span>, <span style="color:var(--blue)">p&nbsp;=&nbsp;6</span>, <span class="gr">d&nbsp;=&nbsp;10</span>, <span class="cy">f&nbsp;=&nbsp;14</span>. Pure eigen-counting on a sphere. (Each orientation is drawn in its maximal-circulation form about its own axis; the counting is untouched.)</li>
+        <li><b>Paired senses counter-flow and cancel</b> — a closed pair is two adjacent rings whose crests chase in opposite directions, drawn calm and dim. <b class="k">Unpaired senses co-flow</b> bright: carbon's two open p-rings are its chemistry; iron's <span class="gr">four co-turning d-rings</span> are a net twist — its magnetism, with no "spin of a particle" anywhere. <b>Slide "closed pairs" down</b> to watch the cancellations fall silent: what survives is the atom's <span class="g">net circulation</span>. The pairs are still there (the counting never changes); zero is just what their sum looks like.</li>
         <li><b>Shells are radial harmonics</b> (n = 1, 2, 3…). True spacing goes as <span class="g">n²</span> — compressed here for display (slider below), the same compromise every textbook makes.</li>
-        <li><b>The planar core</b> is the standalone <span class="g">closed loop of twisted momentum</span>, embedded at the atom's heart doing structural duty: its integer twist count IS the extra ħ that deepens the vortex without changing its pattern (convention: neutrons). C-12 carries <span class="g">Tw = +6</span> — count the colour cycles; Fe-56 carries +30, blurring toward apparent smoothness (the discreteum lesson again).</li>
+        <li><b>The planar core</b> is the standalone <span class="g">closed loop of twisted momentum</span>, embedded at the atom's heart doing structural duty: its integer twist count IS the extra ħ that deepens the vortex without changing its pattern (convention: neutrons). C-12 carries <span class="g">Tw = +6</span> — count the colour cycles; Fe-56 carries +30, blurring toward apparent smoothness (the discreteum lesson again). Hydrogen-1 carries none — the bare fundamental.</li>
         <li>Dim grey ghost rings mark <b>derived-but-unoccupied orientations</b> (carbon shows 2 of 6 p-positions lit). Chemistry is the reach toward closing them.</li>
       </ul>
     </div>
     <button id="infoToggle">ℹ guide</button>
   </div>
   <div id="panel">
-    <div class="ctl" style="min-width:150px;flex:0;">
+    <div class="ctl" style="min-width:250px;flex:0;">
       <label style="justify-content:flex-start;">Element</label>
       <div class="elpick">
-        <button id="elC" class="on">C-12</button>
+        <button id="prevEl" class="step" title="previous">‹</button>
+        <select id="elsel"></select>
+        <button id="nextEl" class="step" title="next">›</button>
+        <button id="elC">C-12</button>
         <button id="elFe">Fe-56</button>
       </div>
     </div>
-    <div class="ctl" style="min-width:190px;">
+    <div class="ctl" style="min-width:180px;">
       <label>Radial display <b id="rpv">compressed</b></label>
       <input id="rp" type="range" min="1" max="2" step="0.01" value="1.45">
       <div class="ends"><span class="a">compressed (display)</span><span class="b">true n² spacing</span></div>
     </div>
-    <div class="ctl" style="min-width:190px;">
+    <div class="ctl" style="min-width:180px;">
       <label>Closed pairs <b id="pvv">50%</b></label>
       <input id="pv" type="range" min="0" max="1" step="0.01" value="0.5">
       <div class="ends"><span class="a">net circulation only</span><span class="b">every turn shown</span></div>
     </div>
-    <div class="ctl" style="min-width:150px;flex:0;">
+    <div class="ctl" style="min-width:240px;flex:0;">
       <div class="toggles">
         <label><input type="checkbox" id="flow" checked> phase flows</label>
         <label><input type="checkbox" id="spin" checked> rotate</label>
@@ -153,51 +159,78 @@ const renderer = new THREE.WebGLRenderer({canvas:cv, antialias:true});
 renderer.setPixelRatio(Math.min(devicePixelRatio,2));
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x0d0d18);
-const camera = new THREE.PerspectiveCamera(46,1,0.1,300);
+const camera = new THREE.PerspectiveCamera(46,1,0.1,600);
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true; controls.dampingFactor = 0.08;
 
 // ---------- palette ----------
-const LCOL = { 0:0xc9a84c, 1:0x4fc3f7, 2:0x66bb6a };   // s gold, p blue, d green (house)
+const LCOL = { 0:0xc9a84c, 1:0x4fc3f7, 2:0x66bb6a, 3:0x26c6da };   // s gold, p blue, d green, f cyan (house)
 const GHOST = 0x55556e;
+const LNAME = ['s','p','d','f'];
+const LCLS  = ['s','p','d','f'];
 
-// ---------- element data ----------
-const AX = {
-  z:[0,0,1], x:[1,0,0], y:[0,1,0],
-  d1:[0,0,1], d2:[1,1,1], d3:[1,-1,1], d4:[-1,1,1], d5:[-1,-1,1]
+// ---------- element data: [symbol, name, mass number (common isotope), type], Z = index+1 ----------
+const EL = [["H","Hydrogen",1,"nonmetal"],["He","Helium",4,"noble"],["Li","Lithium",7,"alkali"],["Be","Beryllium",9,"alkaline"],["B","Boron",11,"metalloid"],["C","Carbon",12,"nonmetal"],["N","Nitrogen",14,"nonmetal"],["O","Oxygen",16,"nonmetal"],["F","Fluorine",19,"halogen"],["Ne","Neon",20,"noble"],["Na","Sodium",23,"alkali"],["Mg","Magnesium",24,"alkaline"],["Al","Aluminium",27,"post_transition"],["Si","Silicon",28,"metalloid"],["P","Phosphorus",31,"nonmetal"],["S","Sulfur",32,"nonmetal"],["Cl","Chlorine",35,"halogen"],["Ar","Argon",40,"noble"],["K","Potassium",39,"alkali"],["Ca","Calcium",40,"alkaline"],["Sc","Scandium",45,"transition"],["Ti","Titanium",48,"transition"],["V","Vanadium",51,"transition"],["Cr","Chromium",52,"transition"],["Mn","Manganese",55,"transition"],["Fe","Iron",56,"transition"],["Co","Cobalt",59,"transition"],["Ni","Nickel",58,"transition"],["Cu","Copper",63,"transition"],["Zn","Zinc",65,"transition"],["Ga","Gallium",69,"post_transition"],["Ge","Germanium",73,"metalloid"],["As","Arsenic",75,"metalloid"],["Se","Selenium",79,"nonmetal"],["Br","Bromine",80,"halogen"],["Kr","Krypton",84,"noble"],["Rb","Rubidium",85,"alkali"],["Sr","Strontium",88,"alkaline"],["Y","Yttrium",89,"transition"],["Zr","Zirconium",91,"transition"],["Nb","Niobium",93,"transition"],["Mo","Molybdenum",96,"transition"],["Tc","Technetium",98,"transition"],["Ru","Ruthenium",101,"transition"],["Rh","Rhodium",103,"transition"],["Pd","Palladium",106,"transition"],["Ag","Silver",108,"transition"],["Cd","Cadmium",112,"transition"],["In","Indium",115,"post_transition"],["Sn","Tin",119,"post_transition"],["Sb","Antimony",122,"metalloid"],["Te","Tellurium",128,"metalloid"],["I","Iodine",127,"halogen"],["Xe","Xenon",131,"noble"],["Cs","Caesium",133,"alkali"],["Ba","Barium",137,"alkaline"],["La","Lanthanum",139,"lanthanide"],["Ce","Cerium",140,"lanthanide"],["Pr","Praseodymium",141,"lanthanide"],["Nd","Neodymium",144,"lanthanide"],["Pm","Promethium",145,"lanthanide"],["Sm","Samarium",150,"lanthanide"],["Eu","Europium",152,"lanthanide"],["Gd","Gadolinium",157,"lanthanide"],["Tb","Terbium",159,"lanthanide"],["Dy","Dysprosium",163,"lanthanide"],["Ho","Holmium",165,"lanthanide"],["Er","Erbium",167,"lanthanide"],["Tm","Thulium",169,"lanthanide"],["Yb","Ytterbium",173,"lanthanide"],["Lu","Lutetium",175,"lanthanide"],["Hf","Hafnium",178,"transition"],["Ta","Tantalum",181,"transition"],["W","Tungsten",184,"transition"],["Re","Rhenium",186,"transition"],["Os","Osmium",190,"transition"],["Ir","Iridium",192,"transition"],["Pt","Platinum",195,"transition"],["Au","Gold",197,"transition"],["Hg","Mercury",201,"transition"],["Tl","Thallium",204,"post_transition"],["Pb","Lead",207,"post_transition"],["Bi","Bismuth",209,"post_transition"],["Po","Polonium",209,"post_transition"],["At","Astatine",210,"halogen"],["Rn","Radon",222,"noble"],["Fr","Francium",223,"alkali"],["Ra","Radium",226,"alkaline"],["Ac","Actinium",227,"actinide"],["Th","Thorium",232,"actinide"],["Pa","Protactinium",231,"actinide"],["U","Uranium",238,"actinide"],["Np","Neptunium",237,"actinide"],["Pu","Plutonium",244,"actinide"],["Am","Americium",243,"actinide"],["Cm","Curium",247,"actinide"],["Bk","Berkelium",247,"actinide"],["Cf","Californium",251,"actinide"],["Es","Einsteinium",252,"actinide"],["Fm","Fermium",257,"actinide"],["Md","Mendelevium",258,"actinide"],["No","Nobelium",259,"actinide"],["Lr","Lawrencium",266,"actinide"],["Rf","Rutherfordium",267,"transition"],["Db","Dubnium",268,"transition"],["Sg","Seaborgium",269,"transition"],["Bh","Bohrium",270,"transition"],["Hs","Hassium",277,"transition"],["Mt","Meitnerium",278,"transition"],["Ds","Darmstadtium",281,"transition"],["Rg","Roentgenium",282,"transition"],["Cn","Copernicium",285,"transition"],["Nh","Nihonium",286,"post_transition"],["Fl","Flerovium",289,"post_transition"],["Mc","Moscovium",290,"post_transition"],["Lv","Livermorium",293,"post_transition"],["Ts","Tennessine",294,"halogen"],["Og","Oganesson",294,"noble"]];
+
+// ---------- electron/mode configuration (Aufbau + known anomalies) ----------
+const AUFBAU=[[1,0],[2,0],[2,1],[3,0],[3,1],[4,0],[3,2],[4,1],[5,0],[4,2],[5,1],[6,0],[4,3],[5,2],[6,1],[7,0],[5,3],[6,2],[7,1]];
+const CAP=[2,6,10,14];
+const SPECIAL={
+  24:[[1,0,2],[2,0,2],[2,1,6],[3,0,2],[3,1,6],[4,0,1],[3,2,5]],
+  29:[[1,0,2],[2,0,2],[2,1,6],[3,0,2],[3,1,6],[4,0,1],[3,2,10]],
+  41:[[1,0,2],[2,0,2],[2,1,6],[3,0,2],[3,1,6],[4,0,2],[3,2,10],[4,1,6],[5,0,1],[4,2,4]],
+  42:[[1,0,2],[2,0,2],[2,1,6],[3,0,2],[3,1,6],[4,0,2],[3,2,10],[4,1,6],[5,0,1],[4,2,5]],
+  44:[[1,0,2],[2,0,2],[2,1,6],[3,0,2],[3,1,6],[4,0,2],[3,2,10],[4,1,6],[5,0,1],[4,2,7]],
+  45:[[1,0,2],[2,0,2],[2,1,6],[3,0,2],[3,1,6],[4,0,2],[3,2,10],[4,1,6],[5,0,1],[4,2,8]],
+  46:[[1,0,2],[2,0,2],[2,1,6],[3,0,2],[3,1,6],[4,0,2],[3,2,10],[4,1,6],[4,2,10]],
+  47:[[1,0,2],[2,0,2],[2,1,6],[3,0,2],[3,1,6],[4,0,2],[3,2,10],[4,1,6],[5,0,1],[4,2,10]],
+  57:[[1,0,2],[2,0,2],[2,1,6],[3,0,2],[3,1,6],[4,0,2],[3,2,10],[4,1,6],[5,0,2],[4,2,10],[5,1,6],[6,0,2],[5,2,1]],
+  58:[[1,0,2],[2,0,2],[2,1,6],[3,0,2],[3,1,6],[4,0,2],[3,2,10],[4,1,6],[5,0,2],[4,2,10],[5,1,6],[6,0,2],[4,3,1],[5,2,1]],
+  64:[[1,0,2],[2,0,2],[2,1,6],[3,0,2],[3,1,6],[4,0,2],[3,2,10],[4,1,6],[5,0,2],[4,2,10],[5,1,6],[6,0,2],[4,3,7],[5,2,1]],
+  78:[[1,0,2],[2,0,2],[2,1,6],[3,0,2],[3,1,6],[4,0,2],[3,2,10],[4,1,6],[5,0,2],[4,2,10],[5,1,6],[6,0,1],[4,3,14],[5,2,9]],
+  79:[[1,0,2],[2,0,2],[2,1,6],[3,0,2],[3,1,6],[4,0,2],[3,2,10],[4,1,6],[5,0,2],[4,2,10],[5,1,6],[6,0,1],[4,3,14],[5,2,10]],
+  89:[[1,0,2],[2,0,2],[2,1,6],[3,0,2],[3,1,6],[4,0,2],[3,2,10],[4,1,6],[5,0,2],[4,2,10],[5,1,6],[6,0,2],[4,3,14],[5,2,10],[6,1,6],[7,0,2],[6,2,1]],
+  90:[[1,0,2],[2,0,2],[2,1,6],[3,0,2],[3,1,6],[4,0,2],[3,2,10],[4,1,6],[5,0,2],[4,2,10],[5,1,6],[6,0,2],[4,3,14],[5,2,10],[6,1,6],[7,0,2],[6,2,2]],
+  91:[[1,0,2],[2,0,2],[2,1,6],[3,0,2],[3,1,6],[4,0,2],[3,2,10],[4,1,6],[5,0,2],[4,2,10],[5,1,6],[6,0,2],[4,3,14],[5,2,10],[6,1,6],[7,0,2],[5,3,2],[6,2,1]],
+  92:[[1,0,2],[2,0,2],[2,1,6],[3,0,2],[3,1,6],[4,0,2],[3,2,10],[4,1,6],[5,0,2],[4,2,10],[5,1,6],[6,0,2],[4,3,14],[5,2,10],[6,1,6],[7,0,2],[5,3,3],[6,2,1]],
+  93:[[1,0,2],[2,0,2],[2,1,6],[3,0,2],[3,1,6],[4,0,2],[3,2,10],[4,1,6],[5,0,2],[4,2,10],[5,1,6],[6,0,2],[4,3,14],[5,2,10],[6,1,6],[7,0,2],[5,3,4],[6,2,1]],
+  96:[[1,0,2],[2,0,2],[2,1,6],[3,0,2],[3,1,6],[4,0,2],[3,2,10],[4,1,6],[5,0,2],[4,2,10],[5,1,6],[6,0,2],[4,3,14],[5,2,10],[6,1,6],[7,0,2],[5,3,7],[6,2,1]],
+  103:[[1,0,2],[2,0,2],[2,1,6],[3,0,2],[3,1,6],[4,0,2],[3,2,10],[4,1,6],[5,0,2],[4,2,10],[5,1,6],[6,0,2],[4,3,14],[5,2,10],[6,1,6],[7,0,2],[5,3,14],[7,1,1]]
 };
-function pairsOf(n,l,axes){ const u=[];
-  for(const a of axes){ u.push({n,l,axis:a,sense:+1},{n,l,axis:a,sense:-1}); } return u; }
-const ELEMENTS = {
-  C: {
-    label:'C-12 — harmonic mode 6', Z:6, A:12, disk:6, camD:7.5,
-    fill:'<span class="s">1s²</span> <span class="s">2s²</span> <span class="p">2p²</span> — 2p holds <span class="p">2 of 6</span>',
-    net:'2 uncancelled senses (2p, co-flowing) — open orientations: this is carbon\u2019s chemistry.',
-    units:[
-      ...pairsOf(1,0,['z']),
-      ...pairsOf(2,0,['z']),
-      {n:2,l:1,axis:'x',sense:+1},{n:2,l:1,axis:'y',sense:+1}
-    ],
-    ghosts:[ {n:2,l:1,axis:'z'} ],
-    cap:'<b>Carbon.</b> Two closed s-pairs sit calm (counter-chasing crests cancel). Two p-rings carry their single crest <i>uncancelled, co-sense</i> about the x and y axes; the z-orientation is a grey ghost. Four mode-units short of closure — <b>tetravalence as unfinished counting</b>, no bonds-as-sticks required.'
-  },
-  Fe: {
-    label:'Fe-56 — harmonic mode 26', Z:26, A:56, disk:30, camD:16.5,
-    fill:'<span class="s">1s²2s²</span><span class="p">2p⁶</span> <span class="s">3s²</span><span class="p">3p⁶</span> <span class="s">4s²</span> <span class="d">3d⁶</span> — 3d holds <span class="d">6 of 10</span>',
-    net:'4 uncancelled senses (3d, co-flowing) = net internal twist = <b>ferromagnetism</b> — no particle "spins" anywhere.',
-    units:[
-      ...pairsOf(1,0,['z']),
-      ...pairsOf(2,0,['z']), ...pairsOf(2,1,['x','y','z']),
-      ...pairsOf(3,0,['z']), ...pairsOf(3,1,['x','y','z']),
-      ...pairsOf(4,0,['z']),
-      ...pairsOf(3,2,['d1']),
-      {n:3,l:2,axis:'d2',sense:+1},{n:3,l:2,axis:'d3',sense:+1},
-      {n:3,l:2,axis:'d4',sense:+1},{n:3,l:2,axis:'d5',sense:+1}
-    ],
-    ghosts:[],
-    cap:'<b>Iron.</b> Eleven closed pairs cancel into calm shells. In the green d-harmonic one orientation is paired — and <span class="gr">four rings run their two crests co-sense, uncancelled</span>. Their sum is a net twist the whole vortex carries: <b>ferromagnetism as bookkeeping</b>. Pull “closed pairs” to zero and the magnet stands alone. This is the handle the YIG experiment grabs.'
+function configFor(Z){
+  if(SPECIAL[Z]) return SPECIAL[Z];
+  let r=Z; const c=[];
+  for(const [n,l] of AUFBAU){ if(r<=0)break; const f=Math.min(r,CAP[l]); c.push([n,l,f]); r-=f; }
+  return c;
+}
+
+// ---------- orientation axes per harmonic (drawn set; an orientation basis choice) ----------
+const DIAG=[[1,1,1],[1,-1,1],[-1,1,1],[-1,-1,1]];
+const AXES=[
+  [[0,0,1]],                                    // s
+  [[1,0,0],[0,1,0],[0,0,1]],                    // p
+  [[0,0,1],...DIAG],                            // d: z + 4 cube diagonals
+  [[0,0,1],[1,0,0],[0,1,0],...DIAG]             // f: z, x, y + 4 cube diagonals
+];
+
+// ---------- units (occupied mode-orientations) from a config ----------
+// Hund filling: each orientation singly occupied co-sense (+1) first, then pairing senses (−1).
+function unitsAndGhosts(cfg){
+  const units=[], ghosts=[];
+  for(const [n,l,c] of cfg){
+    if(!c) continue;
+    const nAx=2*l+1, singles=Math.min(c,nAx), pairs=c-singles;
+    for(let i=0;i<singles;i++) units.push({n,l,ai:i,sense:+1});
+    for(let i=0;i<pairs;i++)  units.push({n,l,ai:i,sense:-1});
+    if(c<nAx) for(let i=c;i<nAx;i++) ghosts.push({n,l,ai:i});
   }
-};
+  return {units,ghosts};
+}
+function markPairs(units){
+  const seen={};
+  for(const u of units){ const k=u.n+'-'+u.l+'-'+u.ai; (seen[k]=seen[k]||[]).push(u); }
+  for(const k in seen) if(seen[k].length===2) seen[k].forEach(u=>u.paired=true);
+}
 
 // ---------- scaffolding ----------
 const eyeGrp = new THREE.Group(); scene.add(eyeGrp);
@@ -208,15 +241,17 @@ eyeRing.rotation.x=Math.PI/2; eyeGrp.add(eyeRing);
 const atom = new THREE.Group(); scene.add(atom);
 let rings=[];            // Ring instances (incl. core)
 let statics=[];          // shell-hint objects
-let el='C', rp=1.45, flowT=0;
+let Zsel=6, rp=1.45, flowT=0, KSCALE=1;
 const rShell = n => 0.95*Math.pow(n,rp);
 
 // ================= Ring: a closed streamline of phase =================
 // One grammar for everything. Hands tilt through the (radial, axis) plane with
 // angle ψ = w·φ + σ·flow; brightness crest at cos(w·φ − σ·flow). Winding w is the
-// countable integer: core = extra-ħ twist; p = 1; d = 2; s = 0 (internal twist only).
+// countable integer: core = extra-ħ twist; p = 1; d = 2; f = 3; s = 0 (internal twist only).
 let PAIRVIS=0.5;
 const pairFac=()=>0.10+0.90*PAIRVIS;
+const _P=new THREE.Vector3(),_U=new THREE.Vector3(),_D=new THREE.Vector3(),_T=new THREE.Vector3(),
+      _A=new THREE.Vector3(),_B=new THREE.Vector3();
 class Ring{
   constructor(o){
     // o: axisV, lat (deg), R (sphere radius), w (winding), sense, colorHex,
@@ -258,6 +293,7 @@ class Ring{
     atom.add(this.grp);
     this.baseCol=new THREE.Color(this.colorHex);
     this.baseOps=this.mats.map(m=>m.opacity);
+    this._c=new THREE.Color(); this._dim=new THREE.Color();
     this.applyVis();
     this.update(0);
   }
@@ -273,16 +309,18 @@ class Ring{
   update(flow){
     const K=this.K, w=this.w, s=this.sense, len=this.handLen;
     const hsl={h:0,s:0,l:0}; this.baseCol.getHSL(hsl);
-    const c=new THREE.Color(), dim=new THREE.Color();
+    const c=this._c, dim=this._dim;
     for(let i=0;i<K;i++){
       const phi=i/K*2*Math.PI;
-      const p=this.pt(phi);
-      const u=p.clone().sub(this.center).normalize();          // in-plane radial
-      const ax=this.axisV;                                     // ring axis direction
+      // point on ring (no allocation)
+      _P.copy(this.center)
+        .addScaledVector(this.e1,this.rho*Math.cos(phi))
+        .addScaledVector(this.e2,this.rho*Math.sin(phi));
+      _U.copy(_P).sub(this.center).normalize();                // in-plane radial
       const psi=w*phi + s*flow;                                // hand tilt = local phase
-      const dir=u.clone().multiplyScalar(Math.cos(psi)).add(ax.clone().multiplyScalar(Math.sin(psi)));
-      const a=p.clone().add(dir.clone().multiplyScalar(len));
-      const b=p.clone().add(dir.clone().multiplyScalar(-len*0.55));
+      _D.copy(_U).multiplyScalar(Math.cos(psi)).addScaledVector(this.axisV,Math.sin(psi));
+      _A.copy(_P).addScaledVector(_D,len);
+      _B.copy(_P).addScaledVector(_D,-len*0.55);
       // colour by mode
       if(this.mode==='rainbow'){
         c.setHSL((((w*phi)/(2*Math.PI) + flow/(2*Math.PI))%1+1)%1,0.92,0.62);
@@ -295,17 +333,17 @@ class Ring{
       }else{ c.set(GHOST).multiplyScalar(0.9); }
       dim.copy(c).multiplyScalar(0.34);
       const o=i*12;
-      this.posH[o]=a.x;this.posH[o+1]=a.y;this.posH[o+2]=a.z;
-      this.posH[o+3]=p.x;this.posH[o+4]=p.y;this.posH[o+5]=p.z;
-      this.posH[o+6]=p.x;this.posH[o+7]=p.y;this.posH[o+8]=p.z;
-      this.posH[o+9]=b.x;this.posH[o+10]=b.y;this.posH[o+11]=b.z;
+      this.posH[o]=_A.x;this.posH[o+1]=_A.y;this.posH[o+2]=_A.z;
+      this.posH[o+3]=_P.x;this.posH[o+4]=_P.y;this.posH[o+5]=_P.z;
+      this.posH[o+6]=_P.x;this.posH[o+7]=_P.y;this.posH[o+8]=_P.z;
+      this.posH[o+9]=_B.x;this.posH[o+10]=_B.y;this.posH[o+11]=_B.z;
       this.colH[o]=c.r;this.colH[o+1]=c.g;this.colH[o+2]=c.b;
       this.colH[o+3]=dim.r;this.colH[o+4]=dim.g;this.colH[o+5]=dim.b;
       this.colH[o+6]=dim.r;this.colH[o+7]=dim.g;this.colH[o+8]=dim.b;
       this.colH[o+9]=c.r;this.colH[o+10]=c.g;this.colH[o+11]=c.b;
       if(this.beads){
         const q=i*3;
-        this.posB[q]=a.x;this.posB[q+1]=a.y;this.posB[q+2]=a.z;
+        this.posB[q]=_A.x;this.posB[q+1]=_A.y;this.posB[q+2]=_A.z;
         this.colB[q]=c.r;this.colB[q+1]=c.g;this.colB[q+2]=c.b;
       }
     }
@@ -321,10 +359,10 @@ class Ring{
 
 // ---------- unit → streamline rings ----------
 function ringsForUnit(u,ghost){
-  const axisV=new THREE.Vector3(...AX[u.axis]).normalize();
+  const axisV=new THREE.Vector3(...AXES[u.l][u.ai]).normalize();
   const R=rShell(u.n), out=[];
   const col=ghost?GHOST:LCOL[u.l];
-  const mkK=(rho,w)=>Math.min(Math.max(Math.round(rho*58+w*30),48),150);
+  const mkK=(rho,w)=>Math.min(Math.max(Math.round((rho*58+w*30)*KSCALE),40),150);
   if(ghost){
     const rho=R;
     out.push(new Ring({axisV,lat:0,R,w:u.l,sense:+1,colorHex:col,bright:0.22,
@@ -332,10 +370,13 @@ function ringsForUnit(u,ghost){
     return out;
   }
   if(u.l===0){
-    // s: winding 0 — near-pure internal twist. Small calm ring; the pair straddles ±40°.
-    const lat=u.sense>0?40:-40;
+    // s: winding 0 — near-pure internal twist. A PAIR straddles ±40° (two senses,
+    // symmetric about the barycenter); a SINGLE sense sits on the equator — its
+    // maximal-circulation form, centered on the barycenter (H looked lopsided otherwise).
+    const lat=u.paired?(u.sense>0?40:-40):0;
+    const th=(90-lat)*Math.PI/180, rho=R*Math.sin(th);
     out.push(new Ring({axisV,lat,R,w:0,sense:u.sense,colorHex:col,bright:u.paired?0.62:0.9,
-      K:52,handLen:0.08*Math.max(1,R*0.5),mode:'uniform',beads:false,pairedFlag:!!u.paired}));
+      K:Math.min(Math.max(Math.round(rho*40*Math.max(KSCALE,0.7)),52),150),handLen:0.08*Math.max(1,R*0.5),mode:'uniform',beads:false,pairedFlag:!!u.paired}));
     return out;
   }
   const paired=u.paired;
@@ -344,7 +385,7 @@ function ringsForUnit(u,ghost){
   out.push(new Ring({axisV,lat:latOff,R,w:u.l,sense:u.sense,colorHex:col,
     bright:paired?0.52:1.0,K:mkK(R,u.l),handLen:mainLen,mode:'crest',beads:!paired,pairedFlag:paired}));
   if(!paired){
-    const fl=u.l===1?33:19;
+    const fl=u.l===1?33:(u.l===2?19:14);
     for(const f of [fl,-fl]){
       out.push(new Ring({axisV,lat:f,R,w:u.l,sense:u.sense,colorHex:col,bright:0.38,
         K:Math.round(mkK(R,u.l)*0.7),handLen:mainLen*0.75,mode:'crest',beads:false}));
@@ -360,12 +401,6 @@ function coreRing(count){
     handLen:0.15,mode:'rainbow',beads:true});
 }
 
-function markPairs(units){
-  const seen={};
-  for(const u of units){ const k=u.n+'-'+u.l+'-'+u.axis; (seen[k]=seen[k]||[]).push(u); }
-  for(const k in seen) if(seen[k].length===2) seen[k].forEach(u=>u.paired=true);
-}
-
 function makeShellHints(ns){
   for(const n of ns){
     const R=rShell(n), pos=[];
@@ -377,42 +412,115 @@ function makeShellHints(ns){
   }
 }
 
+// ---------- generated HUD text ----------
+const SUPD='⁰¹²³⁴⁵⁶⁷⁸⁹';
+const sup=n=>String(n).split('').map(d=>SUPD[+d]).join('');
+function fillHTML(cfg){
+  return cfg.filter(e=>e[2]>0).map(([n,l,c])=>`<span class="${LCLS[l]}">${n}${LNAME[l]}${sup(c)}</span>`).join(' ');
+}
+function partialNote(cfg){
+  const partial=cfg.filter(([n,l,c])=>c>0&&c<CAP[l]);
+  if(!partial.length) return '';
+  const [n,l,c]=partial[partial.length-1];
+  return ` — ${n}${LNAME[l]} holds <span class="${LCLS[l]}">${c} of ${CAP[l]}</span>`;
+}
+function netStats(units){
+  const un={}; let tot=0;
+  for(const u of units) if(!u.paired){ const k=`${u.n}${LNAME[u.l]}`; un[k]=(un[k]||0)+1; tot++; }
+  return {un,tot,keys:Object.keys(un)};
+}
+function netHTML(stats){
+  if(stats.tot===0) return '0 uncancelled senses — every turn cancels: a complete harmonic cycle, chemically silent.';
+  const where=stats.keys.join(', ');
+  const hasDF=stats.keys.some(k=>/[df]$/.test(k));
+  let tail;
+  if(hasDF&&stats.tot>=2) tail=' = net internal twist the whole vortex carries — the magnetic handle.';
+  else if(stats.keys.every(k=>k.endsWith('s'))) tail=' — a loosely held outer turn: donation chemistry.';
+  else tail=' — open orientations: chemistry lives here.';
+  return `${stats.tot} uncancelled sense${stats.tot>1?'s':''} (${where}, co-flowing)${tail}`;
+}
+// bespoke copy for the two featured atoms (approved text)
+const BESPOKE={
+  6:{net:'2 uncancelled senses (2p, co-flowing) — open orientations: this is carbon\u2019s chemistry.',
+     cap:'<b>Carbon.</b> Two closed s-pairs sit calm (counter-chasing crests cancel). Two p-rings carry their single crest <i>uncancelled, co-sense</i> about the x and y axes; the z-orientation is a grey ghost. Four mode-units short of closure — <b>tetravalence as unfinished counting</b>, no bonds-as-sticks required.'},
+  26:{net:'4 uncancelled senses (3d, co-flowing) = net internal twist = <b>ferromagnetism</b> — no particle "spins" anywhere.',
+     cap:'<b>Iron.</b> Eleven closed pairs cancel into calm shells. In the green d-harmonic one orientation is paired — and <span class="gr">four rings run their two crests co-sense, uncancelled</span>. Their sum is a net twist the whole vortex carries: <b>ferromagnetism as bookkeeping</b>. Pull “closed pairs” to zero and the magnet stands alone. This is the handle the YIG experiment grabs.'}
+};
+function captionFor(Z,stats,units){
+  if(BESPOKE[Z]) return BESPOKE[Z].cap;
+  const [sym,name,A,type]=EL[Z-1];
+  const closed=units.filter(u=>u.paired).length/2;
+  const pairTxt=closed>0?`${closed} closed pair${closed>1?'s':''} cancel into calm shells`:'no closed pairs yet';
+  if(Z===1) return '<b>Hydrogen.</b> The fundamental: one ħ of turning — a single uncancelled s-ring and an empty barycenter. No planar core, no partner sense, nothing else. Every other element on the selector is <i>this</i>, accumulated and reorganized.';
+  if(type==='noble') return `<b>${name}.</b> ${pairTxt}; every derived orientation is filled and every sense cancelled — a <b>complete harmonic cycle</b>. Nothing reaches outward: chemical silence as finished counting.`;
+  if(stats.tot===0) return `<b>${name}.</b> ${pairTxt}; all senses cancel pairwise. A calm, closed organization${type==='post_transition'?' — metallic behaviour lives in how these closed vortices couple, not inside any one of them':''}.`;
+  const where=stats.keys.join(', ');
+  const hasDF=stats.keys.some(k=>/[df]$/.test(k));
+  if(hasDF&&stats.tot>=3) return `<b>${name}.</b> ${pairTxt}. <span class="gr">${stats.tot} rings run co-sense, uncancelled</span> (${where}) — a net internal twist the whole vortex carries: the same bookkeeping that makes iron a magnet, here ${stats.tot>=4?'strong':'present'} in the ${type==='lanthanide'||type==='actinide'?'deep f-harmonic':'d-harmonic'}.`;
+  if(stats.keys.every(k=>k.endsWith('s'))&&stats.tot===1) return `<b>${name}.</b> ${pairTxt}. One outer s-sense runs uncancelled and loosely held — ${type==='alkali'?'alkali':'donation'} chemistry as a single open turn, offered outward.`;
+  return `<b>${name}.</b> ${pairTxt}. ${stats.tot} sense${stats.tot>1?'s':''} run${stats.tot===1?'s':''} uncancelled in ${where} — open orientations, the reach toward closure that chemistry cashes out.`;
+}
+
+// ---------- build ----------
 function build(){
   for(const r of rings) r.dispose(); rings=[];
   for(const s of statics){atom.remove(s);s.geometry.dispose();s.material.dispose();} statics=[];
-  const E=ELEMENTS[el];
-  markPairs(E.units);
-  makeShellHints([...new Set(E.units.map(u=>u.n))]);
-  for(const u of E.units) rings.push(...ringsForUnit(u,false));
+  const Z=Zsel, [sym,name,A]=EL[Z-1];
+  const cfg=configFor(Z);
+  const {units,ghosts}=unitsAndGhosts(cfg);
+  markPairs(units);
+  KSCALE = units.length>80?0.5 : units.length>40?0.7 : 1;
+  makeShellHints([...new Set(units.map(u=>u.n))]);
+  for(const u of units) rings.push(...ringsForUnit(u,false));
   if(document.getElementById('ghosts').checked)
-    for(const g of E.ghosts) rings.push(...ringsForUnit({...g,sense:+1},true));
-  rings.push(coreRing(E.disk));
+    for(const g of ghosts) rings.push(...ringsForUnit({...g,sense:+1},true));
+  const disk=Math.max(A-Z,0);
+  if(disk>0) rings.push(coreRing(disk));
   for(const r of rings) r.update(flowT);
-  document.getElementById('hudTitle').textContent=E.label;
+  const stats=netStats(units);
+  document.getElementById('hudTitle').textContent=`${sym}-${A} — harmonic mode ${Z}`;
   document.getElementById('hudLedger').innerHTML=
-    `${E.A}ħ total = <b style="color:var(--text)">${E.Z}ħ</b> spherical pattern + <b style="color:var(--text)">${E.disk}ħ</b> planar core (Tw = ${E.disk})`;
-  document.getElementById('hudFill').innerHTML=E.fill;
-  document.getElementById('hudNet').innerHTML=E.net;
-  document.getElementById('cap').innerHTML=E.cap+
+    `${A}ħ total = <b style="color:var(--text)">${Z}ħ</b> spherical pattern + <b style="color:var(--text)">${disk}ħ</b> planar core ${disk>0?`(Tw = ${disk})`:'(none — the bare fundamental)'}`;
+  document.getElementById('hudFill').innerHTML=fillHTML(cfg)+partialNote(cfg);
+  document.getElementById('hudNet').innerHTML=BESPOKE[Z]?BESPOKE[Z].net:
+    (Z===1?'1 uncancelled sense (1s) — the fundamental turn itself; everything else is this, accumulated.':netHTML(stats));
+  document.getElementById('cap').innerHTML=captionFor(Z,stats,units)+
     ' <span style="color:#6f6f88">Radial spacing compressed for display; truth is n².</span>';
 }
+let buildQueued=false;
+function requestBuild(){ if(buildQueued)return; buildQueued=true;
+  requestAnimationFrame(()=>{buildQueued=false; build();}); }
 
-function setElement(e){
-  el=e;
-  document.getElementById('elC').classList.toggle('on',e==='C');
-  document.getElementById('elFe').classList.toggle('on',e==='Fe');
-  const E=ELEMENTS[el];
-  camera.position.set(E.camD*0.62,E.camD*0.66,E.camD);
-  controls.target.set(0,0,0);
+// ---------- element selection ----------
+const elsel=document.getElementById('elsel');
+EL.forEach(([sym,name,A],i)=>{
+  const o=document.createElement('option');
+  o.value=i+1; o.textContent=`${i+1} · ${sym} — ${name} (${A}ħ)`;
+  elsel.appendChild(o);
+});
+function setElement(Z,keepCam){
+  Zsel=Z; elsel.value=Z;
+  document.getElementById('elC').classList.toggle('on',Z===6);
+  document.getElementById('elFe').classList.toggle('on',Z===26);
+  if(!keepCam){
+    const cfg=configFor(Z);
+    const maxN=Math.max(...cfg.filter(e=>e[2]>0).map(e=>e[0]));
+    const D=2.35*rShell(maxN)+1.6;
+    camera.position.set(D*0.62,D*0.66,D).setLength(D*1.32);
+    controls.target.set(0,0,0);
+  }
   build();
 }
-document.getElementById('elC').addEventListener('click',()=>setElement('C'));
-document.getElementById('elFe').addEventListener('click',()=>setElement('Fe'));
-document.getElementById('ghosts').addEventListener('change',build);
+elsel.addEventListener('change',()=>setElement(parseInt(elsel.value)));
+document.getElementById('prevEl').addEventListener('click',()=>setElement(Math.max(1,Zsel-1)));
+document.getElementById('nextEl').addEventListener('click',()=>setElement(Math.min(118,Zsel+1)));
+document.getElementById('elC').addEventListener('click',()=>setElement(6));
+document.getElementById('elFe').addEventListener('click',()=>setElement(26));
+document.getElementById('ghosts').addEventListener('change',requestBuild);
 const rpEl=document.getElementById('rp');
 rpEl.addEventListener('input',()=>{rp=parseFloat(rpEl.value);
   document.getElementById('rpv').textContent=rp>1.9?'true n²':(rp<1.15?'linear':'compressed');
-  build();});
+  requestBuild();});
 const pvEl=document.getElementById('pv');
 pvEl.addEventListener('input',()=>{PAIRVIS=parseFloat(pvEl.value);
   document.getElementById('pvv').textContent=Math.round(PAIRVIS*100)+'%';
@@ -424,13 +532,38 @@ function resize(){
   camera.aspect=r.width/r.height; camera.updateProjectionMatrix();
 }
 window.addEventListener('resize',resize); resize();
-setElement('C');
+setElement(6);
 
 const infoBox=document.getElementById('info'), infoClose=document.getElementById('infoClose'), infoToggle=document.getElementById('infoToggle');
 infoClose.addEventListener('click',()=>{infoBox.style.display='none';infoToggle.style.display='block';});
 infoToggle.addEventListener('click',()=>{infoBox.style.display='block';infoToggle.style.display='none';});
 
 window.__cam=(x,y,z)=>{camera.position.set(x,y,z);controls.target.set(0,0,0);controls.update();};
+window.__setZ=z=>setElement(z);
+// Structural audit hook (headless pressure-testing; no visual effect)
+window.__audit=()=>{
+  const Z=Zsel,[sym,name,A]=EL[Z-1];
+  const cfg=configFor(Z);
+  const cfgSum=cfg.reduce((s,e)=>s+e[2],0);
+  let capViolations=0; for(const [n,l,c] of cfg) if(c>CAP[l]||c<0) capViolations++;
+  const {units,ghosts}=unitsAndGhosts(cfg);
+  let ghostExpected=0; for(const [n,l,c] of cfg){const nAx=2*l+1; if(c>0&&c<nAx) ghostExpected+=nAx-c;}
+  const unpaired=units.filter(u=>{const k=units.filter(v=>v.n===u.n&&v.l===u.l&&v.ai===u.ai);return k.length===1;}).length;
+  const maxN=Math.max(...units.map(u=>u.n));
+  const maxR=rShell(maxN);
+  let cw=0,cx=0,cy=0,cz=0,over=0,hasCore=false,beadRings=0;
+  for(const r of rings){
+    if(r.mode==='rainbow'){hasCore=true;continue;}
+    if(r.beads)beadRings++;
+    const w=r.rho*(r.pairedFlag?0.5:1)*(r.mode==='ghost'?0.3:1);
+    cx+=r.center.x*w;cy+=r.center.y*w;cz+=r.center.z*w;cw+=w;
+    over=Math.max(over,Math.hypot(r.center.length(),r.rho)/maxR);
+  }
+  const cl=cw>0?Math.hypot(cx/cw,cy/cw,cz/cw):0;
+  return {Z,sym,A,cfgSum,capViolations,unitCount:units.length,ghostCount:ghosts.length,ghostExpected,
+    unpaired,ringCount:rings.length,disk:Math.max(A-Z,0),hasCore,maxR:+maxR.toFixed(2),
+    centroidFrac:+(cl/maxR).toFixed(3),overflowFrac:+over.toFixed(3),cfg};
+};
 const flowEl=document.getElementById('flow'), spinEl=document.getElementById('spin');
 let last=performance.now();
 function anim(now){

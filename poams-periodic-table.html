@@ -12,7 +12,6 @@
             }
         };
     </script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     
     <!-- Three.js Import Map -->
@@ -841,9 +840,8 @@
                 The Same Vortex, Accumulated ħ
             </h2>
             <p style="text-align: center; font-size: 1rem; margin-bottom: 20px; max-width: 700px; margin-left: auto; margin-right: auto;">
-                Watch the fundamental hydrogen vortex grow as it accumulates angular momentum. 
-                Each concentric mode shows its harmonic sub-patterns — s (gold), p (blue), d (green), f (cyan).
-                All modes rendered as wireframes for visual clarity — filled modes at full brightness, unfilled (available) positions dimmed. This lets you see through overlapping modes and read the internal structure.
+                Watch the fundamental hydrogen vortex grow as it accumulates angular momentum.
+                Every occupied orientation of every angular harmonic — s (gold), p (blue), d (green), f (cyan) — is drawn as a <strong>closed streamline of phase</strong>. The bright crest circling each ring is its winding number made visible: p&nbsp;=&nbsp;1, d&nbsp;=&nbsp;2, f&nbsp;=&nbsp;3; s breathes uniformly (winding 0). Paired senses counter-flow and cancel — closed shells sit calm and dim; unpaired senses co-flow bright. The planar core at the heart carries the extra ħ (A&nbsp;−&nbsp;Z) as countable twist. No electrons, no lobes, no surfaces — organized turning, nothing else.
             </p>
             
             <div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
@@ -860,6 +858,17 @@
                         <input type="range" id="observeRadius" min="0" max="100" step="1" value="0">
                         <div id="observeRadiusLabel" style="font-size: 0.75rem; color: #999; margin-top: 2px;">At mode surface</div>
                     </div>
+                    <div style="text-align: center;">
+                        <label for="pairVis">Closed Pairs:</label>
+                        <input type="range" id="pairVis" min="0" max="1" step="0.01" value="0.5">
+                        <div id="pairVisLabel" style="font-size: 0.75rem; color: #999; margin-top: 2px;">50% — slide left for net circulation</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <label for="radialDisp">Radial Spacing:</label>
+                        <input type="range" id="radialDisp" min="1" max="2" step="0.01" value="1.45">
+                        <div id="radialDispLabel" style="font-size: 0.75rem; color: #999; margin-top: 2px;">compressed (display)</div>
+                    </div>
+                    <label style="font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 5px;"><input type="checkbox" id="showGhosts" checked> ghost orientations</label>
                     <button id="toggleModesBtn" onclick="toggleVortexModes()" style="padding: 6px 14px; border-radius: 6px; border: 1px solid var(--accent, #c9a84c); background: transparent; color: var(--accent, #c9a84c); cursor: pointer; font-size: 0.85rem; font-weight: 600; transition: all 0.2s;">Hide Modes</button>
 
                 </div>
@@ -873,7 +882,8 @@
                     <div class="legend-3d-item legend-toggle" data-pattern="p" onclick="togglePattern('p', this)" style="cursor:pointer;"><div class="legend-3d-swatch" style="background:#4fc3f7;"></div><span>p-pattern (angular)</span></div>
                     <div class="legend-3d-item legend-toggle" data-pattern="d" onclick="togglePattern('d', this)" style="cursor:pointer;"><div class="legend-3d-swatch" style="background:#66bb6a;"></div><span>d-pattern (higher angular)</span></div>
                     <div class="legend-3d-item legend-toggle" data-pattern="f" onclick="togglePattern('f', this)" style="cursor:pointer;"><div class="legend-3d-swatch" style="background:#26c6da;"></div><span>f-pattern (highest angular)</span></div>
-                    <div class="legend-3d-item"><div class="legend-3d-swatch" style="background:rgba(128,128,128,0.15); border:1px dashed #888;"></div><span>Unfilled (dimmed wireframe)</span></div>
+                    <div class="legend-3d-item"><div class="legend-3d-swatch" style="background:rgba(85,85,110,0.5); border:1px dashed #888;"></div><span>ghost — derived-but-unoccupied orientation</span></div>
+                    <div class="legend-3d-item"><div class="legend-3d-swatch" style="background:linear-gradient(90deg,#f66,#fc6,#6f6,#6cf,#c6f);"></div><span>planar core — extra ħ (A−Z) as countable twist</span></div>
                 </div>
 
                 <div id="vortexScalingNote" style="max-width: 700px; margin: 15px auto 0; padding: 15px 20px; background: rgba(201, 168, 76, 0.06); border: 1px solid rgba(201, 168, 76, 0.15); border-radius: 8px; font-size: 0.85rem; line-height: 1.6;">
@@ -886,7 +896,7 @@
                         <li>4s/4p/4d/4f sit at ~16r</li>
                     </ul>
                     <p style="margin-bottom: 10px;">The inner modes are compressed together and the outer modes are vastly further apart than shown here. Drawn to scale, the 1s would be a tiny speck and the outer modes would be enormous — the same problem every chemistry textbook faces.</p>
-                    <p style="margin-bottom: 10px;"><strong>Angular mode patterns (lobe count, nodal planes, symmetry) are geometric necessities</strong> — the only possible distinct angular configurations of momentum on a sphere. These are not QM constructions; Laplace and Kelvin had them decades before Schrödinger. The topology is real. The rendered surface boundary (where we cut off each shape) is where we sample the angular momentum density at a chosen amplitude threshold — the lobes get fatter or thinner, but the topology (number of lobes, nodal planes, symmetry) is fixed.</p>
+                    <p style="margin-bottom: 10px;"><strong>Angular mode patterns are geometric necessities</strong> — the only possible distinct angular configurations of momentum on a sphere: each harmonic \( l \) admits exactly \( 2l+1 \) orientations × 2 phase senses (s = 2, p = 6, d = 10, f = 14). These are not QM constructions; Laplace and Kelvin had them decades before Schrödinger. Textbook lobes picture <em>amplitude</em>; the rings drawn here carry <em>the turning itself</em> — each occupied orientation rendered as a closed streamline of phase about its own axis, its crest count the winding integer. The counting (orientations, senses, windings) is the physics; the lobe surface was only ever a sampling threshold.</p>
                     <p style="margin-bottom: 0;"><strong>Use the Observation Distance slider</strong> to see what happens as you move outward from the eyewall. Per Joseph Bertrand's theorem (1873), the \( 1/r^2 \) falloff is not arbitrary — it is the <em>only</em> radial profile (besides the harmonic oscillator) that produces closed, stable orbits. This means Newton and Coulomb didn't discover a force law — they discovered the only geometry that permits stable orbits to exist. Higher angular modes (d, f) attenuate faster than lower ones (s, p), because a multipole of order \( l \) falls off as \( 1/r^{l+1} \). At sufficient distance, all structure dissolves into near-isotropy. What we perceive as "empty space" <em>is</em> this angular momentum — still there, still structured, just attenuated below our threshold of detection.</p>
                 </div>
 
@@ -1930,9 +1940,9 @@
             // Handle nulls in ANOMALIES (manually specified below in the element data)
             // For most elements, just use Aufbau
             const special = {
-                57: [[1,0,2],[2,0,2],[2,1,6],[3,0,2],[3,1,6],[4,0,2],[3,2,10],[4,1,6],[5,0,2],[4,2,0],[5,1,0],[6,0,2],[5,2,1]], // La
-                58: [[1,0,2],[2,0,2],[2,1,6],[3,0,2],[3,1,6],[4,0,2],[3,2,10],[4,1,6],[5,0,2],[5,1,0],[6,0,2],[4,3,1],[5,2,1]], // Ce
-                64: [[1,0,2],[2,0,2],[2,1,6],[3,0,2],[3,1,6],[4,0,2],[3,2,10],[4,1,6],[5,0,2],[5,1,0],[6,0,2],[4,3,7],[5,2,1]], // Gd
+                57: [[1,0,2],[2,0,2],[2,1,6],[3,0,2],[3,1,6],[4,0,2],[3,2,10],[4,1,6],[5,0,2],[4,2,10],[5,1,6],[6,0,2],[5,2,1]], // La — [Xe]5d¹6s² (4d¹⁰/5p⁶ were wrongly zeroed pre-2026-08-07)
+                58: [[1,0,2],[2,0,2],[2,1,6],[3,0,2],[3,1,6],[4,0,2],[3,2,10],[4,1,6],[5,0,2],[4,2,10],[5,1,6],[6,0,2],[4,3,1],[5,2,1]], // Ce — [Xe]4f¹5d¹6s²
+                64: [[1,0,2],[2,0,2],[2,1,6],[3,0,2],[3,1,6],[4,0,2],[3,2,10],[4,1,6],[5,0,2],[4,2,10],[5,1,6],[6,0,2],[4,3,7],[5,2,1]], // Gd — [Xe]4f⁷5d¹6s²
                 78: [[1,0,2],[2,0,2],[2,1,6],[3,0,2],[3,1,6],[4,0,2],[3,2,10],[4,1,6],[5,0,2],[4,2,10],[5,1,6],[6,0,1],[4,3,14],[5,2,9]], // Pt
                 79: [[1,0,2],[2,0,2],[2,1,6],[3,0,2],[3,1,6],[4,0,2],[3,2,10],[4,1,6],[5,0,2],[4,2,10],[5,1,6],[6,0,1],[4,3,14],[5,2,10]], // Au
                 89: [[1,0,2],[2,0,2],[2,1,6],[3,0,2],[3,1,6],[4,0,2],[3,2,10],[4,1,6],[5,0,2],[4,2,10],[5,1,6],[6,0,2],[4,3,14],[5,2,10],[6,1,6],[7,0,2],[6,2,1]], // Ac
@@ -2267,251 +2277,285 @@
             renderer: null,
             controls: null,
             harmonicGroup: null,
-            eyewallMesh: null,
-            animFrameId: null
+            eyeRing: null,
+            animFrameId: null,
+            rings: [],          // PhaseRing instances (incl. planar core)
+            flowT: 0,           // accumulated phase
+            flowSpeed: 1.15,    // phase-flow rate (animation speed slider)
+            PAIRVIS: 0.5,       // closed-pairs visibility (slider)
+            rp: 1.45,           // radial display exponent: 1 = linear, 2 = true n²
+            KSCALE: 1           // per-element point-count budget
         };
 
-        // Spherical harmonic magnitude |Y_l^m(θ,φ)|² used for harmonic mode shape generation
-        // Returns radius modulation at given theta, phi for quantum numbers l, m
-        function sphericalHarmonicR(l, m, theta, phi) {
-            const am = Math.abs(m);
-            // Associated Legendre polynomials (simplified for l=0..3)
-            let plm;
-            const ct = Math.cos(theta), st = Math.sin(theta);
-            if (l === 0) {
-                plm = 1;
-            } else if (l === 1) {
-                if (am === 0) plm = ct;
-                else plm = st;
-            } else if (l === 2) {
-                if (am === 0) plm = 3*ct*ct - 1;
-                else if (am === 1) plm = st * ct;
-                else plm = st * st;
-            } else if (l === 3) {
-                if (am === 0) plm = ct * (5*ct*ct - 3);
-                else if (am === 1) plm = st * (5*ct*ct - 1);
-                else if (am === 2) plm = st*st * ct;
-                else plm = st*st*st;
+        // ========================================================================
+        // PHASE-STREAMLINE VORTEX RENDERER (graduated from atom-as-phase.html)
+        // Every occupied mode-orientation = a closed streamline of phase.
+        // Hands tilt through the (radial, axis) plane with ψ = w·φ + σ·flow;
+        // the brightness crest at cos(w·φ − σ·flow) makes the winding integer
+        // countable: p = 1, d = 2, f = 3; s = 0 (uniform breathing — internal
+        // twist, no transport). Paired senses counter-flow and cancel; the
+        // planar core carries the extra ħ (A − Z) as countable twist.
+        // No electrons, no lobes, no surfaces — organized turning only.
+        // ========================================================================
+        const PHASE_LCOL = { 0:0xc9a84c, 1:0x4fc3f7, 2:0x66bb6a, 3:0x26c6da };   // s gold, p blue, d green, f cyan
+        const PHASE_GHOST = 0x55556e;
+        const PHASE_DIAG = [[1,1,1],[1,-1,1],[-1,1,1],[-1,-1,1]];
+        const PHASE_AXES = [
+            [[0,0,1]],                                    // s
+            [[1,0,0],[0,1,0],[0,0,1]],                    // p
+            [[0,0,1],...PHASE_DIAG],                      // d: z + 4 cube diagonals
+            [[0,0,1],[1,0,0],[0,1,0],...PHASE_DIAG]       // f: z, x, y + 4 cube diagonals
+        ];
+
+        // Hund filling: each orientation singly occupied co-sense (+1) first, then pairing senses (−1).
+        // Ghosts = derived-but-unoccupied orientations of partially filled sub-modes.
+        function phaseUnitsAndGhosts(config) {
+            const units = [], ghosts = [];
+            for (const [n, l, c] of config) {
+                if (!c) continue;
+                const nAx = 2*l + 1, singles = Math.min(c, nAx), pairs = c - singles;
+                for (let i = 0; i < singles; i++) units.push({ n, l, ai: i, sense: +1 });
+                for (let i = 0; i < pairs; i++)  units.push({ n, l, ai: i, sense: -1 });
+                if (c < nAx) for (let i = c; i < nAx; i++) ghosts.push({ n, l, ai: i });
+            }
+            const seen = {};
+            for (const u of units) { const k = u.n + '-' + u.l + '-' + u.ai; (seen[k] = seen[k] || []).push(u); }
+            for (const k in seen) if (seen[k].length === 2) seen[k].forEach(u => u.paired = true);
+            return { units, ghosts };
+        }
+
+        const phaseShellR = n => 0.95 * Math.pow(n, vortex3D.rp);
+        const phasePairFac = () => 0.10 + 0.90 * vortex3D.PAIRVIS;
+        const PHASE_SCR = {};
+        function phaseScratch() {
+            if (!PHASE_SCR.P) { const T = window.THREE;
+                PHASE_SCR.P = new T.Vector3(); PHASE_SCR.U = new T.Vector3(); PHASE_SCR.D = new T.Vector3();
+                PHASE_SCR.A = new T.Vector3(); PHASE_SCR.B = new T.Vector3(); }
+            return PHASE_SCR;
+        }
+
+        // ================= PhaseRing: a closed streamline of phase =================
+        class PhaseRing {
+            constructor(o) {
+                const T = window.THREE;
+                Object.assign(this, o);
+                const th = (90 - this.lat) * Math.PI / 180;
+                this.center = this.axisV.clone().multiplyScalar(this.R * Math.cos(th));
+                this.rho = this.R * Math.sin(th);
+                const up = Math.abs(this.axisV.y) < 0.93 ? new T.Vector3(0,1,0) : new T.Vector3(1,0,0);
+                this.e1 = new T.Vector3().crossVectors(this.axisV, up).normalize();
+                this.e2 = new T.Vector3().crossVectors(this.axisV, this.e1).normalize();
+                const K = this.K;
+                this.posH = new Float32Array(K*4*3); this.colH = new Float32Array(K*4*3);
+                this.gH = new T.BufferGeometry();
+                this.gH.setAttribute('position', new T.BufferAttribute(this.posH, 3));
+                this.gH.setAttribute('color', new T.BufferAttribute(this.colH, 3));
+                this.hands = new T.LineSegments(this.gH, new T.LineBasicMaterial({ vertexColors: true,
+                    transparent: true, opacity: this.bright, blending: T.AdditiveBlending, depthWrite: false }));
+                this.grp = new T.Group(); this.grp.add(this.hands);
+                this.mats = [this.hands.material];
+                if (this.beads) {
+                    this.posB = new Float32Array(K*3); this.colB = new Float32Array(K*3);
+                    this.gB = new T.BufferGeometry();
+                    this.gB.setAttribute('position', new T.BufferAttribute(this.posB, 3));
+                    this.gB.setAttribute('color', new T.BufferAttribute(this.colB, 3));
+                    const bm = new T.PointsMaterial({ size: 0.05, vertexColors: true,
+                        transparent: true, opacity: 0.9, blending: T.AdditiveBlending, depthWrite: false, sizeAttenuation: true });
+                    this.grp.add(new T.Points(this.gB, bm)); this.mats.push(bm);
+                }
+                // dim spine: the closed locus — a relation, not a wire
+                const sp = []; for (let i = 0; i <= 100; i++) { const a = i/100 * 2*Math.PI;
+                    const p = this.pt(a); sp.push(p.x, p.y, p.z); }
+                const gS = new T.BufferGeometry();
+                gS.setAttribute('position', new T.Float32BufferAttribute(sp, 3));
+                const sm = new T.LineBasicMaterial({ color: 0x3c3c58,
+                    transparent: true, opacity: this.mode === 'ghost' ? 0.25 : 0.4, depthWrite: false });
+                this.grp.add(new T.Line(gS, sm)); this.mats.push(sm);
+                vortex3D.harmonicGroup.add(this.grp);
+                this.baseCol = new T.Color(this.colorHex);
+                this.baseOps = this.mats.map(m => m.opacity);
+                this._c = new T.Color(); this._dim = new T.Color();
+                this.applyVis();
+                this.update(0);
+            }
+            applyVis() {
+                const f = this.pairedFlag ? phasePairFac() : 1;
+                this.mats.forEach((m, i) => { m.opacity = this.baseOps[i] * f; });
+            }
+            pt(phi) {
+                return this.center.clone()
+                    .add(this.e1.clone().multiplyScalar(this.rho * Math.cos(phi)))
+                    .add(this.e2.clone().multiplyScalar(this.rho * Math.sin(phi)));
+            }
+            update(flow) {
+                const S = phaseScratch();
+                const K = this.K, w = this.w, s = this.sense, len = this.handLen;
+                const hsl = { h: 0, s: 0, l: 0 }; this.baseCol.getHSL(hsl);
+                const c = this._c, dim = this._dim;
+                for (let i = 0; i < K; i++) {
+                    const phi = i/K * 2*Math.PI;
+                    S.P.copy(this.center)
+                        .addScaledVector(this.e1, this.rho * Math.cos(phi))
+                        .addScaledVector(this.e2, this.rho * Math.sin(phi));
+                    S.U.copy(S.P).sub(this.center).normalize();              // in-plane radial
+                    const psi = w*phi + s*flow;                              // hand tilt = local phase
+                    S.D.copy(S.U).multiplyScalar(Math.cos(psi)).addScaledVector(this.axisV, Math.sin(psi));
+                    S.A.copy(S.P).addScaledVector(S.D, len);
+                    S.B.copy(S.P).addScaledVector(S.D, -len*0.55);
+                    if (this.mode === 'rainbow') {
+                        c.setHSL((((w*phi)/(2*Math.PI) + flow/(2*Math.PI)) % 1 + 1) % 1, 0.92, 0.62);
+                    } else if (this.mode === 'crest') {
+                        const crest = 0.5 + 0.5*Math.cos(w*phi - s*flow);
+                        c.setHSL(hsl.h, Math.min(1, hsl.s*1.05), 0.38 + 0.48*crest);
+                    } else if (this.mode === 'uniform') {
+                        const br = 0.5 + 0.18*Math.cos(s*flow*0.6);
+                        c.setHSL(hsl.h, hsl.s*0.9, 0.40 + 0.24*br);
+                    } else { c.set(PHASE_GHOST).multiplyScalar(0.9); }
+                    dim.copy(c).multiplyScalar(0.34);
+                    const o = i*12;
+                    this.posH[o]=S.A.x; this.posH[o+1]=S.A.y; this.posH[o+2]=S.A.z;
+                    this.posH[o+3]=S.P.x; this.posH[o+4]=S.P.y; this.posH[o+5]=S.P.z;
+                    this.posH[o+6]=S.P.x; this.posH[o+7]=S.P.y; this.posH[o+8]=S.P.z;
+                    this.posH[o+9]=S.B.x; this.posH[o+10]=S.B.y; this.posH[o+11]=S.B.z;
+                    this.colH[o]=c.r; this.colH[o+1]=c.g; this.colH[o+2]=c.b;
+                    this.colH[o+3]=dim.r; this.colH[o+4]=dim.g; this.colH[o+5]=dim.b;
+                    this.colH[o+6]=dim.r; this.colH[o+7]=dim.g; this.colH[o+8]=dim.b;
+                    this.colH[o+9]=c.r; this.colH[o+10]=c.g; this.colH[o+11]=c.b;
+                    if (this.beads) {
+                        const q = i*3;
+                        this.posB[q]=S.A.x; this.posB[q+1]=S.A.y; this.posB[q+2]=S.A.z;
+                        this.colB[q]=c.r; this.colB[q+1]=c.g; this.colB[q+2]=c.b;
+                    }
+                }
+                this.gH.attributes.position.needsUpdate = true;
+                this.gH.attributes.color.needsUpdate = true;
+                if (this.beads) { this.gB.attributes.position.needsUpdate = true; this.gB.attributes.color.needsUpdate = true; }
+            }
+            dispose() {
+                if (this.grp.parent) this.grp.parent.remove(this.grp);
+                this.grp.traverse(o => { if (o.geometry) o.geometry.dispose(); if (o.material) o.material.dispose(); });
+            }
+        }
+
+        // ---------- unit → streamline rings ----------
+        function phaseRingsForUnit(u, ghost, atten) {
+            const T = window.THREE;
+            const axisV = new T.Vector3(...PHASE_AXES[u.l][u.ai]).normalize();
+            const R = phaseShellR(u.n), out = [];
+            const col = ghost ? PHASE_GHOST : PHASE_LCOL[u.l];
+            const a = (typeof atten === 'number') ? atten : 1;
+            const mkK = (rho, w) => Math.min(Math.max(Math.round((rho*58 + w*30) * vortex3D.KSCALE), 40), 150);
+            if (ghost) {
+                out.push(new PhaseRing({ axisV, lat: 0, R, w: u.l, sense: +1, colorHex: col, bright: 0.22*a,
+                    K: Math.round(mkK(R, u.l)*0.6), handLen: 0.10*Math.max(1, R*0.5), mode: 'ghost', beads: false }));
+            } else if (u.l === 0) {
+                // s: winding 0 — near-pure internal twist. A PAIR straddles ±40° (two senses,
+                // symmetric about the barycenter); a SINGLE sense sits on the equator — its
+                // maximal-circulation form, centered on the barycenter.
+                const lat = u.paired ? (u.sense > 0 ? 40 : -40) : 0;
+                const th = (90 - lat)*Math.PI/180, rho = R*Math.sin(th);
+                out.push(new PhaseRing({ axisV, lat, R, w: 0, sense: u.sense, colorHex: col, bright: (u.paired ? 0.62 : 0.9)*a,
+                    K: Math.min(Math.max(Math.round(rho*40*Math.max(vortex3D.KSCALE, 0.7)), 52), 150), handLen: 0.08*Math.max(1, R*0.5), mode: 'uniform', beads: false, pairedFlag: !!u.paired }));
             } else {
-                plm = Math.pow(st, am) * Math.pow(ct, Math.max(0, l - am));
-            }
-            // Angular part
-            let angPart;
-            if (m === 0) angPart = 1;
-            else if (m > 0) angPart = Math.cos(m * phi);
-            else angPart = Math.sin(am * phi);
-
-            return plm * angPart;
-        }
-
-        function createHarmonicMesh(THREE, l, m, shellRadius, color, filled, scale, attenuation) {
-            // attenuation: multipole falloff factor (0-1), applied per l-order
-            const atten = typeof attenuation === 'number' ? attenuation : 1;
-            scale = scale * atten;
-            const segments = l === 0 ? 24 : (l <= 1 ? 32 : (l <= 2 ? 40 : 48));
-            const geometry = new THREE.BufferGeometry();
-            const positions = [];
-            const indices = [];
-            const normals = [];
-
-            const rows = segments;
-            const cols = segments * 2;
-
-            for (let i = 0; i <= rows; i++) {
-                const theta = (i / rows) * Math.PI;
-                for (let j = 0; j <= cols; j++) {
-                    const phi = (j / cols) * Math.PI * 2;
-                    const ylm = sphericalHarmonicR(l, m, theta, phi);
-                    // Base radius from shell position, modulated by harmonic
-                    const baseR = shellRadius;
-                    const modulation = scale * Math.abs(ylm);
-                    const r = baseR + modulation;
-
-                    const x = r * Math.sin(theta) * Math.cos(phi);
-                    const y = r * Math.cos(theta);
-                    const z = r * Math.sin(theta) * Math.sin(phi);
-                    positions.push(x, y, z);
-                    // Approximate normal (outward)
-                    const nr = Math.max(r, 0.001);
-                    normals.push(x/nr, y/nr, z/nr);
+                const paired = u.paired;
+                const latOff = paired ? (u.sense > 0 ? 5 : -5) : 0;   // pair = two adjacent counter-chasing rings
+                const mainLen = 0.16*Math.max(1, R*0.45);
+                out.push(new PhaseRing({ axisV, lat: latOff, R, w: u.l, sense: u.sense, colorHex: col,
+                    bright: (paired ? 0.52 : 1.0)*a, K: mkK(R, u.l), handLen: mainLen, mode: 'crest', beads: !paired, pairedFlag: paired }));
+                if (!paired) {
+                    const fl = u.l === 1 ? 33 : (u.l === 2 ? 19 : 14);
+                    for (const f of [fl, -fl]) {
+                        out.push(new PhaseRing({ axisV, lat: f, R, w: u.l, sense: u.sense, colorHex: col, bright: 0.38*a,
+                            K: Math.round(mkK(R, u.l)*0.7), handLen: mainLen*0.75, mode: 'crest', beads: false }));
+                    }
                 }
             }
-
-            for (let i = 0; i < rows; i++) {
-                for (let j = 0; j < cols; j++) {
-                    const a = i * (cols + 1) + j;
-                    const b = a + cols + 1;
-                    indices.push(a, b, a + 1);
-                    indices.push(b, b + 1, a + 1);
-                }
-            }
-
-            geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
-            geometry.setAttribute('normal', new THREE.Float32BufferAttribute(normals, 3));
-            geometry.setIndex(indices);
-
-            let material;
-            material = new THREE.MeshBasicMaterial({
-                color: color,
-                wireframe: true,
-                transparent: true,
-                opacity: filled ? 0.45 : 0.15,
-                depthWrite: false
-            });
-
-            return new THREE.Mesh(geometry, material);
+            const tag = SUBMODE_NAMES[u.l];
+            for (const r of out) r.grp.userData.patternType = tag;
+            return out;
         }
 
-        function buildVortex3DForElement(element) {
-            if (!vortex3D.scene) return;
-            const THREE = window.THREE;
-            if (!THREE) return;
+        // ---------- planar core: the standalone loop of twisted momentum, embedded ----------
+        function phaseCoreRing(count) {
+            const T = window.THREE;
+            const r = new PhaseRing({ axisV: new T.Vector3(0,1,0), lat: 0, R: 0.58, w: count, sense: +1,
+                colorHex: 0xffffff, bright: 0.95, K: Math.min(Math.max(count*10, 90), 340),
+                handLen: 0.15, mode: 'rainbow', beads: true });
+            r.grp.userData.coreRing = true;
+            return r;
+        }
 
-            // Clear previous
+        function phaseShellHints(ns) {
+            const T = window.THREE;
+            for (const n of ns) {
+                const R = phaseShellR(n), pos = [];
+                for (let i = 0; i <= 140; i++) { const a = i/140 * 2*Math.PI; pos.push(R*Math.cos(a), 0, R*Math.sin(a)); }
+                const geo = new T.BufferGeometry();
+                geo.setAttribute('position', new T.Float32BufferAttribute(pos, 3));
+                const ln = new T.LineLoop(geo, new T.LineBasicMaterial({ color: 0x2a2a44, transparent: true, opacity: 0.5 }));
+                vortex3D.harmonicGroup.add(ln);
+            }
+        }
+
+        function disposeVortexRings() {
+            for (const r of vortex3D.rings) r.dispose();
+            vortex3D.rings = [];
             if (vortex3D.harmonicGroup) {
                 vortex3D.scene.remove(vortex3D.harmonicGroup);
                 vortex3D.harmonicGroup.traverse(child => {
                     if (child.geometry) child.geometry.dispose();
                     if (child.material) child.material.dispose();
                 });
+                vortex3D.harmonicGroup = null;
             }
-            if (vortex3D.eyewallMesh) {
-                vortex3D.scene.remove(vortex3D.eyewallMesh);
-                vortex3D.eyewallMesh.geometry.dispose();
-                vortex3D.eyewallMesh.material.dispose();
-            }
+        }
 
+        function buildVortex3DForElement(element) {
+            if (!vortex3D.scene || !window.THREE) return;
+            const THREE = window.THREE;
+            disposeVortexRings();
             const group = new THREE.Group();
             vortex3D.harmonicGroup = group;
+            vortex3D.scene.add(group);
 
             // Reset toggle button state
             const toggleBtn = document.getElementById('toggleModesBtn');
             if (toggleBtn) toggleBtn.textContent = 'Hide Modes';
 
-            // Barycenter — black void at the center (devoid of light, the "hole in space")
-            const eyeRadius = 0.12 + 0.08 * Math.min((element.hbar || element.massNumber || 1) / 294, 1);
-            const eyeGeo = new THREE.SphereGeometry(eyeRadius, 32, 32);
-            const eyeMat = new THREE.MeshBasicMaterial({
-                color: 0x000000,
-                transparent: false
-            });
-            vortex3D.eyewallMesh = new THREE.Mesh(eyeGeo, eyeMat);
-            vortex3D.scene.add(vortex3D.eyewallMesh);
+            const Z = element.n, A = element.massNumber || element.hbar || Z;
+            const disk = Math.max(A - Z, 0);   // extra ħ carried as planar-core twist (convention: neutrons)
+            const { units, ghosts } = phaseUnitsAndGhosts(element.config);
+            vortex3D.KSCALE = units.length > 80 ? 0.5 : units.length > 40 ? 0.7 : 1;
 
-            // --- ħ Accumulation Particles ---
-            // Clean up previous particles
-            if (vortex3D.hbarParticles) {
-                if (vortex3D.hbarParticles.parent) vortex3D.hbarParticles.parent.remove(vortex3D.hbarParticles);
-                vortex3D.hbarParticles.geometry.dispose();
-                vortex3D.hbarParticles.material.dispose();
+            // Observation distance: a multipole of order l fades as 1/r^(l+1)
+            const obs = parseFloat(document.getElementById('observeRadius')?.value || 0);
+            const distMult = 1 + obs * 0.05;
+            const attenL = l => Math.pow(1/distMult, l + 1);
+
+            phaseShellHints([...new Set(units.map(u => u.n))]);
+            for (const u of units) vortex3D.rings.push(...phaseRingsForUnit(u, false, attenL(u.l)));
+            const ghostsOn = document.getElementById('showGhosts') ? document.getElementById('showGhosts').checked : true;
+            if (ghostsOn) for (const g of ghosts) vortex3D.rings.push(...phaseRingsForUnit({ ...g, sense: +1 }, true, attenL(g.l)));
+            if (disk > 0) vortex3D.rings.push(phaseCoreRing(disk));
+            for (const r of vortex3D.rings) r.update(vortex3D.flowT);
+
+            // Faint eye ring — the barycenter is EMPTY (nothing carrying finite AM reaches r = 0)
+            if (!vortex3D.eyeRing) {
+                vortex3D.eyeRing = new THREE.Mesh(new THREE.TorusGeometry(0.22, 0.006, 8, 64),
+                    new THREE.MeshBasicMaterial({ color: 0x44445f, transparent: true, opacity: 0.8 }));
+                vortex3D.eyeRing.rotation.x = Math.PI / 2;
+                vortex3D.scene.add(vortex3D.eyeRing);
             }
 
-            const totalH = element.hbar || element.massNumber || 1;
-            const supportQ = totalH - (element.atomicNumber || element.n || 1); // A - Z = radial depth quanta
-            // Particle count = radial depth quanta count (capped at 300 for performance)
-            const particleCount = Math.min(Math.max(supportQ, 1), 300);
-
-            // Eyewall geometry: single tight ring just outside the barycenter
-            const eyewallR = eyeRadius + 0.04;
-
-            const pGeo = new THREE.BufferGeometry();
-            const positions = new Float32Array(particleCount * 3);
-            const alphas = new Float32Array(particleCount);
-            const seeds = new Float32Array(particleCount); // angle position
-
-            for (let i = 0; i < particleCount; i++) {
-                seeds[i] = (i / particleCount) * Math.PI * 2;
-                positions[i * 3] = 0;
-                positions[i * 3 + 1] = 0;
-                positions[i * 3 + 2] = 0;
-                alphas[i] = 0;
-            }
-            pGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-            pGeo.setAttribute('alpha', new THREE.BufferAttribute(alphas, 1));
-
-            const pMat = new THREE.PointsMaterial({
-                color: 0xffe0a0,
-                size: 0.018,
-                transparent: true,
-                opacity: 0.95,
-                blending: THREE.AdditiveBlending,
-                depthWrite: false,
-                sizeAttenuation: true
-            });
-
-            const particles = new THREE.Points(pGeo, pMat);
-            particles.userData = {
-                seeds, eyewallR, totalH, supportQ: particleCount,
-                spiralSpeed: 0.5 + Math.min(totalH / 294, 1) * 1.5
-            };
-            vortex3D.hbarParticles = particles;
-            group.add(particles);
-
-            // Parse element config into shells
-            const config = element.config; // [[n, l, count], ...]
-            const shellMap = configToMap(config);
-
-            // Determine unique shells and their radii
-            const colorMap = {
-                s: 0xc9a84c, // gold
-                p: 0x4fc3f7, // blue
-                d: 0x66bb6a, // green
-                f: 0x26c6da  // cyan
-            };
-
-            // Collect all sub-shells in Aufbau order
-            const subshells = [];
-            const seen = new Set();
-            for (const [n, l] of AUFBAU_ORDER) {
-                const key = `${n}${SUBMODE_NAMES[l]}`;
-                if (!seen.has(key)) {
-                    seen.add(key);
-                    const filled = shellMap[key] || 0;
-                    const cap = SUBMODE_CAPACITY[l];
-                    if (filled > 0) {
-                        subshells.push({ n, l, key, filled, cap });
-                    }
-                }
+            // Frame camera by the outermost shell (keep current viewing direction)
+            const maxN = Math.max(...units.map(u => u.n), 1);
+            const D = 2.1 * phaseShellR(maxN) + 1.9;
+            if (vortex3D.camera) {
+                vortex3D.camera.position.setLength(D * 1.05);
+                if (vortex3D.controls) vortex3D.controls.target.set(0, 0, 0);
             }
 
-            // Assign radii — proportional n² scaling (true geometric spacing)
-            const numShells = subshells.length;
-
-            subshells.forEach((sh, idx) => {
-                const maxN = subshells[subshells.length - 1].n;
-                const minR = 0.3, maxR = 4.5;
-                const shellR = minR + (sh.n * sh.n / (maxN * maxN)) * (maxR - minR);
-                const subName = SUBMODE_NAMES[sh.l];
-                const color = colorMap[subName] || 0x888888;
-                const lobeScale = 0.25 + sh.l * 0.15; // bigger lobes for higher l
-
-                // Multipole attenuation: field of order l falls off as 1/r^(l+1)
-                // observeRadius slider: 0 = at surface (no attenuation), 100 = far field
-                const obsSlider = parseFloat(document.getElementById('observeRadius')?.value || 0);
-                const distMult = 1 + obsSlider * 0.05; // 1× at surface, 6× at max
-                const attenuation = Math.pow(1 / distMult, sh.l + 1);
-
-                // Generate m values for this l
-                const mValues = [];
-                for (let mm = -sh.l; mm <= sh.l; mm++) mValues.push(mm);
-
-                // Each m gets 2 phase states → 2*l+1 m-values, each holding 2 ħ
-                // We render each unique m as one shape
-                let filledRemaining = sh.filled;
-                mValues.forEach((mm, mi) => {
-                    const thisCapacity = 2; // 2 ħ per m-value (phase duality)
-                    const thisCount = Math.min(filledRemaining, thisCapacity);
-                    filledRemaining -= thisCount;
-
-                    const isFilled = thisCount > 0;
-
-                    const mesh = createHarmonicMesh(THREE, sh.l, mm, shellR, color, isFilled, lobeScale, attenuation);
-                    mesh.userData.patternType = subName; // 's', 'p', 'd', or 'f'
-                    group.add(mesh);
-                });
-            });
-
-            // Apply current pattern visibility filters AFTER all meshes are added
+            // Apply current pattern visibility filters AFTER all rings are added
             if (typeof patternVisibility !== 'undefined') {
                 group.traverse(child => {
                     if (child.userData && child.userData.patternType && !patternVisibility[child.userData.patternType]) {
@@ -2519,8 +2563,6 @@
                     }
                 });
             }
-
-            vortex3D.scene.add(group);
         }
 
         async function initVortex3D() {
@@ -2533,17 +2575,17 @@
                 const { OrbitControls } = await import('OrbitControls');
                 window.THREE = THREE;
 
-                // Scene
+                // Scene — stays dark in BOTH themes: the streamlines are additive
+                // light against the void, and the barycenter's darkness is the point.
                 vortex3D.scene = new THREE.Scene();
-                const bgColor = currentTheme === 'dark' ? '#1a1a2e' : '#ffffff';
-                vortex3D.scene.background = new THREE.Color(bgColor);
+                vortex3D.scene.background = new THREE.Color('#12121e');
 
                 // Camera
                 vortex3D.camera = new THREE.PerspectiveCamera(
-                    55,
+                    50,
                     container.clientWidth / container.clientHeight,
                     0.1,
-                    100
+                    600
                 );
                 vortex3D.camera.position.set(5, 3, 6);
 
@@ -2555,22 +2597,12 @@
                 vortex3D.renderer.setSize(container.clientWidth, container.clientHeight);
                 vortex3D.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-                // Lighting
-                const ambient = new THREE.AmbientLight(0xffffff, 0.5);
-                vortex3D.scene.add(ambient);
-                const dir1 = new THREE.DirectionalLight(0xffffff, 0.8);
-                dir1.position.set(5, 5, 5);
-                vortex3D.scene.add(dir1);
-                const dir2 = new THREE.DirectionalLight(0x4fc3f7, 0.3);
-                dir2.position.set(-5, -3, -5);
-                vortex3D.scene.add(dir2);
-
                 // Controls
                 vortex3D.controls = new OrbitControls(vortex3D.camera, vortex3D.renderer.domElement);
                 vortex3D.controls.enableDamping = true;
                 vortex3D.controls.dampingFactor = 0.05;
                 vortex3D.controls.autoRotate = true;
-                vortex3D.controls.autoRotateSpeed = 1.5;
+                vortex3D.controls.autoRotateSpeed = 1.0;
 
                 // Build initial element
                 buildVortex3DForElement(selectedElement);
@@ -2578,55 +2610,54 @@
                 // Resize handler
                 window.addEventListener('resize', onResizeVortex3D);
 
-                // Animation speed control
+                // Animation speed — drives both the orbit and the phase flow
                 const speedSlider = document.getElementById('animationSpeed');
                 if (speedSlider) {
                     speedSlider.addEventListener('input', (e) => {
-                        if (vortex3D.controls) {
-                            vortex3D.controls.autoRotateSpeed = parseFloat(e.target.value) * 1.5;
-                        }
+                        const v = parseFloat(e.target.value);
+                        vortex3D.flowSpeed = 1.15 * v;
+                        if (vortex3D.controls) vortex3D.controls.autoRotateSpeed = v;
                     });
                 }
+                // Closed pairs — cancellation made audible: slide down for net circulation
+                const pairSlider = document.getElementById('pairVis');
+                if (pairSlider) {
+                    pairSlider.addEventListener('input', () => {
+                        vortex3D.PAIRVIS = parseFloat(pairSlider.value);
+                        const lbl = document.getElementById('pairVisLabel');
+                        if (lbl) lbl.textContent = Math.round(vortex3D.PAIRVIS*100) + '%' +
+                            (vortex3D.PAIRVIS < 0.15 ? ' — net circulation only' : '');
+                        for (const r of vortex3D.rings) r.applyVis();
+                    });
+                }
+                // Radial spacing — compressed display ↔ true n²
+                const radialSlider = document.getElementById('radialDisp');
+                if (radialSlider) {
+                    radialSlider.addEventListener('input', () => {
+                        vortex3D.rp = parseFloat(radialSlider.value);
+                        const lbl = document.getElementById('radialDispLabel');
+                        if (lbl) lbl.textContent = vortex3D.rp > 1.9 ? 'true n² spacing' :
+                            (vortex3D.rp < 1.15 ? 'linear (display)' : 'compressed (display)');
+                        buildVortex3DForElement(selectedElement);
+                    });
+                }
+                const ghostsBox = document.getElementById('showGhosts');
+                if (ghostsBox) ghostsBox.addEventListener('change', () => buildVortex3DForElement(selectedElement));
 
-                // Render loop
-                function animateVortex() {
+                // Render loop — phase flow is time made visible
+                let lastT = performance.now();
+                function animateVortex(now) {
                     vortex3D.animFrameId = requestAnimationFrame(animateVortex);
+                    const t = (typeof now === 'number') ? now : performance.now();
+                    const dt = Math.min((t - lastT) / 1000, 0.1);
+                    lastT = t;
                     if (vortex3D.controls) vortex3D.controls.update();
-
-                    // Barycenter — black void, perfectly still (the absence at the center)
-                    // No animation — the void doesn't move, everything else moves around it
-
-                    // Slow harmonic group rotation (additional to controls)
-                    if (vortex3D.harmonicGroup) {
-                        vortex3D.harmonicGroup.rotation.y += 0.001;
-                    }
-
-                    // ħ accumulation particles — spiral inward
-                    if (vortex3D.hbarParticles) {
-                        const p = vortex3D.hbarParticles;
-                        const d = p.userData;
-                        const pos = p.geometry.attributes.position.array;
-                        const alp = p.geometry.attributes.alpha.array;
-                        const count = pos.length / 3;
-
-                        for (let i = 0; i < count; i++) {
-                            const angle = d.seeds[i];
-                            const r = d.eyewallR;
-
-                            pos[i * 3]     = r * Math.cos(angle);
-                            pos[i * 3 + 1] = 0;
-                            pos[i * 3 + 2] = r * Math.sin(angle);
-
-                            alp[i] = 0.85;
-                        }
-                        p.geometry.attributes.position.needsUpdate = true;
-                        p.geometry.attributes.alpha.needsUpdate = true;
-                        p.material.opacity = 0.95;
-                    }
-
+                    vortex3D.flowT += dt * vortex3D.flowSpeed;
+                    for (const r of vortex3D.rings) r.update(vortex3D.flowT);
+                    if (vortex3D.harmonicGroup) vortex3D.harmonicGroup.rotation.y += 0.0013;
                     vortex3D.renderer.render(vortex3D.scene, vortex3D.camera);
                 }
-                animateVortex();
+                animateVortex(performance.now());
 
             } catch (err) {
                 console.error('Vortex 3D init failed:', err);
@@ -3295,11 +3326,8 @@
             }
             // Update 3D spiral theme
             update3DTheme();
-            // Update vortex 3D theme
-            if (vortex3D.scene) {
-                const bgColor = currentTheme === 'dark' ? '#1a1a2e' : '#ffffff';
-                vortex3D.scene.background = new window.THREE.Color(bgColor);
-            }
+            // Vortex 3D canvas stays dark in both themes: the phase streamlines are
+            // additive light against the void — a white background would erase them.
         }
 
         function showTab(tabName, clickedBtn) {
@@ -3572,8 +3600,10 @@
             // Update info panels
             document.getElementById('elementTitle').textContent = `${selectedElement.name} (harmonic mode ${selectedElement.n})`;
             document.getElementById('elementDescription').textContent = selectedElement.description;
+            const coreH = Math.max((selectedElement.massNumber || selectedElement.n) - selectedElement.n, 0);
             document.getElementById('vortexConfig').innerHTML = `
                 <strong>Harmonic Mode:</strong> ${selectedElement.n} | <strong>Total ħ:</strong> ${selectedElement.hbar}<br>
+                <strong>Ledger:</strong> ${selectedElement.massNumber}ħ = ${selectedElement.n}ħ spherical pattern + ${coreH}ħ planar core${coreH > 0 ? ` (Tw = ${coreH})` : ' (none — the bare fundamental)'}<br>
                 <strong>Atomic Weight:</strong> ${selectedElement.atomicWeight} | <strong>Mass Number:</strong> ${selectedElement.massNumber}<br>
                 <strong>Common Isotopes:</strong> ${selectedElement.isotopes.join(', ')}
             `;
