@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Resonance Network — The Momentum Ledger Meets the Sky</title>
+<script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},svg:{fontCache:'global'}}</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+:root{--bg:#0d0d18;--panel:#131322;--edge:#26263a;--gold:#d4af37;--blue:#5bc8f5;--red:#e06060;--green:#63d67e;--fg:#dfe0ea;--muted:#9a9bb0;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Georgia,'Times New Roman',serif;line-height:1.65;}
+header{padding:26px 22px 18px;border-bottom:1px solid var(--edge);text-align:center;}
+header h1{margin:0;font-size:26px;color:var(--gold);font-weight:650;}
+.sub{max-width:880px;margin:10px auto 0;color:var(--muted);font-size:15px;}
+main{max-width:900px;margin:0 auto;padding:10px 18px 40px;}
+h2{color:var(--gold);font-size:20px;margin:38px 0 10px;border-bottom:1px solid var(--edge);padding-bottom:6px;}
+.card{background:var(--panel);border:1px solid var(--edge);border-radius:10px;padding:14px 16px;margin:14px 0;}
+.card.blue{border-left:3px solid var(--blue);}
+.card.gold{border-left:3px solid var(--gold);}
+.card.red{border-left:3px solid var(--red);}
+.eqbox{background:#10101e;border:1px solid var(--edge);border-radius:8px;padding:8px 12px;margin:10px 0;overflow-x:auto;}
+canvas{background:#0a0a14;border:1px solid var(--edge);border-radius:10px;display:block;max-width:100%;}
+.panel{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start;margin:14px 0;}
+.controls{flex:1 1 260px;min-width:250px;font-size:14px;}
+.readout{font-family:ui-monospace,Menlo,monospace;font-size:13px;color:var(--blue);}
+button{background:#1c1c30;border:1px solid var(--edge);color:var(--fg);border-radius:8px;padding:6px 12px;font-size:14px;cursor:pointer;margin:4px 6px 0 0;}
+button:hover{border-color:var(--gold);}
+.tag{display:inline-block;font-size:11px;letter-spacing:.06em;padding:1px 8px;border-radius:10px;margin-right:6px;vertical-align:middle;}
+.tag.prov{background:#1b2a38;color:var(--blue);}
+.tag.assume{background:#332a12;color:var(--gold);}
+.tag.open{background:#331a1a;color:var(--red);}
+.note{font-size:13.5px;color:var(--muted);}
+.epigraph{max-width:640px;margin:20px auto 4px;text-align:center;font-style:italic;color:var(--muted);}
+.epigraph .who{font-style:normal;font-size:12.5px;margin-top:4px;color:#7d7e92;}
+table{border-collapse:collapse;margin:12px auto;font-size:14px;}
+td,th{border:1px solid var(--edge);padding:5px 12px;text-align:center;}
+th{color:var(--gold);font-weight:600;}
+footer{max-width:900px;margin:36px auto 24px;padding:14px 16px 0;border-top:1px solid rgba(212,175,55,.35);text-align:center;font-size:12.5px;line-height:1.7;opacity:.82;}
+a{color:var(--blue);}
+.legend{font-size:13px;color:var(--muted);margin-top:6px;}
+.legend span{margin-right:14px;}
+.sw{display:inline-block;width:22px;height:3px;vertical-align:middle;margin-right:5px;border-radius:2px;}
+</style>
+</head>
+<body>
+<header>
+  <h1>The Resonance Network — The Momentum Ledger Meets the Sky</h1>
+<p class="nr-provenance" style="font-size:0.8em;font-style:italic;opacity:0.72;line-height:1.5;margin:0.5em 0 1em;text-align:center">This exhibit is an extrapolation of the foundational work of N. Vivian (Viv) Pope and Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
+  <div class="sub">Philosophy first: there are no bodies pulling across a void — there is one angular-momentum ledger
+  with many centres, and circulations exchange winding only through <em>phase-matched channels</em>: the
+  instantaneous harmonic inter-resonances of Normal Realism, at planetary scale. This exhibit derives the channel
+  criterion with nothing fitted, flies it against real skies with no gravitational constant and no masses anywhere,
+  and reads the solar system's locks and gaps as what they are: the audible chord structure of one ledger.
+  Companion pages: <a href="./navigation-engine.html">The Navigation Engine</a> (the single-orbit engine and the
+  dissolution of the two-body problem) and <a href="./census-flow.html">The Census Flow</a> (the same
+  registered-prediction discipline, at the atom).</div>
+</header>
+<main>
+
+<h2>1 · One ledger, many centres</h2>
+<p>Bruns (1887) and Poincaré proved that an $n$-body system has no analytic integrals beyond the ten classical
+ones — energy, total momentum, total angular momentum, the centre-of-mass pair. For 140 years that theorem was
+read as defeat: the problem "cannot be solved." Read it in momenta and it inverts into a founding claim:
+<strong>the exactly conserved content of an $n$-body system is its momenta — nothing else.</strong> The theorem
+is not the obituary of celestial mechanics; it is the inventory of what is real. Trajectories are the map;
+the ledger is the territory.</p>
+<p>What remains after the dissolution (see the <a href="./navigation-engine.html">Navigation Engine, §D</a>) is
+structure: circulations couple where their rates lock in low-order ratios and stay effectively separate where the
+ratios are incommensurate. The working description of $n \ge 3$ is not a trajectory — it is a
+<strong>network of channels</strong>.</p>
+
+<h2>2 · An engine with no G and no masses</h2>
+<div class="epigraph">"Garbage in, garbage out. Not garbage in, not garbage out."
+<div class="who">— C. Milam, on why a ledger that fits nothing can audit anything</div></div>
+<p>The engine (from Max Franks' operational recasting, generalized): every pair of circulations carries one
+measured invariant, read off the separation orbit's own apsides — and it is exact:</p>
+<div class="eqbox">$$\mu = h\,v_0 = \frac{4\pi^2 a^3}{T^2}\qquad\text{identically, on any ellipse — two lines of algebra.}$$</div>
+<p>No gravitational constant, no masses, ever. Each partner rides a scaled copy of the separation ellipse; the
+scale is the pair's <em>partition fraction</em> — a measured, dimensionless momentum-ledger split. (In the old
+language it is the mass ratio; the conversion is never performed.) Flown against real skies, registered
+predictions first, data pulled after:</p>
+<table>
+<tr><th>Sky</th><th>Test</th><th>Result</th></tr>
+<tr><td>Pluto–Charon</td><td>pair invariant $\mu$ vs the mass-built comparison</td><td><b>0.01%</b></td></tr>
+<tr><td>Jupiter (4 moons)</td><td>four independent $\mu_i$, one number</td><td><b>0.004%</b> (mean vs comparison)</td></tr>
+<tr><td>Earth–Moon</td><td>predict the month from geometry + one speed + one wobble radius</td><td>27.000 d vs 27.322 d — <b>1.18%</b>, and the residual <em>is</em> the three-body signal (the Sun), registered in advance as the handoff</td></tr>
+</table>
+<p><strong>And the audit clause earned its epigraph:</strong> the same arithmetic caught two internal
+inconsistencies in the published record on its first day out — a barycentric orbit radius for Charon incompatible
+with its own source's mass ratio (adjudicated 1.6% low by independent data), and a split value of Europa's orbit
+radius inside one encyclopedia. A ledger with nothing fitted has nowhere to hide an error — so it exposes
+everyone else's.</p>
+
+<h2>3 · The channel criterion — nothing fitted</h2>
+<p>When may two circulations exchange winding at all? Only through a beat whose phase accumulates slowly enough
+that transfer is coherent turn after turn — a phase-matched channel. Reducing the coupling term of the pair
+Lagrangian at a $j{:}(j{-}1)$ commensurability (ten lines, pendulum form) gives the channel its width:</p>
+<div class="eqbox">$$W = 2(j{-}1)\,n\,\sqrt{3\,\alpha\,f'\,|f_d(\alpha)|\,e}\ ,
+\qquad\text{channel open}\iff |p\,n' - q\,n| < W .$$</div>
+<p>Rates, a geometry ratio $\alpha$, the partner's partition fraction $f'$, an eccentricity, and a computed
+coefficient $f_d$ (the classical expansion of the coupling — cited, and verified against the tabulated value to
+0.6% before anything was scored). Higher-order channels carry coupling $\propto e^{|p-q|}$: <strong>widths
+collapse steeply with order, and that is what defeats the density of the rationals</strong> — every ratio in the
+sky is near <em>some</em> rational; almost none is near an <em>open channel</em>. House rule (the Wyler gate):
+no resonance may be named by numerology — every integer pair buys its place through a computed $W$, or not
+at all.</p>
+
+<h2>4 · The Galilean verdict — a lock no pairwise book can hold</h2>
+<p>Io, Europa, Ganymede: the most famous lock in the sky. Fed only the published rates, geometry, partition
+fractions and eccentricities, the criterion returns a sharp pattern — registered before scoring:</p>
+<div class="panel">
+  <canvas id="orbCanvas" width="420" height="420"></canvas>
+  <div class="controls">
+    <button id="playBtn">▶ Run the moons</button>
+    <button id="resetBtn">↺ Reset</button>
+    <p class="readout" id="dialReadout"></p>
+    <p class="note">The dial tracks the three-body angle $\varphi = \lambda_1 - 3\lambda_2 + 2\lambda_3$.
+    Watch everything else spin while $\varphi$ holds — with the fetched rates it drifts at
+    $1.7\times10^{-8}$ of Io's rate (about a thousandth of a degree per year). Conjunction flashes show the
+    famous corollary: with $\varphi$ pinned at $180°$, a triple conjunction can never occur.</p>
+    <div class="legend">
+      <span><span class="sw" style="background:#e8b34a"></span>Io</span>
+      <span><span class="sw" style="background:#5bc8f5"></span>Europa</span>
+      <span><span class="sw" style="background:#b9a08c"></span>Ganymede</span>
+    </div>
+  </div>
+</div>
+<div class="panel">
+  <canvas id="chanCanvas" width="640" height="330"></canvas>
+  <div class="controls">
+    <p><strong>The channel board.</strong> Each row: a candidate channel; the shaded band is its computed width
+    $W$; the needle is the measured beat. A needle inside its band = open channel.</p>
+    <p class="note">The two raw 2:1 beats stand <em>outside</em> their own channels (3.8× and 2.9×) — four
+    independent pairwise ledgers cannot hold this system. The three-body combination sits <em>deep inside</em>
+    its most conservative width — margin 216× — and 74,000× inside the ceiling. Ganymede–Callisto's tempting
+    7:3 is closed even under a deliberately generous bound; a golden-ratio test body is closed at every order.
+    <strong>The Laplace lock is irreducibly three-body: the only open channel is one no pairwise bookkeeping
+    can even write down.</strong></p>
+  </div>
+</div>
+<p>And the structure the needles reveal: the two pairwise beats are not zero — they are <em>equal</em>
+($-0.7395°$/day, both), and their difference is the $1.7\times10^{-8}$ closure. The lock is not "periods in
+ratio 2:1" (they are not: 2.00729 and 2.01470). It is a <strong>three-circulation phase closure</strong> —
+winding exchanged around a triangle of channels so that one combination of rates is held, while every pair
+drifts. That is an instantaneous harmonic inter-resonance network, drawn in the sky at observatory precision.</p>
+
+<h2>5 · What is derived, what is cited, what is open</h2>
+<div class="card blue">
+<p style="margin:0"><span class="tag prov">DERIVED / VERIFIED</span> The pair invariant's exactness ($\mu = h v_0$,
+two lines); the mass-free two-centre engine and partition map (all Pluto–Charon / Earth–Moon / Jupiter numbers
+above); the channel width formula and criterion (pendulum reduction, nothing fitted); the registered Galilean
+pattern — pairwise-raw closed, three-body open at $\ge 216\times$ margin, controls closed (7:3, golden body);
+the coefficient chain benchmarked against the tabulated value before scoring. Full registration-first record:
+the research ledger (nbody/ in the engineering repository) — every prediction committed before its data pull.</p>
+</div>
+<div class="card gold">
+<p style="margin:0"><span class="tag assume">CITED / IMPORTED</span> The $1/R$ step form of the pair term
+(Newtonian shape — imported, named at every use; its derivation from closure geometry is a separate open front).
+The expansion coefficients $f_d$ (Laplace-coefficient machinery — classical). The theorems this page inverts
+rather than claims: Bruns 1887, Poincaré; KAM persistence and resonance-overlap chaos (Kolmogorov–Arnold–Moser,
+Chirikov); the Laplace resonance's dissipative capture history (Sinclair 1975; Yoder 1979). The lock's observed
+<em>depth</em> is an attractor property of that captured state — the width criterion says which channels exist,
+not how deeply a captured system settles.</p>
+</div>
+<div class="card red">
+<p style="margin:0"><span class="tag open">OPEN</span> (1) The exact three-body channel Hamiltonian — this page
+brackets its width honestly rather than fabricating a coefficient. (2) The Kirkwood confrontation: the criterion's
+computed widths against the measured gap boundaries in the asteroid belt (registration to be committed before the
+data pull, as always). (3) The ledger-weight rank test at Jupiter: the pairwise invariants should carry each
+partner's partition fraction ($\mu_i = \mu_J(1+f_i)$) — a 1-in-24 rank prediction that public rounded elements
+cannot score; ephemeris-grade elements make it live. (4) The general POAMS $n$-centre Lagrangian with explicit
+channel accounting — Max's line continued, not completed.</p>
+</div>
+
+<h2>6 · Reading it as Normal Realism</h2>
+<p>Strip the machinery and one sentence remains. Nothing pulls anything across a void: circulations of the one
+substance exchange winding only where their phases match, and the solar system's architecture — the locks that
+hold, the gaps swept clean, the near-misses that never bind — is the map of which channels are open. The same
+frequency-matched exchange that runs spectral lines at the atom runs moons at Jupiter; only the scale of the
+turning changes. <em>One substance, one bookkeeping, one network — and a sky you can audit with it.</em></p>
+
+<footer>
+  <div>Part of the Normal Realism / POAMS exhibit series ·
+  <a href="./navigation-engine.html">The Navigation Engine</a> ·
+  <a href="./census-flow.html">The Census Flow</a> ·
+  <a href="./pioneer-anomaly.html">The Pioneer Anomaly</a> ·
+  <a href="./index.html">All exhibits</a></div>
+  <div style="margin-top:6px">Sources: Bruns, Acta Math. 11 (1887) · Poincaré, <em>Méthodes nouvelles</em> (1892)
+  · Laplace, <em>Mécanique céleste</em> (the resonance) · Sinclair, MNRAS 171:59 (1975) · Yoder, Nature 279:767
+  (1979) · Murray &amp; Dermott, <em>Solar System Dynamics</em> (expansion coefficients; tabulated
+  $f_d(2{:}1)\approx-1.19$) · Chirikov, Phys. Rep. 52:263 (1979) · Wisdom, AJ 87:577 (1982) · Laskar, Nature
+  338:237 (1989) · orbital elements as quoted in the research ledger (retrieved 2026-08-10) · Franks, QMC
+  Exhibit III (2019) · Full registration-first record: POAMS engineering repository, nbody/ + DERIVATION-LEDGER.</div>
+</footer>
+
+<script>
+// ---------------- Galilean orbit view + Laplace dial ----------------
+const T1=1.769137786, T2=3.551181, T3=7.15455296;   // d
+const n1=2*Math.PI/T1, n2=2*Math.PI/T2, n3=2*Math.PI/T3; // rad/day
+const cv=document.getElementById('orbCanvas'), ctx=cv.getContext('2d');
+const CX=cv.width/2, CY=cv.height/2;
+const R1=62, R2=98, R3=150; // display radii
+// initial longitudes with phi = l1 - 3 l2 + 2 l3 = 180deg
+let t=0, playing=false;
+const l10=0, l20=0, l30=Math.PI/2;  // phi0 = 0 - 0 + 2*(pi/2) = pi ✓
+function longs(t){return [l10+n1*t, l20+n2*t, l30+n3*t];}
+function drawOrb(){
+  ctx.clearRect(0,0,cv.width,cv.height);
+  ctx.strokeStyle='#26263a';
+  for(const R of [R1,R2,R3]){ctx.beginPath();ctx.arc(CX,CY,R,0,7);ctx.stroke();}
+  ctx.fillStyle='#d4af37';ctx.beginPath();ctx.arc(CX,CY,7,0,7);ctx.fill();
+  const [a,b,c]=longs(t);
+  const P=[[R1,a,'#e8b34a',4.5],[R2,b,'#5bc8f5',4.5],[R3,c,'#b9a08c',5]];
+  // conjunction flashes (pairwise longitude coincidence within 4 deg)
+  const pairs=[[a,b,R1,R2],[b,c,R2,R3],[a,c,R1,R3]];
+  for(const [x,y,Ri,Ro] of pairs){
+    let d=Math.atan2(Math.sin(x-y),Math.cos(x-y));
+    if(Math.abs(d)<0.07){
+      ctx.strokeStyle='rgba(99,214,126,0.5)';ctx.lineWidth=2;
+      ctx.beginPath();ctx.moveTo(CX+Ri*Math.cos(x),CY-Ri*Math.sin(x));
+      ctx.lineTo(CX+Ro*Math.cos(y),CY-Ro*Math.sin(y));ctx.stroke();ctx.lineWidth=1;
+    }
+  }
+  for(const [R,l,col,s] of P){
+    ctx.fillStyle=col;ctx.beginPath();
+    ctx.arc(CX+R*Math.cos(l),CY-R*Math.sin(l),s,0,7);ctx.fill();
+  }
+  // Laplace dial
+  const phi=a-3*b+2*c;
+  const deg=((phi*180/Math.PI)%360+360)%360;
+  const dx=cv.width-52, dy=52, r=30;
+  ctx.strokeStyle='#26263a';ctx.beginPath();ctx.arc(dx,dy,r,0,7);ctx.stroke();
+  ctx.strokeStyle='#d4af37';ctx.lineWidth=2.4;
+  ctx.beginPath();ctx.moveTo(dx,dy);
+  ctx.lineTo(dx+r*Math.cos(phi),dy-r*Math.sin(phi));ctx.stroke();ctx.lineWidth=1;
+  ctx.fillStyle='#9a9bb0';ctx.font='11px Georgia';
+  ctx.fillText('φ',dx-4,dy-r-6);
+  document.getElementById('dialReadout').textContent=
+    `t = ${t.toFixed(1)} d   λ-rates spinning;  φ = λ1−3λ2+2λ3 = ${deg.toFixed(3)}°  (pinned)`;
+}
+function anim(){ if(playing){t+=0.02;} drawOrb(); requestAnimationFrame(anim); }
+document.getElementById('playBtn').onclick=()=>{playing=true;};
+document.getElementById('resetBtn').onclick=()=>{playing=false;t=0;};
+
+// ---------------- channel board ----------------
+const bc=document.getElementById('chanCanvas'), btx=bc.getContext('2d');
+// rows: [label, beat/W ratio, open?]  (log scale on beat/W; band = |x|<1)
+const rows=[
+  ["Io–Europa 2:1 (raw)",        3.78, false],
+  ["Europa–Ganymede 2:1 (raw)",  2.87, false],
+  ["THREE-BODY Laplace channel", 1/216, true],
+  ["Ganymede–Callisto 7:3",      1.31, false],
+  ["golden body, best channel",  20.8, false],
+];
+function drawBoard(){
+  btx.clearRect(0,0,bc.width,bc.height);
+  const L=210, Rr=bc.width-30, y0=44, dy=52;
+  const xmin=-3, xmax=2.6; // log10(beat/W)
+  const X=v=>L+(Math.log10(v)-xmin)/(xmax-xmin)*(Rr-L);
+  btx.font='12px Georgia';
+  // header + band
+  for(let i=0;i<rows.length;i++){
+    const y=y0+i*dy;
+    // channel band |beat/W|<1 -> log10<0
+    btx.fillStyle='rgba(99,214,126,0.13)';
+    btx.fillRect(X(0.001),y-14,X(1)-X(0.001),28);
+    btx.strokeStyle='#26263a';btx.strokeRect(X(0.001),y-14,X(1)-X(0.001),28);
+    // needle
+    const [nm,r,open]=rows[i];
+    btx.strokeStyle=open?'#63d67e':'#e06060';btx.lineWidth=3;
+    btx.beginPath();btx.moveTo(X(r),y-16);btx.lineTo(X(r),y+16);btx.stroke();btx.lineWidth=1;
+    btx.fillStyle='#dfe0ea';btx.fillText(nm,12,y+4);
+    btx.fillStyle=open?'#63d67e':'#e06060';
+    btx.fillText(open?`OPEN (${r<0.01?'margin '+Math.round(1/r)+'×':''})`:`closed (${r.toFixed(2)}×)`,X(r)+7,y+4);
+  }
+  btx.fillStyle='#9a9bb0';
+  btx.fillText('← inside channel (open)          beat / width, log scale          outside (closed) →',L+40,y0+rows.length*dy-18);
+}
+drawBoard(); anim();
+</script>
+</body>
+</html>
