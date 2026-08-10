@@ -196,7 +196,7 @@ function solve(tofDays){
   if(!L){document.getElementById('out').textContent="No solution (geometry too tight) — adjust TOF.";return null;}
   const dv1=Math.hypot(L[0][0]-A.v[0],L[0][1]-A.v[1],L[0][2]-A.v[2])*AUYR;
   const dv2=Math.hypot(L[1][0]-B.v[0],L[1][1]-B.v[1],L[1][2]-B.v[2])*AUYR;
-  arc={pts:propagate(A.r,L[0],tof,600)};
+  arc={pts:propagate(A.r,L[0],tof,600), JD:JD, tofDays:tof*YR};
   draw(JD);
   return {JD,dv1,dv2,tof,i1,i2};
 }
@@ -220,8 +220,8 @@ document.getElementById('best').onclick=()=>{
 };
 document.getElementById('fly').onclick=()=>{
   if(!arc)return; flyT=0;
-  const tick=()=>{flyT+=0.004;draw(jd(document.getElementById('dep').value));
-    if(flyT<=1)requestAnimationFrame(tick);else flyT=-1;};
+  const tick=()=>{flyT+=0.003;draw(arc.JD+flyT*arc.tofDays);   // v2: the sky moves while you fly
+    if(flyT<=1)requestAnimationFrame(tick);else{flyT=-1;draw(arc.JD);}};
   tick();
 };
 draw(jd(document.getElementById('dep').value));
