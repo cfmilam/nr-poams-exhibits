@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Census Flow — Why the Table Closes at Two Turns</title>
+<script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},svg:{fontCache:'global'}}</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+:root{--bg:#0d0d18;--panel:#131322;--edge:#26263a;--gold:#d4af37;--blue:#5bc8f5;--red:#e06060;--green:#63d67e;--fg:#dfe0ea;--muted:#9a9bb0;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Georgia,'Times New Roman',serif;line-height:1.65;}
+header{padding:26px 22px 18px;border-bottom:1px solid var(--edge);text-align:center;}
+header h1{margin:0;font-size:26px;color:var(--gold);font-weight:650;}
+.sub{max-width:880px;margin:10px auto 0;color:var(--muted);font-size:15px;}
+main{max-width:900px;margin:0 auto;padding:10px 18px 40px;}
+h2{color:var(--gold);font-size:20px;margin:38px 0 10px;border-bottom:1px solid var(--edge);padding-bottom:6px;}
+.card{background:var(--panel);border:1px solid var(--edge);border-radius:10px;padding:14px 16px;margin:14px 0;}
+.card.blue{border-left:3px solid var(--blue);}
+.card.gold{border-left:3px solid var(--gold);}
+.card.red{border-left:3px solid var(--red);}
+.eqbox{background:#10101e;border:1px solid var(--edge);border-radius:8px;padding:8px 12px;margin:10px 0;overflow-x:auto;}
+canvas{background:#0a0a14;border:1px solid var(--edge);border-radius:10px;display:block;max-width:100%;}
+.panel{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start;margin:14px 0;}
+.controls{flex:1 1 260px;min-width:250px;font-size:14px;}
+.controls label{display:block;margin:10px 0 4px;color:var(--muted);}
+.readout{font-family:ui-monospace,Menlo,monospace;font-size:13px;color:var(--blue);}
+button{background:#1c1c30;border:1px solid var(--edge);color:var(--fg);border-radius:8px;padding:6px 12px;font-size:14px;cursor:pointer;margin:4px 6px 0 0;}
+button:hover{border-color:var(--gold);}
+input[type=range]{width:100%;}
+.tag{display:inline-block;font-size:11px;letter-spacing:.06em;padding:1px 8px;border-radius:10px;margin-right:6px;vertical-align:middle;}
+.tag.prov{background:#1b2a38;color:var(--blue);}
+.tag.assume{background:#332a12;color:var(--gold);}
+.tag.open{background:#331a1a;color:var(--red);}
+.note{font-size:13.5px;color:var(--muted);}
+footer{max-width:900px;margin:36px auto 24px;padding:14px 16px 0;border-top:1px solid rgba(212,175,55,.35);text-align:center;font-size:12.5px;line-height:1.7;opacity:.82;}
+a{color:var(--blue);}
+.legend{font-size:13px;color:var(--muted);margin-top:6px;}
+.legend span{margin-right:14px;}
+.sw{display:inline-block;width:22px;height:3px;vertical-align:middle;margin-right:5px;border-radius:2px;}
+</style>
+</head>
+<body>
+<header>
+  <h1>The Census Flow — Why the Table Closes at Two Turns</h1>
+<p class="nr-provenance" style="font-size:0.8em;font-style:italic;opacity:0.72;line-height:1.5;margin:0.5em 0 1em;text-align:center">This exhibit is an extrapolation of the foundational work of N. Vivian (Viv) Pope and Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
+  <div class="sub">Philosophy first: there is one substance — angular momentum — and a quantum is a completed turn.
+  The order in which the elements build was computed from that premise in <a href="./aufbau-as-closure.html">Aufbau as Closure</a>.
+  This exhibit shows <em>why the computation had no choice</em>: written in its natural variables, the self-consistent
+  census is a single flowing curve in a plane, and an exact piece of algebra pins that flow to the closure value
+  at the one point where the frontier is read. The picture below is the argument.</div>
+</header>
+<main>
+
+<h2>1 · The frontier, restated as a flow</h2>
+<p>The census ledger of <em>Aufbau as Closure</em> is the standard self-consistent screening function
+$\chi(x)$ <span class="tag assume">IMPORT</span> (the statistical stand-in for the stacked closures — what extant
+physics calls Thomas–Fermi), obeying one equation: $\chi'' = \chi^{3/2}/\sqrt{x}$. Two bookkeeping
+variables turn that equation into something you can <em>watch</em>:</p>
+<div class="eqbox">$$t = -\frac{d\ln\chi}{d\ln x} \quad\text{(the local steepness of the screen)},\qquad
+q = x^3\chi \quad\text{(the ledger weight at radius } x\text{)},$$
+$$\frac{dt}{ds} = t + t^2 - \sqrt{q}, \qquad \frac{dq}{ds} = q\,(3-t), \qquad s = \ln x .$$</div>
+<p>No approximation — the census equation <em>is</em> this autonomous plane flow. And the whole atom is
+<strong>one trajectory</strong> of it: it launches from the free eye $(t,q)=(0,0)$ (bare circulation, unscreened)
+and lands on the fixed point $(3,\,144)$ — which is exactly the Sommerfeld far field $\chi = 144/x^3$. Every
+neutral census, every $Z$, is this same curve: the shape is universal, only the scale changes.</p>
+<p class="note">Rates, not speeds (GROUNDING discipline): $t$ and $q$ are pure bookkeeping of the circulation
+ledger — a log-slope and a weighted count. Nothing here moves through a void; $s$ is log-radius, not time.</p>
+
+<h2>2 · The criticality line and the closure point</h2>
+<p>Two facts single out one point of the plane before any dynamics:</p>
+<p><strong>The criticality line $t=1$.</strong> On every zero-energy orbit, in any central ledger, the
+angle-averaged steepness is exactly $1$ (a one-line identity proved in the research ledger) — the frontier is a
+<em>critical</em> probe, always reading the marginal exponent. The frontier's edge — where the last winding barely
+binds — sits precisely where the ledger crosses $t=1$.</p>
+<p><strong>The closure value $\sqrt{q} = 3/2$.</strong> The apsidal slope at the edge obeys
+$k_{edge} = \sqrt{2/(2-\sqrt{q})}\,\big|_{t=1}$ (one line from the census equation). The Madelung double turn —
+$k=2$, the 720° closure that generates the $n{+}l$ families — corresponds to exactly $\sqrt{q} = 3/2$ at the
+crossing. Below it, $k<2$: the tie-break that opens every period with an s-orbit.</p>
+<p>So the entire question <em>"why does the table order itself by $n+l$, resolved downward?"</em> compresses to:
+<strong>where does the one universal trajectory cross the line $t=1$?</strong></p>
+
+<h2>3 · The one-way valve — an exact factorization</h2>
+<p>Consider the curve where the flow's climb rate equals the closure member's own peak rate, $\tfrac12$:</p>
+<div class="eqbox">$$\mathcal{B}_{1/2}:\quad \sqrt{q} = t + t^2 - \tfrac{1}{2}.$$</div>
+<p>Whether a trajectory can cross this curve reduces to a single polynomial condition — and that polynomial
+factors <em>exactly</em>:</p>
+<div class="eqbox">$$5 - 3t - 4t^2 + 2t^3 \;=\; (t-1)\,(2t^2 - 2t - 5).$$</div>
+<div class="card blue">
+<p style="margin:0"><span class="tag prov">PROVED</span> <strong>Valve/tangency theorem.</strong> For all
+$t \in (0,1)$ the curve $\mathcal{B}_{1/2}$ is a <em>one-way valve</em>: the census flow can cross it downward
+only, strictly. At $t = 1$ — the criticality line — the flow is <em>exactly tangent</em> to the curve, and the
+curve passes exactly through $\sqrt{q} = 3/2$ — the closure point. Beyond $t=1$ the valve flips (upward-crossable,
+until $t = \tfrac{1+\sqrt{11}}{2} \approx 2.158$). The number $3/2$ is not imported and not fitted:
+<em>it is where $(t-1)$ divides the census field's crossing polynomial.</em> The criticality point and the closure
+value are welded together by the algebra of the flow itself.</p>
+</div>
+
+<h2>4 · Watch the census kiss closure</h2>
+<div class="panel">
+  <canvas id="flowCanvas" width="640" height="520"></canvas>
+  <div class="controls">
+    <button id="playBtn">▶ Run the census</button>
+    <button id="resetBtn">↺ Reset</button>
+    <label>Valve rate $c$ (the theorem lives at $c = 0.500$):</label>
+    <input type="range" id="cSlider" min="0.30" max="0.70" step="0.005" value="0.500">
+    <p class="readout" id="cReadout"></p>
+    <p class="readout" id="orbitReadout"></p>
+    <div class="legend">
+      <span><span class="sw" style="background:var(--blue)"></span>census trajectory</span>
+      <span><span class="sw" style="background:var(--green)"></span>valve (downward-only)</span>
+      <span><span class="sw" style="background:var(--red)"></span>valve (upward-crossable)</span><br>
+      <span><span class="sw" style="background:var(--gold)"></span>tangency / closure point $(1, \tfrac32)$</span>
+      <span><span class="sw" style="background:#777;height:1px"></span>criticality line $t=1$</span>
+    </div>
+    <p class="note">Gray arrows: the flow field. Slide $c$: for $c<\tfrac12$ a red (pierceable) stretch opens
+    <em>before</em> the criticality line; for $c>\tfrac12$ the valve is green throughout but no longer touches the
+    closure point. Only $c=\tfrac12$ is green all the way to a single golden kiss at $t=1$.</p>
+  </div>
+</div>
+<div class="panel">
+  <canvas id="dipCanvas" width="640" height="300"></canvas>
+  <div class="controls">
+    <p><strong>The dip, magnified.</strong> The trajectory rides <em>above</em> the valve, may only pass downward,
+    and slips under at $t^\* = 0.882$ — the last stretch before the tangency shuts the door. At the criticality
+    line it reads</p>
+    <p class="readout">√q(1) = S = 1.4673200&ensp;→&ensp;k_edge = √(2/(2−S)) = 1.9377</p>
+    <p class="note">then re-crosses upward at $t = 2.063$ (the valve has flipped) and climbs to the Sommerfeld
+    point. The dip depth $3/2 - S = 0.0327$ is the entire distance between the real table and ideal closure.</p>
+  </div>
+</div>
+
+<h2>5 · What the picture settles</h2>
+<div class="card blue">
+<p style="margin:0"><span class="tag prov">PROVED / VERIFIED</span> <strong>The ordering story, end to end.</strong>
+(i) The apsidal slope is an exact linear functional of the ledger's width function (research ledger, Lemma 3);
+the Madelung deficit $2-k$ is the Abel transform of the width deficit to the closure member. (ii) The deficit's
+sign structure is verified across the whole occupied table — $k<2$ strict, the tie-break direction, lower-$n$
+first. (iii) The $k(l)$ hierarchy — periods opening with s — is the kernel's reach into the over-screened outer
+wing. (iv) The edge identity and this page's tangency theorem pin the edge value: the census can only duck under
+the closure valve in the one window the tangency leaves open, and $k_{edge} = 1.938$ reads the depth of that dip.</p>
+</div>
+<div class="card gold">
+<p style="margin:0"><span class="tag assume">IMPORTED / ASSUMED</span> The census ledger itself is the standard
+statistical stand-in (Thomas–Fermi), as in <a href="./aufbau-as-closure.html">Aufbau as Closure</a> — a
+POAMS-native census remains open work. The closure license — zero-energy closure as the admission criterion —
+is Normal-Realist ontology, stated as such there (§4, §8).</p>
+</div>
+<div class="card red">
+<p style="margin:0"><span class="tag open">OPEN</span> Two items, exactly stated. (1) The dip itself —
+$S &lt; 3/2$ strict — is verified by two independent integrations (12-digit-stable shooting; the BVP chassis);
+an <em>unconditional</em> proof needs a rigorous enclosure of the launch (soft estimates are blind at the
+$0.033$ margin). (2) The value $S = 1.4673200$ is transcendental-grade, like the launch constant
+$B_1 = 1.5880710\ldots$ it inherits from: computable to arbitrary digits, no closed form claimed.</p>
+</div>
+
+<h2>6 · Reading it as Normal Realism</h2>
+<p>Strip the machinery and one sentence remains. The census — the atom's own bookkeeping of stacked closures —
+flows from the bare eye to the far field along one universal curve, and the geometry of that flow contains a
+valve whose only point of tangency is the closure value at the criticality line. <em>The table of elements closes
+at two turns because the census kisses closure at its frontier and cannot pierce it.</em> The 0.033 shortfall is
+not failure but signature: the real, finitely-screened ledger holds just under the ideal — which is exactly why
+every period opens with the humblest winding and the anomalies cluster at the near-ties. One substance, one flow,
+one tangency.</p>
+
+<footer>
+  <div>Part of the Normal Realism / POAMS exhibit series ·
+  <a href="./aufbau-as-closure.html">Aufbau as Closure</a> ·
+  <a href="./poams-periodic-table.html">The Elements</a> ·
+  <a href="./mass-as-trapped-rate.html">Mass as Trapped Rate</a> ·
+  <a href="./atom-as-phase.html">The Atom as Organized Phase</a></div>
+  <div style="margin-top:6px">Sources: Demkov &amp; Ostrovsky, Sov. Phys. JETP 35:66 (1972) · Demkov, Ostrovskii &amp;
+  Berezina, JETP 33:867 (1971) · Landau &amp; Lifshitz, <em>Mechanics</em> §12 (the period inverse problem — the
+  classical parent of the width machinery) · Firsov, ZhETF 24:279 (1953) · Castelli, JMAA 428:653 (2015) · Rojas
+  (2017) · Simon-Petit &amp; Perez, CMP 363 (2018) · Hille, <em>Some aspects of the Thomas–Fermi equation</em>
+  (1970) · Gorenflo &amp; Vessella, <em>Abel Integral Equations</em>, LNM 1461 (1991) · Borg, Acta Math. 78:1
+  (1946) · Sommerfeld (1932) · Full derivation record: the POAMS research ledger (MADELUNG-THEOREM-SKETCH §C1–C3,
+  tier3k/tier3l instruments).</div>
+</footer>
+
+<script>
+// ---------- integrate the census trajectory (same scheme as tier3l, JS port) ----------
+const B1 = 1.5880710226;
+function integrateOrbit(){
+  const x0=1e-6, xmax=40, n=120000;
+  let s=Math.log(x0), h=(Math.log(xmax)-s)/n;
+  let c=1-B1*x0+(4/3)*Math.pow(x0,1.5), d=-B1+2*Math.sqrt(x0);
+  const pts=[];
+  function rhs(s,y){const x=Math.exp(s);const cc=Math.max(y[0],0);return [x*y[1], x*Math.pow(cc,1.5)/Math.sqrt(x)];}
+  let y=[c,d];
+  for(let i=0;i<n;i++){
+    const x=Math.exp(s);
+    if(y[0]<=0)break;
+    const t=-x*y[1]/y[0], q=x*x*x*y[0];
+    if(t>0.02&&t<2.35) pts.push([t,Math.sqrt(q)]);
+    if(t>2.35)break;
+    const k1=rhs(s,y), y2=[y[0]+h/2*k1[0],y[1]+h/2*k1[1]];
+    const k2=rhs(s+h/2,y2), y3=[y[0]+h/2*k2[0],y[1]+h/2*k2[1]];
+    const k3=rhs(s+h/2,y3), y4=[y[0]+h*k3[0],y[1]+h*k3[1]];
+    const k4=rhs(s+h,y4);
+    y=[y[0]+h/6*(k1[0]+2*k2[0]+2*k3[0]+k4[0]), y[1]+h/6*(k1[1]+2*k2[1]+2*k3[1]+k4[1])];
+    s+=h;
+  }
+  return pts;
+}
+const ORBIT = integrateOrbit();
+
+// ---------- main canvas ----------
+const cv=document.getElementById('flowCanvas'), ctx=cv.getContext('2d');
+const T0=0.0,T1=2.4,Q0=0.0,Q1=3.4; // sqrt(q) axis
+function X(t){return 54+(t-T0)/(T1-T0)*(cv.width-70);}
+function Y(r){return cv.height-40-(r-Q0)/(Q1-Q0)*(cv.height-64);}
+function gcol(v){return getComputedStyle(document.documentElement).getPropertyValue(v).trim();}
+let cVal=0.5, animI=0, playing=false;
+
+function hFun(t){return t*(1+t)*(3-t)/(5+3*t);}
+
+function draw(){
+  ctx.clearRect(0,0,cv.width,cv.height);
+  // axes
+  ctx.strokeStyle='#333350';ctx.fillStyle='#9a9bb0';ctx.lineWidth=1;ctx.font='12px Georgia';
+  ctx.beginPath();ctx.moveTo(X(T0),Y(0));ctx.lineTo(X(T1),Y(0));ctx.moveTo(X(0),Y(Q0));ctx.lineTo(X(0),Y(Q1));ctx.stroke();
+  for(let t=0;t<=2.4001;t+=0.5){ctx.fillText(t.toFixed(1),X(t)-8,Y(0)+16);}
+  for(let r=0;r<=3.4001;r+=0.5){ctx.fillText(r.toFixed(1),X(0)-34,Y(r)+4);}
+  ctx.fillText('t (steepness of the screen)',cv.width/2-70,cv.height-6);
+  ctx.save();ctx.translate(14,cv.height/2+30);ctx.rotate(-Math.PI/2);ctx.fillText('√q  (ledger weight)',0,0);ctx.restore();
+  // flow field arrows
+  for(let t=0.12;t<T1;t+=0.145){
+    for(let r=0.12;r<Q1;r+=0.22){
+      const dt=t+t*t-r, dr=r*(3-t)/2;
+      const m=Math.hypot(dt,dr); if(m<1e-9)continue;
+      const ux=dt/m, uy=dr/m, L=7;
+      const x1=X(t),y1=Y(r),x2=x1+ux*L,y2=y1-uy*L;
+      ctx.strokeStyle='rgba(140,140,170,0.28)';
+      ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();
+      ctx.fillStyle='rgba(140,140,170,0.34)';
+      ctx.beginPath();ctx.arc(x2,y2,1.3,0,7);ctx.fill();
+    }
+  }
+  // criticality line
+  ctx.strokeStyle='rgba(160,160,180,0.5)';ctx.setLineDash([4,4]);
+  ctx.beginPath();ctx.moveTo(X(1),Y(Q0));ctx.lineTo(X(1),Y(Q1));ctx.stroke();ctx.setLineDash([]);
+  ctx.fillStyle='#9a9bb0';ctx.fillText('t = 1 (criticality)',X(1)+5,Y(Q1)+14);
+  // valve curve colored by crossing direction: downward-only iff h(t) < c
+  const tmin=(-1+Math.sqrt(1+4*cVal))/2;
+  let prev=null;
+  for(let t=tmin;t<=T1;t+=0.004){
+    const r=t+t*t-cVal; if(r<0||r>Q1){prev=null;continue;}
+    const col = hFun(t)<cVal ? gcol('--green') : gcol('--red');
+    if(prev){ctx.strokeStyle=col;ctx.lineWidth=2.4;ctx.beginPath();ctx.moveTo(X(prev[0]),Y(prev[1]));ctx.lineTo(X(t),Y(r));ctx.stroke();}
+    prev=[t,r];
+  }
+  // orbit up to animI
+  ctx.lineWidth=2.2;
+  const nShow = playing||animI>0 ? animI : ORBIT.length;
+  for(let i=1;i<nShow;i++){
+    const a=ORBIT[i-1],b=ORBIT[i];
+    if(b[1]>Q1||b[0]>T1)continue;
+    const f=i/ORBIT.length;
+    ctx.strokeStyle=`rgba(${91+120*f},${200},${245-100*f},0.95)`;
+    ctx.beginPath();ctx.moveTo(X(a[0]),Y(a[1]));ctx.lineTo(X(b[0]),Y(b[1]));ctx.stroke();
+  }
+  // tangency point
+  const pulse = 3+1.4*Math.sin(Date.now()/300);
+  ctx.fillStyle=gcol('--gold');
+  ctx.beginPath();ctx.arc(X(1),Y(1.5),pulse,0,7);ctx.fill();
+  ctx.font='13px Georgia';ctx.fillText('(1, 3/2) — the kiss',X(1)+8,Y(1.5)-8);
+  // markers
+  ctx.fillStyle='#cfd0e0';ctx.font='12px Georgia';
+  ctx.fillText('launch (0,0)',X(0.03)+3,Y(0.05)-6);
+  ctx.fillText('→ Sommerfeld fixed point (3, 12)',X(1.62),Y(3.28));
+  document.getElementById('cReadout').textContent =
+    `c = ${cVal.toFixed(3)}` + (Math.abs(cVal-0.5)<1e-9 ?
+      '  — one-way valve on all t<1; exact tangency at t=1 through (1, 3/2)' :
+      (cVal<0.5 ? '  — red stretch before t=1: pierceable, no theorem' :
+                  '  — green throughout, but the curve misses the closure point'));
+}
+function animate(){
+  if(playing){ animI=Math.min(animI+Math.max(2,Math.floor(ORBIT.length/400)),ORBIT.length);
+    const p=ORBIT[Math.max(0,animI-1)];
+    document.getElementById('orbitReadout').textContent =
+      `orbit: t = ${p[0].toFixed(3)}   √q = ${p[1].toFixed(3)}` + (p[0]>=1?`   (crossed t=1 at S = 1.46732)`:'');
+    if(animI>=ORBIT.length)playing=false;
+  }
+  draw();
+  requestAnimationFrame(animate);
+}
+document.getElementById('playBtn').onclick=()=>{if(animI>=ORBIT.length)animI=0;playing=true;};
+document.getElementById('resetBtn').onclick=()=>{playing=false;animI=0;document.getElementById('orbitReadout').textContent='';};
+document.getElementById('cSlider').oninput=e=>{cVal=parseFloat(e.target.value);};
+
+// ---------- dip canvas ----------
+const dv=document.getElementById('dipCanvas'), dtx=dv.getContext('2d');
+function drawDip(){
+  const t0=0.80,t1=1.12,r0=1.05,r1=1.80;
+  const DX=t=>50+(t-t0)/(t1-t0)*(dv.width-64), DY=r=>dv.height-30-(r-r0)/(r1-r0)*(dv.height-48);
+  dtx.clearRect(0,0,dv.width,dv.height);
+  dtx.font='12px Georgia';dtx.fillStyle='#9a9bb0';
+  dtx.strokeStyle='#333350';dtx.beginPath();dtx.moveTo(DX(t0),DY(r0));dtx.lineTo(DX(t1),DY(r0));dtx.stroke();
+  for(let t=0.85;t<=1.1;t+=0.05){dtx.fillText(t.toFixed(2),DX(t)-10,DY(r0)+16);}
+  // shade gap between orbit and valve where orbit below valve
+  // valve
+  dtx.lineWidth=2.4;
+  let pv=null;
+  for(let t=t0;t<=t1;t+=0.002){
+    const r=t+t*t-0.5;
+    const col=hFun(t)<0.5?gcol('--green'):gcol('--red');
+    if(pv){dtx.strokeStyle=col;dtx.beginPath();dtx.moveTo(DX(pv[0]),DY(pv[1]));dtx.lineTo(DX(t),DY(r));dtx.stroke();}
+    pv=[t,r];
+  }
+  // orbit
+  dtx.strokeStyle=gcol('--blue');dtx.lineWidth=2.2;dtx.beginPath();let started=false;
+  for(const p of ORBIT){
+    if(p[0]<t0||p[0]>t1)continue;
+    const x=DX(p[0]),y=DY(p[1]);
+    if(!started){dtx.moveTo(x,y);started=true;}else dtx.lineTo(x,y);
+  }
+  dtx.stroke();
+  // criticality line + S marker
+  dtx.strokeStyle='rgba(160,160,180,0.5)';dtx.setLineDash([4,4]);
+  dtx.beginPath();dtx.moveTo(DX(1),DY(r0));dtx.lineTo(DX(1),DY(r1));dtx.stroke();dtx.setLineDash([]);
+  dtx.fillStyle=gcol('--gold');
+  dtx.beginPath();dtx.arc(DX(1),DY(1.5),4,0,7);dtx.fill();
+  dtx.fillText('(1, 3/2)',DX(1)+6,DY(1.5)-6);
+  dtx.fillStyle=gcol('--blue');
+  dtx.beginPath();dtx.arc(DX(1),DY(1.46732),4,0,7);dtx.fill();
+  dtx.fillText('S = 1.46732',DX(1)+6,DY(1.46732)+16);
+  // t* marker
+  dtx.fillStyle='#cfd0e0';
+  dtx.fillText('ducks under at t* = 0.882',DX(0.845),DY(1.68));
+  dtx.fillText('dip = 0.0327',DX(1.015),DY(1.40));
+}
+drawDip();
+animate();
+</script>
+</body>
+</html>
