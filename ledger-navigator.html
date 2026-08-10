@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Ledger Navigator — Flying the Solar System on Measured Books</title>
+<style>
+:root{--bg:#0d0d18;--panel:#131322;--edge:#26263a;--gold:#d4af37;--blue:#5bc8f5;--red:#e06060;--green:#63d67e;--fg:#dfe0ea;--muted:#9a9bb0;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Georgia,'Times New Roman',serif;line-height:1.6;}
+header{padding:24px 22px 16px;border-bottom:1px solid var(--edge);text-align:center;}
+header h1{margin:0;font-size:25px;color:var(--gold);font-weight:650;}
+.sub{max-width:880px;margin:10px auto 0;color:var(--muted);font-size:14.5px;}
+main{max-width:960px;margin:0 auto;padding:10px 18px 40px;}
+h2{color:var(--gold);font-size:19px;margin:30px 0 8px;border-bottom:1px solid var(--edge);padding-bottom:5px;}
+.card{background:var(--panel);border:1px solid var(--edge);border-radius:10px;padding:12px 15px;margin:12px 0;font-size:14px;}
+.card.gold{border-left:3px solid var(--gold);} .card.red{border-left:3px solid var(--red);}
+canvas{background:#07070f;border:1px solid var(--edge);border-radius:10px;display:block;max-width:100%;}
+.panel{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-start;margin:12px 0;}
+.controls{flex:1 1 280px;min-width:260px;font-size:14px;}
+.controls label{display:block;margin:8px 0 2px;color:var(--muted);font-size:13px;}
+select,input{background:#1c1c30;border:1px solid var(--edge);color:var(--fg);border-radius:6px;padding:5px 8px;font-size:14px;width:100%;}
+button{background:#1c1c30;border:1px solid var(--edge);color:var(--fg);border-radius:8px;padding:7px 12px;font-size:14px;cursor:pointer;margin:8px 6px 0 0;}
+button:hover{border-color:var(--gold);}
+.readout{font-family:ui-monospace,Menlo,monospace;font-size:12.5px;color:var(--blue);white-space:pre-wrap;margin-top:8px;}
+footer{max-width:960px;margin:30px auto 22px;padding:12px 16px 0;border-top:1px solid rgba(212,175,55,.35);text-align:center;font-size:12.5px;line-height:1.7;opacity:.82;}
+a{color:var(--blue);}
+</style>
+</head>
+<body>
+<header>
+  <h1>The Ledger Navigator — Flying the Solar System on Measured Books</h1>
+<p class="nr-provenance" style="font-size:0.8em;font-style:italic;opacity:0.72;line-height:1.5;margin:0.5em 0 1em;text-align:center">This exhibit is an extrapolation of the foundational work of N. Vivian (Viv) Pope and Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
+  <div class="sub">Philosophy first: there is no pull and no void — only one angular-momentum ledger, every entry
+  measured. This calculator flies a vehicle between planets on any date you choose, with everything in motion,
+  using <strong>no gravitational constant and no masses anywhere</strong>: the Sun's pair invariant is read off
+  Earth's own orbit (μ☉ = 4π² AU³/yr² — the exactness theorem of
+  <a href="./resonance-network.html">The Resonance Network</a>), planetary positions come from their measured
+  elements, and the transfer arc is solved in the ledger. Pick two worlds and a day. The books do the rest.</div>
+</header>
+<main>
+
+<div class="panel">
+  <canvas id="sys" width="640" height="640"></canvas>
+  <div class="controls">
+    <label>Departure body</label><select id="from"></select>
+    <label>Arrival body</label><select id="to"></select>
+    <label>Departure date</label><input type="date" id="dep" value="2026-11-05">
+    <label>Time of flight (days): <span id="tofv">210</span></label>
+    <input type="range" id="tof" min="30" max="3000" step="5" value="210">
+    <button id="solve">✦ Solve transfer</button>
+    <button id="best">◎ Scan window (best TOF)</button>
+    <button id="fly">▶ Fly it</button>
+    <div class="readout" id="out">Pick a route and solve.</div>
+  </div>
+</div>
+
+<h2>What this is — and its honest tier</h2>
+<div class="card gold">
+<b>All measured, nothing fitted:</b> planetary positions on any date from standard measured mean elements +
+secular rates (planning-grade table, valid ~1800–2050); the one invariant μ⊙ read from Earth's own orbit;
+the transfer solved by a Lambert pass in that ledger; Δv = the vector gap between the arc and each planet's
+own measured motion at the endpoints (heliocentric planning Δv — parking-orbit injection bookkeeping not
+included). Kinematic, not mechanistic: the arc is a bookkeeping solution, not a pulled trajectory.</div>
+<div class="card red">
+<b>Limits, stated:</b> arcminute-grade ephemeris ⇒ mission-planning and visualization grade, not operations
+targeting; two-centre ledger per arc (planetary flyby dressing and resonance-channel kicks not applied);
+short horizons only — long-horizon single trajectories are refused on principle (the momenta are exact
+forever; individual paths are not). See <a href="./navigation-engine.html">The Navigation Engine</a> §D.</div>
+
+<footer>
+  <div>Part of the Normal Realism / POAMS exhibit series ·
+  <a href="./resonance-network.html">The Resonance Network</a> ·
+  <a href="./navigation-engine.html">The Navigation Engine</a> ·
+  <a href="./index.html">All exhibits</a></div>
+  <div style="margin-top:6px">Elements: standard Keplerian mean elements + centennial rates (planning table,
+  J2000). Lambert: universal-variables formulation. μ⊙ = 4π² AU³/yr² (measured, Earth's orbit). Full
+  registration-first background: the POAMS engineering repository (nbody/).</div>
+</footer>
+
+<script>
+// ---------- measured mean elements (J2000) + centennial rates: a(AU), e, I, L, pi(varpi), Om (deg) ----------
+const P=[
+["Mercury",0.38709927,0.20563593,7.00497902,252.25032350,77.45779628,48.33076593,149472.67411175,0.00001906],
+["Venus",0.72333566,0.00677672,3.39467605,181.97909950,131.60246718,76.67984255,58517.81538729,-0.00004107],
+["Earth",1.00000261,0.01671123,-0.00001531,100.46457166,102.93768193,0.0,35999.37244981,0.00000562],
+["Mars",1.52371034,0.09339410,1.84969142,-4.55343205,-23.94362959,49.55953891,19140.30268499,0.00007882],
+["Jupiter",5.20288700,0.04838624,1.30439695,34.39644051,14.72847983,100.47390909,3034.74612775,-0.00011607],
+["Saturn",9.53667594,0.05386179,2.48599187,49.95424423,92.59887831,113.66242448,1222.49362201,-0.00025015],
+["Uranus",19.18916464,0.04725744,0.77263783,313.23810451,170.95427630,74.01692503,428.48202785,-0.00004397],
+["Neptune",30.06992276,0.00859048,1.77004347,-55.12002969,44.96476227,131.78422574,218.45945325,0.00005105]];
+const MU=4*Math.PI*Math.PI; // AU^3/yr^2 — measured from Earth's own orbit
+const D2R=Math.PI/180, YR=365.25;
+function jd(dateStr){const d=new Date(dateStr+"T00:00:00Z");return d.getTime()/86400000+2440587.5;}
+function kepE(M,e){let E=M;for(let i=0;i<40;i++)E-=(E-e*Math.sin(E)-M)/(1-e*Math.cos(E));return E;}
+function pos(ip,JD){ // heliocentric ecliptic xyz (AU) + velocity (AU/yr)
+  const T=(JD-2451545.0)/36525.0, p=P[ip];
+  const a=p[1]+ (ip==2?0:0), e=p[2]+p[8]*T, I=p[3]*D2R, L=(p[4]+p[7]*T)*D2R,
+        w=p[5]*D2R, Om=p[6]*D2R;
+  const M=L-w, om=w-Om, E=kepE(((M%(2*Math.PI))+3*Math.PI)%(2*Math.PI)-Math.PI,e);
+  const xp=a*(Math.cos(E)-e), yp=a*Math.sqrt(1-e*e)*Math.sin(E);
+  const n=Math.sqrt(MU/(a*a*a)); // rad/yr
+  const Edot=n/(1-e*Math.cos(E));
+  const vxp=-a*Math.sin(E)*Edot, vyp=a*Math.sqrt(1-e*e)*Math.cos(E)*Edot;
+  const co=Math.cos(om),so=Math.sin(om),cO=Math.cos(Om),sO=Math.sin(Om),ci=Math.cos(I),si=Math.sin(I);
+  function rot(x,y){return [
+    (co*cO-so*sO*ci)*x+(-so*cO-co*sO*ci)*y,
+    (co*sO+so*cO*ci)*x+(-so*sO+co*cO*ci)*y,
+    (so*si)*x+(co*si)*y];}
+  return {r:rot(xp,yp), v:rot(vxp,vyp), a:a, e:e};
+}
+// ---------- Lambert (universal variables, prograde) ----------
+function stC(z){return z>1e-8?(1-Math.cos(Math.sqrt(z)))/z : z<-1e-8?(Math.cosh(Math.sqrt(-z))-1)/(-z):0.5;}
+function stS(z){if(z>1e-8){const s=Math.sqrt(z);return (s-Math.sin(s))/(s*s*s);}if(z<-1e-8){const s=Math.sqrt(-z);return (Math.sinh(s)-s)/(s*s*s);}return 1/6;}
+function lambert(r1,r2,tof){ // tof in years; returns [v1,v2] AU/yr or null
+  const n1=Math.hypot(...r1), n2=Math.hypot(...r2);
+  const cross=[r1[1]*r2[2]-r1[2]*r2[1], r1[2]*r2[0]-r1[0]*r2[2], r1[0]*r2[1]-r1[1]*r2[0]];
+  let cosd=(r1[0]*r2[0]+r1[1]*r2[1]+r1[2]*r2[2])/(n1*n2);
+  cosd=Math.max(-1,Math.min(1,cosd));
+  let dnu=Math.acos(cosd); if(cross[2]<0)dnu=2*Math.PI-dnu; // prograde
+  const A=Math.sin(dnu)*Math.sqrt(n1*n2/(1-cosd));
+  if(!isFinite(A)||A===0)return null;
+  let zlo=-4*Math.PI*Math.PI, zhi=4*Math.PI*Math.PI;
+  function tofz(z){const C=stC(z),S=stS(z);
+    const y=n1+n2+A*(z*S-1)/Math.sqrt(C);
+    if(y<0)return null;
+    const chi=Math.sqrt(y/C);
+    return {t:(chi*chi*chi*S+A*Math.sqrt(y))/Math.sqrt(MU), y:y};}
+  let z=0;
+  for(let i=0;i<120;i++){
+    z=(zlo+zhi)/2; const r=tofz(z);
+    if(r===null){zlo=z;continue;}
+    if(r.t<tof)zlo=z;else zhi=z;
+  }
+  const r=tofz(z); if(!r)return null;
+  const y=r.y, f=1-y/n1, g=A*Math.sqrt(y/MU), gd=1-y/n2;
+  const v1=[(r2[0]-f*r1[0])/g,(r2[1]-f*r1[1])/g,(r2[2]-f*r1[2])/g];
+  const v2=[(gd*r2[0]-r1[0])/g,(gd*r2[1]-r1[1])/g,(gd*r2[2]-r1[2])/g];
+  return [v1,v2];
+}
+const AUYR=4.74057; // km/s per AU/yr
+// ---------- UI + canvas ----------
+const cv=document.getElementById('sys'),ctx=cv.getContext('2d');
+const selF=document.getElementById('from'),selT=document.getElementById('to');
+P.forEach((p,i)=>{selF.add(new Option(p[0],i));selT.add(new Option(p[0],i));});
+selF.value=2; selT.value=3;
+document.getElementById('tof').oninput=e=>document.getElementById('tofv').textContent=e.target.value;
+let arc=null, flyT=-1;
+const COL=["#b5b5c0","#e8d9a0","#5bc8f5","#e06060","#e8b34a","#d9c9a0","#9fd8d0","#7a9de0"];
+function scaleFor(){const i=Math.max(+selF.value,+selT.value);return P[i][1]*1.25;}
+function X(x,s){return cv.width/2+x/s*(cv.width/2-20);}
+function Y(y,s){return cv.height/2-y/s*(cv.height/2-20);}
+function draw(JD){
+  ctx.clearRect(0,0,cv.width,cv.height);
+  const s=scaleFor();
+  ctx.fillStyle="#d4af37";ctx.beginPath();ctx.arc(cv.width/2,cv.height/2,5,0,7);ctx.fill();
+  for(let i=0;i<P.length;i++){
+    if(P[i][1]>s*1.05)continue;
+    ctx.strokeStyle="rgba(120,120,150,.25)";ctx.beginPath();
+    for(let k=0;k<=128;k++){const q=pos(i,JD+ k/128*P[i][1]**1.5*YR);
+      const x=X(q.r[0],s),y=Y(q.r[1],s); k?ctx.lineTo(x,y):ctx.moveTo(x,y);}
+    ctx.stroke();
+    const q=pos(i,JD);
+    ctx.fillStyle=COL[i];ctx.beginPath();ctx.arc(X(q.r[0],s),Y(q.r[1],s),4,0,7);ctx.fill();
+    ctx.fillStyle="#9a9bb0";ctx.font="11px Georgia";ctx.fillText(P[i][0],X(q.r[0],s)+6,Y(q.r[1],s)-4);
+  }
+  if(arc){
+    ctx.strokeStyle="#63d67e";ctx.lineWidth=2;ctx.beginPath();
+    arc.pts.forEach((p,k)=>{const x=X(p[0],s),y=Y(p[1],s);k?ctx.lineTo(x,y):ctx.moveTo(x,y);});
+    ctx.stroke();ctx.lineWidth=1;
+    if(flyT>=0&&flyT<=1){
+      const k=Math.floor(flyT*(arc.pts.length-1)),p=arc.pts[k];
+      ctx.fillStyle="#fff";ctx.beginPath();ctx.arc(X(p[0],s),Y(p[1],s),3.5,0,7);ctx.fill();
+    }
+  }
+}
+function propagate(r0,v0,T,N){ // leapfrog in the Sun's ledger — momentum books by construction
+  const pts=[];let r=[...r0],v=[...v0];const dt=T/N;
+  function acc(r){const d=Math.hypot(...r);const c=-MU/(d*d*d);return [c*r[0],c*r[1],c*r[2]];}
+  let a=acc(r);
+  for(let i=0;i<=N;i++){
+    pts.push([...r]);
+    v=[v[0]+0.5*dt*a[0],v[1]+0.5*dt*a[1],v[2]+0.5*dt*a[2]];
+    r=[r[0]+dt*v[0],r[1]+dt*v[1],r[2]+dt*v[2]];
+    a=acc(r);
+    v=[v[0]+0.5*dt*a[0],v[1]+0.5*dt*a[1],v[2]+0.5*dt*a[2]];
+  }
+  return pts;
+}
+function solve(tofDays){
+  const JD=jd(document.getElementById('dep').value);
+  const i1=+selF.value,i2=+selT.value;
+  const tof=(tofDays??+document.getElementById('tof').value)/YR;
+  const A=pos(i1,JD),B=pos(i2,JD+tof*YR);
+  const L=lambert(A.r,B.r,tof);
+  if(!L){document.getElementById('out').textContent="No solution (geometry too tight) — adjust TOF.";return null;}
+  const dv1=Math.hypot(L[0][0]-A.v[0],L[0][1]-A.v[1],L[0][2]-A.v[2])*AUYR;
+  const dv2=Math.hypot(L[1][0]-B.v[0],L[1][1]-B.v[1],L[1][2]-B.v[2])*AUYR;
+  arc={pts:propagate(A.r,L[0],tof,600)};
+  draw(JD);
+  return {JD,dv1,dv2,tof,i1,i2};
+}
+document.getElementById('solve').onclick=()=>{
+  const s=solve(); if(!s)return;
+  document.getElementById('out').textContent=
+`${P[s.i1][0]} → ${P[s.i2][0]}   depart ${document.getElementById('dep').value}
+time of flight ${Math.round(s.tof*YR)} d
+Δv depart ${s.dv1.toFixed(2)} km/s   Δv arrive ${s.dv2.toFixed(2)} km/s   total ${(s.dv1+s.dv2).toFixed(2)} km/s
+(heliocentric planning Δv; μ⊙ = 4π² AU³/yr², measured — no G, no masses)`;
+};
+document.getElementById('best').onclick=()=>{
+  let best=null;
+  for(let d=60;d<=1400;d+=10){const s=solve(d);if(s&&(!best||s.dv1+s.dv2<best.dv1+best.dv2))best={...s,d};}
+  if(best){document.getElementById('tof').value=best.d;document.getElementById('tofv').textContent=best.d;
+    const s=solve(best.d);
+    document.getElementById('out').textContent=
+`BEST in window: ${P[s.i1][0]} → ${P[s.i2][0]}  TOF ${best.d} d
+Δv ${s.dv1.toFixed(2)} + ${s.dv2.toFixed(2)} = ${(s.dv1+s.dv2).toFixed(2)} km/s
+(scan 60–1400 d at this departure date)`;}
+};
+document.getElementById('fly').onclick=()=>{
+  if(!arc)return; flyT=0;
+  const tick=()=>{flyT+=0.004;draw(jd(document.getElementById('dep').value));
+    if(flyT<=1)requestAnimationFrame(tick);else flyT=-1;};
+  tick();
+};
+draw(jd(document.getElementById('dep').value));
+</script>
+</body>
+</html>
