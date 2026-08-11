@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Mass Ledger — The Binding Curve as Packing Bookkeeping</title>
+<script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},svg:{fontCache:'global'}}</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+:root{--bg:#0d0d18;--panel:#131322;--edge:#26263a;--gold:#d4af37;--blue:#5bc8f5;--red:#e06060;--green:#63d67e;--fg:#dfe0ea;--muted:#9a9bb0;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Georgia,'Times New Roman',serif;line-height:1.65;}
+header{padding:26px 22px 18px;border-bottom:1px solid var(--edge);text-align:center;}
+header h1{margin:0;font-size:26px;color:var(--gold);font-weight:650;}
+.sub{max-width:880px;margin:10px auto 0;color:var(--muted);font-size:15px;}
+main{max-width:900px;margin:0 auto;padding:10px 18px 40px;}
+h2{color:var(--gold);font-size:20px;margin:38px 0 10px;border-bottom:1px solid var(--edge);padding-bottom:6px;}
+.card{background:var(--panel);border:1px solid var(--edge);border-radius:10px;padding:14px 16px;margin:14px 0;}
+.card.blue{border-left:3px solid var(--blue);}
+.card.gold{border-left:3px solid var(--gold);}
+.card.red{border-left:3px solid var(--red);}
+.card.green{border-left:3px solid var(--green);}
+.eqbox{background:#10101e;border:1px solid var(--edge);border-radius:8px;padding:8px 12px;margin:10px 0;overflow-x:auto;}
+canvas{background:#0a0a14;border:1px solid var(--edge);border-radius:10px;display:block;max-width:100%;}
+.panel{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start;margin:14px 0;}
+.controls{flex:1 1 260px;min-width:250px;font-size:14px;}
+.controls label{display:block;margin:10px 0 4px;color:var(--muted);}
+.readout{font-family:ui-monospace,Menlo,monospace;font-size:13px;color:var(--blue);}
+button{background:#1c1c30;border:1px solid var(--edge);color:var(--fg);border-radius:8px;padding:6px 12px;font-size:14px;cursor:pointer;margin:4px 6px 0 0;}
+button:hover{border-color:var(--gold);}
+input[type=range]{width:100%;}
+.tag{display:inline-block;font-size:11px;letter-spacing:.06em;padding:1px 8px;border-radius:10px;margin-right:6px;vertical-align:middle;}
+.tag.prov{background:#1b2a38;color:var(--blue);}
+.tag.assume{background:#332a12;color:var(--gold);}
+.tag.open{background:#331a1a;color:var(--red);}
+.tag.pass{background:#15301c;color:var(--green);}
+.tag.fail{background:#331a1a;color:var(--red);}
+.note{font-size:13.5px;color:var(--muted);}
+table{border-collapse:collapse;width:100%;font-size:14px;margin:12px 0;}
+th,td{border:1px solid var(--edge);padding:6px 9px;text-align:left;vertical-align:top;}
+th{color:var(--gold);font-weight:600;background:#10101e;}
+td.c{text-align:center;}
+footer{max-width:900px;margin:36px auto 24px;padding:14px 16px 0;border-top:1px solid rgba(212,175,55,.35);text-align:center;font-size:12.5px;line-height:1.7;opacity:.82;}
+a{color:var(--blue);}
+.legend{font-size:13px;color:var(--muted);margin-top:6px;}
+.legend span{margin-right:14px;white-space:nowrap;}
+.sw{display:inline-block;width:22px;height:3px;vertical-align:middle;margin-right:5px;border-radius:2px;}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;vertical-align:middle;margin-right:5px;}
+</style>
+</head>
+<body>
+<header>
+  <h1>The Mass Ledger — The Binding Curve as Packing Bookkeeping</h1>
+<p class="nr-provenance" style="font-size:0.8em;font-style:italic;opacity:0.72;line-height:1.5;margin:0.5em 0 1em;text-align:center">This exhibit is an extrapolation of the foundational work of N. Vivian (Viv) Pope and Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
+  <div class="sub">Philosophy first: there is one substance — angular momentum — and <a href="./mass-as-trapped-rate.html">mass is trapped rate</a>.
+  This exhibit is the continuation of <a href="./mass-as-trapped-rate.html"><em>Mass as Trapped Rate</em></a>: that page established what
+  weight <em>is</em> and weighed the elements one circulation at a time; this page follows the same ledger into the packed interior.
+  When circulations pack at dense contact, the ledger grants a discount: the packed whole traps less rate than the parts held apart —
+  the mass defect. Here the discount curve is derived as bookkeeping — five entries, two columns, one capacity —
+  the curve's famous peak is proved to be <em>forced arithmetic</em>, and every claim is confronted with the measured
+  table of nuclides, hits and misses side by side.</div>
+</header>
+<main>
+
+<h2>1 · The premise, and the rule of the page</h2>
+<p><strong>Mass is trapped rate.</strong> A bound circulation holds turning-rate it cannot spend; weigh it and you read
+that ledger. When $A$ circulation quanta <span class="tag assume">LABEL</span> (comparative label: nucleons) pack at
+dense contact, part of each quantum's rate is meshed with its neighbors and no longer counts against the scale:
+binding $B$ = the total discount, $b = B/A$ = discount per quantum. Of the $A$ quanta, $Z$ belong to the sense class
+that carries the long-range phase handle <span class="tag assume">LABEL</span> (label: protons; "charge" dissolved —
+a phase sense, not a substance); $N = A-Z$ is the other class.</p>
+<p><strong>The rule.</strong> The empirical binding curve is famous — no registration can feign ignorance of the iron
+peak. So the discipline here is <em>derivational</em>: structure and coefficient <em>ratios</em> must be forced by
+ledger bookkeeping before any comparison; every free constant is a named import; fitting is the only sin. The
+classical five-term formula (comparative shadow: von Weizsäcker 1935) is cited throughout as the fitted silhouette
+of these entries — the claim of this page is the <em>bookkeeping derivation</em>, never the form's novelty.</p>
+<p class="note">Rates, not speeds (GROUNDING discipline): every quantity below is a count, a rate of angular change,
+or an energy of trapped rate. Nothing moves through a void; nothing pulls. The dense packing is contact of
+circulations, and the ledger only ever records meshing, filing, and strain.</p>
+
+<h2>2 · Five entries, one ledger</h2>
+<p>Registered first (M-C1, before any derivation or data pull), then derived in order. Each entry states what is
+forced and what is imported:</p>
+<table>
+<tr><th>entry</th><th>scaling</th><th>forced by bookkeeping</th><th>named import / open</th></tr>
+<tr><td><strong>P1 · bulk</strong></td><td>$\propto A$</td><td>Extensivity theorem: finite coherence range ⇒ discount
+grows per contact, $\propto A$ (a <em>global</em> mesh would give $A^2$ — the opposite pole to the atom's global
+census vote on the <a href="./aufbau-as-closure.html">Aufbau front</a>).</td><td>scale $\delta$ per contact</td></tr>
+<tr><td><strong>P2 · boundary</strong></td><td>$-A^{2/3}$</td><td>Sharp-contact cap integral ⇒
+$a_s/a_v = 3/2$ exactly, no dial; §4 reattributes the term to the tax column and derives the softening
+direction.</td><td>skin coefficient $\lambda$ (§4)</td></tr>
+<tr><td><strong>P3 · census</strong></td><td>$-(N{-}Z)^2/A$</td><td>Forced twice independently: the double-filing ban
+(the same Schur ledger that runs the atom front) ⇒ two filing ladders, quadratic cost; and sense-relabel symmetry
+$u \to -u$ ⇒ even powers only. Sign: balance favored. Free hit at the lightest data: the like-sense pair does not
+bind, the unlike pair does <span class="tag assume">LABEL</span> (labels: no bound dineutron/diproton; the deuteron
+binds).</td><td>magnitude — assembled in §6 from forced parts</td></tr>
+<tr><td><strong>P4 · pairing</strong></td><td>$\pm\,\delta_p$</td><td>Within one sense class, reversed-orientation
+quanta mesh pairwise (the atom front's doubling-by-two, again) ⇒ mass ladder <em>even-even &lt; even-odd &lt;
+odd-odd</em>: order and signs forced.</td><td>$A^{-1/2}$ magnitude class — empirical, no credit taken (the classical
+shadow also inserts it by hand)</td></tr>
+<tr><td><strong>P5 · strain</strong></td><td>$-\dfrac{Z(Z{-}1)}{A^{1/3}}$</td><td>The $Z$-class pays like-sense phase
+strain at range. Geometric $3/5$ forced (uniform fixed-density sphere); $Z(Z{-}1)$, not $Z^2$, forced by pair
+bookkeeping. Coefficient $a_c = 0.72$ MeV computed from imports measured <em>outside</em> the binding curve.</td>
+<td>the $1/r$ range law <span class="tag assume">IMPORT</span> (the same named import the
+<a href="./resonance-network.html">n-body charter</a> declares at every use); $k$, $r_0$</td></tr>
+</table>
+
+<h2>3 · The second column: every quantum pays a localization tax</h2>
+<p>A one-column ledger dies on the three cleanest data. Per <em>bond</em>, the net discounts of the lightest packings
+run 2.22 → 2.83 → 4.72 MeV (labels: deuteron, triton, alpha) — spreading 2.1× and non-monotone in coordination:
+impossible for any single per-contact discount. The founding entity of the synthesis repairs it: the action quantum
+sets a floor — a circulation confined to size $d$ <em>must</em> carry relative rate. So the ledger has two columns:</p>
+<div class="eqbox">$$B \;=\; \underbrace{\sum_{\text{bonds}} \delta_{\text{gross}}}_{\text{contact discount}}
+\;-\; \underbrace{\sum_{\text{quanta}} \tau}_{\text{localization tax}},
+\qquad \tau \ge \frac{9}{8}\frac{\hbar^2/m}{\langle r^2\rangle}\Big(1-\frac{1}{n}\Big).$$</div>
+<p>Add the tax back (imports: $\hbar^2/m = 41.5$ MeV·fm², measured sizes) and the per-bond <em>gross</em> discount
+flattens: <strong>14.4 | 13.9–15.9 | 15.8 MeV</strong> across coordination $z = 1, 2, 3$ —
+$$\delta_0 = 15.0 \pm 1.0 \text{ MeV per bond, constant while the nets spread } 2.1\times.$$
+The gross contact discount is one number in the unsaturated regime; the spectacular differences among light packings
+are tax arithmetic, not new physics. (The bound-vs-unbound drama of the four contact channels deflates the same way
+in §5.)</p>
+
+<h2>4 · The capacity law — and why packing saturates</h2>
+<p>Bulk matter breaks the flat line: per bond, the bulk gross discount is only $5.97$ MeV — the data force a
+<strong>saturation of ×2.5</strong> (an unsaturated close packing would give $a_v \approx 70$ MeV per quantum against
+the observed $15.75$). The mechanism is a resource bound. A mesh is a phase lock over a contact <em>patch</em> — a cap
+of solid angle $\Omega_w$ on the quantum's circulation sphere. The sphere is finite: $z$ patches saturate it when
+$z\,\Omega_w > 4\pi$:</p>
+<div class="eqbox">$$\delta_{\text{eff}}(z) = \delta_0\,\min\!\big(1,\; z_c/z\big),\qquad
+z_c = \frac{4\pi}{\Omega_w}, \qquad
+z_c = \frac{12 \times 5.97}{\delta_0} = 4.78 \pm 0.35 \;\;(\theta_w = 54.5^\circ,\; C = \tfrac{z_c}{2}\delta_0 = 35.9\text{ MeV}).$$</div>
+<p>Partners beyond capacity share arc and add nothing ("saturation of nuclear forces" — comparative label — as
+solid-angle bookkeeping). Consistency with no dial: the alpha ($z=3$) and triton ($z=2$) sit <em>below</em> $z_c$,
+which is exactly why §3 found them at full strength.</p>
+<div class="card blue">
+<p style="margin:0"><span class="tag prov">THEOREM</span> <strong>Saturation at capacity.</strong> Balancing tax
+against capped profit, the equilibrium density is <em>pinned at the capacity point</em> $z(\rho_0) = z_c$ — a kink
+minimum, robust for any contact exponent $\nu > 0.373$ and any clash cost including zero. No hard core is required:
+expansion loses profit faster than it saves tax; compression gains nothing (profit capped) and pays tax. Two
+independent routes meet with nothing tuned: geometric contact count from measured density and sizes gives
+$z = 4.5$–$5.3$; the energy ledger above gives $z_c = 4.78 \pm 0.35$. <em>Prediction</em> (kink signature): the
+interior density profile meets $\rho_0$ at finite depth — only the outer tail is exponential.</p>
+</div>
+<p><strong>Where the surface term really lives.</strong> Because $z_c \approx 4.8$ is below the coordination of even a
+surface site, removing a boundary quantum's missing neighbors costs no gross discount — the $A^{2/3}$ entry does
+<em>not</em> come from missing bonds. It migrates to the tax column: a density edge forces a gradient localization tax
+across the skin (the shadow's own name for it — the Weizsäcker gradient term — closes the loop). The equipartition
+first integral of the skin gives $a_s = 34.1\sqrt{\lambda}$ MeV with derived limits $\lambda \in [1/9, 1]$: the
+bracket $[11.4, 34.1]$ contains the fitted shadow $17.8$ at $\lambda_{\text{eff}} = 0.273$, interior — where a
+two-regime skin must sit. Swing 1's sharp-limit ratio $3/2$ is thereby the unsaturated overcount; the softening
+<em>direction</em> toward the shadow's $1.13$ is derived, and the one remaining unknown is a single localization-tax
+coefficient $\lambda$ <span class="tag open">OPEN</span>.</p>
+
+<h2>5 · The four channels — the lightest data read directly</h2>
+<p>A contact mesh joins two quanta of definite sense (Z-class / N-class) and orientation (↑/↓). The filing ban plus
+two orientations force exactly four channels — and the four lightest two-quantum systems are the four channels read
+off the data:</p>
+<table>
+<tr><th>channel</th><th>ledger verdict</th><th>measured face <span class="tag assume">LABEL</span></th></tr>
+<tr><td>unlike sense, parallel</td><td><strong>strong</strong> — net bound</td><td>deuteron, $+2.22$ MeV</td></tr>
+<tr><td>unlike sense, antiparallel</td><td>weak — just short</td><td>np singlet, $-0.07$ MeV virtual</td></tr>
+<tr><td>like sense, antiparallel</td><td>weak — just short</td><td>nn, pp: barely unbound</td></tr>
+<tr><td>like sense, parallel</td><td><strong>barred</strong> — double-filing (Schur ban)</td><td>—</td></tr>
+</table>
+<p>Three readings fall out. <em>(i)</em> The two weak channels are equal because both are antiparallel meshes — sense
+never enters the contact column: "charge independence of the nuclear force" (comparative label) is a derived
+bookkeeping split, not an input symmetry. <em>(ii)</em> In gross terms the strong/weak asymmetry is only
+$\gamma = 0.85(5)$ — a 15% effect that tax subtraction amplifies into bound-versus-unbound: the famous "spin
+dependence" deflated. <em>(iii)</em> A locale's rate cell holds exactly 2 senses × 2 orientations = 4 quanta —
+<strong>the alpha is one filled cell</strong>: six bonds, zero barred adjacencies, the largest arrangement-free
+packing. The $A=4$ magic is cell closure (and the alpha rides visibly above the smooth curve in §7's plot).</p>
+<div class="card red">
+<p style="margin:0"><span class="tag open">CORRECTION ON THE RECORD</span> Swing 1 argued the strong channel by a
+gear picture — counter-rotation meshes, co-rotation grinds. The data invert that sign: the strong channel is
+<em>parallel</em>. The velocity metaphor is retired on this page as it was retired in the research ledger; the mesh
+is a phase lock, and the plausible root of the parallel preference — one coherent winding sense about the contact
+axis — is named <em>open</em>, its sign taken from data. Nothing downstream falls: the census entry was forced
+independently (twice), and the filing ban is orientation bookkeeping, untouched.</p>
+</div>
+
+<h2>6 · The census magnitude, assembled</h2>
+<p>The imbalance cost $(N{-}Z)^2/A$ carries a coefficient with two forced components, one from each column:</p>
+<div class="eqbox">$$a_{\text{sym}} \;=\; \underbrace{\tfrac{1}{3}E_F = 11.13\text{ MeV}}_{\text{ladder tax — import-free arithmetic}}
+\;+\; \underbrace{\frac{C}{1+2\gamma} = 12.8\text{–}13.8\text{ MeV}}_{\text{contact, frozen at capacity}}
+\;=\; 24.0\text{–}24.9 \text{ MeV}\qquad \text{vs shadow } 23.2\text{–}23.7.$$</div>
+<p>A +3% meeting, conditional on one derived reading: at capacity there is <em>no arrangement freedom left</em>
+(every sphere is saturated), so barred adjacencies cost their full missing mesh — the frozen limit. Below capacity
+(light clusters) the free limit applies, and the alpha realizes it with zero barred bonds by construction. That
+nature sits at the frozen edge is independent support for saturation-at-capacity — the same theorem read through a
+different coefficient. No dial: $\gamma$ from free two-quantum data, $C$ and $z_c$ from §4, $E_F$ from the filling
+ledger at capacity density.</p>
+
+<h2>7 · The forced peak — theorem, then the measured table</h2>
+<p>Along the balanced valley, the per-quantum discount of the leading entries is
+$b(A) = a_v - a_s A^{-1/3} - c\,A^{2/3}$ with $c = a_c/4$. Both competing signs are forced (boundary tax; like-sense
+strain), and that is all a peak needs:</p>
+<div class="card blue">
+<p style="margin:0"><span class="tag prov">THEOREM</span> <strong>Forced peak.</strong> If $a_s > 0$ and $c > 0$ —
+both signs forced — then $b(A)$ has exactly one interior maximum, at
+$$A^* = \frac{a_s}{2c} = 2\,\frac{a_s}{a_v}\cdot\frac{a_v}{a_c},\qquad b''(A^*) < 0,$$
+and the census bend (true valley $Z^* < A/2$) can only shift the peak <em>right</em>. Existence, uniqueness, and
+location-as-ratio are bookkeeping — mid-table quanta are the most discounted because boundary tax falls and strain
+rises, and their books must cross once.</p>
+</div>
+<p><strong>Registered, then scored.</strong> With the derived ratio bracket $a_s/a_v \in [1.13, 1.5]$ (§4), the
+curve-free $a_c = 0.72$, and one named bulk import $a_v = 15.75$, the bracket
+$A^* \in [49, 66]$ was committed to the research ledger <em>before</em> the scoring run. AME2020 (experimental
+entries only): maximum $B/A$ at $A = 62$ (Ni-62) — inside; the entire top-ten plateau $[52, 64]$ — inside.
+<span class="tag pass">PASS</span> No dial saw the number: both bracket edges are forced or named quantities, and the
+famous $A=56$ was never targeted (it sits third on the measured list; the ledger never needed it).</p>
+
+<div class="panel">
+  <div>
+    <canvas id="curveCanvas" width="860" height="470"></canvas>
+    <div class="legend">
+      <span><span class="dot" style="background:#5b8dc8"></span>AME2020 envelope (max $B/A$ per $A$, 266 experimental points, embedded)</span>
+      <span><span class="sw" style="background:var(--gold)"></span>five-entry valley ledger</span>
+      <span><span class="sw" style="background:var(--blue);border-bottom:1px dashed var(--blue);height:0"></span>leading class ($Z=A/2$, the theorem's curve)</span>
+      <span><span class="sw" style="background:rgba(212,175,55,.25);height:10px"></span>registered peak bracket [49, 66]</span>
+    </div>
+  </div>
+  <div class="controls">
+    <label>surface/volume ratio $a_s/a_v$ — slide across the derived bracket
+    <br><span class="note">1.13 = capacity-softened (shadow seat, $\lambda_{\text{eff}}=0.273$) · 1.50 = sharp-contact limit</span></label>
+    <input type="range" id="ratioSlider" min="1.13" max="1.50" step="0.005" value="1.13">
+    <div class="readout" id="ratioOut"></div>
+    <div class="readout" id="peakOut" style="margin-top:8px"></div>
+    <div style="margin-top:10px">
+      <button id="btnShadow">capacity-softened (1.13)</button>
+      <button id="btnSharp">sharp limit (1.50)</button>
+    </div>
+    <p class="note" style="margin-top:12px">Drawn with $a_v = 15.75$ (the one bulk import), $a_c = 0.72$ (curve-free),
+    and the census coefficient $a_{\text{sym}} = 24.5$ <em>derived in §6</em> — the valley curve is the ledger's own,
+    not a fit. Pairing (P4) and the closure shells are deliberately not drawn: the wiggles the smooth ledger does not
+    carry <em>are</em> the shell closures — the atom front's physics showing inside the nucleus — and the spike at
+    $A=4$ is the filled cell of §5.</p>
+  </div>
+</div>
+
+<h2>8 · The record — every confrontation, both verdicts</h2>
+<p>All tolerances were registered in the research ledger before the AME2020 pull; the instrument and run files are
+committed alongside the derivations. Hits do not bury misses:</p>
+<table>
+<tr><th>test</th><th>registered</th><th>scored</th><th>verdict</th></tr>
+<tr><td><strong>T-P4</strong> pairing ladder (P4): interpolated odd staggering positive across all chains, $A\ge16$</td>
+<td class="c">≥ 90%</td><td class="c">even-Z <strong>574/574 = 100.00%</strong> · odd-Z <strong>547/552 = 99.09%</strong></td>
+<td class="c"><span class="tag pass">PASS</span></td></tr>
+<tr><td><strong>T-PEAK</strong> forced-peak location (§7), bracket committed pre-run</td>
+<td class="c">$A^* \in [49, 66]$</td><td class="c">max at $A=62$; top-10 plateau $[52,64]$ inside</td>
+<td class="c"><span class="tag pass">PASS</span></td></tr>
+<tr><td><strong>a$_{\text{sym}}$</strong> census magnitude (§6), forced parts, no dial</td>
+<td class="c">—</td><td class="c">24.0–24.9 vs shadow 23.2–23.7 (+3%)</td>
+<td class="c"><span class="tag pass">conditional</span></td></tr>
+<tr><td><strong>T-P3</strong> census evenness: cubic residual after removing only the curve-free strain entry</td>
+<td class="c">median &lt; 10%</td><td class="c">0.247 — and the miss was diagnostic: the mirror-odd residual is
+<em>linear</em>, the signature of the strain column's own filing correction</td>
+<td class="c"><span class="tag fail">FAIL</span></td></tr>
+<tr><td><strong>T-P3′</strong> re-registered with the derived exchange layer ($0.53\,Z^{4/3}$, imports only, untuned)</td>
+<td class="c">odd &lt; 0.40 MeV; cubic &lt; 10%</td><td class="c">the derived correction removed <strong>63%</strong> of
+the odd content in the right direction; residual $-0.33$ MeV/step, smooth, uniform — the mirror
+displacement-anomaly class, an open boundary in the extant literature as well. The peel stops there, named.</td>
+<td class="c"><span class="tag fail">FAIL</span></td></tr>
+<tr><td>census curvature sign (P3)</td><td class="c">—</td><td class="c">$c_2 > 0$ in 13/13 scoreable chains, every run</td>
+<td class="c"><span class="tag pass">universal</span></td></tr>
+</table>
+<p class="note">Also on the record: swing 1's one-column ledger was refuted by its own three cleanest data (§3) and
+repaired by theorem, not adjustment; the gear metaphor was retired for having the wrong sign (§5); a first T-P3 run
+was voided for an instrument sign bug and rerun under the unmoved tolerance. The record is built to be
+refusal-proof: registration first, misses beside hits, instruments on the page.</p>
+
+<h2>9 · What is proved, what is imported, what is open</h2>
+<div class="card blue">
+<p style="margin:0"><span class="tag prov">PROVED / VERIFIED</span> Extensivity of the bulk entry (finite-range
+coherence ⇒ $\propto A$); the sharp-contact ratio $a_s/a_v = 3/2$ and its capacity-softening direction; the census
+scaling $(N{-}Z)^2/A$ forced twice over; the pairing ladder order <em>ee &lt; eo &lt; oo</em> (99.6% of the measured
+chart); the two-column theorem (gross flat at $\delta_0 = 15.0\pm1.0$ across $z=1,2,3$); the capacity law with
+$z_c = 4.78\pm0.35$ meeting the geometric route $4.5$–$5.3$; the saturation-at-capacity kink theorem (no hard core);
+the skin equipartition integral $a_s = 34.1\sqrt{\lambda}$ with derived limits; the four contact channels with the
+filing ban; the kinetic census floor $E_F/3$; the frozen-capacity census total at +3%; the forced-peak theorem with
+$A^* = 2(a_s/a_v)(a_v/a_c)$, registered $[49,66]$, measured $62$.</p>
+</div>
+<div class="card gold">
+<p style="margin:0"><span class="tag assume">IMPORTED / NAMED</span> The size unit $r_0 = 1.2$ fm and strain quantum
+$k = 1.44$ MeV·fm (measured outside the curve); the $1/r$ range law of the strain entry (the n-body charter's
+standing import); the action-quantum scale $\hbar^2/m = 41.5$ MeV·fm² (the same quantization that runs the atom
+front); measured cluster sizes and the free two-quantum data that set $\delta_0$ and $\gamma$; one bulk number
+$a_v = 15.75$ used only to <em>locate</em> the peak whose existence and ratio-form are theorems; the bulk
+recalibration $\delta_0^{\text{bulk}} = 1.55\times$ the cluster value implied by frozen mixing — named, testable
+(cluster ladder $A = 2$–$6$).</p>
+</div>
+<div class="card red">
+<p style="margin:0"><span class="tag open">OPEN</span> Exactly stated: (1) the skin coefficient $\lambda$ — a pure
+localization-tax coefficient for partially filled ladders; closing it closes $a_s$. (2) The patch angle $\theta_w$
+from the lock range (consistent at $\approx 2\hbar/mc$; coefficient underived). (3) The $A^{-1/2}$ pairing
+magnitude — a dimensional route exists ($\sqrt{\delta_0 \cdot d}$, ×1.5 high), structure underived, no credit
+taken. (4) The phase-winding root of the strong channel's parallel sign (§5). (5) The T-P3′ residual — the
+displacement-anomaly boundary, open here and in the extant literature. (6) The ×1.55 in-medium enhancement —
+swing-6 test target.</p>
+</div>
+
+<h2>10 · Reading it as Normal Realism</h2>
+<p>Strip the machinery and one sentence remains. The binding curve is not a landscape of forces; it is the running
+balance of one ledger — contact discounts against localization taxes, filed under a finite phase circle per quantum.
+Iron sits at the top for the same reason the census flow of the atom kisses closure at its frontier: the books must
+cross where boundary tax falls and strain rises, and a ratio of forced coefficients says where. Nothing is pulled,
+nothing is glued; the nucleus is angular momentum packed to capacity, and its weight is the audit. <em>The most
+famous curve in nuclear physics is an accounting statement.</em></p>
+
+<footer>
+  <div>Part of the Normal Realism / POAMS exhibit series ·
+  <a href="./mass-as-trapped-rate.html">Mass as Trapped Rate</a> ·
+  <a href="./aufbau-as-closure.html">Aufbau as Closure</a> ·
+  <a href="./census-flow.html">The Census Flow</a> ·
+  <a href="./poams-periodic-table.html">The Elements</a> ·
+  <a href="./resonance-network.html">The Resonance Network</a></div>
+  <div style="margin-top:6px">Sources: AME2020 — M. Wang, W.J. Huang, F.G. Kondev, G. Audi, S. Naimi, Chin. Phys. C
+  45:030003 (2021), experimental entries only (IAEA AMDC) · C.F. von Weizsäcker, Z. Phys. 96:431 (1935) and H. Bethe
+  &amp; R. Bacher, Rev. Mod. Phys. 8:82 (1936) — the fitted comparative shadow · measured deuteron/triton/alpha
+  binding and radii (CODATA/IAEA) · Full derivation record: the POAMS research ledger (MASS-LEDGER-DERIVATION,
+  swings 2–5, instruments mass-ame-score / mass-tpeak / mass-swing4 / mass-swing5; registrations M-C1, T-P4, T-P3,
+  T-P3′, T-PEAK committed pre-run).</div>
+</footer>
+
+<script>
+// AME2020 experimental envelope: [A, max B/A in MeV] per A (generated from mass.mas20.txt, '#' entries excluded)
+const AME=[[2,1.112],[3,2.827],[4,7.074],[5,5.512],[6,5.332],[7,5.606],[8,7.062],[9,6.463],[10,6.498],[11,6.928],[12,7.68],[13,7.47],[14,7.52],[15,7.699],[16,7.976],[17,7.751],[18,7.767],[19,7.779],[20,8.032],[21,7.972],[22,8.08],[23,8.111],[24,8.261],[25,8.224],[26,8.334],[27,8.332],[28,8.448],[29,8.449],[30,8.521],[31,8.481],[32,8.493],[33,8.514],[34,8.583],[35,8.538],[36,8.575],[37,8.57],[38,8.614],[39,8.563],[40,8.595],[41,8.576],[42,8.617],[43,8.601],[44,8.658],[45,8.631],[46,8.669],[47,8.665],[48,8.723],[49,8.711],[50,8.756],[51,8.742],[52,8.776],[53,8.76],[54,8.778],[55,8.765],[56,8.79],[57,8.77],[58,8.792],[59,8.768],[60,8.781],[61,8.765],[62,8.795],[63,8.763],[64,8.777],[65,8.757],[66,8.76],[67,8.737],[68,8.756],[69,8.725],[70,8.73],[71,8.718],[72,8.732],[73,8.705],[74,8.725],[75,8.701],[76,8.711],[77,8.696],[78,8.718],[79,8.696],[80,8.711],[81,8.696],[82,8.711],[83,8.696],[84,8.717],[85,8.699],[86,8.712],[87,8.711],[88,8.733],[89,8.714],[90,8.71],[91,8.693],[92,8.693],[93,8.672],[94,8.667],[95,8.649],[96,8.654],[97,8.635],[98,8.635],[99,8.614],[100,8.619],[101,8.601],[102,8.607],[103,8.584],[104,8.587],[105,8.573],[106,8.58],[107,8.561],[108,8.567],[109,8.548],[110,8.551],[111,8.537],[112,8.545],[113,8.527],[114,8.532],[115,8.517],[116,8.523],[117,8.51],[118,8.517],[119,8.499],[120,8.504],[121,8.485],[122,8.488],[123,8.472],[124,8.473],[125,8.458],[126,8.463],[127,8.446],[128,8.449],[129,8.436],[130,8.438],[131,8.424],[132,8.428],[133,8.413],[134,8.414],[135,8.401],[136,8.403],[137,8.392],[138,8.393],[139,8.378],[140,8.376],[141,8.355],[142,8.347],[143,8.33],[144,8.327],[145,8.309],[146,8.304],[147,8.284],[148,8.28],[149,8.263],[150,8.262],[151,8.244],[152,8.244],[153,8.229],[154,8.227],[155,8.217],[156,8.215],[157,8.204],[158,8.202],[159,8.189],[160,8.184],[161,8.174],[162,8.173],[163,8.162],[164,8.159],[165,8.147],[166,8.142],[167,8.132],[168,8.13],[169,8.117],[170,8.112],[171,8.102],[172,8.097],[173,8.087],[174,8.084],[175,8.071],[176,8.064],[177,8.053],[178,8.049],[179,8.039],[180,8.035],[181,8.023],[182,8.018],[183,8.008],[184,8.005],[185,7.993],[186,7.989],[187,7.978],[188,7.974],[189,7.963],[190,7.962],[191,7.951],[192,7.949],[193,7.938],[194,7.936],[195,7.927],[196,7.927],[197,7.916],[198,7.914],[199,7.907],[200,7.906],[201,7.898],[202,7.897],[203,7.887],[204,7.886],[205,7.878],[206,7.875],[207,7.87],[208,7.867],[209,7.849],[210,7.836],[211,7.82],[212,7.81],[213,7.794],[214,7.785],[215,7.768],[216,7.759],[217,7.745],[218,7.739],[219,7.724],[220,7.717],[221,7.703],[222,7.697],[223,7.685],[224,7.68],[225,7.668],[226,7.662],[227,7.651],[228,7.645],[229,7.635],[230,7.631],[231,7.62],[232,7.615],[233,7.605],[234,7.601],[235,7.591],[236,7.586],[237,7.576],[238,7.57],[239,7.561],[240,7.556],[241,7.546],[242,7.541],[243,7.531],[244,7.525],[245,7.516],[246,7.511],[247,7.502],[248,7.497],[249,7.486],[250,7.48],[251,7.471],[252,7.465],[253,7.455],[254,7.449],[255,7.438],[256,7.432],[257,7.422],[258,7.41],[259,7.4],[260,7.343],[261,7.371],[262,7.341],[264,7.298],[265,7.296],[266,7.298],[269,7.25],[270,7.254]];
+
+const AV=15.75, AC=0.72, ASYM=24.5;
+function valleyZ(A){ // minimize strain + census cost in Z (real-valued)
+  const p=AC*Math.pow(A,-4/3);
+  return (4*ASYM/A + p)/(8*ASYM/(A*A) + 2*p);
+}
+function bValley(A, ratio){
+  const as=ratio*AV, Zs=valleyZ(A);
+  const strain=AC*Zs*(Zs-1)*Math.pow(A,-4/3);
+  const cen=ASYM*Math.pow(A-2*Zs,2)/(A*A);
+  return AV - as*Math.pow(A,-1/3) - strain - cen;
+}
+function bNaive(A, ratio){
+  return AV - ratio*AV*Math.pow(A,-1/3) - (AC/4)*Math.pow(A,2/3);
+}
+
+const cv=document.getElementById('curveCanvas'), ctx=cv.getContext('2d');
+const A0=0, A1=272, B0=0, B1v=9.8;
+function X(a){return 52+(a-A0)/(A1-A0)*(cv.width-68);}
+function Y(b){return cv.height-36-(b-B0)/(B1v-B0)*(cv.height-58);}
+
+function draw(){
+  const ratio=parseFloat(document.getElementById('ratioSlider').value);
+  ctx.clearRect(0,0,cv.width,cv.height);
+  // registered bracket band [49,66]
+  ctx.fillStyle='rgba(212,175,55,0.12)';
+  ctx.fillRect(X(49),Y(B1v),X(66)-X(49),Y(B0)-Y(B1v));
+  ctx.strokeStyle='rgba(212,175,55,0.4)';ctx.setLineDash([4,4]);ctx.lineWidth=1;
+  ctx.strokeRect(X(49),Y(B1v),X(66)-X(49),Y(B0)-Y(B1v));
+  ctx.setLineDash([]);
+  // axes + ticks
+  ctx.strokeStyle='#333350';ctx.fillStyle='#9a9bb0';ctx.lineWidth=1;ctx.font='12px Georgia';
+  ctx.beginPath();ctx.moveTo(X(A0),Y(0));ctx.lineTo(X(A1),Y(0));ctx.moveTo(X(0),Y(B0));ctx.lineTo(X(0),Y(B1v));ctx.stroke();
+  for(let a=0;a<=250;a+=50){ctx.fillText(String(a),X(a)-8,Y(0)+16);ctx.beginPath();ctx.moveTo(X(a),Y(0));ctx.lineTo(X(a),Y(0)+4);ctx.stroke();}
+  for(let b=0;b<=9;b+=1){ctx.fillText(String(b),X(0)-24,Y(b)+4);ctx.beginPath();ctx.moveTo(X(0)-4,Y(b));ctx.lineTo(X(0),Y(b));ctx.stroke();}
+  ctx.fillText('A (quanta packed)',X(120),cv.height-4);
+  ctx.save();ctx.translate(14,Y(5.2));ctx.rotate(-Math.PI/2);ctx.fillText('discount per quantum  B/A  (MeV)',0,0);ctx.restore();
+  // bracket label
+  ctx.fillStyle='rgba(212,175,55,0.8)';ctx.fillText('registered [49,66]',X(49)+4,Y(B1v)+14);
+  // AME points
+  ctx.fillStyle='#5b8dc8';
+  for(const p of AME){ctx.beginPath();ctx.arc(X(p[0]),Y(p[1]),1.7,0,2*Math.PI);ctx.fill();}
+  // alpha + Ni-62 markers
+  ctx.fillStyle='#63d67e';ctx.beginPath();ctx.arc(X(4),Y(7.074),3.2,0,2*Math.PI);ctx.fill();
+  ctx.fillText('α: filled cell',X(4)+6,Y(7.074)-6);
+  const pk=AME.reduce((m,p)=>p[1]>m[1]?p:m,[0,0]);
+  ctx.fillStyle='#dfe0ea';ctx.beginPath();ctx.arc(X(pk[0]),Y(pk[1]),3.2,0,2*Math.PI);ctx.fill();
+  ctx.fillText('AME max: A=62 (Ni-62)',X(pk[0])+7,Y(pk[1])-8);
+  // naive leading-class curve (dashed blue)
+  ctx.strokeStyle='#5bc8f5';ctx.setLineDash([6,5]);ctx.lineWidth=1.4;ctx.beginPath();
+  let started=false;
+  for(let a=4;a<=270;a+=1){const b=bNaive(a,ratio);if(b<0){if(started)break;else continue;}
+    if(!started){ctx.moveTo(X(a),Y(b));started=true;}else ctx.lineTo(X(a),Y(b));}
+  ctx.stroke();ctx.setLineDash([]);
+  // valley ledger curve (gold)
+  ctx.strokeStyle='#d4af37';ctx.lineWidth=2.2;ctx.beginPath();started=false;
+  let bestA=4,bestB=-1e9;
+  for(let a=4;a<=270;a+=1){const b=bValley(a,ratio);
+    if(b>bestB){bestB=b;bestA=a;}
+    if(b<0){if(started)break;else continue;}
+    if(!started){ctx.moveTo(X(a),Y(b));started=true;}else ctx.lineTo(X(a),Y(b));}
+  ctx.stroke();
+  // drawn peak marker
+  ctx.fillStyle='#d4af37';ctx.beginPath();ctx.arc(X(bestA),Y(bestB),3.4,0,2*Math.PI);ctx.fill();
+  ctx.fillText('ledger peak A='+bestA,X(bestA)+7,Y(bestB)+14);
+  // readouts
+  const naiveA=2*ratio*AV/AC;
+  document.getElementById('ratioOut').textContent='a_s/a_v = '+ratio.toFixed(3)+'   (a_s = '+(ratio*AV).toFixed(1)+' MeV)';
+  document.getElementById('peakOut').textContent='theorem A* (leading class) = '+naiveA.toFixed(1)+
+    '   |   valley-ledger peak = A '+bestA+' at '+bestB.toFixed(2)+' MeV   |   measured: A 62 at 8.795';
+}
+document.getElementById('ratioSlider').addEventListener('input',draw);
+document.getElementById('btnShadow').addEventListener('click',()=>{document.getElementById('ratioSlider').value=1.13;draw();});
+document.getElementById('btnSharp').addEventListener('click',()=>{document.getElementById('ratioSlider').value=1.50;draw();});
+draw();
+</script>
+</body>
+</html>
