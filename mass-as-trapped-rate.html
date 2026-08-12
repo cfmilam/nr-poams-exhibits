@@ -179,8 +179,11 @@
   You cannot lose <i>stuff</i> by rearranging it. You can lose <i>rate</i>.</p>
 
   <canvas id="chartDisc" class="chart"></canvas>
-  <div class="cap">The closure discount per quantum, in MeV (what the fantasy model tabulates as "binding energy per nucleon"),
-  versus tile count A. Zero for the lone fundamental, deepest at iron-56: 8.79 MeV of rate surrendered per quantum.</div>
+  <div class="cap">The closure discount per quantum versus tile count A — quoted in MeV, the measured record's label
+  (what the fantasy model tabulates as "binding energy per nucleon"). The currency cashes out as rate, not stuff:
+  1 MeV = 1.602×10<sup>−13</sup> J ≡ 1.519×10<sup>21</sup> rad/s of trapped turning ≡ 2.418×10<sup>20</sup> whole closures
+  per second. Zero for the lone fundamental, deepest at iron-56: 8.79 MeV of rate surrendered per quantum —
+  1.34×10<sup>22</sup> rad/s each.</div>
 
   <p>The discount curve is the engine room of the universe:</p>
   <ul>
@@ -380,7 +383,7 @@ function showEl(i){
     ['One-rate law: A·ħω̄/c²', `${d.firstOrder.toFixed(3)} u`],
     ['Measured (AME2020)', `${r.m.toFixed(6)} u &nbsp;=&nbsp; ${fmtExp(d.mKg)} kg`],
     ['Deviation', `${d.devPct>=0?'+':''}${d.devPct.toFixed(3)} %`],
-    ['Closure discount δ', `${(d.delta*100).toFixed(3)} % &nbsp;(${d.dqMeV.toFixed(2)} MeV/quantum)`],
+    ['Closure discount δ', `${(d.delta*100).toFixed(3)} % &nbsp;(${d.dqMeV.toFixed(2)} MeV ≡ ${(d.dqMeV*1.5193).toFixed(1)}×10²¹ rad/s per quantum)`],
     ['Mean rate per quantum ω̄', `${fmtExp(d.omegaBar)} rad/s`],
     ['Total turning rate Ω', `<span class="big">${fmtExp(d.Omega)} rad/s</span>`],
     ['Presents as', `m = ħΩ/c² = ${fmtExp(d.mKg)} kg`],
@@ -456,7 +459,7 @@ function drawCharts(){
     ]});
   const discPts = els.map(r=>({x:r.A, y:calc(r).dqMeV, sym:r.sym, est:r.e}));
   chart('chartDisc', discPts, {
-    color:'#66bb6a', ylabel:'closure discount per quantum (MeV)',
+    color:'#66bb6a', ylabel:'closure discount per quantum (MeV ≡ 1.52×10²¹ rad/s)',
     yticks:[0,2,4,6,8], yfmt:t=>t.toFixed(0),
     marks:[
       {sym:'H',label:'H: no discount (alone)',align:'left',dx:8,dy:0,base:'middle'},
