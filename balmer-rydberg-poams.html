@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spectral Lines — Balmer-Rydberg from First Principles</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         window.MathJax = {
@@ -22,14 +21,14 @@
         }
 
         :root {
-            --bg-dark: #1a1a2e;
-            --bg-darker: #16213e;
-            --accent-gold: #c9a84c;
-            --accent-blue: #4fc3f7;
-            --text-light: #e8e8f0;
-            --text-dim: #a0a0b0;
-            --border: #3a3a5e;
-            --card-bg: #24244a;
+            --bg-dark: #0d0d18;
+            --bg-darker: #10101e;
+            --accent-gold: #d4af37;
+            --accent-blue: #5bc8f5;
+            --text-light: #dfe0ea;
+            --text-dim: #9a9bb0;
+            --border: #26263a;
+            --card-bg: #131322;
             
             /* Spectral line colors */
             --h-alpha: #ff4444;    /* 656nm */
@@ -50,37 +49,40 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Georgia, 'Times New Roman', serif;
             background: var(--bg-dark);
             color: var(--text-light);
-            line-height: 1.6;
+            line-height: 1.65;
             overflow-x: hidden;
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
         }
 
         header {
             text-align: center;
-            padding: 40px 0;
-            background: linear-gradient(135deg, var(--bg-darker), var(--card-bg));
-            border-bottom: 3px solid var(--accent-gold);
-            margin-bottom: 40px;
+            padding: 44px 22px 22px;
+            background: none;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 34px;
         }
 
         h1 {
-            font-size: 3em;
+            font-size: 27px;
+            font-weight: 650;
+            line-height: 1.35;
             color: var(--accent-gold);
             margin-bottom: 10px;
         }
 
         .subtitle {
-            font-size: 1.5em;
-            color: var(--accent-blue);
-            margin-bottom: 20px;
+            font-size: 15px;
+            color: var(--text-dim);
+            max-width: 880px;
+            margin: 0 auto 14px;
         }
 
         .theme-toggle {
@@ -105,23 +107,24 @@
         .section {
             background: var(--card-bg);
             border: 1px solid var(--border);
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border-radius: 10px;
+            padding: 18px 22px;
+            margin-bottom: 24px;
         }
 
         .section h2 {
             color: var(--accent-gold);
-            font-size: 2.2em;
-            margin-bottom: 20px;
-            text-align: center;
+            font-size: 20px;
+            margin-bottom: 14px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 6px;
         }
 
         .section h3 {
             color: var(--accent-blue);
-            font-size: 1.5em;
-            margin: 20px 0 10px 0;
+            font-size: 16.5px;
+            margin: 18px 0 8px 0;
         }
 
         .canvas-container {
@@ -262,11 +265,11 @@
         }
 
         .formula-box {
-            background: var(--card-bg);
-            border: 2px solid var(--accent-blue);
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin: 14px 0;
             text-align: center;
         }
 
