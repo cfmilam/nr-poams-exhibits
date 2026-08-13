@@ -15,12 +15,12 @@
     </script>
     <style>
         :root {
-            --bg-dark: #1a1a2e;
+            --bg-dark: #0d0d18;
             --bg-light: #f5f5f5;
             --text-dark: #eee;
             --text-light: #333;
-            --gold: #c9a84c;
-            --blue: #4fc3f7;
+            --gold: #d4af37;
+            --blue: #5bc8f5;
             --accent: #2d2d4a;
             --accent-light: #e0e0e0;
         }
@@ -408,7 +408,7 @@
       border-bottom-color: rgba(139, 105, 20, 0.25);
     }
     #poams-hub-nav a {
-      color: #c9a84c;
+      color: #d4af37;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
@@ -909,7 +909,7 @@
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
                 
                 // Draw sprocket holes
-                ctx.fillStyle = isDarkTheme ? '#1a1a2e' : '#f5f5f5';
+                ctx.fillStyle = isDarkTheme ? '#0d0d18' : '#f5f5f5';
                 for (let x = 20; x < canvas.width; x += 40) {
                     ctx.fillRect(x, 10, 15, 8);
                     ctx.fillRect(x, canvas.height - 18, 15, 8);
@@ -924,7 +924,7 @@
                     const frameX = (i * frameWidth) - (filmStripFrame * 2) % frameWidth;
                     
                     // Frame border
-                    ctx.strokeStyle = '#c9a84c';
+                    ctx.strokeStyle = '#d4af37';
                     ctx.lineWidth = 2;
                     ctx.strokeRect(frameX, frameY, frameWidth - 10, frameHeight);
                     
@@ -932,13 +932,13 @@
                     const ballX = frameX + 25 + ((filmStripFrame + i * 10) % 50);
                     const ballY = frameY + frameHeight / 2;
                     
-                    ctx.fillStyle = '#4fc3f7';
+                    ctx.fillStyle = '#5bc8f5';
                     ctx.beginPath();
                     ctx.arc(ballX, ballY, 8, 0, 2 * Math.PI);
                     ctx.fill();
                     
                     // Frame number
-                    ctx.fillStyle = '#c9a84c';
+                    ctx.fillStyle = '#d4af37';
                     ctx.font = '12px monospace';
                     ctx.fillText(String((Math.floor(filmStripFrame) + i) % 100), frameX + 5, frameY + frameHeight + 15);
                 }
@@ -993,7 +993,7 @@
                 const distance = parseFloat(document.getElementById('separation').value);
                 
                 // Draw atoms
-                ctx.fillStyle = '#4fc3f7';
+                ctx.fillStyle = '#5bc8f5';
                 ctx.beginPath();
                 ctx.arc(atomA_x, atomY, 20, 0, 2 * Math.PI);
                 ctx.fill();
@@ -1003,14 +1003,14 @@
                 ctx.fill();
                 
                 // Labels
-                ctx.fillStyle = '#c9a84c';
+                ctx.fillStyle = '#d4af37';
                 ctx.font = '16px sans-serif';
                 ctx.fillText('Atom A', atomA_x - 25, atomY - 30);
                 ctx.fillText('Atom B', atomB_x - 25, atomY - 30);
                 
                 if (interactionTriggered) {
                     // Show instantaneous connection (proper time)
-                    ctx.strokeStyle = '#c9a84c';
+                    ctx.strokeStyle = '#d4af37';
                     ctx.lineWidth = 3;
                     ctx.setLineDash([]);
                     ctx.beginPath();
@@ -1029,7 +1029,7 @@
                         ctx.arc(lightX, atomY + 40, 5, 0, 2 * Math.PI);
                         ctx.fill();
                         
-                        ctx.fillStyle = '#4fc3f7';
+                        ctx.fillStyle = '#5bc8f5';
                         ctx.fillText('Observer sees light travel', lightX - 70, atomY + 70);
                     }
                 }
@@ -1037,7 +1037,7 @@
                 if (showingPythagorean) {
                     // Draw Pythagorean triangle
                     const triangleY = atomY + 100;
-                    ctx.strokeStyle = '#c9a84c';
+                    ctx.strokeStyle = '#d4af37';
                     ctx.lineWidth = 2;
                     ctx.setLineDash([]);
                     
@@ -1109,7 +1109,7 @@
                     const timeSinceTouched = Date.now() - particle.touchTime;
                     
                     if (particle.active) {
-                        ctx.fillStyle = '#c9a84c';
+                        ctx.fillStyle = '#d4af37';
                         ctx.strokeStyle = '#ffff00';
                         ctx.lineWidth = 3;
                     } else if (particle.touched && timeSinceTouched < 1000) {
@@ -1117,7 +1117,7 @@
                         ctx.fillStyle = `rgba(79, 195, 247, ${alpha})`;
                         ctx.strokeStyle = 'transparent';
                     } else {
-                        ctx.fillStyle = '#4fc3f7';
+                        ctx.fillStyle = '#5bc8f5';
                         ctx.strokeStyle = 'transparent';
                     }
                     
@@ -1131,7 +1131,7 @@
                     // Show connections during touch
                     if (particle.touched && timeSinceTouched < 200) {
                         if (index < particles.length - 1) {
-                            ctx.strokeStyle = '#c9a84c';
+                            ctx.strokeStyle = '#d4af37';
                             ctx.lineWidth = 2;
                             ctx.beginPath();
                             ctx.moveTo(particle.x, particle.y);
@@ -1235,7 +1235,7 @@
             function drawEPR() {
                 // Einstein's view
                 einsteinCtx.clearRect(0, 0, einsteinCanvas.width, einsteinCanvas.height);
-                einsteinCtx.fillStyle = '#4fc3f7';
+                einsteinCtx.fillStyle = '#5bc8f5';
                 einsteinCtx.beginPath();
                 einsteinCtx.arc(50, 100, 15, 0, 2 * Math.PI);
                 einsteinCtx.fill();
@@ -1256,7 +1256,7 @@
                 
                 // POAMS view
                 poamsCtx.clearRect(0, 0, poamsCanvas.width, poamsCanvas.height);
-                poamsCtx.fillStyle = '#4fc3f7';
+                poamsCtx.fillStyle = '#5bc8f5';
                 poamsCtx.beginPath();
                 poamsCtx.arc(50, 100, 15, 0, 2 * Math.PI);
                 poamsCtx.fill();
@@ -1265,7 +1265,7 @@
                 poamsCtx.fill();
                 
                 if (correlationShowing) {
-                    poamsCtx.strokeStyle = '#c9a84c';
+                    poamsCtx.strokeStyle = '#d4af37';
                     poamsCtx.lineWidth = 3;
                     poamsCtx.setLineDash([]);
                     poamsCtx.beginPath();
@@ -1430,7 +1430,7 @@
                 
                 // Continuum (smooth wave)
                 continuumCtx.clearRect(0, 0, continuumCanvas.width, continuumCanvas.height);
-                continuumCtx.strokeStyle = '#4fc3f7';
+                continuumCtx.strokeStyle = '#5bc8f5';
                 continuumCtx.lineWidth = 2;
                 continuumCtx.beginPath();
                 
@@ -1461,7 +1461,7 @@
                             
                             // Pixel borders
                             if (zoom > 10) {
-                                discretumCtx.strokeStyle = '#c9a84c';
+                                discretumCtx.strokeStyle = '#d4af37';
                                 discretumCtx.lineWidth = 0.5;
                                 discretumCtx.strokeRect(x, y, pixelSize, pixelSize);
                             }
@@ -1469,7 +1469,7 @@
                     }
                 } else {
                     // Smooth approximation at low zoom
-                    discretumCtx.strokeStyle = '#4fc3f7';
+                    discretumCtx.strokeStyle = '#5bc8f5';
                     discretumCtx.lineWidth = 2;
                     discretumCtx.beginPath();
                     
@@ -1533,19 +1533,19 @@
                 const mode = document.getElementById('demonstrationMode').value;
                 
                 // Draw frame border
-                ctx.strokeStyle = '#c9a84c';
+                ctx.strokeStyle = '#d4af37';
                 ctx.lineWidth = 3;
                 ctx.strokeRect(50, 50, canvas.width - 100, canvas.height - 100);
                 
                 // Frame label
-                ctx.fillStyle = '#c9a84c';
+                ctx.fillStyle = '#d4af37';
                 ctx.font = '16px sans-serif';
                 ctx.fillText(`Frame ${currentFrame + 1}`, 60, 40);
                 
                 if (mode === 'individual') {
                     // Show single frame
                     const frame = frameData[currentFrame];
-                    ctx.fillStyle = '#4fc3f7';
+                    ctx.fillStyle = '#5bc8f5';
                     ctx.beginPath();
                     ctx.arc(frame.ball.x, frame.ball.y, 20, 0, 2 * Math.PI);
                     ctx.fill();
@@ -1560,7 +1560,7 @@
                     const nextFrame = frameData[(currentFrame + 1) % frameData.length];
                     
                     // Current frame (solid)
-                    ctx.fillStyle = '#4fc3f7';
+                    ctx.fillStyle = '#5bc8f5';
                     ctx.beginPath();
                     ctx.arc(currentFrame_data.ball.x, currentFrame_data.ball.y, 20, 0, 2 * Math.PI);
                     ctx.fill();
@@ -1572,7 +1572,7 @@
                     ctx.fill();
                     
                     // Action arrow
-                    ctx.strokeStyle = '#c9a84c';
+                    ctx.strokeStyle = '#d4af37';
                     ctx.lineWidth = 3;
                     ctx.setLineDash([5, 5]);
                     ctx.beginPath();
@@ -1581,7 +1581,7 @@
                     ctx.stroke();
                     ctx.setLineDash([]);
                     
-                    ctx.fillStyle = '#c9a84c';
+                    ctx.fillStyle = '#d4af37';
                     ctx.fillText('Action happens BETWEEN frames', 60, canvas.height - 20);
                     
                 } else if (mode === 'continuous') {

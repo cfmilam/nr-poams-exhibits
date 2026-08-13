@@ -25,13 +25,13 @@
     </script>
     <style>
         :root {
-            --bg-dark: #1a1a2e;
+            --bg-dark: #0d0d18;
             --bg-light: #ffffff;
             --text-dark: #e0e0e0;
             --text-light: #2c3e50;
-            --accent-gold: #c9a84c;
-            --accent-blue: #4fc3f7;
-            --card-dark: #2d2d44;
+            --accent-gold: #d4af37;
+            --accent-blue: #5bc8f5;
+            --card-dark: #131322;
             --card-light: #ffffff;
             --border-dark: #444;
             --border-light: #ddd;
@@ -586,8 +586,8 @@
             transition: width 0.4s ease;
         }
 
-        .mode-bar-fill.s-mode { background: linear-gradient(90deg, #c9a84c, #e8d48b); }
-        .mode-bar-fill.p-mode { background: linear-gradient(90deg, #4fc3f7, #81d4fa); }
+        .mode-bar-fill.s-mode { background: linear-gradient(90deg, #d4af37, #e8d48b); }
+        .mode-bar-fill.p-mode { background: linear-gradient(90deg, #5bc8f5, #81d4fa); }
         .mode-bar-fill.d-mode { background: linear-gradient(90deg, #66bb6a, #a5d6a7); }
         .mode-bar-fill.f-mode { background: linear-gradient(90deg, #26c6da, #80deea); }
 
@@ -645,7 +645,7 @@
       border-bottom-color: rgba(139, 105, 20, 0.25);
     }
     #poams-hub-nav a {
-      color: #c9a84c;
+      color: #d4af37;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
@@ -873,7 +873,7 @@
                         <div id="radialDispLabel" style="font-size: 0.75rem; color: #999; margin-top: 2px;">compressed (display)</div>
                     </div>
                     <label style="font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 5px;"><input type="checkbox" id="showGhosts" checked> ghost orientations</label>
-                    <button id="toggleModesBtn" onclick="toggleVortexModes()" style="padding: 6px 14px; border-radius: 6px; border: 1px solid var(--accent, #c9a84c); background: transparent; color: var(--accent, #c9a84c); cursor: pointer; font-size: 0.85rem; font-weight: 600; transition: all 0.2s;">Hide Modes</button>
+                    <button id="toggleModesBtn" onclick="toggleVortexModes()" style="padding: 6px 14px; border-radius: 6px; border: 1px solid var(--accent, #d4af37); background: transparent; color: var(--accent, #d4af37); cursor: pointer; font-size: 0.85rem; font-weight: 600; transition: all 0.2s;">Hide Modes</button>
 
                 </div>
 
@@ -882,8 +882,8 @@
                 </div>
 
                 <div class="vortex-3d-legend">
-                    <div class="legend-3d-item legend-toggle" data-pattern="s" onclick="togglePattern('s', this)" style="cursor:pointer;"><div class="legend-3d-swatch" style="background:#c9a84c;"></div><span>s-pattern (radial)</span></div>
-                    <div class="legend-3d-item legend-toggle" data-pattern="p" onclick="togglePattern('p', this)" style="cursor:pointer;"><div class="legend-3d-swatch" style="background:#4fc3f7;"></div><span>p-pattern (angular)</span></div>
+                    <div class="legend-3d-item legend-toggle" data-pattern="s" onclick="togglePattern('s', this)" style="cursor:pointer;"><div class="legend-3d-swatch" style="background:#d4af37;"></div><span>s-pattern (radial)</span></div>
+                    <div class="legend-3d-item legend-toggle" data-pattern="p" onclick="togglePattern('p', this)" style="cursor:pointer;"><div class="legend-3d-swatch" style="background:#5bc8f5;"></div><span>p-pattern (angular)</span></div>
                     <div class="legend-3d-item legend-toggle" data-pattern="d" onclick="togglePattern('d', this)" style="cursor:pointer;"><div class="legend-3d-swatch" style="background:#66bb6a;"></div><span>d-pattern (higher angular)</span></div>
                     <div class="legend-3d-item legend-toggle" data-pattern="f" onclick="togglePattern('f', this)" style="cursor:pointer;"><div class="legend-3d-swatch" style="background:#26c6da;"></div><span>f-pattern (highest angular)</span></div>
                     <div class="legend-3d-item"><div class="legend-3d-swatch" style="background:rgba(85,85,110,0.5); border:1px dashed #888;"></div><span>ghost — derived-but-unoccupied orientation</span></div>
@@ -1919,7 +1919,7 @@
 
         const SUBMODE_NAMES = ['s','p','d','f'];
         const SUBMODE_CAPACITY = [2,6,10,14];
-        const SUBMODE_COLORS_CSS = ['#c9a84c','#4fc3f7','#66bb6a','#26c6da'];
+        const SUBMODE_COLORS_CSS = ['#d4af37','#5bc8f5','#66bb6a','#26c6da'];
 
         // Build electron configs for all 118 elements.
         // Aufbau filling order with known anomalies.
@@ -2330,7 +2330,7 @@
         // planar core carries the extra ħ (A − Z) as countable twist.
         // No electrons, no lobes, no surfaces — organized turning only.
         // ========================================================================
-        const PHASE_LCOL = { 0:0xc9a84c, 1:0x4fc3f7, 2:0x66bb6a, 3:0x26c6da };   // s gold, p blue, d green, f cyan
+        const PHASE_LCOL = { 0:0xd4af37, 1:0x5bc8f5, 2:0x66bb6a, 3:0x26c6da };   // s gold, p blue, d green, f cyan
         const PHASE_GHOST = 0x55556e;
         const PHASE_DIAG = [[1,1,1],[1,-1,1],[-1,1,1],[-1,-1,1]];
         const PHASE_AXES = [
@@ -2794,7 +2794,7 @@
                 'metalloid': '#66bb6a',
                 'nonmetal': '#ab47bc',
                 'halogen': '#ec407a',
-                'noble': '#c9a84c',
+                'noble': '#d4af37',
                 'lanthanide': '#26c6da',
                 'actinide': '#ef5350'
             };
@@ -2818,7 +2818,7 @@
                 // Scene setup — fixed dark palette in both themes (same decision as the
                 // Vortex canvas: small lit tiles and a gold seam need the void behind them)
                 spiral3D.scene = new THREE.Scene();
-                spiral3D.scene.background = new THREE.Color('#1a1a2e');
+                spiral3D.scene.background = new THREE.Color('#0d0d18');
                 
                 // Camera setup
                 spiral3D.camera = new THREE.PerspectiveCamera(
@@ -3004,7 +3004,7 @@
             
             const axisGeometry = new THREE.BufferGeometry().setFromPoints(points);
             const axisMaterial = new THREE.LineBasicMaterial({ 
-                color: '#c9a84c', // Gold
+                color: '#d4af37', // Gold
                 opacity: 0.9,
                 transparent: true
             });
@@ -3023,7 +3023,7 @@
                 canvas.height = 32;
                 const ctx = canvas.getContext('2d');
                 
-                ctx.fillStyle = '#4fc3f7'; // fixed — dark scene in both themes
+                ctx.fillStyle = '#5bc8f5'; // fixed — dark scene in both themes
                 ctx.font = 'bold 16px Arial';
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'middle';
@@ -3654,7 +3654,7 @@
             const isDark = currentTheme === 'dark';
             
             // Clear canvas
-            ctx.fillStyle = isDark ? '#1a1a2e' : '#ffffff';
+            ctx.fillStyle = isDark ? '#0d0d18' : '#ffffff';
             ctx.fillRect(0, 0, width, height);
             
             // Set up coordinate system
@@ -3663,8 +3663,8 @@
             const plotHeight = height - 2 * margin;
             
             const textColor = isDark ? '#e0e0e0' : '#1a1a1a';
-            const goldColor = isDark ? '#c9a84c' : '#996515';
-            const blueColor = isDark ? '#4fc3f7' : '#0066CC';
+            const goldColor = isDark ? '#d4af37' : '#996515';
+            const blueColor = isDark ? '#5bc8f5' : '#0066CC';
             
             ctx.strokeStyle = textColor;
             ctx.fillStyle = textColor;
@@ -3751,7 +3751,7 @@
             const isDark = currentTheme === 'dark';
             
             // Clear canvas
-            ctx.fillStyle = isDark ? '#1a1a2e' : '#ffffff';
+            ctx.fillStyle = isDark ? '#0d0d18' : '#ffffff';
             ctx.fillRect(0, 0, width, height);
             
             // Set up coordinate system
@@ -3760,8 +3760,8 @@
             const plotHeight = height - 2 * margin;
             
             const textColor = isDark ? '#e0e0e0' : '#1a1a1a';
-            const goldColor = isDark ? '#c9a84c' : '#996515';
-            const blueColor = isDark ? '#4fc3f7' : '#0066CC';
+            const goldColor = isDark ? '#d4af37' : '#996515';
+            const blueColor = isDark ? '#5bc8f5' : '#0066CC';
             
             ctx.strokeStyle = textColor;
             ctx.fillStyle = textColor;
@@ -3888,7 +3888,7 @@
             const isDark = currentTheme === 'dark';
             
             // Clear canvas
-            ctx.fillStyle = isDark ? '#1a1a2e' : '#ffffff';
+            ctx.fillStyle = isDark ? '#0d0d18' : '#ffffff';
             ctx.fillRect(0, 0, width, height);
             
             // Set up coordinate system
@@ -3897,8 +3897,8 @@
             const plotHeight = height - 2 * margin;
             
             const textColor = isDark ? '#e0e0e0' : '#1a1a1a';
-            const goldColor = isDark ? '#c9a84c' : '#996515';
-            const blueColor = isDark ? '#4fc3f7' : '#0066CC';
+            const goldColor = isDark ? '#d4af37' : '#996515';
+            const blueColor = isDark ? '#5bc8f5' : '#0066CC';
             
             ctx.strokeStyle = textColor;
             ctx.fillStyle = textColor;

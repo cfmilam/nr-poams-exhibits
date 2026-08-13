@@ -8,24 +8,24 @@
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#1a1a2e;color:#e0e0e0;font-family:Georgia,serif;min-height:100vh;display:flex;flex-direction:column;align-items:center}
-h1{color:#c9a84c;margin:20px 0 4px;font-size:1.6em;text-align:center}
+body{background:#0d0d18;color:#e0e0e0;font-family:Georgia,serif;min-height:100vh;display:flex;flex-direction:column;align-items:center}
+h1{color:#d4af37;margin:20px 0 4px;font-size:1.6em;text-align:center}
 .subtitle{color:#999;font-size:.85em;margin-bottom:12px;text-align:center}
 .container{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;padding:0 16px 20px;max-width:1100px;width:100%}
 .canvas-wrap{position:relative;flex:1 1 500px;min-width:300px;max-width:600px}
 canvas{width:100%;aspect-ratio:1;background:#12121f;border:1px solid #2a2a4a;border-radius:8px;display:block}
 .panel{flex:1 1 300px;min-width:260px;max-width:420px;display:flex;flex-direction:column;gap:14px}
 .card{background:#12121f;border:1px solid #2a2a4a;border-radius:8px;padding:14px 16px}
-.card h3{color:#c9a84c;font-size:.95em;margin-bottom:8px}
+.card h3{color:#d4af37;font-size:.95em;margin-bottom:8px}
 label{display:block;font-size:.82em;margin-bottom:4px;color:#bbb}
-input[type=range]{width:100%;accent-color:#c9a84c;margin-bottom:2px}
-.val{font-size:.78em;color:#c9a84c;float:right}
-.eq-highlight{color:#c9a84c;font-weight:bold}
-button{background:#c9a84c;color:#1a1a2e;border:none;padding:7px 16px;border-radius:4px;cursor:pointer;font-family:Georgia,serif;font-size:.85em;font-weight:bold}
+input[type=range]{width:100%;accent-color:#d4af37;margin-bottom:2px}
+.val{font-size:.78em;color:#d4af37;float:right}
+.eq-highlight{color:#d4af37;font-weight:bold}
+button{background:#d4af37;color:#0d0d18;border:none;padding:7px 16px;border-radius:4px;cursor:pointer;font-family:Georgia,serif;font-size:.85em;font-weight:bold}
 button:hover{background:#dabb5e}
 .btn-row{display:flex;gap:8px;flex-wrap:wrap}
 .stats{font-size:.82em;line-height:1.7}
-.stats span{color:#c9a84c}
+.stats span{color:#d4af37}
 .explain{font-size:.8em;line-height:1.55;color:#bbb}
 .explain strong{color:#e0e0e0}
 @media(max-width:640px){h1{font-size:1.2em}.panel{min-width:0;max-width:100%}}
@@ -57,7 +57,7 @@ button:hover{background:#dabb5e}
       border-bottom-color: rgba(139, 105, 20, 0.25);
     }
     #poams-hub-nav a {
-      color: #c9a84c;
+      color: #d4af37;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
@@ -128,7 +128,7 @@ button:hover{background:#dabb5e}
 <div id="eqn" style="font-size:.9em">
 $$\left(\frac{du}{d\theta}\right)^{\!2} + u^2 = K^* + \frac{2\mathcal{M}c^2}{\beta^2}\,u + \class{eq-highlight}{2\mathcal{M}\,u^3}$$
 </div>
-<div style="font-size:.78em;color:#999;margin-top:4px">The <span style="color:#c9a84c">$2\mathcal{M}\,u^3$</span> term drives precession.</div>
+<div style="font-size:.78em;color:#999;margin-top:4px">The <span style="color:#d4af37">$2\mathcal{M}\,u^3$</span> term drives precession.</div>
 </div>
 
 <div class="card">
@@ -159,7 +159,7 @@ Current angle: <span id="curAngle">0°</span>
 <h3>About This Exhibit</h3>
 <div class="explain">
 <strong>POAMS</strong> (Principles of Absolute Motion and Statics) derives perihelion precession from orbital time dilation — without invoking Einstein's field equations or curved spacetime geometry.<br><br>
-The key insight: a gravitational potential alters the rate of local clocks, modifying the effective orbital equation. The resulting <span style="color:#c9a84c">$2\mathcal{M}u^3$</span> correction term is identical in form to the GR prediction, producing the same 43 arcseconds/century for Mercury.<br><br>
+The key insight: a gravitational potential alters the rate of local clocks, modifying the effective orbital equation. The resulting <span style="color:#d4af37">$2\mathcal{M}u^3$</span> correction term is identical in form to the GR prediction, producing the same 43 arcseconds/century for Mercury.<br><br>
 Move the <strong>precession slider</strong> to zero to see a closed Newtonian ellipse, then increase it to watch the perihelion advance — the hallmark signature that confirmed general relativity, here derived from first principles in POAMS.
 </div>
 </div>
@@ -305,7 +305,7 @@ function draw() {
   const [cx, cy] = toScreen(0, 0, w, h);
   const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, 12);
   grad.addColorStop(0, '#ffd966');
-  grad.addColorStop(0.6, '#c9a84c');
+  grad.addColorStop(0.6, '#d4af37');
   grad.addColorStop(1, 'transparent');
   ctx.beginPath();
   ctx.arc(cx, cy, 12, 0, 2*Math.PI);

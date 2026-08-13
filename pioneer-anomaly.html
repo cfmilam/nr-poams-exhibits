@@ -21,11 +21,11 @@
         }
 
         :root {
-            --bg-primary: #1a1a2e;
-            --bg-secondary: #16213e;
+            --bg-primary: #0d0d18;
+            --bg-secondary: #10101e;
             --bg-tertiary: #0f3460;
-            --gold: #c9a84c;
-            --blue: #4fc3f7;
+            --gold: #d4af37;
+            --blue: #5bc8f5;
             --text-primary: #ffffff;
             --text-secondary: #b0b3c1;
             --border: #2a2a3e;
@@ -428,7 +428,7 @@
       border-bottom-color: rgba(139, 105, 20, 0.25);
     }
     #poams-hub-nav a {
-      color: #c9a84c;
+      color: #d4af37;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
@@ -874,8 +874,8 @@
             
             // Draw planet orbits (for reference)
             const planets = [
-                {name: 'Earth', distance: 30, color: '#4fc3f7'},
-                {name: 'Jupiter', distance: 150, color: '#c9a84c'},
+                {name: 'Earth', distance: 30, color: '#5bc8f5'},
+                {name: 'Jupiter', distance: 150, color: '#d4af37'},
             ];
             
             planets.forEach(planet => {
@@ -916,7 +916,7 @@
             
             // Draw current probe position
             const currentPos = getCurrentProbePosition();
-            ctx.fillStyle = '#c9a84c';
+            ctx.fillStyle = '#d4af37';
             ctx.beginPath();
             ctx.arc(centerX + currentPos.x * scale, centerY + currentPos.y * scale, 8, 0, 2 * Math.PI);
             ctx.fill();
@@ -1072,7 +1072,7 @@
             
             // Draw orbital path
             const orbitRadius = orbitalL * 20;
-            ctx.strokeStyle = '#4fc3f7';
+            ctx.strokeStyle = '#5bc8f5';
             ctx.lineWidth = 2;
             ctx.setLineDash([5, 5]);
             ctx.beginPath();
@@ -1085,22 +1085,22 @@
             const probeX = width/2 + orbitRadius * Math.cos(angle);
             const probeY = height/2 + orbitRadius * Math.sin(angle);
             
-            ctx.fillStyle = '#c9a84c';
+            ctx.fillStyle = '#d4af37';
             ctx.beginPath();
             ctx.arc(probeX, probeY, 8, 0, 2 * Math.PI);
             ctx.fill();
             
             // Draw spin indication
             const spinSize = spinL * 5;
-            ctx.strokeStyle = '#c9a84c';
+            ctx.strokeStyle = '#d4af37';
             ctx.lineWidth = 3;
             ctx.beginPath();
             ctx.arc(probeX, probeY, spinSize, 0, 2 * Math.PI);
             ctx.stroke();
             
             // Draw momentum vectors
-            drawMomentumVector(ctx, probeX, probeY, orbitalL * 10, angle + Math.PI/2, '#4fc3f7');
-            drawMomentumVector(ctx, probeX, probeY, spinL * 15, 0, '#c9a84c');
+            drawMomentumVector(ctx, probeX, probeY, orbitalL * 10, angle + Math.PI/2, '#5bc8f5');
+            drawMomentumVector(ctx, probeX, probeY, spinL * 15, 0, '#d4af37');
             
             // Update displays
             document.getElementById('orbitalValue').textContent = orbitalL.toFixed(1);
@@ -1194,7 +1194,7 @@
             }
             
             if (curves.includes('observed')) {
-                drawObservedData(ctx, points.observed, '#4fc3f7', width, height, 'Observed Data');
+                drawObservedData(ctx, points.observed, '#5bc8f5', width, height, 'Observed Data');
             }
             
             // Legend
@@ -1300,7 +1300,7 @@
             }
             
             if (curves.includes('observed')) {
-                ctx.fillStyle = '#4fc3f7';
+                ctx.fillStyle = '#5bc8f5';
                 ctx.beginPath();
                 ctx.arc(x + 10, currentY, 3, 0, 2 * Math.PI);
                 ctx.fill();
@@ -1363,7 +1363,7 @@
                 const xScale = (width - 70) / 100;
                 const yScale = (height - 70) / 12;
                 
-                ctx.fillStyle = '#4fc3f7';
+                ctx.fillStyle = '#5bc8f5';
                 dataPoints.forEach(point => {
                     const x = 50 + point.x * xScale;
                     const y = height - 50 - point.y * yScale;
@@ -1373,7 +1373,7 @@
                 });
                 
                 // Error bars
-                ctx.strokeStyle = '#4fc3f7';
+                ctx.strokeStyle = '#5bc8f5';
                 ctx.lineWidth = 2;
                 dataPoints.forEach(point => {
                     const x = 50 + point.x * xScale;

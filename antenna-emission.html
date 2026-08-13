@@ -16,11 +16,11 @@
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <style>
 :root{
-  --bg:#1a1a2e; --bg2:#16213e; --bg3:#0f172a;
+  --bg:#0d0d18; --bg2:#10101e; --bg3:#0f172a;
   --surface:rgba(255,255,255,0.04); --surface2:rgba(255,255,255,0.07);
   --border:rgba(255,255,255,0.08);
   --fg:#e8e4d8; --fg2:#a09880;
-  --gold:#c9a84c; --gold2:#e8c96a; --blue:#4fc3f7; --red:#e8735a;
+  --gold:#d4af37; --gold2:#e8c96a; --blue:#5bc8f5; --red:#e8735a;
   --radius:12px; --shadow:0 8px 32px rgba(0,0,0,0.4); --shadow-h:0 16px 48px rgba(201,168,76,0.15);
   --transition:all .3s cubic-bezier(.4,0,.2,1);
 }
@@ -141,7 +141,7 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:3rem 2re
       border-bottom-color: rgba(139, 105, 20, 0.25);
     }
     #poams-hub-nav a {
-      color: #c9a84c;
+      color: #d4af37;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
@@ -458,7 +458,7 @@ document.getElementById('theme-btn').addEventListener('click', function(){
   let t=0;
   function css(v){return getComputedStyle(document.documentElement).getPropertyValue(v).trim();}
   function frame(){
-    const gold=css('--gold')||'#c9a84c', blue=css('--blue')||'#4fc3f7', fg2=css('--fg2')||'#a09880';
+    const gold=css('--gold')||'#d4af37', blue=css('--blue')||'#5bc8f5', fg2=css('--fg2')||'#a09880';
     ctx.clearRect(0,0,W,H);
     // expanding iso-phase rings (banked/handed-off AM)
     const speed=1.4, spacing=46, maxR=Math.hypot(W,H)/2;

@@ -7,10 +7,10 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
         :root {
-            --primary-bg: #1a1a2e;
-            --secondary-bg: #16213e;
-            --accent-gold: #c9a84c;
-            --accent-blue: #4fc3f7;
+            --primary-bg: #0d0d18;
+            --secondary-bg: #10101e;
+            --accent-gold: #d4af37;
+            --accent-blue: #5bc8f5;
             --text-primary: #ffffff;
             --text-secondary: #b8b8b8;
             --border: #333;
@@ -388,7 +388,7 @@
       border-bottom-color: rgba(139, 105, 20, 0.25);
     }
     #poams-hub-nav a {
-      color: #c9a84c;
+      color: #d4af37;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
@@ -779,7 +779,7 @@
             updatePieChart();
         }
 
-        function animateOrbit(canvasId, radius, speed, label, color = '#c9a84c') {
+        function animateOrbit(canvasId, radius, speed, label, color = '#d4af37') {
             const canvas = document.getElementById(canvasId);
             const ctx = canvas.getContext('2d');
             const centerX = canvas.width / 2;
@@ -929,7 +929,7 @@
             
             if (radius > 2) {
                 // Draw orbit
-                ctx.strokeStyle = '#c9a84c40';
+                ctx.strokeStyle = '#d4af3740';
                 ctx.lineWidth = 1;
                 ctx.beginPath();
                 ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
@@ -942,7 +942,7 @@
                 ctx.fill();
                 
                 // Draw electron
-                ctx.fillStyle = '#4fc3f7';
+                ctx.fillStyle = '#5bc8f5';
                 ctx.beginPath();
                 ctx.arc(centerX + radius, centerY, 3, 0, 2 * Math.PI);
                 ctx.fill();
@@ -984,8 +984,8 @@
             const { r: rPlanet, v: vPlanet } = calculateValues(0);
             const { r: rAtom, v: vAtom } = calculateValues(99.99);
             
-            animateOrbit('planetCanvas', rPlanet, vPlanet / 1e30, 'Planetary', '#4fc3f7');
-            animateOrbit('atomCanvas', rAtom, vAtom / 1e3, 'Atomic', '#c9a84c');
+            animateOrbit('planetCanvas', rPlanet, vPlanet / 1e30, 'Planetary', '#5bc8f5');
+            animateOrbit('atomCanvas', rAtom, vAtom / 1e3, 'Atomic', '#d4af37');
             
             // Trigger MathJax rendering
             if (window.MathJax) {

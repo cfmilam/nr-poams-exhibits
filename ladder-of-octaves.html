@@ -16,15 +16,15 @@
     
     <style>
         :root {
-            --bg-dark: #1a1a2e;
+            --bg-dark: #0d0d18;
             --bg-light: #ffffff;
-            --text-dark: #e0e0e0;
+            --text-dark: #dfe0ea;
             --text-light: #2c3e50;
-            --accent-gold: #c9a84c;
-            --accent-blue: #4fc3f7;
-            --card-dark: #2d2d44;
+            --accent-gold: #d4af37;
+            --accent-blue: #5bc8f5;
+            --card-dark: #131322;
             --card-light: #ffffff;
-            --border-dark: #444;
+            --border-dark: #26263a;
             --border-light: #ddd;
             --shadow-dark: rgba(0,0,0,0.3);
             --shadow-light: rgba(0,0,0,0.1);
@@ -407,7 +407,7 @@
       border-bottom-color: rgba(139, 105, 20, 0.25);
     }
     #poams-hub-nav a {
-      color: #c9a84c;
+      color: #d4af37;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
@@ -455,7 +455,7 @@
 .theme-toggle,#theme-btn{position:fixed !important;top:54px;right:12px;z-index:1200;width:40px;height:40px;padding:0;border:none;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;line-height:1;cursor:pointer;background:var(--accent-gold,var(--accent,var(--gold,#8b6914)));color:var(--bg,var(--bg-dark,var(--bg-primary,#ffffff)));box-shadow:0 2px 8px rgba(0,0,0,.18);}
 </style>
 </head>
-<body data-theme="light">
+<body data-theme="dark">
 <div id="poams-hub-nav">
   <a href="./balmer-rydberg-poams.html" title="Spectral Lines">← <span class="phn-hide-sm">Spectral Lines</span></a>
   <div class="phn-center">
@@ -780,11 +780,11 @@
         function getThemeColors() {
             const theme = document.body.getAttribute('data-theme');
             return {
-                bg: theme === 'dark' ? '#1a1a2e' : '#f8f9fa',
+                bg: theme === 'dark' ? '#0d0d18' : '#f8f9fa',
                 text: theme === 'dark' ? '#e0e0e0' : '#2c3e50',
                 grid: theme === 'dark' ? '#444' : '#ddd',
-                tau: '#c9a84c',
-                tau10: '#4fc3f7'
+                tau: '#d4af37',
+                tau10: '#5bc8f5'
             };
         }
 

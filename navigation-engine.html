@@ -7,7 +7,7 @@
 <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},svg:{fontCache:'global'}}</script>
 <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 <style>
-:root{--bg:#1a1a2e;--bg2:#16213e;--gold:#c9a84c;--blue:#4fc3f7;--fg:#e0e0e0;--dim:#a0a0b0;--border:#3a3a5e;--card:#24244a;--good:#66d996;--bad:#ff8585}
+:root{--bg:#0d0d18;--bg2:#10101e;--gold:#d4af37;--blue:#5bc8f5;--fg:#dfe0ea;--dim:#9a9bb0;--border:#26263a;--card:#131322;--good:#63d67e;--bad:#e06060}
 [data-theme="light"]{--bg:#ffffff;--bg2:#f3f4f6;--gold:#b8860b;--blue:#0277bd;--fg:#212529;--dim:#6c757d;--border:#dee2e6;--card:#ffffff}
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:var(--bg);color:var(--fg);font-family:Georgia,'Times New Roman',serif;line-height:1.65;padding:0 0 4rem}
@@ -237,7 +237,7 @@ function computeB(){
     `<div><span class="k">state</span><span class="v">${state}</span></div>`;
   if(window.MathJax&&MathJax.typesetPromise)MathJax.typesetPromise([$('outB')]);
   const g=$('wgauge');const pct=Math.max(2,Math.min(100,factor/1.5*100));
-  g.style.width=pct+'%';g.style.background=dW>0.5?'linear-gradient(90deg,#c9a84c,#ff8585)':dW<-0.5?'linear-gradient(90deg,#4fc3f7,#66d996)':'linear-gradient(90deg,#4fc3f7,#c9a84c)';
+  g.style.width=pct+'%';g.style.background=dW>0.5?'linear-gradient(90deg,#d4af37,#ff8585)':dW<-0.5?'linear-gradient(90deg,#5bc8f5,#66d996)':'linear-gradient(90deg,#5bc8f5,#d4af37)';
   drawSpin(ks,th);
 }
 function drawSpin(ks,th){

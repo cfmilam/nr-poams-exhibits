@@ -7,13 +7,13 @@
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#1a1a2e;color:#e0e0e0;font-family:Georgia,serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:1rem}
-h1{color:#c9a84c;font-size:1.6rem;margin-bottom:.5rem;text-align:center}
+body{background:#0d0d18;color:#e0e0e0;font-family:Georgia,serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:1rem}
+h1{color:#d4af37;font-size:1.6rem;margin-bottom:.5rem;text-align:center}
 .subtitle{color:#999;font-size:.85rem;margin-bottom:1rem;text-align:center}
-.explanation{max-width:720px;background:#16213e;border:1px solid #0f3460;border-radius:8px;padding:1rem 1.2rem;margin-bottom:1rem;font-size:.9rem;line-height:1.55}
+.explanation{max-width:720px;background:#10101e;border:1px solid #0f3460;border-radius:8px;padding:1rem 1.2rem;margin-bottom:1rem;font-size:.9rem;line-height:1.55}
 .explanation p{margin-bottom:.5rem}
-.eq-label{color:#c9a84c;font-weight:bold}
-.blue{color:#4fc3f7}.gold{color:#c9a84c}
+.eq-label{color:#d4af37;font-weight:bold}
+.blue{color:#5bc8f5}.gold{color:#d4af37}
 
 .main-area{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;width:100%;max-width:900px}
 canvas{background:#0d1117;border-radius:8px;border:1px solid #222}
@@ -21,34 +21,34 @@ canvas{background:#0d1117;border-radius:8px;border:1px solid #222}
 
 .clocks{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-bottom:.5rem}
 .clock-box{background:#0d1117;border-radius:8px;padding:.8rem 1rem;text-align:center;min-width:200px;flex:1;border:2px solid #333}
-.clock-box.dst{border-color:#4fc3f7}
-.clock-box.proper.blue-mode{border-color:#4fc3f7}
-.clock-box.proper.gold-mode{border-color:#c9a84c}
+.clock-box.dst{border-color:#5bc8f5}
+.clock-box.proper.blue-mode{border-color:#5bc8f5}
+.clock-box.proper.gold-mode{border-color:#d4af37}
 .clock-label{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.3rem;color:#999}
 .clock-val{font-size:2rem;font-variant-numeric:tabular-nums;font-family:'Courier New',monospace;letter-spacing:.05em}
-.clock-box.dst .clock-val{color:#4fc3f7}
-.clock-box.proper.blue-mode .clock-val{color:#4fc3f7}
-.clock-box.proper.gold-mode .clock-val{color:#c9a84c}
+.clock-box.dst .clock-val{color:#5bc8f5}
+.clock-box.proper.blue-mode .clock-val{color:#5bc8f5}
+.clock-box.proper.gold-mode .clock-val{color:#d4af37}
 
-.controls{background:#16213e;border-radius:8px;padding:.8rem 1rem;border:1px solid #0f3460}
+.controls{background:#10101e;border-radius:8px;padding:.8rem 1rem;border:1px solid #0f3460}
 .controls label{font-size:.85rem;display:block;margin-bottom:.3rem}
-.controls input[type=range]{width:100%;accent-color:#c9a84c;margin-bottom:.2rem}
+.controls input[type=range]{width:100%;accent-color:#d4af37;margin-bottom:.2rem}
 .range-info{font-size:.78rem;color:#999;display:flex;justify-content:space-between}
 
 .toggle-btn{display:inline-block;padding:.5rem 1rem;border:none;border-radius:6px;cursor:pointer;font-family:Georgia,serif;font-size:.85rem;transition:background .2s,color .2s;margin-top:.3rem;width:100%}
-.toggle-btn.velocity{background:#1a3a5c;color:#4fc3f7;border:1px solid #4fc3f7}
-.toggle-btn.orbital{background:#3a2e1a;color:#c9a84c;border:1px solid #c9a84c}
+.toggle-btn.velocity{background:#1a3a5c;color:#5bc8f5;border:1px solid #5bc8f5}
+.toggle-btn.orbital{background:#3a2e1a;color:#d4af37;border:1px solid #d4af37}
 
 .info-box{background:#0d1117;border-radius:8px;padding:.7rem 1rem;font-size:.85rem;line-height:1.5;border:1px solid #333}
 .info-box .factor{font-size:1.3rem;font-weight:bold}
-.info-box .factor.blue{color:#4fc3f7}.info-box .factor.gold{color:#c9a84c}
+.info-box .factor.blue{color:#5bc8f5}.info-box .factor.gold{color:#d4af37}
 
 .reset-btn{padding:.4rem .8rem;border:1px solid #555;background:transparent;color:#e0e0e0;border-radius:4px;cursor:pointer;font-family:Georgia,serif;font-size:.8rem;margin-top:.3rem}
 .reset-btn:hover{background:#333}
 
 .speed-controls{display:flex;gap:.5rem;align-items:center;margin-top:.3rem;font-size:.8rem}
 .speed-controls button{padding:.2rem .5rem;border:1px solid #555;background:transparent;color:#e0e0e0;border-radius:4px;cursor:pointer;font-family:Georgia,serif;font-size:.78rem}
-.speed-controls button.active{background:#c9a84c;color:#1a1a2e;border-color:#c9a84c}
+.speed-controls button.active{background:#d4af37;color:#0d0d18;border-color:#d4af37}
 
 @media(max-width:600px){
   canvas{width:100%!important;height:auto!important}
@@ -83,7 +83,7 @@ canvas{background:#0d1117;border-radius:8px;border:1px solid #222}
       border-bottom-color: rgba(139, 105, 20, 0.25);
     }
     #poams-hub-nav a {
-      color: #c9a84c;
+      color: #d4af37;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
@@ -240,7 +240,7 @@ canvas{background:#0d1117;border-radius:8px;border:1px solid #222}
     const r = +radiusSlider.value;
     const f = getDilationFactor(r);
     const col = mode==='orbital'?'gold':'blue';
-    const colHex = mode==='orbital'?'#c9a84c':'#4fc3f7';
+    const colHex = mode==='orbital'?'#d4af37':'#5bc8f5';
 
     factorVal.textContent = f.toFixed(6);
     factorVal.className = 'factor '+col;
@@ -260,7 +260,7 @@ canvas{background:#0d1117;border-radius:8px;border:1px solid #222}
     const r = +radiusSlider.value;
     const orbitR = 20 + (r-10)*1.3; // pixel radius
     const f = getDilationFactor(r);
-    const colHex = mode==='orbital'?'#c9a84c':'#4fc3f7';
+    const colHex = mode==='orbital'?'#d4af37':'#5bc8f5';
 
     ctx.clearRect(0,0,W,H);
 

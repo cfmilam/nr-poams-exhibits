@@ -8,30 +8,30 @@
 <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#1a1a2e;color:#e0e0e0;font-family:Georgia,serif;overflow-x:hidden}
-h1{text-align:center;color:#c9a84c;padding:20px 10px 4px;font-size:clamp(1.2rem,3.5vw,1.8rem)}
+body{background:#0d0d18;color:#e0e0e0;font-family:Georgia,serif;overflow-x:hidden}
+h1{text-align:center;color:#d4af37;padding:20px 10px 4px;font-size:clamp(1.2rem,3.5vw,1.8rem)}
 .subtitle{text-align:center;color:#888;font-size:0.95rem;margin-bottom:12px;padding:0 10px}
 .container{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;padding:10px 16px;max-width:1200px;margin:0 auto}
 .canvas-wrap{position:relative;flex:1 1 500px;min-width:300px;max-width:700px}
 canvas{width:100%;aspect-ratio:1;background:#12122a;border-radius:8px;border:1px solid #2a2a4a;display:block}
 .panel{flex:0 1 340px;min-width:260px;display:flex;flex-direction:column;gap:12px}
 .card{background:#12122a;border:1px solid #2a2a4a;border-radius:8px;padding:14px}
-.card h3{color:#c9a84c;font-size:0.95rem;margin-bottom:8px}
+.card h3{color:#d4af37;font-size:0.95rem;margin-bottom:8px}
 label{display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;margin-bottom:4px}
-input[type=range]{width:100%;accent-color:#c9a84c;margin-bottom:8px}
+input[type=range]{width:100%;accent-color:#d4af37;margin-bottom:8px}
 .clocks{display:flex;gap:12px}
-.clock-box{flex:1;text-align:center;padding:10px;border-radius:6px;background:#1a1a2e}
+.clock-box{flex:1;text-align:center;padding:10px;border-radius:6px;background:#0d0d18}
 .clock-box .label{font-size:0.75rem;color:#888;margin-bottom:2px}
 .clock-box .time{font-size:1.4rem;font-variant-numeric:tabular-nums;font-family:'Courier New',monospace;color:#e0e0e0}
-.clock-box.proper .time{color:#c9a84c}
-.stat{display:flex;justify-content:space-between;font-size:0.85rem;padding:2px 0;border-bottom:1px solid #1a1a2e}
-.stat .val{color:#c9a84c;font-variant-numeric:tabular-nums;font-family:'Courier New',monospace}
+.clock-box.proper .time{color:#d4af37}
+.stat{display:flex;justify-content:space-between;font-size:0.85rem;padding:2px 0;border-bottom:1px solid #0d0d18}
+.stat .val{color:#d4af37;font-variant-numeric:tabular-nums;font-family:'Courier New',monospace}
 .explanation{max-width:1200px;margin:16px auto;padding:10px 20px;font-size:0.9rem;line-height:1.6;color:#aaa}
-.explanation em{color:#c9a84c;font-style:normal}
+.explanation em{color:#d4af37;font-style:normal}
 .btn-row{display:flex;gap:8px}
-.btn{flex:1;padding:8px;border:1px solid #c9a84c;background:transparent;color:#c9a84c;border-radius:4px;cursor:pointer;font-family:Georgia,serif;font-size:0.85rem}
-.btn:hover{background:#c9a84c22}
-.btn.active{background:#c9a84c33}
+.btn{flex:1;padding:8px;border:1px solid #d4af37;background:transparent;color:#d4af37;border-radius:4px;cursor:pointer;font-family:Georgia,serif;font-size:0.85rem}
+.btn:hover{background:#d4af3722}
+.btn.active{background:#d4af3733}
 .legend{display:flex;align-items:center;gap:6px;font-size:0.75rem;margin-top:4px}
 .legend-bar{height:10px;flex:1;border-radius:3px}
 </style>
@@ -62,7 +62,7 @@ input[type=range]{width:100%;accent-color:#c9a84c;margin-bottom:8px}
       border-bottom-color: rgba(139, 105, 20, 0.25);
     }
     #poams-hub-nav a {
-      color: #c9a84c;
+      color: #d4af37;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
@@ -347,12 +347,12 @@ function frame(ts) {
   // Central mass
   const massR = Math.max(6, W * 0.02);
   const grd = ctx.createRadialGradient(cx, cy, 0, cx, cy, massR * 3);
-  grd.addColorStop(0, '#c9a84c');
-  grd.addColorStop(0.3, '#c9a84c88');
+  grd.addColorStop(0, '#d4af37');
+  grd.addColorStop(0.3, '#d4af3788');
   grd.addColorStop(1, 'transparent');
   ctx.fillStyle = grd;
   ctx.beginPath(); ctx.arc(cx, cy, massR*3, 0, Math.PI*2); ctx.fill();
-  ctx.fillStyle = '#c9a84c';
+  ctx.fillStyle = '#d4af37';
   ctx.beginPath(); ctx.arc(cx, cy, massR, 0, Math.PI*2); ctx.fill();
 
   // Orbiting particle

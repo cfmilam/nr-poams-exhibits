@@ -23,13 +23,13 @@
     
     <style>
         :root {
-            --bg-primary: #1a1a2e;
-            --bg-secondary: #16213e;
+            --bg-primary: #0d0d18;
+            --bg-secondary: #10101e;
             --bg-tertiary: #0f172a;
             --text-primary: #ffffff;
             --text-secondary: #cbd5e1;
-            --accent-gold: #c9a84c;
-            --accent-blue: #4fc3f7;
+            --accent-gold: #d4af37;
+            --accent-blue: #5bc8f5;
             --accent-green: #4ade80;
             --accent-red: #ef4444;
             --border-color: #334155;
@@ -446,7 +446,7 @@
       border-bottom-color: rgba(139, 105, 20, 0.25);
     }
     #poams-hub-nav a {
-      color: #c9a84c;
+      color: #d4af37;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
@@ -832,7 +832,7 @@
                 };
             }
 
-            drawLine3D(x1, y1, z1, x2, y2, z2, color = '#4fc3f7', width = 1) {
+            drawLine3D(x1, y1, z1, x2, y2, z2, color = '#5bc8f5', width = 1) {
                 let p1 = this.project3D(x1, y1, z1);
                 let p2 = this.project3D(x2, y2, z2);
                 
@@ -914,7 +914,7 @@
                     let s1 = this.velocity * t1;
                     let s2 = this.velocity * t2;
                     
-                    this.drawLine3D(s1, tau1, 0, s2, tau2, 0, '#4fc3f7', 3);
+                    this.drawLine3D(s1, tau1, 0, s2, tau2, 0, '#5bc8f5', 3);
                 }
                 
                 // Return leg
@@ -927,12 +927,12 @@
                     let s1 = distance - this.velocity * (t1 - outboundTime);
                     let s2 = distance - this.velocity * (t2 - outboundTime);
                     
-                    this.drawLine3D(s1, tau1, 0, s2, tau2, 0, '#4fc3f7', 3);
+                    this.drawLine3D(s1, tau1, 0, s2, tau2, 0, '#5bc8f5', 3);
                 }
                 
                 // Highlight the turnaround point
                 let turnTau = outboundTime / gamma;
-                this.drawPoint3D(distance, turnTau, 0, '#c9a84c', 6);
+                this.drawPoint3D(distance, turnTau, 0, '#d4af37', 6);
             }
 
             drawPoint3D(x, y, z, color, size) {
@@ -961,7 +961,7 @@
                 this.ctx.fillText('Earthbound', earthLabel.x, earthLabel.y);
                 
                 let travelerLabel = this.project3D(1.5, 1, 0);
-                this.ctx.fillStyle = '#4fc3f7';
+                this.ctx.fillStyle = '#5bc8f5';
                 this.ctx.fillText('Traveler', travelerLabel.x, travelerLabel.y);
             }
 
@@ -1036,7 +1036,7 @@
             ];
             
             // Draw triangle
-            ctx.strokeStyle = '#4fc3f7';
+            ctx.strokeStyle = '#5bc8f5';
             ctx.lineWidth = 3;
             ctx.beginPath();
             ctx.moveTo(vertices[0].x, vertices[0].y);
@@ -1075,12 +1075,12 @@
             ctx.fillText('s/c (distance-time)', vertices[0].x + (vertices[2].x - vertices[0].x) / 2, vertices[0].y + 20);
             
             // t side (blue) - hypotenuse
-            ctx.strokeStyle = '#4fc3f7';
+            ctx.strokeStyle = '#5bc8f5';
             ctx.beginPath();
             ctx.moveTo(vertices[1].x, vertices[1].y);
             ctx.lineTo(vertices[2].x, vertices[2].y);
             ctx.stroke();
-            ctx.fillStyle = '#4fc3f7';
+            ctx.fillStyle = '#5bc8f5';
             ctx.textAlign = 'left';
             let midX = vertices[1].x + (vertices[2].x - vertices[1].x) / 2;
             let midY = vertices[1].y + (vertices[2].y - vertices[1].y) / 2;
@@ -1293,7 +1293,7 @@
             ctx.stroke();
             
             // Traveling twin (with kink)
-            ctx.strokeStyle = '#4fc3f7';
+            ctx.strokeStyle = '#5bc8f5';
             ctx.lineWidth = 4;
             ctx.beginPath();
             ctx.moveTo(centerX, centerY + 2 * scale); // Start
@@ -1302,7 +1302,7 @@
             ctx.stroke();
             
             // Highlight the turnaround point
-            ctx.fillStyle = '#c9a84c';
+            ctx.fillStyle = '#d4af37';
             ctx.beginPath();
             ctx.arc(centerX + 1.5 * scale, centerY, 8, 0, 2 * Math.PI);
             ctx.fill();
@@ -1320,10 +1320,10 @@
             ctx.fillStyle = '#4ade80';
             ctx.fillText('Earthbound Twin', centerX - 80, centerY - 2.5 * scale);
             
-            ctx.fillStyle = '#4fc3f7';
+            ctx.fillStyle = '#5bc8f5';
             ctx.fillText('Traveling Twin', centerX + 100, centerY - 1.5 * scale);
             
-            ctx.fillStyle = '#c9a84c';
+            ctx.fillStyle = '#d4af37';
             ctx.fillText('Turnaround', centerX + 1.5 * scale + 50, centerY - 20);
             ctx.fillText('(Acceleration)', centerX + 1.5 * scale + 50, centerY - 5);
         }

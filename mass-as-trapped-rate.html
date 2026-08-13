@@ -14,7 +14,7 @@
 <style>
   :root{
     --bg:#0d0d18; --card:#1c1c30; --text:#e8e8f0; --muted:#9a9ab0;
-    --gold:#c9a84c; --blue:#4fc3f7; --green:#66bb6a; --cyan:#26c6da; --red:#ef5350; --edge:#2c2c46;
+    --gold:#d4af37; --blue:#5bc8f5; --green:#66bb6a; --cyan:#26c6da; --red:#ef5350; --edge:#2c2c46;
   }
   *{box-sizing:border-box;}
   body{margin:0;background:var(--bg);color:var(--text);
@@ -461,7 +461,7 @@ function chart(canvasId, pts, opts){
   opts.marks.forEach(mk=>{
     const p = pts.find(q=>q.sym===mk.sym);
     if(!p) return;
-    g.fillStyle='#c9a84c'; g.beginPath(); g.arc(X(p.x),Y(p.y),3.6,0,7); g.fill();
+    g.fillStyle='#d4af37'; g.beginPath(); g.arc(X(p.x),Y(p.y),3.6,0,7); g.fill();
     g.textAlign=mk.align||'center'; g.textBaseline=mk.base||'bottom';
     g.fillText(mk.label, X(p.x)+(mk.dx||0), Y(p.y)+(mk.dy||-7));
   });
@@ -469,7 +469,7 @@ function chart(canvasId, pts, opts){
 function drawCharts(){
   const devPts = els.map(r=>({x:r.A, y:calc(r).devPct, sym:r.sym, est:r.e}));
   chart('chartDev', devPts, {
-    color:'#4fc3f7', ylabel:'(m/A − u)/u  in %',
+    color:'#5bc8f5', ylabel:'(m/A − u)/u  in %',
     yticks:[0,0.2,0.4,0.6,0.8], yfmt:t=>t.toFixed(1)+'%',
     marks:[
       {sym:'H',label:'H: free fundamental, full fare',align:'left',dx:8,dy:2,base:'middle'},

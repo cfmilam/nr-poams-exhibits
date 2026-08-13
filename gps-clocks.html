@@ -8,19 +8,19 @@
 <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#1a1a2e;color:#e0e0e0;font-family:Georgia,serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:20px}
-h1{color:#c9a84c;font-size:1.8em;margin-bottom:4px;text-align:center}
+body{background:#0d0d18;color:#e0e0e0;font-family:Georgia,serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:20px}
+h1{color:#d4af37;font-size:1.8em;margin-bottom:4px;text-align:center}
 .subtitle{color:#999;font-size:.9em;margin-bottom:20px;text-align:center}
 .container{max-width:1000px;width:100%;display:flex;flex-direction:column;gap:16px}
 .row{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
-.panel{background:#16213e;border:1px solid #333;border-radius:10px;padding:16px;flex:1;min-width:280px}
-.panel h2{color:#c9a84c;font-size:1.1em;margin-bottom:10px;border-bottom:1px solid #333;padding-bottom:6px}
+.panel{background:#10101e;border:1px solid #333;border-radius:10px;padding:16px;flex:1;min-width:280px}
+.panel h2{color:#d4af37;font-size:1.1em;margin-bottom:10px;border-bottom:1px solid #333;padding-bottom:6px}
 canvas{display:block;margin:0 auto;border-radius:10px}
 .clock-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
 .clock-card{background:#0f1a30;border:1px solid #444;border-radius:8px;padding:14px;text-align:center;flex:1;min-width:200px}
-.clock-card h3{font-size:.85em;color:#c9a84c;margin-bottom:6px}
+.clock-card h3{font-size:.85em;color:#d4af37;margin-bottom:6px}
 .clock-time{font-family:'Courier New',monospace;font-size:1.4em;color:#0f0;margin:4px 0}
-.clock-card.ground .clock-time{color:#4fc3f7}
+.clock-card.ground .clock-time{color:#5bc8f5}
 .clock-card.velocity .clock-time{color:#ff9800}
 .clock-card.full .clock-time{color:#4caf50}
 .drift{font-size:.8em;color:#aaa;margin-top:4px}
@@ -30,13 +30,13 @@ canvas{display:block;margin:0 auto;border-radius:10px}
 .error-display .label{font-size:.8em;color:#999;margin-top:2px}
 .controls{display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap}
 .controls label{font-size:.85em;color:#aaa}
-.controls input[type=range]{width:180px;accent-color:#c9a84c}
-.controls button{background:#c9a84c;color:#1a1a2e;border:none;padding:8px 18px;border-radius:6px;font-family:Georgia,serif;font-weight:bold;cursor:pointer;font-size:.9em}
+.controls input[type=range]{width:180px;accent-color:#d4af37}
+.controls button{background:#d4af37;color:#0d0d18;border:none;padding:8px 18px;border-radius:6px;font-family:Georgia,serif;font-weight:bold;cursor:pointer;font-size:.9em}
 .controls button:hover{background:#dbb85c}
-.speed-label{color:#c9a84c;font-weight:bold;min-width:60px;text-align:center}
+.speed-label{color:#d4af37;font-weight:bold;min-width:60px;text-align:center}
 .explain{font-size:.85em;line-height:1.6;color:#bbb}
-.explain em{color:#c9a84c;font-style:normal}
-.eq{color:#c9a84c;font-size:.9em;margin:6px 0}
+.explain em{color:#d4af37;font-style:normal}
+.eq{color:#d4af37;font-size:.9em;margin:6px 0}
 .stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .stat{text-align:center}
 .stat .val{font-size:1.1em;font-family:'Courier New',monospace;color:#fff}
@@ -69,7 +69,7 @@ canvas{display:block;margin:0 auto;border-radius:10px}
       border-bottom-color: rgba(139, 105, 20, 0.25);
     }
     #poams-hub-nav a {
-      color: #c9a84c;
+      color: #d4af37;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
@@ -325,7 +325,7 @@ function drawOrbit() {
     ctx.clearRect(0, 0, 360, 360);
 
     // Stars
-    ctx.fillStyle = '#1a1a2e';
+    ctx.fillStyle = '#0d0d18';
     ctx.fillRect(0, 0, 360, 360);
 
     // Orbit path
@@ -339,7 +339,7 @@ function drawOrbit() {
 
     // Earth
     const grad = ctx.createRadialGradient(cx-10, cy-10, 10, cx, cy, earthR);
-    grad.addColorStop(0, '#4fc3f7');
+    grad.addColorStop(0, '#5bc8f5');
     grad.addColorStop(0.7, '#1565c0');
     grad.addColorStop(1, '#0d47a1');
     ctx.beginPath();
@@ -360,14 +360,14 @@ function drawOrbit() {
 
     ctx.beginPath();
     ctx.arc(sx, sy, 6, 0, 2*Math.PI);
-    ctx.fillStyle = '#c9a84c';
+    ctx.fillStyle = '#d4af37';
     ctx.fill();
     ctx.strokeStyle = '#fff';
     ctx.lineWidth = 1.5;
     ctx.stroke();
 
     // Satellite label
-    ctx.fillStyle = '#c9a84c';
+    ctx.fillStyle = '#d4af37';
     ctx.font = '10px Georgia';
     ctx.fillText('GPS', sx, sy - 10);
 

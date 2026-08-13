@@ -14,7 +14,7 @@
 <style>
   :root{
     --bg:#0d0d18; --card:#1c1c30; --text:#e8e8f0; --muted:#9a9ab0;
-    --gold:#c9a84c; --blue:#4fc3f7; --green:#66bb6a; --cyan:#26c6da; --red:#ef5350; --edge:#2c2c46;
+    --gold:#d4af37; --blue:#5bc8f5; --green:#66bb6a; --cyan:#26c6da; --red:#ef5350; --edge:#2c2c46;
     --amber:#ffa726;
   }
   *{box-sizing:border-box;}
@@ -591,7 +591,7 @@ function makeOrbit(id, Vr, r0, vt, sweepMax, scale, color){
     for (let i=0;i<260 && swept < sweepMax;i++) step();
     if (swept >= sweepMax) done = true;
     ctx.fillStyle = '#10101c'; ctx.fillRect(0,0,W,H);
-    ctx.beginPath(); ctx.arc(cx,cy,4,0,7); ctx.fillStyle='#c9a84c'; ctx.fill();
+    ctx.beginPath(); ctx.arc(cx,cy,4,0,7); ctx.fillStyle='#d4af37'; ctx.fill();
     ctx.beginPath();
     for (let i=0;i<pts.length;i++){
       const px = cx + pts[i][0]*scale, py = cy - pts[i][1]*scale;
@@ -605,12 +605,12 @@ function makeOrbit(id, Vr, r0, vt, sweepMax, scale, color){
   }
   requestAnimationFrame(frame);
 }
-makeOrbit('orbC', r=>-1/r, 0.55, Math.sqrt(1.62/0.55), 2*Math.PI+0.03, 82, '#4fc3f7');
+makeOrbit('orbC', r=>-1/r, 0.55, Math.sqrt(1.62/0.55), 2*Math.PI+0.03, 82, '#5bc8f5');
 makeOrbit('orbO', r=>0.5*r*r, 1.35, 0.52, 2*Math.PI+0.03, 130, '#66bb6a');
 (function(){
   const V = r => -1.8/(r*(r+1)*(r+1));
   const rp = 0.34, vt = Math.sqrt(-2*V(rp));
-  makeOrbit('orbD', V, rp, vt, 4*Math.PI+0.03, 46, '#c9a84c');
+  makeOrbit('orbD', V, rp, vt, 4*Math.PI+0.03, 46, '#d4af37');
 })();
 (function(){
   const V = u => -chiAt(u)/u;
@@ -633,9 +633,9 @@ makeOrbit('orbO', r=>0.5*r*r, 1.35, 0.52, 2*Math.PI+0.03, 130, '#66bb6a');
   ctx.fillStyle='#10101c'; ctx.fillRect(0,0,W,H);
   ctx.fillStyle='rgba(102,187,106,0.09)'; ctx.fillRect(x0, Y(2.0), x1-x0, Y(5/3)-Y(2.0));
   ctx.fillStyle='rgba(102,187,106,0.09)'; ctx.fillRect(x0, Y(2.0), x1-x0, Y(7/4)-Y(2.0));
-  ctx.strokeStyle='#c9a84c'; ctx.setLineDash([6,4]); ctx.lineWidth=1.6;
+  ctx.strokeStyle='#d4af37'; ctx.setLineDash([6,4]); ctx.lineWidth=1.6;
   ctx.beginPath(); ctx.moveTo(x0,Y(2)); ctx.lineTo(x1,Y(2)); ctx.stroke(); ctx.setLineDash([]);
-  ctx.fillStyle='#c9a84c'; ctx.font='12.5px sans-serif';
+  ctx.fillStyle='#d4af37'; ctx.font='12.5px sans-serif';
   ctx.fillText('k = 2 · self-dual · exact n+l families (Demkov–Ostrovsky)', x0+10, Y(2)-7);
   ctx.fillStyle='#66bb6a'; ctx.font='12px sans-serif';
   ctx.fillText('razor window (5/3, 2) — the full Madelung order', x0+10, Y(5/3)+16);
@@ -652,7 +652,7 @@ makeOrbit('orbO', r=>0.5*r*r, 1.35, 0.52, 2*Math.PI+0.03, 130, '#66bb6a');
   ctx.fillText('Z', (x0+x1)/2, H-8);
   ctx.save(); ctx.translate(11,(y0+y1)/2); ctx.rotate(-Math.PI/2);
   ctx.fillText('k at the E = 0 frontier', -60, 0); ctx.restore();
-  const colors = {s:'#4fc3f7', p:'#66bb6a', d:'#ffa726', f:'#26c6da'};
+  const colors = {s:'#5bc8f5', p:'#66bb6a', d:'#ffa726', f:'#26c6da'};
   for (const [nm,arr] of Object.entries(KDATA)){
     ctx.strokeStyle = colors[nm]; ctx.lineWidth=2; ctx.beginPath();
     let started=false;
@@ -666,7 +666,7 @@ makeOrbit('orbO', r=>0.5*r*r, 1.35, 0.52, 2*Math.PI+0.03, 130, '#66bb6a');
     ctx.fillText(nm, X(KZ[KZ.length-1])+6, Y(arr[arr.length-1])+4);
   }
   for (const [nm,z,k,l] of ZONES){
-    const c = ['#4fc3f7','#66bb6a','#ffa726','#26c6da'][l];
+    const c = ['#5bc8f5','#66bb6a','#ffa726','#26c6da'][l];
     ctx.beginPath(); ctx.arc(X(z), Y(k), 4, 0, 7); ctx.fillStyle=c; ctx.fill();
     ctx.strokeStyle='#10101c'; ctx.lineWidth=1.5; ctx.stroke();
   }
