@@ -95,14 +95,14 @@ of these entries — the claim of this page is the <em>bookkeeping derivation</e
 <p>Rates, not speeds (GROUNDING discipline): every quantity below is a count, a rate of angular change,
 or an energy of trapped rate. Nothing moves through a void; nothing pulls. The dense packing is contact of
 circulations, and the ledger only ever records meshing, filing, and strain.</p>
-<p><strong>Units — the energy currency, cashed out.</strong> The measured record (AME2020) is kept in
-keV, so this page quotes MeV: <em>the record's label, not ours</em>. The electronvolt prices energy as a
+<p><strong>Units — the energy currency, cashed out.</strong> The ledger's native measure is <em>turn rate</em>:
+$E = h\nu$, and one MeV of the record prices $\nu = 2.418\times10^{20}$ whole closures per second $= 241.8$ EHz
+$= 0.2418$ ZHz (in the calculus, $E/\hbar = 1.519\times10^{21}$ rad/s; in Pope's mechanical currency,
+$1.602\times10^{-13}$ J — his own practice for the coulomb). The measured record (AME2020) is kept in keV, so
+this page's comparison rows quote MeV: <em>the record's label, not ours</em>. The electronvolt prices energy as a
 charge-thing dropped through a volt of field-potential — two extant objects POAMS dissolves; the number survives
-the dissolution, the picture does not. The cash-out: $1\ \text{MeV} = 1.602\times10^{-13}$ J (the honest
-mechanical currency — Pope's own practice for the coulomb) $\equiv$ a trapped turning rate
-$E/\hbar = 1.519\times10^{21}$ rad/s $\equiv$ $E/h = 2.418\times10^{20}$ whole closures per second — the
-discreteum's own count. Every energy on this page is a rate of turning the packed whole has given up: quoted in
-the record's currency, meant as rate.</p>
+the dissolution, the picture does not. Every energy on this page is a rate of turning the packed whole has given
+up: quoted in the record's currency for record-matching, meant — and, at the milestones, stated — as rate.</p>
 
 <h2>2 · Five entries, one ledger</h2>
 <p>Registered first (M-C1, before any derivation or data pull), then derived in order. Each entry states what is
@@ -239,7 +239,7 @@ rises, and their books must cross once.</p>
 <p><strong>Registered, then scored.</strong> With the derived ratio bracket $a_s/a_v \in [1.13, 1.5]$ (§4), the
 curve-free $a_c = 0.72$, and one named bulk import $a_v = 15.75$, the bracket
 $A^* \in [49, 66]$ was committed to the research ledger <em>before</em> the scoring run. AME2020 (experimental
-entries only): maximum $B/A$ at $A = 62$ (Ni-62, $8.795$ MeV per quantum $\equiv 1.34\times10^{22}$ rad/s) —
+entries only): maximum $B/A$ at $A = 62$ (Ni-62, $8.795$ MeV per quantum $\equiv 2.127$ ZHz of turn rate) —
 inside; the entire top-ten plateau $[52, 64]$ — inside.
 <span class="tag pass">PASS</span> No dial saw the number: both bracket edges are forced or named quantities, and the
 famous $A=56$ was never targeted (it sits third on the measured list; the ledger never needed it).</p>
@@ -314,7 +314,7 @@ the skin equipartition integral $a_s = 34.1\sqrt{\lambda}$ with derived limits; 
 filing ban; the kinetic census floor $E_F/3$; the frozen-capacity census total at +3%; the forced-peak theorem with
 $A^* = 2(a_s/a_v)(a_v/a_c)$, registered $[49,66]$, measured $62$. Since (research ledger, swings 9–31, reconciled state swing 25 — operational
 centrals: the derived capacity chain and the muonic-era radii): the shared-turn pair anchor
-$\delta_{\text{pair}} = \hbar^2/4mr_q^2 = 14.02$ MeV ($\equiv 2.13\times10^{22}$ rad/s) against the measured free-pair lock on the muonic deuteron
+$\delta_{\text{pair}} = \hbar^2/4mr_q^2 = 14.02$ MeV ($\equiv 3.390$ ZHz) against the measured free-pair lock on the muonic deuteron
 radius, $14.075(10)$ — parameter-free at $0.4\%$; the contact-scale loop credit $c_3 = 2.34$ MeV against the
 measured cluster marginal $2.42$ ($-3.4\%$); the saturation-geometry theorem — at $\rho_0$ the lock graph is
 triangle-free (mean spacing forbids mutual-contact triples), so the cluster sector's triangle credits cannot extend
@@ -337,7 +337,7 @@ strain layer that exposed it: research ledger swings 32–36); <em>the closing o
 alternative dies on the measured cluster steps ($\chi^2$ 40–222; the survivor: first closure through a bond
 credits $h$, each further closure a full loop mode, $\chi^2 \approx 1$): with zero fitted numbers,
 $G = \tfrac{1}{2}\min(\bar z, z_c)(\delta_{\text{pair}} + \text{credits}) = 37.0$ ($+3.2\%$, ledger-driven) and
-$35.1$ ($-2.2\%$, geometry-only) against $C = a_v + \tau_b = 35.85$ MeV ($\equiv 5.45\times10^{22}$ rad/s); <em>the closing of the skin
+$35.1$ ($-2.2\%$, geometry-only) against $C = a_v + \tau_b = 35.85$ MeV ($\equiv 8.668$ ZHz); <em>the closing of the skin
 coefficient</em> — $\lambda(u) = 1/(1+8u)$, the amplitude-count profile, selected twice by measurement (the
 functional's absolute tail prediction $0.574$ fm confirmed against the measured diffuseness $0.55 \pm 0.06$,
 killing constant-$\lambda$; the $a_s$ window killing the threshold form) with the linear interior forced by
@@ -520,7 +520,7 @@ function draw(){
   for(let a=0;a<=250;a+=50){ctx.fillText(String(a),X(a)-8,Y(0)+16);ctx.beginPath();ctx.moveTo(X(a),Y(0));ctx.lineTo(X(a),Y(0)+4);ctx.stroke();}
   for(let b=0;b<=9;b+=1){ctx.fillText(String(b),X(0)-24,Y(b)+4);ctx.beginPath();ctx.moveTo(X(0)-4,Y(b));ctx.lineTo(X(0),Y(b));ctx.stroke();}
   ctx.fillText('A (quanta packed)',X(120),cv.height-4);
-  ctx.save();ctx.translate(14,Y(5.2));ctx.rotate(-Math.PI/2);ctx.fillText('discount per quantum  B/A  (MeV)',0,0);ctx.restore();
+  ctx.save();ctx.translate(14,Y(4.2));ctx.rotate(-Math.PI/2);ctx.fillText('discount per quantum  B/A  (record MeV)',0,0);ctx.restore();
   // bracket label
   ctx.fillStyle='rgba(212,175,55,0.8)';ctx.fillText('registered [49,66]',X(49)+4,Y(B1v)+14);
   // AME points
