@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Cone-Model of Time-Dilation — N. Vivian Pope (1986)</title>
+<script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},svg:{fontCache:'global'}}</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+:root{--bg:#0d0d18;--panel:#131322;--edge:#26263a;--gold:#d4af37;--blue:#5bc8f5;--red:#e06060;--green:#63d67e;--fg:#dfe0ea;--muted:#9a9bb0;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Georgia,'Times New Roman',serif;line-height:1.65;}
+header{padding:44px 22px 22px;border-bottom:1px solid var(--edge);text-align:center;}
+header h1{margin:0 0 14px;font-size:27px;line-height:1.35;color:var(--gold);font-weight:650;}
+.sub{max-width:880px;margin:14px auto 0;color:var(--muted);font-size:15px;}
+#poams-hub-nav{position:fixed;top:0;left:0;right:0;z-index:9999;height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 1rem;background:rgba(13,13,24,0.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,175,55,0.25);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;box-sizing:border-box;}
+#poams-hub-nav a{color:var(--gold);text-decoration:none;display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:6px;transition:background .2s;white-space:nowrap;font-weight:500;}
+#poams-hub-nav a:hover{background:rgba(212,175,55,0.12);}
+#poams-hub-nav .phn-center{display:flex;flex-direction:column;align-items:center;line-height:1.2;}
+#poams-hub-nav .phn-title{font-weight:600;color:var(--fg);font-size:12px;}
+#poams-hub-nav .phn-pos{font-size:10px;color:rgba(212,175,55,0.6);letter-spacing:.05em;}
+@media (max-width:640px){.phn-hide-sm{display:none;}}
+body{padding-top:44px;}
+main{max-width:900px;margin:0 auto;padding:10px 18px 40px;}
+h2{color:var(--gold);font-size:20px;margin:38px 0 10px;border-bottom:1px solid var(--edge);padding-bottom:6px;}
+h3{color:var(--gold);font-size:16.5px;margin:26px 0 8px;}
+.card{background:var(--panel);border:1px solid var(--edge);border-radius:10px;padding:14px 16px;margin:14px 0;}
+.card.red{border-left:3px solid var(--red);}
+.card.gold{border-left:3px solid var(--gold);}
+.eqbox,.equation{background:#10101e;border:1px solid var(--edge);border-radius:8px;padding:8px 12px;margin:12px 0;overflow-x:auto;}
+.equation-number{display:none}
+canvas{background:#0a0a14;border:1px solid var(--edge);border-radius:10px;display:block;max-width:100%;}
+.panel{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start;margin:14px 0;}
+.controls{flex:1 1 260px;min-width:250px;font-size:14px;}
+.controls label{display:block;margin:10px 0 4px;color:var(--muted);}
+.readout{font-family:ui-monospace,Menlo,monospace;font-size:13px;color:var(--blue);}
+button{background:#1c1c30;border:1px solid var(--edge);color:var(--fg);border-radius:8px;padding:6px 12px;font-size:13px;cursor:pointer;margin:4px 6px 0 0;}
+button:hover{border-color:var(--gold);}
+input[type=range]{width:100%;}
+.note{font-size:13.5px;color:var(--muted);}
+.tag{display:inline-block;font-size:11px;letter-spacing:.06em;padding:1px 8px;border-radius:10px;margin-right:6px;vertical-align:middle;}
+.tag.prov{background:#1b2a38;color:var(--blue);}
+.tag.edit{background:#332a12;color:var(--gold);}
+footer{max-width:900px;margin:36px auto 24px;padding:14px 16px 0;border-top:1px solid rgba(212,175,55,.35);text-align:center;font-size:12.5px;line-height:1.7;opacity:.82;}
+a{color:var(--blue);}
+/* ── the 1986 paper, archival ── */
+.paper1986 .author{text-align:center;font-size:1.05em;color:var(--fg);margin:4px 0;}
+.paper1986 .conference-info{text-align:center;font-style:italic;color:var(--muted);font-size:.9em;margin:0 0 24px;}
+.paper1986 h1{color:var(--gold);font-size:22px;text-align:center;margin:26px 0 6px;font-weight:650;}
+.paper1986 h2{margin-top:34px;}
+.paper1986 h3{font-style:italic;}
+.paper1986 p{margin:12px 0;}
+.paper1986 .footnote{display:block;font-size:.85em;color:var(--muted);margin-top:8px;padding-left:14px;border-left:2px solid var(--edge);}
+.paper1986 .reference{font-size:.9em;color:var(--muted);margin:18px 0;}
+.paper1986 .author-info{font-size:.9em;color:var(--muted);font-style:italic;margin:18px 0;text-align:center;}
+.plate{background:#f5f1e6;border:1px solid #cfc8b4;border-radius:10px;padding:16px 14px 10px;margin:18px auto;max-width:740px;}
+.plate svg{display:block;margin:0 auto;max-width:100%;height:auto;}
+.platecap{text-align:center;font-size:13px;color:#6b6650;margin-top:6px;font-style:italic;}
+.plate .platecap{color:#6b6650;}
+section.appendix{margin-top:30px;}
+</style>
+</head>
+<body>
+<div id="poams-hub-nav">
+  <a href="./twins-paradox.html" title="Twins Paradox">← <span class="phn-hide-sm">Twins Paradox</span></a>
+  <div class="phn-center">
+    <a href="./index.html" style="flex-direction:column;gap:2px;padding:4px 12px;">
+      <span class="phn-title">The Cone Model</span>
+      <span class="phn-pos">NR · POAMS · EXHIBIT SERIES</span>
+    </a>
+  </div>
+  <a href="./circular-orbit-clocks.html" title="Circular Orbit Clocks"><span class="phn-hide-sm">Circular Orbit Clocks</span> →</a>
+</div>
+<header>
+  <h1>A Cone-Model of Time-Dilation</h1>
+<p class="nr-provenance" style="font-size:0.8em;font-style:italic;opacity:0.72;line-height:1.6;margin:0 auto 1.2em;max-width:820px;text-align:center">This exhibit presents, unabridged, a foundational source document of the philosophy of Normal Realism (NR): N. Vivian (Viv) Pope's cone-model paper, read at the 1986 EASST Conference. Pope's text and figures are reproduced verbatim (the figures as archival plates); the interactive apparatus is added, and the mathematics anticipates the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
+  <div class="sub">Philosophy first: relativity is not Einstein's to own — it is the Theorem of Pythagoras applied to the
+  observational dimensions of distance and time. Pope's 1986 argument builds the whole of time-dilation from the
+  polar geometry of observation itself: the observer's concentric spheres, extended into time, become a cone; motion
+  is a triangle drawn on that cone's surface; and the "mysterious" Lorentz–Einstein formula is nothing but the
+  hypotenuse relation $t^2 = \tau^2 + (s/c)^2$ read sideways. Below the paper, four live figures let you work the
+  cone with your own hands. The clock pages of this series — Twins, GPS, orbits — are this one page, unpacked.</div>
+</header>
+<main>
+
+<div class="paper1986">
+<h1>A CONE-MODEL of TIME-DILATION</h1>
+            <div class="author">by N. Vivian Pope</div>
+            <div class="conference-info">
+                From a Paper Read at the 1986 EASST Conference 'Senses of Science',<br>
+                The Council of Europe, Strasbourg.
+            </div>
+        </header>
+
+        <!-- Main Paper Content -->
+        <main>
+            <p>It is commonly believed that relativity theory is difficult to understand. I want to demonstrate that on the contrary, relativity is very easy to understand -- as soon as we drop two strangely persistent assumptions. One of these is that in order to understand relativity we have to understand Einstein, and the other is that for the same purpose we have to know all the technical details about how light travels in space. Perhaps I can show you that neither of these assumptions is necessary. All we need to know is the elementary Theorem of Pythagoras, because relativity, as I shall demonstrate, is nothing more than Pythagoras' Theorem applied to observational dimensions of distance and time.</p>
+
+            <p>Our scientific knowledge of the world at large is based on optical information. Let us look at the way that visual information is structured. There is a point -- call it O -- which we identify as ourselves and from which the distances of objects are radially projected. The projection is made from information such as the comparative sizes of images, their relative brightness and angular diminution (parallax, focus, etc.). In Figure 1 we see the radial or polar character of these projected dimensions.</p>
+
+            <div class="plate">
+                <svg width="500" height="400" viewBox="0 0 500 400">
+                    <defs>
+                        <marker id="arrowhead1" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                            <polygon points="0 0, 8 3, 0 6" fill="#2c3e50"/>
+                        </marker>
+                        <marker id="curvedarrow1" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                            <polygon points="0 0, 8 3, 0 6" fill="#e74c3c"/>
+                        </marker>
+                    </defs>
+                    
+                    <!-- Title box at top -->
+                    <rect x="150" y="20" width="200" height="35" fill="none" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="250" y="42" text-anchor="middle" font-family="Georgia, Times" font-size="14" font-weight="bold">RANGE or DISTANCE</text>
+                    
+                    <!-- Concentric circles (radii 1:2:3.5 ratio) -->
+                    <circle cx="250" cy="200" r="45" fill="none" stroke="#2c3e50" stroke-width="2"/>
+                    <circle cx="250" cy="200" r="90" fill="none" stroke="#2c3e50" stroke-width="2"/>
+                    <circle cx="250" cy="200" r="158" fill="none" stroke="#2c3e50" stroke-width="2"/>
+                    
+                    <!-- Vertical S/-S axis through center extending beyond outer circle -->
+                    <line x1="250" y1="30" x2="250" y2="370" stroke="#2c3e50" stroke-width="2" marker-start="url(#arrowhead1)" marker-end="url(#arrowhead1)"/>
+                    
+                    <!-- Axis labels -->
+                    <text x="235" y="25" font-family="Georgia, Times" font-size="16" font-weight="bold">S</text>
+                    <text x="235" y="385" font-family="Georgia, Times" font-size="16" font-weight="bold">-S</text>
+                    
+                    <!-- Point O at center -->
+                    <circle cx="250" cy="200" r="4" fill="#2c3e50"/>
+                    <text x="260" y="205" font-family="Georgia, Times" font-size="14">O</text>
+                    
+                    <!-- Two curved arrows on innermost circle -->
+                    <!-- L₁ on left side (arrow pointing down-left, ~7-8 o'clock) -->
+                    <path d="M 220 225 A 35 35 0 0 1 205 235" fill="none" stroke="#e74c3c" stroke-width="2" marker-end="url(#curvedarrow1)"/>
+                    <text x="195" y="250" font-family="Georgia, Times" font-size="14">L₁</text>
+                    
+                    <!-- L₂ on right side (arrow pointing down-right, ~4-5 o'clock) -->
+                    <path d="M 280 225 A 35 35 0 0 0 295 235" fill="none" stroke="#e74c3c" stroke-width="2" marker-end="url(#curvedarrow1)"/>
+                    <text x="305" y="250" font-family="Georgia, Times" font-size="14">L₂</text>
+                    
+                    <!-- Small upward arrow at top of innermost circle where it meets S axis -->
+                    <line x1="250" y1="155" x2="250" y2="145" stroke="#e74c3c" stroke-width="2" marker-end="url(#curvedarrow1)"/>
+                </svg>
+                <div class="platecap">Figure 1</div>
+            </div>
+
+            <p>Altogether there are three of these dimensions relative to O. They are:</p>
+            <ol>
+                <li>range, or distance (S);</li>
+                <li>elevation, or the up and down angle of the range dimension (L₁);</li>
+                <li>azimuth, or range-angle side-to-side (L₂).</li>
+            </ol>
+
+            <p>The concentric spheres in the figure represent units of distance projected in this way, that is, in metres, miles, light-years or whatever.</p>
+
+            <div class="plate">
+                <svg width="500" height="350" viewBox="0 0 500 350">
+                    <defs>
+                        <marker id="arrowhead2" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                            <polygon points="0 0, 8 3, 0 6" fill="#2c3e50"/>
+                        </marker>
+                    </defs>
+                    
+                    <!-- S/-S vertical axis on the LEFT side (~20% from left) -->
+                    <line x1="100" y1="50" x2="100" y2="300" stroke="#2c3e50" stroke-width="2" marker-start="url(#arrowhead2)" marker-end="url(#arrowhead2)"/>
+                    
+                    <!-- T horizontal axis from origin O rightward -->
+                    <line x1="100" y1="175" x2="400" y2="175" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead2)"/>
+                    
+                    <!-- Axis labels -->
+                    <text x="85" y="45" font-family="Georgia, Times" font-size="16" font-weight="bold">S</text>
+                    <text x="75" y="315" font-family="Georgia, Times" font-size="16" font-weight="bold">-S</text>
+                    <text x="405" y="180" font-family="Georgia, Times" font-size="16" font-weight="bold">T</text>
+                    
+                    <!-- Origin O labeled at intersection, to the left -->
+                    <circle cx="100" cy="175" r="3" fill="#2c3e50"/>
+                    <text x="75" y="170" font-family="Georgia, Times" font-size="14">O</text>
+                    
+                    <!-- 6 horizontal DASHED lines evenly spaced along S axis (3 above T, 3 below T) -->
+                    <!-- Above T axis -->
+                    <line x1="100" y1="125" x2="380" y2="125" stroke="#2c3e50" stroke-width="1.5" stroke-dasharray="8,4"/>
+                    <line x1="100" y1="100" x2="380" y2="100" stroke="#2c3e50" stroke-width="1.5" stroke-dasharray="8,4"/>
+                    <line x1="100" y1="75" x2="380" y2="75" stroke="#2c3e50" stroke-width="1.5" stroke-dasharray="8,4"/>
+                    
+                    <!-- Below T axis -->
+                    <line x1="100" y1="225" x2="380" y2="225" stroke="#2c3e50" stroke-width="1.5" stroke-dasharray="8,4"/>
+                    <line x1="100" y1="250" x2="380" y2="250" stroke="#2c3e50" stroke-width="1.5" stroke-dasharray="8,4"/>
+                    <line x1="100" y1="275" x2="380" y2="275" stroke="#2c3e50" stroke-width="1.5" stroke-dasharray="8,4"/>
+                </svg>
+                <div class="platecap">Figure 2</div>
+            </div>
+
+            <p>In Figure 2, Figure 1 is shown projected in time. For this we have to suppress one of the angular dimensions, which makes the sphere in Figure 1 now appear as a disc seen edge-on. This forms the vertical axis S of a four-dimensional system, the horizontal axis of which (T) represents time, or the enduring aspect of the observer-projected spheres in Figure 1.</p>
+
+            <p>Now it is common knowledge that the distances of astronomical bodies are also times. For instance, the distances of the stars are more conveniently given in years than in kilometres. On the same scale, the sun is eight minutes away and a metre is equivalent to 3.3 nanoseconds. This means that what we are accustomed to think of as 'distance' is, in fact, distance-time in which the ratio of conventional distance-units to time-units is a constant c, where c is 300,000,000 metres to the second. When Figure 2 is redrawn to this scale of units it appears as in Figure 3, below.</p>
+
+            <div class="plate">
+                <div style="text-align: center; font-style: italic; color: #7f8c8d; margin: 20px;">
+                    Figure 3 merged into improved Figure 4 below
+                </div>
+            </div>
+
+            <p>In Figure 3, observer-space-time is shown projected at forty-five degrees to the axes S and T. In the next diagram, Figure 4, Figure 3 has been turned a little to one side, showing that our relative (i.e., observer-projected) four-dimensional space-time has the geometrical character of a cone, with its apex or origin at point O.</p>
+
+            <div class="plate">
+                <svg width="650" height="450" viewBox="0 0 650 450">
+                    <defs>
+                        <marker id="arrowhead4" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                            <polygon points="0 0, 8 3, 0 6" fill="#2c3e50"/>
+                        </marker>
+                        <marker id="arrowheadc" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                            <polygon points="0 0, 8 3, 0 6" fill="#2c3e50"/>
+                        </marker>
+                    </defs>
+                    
+                    <!-- Title -->
+                    <text x="325" y="25" text-anchor="middle" font-family="Georgia, Times" font-size="16" font-weight="bold">4. THE CONIC CHARACTER of OBSERVATIONAL DIMENSIONS</text>
+                    
+                    <!-- S/-S axis: runs upper-left to lower-left (slightly angled left), tilted to show 3D perspective -->
+                    <line x1="80" y1="60" x2="120" y2="390" stroke="#2c3e50" stroke-width="2" marker-start="url(#arrowhead4)" marker-end="url(#arrowhead4)"/>
+                    <text x="60" y="55" font-family="Georgia, Times" font-size="16" font-weight="bold">S</text>
+                    <text x="60" y="405" font-family="Georgia, Times" font-size="16" font-weight="bold">-S</text>
+                    
+                    <!-- T axis: horizontal from origin "o" extending right -->
+                    <line x1="100" y1="225" x2="580" y2="225" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead4)"/>
+                    <text x="585" y="230" font-family="Georgia, Times" font-size="16" font-weight="bold">T</text>
+                    
+                    <!-- Origin "o" at left where S and T axes meet — APEX of the cone -->
+                    <circle cx="100" cy="225" r="4" fill="#2c3e50"/>
+                    <text x="85" y="220" font-family="Georgia, Times" font-size="14" font-weight="bold">o</text>
+                    
+                    <!-- c/-c axis: DASHED vertical line through the CENTER of the circles -->
+                    <line x1="350" y1="80" x2="350" y2="370" stroke="#2c3e50" stroke-width="2" stroke-dasharray="8,4" marker-start="url(#arrowheadc)" marker-end="url(#arrowheadc)"/>
+                    <text x="355" y="75" font-family="Georgia, Times" font-size="16" font-weight="bold">c</text>
+                    <text x="355" y="385" font-family="Georgia, Times" font-size="16" font-weight="bold">-c</text>
+                    
+                    <!-- 3 concentric circles centered on the c-axis (NOT on o), offset to the right along T -->
+                    <circle cx="350" cy="225" r="60" fill="none" stroke="#2c3e50" stroke-width="2"/>
+                    <circle cx="350" cy="225" r="95" fill="none" stroke="#2c3e50" stroke-width="2"/>
+                    <circle cx="350" cy="225" r="130" fill="none" stroke="#2c3e50" stroke-width="2"/>
+                    
+                    <!-- Two diagonal lines from "o" forming the CONE opening (V-shape) -->
+                    <!-- Upper cone line going up-right -->
+                    <line x1="100" y1="225" x2="445" y2="130" stroke="#e74c3c" stroke-width="3"/>
+                    <!-- Lower cone line going down-right -->
+                    <line x1="100" y1="225" x2="445" y2="320" stroke="#e74c3c" stroke-width="3"/>
+                    
+                    <!-- These cone lines also extend down from o forming a double-cone/hourglass -->
+                    <!-- Upper left cone line -->
+                    <line x1="100" y1="225" x2="255" y2="130" stroke="#e74c3c" stroke-width="3"/>
+                    <!-- Lower left cone line -->
+                    <line x1="100" y1="225" x2="255" y2="320" stroke="#e74c3c" stroke-width="3"/>
+                    
+                    <!-- Dashed elliptical arcs between the cone lines showing the 3D cross-sections -->
+                    <ellipse cx="280" cy="225" rx="45" ry="22" fill="none" stroke="#7f8c8d" stroke-width="1.5" stroke-dasharray="6,3"/>
+                    <ellipse cx="320" cy="225" rx="65" ry="32" fill="none" stroke="#7f8c8d" stroke-width="1.5" stroke-dasharray="6,3"/>
+                    <ellipse cx="380" cy="225" rx="85" ry="42" fill="none" stroke="#7f8c8d" stroke-width="1.5" stroke-dasharray="6,3"/>
+                    
+                    <!-- Additional perspective lines to show 3D structure -->
+                    <line x1="290" y1="175" x2="410" y2="175" stroke="#7f8c8d" stroke-width="1" stroke-dasharray="4,2" opacity="0.6"/>
+                    <line x1="290" y1="275" x2="410" y2="275" stroke="#7f8c8d" stroke-width="1" stroke-dasharray="4,2" opacity="0.6"/>
+                </svg>
+                <div class="platecap">Figure 4: The Conic Character of Observational Dimensions</div>
+            </div>
+
+            <p>Leaving all this aside for the moment, let us now look at the way motion is represented in classical mechanics. Figure 5 is the traditional way of representing a uniform velocity v<sub>x</sub> of a body X as the distance s<sub>x</sub> travelled by X in a time t<sub>x</sub>. In classical mechanics it was not considered necessary to specify the clock by which that time was measured. This was because time was thought to be universal, that it was the same regardless of whether it was measured by O's clock or X's clock, or by anyone else's clock, so long as all these clocks were all properly synchronised. Consequently, only two measures are represented in this classical motion-graph: the distance travelled and the time taken -- as measured, it was assumed, by a kind of universal standard, or cosmical 'Greenwich mean time'.</p>
+
+            <div class="plate">
+                <svg width="550" height="350" viewBox="0 0 550 350">
+                    <defs>
+                        <marker id="arrowhead5" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="#2c3e50"/>
+                        </marker>
+                        <marker id="boldarrow5" markerWidth="12" markerHeight="9" refX="10" refY="4.5" orient="auto">
+                            <polygon points="0 0, 12 4.5, 0 9" fill="#27ae60"/>
+                        </marker>
+                    </defs>
+                    
+                    <!-- Title -->
+                    <text x="275" y="25" text-anchor="middle" font-family="Georgia, Times" font-size="16" font-weight="bold">5. THE TRADITIONAL MOTION GRAPH</text>
+                    
+                    <!-- S vertical axis (up) -->
+                    <line x1="80" y1="300" x2="80" y2="60" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead5)"/>
+                    <text x="65" y="55" font-family="Georgia, Times" font-size="16" font-weight="bold">S</text>
+                    
+                    <!-- T horizontal axis (right) -->
+                    <line x1="80" y1="300" x2="480" y2="300" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead5)"/>
+                    <text x="485" y="305" font-family="Georgia, Times" font-size="16" font-weight="bold">T</text>
+                    
+                    <!-- Origin at bottom-left -->
+                    <circle cx="80" cy="300" r="3" fill="#2c3e50"/>
+                    <text x="65" y="320" font-family="Georgia, Times" font-size="14">O</text>
+                    
+                    <!-- Bold diagonal arrow from origin to point (tₓ, sₓ) -->
+                    <line x1="80" y1="300" x2="320" y2="150" stroke="#27ae60" stroke-width="4" marker-end="url(#boldarrow5)"/>
+                    
+                    <!-- Label "vₓ = sₓ/tₓ" upper-right of arrowhead -->
+                    <text x="340" y="140" font-family="Georgia, Times" font-size="14" font-weight="bold">vₓ = sₓ/tₓ</text>
+                    
+                    <!-- Dashed horizontal line from S-axis at height sₓ rightward to the point -->
+                    <line x1="80" y1="150" x2="320" y2="150" stroke="#2c3e50" stroke-width="1.5" stroke-dasharray="8,4" marker-end="url(#arrowhead5)"/>
+                    
+                    <!-- sₓ labeled on S-axis with tick mark -->
+                    <line x1="75" y1="150" x2="85" y2="150" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="55" y="155" font-family="Georgia, Times" font-size="14">sₓ</text>
+                    
+                    <!-- Solid vertical line dropping from point (tₓ, sₓ) down to T-axis -->
+                    <line x1="320" y1="150" x2="320" y2="300" stroke="#2c3e50" stroke-width="2"/>
+                    
+                    <!-- Solid horizontal arrow along T-axis from O to tₓ -->
+                    <line x1="80" y1="300" x2="320" y2="300" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead5)"/>
+                    <!-- Label "tₓ" centered above -->
+                    <text x="195" y="285" font-family="Georgia, Times" font-size="14">tₓ</text>
+                </svg>
+                <div class="platecap">Figure 5</div>
+            </div>
+
+            <p>This classical idea of a 'universal time-standard', however, was unrealistic. If space is time then a body which travels in space travels in time. Figure 5 is therefore not simply a graph, as classically assumed. It is a geometrical time-triangle. The geometrical consequence of the motion v<sub>x</sub> of X in Figure 5 is therefore to stretch, or dilate, the duration of X relative to O, from t<sub>x</sub> to t in the manner shown in Figure 6. The duration of X relative to O is thus the hypotenuse, t, of a two-dimensional triangle with sides (time-components) s/c and t<sub>x</sub>. The length of this hypotenuse is given, as with any normal right-triangle, by Pythagoras' Theorem, which in this case is:</p>
+
+            <div class="equation">
+                $$t = \sqrt{\left(\frac{s}{c}\right)^2 + t_x^2} \tag{1}$$
+                
+            </div>
+
+            <div class="plate">
+                <svg width="600" height="400" viewBox="0 0 600 400">
+                    <defs>
+                        <marker id="arrowhead6" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                            <polygon points="0 0, 8 3, 0 6" fill="#2c3e50"/>
+                        </marker>
+                    </defs>
+                    
+                    <!-- Title -->
+                    <text x="300" y="25" text-anchor="middle" font-family="Georgia, Times" font-size="16" font-weight="bold">7. PYTHAGOREAN TIME-DILATION</text>
+                    
+                    <!-- S axis vertical (up) -->
+                    <line x1="80" y1="350" x2="80" y2="60" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead6)"/>
+                    <text x="65" y="55" font-family="Georgia, Times" font-size="16" font-weight="bold">S</text>
+                    
+                    <!-- T axis horizontal (right) -->
+                    <line x1="80" y1="350" x2="520" y2="350" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead6)"/>
+                    <text x="525" y="355" font-family="Georgia, Times" font-size="16" font-weight="bold">T</text>
+                    
+                    <!-- Origin O at bottom-left -->
+                    <circle cx="80" cy="350" r="3" fill="#2c3e50"/>
+                    <text x="65" y="370" font-family="Georgia, Times" font-size="14">O</text>
+                    
+                    <!-- Right triangle: horizontal leg = tₓ, vertical leg = sₓ/c, hypotenuse = t -->
+                    <!-- Horizontal leg along T-axis from O -->
+                    <line x1="80" y1="350" x2="280" y2="350" stroke="#2c3e50" stroke-width="2"/>
+                    <!-- Vertical leg upward from end of tₓ -->
+                    <line x1="280" y1="350" x2="280" y2="180" stroke="#2c3e50" stroke-width="2"/>
+                    <!-- Hypotenuse = t (THICK/BOLD diagonal from O to upper-right vertex) -->
+                    <line x1="80" y1="350" x2="280" y2="180" stroke="#e74c3c" stroke-width="5"/>
+                    
+                    <!-- Label "tₓ" with arrow along T-axis -->
+                    <line x1="80" y1="335" x2="280" y2="335" stroke="#2c3e50" stroke-width="1.5" marker-end="url(#arrowhead6)"/>
+                    <text x="175" y="330" font-family="Georgia, Times" font-size="14">tₓ</text>
+                    
+                    <!-- Label "sₓ/c" on S-axis with tick mark, dashed horizontal line to triangle vertex -->
+                    <line x1="75" y1="180" x2="85" y2="180" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="35" y="185" font-family="Georgia, Times" font-size="14">sₓ/c</text>
+                    <line x1="80" y1="180" x2="280" y2="180" stroke="#2c3e50" stroke-width="1.5" stroke-dasharray="8,4"/>
+                    
+                    <!-- Label "vₓ/c" at the upper-right vertex -->
+                    <text x="290" y="175" font-family="Georgia, Times" font-size="14">vₓ/c</text>
+                    
+                    <!-- Formula written along hypotenuse at angle -->
+                    <text x="160" y="240" font-family="Georgia, Times" font-size="12" font-weight="bold" transform="rotate(-40 160 240)">t = √((sₓ/c)² + tₓ²)</text>
+                    
+                    <!-- CRITICAL: Large DASHED ARC sweeps from vertex curving RIGHT and DOWN to meet T-axis -->
+                    <!-- This arc has center at O and radius = t (hypotenuse length) -->
+                    <!-- Calculate arc: from (280, 180) curving down to point "t" on T-axis -->
+                    <path d="M 280 180 A 236 236 0 0 1 400 350" fill="none" stroke="#3498db" stroke-width="3" stroke-dasharray="12,6"/>
+                    
+                    <!-- Point "t" on T-axis (further right than tₓ) -->
+                    <circle cx="400" cy="350" r="3" fill="#3498db"/>
+                    <text x="395" y="370" font-family="Georgia, Times" font-size="14" fill="#3498db">t</text>
+                    
+                    <!-- Right-angle indicator at corner -->
+                    <path d="M 270 350 L 270 340 L 280 340" fill="none" stroke="#2c3e50" stroke-width="1.5"/>
+                </svg>
+                <div class="platecap">Figure 6</div>
+            </div>
+
+            <p>This geometrical consequence of motion is, in effect, relativistic time-dilation. Experimental evidence that such an effect occurs is now commonplace in modern physics.</p>
+
+            <p>Now in formula (1) there are three variables, whereas in classical motion-graphs there are only two. Formula (1) tells us, then, that the true depiction of motion is not that of the flat graph, as in Figure 5, nor a two-dimensional triangle as in Figure 6, but a geometrical time-model in three time-dimensions. One of these dimensions is the range-axis S, along which distances s/c are plotted; another is T, or the duration as measured by clock O, and the third is T<sub>x</sub>, or the duration as measured by clock X.</p>
+
+            <p>The true shape of the motion-graph is therefore a triangle drawn, not on a flat surface, as in classical representations of motion, but on the surface of our projected three-dimensional time-cone.<span class="footnote">(*) I say three-dimensional, but in fact, since each circular cross-section of this cone represents a three-dimensional sphere (see Figure 1) the total number of dimensions is five.</span> This is illustrated in Figure 7.</p>
+
+            <div class="plate">
+                <svg width="600" height="400" viewBox="0 0 600 400">
+                    <defs>
+                        <!-- Pattern for cone surface shading -->
+                        <pattern id="coneShading" patternUnits="userSpaceOnUse" width="8" height="8">
+                            <path d="m0,0 l8,8 m-8,0 l8,8" stroke="#bdc3c7" stroke-width="0.5" opacity="0.3"/>
+                        </pattern>
+                    </defs>
+                    
+                    <!-- Cone with apex at left (point O), opening to the right -->
+                    <!-- Apex point O -->
+                    <circle cx="120" cy="200" r="4" fill="#2c3e50"/>
+                    <text x="100" y="195" font-family="Georgia, Times" font-size="14" font-weight="bold">O</text>
+                    
+                    <!-- Upper cone edge -->
+                    <line x1="120" y1="200" x2="480" y2="120" stroke="#2c3e50" stroke-width="3"/>
+                    <!-- Lower cone edge -->
+                    <line x1="120" y1="200" x2="480" y2="280" stroke="#2c3e50" stroke-width="3"/>
+                    
+                    <!-- Multiple elliptical cross-sections (getting larger further from apex) -->
+                    <ellipse cx="220" cy="200" rx="30" ry="20" fill="none" stroke="#7f8c8d" stroke-width="1.5" opacity="0.8"/>
+                    <ellipse cx="280" cy="200" rx="45" ry="30" fill="none" stroke="#7f8c8d" stroke-width="1.5" opacity="0.8"/>
+                    <ellipse cx="340" cy="200" rx="60" ry="40" fill="none" stroke="#7f8c8d" stroke-width="1.5" opacity="0.8"/>
+                    <ellipse cx="400" cy="200" rx="75" ry="50" fill="none" stroke="#7f8c8d" stroke-width="1.5" opacity="0.8"/>
+                    <ellipse cx="460" cy="200" rx="90" ry="60" fill="none" stroke="#7f8c8d" stroke-width="1.5" opacity="0.8"/>
+                    
+                    <!-- Cone surface with subtle pattern -->
+                    <path d="M 120 200 L 480 120 L 480 280 Z" fill="url(#coneShading)" opacity="0.15"/>
+                    
+                    <!-- Right triangle drawn ON the cone surface -->
+                    <!-- Base along cone axis -->
+                    <line x1="120" y1="200" x2="350" y2="200" stroke="#e74c3c" stroke-width="4"/>
+                    <!-- Vertical leg on cone surface (showing 3D perspective) -->
+                    <line x1="350" y1="200" x2="350" y2="140" stroke="#e74c3c" stroke-width="4"/>
+                    <!-- Hypotenuse on cone surface -->
+                    <line x1="120" y1="200" x2="350" y2="140" stroke="#e74c3c" stroke-width="5"/>
+                    
+                    <!-- Triangle fill with transparency to show it's on the surface -->
+                    <path d="M 120 200 L 350 200 L 350 140 Z" fill="rgba(231, 76, 60, 0.25)"/>
+                    
+                    <!-- Triangle side labels -->
+                    <text x="230" y="215" font-family="Georgia, Times" font-size="14" font-weight="bold">tₓ</text>
+                    <text x="360" y="175" font-family="Georgia, Times" font-size="14" font-weight="bold">sₓ/c</text>
+                    <text x="220" y="165" font-family="Georgia, Times" font-size="14" font-weight="bold">t</text>
+                    
+                    <!-- Perspective lines to show 3D structure -->
+                    <line x1="220" y1="180" x2="220" y2="220" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="4,2" opacity="0.6"/>
+                    <line x1="280" y1="170" x2="280" y2="230" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="4,2" opacity="0.6"/>
+                    <line x1="340" y1="160" x2="340" y2="240" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="4,2" opacity="0.6"/>
+                    
+                    <!-- Axis line along cone -->
+                    <line x1="120" y1="200" x2="480" y2="200" stroke="#2c3e50" stroke-width="2" stroke-dasharray="6,3" opacity="0.7"/>
+                </svg>
+                <div class="platecap">Figure 7</div>
+            </div>
+
+            <p>We arrive, then, at a natural commonsense model for understanding relativistic time-dilation. It is simply Pythagoras' theorem, whose standard geometrical projection is the cone shown in Figure 7. This illustrates very clearly the inadequacy of the traditional 'flat-graph' concept of motion, the persistence of which makes relativity all but completely incomprehensible. It shows that motion involves not just the two measures, distance and time, as in the classical way of thinking, but at least three measures: one, the distance (distance-time) travelled by the moving body X, relative to O; two, the time taken according to clock O; and three, the time taken according to clock X.</p>
+
+            <p>The fact that these two times are different can be seen from their conic projection. For instance, from the end-view of the cone, shown in Figure 8a, we see how motions are depicted in the plane of the dimensions S and T<sub>x</sub>. This resembles the classical 'flat' graph of motion in which the natural limit of all motion is infinity. The side-view of the cone, Figure 8b, shows these same motions in the dimensions S and T of the observer O, in which they tend towards the finite upper limit set by the slope of the cone (which is c).</p>
+
+            <div class="plate">
+                <svg width="650" height="450" viewBox="0 0 650 450">
+                    <defs>
+                        <marker id="arrowhead8a" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="#27ae60"/>
+                        </marker>
+                        <!-- Heavy shading pattern for velocity-limit c -->
+                        <pattern id="heavyShading" patternUnits="userSpaceOnUse" width="4" height="4">
+                            <path d="m0,0 l4,4 m0,-4 l4,4" stroke="#2c3e50" stroke-width="1" opacity="0.8"/>
+                        </pattern>
+                    </defs>
+                    
+                    <!-- Title -->
+                    <text x="325" y="25" text-anchor="middle" font-family="Georgia, Times" font-size="16" font-weight="bold">10. THE VELOCITY-LIMIT C</text>
+                    
+                    <!-- S axis vertical -->
+                    <line x1="60" y1="400" x2="60" y2="60" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead8a)"/>
+                    <text x="45" y="55" font-family="Georgia, Times" font-size="16" font-weight="bold">S</text>
+                    
+                    <!-- T axis horizontal -->
+                    <line x1="60" y1="400" x2="600" y2="400" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead8a)"/>
+                    <text x="605" y="405" font-family="Georgia, Times" font-size="16" font-weight="bold">T</text>
+                    
+                    <!-- Origin "o" -->
+                    <circle cx="60" cy="400" r="3" fill="#2c3e50"/>
+                    <text x="45" y="420" font-family="Georgia, Times" font-size="14">o</text>
+                    
+                    <!-- THICK diagonal line = velocity-limit c -->
+                    <line x1="60" y1="400" x2="480" y2="80" stroke="#e74c3c" stroke-width="6"/>
+                    
+                    <!-- HEAVILY SHADED area along this line (dark triangular wedge) -->
+                    <path d="M 60 400 L 480 80 L 500 100 L 480 120 Z" fill="url(#heavyShading)"/>
+                    <path d="M 400 160 L 480 80 L 500 100 L 420 180 Z" fill="url(#heavyShading)"/>
+                    
+                    <!-- Label "velocity-limit c" along the line -->
+                    <text x="320" y="200" font-family="Georgia, Times" font-size="12" font-weight="bold" transform="rotate(-50 320 200)">velocity-limit c</text>
+                    
+                    <!-- 9 straight lines radiating from origin at progressively steeper angles -->
+                    <line x1="60" y1="400" x2="200" y2="390" stroke="#27ae60" stroke-width="2" marker-end="url(#arrowhead8a)"/>
+                    <line x1="60" y1="400" x2="180" y2="370" stroke="#27ae60" stroke-width="2" marker-end="url(#arrowhead8a)"/>
+                    <line x1="60" y1="400" x2="160" y2="340" stroke="#27ae60" stroke-width="2" marker-end="url(#arrowhead8a)"/>
+                    <line x1="60" y1="400" x2="150" y2="300" stroke="#27ae60" stroke-width="2" marker-end="url(#arrowhead8a)"/>
+                    <line x1="60" y1="400" x2="140" y2="250" stroke="#27ae60" stroke-width="2" marker-end="url(#arrowhead8a)"/>
+                    <line x1="60" y1="400" x2="130" y2="190" stroke="#27ae60" stroke-width="2" marker-end="url(#arrowhead8a)"/>
+                    <line x1="60" y1="400" x2="120" y2="120" stroke="#27ae60" stroke-width="2" marker-end="url(#arrowhead8a)"/>
+                    <line x1="60" y1="400" x2="110" y2="100" stroke="#27ae60" stroke-width="2" marker-end="url(#arrowhead8a)"/>
+                    <line x1="60" y1="400" x2="105" y2="95" stroke="#27ae60" stroke-width="2" marker-end="url(#arrowhead8a)"/>
+                    
+                    <!-- Velocity labels -->
+                    <text x="210" y="395" font-family="Georgia, Times" font-size="10">v₁/c</text>
+                    <text x="165" y="345" font-family="Georgia, Times" font-size="10">v₃/c</text>
+                    <text x="125" y="255" font-family="Georgia, Times" font-size="10">v₅/c</text>
+                    <text x="115" y="175" font-family="Georgia, Times" font-size="10">v₇/c</text>
+                    <text x="115" y="105" font-family="Georgia, Times" font-size="10">v₉/c</text>
+                    
+                    <!-- Horizontal dashed lines across the full width at each velocity tip height -->
+                    <line x1="60" y1="390" x2="580" y2="390" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="6,3"/>
+                    <line x1="60" y1="370" x2="580" y2="370" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="6,3"/>
+                    <line x1="60" y1="340" x2="580" y2="340" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="6,3"/>
+                    <line x1="60" y1="300" x2="580" y2="300" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="6,3"/>
+                    <line x1="60" y1="250" x2="580" y2="250" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="6,3"/>
+                    <line x1="60" y1="190" x2="580" y2="190" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="6,3"/>
+                    <line x1="60" y1="120" x2="580" y2="120" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="6,3"/>
+                    
+                    <!-- Vertical dashed lines dropping DOWN from each velocity tip to BELOW the T-axis -->
+                    <line x1="200" y1="390" x2="200" y2="430" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="6,3"/>
+                    <line x1="180" y1="370" x2="180" y2="430" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="6,3"/>
+                    <line x1="160" y1="340" x2="160" y2="430" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="6,3"/>
+                    <line x1="150" y1="300" x2="150" y2="430" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="6,3"/>
+                    <line x1="140" y1="250" x2="140" y2="430" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="6,3"/>
+                    <line x1="130" y1="190" x2="130" y2="430" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="6,3"/>
+                    <line x1="120" y1="120" x2="120" y2="430" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="6,3"/>
+                    
+                    <!-- BELOW the T-axis: stacked horizontal segments with tick marks -->
+                    <line x1="70" y1="420" x2="100" y2="420" stroke="#2c3e50" stroke-width="2"/>
+                    <line x1="70" y1="420" x2="120" y2="420" stroke="#2c3e50" stroke-width="2"/>
+                    <line x1="70" y1="420" x2="140" y2="420" stroke="#2c3e50" stroke-width="2"/>
+                    <line x1="70" y1="420" x2="160" y2="420" stroke="#2c3e50" stroke-width="2"/>
+                    <line x1="70" y1="420" x2="180" y2="420" stroke="#2c3e50" stroke-width="2"/>
+                    <line x1="70" y1="420" x2="200" y2="420" stroke="#2c3e50" stroke-width="2"/>
+                    
+                    <!-- Tick marks -->
+                    <line x1="100" y1="415" x2="100" y2="425" stroke="#2c3e50" stroke-width="2"/>
+                    <line x1="120" y1="415" x2="120" y2="425" stroke="#2c3e50" stroke-width="2"/>
+                    <line x1="140" y1="415" x2="140" y2="425" stroke="#2c3e50" stroke-width="2"/>
+                    <line x1="160" y1="415" x2="160" y2="425" stroke="#2c3e50" stroke-width="2"/>
+                    <line x1="180" y1="415" x2="180" y2="425" stroke="#2c3e50" stroke-width="2"/>
+                    <line x1="200" y1="415" x2="200" y2="425" stroke="#2c3e50" stroke-width="2"/>
+                    
+                    <!-- Labels t₁ through t₇ -->
+                    <text x="95" y="440" font-family="Georgia, Times" font-size="10">t₁</text>
+                    <text x="115" y="440" font-family="Georgia, Times" font-size="10">t₂</text>
+                    <text x="135" y="440" font-family="Georgia, Times" font-size="10">t₃</text>
+                    <text x="155" y="440" font-family="Georgia, Times" font-size="10">t₄</text>
+                    <text x="175" y="440" font-family="Georgia, Times" font-size="10">t₅</text>
+                    <text x="195" y="440" font-family="Georgia, Times" font-size="10">t₆</text>
+                    
+                    <!-- Label "tₓ" near origin -->
+                    <text x="75" y="435" font-family="Georgia, Times" font-size="12">tₓ</text>
+                    
+                    <!-- Curved arcs through endpoints -->
+                    <path d="M 100 420 A 50 50 0 0 1 120 420" fill="none" stroke="#7f8c8d" stroke-width="1"/>
+                    <path d="M 120 420 A 60 60 0 0 1 140 420" fill="none" stroke="#7f8c8d" stroke-width="1"/>
+                    <path d="M 140 420 A 70 70 0 0 1 160 420" fill="none" stroke="#7f8c8d" stroke-width="1"/>
+                    
+                    <!-- Left margin label (vertical): "increasing values sₓ" -->
+                    <text x="25" y="250" font-family="Georgia, Times" font-size="12" transform="rotate(-90 25 250)">increasing values sₓ</text>
+                </svg>
+                <div class="platecap">Figure 8a</div>
+            </div>
+
+            <div class="plate">
+                <svg width="700" height="450" viewBox="0 0 700 450">
+                    <defs>
+                        <marker id="arrowhead8b" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                            <polygon points="0 0, 8 3, 0 6" fill="#2c3e50"/>
+                        </marker>
+                        <!-- Grid pattern for right half of cone -->
+                        <pattern id="coneGrid" patternUnits="userSpaceOnUse" width="20" height="20">
+                            <path d="M 0 0 L 20 20 M 0 20 L 20 0" stroke="#7f8c8d" stroke-width="0.8" opacity="0.6"/>
+                            <path d="M 0 10 L 20 10 M 10 0 L 10 20" stroke="#7f8c8d" stroke-width="0.5" opacity="0.4"/>
+                        </pattern>
+                        <!-- Radial line pattern for cone surface -->
+                        <pattern id="radialLines" patternUnits="userSpaceOnUse" width="30" height="30">
+                            <path d="M 0 15 L 30 15" stroke="#7f8c8d" stroke-width="0.5" opacity="0.5"/>
+                        </pattern>
+                    </defs>
+                    
+                    <!-- Title -->
+                    <text x="350" y="25" text-anchor="middle" font-family="Georgia, Times" font-size="16" font-weight="bold">11. THE INFINITE-VELOCITY ASPECT of C</text>
+                    
+                    <!-- Origin "o" at lower-left -->
+                    <circle cx="80" cy="380" r="4" fill="#2c3e50"/>
+                    <text x="60" y="400" font-family="Georgia, Times" font-size="14" font-weight="bold">o</text>
+                    
+                    <!-- S axis going UP from o -->
+                    <line x1="80" y1="380" x2="80" y2="60" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead8b)"/>
+                    <text x="65" y="55" font-family="Georgia, Times" font-size="16" font-weight="bold">S</text>
+                    
+                    <!-- Tₓ axis going RIGHT from o -->
+                    <line x1="80" y1="380" x2="620" y2="380" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead8b)"/>
+                    <text x="625" y="385" font-family="Georgia, Times" font-size="16" font-weight="bold">Tₓ</text>
+                    
+                    <!-- Cone opening UPWARD from apex at o -->
+                    <!-- Left slant edge goes from o upward along/near the S axis -->
+                    <line x1="80" y1="380" x2="90" y2="80" stroke="#2c3e50" stroke-width="3"/>
+                    <!-- Right slant edge goes from o upward-right at ~45-60° -->
+                    <line x1="80" y1="380" x2="400" y2="100" stroke="#2c3e50" stroke-width="3"/>
+                    
+                    <!-- LEFT half of cone is SOLID BLACK (heavily shaded) — the far side seen edge-on -->
+                    <path d="M 80 380 L 90 80 L 80 80 Z" fill="#2c3e50" opacity="0.9"/>
+                    <!-- Extension of solid black region -->
+                    <path d="M 80 80 L 90 80 L 180 100 L 80 120 Z" fill="#2c3e50" opacity="0.7"/>
+                    
+                    <!-- RIGHT half shows a GRID on the cone surface -->
+                    <path d="M 80 380 L 400 100 L 300 120 L 80 350 Z" fill="url(#coneGrid)" opacity="0.3"/>
+                    
+                    <!-- ~15-20 radial lines fanning from o across the cone surface -->
+                    <line x1="80" y1="380" x2="120" y2="120" stroke="#7f8c8d" stroke-width="1" opacity="0.6"/>
+                    <line x1="80" y1="380" x2="140" y2="130" stroke="#7f8c8d" stroke-width="1" opacity="0.6"/>
+                    <line x1="80" y1="380" x2="160" y2="140" stroke="#7f8c8d" stroke-width="1" opacity="0.6"/>
+                    <line x1="80" y1="380" x2="180" y2="150" stroke="#7f8c8d" stroke-width="1" opacity="0.6"/>
+                    <line x1="80" y1="380" x2="200" y2="160" stroke="#7f8c8d" stroke-width="1" opacity="0.6"/>
+                    <line x1="80" y1="380" x2="220" y2="170" stroke="#7f8c8d" stroke-width="1" opacity="0.6"/>
+                    <line x1="80" y1="380" x2="240" y2="180" stroke="#7f8c8d" stroke-width="1" opacity="0.6"/>
+                    <line x1="80" y1="380" x2="260" y2="190" stroke="#7f8c8d" stroke-width="1" opacity="0.6"/>
+                    <line x1="80" y1="380" x2="280" y2="200" stroke="#7f8c8d" stroke-width="1" opacity="0.6"/>
+                    <line x1="80" y1="380" x2="300" y2="210" stroke="#7f8c8d" stroke-width="1" opacity="0.6"/>
+                    <line x1="80" y1="380" x2="320" y2="220" stroke="#7f8c8d" stroke-width="1" opacity="0.6"/>
+                    <line x1="80" y1="380" x2="340" y2="230" stroke="#7f8c8d" stroke-width="1" opacity="0.6"/>
+                    <line x1="80" y1="380" x2="360" y2="240" stroke="#7f8c8d" stroke-width="1" opacity="0.6"/>
+                    <line x1="80" y1="380" x2="380" y2="250" stroke="#7f8c8d" stroke-width="1" opacity="0.6"/>
+                    <line x1="80" y1="380" x2="400" y2="260" stroke="#7f8c8d" stroke-width="1" opacity="0.6"/>
+                    
+                    <!-- ~8-10 horizontal dashed lines with rightward arrows across the cone surface -->
+                    <!-- Representing velocity projections, curving slightly to show 3D -->
+                    <path d="M 100 350 Q 200 340 300 330" stroke="#27ae60" stroke-width="2" stroke-dasharray="8,4" marker-end="url(#arrowhead8b)" opacity="0.8"/>
+                    <path d="M 110 320 Q 220 310 330 300" stroke="#27ae60" stroke-width="2" stroke-dasharray="8,4" marker-end="url(#arrowhead8b)" opacity="0.8"/>
+                    <path d="M 120 290 Q 240 280 360 270" stroke="#27ae60" stroke-width="2" stroke-dasharray="8,4" marker-end="url(#arrowhead8b)" opacity="0.8"/>
+                    <path d="M 130 260 Q 260 250 390 240" stroke="#27ae60" stroke-width="2" stroke-dasharray="8,4" marker-end="url(#arrowhead8b)" opacity="0.8"/>
+                    <path d="M 140 230 Q 280 220 420 210" stroke="#27ae60" stroke-width="2" stroke-dasharray="8,4" marker-end="url(#arrowhead8b)" opacity="0.8"/>
+                    <path d="M 150 200 Q 300 190 450 180" stroke="#27ae60" stroke-width="2" stroke-dasharray="8,4" marker-end="url(#arrowhead8b)" opacity="0.8"/>
+                    <path d="M 160 170 Q 320 160 480 150" stroke="#27ae60" stroke-width="2" stroke-dasharray="8,4" marker-end="url(#arrowhead8b)" opacity="0.8"/>
+                    <path d="M 170 140 Q 340 130 510 120" stroke="#27ae60" stroke-width="2" stroke-dasharray="8,4" marker-end="url(#arrowhead8b)" opacity="0.8"/>
+                    
+                    <!-- Large CONCENTRIC QUARTER-CIRCLE ARCS centered at o, 3-4 of them -->
+                    <path d="M 80 300 A 80 80 0 0 1 160 380" stroke="#3498db" stroke-width="2" fill="none" opacity="0.7"/>
+                    <path d="M 80 230 A 150 150 0 0 1 230 380" stroke="#3498db" stroke-width="2" fill="none" opacity="0.7"/>
+                    <path d="M 80 160 A 220 220 0 0 1 300 380" stroke="#3498db" stroke-width="2" fill="none" opacity="0.7"/>
+                    <path d="M 80 90 A 290 290 0 0 1 370 380" stroke="#3498db" stroke-width="2" fill="none" opacity="0.7"/>
+                    
+                    <!-- "infinite velocity" label written vertically along the left edge -->
+                    <text x="40" y="250" font-family="Georgia, Times" font-size="12" font-weight="bold" transform="rotate(-90 40 250)">infinite velocity</text>
+                    
+                    <!-- Dense fan of straight lines from origin in the lower-right quadrant -->
+                    <line x1="80" y1="380" x2="150" y2="375" stroke="#7f8c8d" stroke-width="0.8" opacity="0.5"/>
+                    <line x1="80" y1="380" x2="180" y2="370" stroke="#7f8c8d" stroke-width="0.8" opacity="0.5"/>
+                    <line x1="80" y1="380" x2="210" y2="365" stroke="#7f8c8d" stroke-width="0.8" opacity="0.5"/>
+                    <line x1="80" y1="380" x2="240" y2="360" stroke="#7f8c8d" stroke-width="0.8" opacity="0.5"/>
+                    <line x1="80" y1="380" x2="270" y2="355" stroke="#7f8c8d" stroke-width="0.8" opacity="0.5"/>
+                    <line x1="80" y1="380" x2="300" y2="350" stroke="#7f8c8d" stroke-width="0.8" opacity="0.5"/>
+                    <line x1="80" y1="380" x2="330" y2="345" stroke="#7f8c8d" stroke-width="0.8" opacity="0.5"/>
+                    <line x1="80" y1="380" x2="360" y2="340" stroke="#7f8c8d" stroke-width="0.8" opacity="0.5"/>
+                    <line x1="80" y1="380" x2="390" y2="335" stroke="#7f8c8d" stroke-width="0.8" opacity="0.5"/>
+                    <line x1="80" y1="380" x2="420" y2="330" stroke="#7f8c8d" stroke-width="0.8" opacity="0.5"/>
+                </svg>
+                <div class="platecap">Figure 8b</div>
+            </div>
+
+            <p>Figure 8b also shows the dilations in the time of X relative to O as the velocities v = s/t approach the limit (asymptote) c. The conventional way of expressing these time-dilations is by the Lorentz-Einstein equation:</p>
+
+            <div class="equation">
+                $$t = \frac{t_x}{\sqrt{1 - \left(\frac{v}{c}\right)^2}} \tag{2}$$
+                
+            </div>
+
+            <p>for which there is no simple traditional depiction. That mysterious formula, however, can now be depicted. Its natural depiction is simply the sideways view of the cone-model, shown in Figure 8b.</p>
+
+            <p>The Lorentz-Einstein formula, however, like its graphical depiction in Figure 8b, is incomprehensible when presented on its own, without the knowledge that what it expresses is the geometry of conic surfaces and sections. It is the misfortune of historical relativity that the formula was discovered in this dissociated, mechanistic, way -- which is doubtless why Relativity has always been so notoriously difficult to understand.</p>
+
+            <p>That this 'incomprehensible' formula is nothing more, as I have said, than our old Pythagoras' theorem in disguise is easily demonstrated. All we have to do, since v in (2) is s/t, is to substitute accordingly for v in the formula, and simplify. This produces, straightaway, the Pythagorean relation expressed in (1).</p>
+
+            <p>We may conclude, then, that the most natural, most simple and economical way of understanding relativistic time-dilation is geometrically, by way of Pythagoras' theorem applied directly to relative distance-time dimensions in the way we have described.</p>
+
+            <p>This, of course, was not the way relativity was discovered. Due to a peculiar quirk of history, the discovery of c was interpreted not as a constant for converting metres into seconds but as 'the speed of light in space'. It was in experiments conceived in terms of this mechanistic conception, therefore, that Formula 2 emerged. The connection between this formula and Pythagoras' theorem was then made indirectly, added as a kind of 'esoteric afterthought' by the mathematical geniuses, Einstein and Minkowski.</p>
+
+            <p>By readjusting this historical process, however, and putting Pythagoras first we may doff our caps to genius and begin to see relativity in a more normal commonsense-philosophical perspective.</p>
+
+            <div class="reference">
+                <strong>REFERENCE:</strong> The mathematical details of this cone model are as published in 'A New Approach to Special Relativity', by N. V. Pope and A.D. Osborne, in International Journal of Mathematical Education in Science and Technology, 1987, Vol. 18, No.2, 191-198.
+            </div>
+
+            <div class="author-info">
+                N. V. Pope, 209 Newton Road, Burton on Trent, Staffordshire. DE15 0TU, England.
+            </div>
+
+            <!-- Conference Presentation Page -->
+            <section class="appendix">
+                <h2>QUESTIONING THE DIMENSIONS OF REALITY</h2>
+                <h3>The Relevance of the 'CONE MODEL OF TIME-DILATION' by N. Vivian Pope</h3>
+
+                <p><strong>THE UNIFICATION OF SCIENCE:</strong> No unification of scientific ideas can be created arbitrarily. To unify science we need a UNIFYING THEORETICAL CONCEPT.</p>
+
+                <p><strong>MAKING SENSE OF SCIENCE:</strong> Such a concept is that of the observer-centredness of physical descriptions, as expressed in relativity and quantum theory. This suggests a wholesale re-orientation of science in the direction of phenomenalism in the manner prescribed by people like Kant, Mach and Poincaré.</p>
+
+                <p>Full synthesis along these phenomenalistic lines, however, is inhibited by a vestige of classical science. This is that old and presumptuous God's-Eye-View of 'universe' which sees physical events as occurring automatically in an absolutely objective and primordial space and time. A necessary part of this presumption (carried over into Einsteinian relativism) is that physical interconnections are made by 'light' travelling across the void at a finite speed c (the so-called Einstein separation). This makes physical interaction and observation a second-hand, after-the-event affair in which what happens in the world is remote and inexorable, making observation entirely passive and incidental.</p>
+
+                <p>In the New Approach, by Pope (a philosopher) and Osborne (a mathematician), this barrier to a relativistic synthesis is removed. Space ceases to be a self-sufficient void and becomes, instead, a radial or polar extrapolation from observational (quantum) information, with time as part and parcel of this extrapolation (see the Cone-Model). The facts of 'light-velocity' are then interpreted more economically and in such a way as to remove the old mediating or 'middle-man' role of light-photons (a redundant conception). This puts the observer/experimenter into direct interactive contact with the information out of which physical reality is constructed.</p>
+
+                <p>In his sequel: 'Is Relativity Quantised?', Pope deduces, as a logical consequence of the New Approach to Special Relativity, that the ultimate informational units of all relativistic events are action-units h. If this argument is correct, then it completes the phenomenalist (presentationalist) synthesis of relativity and quantum theory that is facilitated by making redundant the representationalistic concept of 'light-velocity'.</p>
+
+                <div class="conference-info" style="margin-top: 30px;">
+                    Council of Europe, Room 12, 17.00 hrs. Tuesday, Sept. 30th.<br>
+                    EASST Conference, 'Senses of Science', Strasbourg, Council of Europe, 29 Sept. - 1st Oct. 1986.
+                </div>
+            </section>
+        </main>
+
+        <!-- The Observer's Sphere — Editorial Addition -->
+        <section class="appendix">
+            <h2>THE OBSERVER'S SPHERE</h2>
+            <p style="font-style: italic; color: #95a5a6; margin-bottom: 20px;">Editorial addition — not part of Pope's original 1986 paper. Included to clarify the three-dimensional geometry underlying the cone model, which could not be easily rendered with the tools available in 1986.</p>
+
+            <p>Pope's cone is not an abstract mathematical convenience. It arises directly from the geometry of observation itself. The observer O sits at the centre of concentric spheres — like an onion — each sphere representing a shell of equal distance (and therefore equal distance-time) from O. These are the spheres of Figure 1, the radial structure of all observational information.</p>
+
+            <p>When this spherical structure is projected into time — that is, when we ask not just <em>where</em> things are but <em>when</em> they are — each sphere becomes a cross-section of a cone. The cone is simply the time-extended form of the observer's spherical geometry. The conic sections that appear throughout relativity (ellipses, parabolas, hyperbolas) are not mysterious abstractions; they are the natural cross-sections of this onion-in-time.</p>
+
+            <p>Live Figure B below shows this. Begin with the spheres alone, then introduce the time axis to see the cone emerge. Rotate the view to understand how Figures 8a and 8b are simply different perspectives of this same structure.</p>
+
+            
+        </section>
+
+        <!-- Interactive Appendices -->
+        
+</div>
+
+<h2>The Apparatus — the 1986 figures, made live</h2>
+<p class="note">Everything below is added by this exhibit (2026). The numbers in Live Figure D are
+<span class="tag prov">imported</span> measured/standard values; everything else is the paper's own geometry.</p>
+
+<h3>Live Figure A · The triangle of times (Pope's Figures 6–7)</h3>
+<p>One observer-unit of time $t$ is the hypotenuse. Slide the recession rate $v/c$ and watch the triangle re-apportion
+between the traveller's accumulated time $\tau$ and the distance-time $s/c$:</p>
+<div class="panel">
+  <canvas id="triCanvas" width="460" height="340"></canvas>
+  <div class="controls">
+    <label>recession rate $v/c$: <span class="readout" id="triV">0.60</span></label>
+    <input type="range" id="triSlider" min="0" max="0.995" step="0.005" value="0.6">
+    <div class="readout" id="triStats" style="margin-top:8px"></div>
+    <p class="note" style="margin-top:10px">The triangle never leaves the page because nothing here is exotic:
+    $t^2=\tau^2+(s/c)^2$, and every reading of a moving clock is this triangle solved for one side.</p>
+  </div>
+</div>
+
+<h3>Live Figure B · The cone itself (Pope's Figures 7–8, and the Observer's Sphere)</h3>
+<p>The observer's onion of equal-distance spheres, extended into time. Each constant-velocity history is a straight
+generator on a cone of half-angle $\sin\theta = v/c$ about the observer's time-axis. Drag to turn the model — Figure 8a
+(plan) and Figure 8b (side) are two views of this one object. Toggle the sphere-shells to see the onion the cone is
+made of:</p>
+<div class="panel">
+  <canvas id="coneCanvas" width="520" height="470"></canvas>
+  <div class="controls">
+    <label>recession rate $v/c$: <span class="readout" id="coneV">0.60</span></label>
+    <input type="range" id="coneSlider" min="0" max="0.995" step="0.005" value="0.6">
+    <button id="btnShells">toggle sphere-shells</button>
+    <button id="btnSide">side view (Fig 8b)</button>
+    <button id="btnPlan">plan view (Fig 8a)</button>
+    <div class="readout" id="coneStats" style="margin-top:8px"></div>
+    <p class="note" style="margin-top:10px">Drag the canvas to rotate. The gold ray is the traveller's history on the
+    cone surface; the vertical axis is the stay-at-home history; the beads mark equal ticks of observer time $t$ —
+    equal <em>hypotenuses</em>, unequal verticals: dilation, drawn rather than postulated.</p>
+  </div>
+</div>
+
+<h3>Live Figure C · Lorentz–Einstein is Pythagoras, solved for the hypotenuse (Pope's Equation 2)</h3>
+<p>Rearrange $t^2 = \tau^2 + (vt/c)^2$ for $t$ and the "relativistic" formula appears with no further input:</p>
+<div class="eqbox">$$t^2\left(1-\frac{v^2}{c^2}\right)=\tau^2 \qquad\Longrightarrow\qquad
+t=\frac{\tau}{\sqrt{1-v^2/c^2}}\;=\;\gamma\,\tau.$$</div>
+<div class="panel">
+  <div class="controls" style="flex:1 1 100%">
+    <label>recession rate $v/c$: <span class="readout" id="lorV">0.60</span></label>
+    <input type="range" id="lorSlider" min="0" max="0.999" step="0.001" value="0.6">
+    <div class="readout" id="lorStats" style="margin-top:8px"></div>
+    <p class="note" style="margin-top:8px">Two columns, one number: the cone's geometry and the Lorentz–Einstein
+    formula cannot disagree, because the second <em>is</em> the first, solved for $t$. What 1905 booked as a strange
+    property of light, 1986 draws as a triangle.</p>
+  </div>
+</div>
+
+<h3>Live Figure D · Dilation at scale <span class="tag prov">measured/standard values</span></h3>
+<p>The triangle at real rates — from a walk to a muon. The deficit is real at every speed; it is merely small until
+the horizontal leg matters:</p>
+<div class="panel">
+  <canvas id="scaleCanvas" width="860" height="120"></canvas>
+  <div class="controls" style="flex:1 1 100%">
+    <button class="preset" data-v="1.56e-9" data-n="walking (1.4 m/s)">walking</button>
+    <button class="preset" data-v="8.3e-7" data-n="airliner (250 m/s)">airliner</button>
+    <button class="preset" data-v="1.29e-5" data-n="GPS satellite (3.87 km/s)">GPS</button>
+    <button class="preset" data-v="2.56e-5" data-n="ISS (7.66 km/s)">ISS</button>
+    <button class="preset" data-v="9.94e-5" data-n="Earth around Sun (29.8 km/s)">Earth</button>
+    <button class="preset" data-v="0.9994" data-n="cosmic-ray muon">muon</button>
+    <button class="preset" data-v="0.999999991" data-n="LHC proton">LHC proton</button>
+    <div class="readout" id="scaleStats" style="margin-top:8px"></div>
+    <p class="note" style="margin-top:8px">The airborne-clock and GPS confirmations are the series' own pages —
+    <a href="./gps-clocks.html">GPS Clocks</a> carries the full constraint-ledger bookkeeping (the altitude book that
+    runs opposite the speed book), and <a href="./twins-paradox.html">Twins</a> walks the round trip on this very
+    cone.</p>
+  </div>
+</div>
+
+<h2>Scope &amp; status</h2>
+<div class="card red">
+<p style="margin:4px 0 10px;"><b>Verbatim (the source document):</b> the complete text of Pope's 1986 EASST paper
+"A Cone-Model of Time-Dilation," his Figures 1–8b (reproduced as archival plates, unretouched), his equations (1)
+and (2), and the conference abstract "Questioning the Dimensions of Reality." Nothing in the paper has been edited,
+corrected, or modernized.</p>
+<p style="margin:0 0 10px;"><b>Editorial (this exhibit):</b> the section "The Observer's Sphere" (labeled as such
+in place — added to unpack the sphere-to-cone geometry Pope could not easily render in 1986); the dark archival
+restaging; and the four live figures, which draw only what the paper argues. <span class="tag prov">imported</span>
+The speeds and clock-rate numbers in Live Figure D are standard measured values (GPS, ISS, muon, LHC), imported
+untouched.</p>
+<p style="margin:0;"><b>Placement in the series:</b> this is the source spring of the clock pages — Twins, Circular
+Orbit Clocks, Elliptical Dilation, GPS, Perihelion — and of the Pythagorean time book used throughout (most recently
+by the neutrino account's leg-clock). The former engineering-site copy of this paper now redirects here.</p>
+</div>
+
+</main>
+<footer>
+  A Cone-Model of Time-Dilation — N. Vivian Pope, 1986; presented as an NR · POAMS archival exhibit with live
+  apparatus. Companion pages: <a href="./twins-paradox.html">Twins Paradox</a> ·
+  <a href="./circular-orbit-clocks.html">Circular Orbit Clocks</a> · <a href="./gps-clocks.html">GPS Clocks</a> ·
+  <a href="./elliptical-dilation.html">Elliptical Dilation</a>.
+</footer>
+<script>
+(function(){
+function beta(el){return parseFloat(el.value);}
+function fmt(x,d){return x.toFixed(d===undefined?4:d);}
+
+/* ── Live Figure A: triangle ── */
+const tc=document.getElementById('triCanvas'),tctx=tc.getContext('2d');
+const tS=document.getElementById('triSlider');
+function drawTri(){
+ const b=beta(tS),g=1/Math.sqrt(1-b*b);
+ document.getElementById('triV').textContent=fmt(b,3);
+ const W=tc.width,H=tc.height;tctx.clearRect(0,0,W,H);
+ const L=250, x0=90,y0=H-60;
+ const sx=L*b, ty=L*Math.sqrt(1-b*b);
+ // triangle: vertical leg tau up from origin, horizontal leg s/c right at top, hyp t from origin to tip
+ tctx.strokeStyle='#63d67e';tctx.lineWidth=3;tctx.beginPath();tctx.moveTo(x0,y0);tctx.lineTo(x0,y0-ty);tctx.stroke();
+ tctx.strokeStyle='#5bc8f5';tctx.beginPath();tctx.moveTo(x0,y0-ty);tctx.lineTo(x0+sx,y0-ty);tctx.stroke();
+ tctx.strokeStyle='#d4af37';tctx.beginPath();tctx.moveTo(x0,y0);tctx.lineTo(x0+sx,y0-ty);tctx.stroke();
+ // right-angle mark
+ tctx.strokeStyle='#26263a';tctx.lineWidth=1;tctx.strokeRect(x0,y0-ty,12,12);
+ tctx.font='14px Georgia,serif';
+ tctx.fillStyle='#63d67e';tctx.fillText('τ = '+fmt(Math.sqrt(1-b*b),3)+'  (traveller\u2019s time)',x0-72,y0-ty/2>y0-20?y0-20:y0-ty/2);
+ tctx.fillStyle='#5bc8f5';tctx.fillText('s/c = '+fmt(b,3),x0+sx/2-30,y0-ty-10);
+ tctx.fillStyle='#d4af37';tctx.fillText('t = 1  (observer\u2019s time, the hypotenuse)',x0+sx/2-70,y0-ty/2+26);
+ document.getElementById('triStats').innerHTML=
+  'τ/t = '+fmt(Math.sqrt(1-b*b),4)+' &nbsp;·&nbsp; γ = '+fmt(g,4)+'<br>check: τ² + (s/c)² = '+fmt((1-b*b)+b*b,4)+' = t²';
+}
+tS.addEventListener('input',drawTri);drawTri();
+
+/* ── Live Figure B: the cone ── */
+const cc=document.getElementById('coneCanvas'),cctx=cc.getContext('2d');
+const cS=document.getElementById('coneSlider');
+let yaw=0.7, pitch=0.42, shells=true, dragging=false, lx=0, ly=0, spun=false;
+cc.addEventListener('mousedown',e=>{dragging=true;spun=true;lx=e.offsetX;ly=e.offsetY;});
+window.addEventListener('mouseup',()=>dragging=false);
+cc.addEventListener('mousemove',e=>{if(dragging){yaw+=(e.offsetX-lx)*0.01;pitch=Math.max(0.05,Math.min(1.3,pitch+(e.offsetY-ly)*0.006));lx=e.offsetX;ly=e.offsetY;drawCone();}});
+cc.addEventListener('touchstart',e=>{dragging=true;spun=true;lx=e.touches[0].clientX;ly=e.touches[0].clientY;e.preventDefault();},{passive:false});
+cc.addEventListener('touchmove',e=>{if(dragging){yaw+=(e.touches[0].clientX-lx)*0.01;pitch=Math.max(0.05,Math.min(1.3,pitch+(e.touches[0].clientY-ly)*0.006));lx=e.touches[0].clientX;ly=e.touches[0].clientY;e.preventDefault();drawCone();}},{passive:false});
+document.getElementById('btnShells').onclick=()=>{shells=!shells;drawCone();};
+document.getElementById('btnSide').onclick=()=>{pitch=0.02;spun=true;drawCone();};
+document.getElementById('btnPlan').onclick=()=>{pitch=1.35;spun=true;drawCone();};
+function P(x,y,z){ // world → screen. z up.
+ const cy=Math.cos(yaw),sy=Math.sin(yaw);
+ let X=x*cy - y*sy, Y=x*sy + y*cy, Z=z;
+ const cp=Math.cos(pitch),sp=Math.sin(pitch);
+ let Y2=Y*cp - Z*sp, Z2=Y*sp + Z*cp;
+ const scale=95, cx=cc.width/2, cyo=cc.height/2+70;
+ return [cx+X*scale, cyo+Y2*scale*0.0 - Z2*scale + Y2*scale*0.9*0.0, Y2];
+}
+function line3(a,b,color,w,dash){
+ const A=P(a[0],a[1],a[2]),B=P(b[0],b[1],b[2]);
+ cctx.strokeStyle=color;cctx.lineWidth=w||1;cctx.setLineDash(dash||[]);
+ cctx.beginPath();cctx.moveTo(A[0],A[1]);cctx.lineTo(B[0],B[1]);cctx.stroke();cctx.setLineDash([]);
+}
+function circle3(r,z,color,w,dash){
+ cctx.strokeStyle=color;cctx.lineWidth=w||1;cctx.setLineDash(dash||[]);cctx.beginPath();
+ for(let i=0;i<=72;i++){const a=i/72*2*Math.PI;const p=P(r*Math.cos(a),r*Math.sin(a),z);
+  i?cctx.lineTo(p[0],p[1]):cctx.moveTo(p[0],p[1]);}
+ cctx.stroke();cctx.setLineDash([]);
+}
+function sphere3(t,color){ // wireframe sphere radius t centered origin
+ circle3(t,0,color,1,[3,4]);
+ for(const ph of [Math.PI/6,Math.PI/3]){circle3(t*Math.cos(ph),t*Math.sin(ph),color,1,[3,4]);circle3(t*Math.cos(ph),-t*Math.sin(ph),color,1,[3,4]);}
+}
+function drawCone(){
+ const b=beta(cS);document.getElementById('coneV').textContent=fmt(b,3);
+ const W=cc.width,H=cc.height;cctx.clearRect(0,0,W,H);
+ const TMAX=2.6, ct=Math.sqrt(1-b*b);
+ // plan grid (light-plane at z=0)
+ circle3(TMAX,0,'rgba(154,155,176,0.25)',1);
+ line3([-TMAX,0,0],[TMAX,0,0],'rgba(154,155,176,0.2)',1);
+ line3([0,-TMAX,0],[0,TMAX,0],'rgba(154,155,176,0.2)',1);
+ // sphere shells (the onion)
+ if(shells){for(let t=1;t<=2;t++) sphere3(t,'rgba(91,200,245,0.35)');}
+ // observer axis
+ line3([0,0,0],[0,0,TMAX],'#63d67e',2.5);
+ // cone: generators + t-rings on the surface
+ const rr=b, zz=ct; // per unit t
+ for(let k=0;k<12;k++){const a=k/12*2*Math.PI;line3([0,0,0],[TMAX*rr*Math.cos(a),TMAX*rr*Math.sin(a),TMAX*zz],'rgba(212,175,55,0.25)',1);}
+ for(let t=1;t<=2;t++) circle3(t*rr,t*zz,'rgba(212,175,55,0.6)',1.5);
+ // traveller worldline on the cone at fixed azimuth
+ const az=0.4;
+ line3([0,0,0],[TMAX*rr*Math.cos(az),TMAX*rr*Math.sin(az),TMAX*zz],'#d4af37',3);
+ // beads at t=1,2 on both histories
+ cctx.fillStyle='#63d67e';
+ for(let t=1;t<=2;t++){const p=P(0,0,t);cctx.beginPath();cctx.arc(p[0],p[1],4,0,7);cctx.fill();}
+ cctx.fillStyle='#d4af37';
+ for(let t=1;t<=2;t++){const p=P(t*rr*Math.cos(az),t*rr*Math.sin(az),t*zz);cctx.beginPath();cctx.arc(p[0],p[1],4,0,7);cctx.fill();}
+ // labels
+ cctx.font='12.5px Georgia,serif';
+ let p=P(0,0,TMAX);cctx.fillStyle='#63d67e';cctx.fillText('τ (stay-at-home time, the axis)',p[0]+8,p[1]);
+ p=P(TMAX*rr*Math.cos(az),TMAX*rr*Math.sin(az),TMAX*zz);cctx.fillStyle='#d4af37';cctx.fillText('traveller — a generator on the cone',p[0]-90,p[1]-10);
+ p=P(TMAX,0,0);cctx.fillStyle='#9a9bb0';cctx.fillText('the plan (s/c) — Fig 8a',p[0]-60,p[1]+18);
+ const theta=Math.asin(b)*180/Math.PI;
+ document.getElementById('coneStats').innerHTML=
+  'cone half-angle θ = '+fmt(theta,1)+'° &nbsp;(sin θ = v/c)<br>'+
+  'per observer-tick t: traveller climbs τ = '+fmt(ct,3)+', drifts s/c = '+fmt(b,3)+'<br>'+
+  'equal beads = equal t (hypotenuse); unequal heights = dilation';
+ if(!spun){yaw+=0.004;requestAnimationFrame(drawCone);}
+}
+cS.addEventListener('input',()=>{spun=true;drawCone();});
+drawCone();
+
+/* ── Live Figure C: equivalence ── */
+const lS=document.getElementById('lorSlider');
+function drawLor(){
+ const b=beta(lS);document.getElementById('lorV').textContent=fmt(b,3);
+ const tau=1;
+ const tPy=Math.sqrt(tau*tau/(1-b*b)); // from t^2=tau^2+(bt)^2 solved
+ const tLE=tau/Math.sqrt(1-b*b);
+ document.getElementById('lorStats').innerHTML=
+  'cone (Pythagoras, eq 1): t = '+tPy.toFixed(10)+'<br>'+
+  'Lorentz–Einstein (eq 2): t = '+tLE.toFixed(10)+'<br>'+
+  'difference: '+(tPy-tLE).toExponential(1)+' — the same statement';
+}
+lS.addEventListener('input',drawLor);drawLor();
+
+/* ── Live Figure D: scale ── */
+const sc=document.getElementById('scaleCanvas'),sctx=sc.getContext('2d');
+let curV=1.29e-5, curN='GPS satellite (3.87 km/s)';
+document.querySelectorAll('.preset').forEach(bt=>bt.addEventListener('click',()=>{curV=parseFloat(bt.dataset.v);curN=bt.dataset.n;drawScale();}));
+function drawScale(){
+ const b=curV,g=1/Math.sqrt(1-b*b);
+ const W=sc.width,H=sc.height;sctx.clearRect(0,0,W,H);
+ // log axis of (1 - tau/t) from 1e-19 to 1
+ const lmin=-19,lmax=0,x0=30,x1=W-20,y=H/2+10;
+ const frac=1-Math.sqrt(1-b*b);
+ const X=v=>x0+(Math.log10(Math.max(v,1e-19))-lmin)/(lmax-lmin)*(x1-x0);
+ sctx.strokeStyle='#26263a';sctx.beginPath();sctx.moveTo(x0,y);sctx.lineTo(x1,y);sctx.stroke();
+ sctx.font='11px Menlo,monospace';sctx.fillStyle='#9a9bb0';
+ for(let e=lmin;e<=lmax;e+=3){const x=X(Math.pow(10,e));sctx.fillText('1e'+e,x-12,y+22);sctx.strokeStyle='#26263a';sctx.beginPath();sctx.moveTo(x,y-4);sctx.lineTo(x,y+4);sctx.stroke();}
+ sctx.fillStyle='#d4af37';const xm=X(frac);sctx.beginPath();sctx.arc(xm,y,6,0,7);sctx.fill();
+ sctx.font='13px Georgia,serif';sctx.fillStyle='#dfe0ea';sctx.fillText(curN+' — fractional deficit (1 − τ/t)',x0,18);
+ const perDay=frac*86400;
+ let human;
+ if(perDay<1e-6) human=(perDay*1e9).toFixed(3)+' ns per day';
+ else if(perDay<1e-3) human=(perDay*1e6).toFixed(2)+' µs per day';
+ else if(perDay<1) human=(perDay*1e3).toFixed(2)+' ms per day';
+ else human=perDay.toFixed(1)+' s per day — the triangle is mostly horizontal';
+ document.getElementById('scaleStats').innerHTML=
+  'v/c = '+curV+' &nbsp;·&nbsp; γ = '+(g<1.0001?g.toFixed(12):g.toFixed(4))+'<br>'+
+  'clock deficit ≈ <b>'+human+'</b>';
+}
+drawScale();
+})();
+</script>
+</body>
+</html>
