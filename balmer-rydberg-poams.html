@@ -498,9 +498,9 @@
             
             <div class="formula-box">
                 <h3>The POAMS Spectral Formula</h3>
-                <p><strong>Level (term) energy.</strong> Appendix 3 derives, from time dilation plus the requirement that time is discrete (so t_R/t = n/N, integers), the standing-mode energy:</p>
+                <p><strong>Level (term) rate.</strong> Appendix 3 derives, from time dilation plus the requirement that time is discrete (so t_R/t = n/N, integers), the standing-mode rate:</p>
                 $$\nu = cR\left(1 - \frac{N^2}{n^2}\right)$$
-                <p>With the ground mode as reference (N = 1) this is the level ladder E<sub>n</sub> = mc²(1 − 1/n²), rising to the ionization limit mc² as n → ∞.</p>
+                <p>With the ground mode as reference (N = 1) this is the level ladder — in rate, ν<sub>n</sub> = ν<sub>R</sub>(1 − 1/n²), with cR = ν<sub>R</sub> = 3.290 PHz, <strong>the Rydberg rate</strong>, named here at its birthplace; in energy costume, E<sub>n</sub> = hν<sub>n</sub> = mc²(1 − 1/n²) — rising as n → ∞ to the ionization limit: the full internal rate mc²/h.</p>
                 <p><strong>Observed spectral lines.</strong> Each line is a <em>difference</em> of two levels — a re-closure from one standing mode to another — giving the standard Balmer–Rydberg form:</p>
                 $$\nu = cR\left(\frac{1}{N^2} - \frac{1}{n^2}\right)$$
                 <p>N is the lower mode, n the upper: Lyman (N = 1), Balmer (N = 2), Paschen (N = 3)… The level form and the line form coincide for transitions to the ground mode (N = 1), which is why N = 1 reproduces observed hydrogen directly. (Pope, <em>Einstein's Lost Legacy</em>, Appendix 3; the line form matches <em>The POAMS Brilliant Vortex Atom</em>, eq 4.)</p>
@@ -535,8 +535,8 @@
                     Harmonic mode n = <span id="infoN">1</span><br>
                     Mode radius = <span id="infoRadius">0.529</span> Å<br>
                     Angular Momentum L = <span id="infoL">1.055</span> × 10⁻³⁴ J·s<br>
-                    Energy Level = <span id="infoEnergy">-13.6</span> eV<br>
-                    <small style="opacity:.75">(eV = the record's label; 1 eV = 1.602×10⁻¹⁹ J ≡ a turning rate of 1.519×10¹⁵ rad/s)</small>
+                    Level rate = <span id="infoEnergy">-3.288</span> PHz<br>
+                    <small style="opacity:.75">(negative: an unwinding deficit against the free reference. Extant bridge, stated once: 1 eV ↔ 241.8 THz, so −13.6 eV ↔ −3.288 PHz)</small>
                 </div>
             </div>
             
@@ -547,9 +547,9 @@
 
         <!-- Energy Level Diagram -->
         <div class="section">
-            <h2>2. Interactive Energy Level Diagram</h2>
+            <h2>2. Interactive Level-Rate Diagram</h2>
             <div class="explanation">
-                <p>The POAMS energy levels follow the Balmer-Rydberg step formula. Each energy level is a harmonic mode — a stable configuration of angular-momentum quanta. Click on any transition to see the quantum details.</p>
+                <p>The POAMS level rates follow the Balmer-Rydberg step formula. Each level is a harmonic mode — a stable configuration of angular-momentum quanta. Click on any transition to see the quantum details.</p>
             </div>
             
             <div class="energy-levels" id="energyLevels">
@@ -618,9 +618,9 @@
             
             <div class="controls">
                 <div class="control-group">
-                    <label for="energyLevel">Energy Level:</label>
+                    <label for="energyLevel">Turn rate ν:</label>
                     <input type="range" id="energyLevel" min="1" max="10" value="5" step="1">
-                    <span id="energyValue">5</span>
+                    <span id="energyValue">1.21 PHz</span>
                 </div>
             </div>
             
@@ -631,9 +631,9 @@
             <div class="info-panel">
                 <div id="timeInfo">
                     <strong>Time Quantum Analysis:</strong><br>
-                    Energy E = <span id="timeEnergy">5.0</span> eV<br>
-                    Time quantum t = h/E = <span id="timeQuantum">8.3</span> × 10⁻¹⁶ s<br>
-                    Frequency ν = E/h = <span id="timeFreq">1.2</span> × 10¹⁵ Hz
+                    Turn rate ν = <span id="timeFreq">1.21</span> PHz<br>
+                    Time quantum t = 1/ν = <span id="timeQuantum">8.3</span> × 10⁻¹⁶ s<br>
+                    <small style="opacity:.75">(extant costume: E = <span id="timeEnergy">5.0</span> eV = hν)</small>
                 </div>
             </div>
             
@@ -646,7 +646,7 @@
         <div class="section">
             <h2>5. The Pythagorean Unification</h2>
             <div class="explanation">
-                <p>The same Pythagorean cone geometry that explains time dilation in relativity also governs atomic energy levels in quantum mechanics. This is the key unifying insight of POAMS.</p>
+                <p>The same Pythagorean cone geometry that explains time dilation in relativity also governs the atomic level rates. This is the key unifying insight of POAMS.</p>
             </div>
             
             <div class="cone-diagram" id="coneDiagram">
@@ -669,7 +669,7 @@
         <div class="section">
             <h2>6. Live Hydrogen Emission Spectrum</h2>
             <div class="explanation">
-                <p>Watch the hydrogen emission spectrum change as you adjust energy levels. Each line corresponds to a specific POAMS transition and represents a quantum of angular momentum being released as light.</p>
+                <p>Watch the hydrogen emission spectrum change as you adjust the levels. Each line corresponds to a specific POAMS transition and represents a quantum of angular momentum being released as light.</p>
             </div>
             
             <div class="spectrum" id="spectrum">
@@ -846,7 +846,7 @@
             const energySlider = document.getElementById('energyLevel');
             energySlider.addEventListener('input', function() {
                 const energy = parseInt(this.value);
-                document.getElementById('energyValue').textContent = energy;
+                document.getElementById('energyValue').textContent = (energy * 0.241799).toFixed(2) + ' PHz';
                 updateTimeQuantization(energy);
             });
 
@@ -904,7 +904,7 @@
             info.innerHTML = `
                 <strong>Transition n=${n} → n=2</strong><br>
                 Angular momentum change: ${n-2} × ℏ<br>
-                Energy quantum: ${deltaE.toFixed(2)} eV<br>
+                Rate quantum: ${(deltaE * 241.799).toFixed(0)} THz<br>
                 Time quantum: ${timeQuantum.toExponential(2)} s<br>
                 Wavelength: ${wavelength.toFixed(1)} nm
             `;
@@ -963,8 +963,8 @@
 
             // Update info
             document.getElementById('timeEnergy').textContent = energyLevel.toFixed(1);
-            document.getElementById('timeQuantum').textContent = timeQuantum.toExponential(1);
-            document.getElementById('timeFreq').textContent = frequency.toExponential(1);
+            document.getElementById('timeQuantum').textContent = (timeQuantum * 1e16).toFixed(1);
+            document.getElementById('timeFreq').textContent = (frequency / 1e15).toFixed(2);
         }
 
         function drawAtom() {
@@ -1215,7 +1215,7 @@
         function updateAtomInfo() {
             const radius = (BOHR_RADIUS * currentN).toFixed(3);
             const angularMomentum = (currentN * HBAR * 1e34).toFixed(3);
-            const energy = (-13.6 / (currentN * currentN)).toFixed(1);
+            const energy = (-13.6 / (currentN * currentN) * 0.241799).toFixed(3);
 
             document.getElementById('infoN').textContent = currentN;
             document.getElementById('infoRadius').textContent = radius;
