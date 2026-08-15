@@ -125,11 +125,13 @@ body{padding-top:44px !important;}
   where matter at different radii is forced to co-rotate; a single closure carries all its action at one rate, and the
   identity is exact. Kinematic, not mechanistic.)</p>
   <p class="mut">One discreteum caveat before using smooth symbols: the derivatives are ramp-representations. Underneath,
-  action accumulates by whole turns — \( \Delta S = \hbar\,\Delta n \) — and the honest operation is the sum. \( E \) is
-  the rate at which turns are being completed, read off the staircase; we differentiate in the model, nature integrates in ħ.</p>
+  action accumulates by whole turns — \( \Delta S = h\,\Delta n \), with \( h = 2\pi\hbar \) the action of one completed
+  turn (ħ is the same ledger read per radian of phase) — and the honest operation is the sum. \( E = h\nu \) is
+  the rate at which turns are being completed, read off the staircase; we differentiate in the model, nature integrates in whole turns.</p>
   <p>Now the inversion that separates this page from the fantasy model. Conventional physics takes mass as primitive and
   writes \( E = mc^2 \) as if energy were stored <span class="fant">in</span> matter. Read the same equation right way up:</p>
-  <div class="eq">\[ m \;=\; \frac{E}{c^2} \;=\; \frac{\hbar\,\omega}{c^2} \quad\text{per quantum} \]</div>
+  <div class="eq">\[ m \;=\; \frac{E}{c^2} \;=\; \frac{\hbar\,\omega}{c^2} \;=\; \frac{h\,\nu}{c^2} \quad\text{per quantum} \]</div>
+  <p class="mut" style="text-align:center;margin-top:-4px;">— read in turns: a quantum's mass is \( h/c^2 \) times how many turns it completes each second.</p>
   <p><em>Mass is the ledger's name for trapped rate.</em> And \( c^2 \) is not energy hiding in matter — \( c \) is the
   conversion factor between the time-ledger and its spatial representation, so \( c^2 \) is simply the exchange rate
   between the rate-ledger and the mass-ledger. Nothing is stored; something is <em>turning</em>, and refuses to stop.</p>
@@ -137,9 +139,9 @@ body{padding-top:44px !important;}
   the aggregate is one number, the <b>total turning rate</b> \( \Omega = \sum_i \omega_i \):</p>
   <div class="card gold"><div class="eq" style="margin:6px 0;">\[ m_{\text{atom}} \;=\; \frac{\hbar\,\Omega}{c^2} \]</div>
   <p style="margin:6px 0 2px;text-align:center;" class="mut">That is the entire answer. What a balance reads is \( \hbar/c^2 \) times the atom's total rate of turning.</p></div>
-  <p class="mut">Scale check: an iron atom's measured mass corresponds to \( \Omega \approx 7.9\times10^{25} \) rad/s of
-  aggregate turning — about \(1.4\times10^{24}\) rad/s per quantum. When you weigh iron, that is what you are counting.
-  A rate in rad/s, not a speed anywhere — nothing crosses any stage.</p>
+  <p class="mut">Scale check: an iron atom's measured mass corresponds to an aggregate turn rate near \( 1.3\times10^{25} \)
+  turns per second — 12.6 YHz, about 225 ZHz per quantum. When you weigh iron, that is what you are counting.
+  A turn rate, not a speed anywhere — nothing crosses any stage.</p>
 </section>
 
 <!-- ============ 3. ONE RATE, 118 MASSES ============ -->
@@ -147,7 +149,7 @@ body{padding-top:44px !important;}
   <h2>3 · One Rate, 118 Masses</h2>
   <p>If every atom is a count of like quanta, one universal per-quantum rate should predict every atomic mass from the
   tile count A alone. It does. Take the mean quantum rate</p>
-  <div class="eq">\[ \bar\omega \;=\; \frac{u\,c^2}{\hbar} \;=\; 1.415\times10^{24}\ \text{rad/s} \]</div>
+  <div class="eq">\[ \bar\nu \;=\; \frac{u\,c^2}{h} \;=\; 225.2\ \text{ZHz} \qquad \big(\bar\omega = 2\pi\bar\nu = 1.415\times10^{24}\ \text{rad/s}\big) \]</div>
   <p>(one atomic mass unit's worth of rate), and the first-order law \( m \approx A\,\hbar\bar\omega/c^2 \) lands inside
   <b>1%</b> for the entire table — worst case hydrogen at +0.78%. One rate, 118 masses, no per-element fitting. The
   residual structure — the shape of the error — is not noise; it is the next section's physics.</p>
@@ -199,11 +201,10 @@ body{padding-top:44px !important;}
   You cannot lose <i>stuff</i> by rearranging it. You can lose <i>rate</i>.</p>
 
   <canvas id="chartDisc" class="chart"></canvas>
-  <div class="cap">The closure discount per quantum versus tile count A — quoted in MeV, the measured record's label
-  (what the fantasy model tabulates as "binding energy per nucleon"). The currency cashes out as rate, not stuff:
-  1 MeV = 1.602×10<sup>−13</sup> J ≡ 1.519×10<sup>21</sup> rad/s of trapped turning ≡ 2.418×10<sup>20</sup> whole closures
-  per second. Zero for the lone fundamental, deepest at iron-56: 8.79 MeV of rate surrendered per quantum —
-  1.34×10<sup>22</sup> rad/s each.</div>
+  <div class="cap">The closure discount per quantum versus tile count A — quoted natively as turn rate, in ZHz
+  (10<sup>21</sup> turns per second). The extant record tabulates this same column as "binding energy per nucleon" in MeV;
+  the bridge, stated once: 1 MeV ↔ 241.8 EHz of turn rate (2.418×10<sup>20</sup> closures completed per second).
+  Zero for the lone fundamental, deepest at iron-56: 2.13 ZHz of rate surrendered per quantum.</div>
 
   <p>The discount curve is the engine room of the universe:</p>
   <ul>
@@ -235,7 +236,7 @@ body{padding-top:44px !important;}
   configuration, so no energy can be filed under the attempt. The evidence is ordinary and everywhere:</p>
   <ul>
     <li><b>Monatomic gases store heat at exactly \( \tfrac{3}{2}R \)</b> — three translational channels, nothing else.
-    A helium atom carries \( \Omega\approx 5.7\times10^{24} \) rad/s of internal turning — it <i>weighs</i> — yet
+    A helium atom carries an internal turn rate near \( 9\times10^{23} \) turns per second (≈900 ZHz) — it <i>weighs</i> — yet
     thermal collisions cannot bank one joule in "spinning the atom." Full fare under push, no handle under twist,
     in the same gas at the same instant.</li>
     <li><b>Diatomic gases store \( \tfrac{5}{2}R \)</b> — bonding breaks sphericity and hands a torque two grippable axes.
@@ -286,7 +287,7 @@ body{padding-top:44px !important;}
     <li><b>1928 — Dirac</b> derives g = 2 from the linear relativistic equation. Canonization: the angular momentum is
     real, nothing rotates, stop asking.</li>
     <li><b>1930 — Schrödinger reads the confession inside the equation itself:</b> the Dirac electron performs
-    <i>Zitterbewegung</i> — an internal circulation of Compton-scale amplitude at rate \( \sim 2mc^2/\hbar \), whose
+    <i>Zitterbewegung</i> — an internal circulation of Compton-scale amplitude at rate \( \sim 2mc^2/h \approx 247\ \text{EHz} \) of turning, whose
     velocity eigenvalues are always \( \pm c \) and whose orbital angular momentum <em>is</em> the spin. The formalism
     they canonized contains a Compton-scale circulation. It is filed as a curiosity. The point stays.</li>
   </ul>
@@ -297,7 +298,7 @@ body{padding-top:44px !important;}
   self-energy radius</em>: \( r_e = \alpha\,\hbar/mc \), smaller than the Compton scale by precisely the fine-structure
   ratio. The paradox was manufactured by charge-as-substance — the one entity that does not exist chose the radius, and
   that choice is what put the rim at 137 c. Re-run the books at the <b>Compton</b> scale, in rates rather than rim-speeds
-  (a closure has no rim and no stage to cross — the well-posed quantity is rad/s), and everything lands: the angular
+  (a closure has no rim and no stage to cross — the well-posed quantity is a turn rate, not a rim speed), and everything lands: the angular
   momentum files at \( \hbar/2 \), the magnetic moment at \( e\hbar/2m \) — one Bohr magneton, the measured value — and
   the famous g = 2 appears as the <em>double-cover ratio</em>: the phase sign counts full turns while the half-turn
   closure's ledger counts \( \hbar/2 \). Pauli's "classically non-describable two-valuedness" is describable after all:
@@ -340,8 +341,8 @@ body{padding-top:44px !important;}
     two ledger definitions); the inversion \( m = \hbar\Omega/c^2 \) with \( c^2 \) as ledger conversion; additivity of rate
     across a shared closure; and the prediction that reorganizing a fixed count changes the presented mass.</p>
     <p style="margin:0 0 10px;"><b>Read in from measurement (not yet derived):</b> the base rate — the bare fundamental's
-    \( \omega_{\text{H}} = 1.426\times10^{24} \) rad/s (equivalently the scale of u). Same epistemic slot as the fine-structure
-    ratio: mechanism and form necessary, magnitude contingent-until-derived. Deriving \( \omega_{\text{H}} \) from closure
+    \( \nu_{\text{H}} = 227.0\ \text{ZHz} \) (\( \omega_{\text{H}} = 2\pi\nu_{\text{H}} = 1.426\times10^{24} \) rad/s; equivalently the scale of u). Same epistemic slot as the fine-structure
+    ratio: mechanism and form necessary, magnitude contingent-until-derived. Deriving \( \nu_{\text{H}} \) from closure
     geometry is the open frontier behind this page. Also read in: the isolated core quantum's rate, and the discount
     curve itself — measured to high precision. Its books are now substantially derived on the companion
     <a href="./mass-ledger.html">Mass Ledger</a> (the crown identity, the zero-dial strain column, the pairing
@@ -405,9 +406,9 @@ function showEl(i){
     ['One-rate law: A·ħω̄/c²', `${d.firstOrder.toFixed(3)} u`],
     ['Measured (AME2020)', `${r.m.toFixed(6)} u &nbsp;=&nbsp; ${fmtExp(d.mKg)} kg`],
     ['Deviation', `${d.devPct>=0?'+':''}${d.devPct.toFixed(3)} %`],
-    ['Closure discount δ', `${(d.delta*100).toFixed(3)} % &nbsp;(${d.dqMeV.toFixed(2)} MeV ≡ ${(d.dqMeV*1.5193).toFixed(1)}×10²¹ rad/s per quantum)`],
-    ['Mean rate per quantum ω̄', `${fmtExp(d.omegaBar)} rad/s`],
-    ['Total turning rate Ω', `<span class="big">${fmtExp(d.Omega)} rad/s</span>`],
+    ['Closure discount δ', `${(d.delta*100).toFixed(3)} % &nbsp;(${(d.dqMeV*0.241799).toFixed(2)} ZHz of turn rate per quantum)`],
+    ['Mean turn rate per quantum ω̄/2π', `${(d.omegaBar/(2*Math.PI*1e21)).toFixed(1)} ZHz`],
+    ['Total turn rate Ω/2π', `<span class="big">${fmtExp(d.Omega/(2*Math.PI))} turns/s</span>`],
     ['Presents as', `m = ħΩ/c² = ${fmtExp(d.mKg)} kg`],
   ];
   document.getElementById('ledgerTable').innerHTML =
@@ -479,14 +480,14 @@ function drawCharts(){
       {sym:'Fe',label:'Fe-56 — valley floor',dy:14,base:'top'},
       {sym:'U',label:'U',dy:-8},
     ]});
-  const discPts = els.map(r=>({x:r.A, y:calc(r).dqMeV, sym:r.sym, est:r.e}));
+  const discPts = els.map(r=>({x:r.A, y:calc(r).dqMeV*0.241799, sym:r.sym, est:r.e}));
   chart('chartDisc', discPts, {
-    color:'#66bb6a', ylabel:'closure discount per quantum (MeV ≡ 1.52×10²¹ rad/s)',
-    yticks:[0,2,4,6,8], yfmt:t=>t.toFixed(0),
+    color:'#66bb6a', ylabel:'closure discount per quantum (ZHz of turn rate)',
+    yticks:[0,0.5,1,1.5,2], yfmt:t=>t.toFixed(1),
     marks:[
       {sym:'H',label:'H: no discount (alone)',align:'left',dx:8,dy:0,base:'middle'},
       {sym:'He',label:'He',dy:-8},
-      {sym:'Fe',label:'Fe-56: 8.79 MeV — deepest shared closure',dy:-9},
+      {sym:'Fe',label:'Fe-56: 2.13 ZHz — deepest shared closure',dy:-9},
       {sym:'U',label:'U',dy:14,base:'top'},
     ]});
 }
