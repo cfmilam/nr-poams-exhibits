@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POAMS and Telecommunications — The Double-Ended Quantum, Faster than Radar, and Refraction as Rate</title>
+<script>window.MathJax={tex:{inlineMath:[['$','$']],displayMath:[['$$','$$']]}};</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+<style>
+:root{--bg:#0d0d17;--card:#12121e;--edge:#2a2a3e;--fg:#e2e2ea;--mut:#9a9ab0;--gold:#c9a84c;--blue:#64b5e0;--green:#66bb6a;--red:#e05f5f;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:Georgia,serif;line-height:1.7;font-size:16.5px}
+main{max-width:880px;margin:0 auto;padding:2.2rem 1.2rem 4rem}
+h1{color:var(--gold);font-size:1.7rem;line-height:1.25;margin:.4rem 0 .6rem}
+h2{color:var(--gold);font-size:1.25rem;border-bottom:1px solid var(--edge);padding-bottom:.3rem;margin:2.2rem 0 .8rem}
+h3{color:var(--blue);font-size:1.05rem;margin:1.4rem 0 .5rem}
+p{margin:.8rem 0}
+.prov{font-size:.82rem;color:var(--mut);border-left:3px solid var(--gold);padding:.5rem .9rem;background:rgba(201,168,76,.05);margin:.8rem 0}
+.tag{display:inline-block;font-size:.7rem;letter-spacing:.05em;padding:.05rem .4rem;border:1px solid var(--edge);border-radius:4px;color:var(--mut);vertical-align:middle}
+.fant{color:var(--mut);font-style:italic}
+.card{background:var(--card);border:1px solid var(--edge);border-radius:10px;padding:1rem 1.2rem;margin:1.1rem 0}
+.card.gold{border-color:var(--gold)}
+.note{font-size:.88rem;color:var(--mut)}
+canvas{width:100%;border:1px solid var(--edge);border-radius:8px;background:#0a0a14;display:block}
+.ctl{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin:.6rem 0;font-size:.9rem}
+.ctl label{color:var(--mut)}
+button{background:var(--gold);color:#111;border:none;border-radius:6px;padding:.35rem .8rem;font-family:inherit;font-size:.9rem;cursor:pointer}
+button.off{background:#333347;color:var(--mut)}
+input[type=range]{accent-color:var(--gold)}
+table{border-collapse:collapse;width:100%;font-size:.9rem;margin:.8rem 0}
+th,td{border:1px solid var(--edge);padding:.45rem .6rem;text-align:left}
+th{color:var(--gold);font-weight:normal}
+td.c{text-align:center}
+a{color:var(--blue)}
+.readout{font-family:Menlo,monospace;font-size:.85rem;color:var(--green)}
+.nav{display:flex;justify-content:space-between;font-size:.85rem;margin-top:3rem;border-top:1px solid var(--edge);padding-top:1rem}
+.eqbox{background:#10101e;border:1px solid var(--edge);border-radius:8px;padding:8px 12px;margin:10px 0;overflow-x:auto}
+</style>
+</head>
+<body>
+<main>
+<a href="./index.html" style="font-size:.85rem">&larr; Back to Exhibits</a>
+<h1>POAMS and Telecommunications</h1>
+<p class="note" style="margin-top:-2px">The double-ended quantum &middot; radar read natively &middot; the billet rule hanging on every rooftop &middot; the record's own proposal, with the record's own limits &middot; refraction as rate</p>
+<p class="note" style="font-size:.82rem">This page completes a set: <a href="./poams-electricity.html">POAMS &amp; Electricity</a> is the one-sink case (the bound circuit), <a href="./antenna-emission.html">Antenna Emission</a> the many-sink case (radiation into a census). Here is the applications layer built on both — ranging, links, fibre — and the record's own signalling proposal.</p>
+<div class="prov">This exhibit is an extrapolation of the foundational work of N. Vivian (Viv) Pope and Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).<br>
+Sources presented: <em>Faster than Radar</em> (2007), <em>Faster than Radar 2</em> (Oct 2007), <em>Faster than Radar — précis</em> (Sept 2010); <em>Refraction in Optic Fibres</em> (out-take from Proof 6); <em>Electricity and Light — New Thinking</em> (2005); the <em>Why c Cannot Be a Speed</em> series. Editorial framing and interactives are ours; the arguments — including their stated limits — are the authors', on the published record.</div>
+
+<h2>1 · One triangle carries the whole industry</h2>
+<p>The radar papers open with an equation this corpus has met before — the same Pythagorean time relation that runs the <a href="./the-rate-of-time.html">Rate of Time</a> and the <a href="./cone-model.html">1986 cone</a>. For any interaction read across a separation $s$, observational time $t_R$ and the interaction's own (proper) time $t_P$ share one triangle <span class="tag prov">Pope, FTR Eq. (1)</span>:</p>
+<div class="eqbox">$$t_R \;=\; \left[\left(\frac{s}{c}\right)^2 + t_P^2\right]^{1/2} \qquad\Longrightarrow\qquad \text{light: } t_P = 0,\;\; t_R = \frac{s}{c}$$</div>
+<p>Matter budgets its turning between the internal count and the motion channel — every clock in the sibling exhibit lives <em>inside</em> this triangle. A quantum of light-interaction is the limiting case: the record shows its proper time is <strong>zero</strong> — the whole budget in the motion channel. So one interaction carries two readings at once, with no contradiction: by its own books it is <em>instantaneous</em> ($s/t_P = \infty$ — a "double-ended, consummate event"), and by every observer's books it is <em>delayed</em> ($s/t_R = c$). The extant establishment keeps only the second reading and then puzzles over the first when experiments force it (<span class="fant">"spooky action-at-a-distance"</span>). The record keeps both, because they are two legs of one triangle <span class="tag prov">FTR 1–2, précis</span>.</p>
+<p>Everything a telecommunications engineer measures is the $t_R$ leg: every latency, every ping, every echo is $s/c$ — the <strong>projection</strong> of linked transactions into observational time <span class="tag">see Electricity §2</span>. Nothing in this page disturbs a single measured timing. What changes is what the equipment is doing — and, at the end, what the record says might be done that the industry has never tried.</p>
+
+<div class="card">
+<canvas id="triCanvas" height="260"></canvas>
+<div class="ctl">
+  <label>from matter to signal:</label>
+  <input type="range" id="triSlider" min="0" max="100" value="20" style="flex:1;min-width:140px">
+  <span class="readout" id="triLabel"></span>
+</div>
+<p class="note">One triangle, the whole story: matter (left of the limit) splits observational time between internal count $t_P$ and the motion channel $s/c$; the light-quantum sits at the limit — $t_P = 0$, the triangle collapsed onto its motion leg. Every clock and every signal are priced by the same geometry. <span class="tag">geometry; record Eq. (1)</span></p>
+</div>
+
+<h2>2 · Radar, read natively</h2>
+<p>The conventional conception, in the record's summary: a pulse of energy <span class="fant">travels</span> to the target at $c$, reflects, and <span class="fant">travels</span> back — range equals delay times $c$ over two. POAMS keeps every digit of the arithmetic and dissolves the traveler: the out-leg and the return are <strong>two linked hand-offs read in sequence</strong>, each a double-ended event, each priced at $s/c$ of observational time. The radar operator's clock accumulates $2s/c$ not because something flew but because that is what reading two linked transactions across a separation $s$ <em>is</em> <span class="tag prov">FTR §1</span>. In the second paper the point is made as a twins case: the echo is the traveling twin whose own time is zero; the operator is the stay-at-home whose books read $2s/c$ <span class="tag prov">FTR-2</span>.</p>
+<table>
+<tr><th>Reading at the console</th><th>Arithmetic</th><th>Native content</th></tr>
+<tr><td>1 µs pulse width</td><td class="c">$c\tau/2$ = 150 m</td><td>range resolution — the ledger's grain</td></tr>
+<tr><td>1 ms echo delay</td><td class="c">$c t/2$ = 150 km</td><td>two hand-offs, read in sequence</td></tr>
+<tr><td>Moon ranging</td><td class="c">$2s/c$ = 2.56 s</td><td>same projection, longer leg</td></tr>
+</table>
+<p class="note">Every row is daily engineering practice <span class="tag">measured</span>; every row is the $t_R$ leg of §1's triangle. The ranging textbooks survive verbatim — only the freight is gone.</p>
+
+<h2>3 · The billet rule — and the industry that obeys it without the map</h2>
+<p>The record's central condition: an irreducible quantum <em>cannot set out at all</em> unless a "billet" is assured for it — a resonant absorber whose distance and disposition fit the interaction "in terms of numbers of half-lengths $\lambda/2$" <span class="tag prov">FTR §1; 2005</span>. This is the emission rule of the <a href="./poams-electricity.html">electricity exhibit</a> read at radio scale, and the record names its natural evidence: the two-slit pattern, whose dark fringes are places where the geometry is out of synch — receivers standing <em>blind</em> to a source that consequently never feeds them <span class="tag">see A Commonsense Look at the Two-Slit Experiment</span>.</p>
+<p>Now look at what the radio industry actually builds. The standard antenna — rooftop television yagi, FM whip, dipole in every handset — is cut to <strong>half a wavelength</strong>. The engineer's account is impedance matching discovered by a century of practice; the record's account is that $\lambda/2$ is the <em>billet geometry itself</em> — the resonant disposition a census must present before transactions can land on it. The industry converged, empirically, on the exact length the ontology derives, and hung the evidence on every roof on Earth:</p>
+<table>
+<tr><th>Band</th><th>Rate $\nu$</th><th>Billet length $\lambda/2$</th><th>Census per watt $\dot N = P/h\nu$</th></tr>
+<tr><td>AM broadcast</td><td class="c">1 MHz</td><td class="c">150 m (the mast itself)</td><td class="c">$1.5\times10^{27}$ /s</td></tr>
+<tr><td>FM broadcast</td><td class="c">100 MHz</td><td class="c">1.5 m</td><td class="c">$1.5\times10^{25}$ /s</td></tr>
+<tr><td>GSM cellular</td><td class="c">900 MHz</td><td class="c">16.7 cm</td><td class="c">$1.7\times10^{24}$ /s</td></tr>
+<tr><td>Wi-Fi</td><td class="c">2.4 GHz</td><td class="c">6.2 cm</td><td class="c">$6.3\times10^{23}$ /s</td></tr>
+<tr><td>mmWave link</td><td class="c">39 GHz</td><td class="c">3.8 mm</td><td class="c">$3.9\times10^{22}$ /s</td></tr>
+<tr><td>Fibre C-band</td><td class="c">193.4 THz</td><td class="c">0.78 µm</td><td class="c">$7.8\times10^{18}$ /s</td></tr>
+</table>
+<p class="note">The spectrum, read natively, is a <strong>rate ladder</strong>, and spectrum allocation is a census book: what the regulator licenses is which turn rates your apparatus may stand ready to receive. The last column is the hand-off census one watt requires at each rung ($P=\dot N h\nu$ — <span class="tag">see Electricity §4</span>): nine orders of magnitude fewer transactions per watt at the top of the ladder than the bottom. Values <span class="tag">computed from measured constants</span>.</p>
+
+<h2>4 · The record's own proposal — retrograde signalling, with the record's own limits</h2>
+<p>Here the papers go where no textbook goes, and it must be reported exactly — the claim <em>and</em> the limits the record itself attaches.</p>
+<p><strong>The Gedanken</strong> <span class="tag prov">FTR 1–2, précis</span>. Let a transmitter and receiver be ideally resonant in a narrow band which — this is the idealization — <em>they alone in the universe occupy</em>. Since no quantum can leave without an assured billet, the far operator, by merely switching the receiver's readiness on and off, gates the transmitter's ability to emit <em>at the source</em>. Key the readiness in Morse patterns and information flows from receiver to transmitter — <strong>opposite to the flow of energy</strong>. The record names it <em>retrograde (or backwards) signalling</em>, and prices it on the triangle: a conventional radar reading costs $t_R = 2s/c$; the retrograde reading, being the interaction's own consummation condition, is priced at $t_P = 0$ — whence the title <em>Faster than Radar</em>. The papers close the vision with a telescope: a transmitter tuned to a spectral rate of one element, swept across the sky, would read the disposition of that element's census <em>as it stands</em>, not as it stood millennia of $s/c$ ago.</p>
+<p><strong>The hose figure</strong> <span class="tag prov">précis</span>: signal down a flowing hose by injecting dye at the tap, and the message arrives with the flow, in due time. But <em>clamp the far end</em> of a full, incompressible hose and the bulb at the tap swells <strong>at once</strong> — the full pipe is the retrograde channel. The reader of the <a href="./poams-electricity.html">electricity exhibit</a> has met this pipe before: it is the dead circuit, run as a signalling instrument.</p>
+<div class="card gold">
+<p><strong>The record's own limits — stated by the record, kept by this page.</strong> (i) Naive interference-signalling schemes fail: any scheme where an observer O modulates a pattern that observer P must <em>read</em> is priced at $s/c$ like all reading — the papers' words: such an approach "achieves nothing." (ii) For teleblocking to register at the source, <em>every alternative sink must be eliminated</em> — the source sealed in a "cosmical vacuum flask." The record's own image: <em>if the sun were the only object in the universe, it would not be able to shine</em>. Energy with somewhere else to go simply goes there; only total sink-exclusivity turns far-end readiness into a source-side reading. (iii) Real conduits leak: a fibre or waveguide under end-blocking is "less like an iron pipe and more like a loose-knit fisherman's sock" — the excluded quanta squirt into the surrounding census. Pope's own fibre trials with Dr. John Hopton (1970s, Burton-on-Trent) were <strong>inconclusive on exactly this containment condition</strong> <span class="tag prov">Refraction out-take, fn. 3</span>. The observed anchor that survives all three limits: a detector placed in one path of the two-slit apparatus <em>does</em> empty that path — teleblocking is real physics; making it a channel is an unsolved sink-engineering problem, and the record says so.</p></div>
+<p>So the honest status, in the corpus's terms: <strong>source-side engineering is saturated</strong> — a century of pushing power down links — while <strong>sink-side engineering barely exists</strong>: readiness, resonance and census-exclusivity as designed quantities. The record's proposal stands not as a device but as a named, bounded open problem in exactly that unexplored half of the discipline.</p>
+
+<div class="card">
+<canvas id="retroCanvas" height="300"></canvas>
+<div class="ctl">
+  <button id="readyBtn">Far receiver R1: READY</button>
+  <label>separation: <span id="sepLabel" class="readout">3×10⁷ m</span></label>
+  <input type="range" id="sepSlider" min="0" max="100" value="60" style="flex:1;min-width:120px">
+  <button id="dyeBtn">Send conventional pulse (T1 → R1)</button>
+</div>
+<div class="ctl"><span class="readout" id="retroStatus">ideal unique-pair universe — R1 ready, source emitting</span></div>
+<p class="note">The record's thought experiment, drawn honestly. Top lane: conventional signalling — a keyed transmission is read at the far end after $s/c$ (the dye in the hose). Bottom lane: retrograde signalling — toggling the far receiver's <em>readiness</em> gates emission at the source with no projection delay ($t_P = 0$), information running opposite to energy. The idealization is total sink-exclusivity (the "vacuum flask"); the gold card above carries the record's own account of why real hardware has not delivered it. <span class="tag">record Gedanken · pedagogical</span></p>
+</div>
+
+<h2>5 · Refraction as rate — the fibre ledger</h2>
+<p>The record's fibre paper begins where the extant books stop explaining: <em>why</em> is light "slower" in glass? The extant answer assigns a <span class="fant">speed c/n to photons bouncing along the core</span>. The record's answer has no traveler to slow down. A medium is a system in which, as the paper quotes Feynman, <em>"everything is jiggling"</em> — and a system's internal processes, read across the triangle of §1, are <strong>time-dilated by their own motion budget</strong>. In a copper wire the free constituents' motions are minute, so signal conduction reads at essentially $c$; in glass, the <em>bound</em> constituents vibrate at rates fitting the relayed light — a large internal budget — so every process in the medium, including the relaying of light through it, is re-priced <span class="tag prov">Refraction in Optic Fibres</span>:</p>
+<div class="eqbox">$$\mu \;=\; \frac{\sin i}{\sin r} \;=\; \frac{c}{c_1} \;=\; \frac{t_{R1}}{t_R}$$</div>
+<p>— the refractive index is a <strong>ratio of observational times</strong>: dilation bookkeeping, not a braking force. The conduction itself is the census mechanism of the <a href="./poams-electricity.html">2005 hand-off</a>: a "relaying sequence" — a bound constituent takes the quantum up a level and reverts, handing it on through the medium — sequential resonant transactions through a census, each priced by the projection. The measured anchor the record cites is Fizeau, 1859: light conducted through <em>flowing</em> water re-prices with the flow, in the exact diminishing proportion the dilation formula later formalized <span class="tag">measured · Fizeau 1859</span>. The working numbers an optical engineer uses daily <span class="tag">measured</span>: group index 1.468 at 1550 nm — 4.90 µs/km against vacuum's 3.34. Same digits, no photon crawling through glass: a census-laden projection.</p>
+<p>The out-take ends on an honest seam: a circuit conducts only when closed, yet a fibre shines happily into an open end — "the reason for this particular difference is not clear." The corpus's later record supplies the missing piece: it is the <strong>one-sink / many-sink boundary</strong>. The wire's transaction is bound to a single linked terminal — open it and all sinks are blocked (the dead circuit). Light's sinks are a distributed census — an open fibre end faces the sky's absorbers, the sprinkler that reroutes around any plugged hole <span class="tag">2005; see Antenna Emission · Electricity §3 — editorial synthesis of record pieces</span>.</p>
+
+<h2>6 · More here than meets the eye</h2>
+<div class="card gold">
+<p>Assemble the page. The triangle that runs every clock also prices every ping — one geometry for time and telecommunication (§1). Radar's textbooks survive to the digit with the freight deleted (§2). The antenna on every roof is cut to the billet length the ontology derives — an industry obeying a rule it cannot state (§3). And the record leaves, in plain sight, a proposal no laboratory has resolved: signalling by readiness instead of by power, real in the two-slit record, bounded by a sink-exclusivity condition the record itself declares unsolved (§4). A century of telecommunications has engineered exactly one side of every transaction. The other side — the sink's side — is where the record points.</p>
+<p style="font-style:italic;text-align:center;margin:12px 0 4px">“If we knew just a little more about what is actually true, how much further would that take us technologically?”</p>
+<p class="note" style="text-align:center">The same standing question as the sibling exhibits — posed here about the industry that connects the others.</p>
+</div>
+
+<h2>7 · Scope</h2>
+<div class="card"><p class="note"><strong>Presented from the record:</strong> the double-ended quantum and $t_P = 0$ within Eq. (1) (FTR series); the billet/resonance condition in $\lambda/2$ half-lengths; the retrograde-signalling Gedanken <em>and its stated limits</em> (the "achieves nothing" verdict on read-based schemes, the vacuum-flask condition, the fisherman's-sock leakage, the inconclusive 1970s fibre trials); refraction as time-ratio $\mu = t_{R1}/t_R$ with the Fizeau anchor and the relaying sequence; the two-slit teleblocking evidence. <strong>Imported measured values, tagged:</strong> radar arithmetic; band rates and dipole lengths; fibre group delay; Fizeau. <strong>Editorial (ours):</strong> the interactives (pedagogical); the λ/2-dipole convergence framing; the census-per-watt column; the one-sink/many-sink completion of the out-take's open seam; the source-side/sink-side framing of §4's status; the horizon note. <strong>Not claimed:</strong> any operational faster-than-light signalling — the record itself prices every conventional reading at $s/c$ and names the retrograde channel's practical condition as unsolved; this page adds no device and no claim beyond the record's.</p></div>
+
+<div class="nav"><a href="./poams-electricity.html">&larr; POAMS &amp; Electricity</a><a href="./index.html">Hub</a><a href="./antenna-emission.html">Antenna Emission &rarr;</a></div>
+</main>
+<script>
+// ---------- One triangle: matter to signal ----------
+const tc=document.getElementById('triCanvas'),tx=tc.getContext('2d');
+const ts=document.getElementById('triSlider'),tl=document.getElementById('triLabel');
+let phR=0,phB=0,lastTT=performance.now();
+function triBeta(){const x=+ts.value/100; return Math.min(x*1.005,1);} // reaches exactly 1
+function drawTri(){
+  const W=tc.width=tc.clientWidth*2,H=tc.height=520;tx.save();tx.scale(2,2);const w=W/2,h=260;
+  tx.clearRect(0,0,w,h);
+  const b=triBeta(), light=(b>=1), g=light?0:Math.sqrt(1-b*b);
+  const now=performance.now(),dt=(now-lastTT)/1000;lastTT=now;
+  phR+=dt*1.2; phB+=dt*1.2*g;
+  const ox=w/2-80, oy=205, L=150, tauLen=L*g, scLen=L*b;
+  tx.strokeStyle='#3a3a52';tx.lineWidth=1;
+  tx.beginPath();tx.moveTo(ox,oy);tx.lineTo(ox+tauLen,oy);tx.stroke();
+  tx.strokeStyle='#e05f5f';tx.beginPath();tx.moveTo(ox+tauLen,oy);tx.lineTo(ox+tauLen,oy-scLen);tx.stroke();
+  tx.strokeStyle=light?'#c9a84c':'#c9a84c';tx.lineWidth=light?3:2;tx.beginPath();tx.moveTo(ox,oy);tx.lineTo(ox+tauLen,oy-scLen);tx.stroke();
+  tx.fillStyle='#e2e2ea';tx.font='12px Georgia';
+  if(!light){tx.fillText('t_P (its own count)',ox+Math.max(tauLen*0.2,4),oy+18);}
+  else{tx.fillStyle='#9a9ab0';tx.fillText('t_P = 0 — the triangle is all edge',ox-40,oy+18);}
+  tx.fillStyle='#e05f5f';tx.fillText('s/c (motion channel)',ox+tauLen+8,oy-scLen*0.45);
+  tx.fillStyle='#c9a84c';tx.fillText('t_R (observational)',ox+tauLen*0.3-40,oy-scLen*0.55-10);
+  // clocks: reference & on-body
+  function clock(cx0,cy0,ph,label,col,dead){
+    tx.strokeStyle='#3a3a52';tx.lineWidth=2;tx.beginPath();tx.arc(cx0,cy0,40,0,7);tx.stroke();
+    if(!dead){tx.strokeStyle=col;tx.beginPath();tx.moveTo(cx0,cy0);tx.lineTo(cx0+34*Math.sin(ph),cy0-34*Math.cos(ph));tx.stroke();}
+    else{tx.fillStyle='#c9a84c';tx.font='10px Menlo';tx.textAlign='center';tx.fillText('consummated',cx0,cy0+4);tx.textAlign='left';}
+    tx.fillStyle='#9a9ab0';tx.font='11px Georgia';tx.textAlign='center';tx.fillText(label,cx0,cy0+58);tx.textAlign='left';
+  }
+  clock(85,100,phR,'observer clock','#64b5e0',false);
+  clock(w-85,100,phB,light?'the signal':'on-body clock','#c9a84c',light);
+  tx.fillStyle='#66bb6a';tx.font='11px Menlo';tx.textAlign='center';
+  tx.fillText(light?'the light-quantum: t_P = 0, read as t_R = s/c':'d(t_P)/d(t_R) = '+g.toFixed(4),w/2,52);
+  tx.textAlign='left';tx.restore();requestAnimationFrame(drawTri);
+}
+ts.oninput=()=>{const b=triBeta();tl.textContent=b>=1?'THE SIGNAL — t_P = 0':('matter: v/c = '+b.toFixed(3));};
+ts.oninput();
+drawTri();
+
+// ---------- Retrograde signalling Gedanken ----------
+const rv=document.getElementById('retroCanvas'),rx=rv.getContext('2d');
+const readyBtn=document.getElementById('readyBtn'),sepS=document.getElementById('sepSlider'),sepL=document.getElementById('sepLabel'),dyeBtn=document.getElementById('dyeBtn'),retroStatus=document.getElementById('retroStatus');
+let ready=true, pulses=[], flow=0, rT0=performance.now();
+function sepMeters(){const v=+sepS.value; return Math.round(Math.pow(10,3+v*0.055));} // 1 km .. ~3e8 m
+function fmtSep(m){if(m>=1e6)return (m/1e6).toFixed(m>=1e7?0:1)+'×10⁶ m';if(m>=1e3)return (m/1e3).toFixed(0)+' km';return m+' m';}
+function drawRetro(){
+  const W=rv.width=rv.clientWidth*2,H=rv.height=600;rx.save();rx.scale(2,2);const w=W/2,h=300;
+  rx.clearRect(0,0,w,h);
+  const now=(performance.now()-rT0)/1000, d=sepMeters()/3e8;
+  // lane 1: conventional
+  rx.fillStyle='#9a9ab0';rx.font='11px Georgia';
+  rx.fillText('conventional: key the POWER at T1 — far end reads after s/c',60,40);
+  rx.strokeStyle='#3a3a52';rx.lineWidth=8;rx.beginPath();rx.moveTo(80,70);rx.lineTo(w-80,70);rx.stroke();
+  rx.fillStyle='#c9a84c';rx.fillRect(60,55,14,30); rx.fillStyle='#e2e2ea';rx.font='11px Georgia';rx.fillText('T1',58,102);rx.fillText('R2',58,118);
+  rx.fillStyle=ready?'#66bb6a':'#e05f5f';rx.fillRect(w-74,55,14,30); rx.fillStyle='#e2e2ea';rx.fillText('R1',w-82,102);rx.fillText('T2',w-82,118);
+  pulses=pulses.filter(p=>now-p.t<p.d+2.5);
+  pulses.forEach(p=>{const dt=now-p.t;
+    if(dt<p.d){const q=dt/p.d;rx.fillStyle='#64b5e0';rx.beginPath();rx.arc(80+q*(w-160),70,6,0,7);rx.fill();
+      rx.font='10px Menlo';rx.fillText('reading in progress: '+((p.d-dt)).toFixed(2)+' s of s/c remains',w/2-110,55);}
+    else{rx.fillStyle='#66bb6a';rx.font='10px Menlo';rx.fillText('pulse registered at R1 (+'+p.d.toFixed(2)+' s = s/c)',w/2-100,55);}
+  });
+  // lane 2: retrograde
+  rx.fillStyle='#9a9ab0';rx.font='11px Georgia';
+  rx.fillText('retrograde (the record\u2019s Gedanken): key the READINESS at R1 — the source gate answers with no s/c',60,160);
+  rx.strokeStyle='#3a3a52';rx.lineWidth=8;rx.beginPath();rx.moveTo(80,190);rx.lineTo(w-80,190);rx.stroke();
+  // full-pipe beads flow only when ready
+  if(ready)flow+=(performance.now()-rT0)*0; // static lattice shift below
+  const N=16,span=(w-160)/N,off=(ready?(now*40)%span:0);
+  for(let i=0;i<N;i++){const x=80+((i*span+off)%(w-160));
+    rx.fillStyle=ready?'#64b5e0':'#333347';rx.beginPath();rx.arc(x,190,5,0,7);rx.fill();}
+  rx.fillStyle='#c9a84c';rx.fillRect(60,175,14,30);
+  rx.fillStyle=ready?'#66bb6a':'#e05f5f';rx.fillRect(w-74,175,14,30);
+  rx.fillStyle='#e2e2ea';rx.font='11px Georgia';rx.fillText('T1 (source gate)',60,225);rx.fillText('R1 readiness',w-160,225);
+  rx.fillStyle=ready?'#66bb6a':'#e05f5f';rx.font='11px Menlo';
+  rx.fillText(ready?'source emitting — billet assured':'source MUTE — no billet, no departure (t_P = 0 gating)',60,248);
+  rx.fillStyle='#9a9ab0';rx.font='10px Georgia';
+  rx.fillText('idealization: this pair is alone in the universe on its rate — the vacuum-flask condition (see the gold card)',60,272);
+  rx.restore();requestAnimationFrame(drawRetro);
+}
+readyBtn.onclick=()=>{ready=!ready;readyBtn.textContent='Far receiver R1: '+(ready?'READY':'OFF');readyBtn.classList.toggle('off',!ready);
+  retroStatus.textContent=ready?'R1 keyed READY — source gate opens at once (information ran receiver → transmitter)':'R1 keyed OFF — source gate shuts at once; the excluded energy has nowhere to go, so it never departs';};
+sepS.oninput=()=>{sepL.textContent=fmtSep(sepMeters());};
+dyeBtn.onclick=()=>{const d=sepMeters()/3e8;pulses.push({t:(performance.now()-rT0)/1000,d:d});
+  retroStatus.textContent='conventional pulse keyed at T1 — R1 reads it after s/c = '+d.toFixed(3)+' s (the dye in the hose)';};
+sepL.textContent=fmtSep(sepMeters());
+drawRetro();
+</script>
+</body>
+</html>
