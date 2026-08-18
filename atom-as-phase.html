@@ -425,13 +425,25 @@ function coreRing(count){
 }
 
 function makeShellHints(ns){
-  for(const n of ns){
-    const R=rShell(n), pos=[];
-    for(let i=0;i<=140;i++){const a=i/140*2*Math.PI;pos.push(R*Math.cos(a),0,R*Math.sin(a));}
-    const geo=new THREE.BufferGeometry();
-    geo.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));
-    const ln=new THREE.LineLoop(geo,new THREE.LineBasicMaterial({color:0x22223a,transparent:true,opacity:0.5}));
-    atom.add(ln); statics.push(ln);
+  // Each shell is a SPHERE of radius rShell(n); every ring of shell n lies exactly on it
+  // (center²+ρ²=R² by construction). A single equatorial trace under-communicates that —
+  // outer s-rings (vertical planes, ±lat about z) project outside the foreshortened ellipse
+  // and read as "outside the shell". So: trace each sphere with two orthogonal great
+  // circles, and close the cage with a third on the outermost shell.
+  const sorted=[...ns].sort((a,b)=>a-b), nMax=sorted[sorted.length-1];
+  for(const n of sorted){
+    const R=rShell(n);
+    const circles=[[a=>[R*Math.cos(a),0,R*Math.sin(a)],0.5],   // equatorial (xz)
+                   [a=>[0,R*Math.cos(a),R*Math.sin(a)],0.32]]; // meridian (yz)
+    if(n===nMax) circles.push([a=>[R*Math.cos(a),R*Math.sin(a),0],0.32]); // outermost: xy
+    for(const [fn,op] of circles){
+      const pos=[];
+      for(let i=0;i<=140;i++){const a=i/140*2*Math.PI;pos.push(...fn(a));}
+      const geo=new THREE.BufferGeometry();
+      geo.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));
+      const ln=new THREE.LineLoop(geo,new THREE.LineBasicMaterial({color:0x22223a,transparent:true,opacity:op}));
+      atom.add(ln); statics.push(ln);
+    }
   }
 }
 
@@ -508,7 +520,7 @@ function build(){
   document.getElementById('hudNet').innerHTML=BESPOKE[Z]?BESPOKE[Z].net:
     (Z===1?'1 uncancelled sense (1s) — the fundamental turn itself; everything else is this, accumulated.':netHTML(stats));
   document.getElementById('cap').innerHTML=captionFor(Z,stats,units)+
-    ' <span style="color:#6f6f88">Radial spacing compressed for display; truth is n².</span>';
+    ' <span style="color:#6f6f88">Radial spacing compressed for display; truth is n². Faint circles are great-circle traces of the shell spheres — every ring of shell n lies exactly on its sphere (outer s-pairs straddle ±40° about z, so they ride the outermost sphere perpendicular to the core plane).</span>';
 }
 let buildQueued=false;
 function requestBuild(){ if(buildQueued)return; buildQueued=true;

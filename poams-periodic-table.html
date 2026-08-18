@@ -2520,14 +2520,25 @@
         }
 
         function phaseShellHints(ns) {
+            // Each shell is a SPHERE; every ring of shell n lies exactly on it (center²+ρ²=R²).
+            // A lone equatorial trace reads as a disk and makes outer s-pairs (vertical planes,
+            // ±lat about z) look like they float outside the shell. Trace each sphere with two
+            // orthogonal great circles; close the cage with a third on the outermost shell.
             const T = window.THREE;
-            for (const n of ns) {
-                const R = phaseShellR(n), pos = [];
-                for (let i = 0; i <= 140; i++) { const a = i/140 * 2*Math.PI; pos.push(R*Math.cos(a), 0, R*Math.sin(a)); }
-                const geo = new T.BufferGeometry();
-                geo.setAttribute('position', new T.Float32BufferAttribute(pos, 3));
-                const ln = new T.LineLoop(geo, new T.LineBasicMaterial({ color: 0x2a2a44, transparent: true, opacity: 0.5 }));
-                vortex3D.harmonicGroup.add(ln);
+            const sorted = [...ns].sort((a,b)=>a-b), nMax = sorted[sorted.length-1];
+            for (const n of sorted) {
+                const R = phaseShellR(n);
+                const circles = [[a=>[R*Math.cos(a), 0, R*Math.sin(a)], 0.5],
+                                 [a=>[0, R*Math.cos(a), R*Math.sin(a)], 0.32]];
+                if (n === nMax) circles.push([a=>[R*Math.cos(a), R*Math.sin(a), 0], 0.32]);
+                for (const [fn, op] of circles) {
+                    const pos = [];
+                    for (let i = 0; i <= 140; i++) { const a = i/140 * 2*Math.PI; pos.push(...fn(a)); }
+                    const geo = new T.BufferGeometry();
+                    geo.setAttribute('position', new T.Float32BufferAttribute(pos, 3));
+                    const ln = new T.LineLoop(geo, new T.LineBasicMaterial({ color: 0x2a2a44, transparent: true, opacity: op }));
+                    vortex3D.harmonicGroup.add(ln);
+                }
             }
         }
 
