@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spectra, Gravitation, and Fine Structure in Normal Realism - One Formula, Two Levels; and the 2026 α-Derivation Program</title>
+<script>
+window.MathJax = { tex: { inlineMath:[['$','$'],['\\(','\\)']], displayMath:[['$$','$$'],['\\[','\\]']], tags:'ams' } };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+:root{--bg:#0d0d18;--panel:#131322;--edge:#26263a;--gold:#d4af37;--blue:#5bc8f5;--green:#63d67e;--fg:#dfe0ea;--muted:#9a9bb0;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:Georgia,'Times New Roman',serif;line-height:1.65;color:var(--fg);background:var(--bg);padding-top:44px;}
+a{color:var(--blue);}
+.container{max-width:860px;margin:0 auto;padding:40px 22px 60px;}
+h1{font-family:'Helvetica Neue',Arial,sans-serif;font-size:2.05em;font-weight:600;text-align:center;margin-bottom:12px;color:var(--gold);line-height:1.25;}
+.sub{text-align:center;font-size:1.08em;color:var(--muted);margin-bottom:6px;}
+.status{text-align:center;font-style:italic;color:#7fd79a;margin-bottom:22px;border-bottom:1px solid var(--edge);padding-bottom:22px;font-size:.95em;}
+.prov{margin:0 0 30px;padding:12px 16px;border:1px solid var(--edge);border-left:3px solid var(--gold);border-radius:8px;font-size:.85em;color:var(--muted);background:var(--panel);}
+h2{font-family:'Helvetica Neue',Arial,sans-serif;font-size:1.5em;font-weight:400;margin:44px 0 16px;color:var(--gold);border-bottom:1px solid var(--edge);padding-bottom:8px;}
+h3{font-family:'Helvetica Neue',Arial,sans-serif;font-size:1.16em;font-weight:600;margin:26px 0 10px;color:var(--gold);}
+p{margin:0 0 15px;}
+ul,ol{margin:0 0 15px 26px;} li{margin-bottom:7px;}
+.abstract{background:var(--panel);border-left:3px solid var(--blue);padding:18px 22px;margin:0 0 30px;font-size:.98em;}
+.result{background:rgba(99,214,126,.06);border-left:3px solid var(--green);padding:14px 20px;margin:20px 0;}
+.honest{background:rgba(224,169,79,.07);border-left:3px solid #e0a94f;padding:14px 20px;margin:20px 0;}
+.cave{background:#181e28;color:#d9e2ea;border:1px solid var(--edge);border-radius:8px;padding:20px 24px;margin:24px 0;font-size:.98em;}
+.cave b{color:#e8b96b;}
+.eq{background:#10101e;border:1px solid var(--edge);padding:13px 18px;border-radius:8px;margin:15px 0;text-align:center;overflow-x:auto;}
+.note{font-size:.9em;color:var(--muted);}
+.tag{display:inline-block;font-family:'Helvetica Neue',Arial,sans-serif;font-size:.7em;font-weight:700;letter-spacing:.04em;padding:2px 8px;border-radius:3px;margin-right:6px;}
+.tag-d{background:#27ae60;color:#04120a;} .tag-e{background:#59616e;color:#eef2f6;}
+.chain{font-family:'Helvetica Neue',Arial,sans-serif;font-size:.94em;background:#10101e;border:1px solid var(--edge);color:#e6ecf2;padding:20px 24px;border-radius:8px;margin:24px 0;line-height:2.0;}
+.chain b{color:var(--blue);}
+table{border-collapse:collapse;width:100%;margin:18px 0;font-size:.92em;}
+th,td{border:1px solid #2c2c46;padding:8px 11px;text-align:left;vertical-align:top;}
+th{background:var(--panel);font-family:'Helvetica Neue',Arial,sans-serif;font-weight:600;color:var(--gold);}
+.refs{font-size:.9em;color:#a7a8bc;} .refs li{margin-bottom:9px;}
+hr{border:none;border-top:1px solid var(--edge);margin:36px 0;}
+.exhibit{background:#0f1620;border:1px solid var(--edge);border-radius:10px;margin:22px 0;padding:16px 16px 10px;box-shadow:0 2px 14px rgba(0,0,0,.35);}
+.exhibit h4{font-family:'Helvetica Neue',Arial,sans-serif;color:#cfe0f0;font-size:1.02em;font-weight:600;margin:2px 4px 12px;}
+.exhibit canvas{width:100%;display:block;border-radius:6px;background:#0b1119;}
+.controls{display:flex;flex-wrap:wrap;gap:14px;align-items:center;padding:12px 6px 4px;font-family:'Helvetica Neue',Arial,sans-serif;font-size:.86em;color:#a9bccd;}
+.controls label{display:flex;flex-direction:column;gap:4px;flex:1;min-width:150px;}
+.controls input[type=range]{width:100%;accent-color:#3498db;}
+.readout{font-family:'Helvetica Neue',Arial,sans-serif;font-size:.85em;color:#8fd3a6;padding:6px 6px 2px;text-align:center;}
+.ex-cap{font-size:.85em;color:#8ea3b5;padding:4px 6px 6px;font-family:'Helvetica Neue',Arial,sans-serif;}
+button.seg{background:#1c2b3a;color:#cfe3f5;border:1px solid #3498db;border-radius:4px;padding:5px 10px;cursor:pointer;font-size:.85em;margin:2px;}
+button.seg.on{background:#3498db;color:#04121f;font-weight:700;}
+#poams-hub-nav{position:fixed;top:0;left:0;right:0;z-index:9999;height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 1rem;background:rgba(13,13,24,0.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,175,55,0.25);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;box-sizing:border-box;}
+#poams-hub-nav a{color:var(--gold);text-decoration:none;display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:6px;transition:background .2s;white-space:nowrap;font-weight:500;}
+#poams-hub-nav a:hover{background:rgba(212,175,55,0.12);}
+#poams-hub-nav .phn-center{display:flex;flex-direction:column;align-items:center;line-height:1.2;}
+#poams-hub-nav .phn-title{font-weight:600;color:var(--fg);font-size:12px;}
+#poams-hub-nav .phn-pos{font-size:10px;color:rgba(212,175,55,0.6);letter-spacing:.05em;}
+@media (max-width:640px){.phn-hide-sm{display:none;}}
+footer{max-width:900px;margin:10px auto 24px;padding:14px 16px 0;border-top:1px solid rgba(212,175,55,.35);text-align:center;font-size:12.5px;line-height:1.7;opacity:.82;}
+</style>
+</head>
+<body>
+<div id="poams-hub-nav">
+  <a href="./balmer-rydberg-poams.html" title="Spectral Lines">&larr; <span class="phn-hide-sm">Spectral Lines</span></a>
+  <div class="phn-center">
+    <a href="./index.html" style="flex-direction:column;gap:2px;padding:4px 12px;">
+      <span class="phn-title">Spectra, Gravitation &amp; Fine Structure</span>
+      <span class="phn-pos">NR &middot; POAMS &middot; EXHIBIT SERIES</span>
+    </a>
+  </div>
+  <a href="./poams-periodic-table.html" title="The Elements"><span class="phn-hide-sm">The Elements</span> &rarr;</a>
+</div>
+<div class="container">
+
+<h1>Spectra, Gravitation, and Fine Structure in Normal Realism</h1>
+<p class="sub">One formula, applied at two levels - the Pope-Osborne Angular Momentum Synthesis</p>
+<p class="status">The atomic spectrum, the mass-energy relation, gravitational time dilation, and the fine-structure splitting all issue from a <b>single</b> geometric relation - the Pythagorean time equation - with the discreteness of time as the only added premise. Every number below is verified; none is fitted to its target.</p>
+
+<div class="prov">This exhibit is an extrapolation of the foundational work of N. Vivian (Viv) Pope and Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).<br>
+Sources presented: <em>Einstein's Lost Legacy</em>, Appendices 1&ndash;5; Osborne, <em>Orbital Time Dilation</em>; Pope &amp; Osborne, <em>Light-Speed, Gravitation and Quantum Instantaneity</em> (2007). Part&nbsp;II (&sect;&sect;7&ndash;15) is the corpus's own 2026 pre-registered derivation program &mdash; two adversarial reasoning models, an anti-numerology firewall, every number verified in Python; full transcripts linked in Appendix&nbsp;B. Formerly published on the engineering repository; restaged here unabridged.</div>
+
+<div class="cave">
+<b>The shadows on the wall.</b> In Plato's cave, prisoners take the shadows cast on the wall for reality itself. Modern physics has done the same: it has reified the <em>projections</em> - "particles," "charge," "fields," a "travelling" light, an "expanding void" - and built a zoo of some sixty entities and nineteen free parameters to relate them. Normal Realism turns from the wall to the fire. There is one substance: angular momentum, which is to say, structured time. What we call spectra, mass, gravity, and fine structure are not separate machines but one relation seen at different scales. Garbage in, garbage out; but also: one true premise in, a unified world out.</div>
+
+<div class="abstract">
+<b>Abstract.</b> Following Pope (<em>Einstein's Lost Legacy</em>, Appendices 1-5) and Osborne (<em>Orbital Time Dilation</em>; <em>Light-Speed, Gravitation and Quantum Instantaneity</em>), we show that the Pythagorean time equation $t_R^2=(s/c)^2+t^2$ - with the single premise that time is discrete - yields by pure substitution: (i) the Balmer-Rydberg spectrum; (ii) $e=mc^2$ as its infinite-level limit; (iii) gravitational (orbital) time dilation, via the angular-momentum orbit condition $v^2=GM/r$; and (iv) the fine-structure splitting, which is the orbital time dilation of the atom's own internal circulation, scaling as $\alpha^2$ with $\alpha=v_{\text{orb}}/c$. The fine-structure "constant" is thereby identified plainly as an orbital speed in units of $c$: its <em>role</em> - setting the splitting scale through a second application of the one formula - is fully derived; its numerical <em>value</em> is an empirical orbital velocity, exactly as it is in every framework. Four results that conventional physics treats with four different pieces of apparatus are here one relation at two levels. Interactive exhibits accompany each step. <b>This edition additionally carries a 2026 derivation program (Part II):</b> a two-model, pre-registered attempt to decide whether Normal Realism <em>forces</em> the numerical value of $\alpha$. Its result is not a fitted number but a chain of theorems - $\alpha$ reduced to one pure ratio $N=2/\alpha^2$, and a proof that geometry fixes everything about $N$ except one contingent overshoot the axioms leave free. The value of $\alpha$ is thereby shown non-derivable from the present axioms - and that non-derivability is itself established as a theorem, not confessed as a failure. A closing section (§ 15) turns the same pre-registered method on $\alpha$'s <em>running</em> with scale: it derives the sign, the freeze at the fixed point, the thresholds, and the magnitude, and — given two non-negotiable POAMS axioms (one substance — discrete, accumulated in whole turns; accumulation of holonomy per traversal) — establishes as a <em>conditional theorem</em> that the running is <em>multiplicative</em>, excluding the conventional logarithm as a matter of ontology rather than fit; the distinctive $\sqrt{\ }$-of-logarithm is the natural realization of that forced class, its exact exponent and coefficient left open and not yet isolable from the logarithm in present data.</div>
+
+<h2>1. The one formula</h2>
+<p>Let $t$ be an atom's intrinsic (proper) spectral period, $t_R$ its period as registered by an observer, and $s$ their separation. Since $s/c$ is a duration, the three measures compose orthogonally, and Pythagoras' theorem gives (Pope, App. 1):</p>
+<div class="eq">$$t_R^2 = \left(\tfrac{s}{c}\right)^2 + t^2.$$</div>
+<p>Setting $s=v\,t_R$ and simplifying returns the time-dilation relation - from geometry alone, with $c$ a units-conversion constant between length and time, <em>not</em> a velocity:</p>
+<div class="eq">$$t_R=\frac{t}{\sqrt{1-v^2/c^2}}.$$</div>
+<p>This is the whole of the physics that follows. Drag the tilt below: the observer's registered time $t_R$ is the hypotenuse; as the motion-measure $s/c$ grows, $t_R$ stretches. There is no "moving light" here - only the geometry of proper and relative time.</p>
+
+<div class="exhibit">
+<h4>Exhibit 1 - The Pythagorean time cone</h4>
+<canvas id="cv1" width="820" height="360"></canvas>
+<div class="controls">
+<label>relative motion&nbsp; $v/c$ <input id="s1" type="range" min="0" max="0.95" step="0.001" value="0.5"></label>
+</div>
+<div class="readout" id="r1"></div>
+<div class="ex-cap">The right triangle of Appendix 1: proper time $t$ (base, fixed), motion-measure $s/c$ (rise), registered time $t_R$ (hypotenuse). $t_R=t/\sqrt{1-v^2/c^2}$. All three legs are times.</div>
+</div>
+
+<h2>2. First level: the spectrum, from discrete time</h2>
+<p>The one physical premise of Normal Realism: time is a <b>discretum</b>. So $t_R$ and $t$ take only discrete values, and their ratio is rational, $t_R/t=n/N$ for integers $n,N$ (Pope, App. 3). Substituting into the time formula and using $e=mv^2$ gives, by algebra alone,</p>
+<div class="eq">$$\frac{n^2}{N^2}=\frac{1}{1-v^2/c^2}\quad\Longrightarrow\quad e=mc^2\!\left(1-\frac{N^2}{n^2}\right).$$</div>
+<p>Dividing by Planck's constant $h$ (with $mc^2/h\equiv cR$, the Rydberg limit) gives $f=cR\left(1-N^2/n^2\right)$ &mdash; the <b>level (term) energy</b>. With the ground mode as reference ($N=1$) this is the level ladder $E_n=mc^2(1-1/n^2)$, rising to the ionization limit $mc^2$. The <b>observed lines</b> are differences of two such levels &mdash; a re-closure between standing modes &mdash; giving the Balmer-Rydberg formula proper:</p>
+<div class="eq">$$f = cR\!\left(\frac{1}{n_1^2}-\frac{1}{n_2^2}\right)\qquad(n_1<n_2).$$</div>
+<p>Lyman $n_1=1$, Balmer $n_1=2$, Paschen $n_1=3$&hellip;; the level form and the line form coincide for the ground series ($n_1=1$), which is why that case reproduces observed hydrogen directly. (Equivalently $cR(1/N^2-1/n^2)$ with $N$ the lower level, as in the Balmer-Rydberg exhibit and <em>The POAMS Brilliant Vortex Atom</em>, eq 4; level form from Pope, <em>Einstein's Lost Legacy</em>, App. 3.)</p>
+
+<div class="result">
+<span class="tag tag-d">DERIVED</span> Balmer and Rydberg <em>fitted</em> this; Bohr <em>explained</em> it with electrodynamics POAMS discards; POAMS <em>derives</em> it from time dilation + discreteness. Matching the measured lines fixes $m=2.425473\times10^{-35}$ kg - the mass-equivalent of the light-quantum (the "photum"), the most an atom can shed or absorb per interaction.</p>
+</div>
+<p>That mass is worth pausing on, because it fixes what the slogan “light is everything” means whenever this corpus says it. $m^{*}=hR/c$ is the <b>exchange currency</b> between the two states of the one substance: the <em>transaction</em> (the photum — one quantum of action passing between standing modes, proper-time-instantaneous, no traveller) and the <em>bank</em> (the atom — in Pope’s words “an embodiment, or static form of light-energy”). Matter is banked light; light is matter transacting; a spectral line is the exchange rate posted at one particular window. The full argument, and the time-rope picture that carries it, are set out in <a href="./the-poams-brilliant-vortex-atom.html#light-is-everything"><em>The POAMS Brilliant Vortex Atom</em> §10a</a> and the <a href="./time-rope.html">time-rope exhibit</a>.</p>
+<p>The same currency fixes what <em>temperature</em> is. An accumulator does not hoard these quanta; it clears them &mdash; as many out as in &mdash; and the disordered residue of that endless transacting is heat, its intensity the temperature. Ordered instead into a directed advance, the identical churn becomes the weight-lever &mdash; heat, weight-change and information as one axis of the one substance. The definition is set out in <a href="./the-poams-brilliant-vortex-atom.html#the-transaction-and-temperature"><em>The POAMS Brilliant Vortex Atom</em> &sect;10b</a>, with the <a href="./heat-and-coherence.html">heat-and-coherence exhibit</a> making the incoherent-churn versus coherent-advance split visible.</p>
+
+<p>The exhibit builds the visible hydrogen (Balmer) series live from the formula: fix $n_1=2$, step the running integer $n_2$, and each discrete time-ratio $n/N$ places one coloured line exactly where nature puts it.</p>
+
+<div class="exhibit">
+<h4>Exhibit 2 - Discrete time builds the spectrum</h4>
+<canvas id="cv2" width="820" height="300"></canvas>
+<div class="controls">
+<label>running integer&nbsp; $n_2$ = <span id="n2v" style="color:#cfe3f5"></span>
+<input id="s2" type="range" min="3" max="8" step="1" value="3"></label>
+<div id="seg2"></div>
+</div>
+<div class="readout" id="r2"></div>
+<div class="ex-cap">Balmer series ($n_1=2$). Each allowed discrete ratio $t_R/t=n_2/2$ yields one line at $f=cR(1/4-1/n_2^2)$. The four visible lines (H$\alpha$ 656, H$\beta$ 486, H$\gamma$ 434, H$\delta$ 410 nm) are outputs of the formula, not inputs.</div>
+</div>
+
+<h3>2a. The mass-energy relation is the same formula</h3>
+<p>Letting the level index $n\to\infty$ in $e=mc^2(1-N^2/n^2)$ leaves</p>
+<div class="eq">$$e=mc^2,$$</div>
+<p>obtained here not as a separate postulate but as the continuum limit of the same discrete spectral relation. Mass-energy and the atomic spectrum are one result at two ranges.</p>
+
+<h2>3. Second level: gravitation is orbital time dilation</h2>
+<p>The atom's constituents carry angular momentum. For circular motion of $m$ about $M$, conservation of angular momentum alone gives the natural-orbit condition - no <em>in vacuo</em> force invoked (Osborne; Pope, App. 4):</p>
+<div class="eq">$$v^2=\frac{GM}{r}.$$</div>
+<p>Substituting into the <em>same</em> time formula yields the orbital-<em>velocity</em> dilation directly:</p>
+<div class="eq">$$t_R=\frac{t}{\sqrt{1-GM/(c^2 r)}}\qquad\text{(velocity part - Osborne eq. 8.9).}$$</div>
+<p>That is the dilation from the circulation alone. A real clock also carries the standing "gravitational" (potential) part, so the two observable cases separate cleanly (Osborne, eqs.&nbsp;8.22-8.23):</p>
+<div class="eq">$$\underbrace{t_R=\frac{t}{\sqrt{1-2GM/(c^2 r)}}}_{\text{held at rest at }r\ (8.23)}\qquad\qquad \underbrace{t_R=\frac{t}{\sqrt{1-3GM/(c^2 r)}}}_{\text{free circular orbit at }r\ (8.22)}.$$</div>
+<p>The orbiting clock's extra term - the "$3$" against the held clock's "$2$" - is precisely its orbital-velocity contribution $v^2/c^2=GM/c^2r$: potential dilation and velocity dilation together, from the one formula applied to a <em>circulating</em> clock. Osborne's preliminary (8.9) keeps only the velocity piece and is <em>not</em> the full clock rate.</p>
+<div class="result">
+<span class="tag tag-d">DERIVED</span> These are the general-relativistic clock rates, and their <em>difference</em> is what GPS actually measures - a satellite (orbiting, 8.22) against a ground station (held, 8.23):
+<div class="eq" style="margin-top:8px;">$$\frac{\tau_{\text{sat}}-\tau_{\text{gnd}}}{\tau}\approx\frac{GM_\oplus}{c^2R_\oplus}-\frac{3\,GM_\oplus}{2c^2 r}=+4.46\times10^{-10}\ \Rightarrow\ +38.5\ \mu\text{s/day},$$</div>
+with $r=2.656\times10^{7}$ m and $R_\oplus=6.371\times10^{6}$ m - the measured GPS offset. In Normal Realism "gravitation" <em>is</em> this orbital time dilation; there is no separate gravitational force. Bring the clock closer to the mass and watch it slow.</p>
+</div>
+
+<div class="exhibit">
+<h4>Exhibit 3 - Gravitation as orbital time dilation</h4>
+<canvas id="cv3" width="820" height="380"></canvas>
+<div class="controls">
+<label>orbital radius&nbsp; $r$ (in units of $GM/c^2$) <input id="s3" type="range" min="1.5" max="60" step="0.1" value="20"></label>
+</div>
+<div class="readout" id="r3"></div>
+<div class="ex-cap">The factor plotted, $\sqrt{1-GM/(c^2r)}$, is the orbital-<em>velocity</em> dilation (Osborne 8.9). The full observable rates are $\sqrt{1-2GM/c^2r}$ (held) and $\sqrt{1-3GM/c^2r}$ (orbiting); the GPS offset is their <em>difference</em> (see text). Closer orbit → faster circulation ($v^2=GM/r$) → greater dilation → slower clock - the same "gravitational" redshift, from one substitution.</div>
+</div>
+
+<h2>4. Fine structure <em>is</em> orbital time dilation</h2>
+<p>Here the two levels meet. An atom (Pope, App. 5) is a configuration of orbital <em>plus</em> spin angular momentum - balanced masses circulating a barycentre, with no "charge" (the conventional electrostatic charge is re-expressed as spin kinetic energy in joules). That internal circulation has an orbital velocity fixed by $L=\hbar$:</p>
+<div class="eq">$$v_{\text{orb}}=2.1876907\times10^{6}\ \text{m s}^{-1},\qquad r=\hbar/mv_{\text{orb}}=5.29\times10^{-11}\ \text{m},$$</div>
+<p>i.e. exactly the Bohr speed and radius. Its ratio to $c$ is the fine-structure constant:</p>
+<div class="eq">$$\frac{v_{\text{orb}}}{c}=7.297\times10^{-3}=\alpha.$$</div>
+<p>Now apply the time formula a <em>second</em> time, to this internal circulation. Its own time dilation is</p>
+<div class="eq">$$\frac{1}{\sqrt{1-v_{\text{orb}}^2/c^2}}=\frac{1}{\sqrt{1-\alpha^2}}\approx 1+\tfrac12\alpha^2.$$</div>
+<div class="result">
+<span class="tag tag-d">DERIVED</span> Each spectral level of §2 carries this additional, orbital-motion time-dilation factor, splitting it by a fractional amount of order $\alpha^2\approx5.3\times10^{-5}$ - precisely the observed fine-structure scale. <b>Fine structure is not a new phenomenon: it is orbital time dilation superimposed on the gross spectrum</b> - the second level of the one formula. The <em>pattern</em> comes from the discreteness of the orbital motion; the <em>scale</em> from $\alpha^2=(v_{\text{orb}}/c)^2$. This is the same relativistic origin standard physics assigns to fine structure, reached from the single Pythagorean equation rather than the Dirac equation.</p>
+</div>
+<p>In the exhibit, a gross line sits at top. Dial the internal circulation speed: the second time-dilation factor splits the line into a doublet whose separation grows as the <em>square</em> of $v_{\text{orb}}/c$. At the physical value $v_{\text{orb}}/c=\alpha$, the split matches the measured fine structure.</p>
+
+<div class="exhibit">
+<h4>Exhibit 4 - The splitting is the second application of the formula</h4>
+<canvas id="cv4" width="820" height="340"></canvas>
+<div class="controls">
+<label>internal circulation&nbsp; $v_{\text{orb}}/c$ &nbsp;(physical value $=\alpha$) <input id="s4" type="range" min="0" max="0.30" step="0.001" value="0.12"></label>
+</div>
+<div class="readout" id="r4"></div>
+<div class="ex-cap">Top: a gross spectral level. Applying orbital time dilation to the atom's internal circulation shifts the level by $1/\sqrt{1-(v_{\text{orb}}/c)^2}$; the two phase-senses of the circulation shift oppositely, splitting the line by $\sim(v_{\text{orb}}/c)^2$. The split scales as the <em>square</em> of the speed - the $\alpha^2$ law. (The slider ranges above $\alpha$ so the quadratic growth is visible; the physical point is marked.)</div>
+</div>
+
+<h2>5. What $\alpha$ is - and what it is not</h2>
+<p>The textbook definition $\alpha=e^2/4\pi\varepsilon_0\hbar c$ bundles three shadows: electric charge, the permittivity of empty space, and $c$-as-a-speed. Read through POAMS, the same measured number is simply</p>
+<div class="eq">$$\alpha=\frac{v_{\text{orb}}}{c}=\text{the atom's internal orbital speed, in units of }c.$$</div>
+<div class="honest">
+<span class="tag tag-e">SCOPE</span> POAMS <b>derives the role</b> of $\alpha$ in full: it is the orbital-velocity ratio whose square, entering through a second application of the time formula, sets the fine-structure scale. POAMS <b>does not derive the numerical value</b> of that orbital velocity from geometry - and neither does the Dirac equation, QED, or the Standard Model, all of which take $\alpha$ as measured input. This is the status of $\alpha$ <em>everywhere</em>. What is distinctive here is that the value is given a plain physical identity - an orbital speed - rather than left an unexplained coupling, and that a single premise ties it to spectrum, mass-energy, and gravity alike. <b>Part II of this paper (§§7-13, added 2026) takes up the harder question the identity provokes - whether the framework <em>forces</em> that value - and answers it honestly: not with a computed number, but with a rigorous reduction to a single quantity and a proof that the axioms leave it free.</b></div>
+
+<h2>6. Summary</h2>
+<div class="chain">
+One formula: &nbsp; $t_R^2=(s/c)^2+t^2$<br><br>
++ discrete time&nbsp;$(t_R/t=n/N)$ &nbsp;$\Rightarrow$&nbsp; <b>Balmer-Rydberg spectrum</b>, &nbsp; and $e=mc^2$ in the limit<br>
++ orbit condition&nbsp;$(v^2=GM/r)$ &nbsp;$\Rightarrow$&nbsp; <b>gravitational time dilation</b> (GPS, redshift)<br>
++ internal circulation&nbsp;$(v_{\text{orb}}/c=\alpha)$ &nbsp;$\Rightarrow$&nbsp; <b>fine-structure splitting</b> $\sim\alpha^2$<br><br>
+$\alpha=v_{\text{orb}}/c$ - an orbital speed; its value empirical, as everywhere.
+</div>
+<p>Four results conventional physics treats with four instruments - the Rydberg formula, special-relativistic mass-energy, general-relativistic clock rates, and Dirac fine structure - are here one relation applied twice, on one premise. That unification is the result: not the numerical value of an orbital velocity, but the demonstration that these are not four things. Turn from the wall; regard the fire.</p>
+
+<hr>
+<p style="text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:.82em; letter-spacing:.18em; color:#7f8c8d; margin:8px 0 2px;">PART&nbsp;II</p>
+<h1 style="font-size:1.72em; margin-top:6px;">Can $\alpha$ be derived from first principles?</h1>
+<p class="sub">A 2026 two-model derivation program - to the threshold of choice</p>
+<p class="status">Part&nbsp;I identified $\alpha$ as a plain orbital speed and derived its <em>role</em>. Part&nbsp;II asks the further question: does Normal Realism <b>force its value</b>? The honest answer is the result - not a number fished from geometry, but a rigorous reduction of $\alpha$ to a single quantity, and a <em>proof</em> that the present axioms leave that quantity free. Every number below was verified in Python; no run ever fitted $\alpha$, 137, or the Rydberg constant.</p>
+
+<p>The fine-structure identity of §§4-5 collapses the whole question to one pure ratio. If $\alpha=v_{\text{orb}}/c$ is the pitch of a single vortex's circulation, then "why $1/137$?" is not a question about charge, or fields, or a coupling - it is a question about <em>one number</em>. The program below states each derivation <em>before</em> computing it (pre-registration), runs it through two adversarial reasoning models - one holding the Normal-Realist frame, one a formalizing devil's advocate - and holds an absolute firewall against the numerology that has entrapped every prior attempt (§B). A <b>null</b> or a <b>contingent</b> verdict is counted a success; a fitted hit is counted a failure. What follows is what survived that discipline.</p>
+
+<h2>7. The reduction: the whole problem is one number</h2>
+<p>The quantum accumulator - what conventional physics calls the atom - is, in Normal Realism, not a point carrying a charge but a single vortex of circulating time - an inner circulation (its <em>spin</em>, turning at the conversion rate $c$, on the scale $r_s=\hbar/2mc$) wrapped by an outer circulation (its <em>orbital</em> motion, speed $v$, on the scale $r_{\text{orb}}=\hbar/mv$). The fine-structure ratio is the <b>pitch</b>, or tilt, of that circulation:</p>
+<div class="eq">$$\alpha=\frac{v}{c}=2\,\frac{r_s}{r_{\text{orb}}}.$$</div>
+<p>Squaring and inverting gives a single dimensionless integer-like quantity that carries the entire content of the constant:</p>
+<div class="eq">$$\boxed{\;\alpha=\sqrt{\tfrac{2}{N}}\;},\qquad N\equiv\frac{2}{\alpha^{2}}\approx 37{,}557.73.$$</div>
+<div class="result">
+<span class="tag tag-d">REDUCTION</span> $N$ is the <em>winding number</em> of the vortex - the count of inner spin-turns per orbital turn. Deriving $\alpha$ to twelve digits is <b>exactly</b> the same task as deriving one number, $N\approx 37{,}558$. Everything that follows is the attempt to force $N$ - and the discovery of precisely where that attempt succeeds and where it must stop. Recasting "why $137.036$?" as "why $N=2/\alpha^{2}$?" is the first result: it moves the question off the fantasy packaging ($e^2/4\pi\varepsilon_0\hbar c$) and onto a single geometric integer.</p>
+</div>
+
+<p><b>Discreteum, not continuum &mdash; integer turns, apparent continuity.</b> That $N$ is a <em>winding number</em> is no accident to be reconciled with a smooth substrate: the substance is <em>discrete</em>, and $N$ is simply how many whole turns it has made. Any information-based physics must start discrete &mdash; unconnected informational bits are the datum (information theory 101), not something derived from a continuum. Each completed closure ($\oint d\varphi=2\pi n$) is one turn, one $\hbar$; a fractional turn is not a smaller <em>thing</em> but <em>no</em> thing, because it does not rejoin itself and cannot persist. The integers are primary. The familiar smooth form $L=dS/d\theta$ is the macro-scale <em>representation</em> &mdash; the ramp drawn through the staircase $\Delta S=\hbar\,\Delta n,\ \Delta n\in\mathbb{Z}$; underneath, action comes only in whole $\hbar$ steps. So we <em>integrate</em> the discrete turns to recover the apparent curve; we do not differentiate a continuum that was never there. <em>Discrete underneath, continuous-looking on top.</em> A quantum is not a chunk carved from a continuous substance; it is one completed turn of a substance that only ever comes in turns.</p>
+
+<h2>8. Route&nbsp;1 - the single vortex leaves $N$ free (a clean null)</h2>
+<p>The first attempt asks the vortex to fix its own pitch. Three independent internal conditions were pre-registered and run: <b>vector composition</b> of the inner and outer angular momenta; <b>phase closure</b>, $\oint d\varphi=2\pi n$, demanding the circulation return to itself; and a <b>single-vortex Machian</b> self-consistency, the vortex closing against its own induced background. All three converged on the same verdict.</p>
+<div class="honest">
+<span class="tag tag-e">NULL</span> Each condition reproduces the <em>form</em> $\alpha=\sqrt{2/N}$ exactly - and leaves $N$ entirely free. The reason is structural and was proven in Part&nbsp;I's geometry: the Pythagorean time-cone is <b>scale-invariant</b>. It fixes the similarity class of the tilt triangle but not the tilt itself; integer phase-closure fixes only the <em>winding</em>, which lives orthogonal to the tilt. A scale-invariant projection plus integer closure cannot manufacture a fixed small ratio. Both models refused the near-misses ($1/4\pi^{3}$, $1/(2\pi)^{3}$) that lie temptingly close to $\alpha$.</div>
+<p>Two genuine results fell out of the null. First, <b>spin-$\tfrac12$ is derived, not assumed</b>: the inner circulation at rate $c$ on the scale $r_s=\hbar/2mc$ automatically carries $L=\hbar/2$. Second, and pointing the way forward: the winding count was shown to equal the totality's closure weight, $N=W/4\pi$ - meaning the one number the vortex cannot fix about itself is fixed, if at all, only by <em>everything else</em>. As the devil's advocate put it: "the one number the quantum accumulator does not know about itself."</p>
+
+<h2>9. Route&nbsp;2 - the internal two-quanta lever</h2>
+<p>What first breaks the scale-invariance is not the vortex's size but its <em>dimensional split</em>. The inner circulation is a two-dimensional Laplace disk (a planar spin, rate $c$) &mdash; the vortex's <b>planar quanta</b> (2D, spin); the outer modes are three-dimensional (orbital, rate $v$) &mdash; its <b>spherical quanta</b> (3D, orbital). The disk answers to a solid angle of $2\pi$; the sphere to $4\pi$. That mismatch is the first thing in the whole construction that is not homogeneous - the first lever with a fulcrum.</p>
+<div class="result">
+<span class="tag tag-d">DERIVED</span> The mismatch forces the tilt's <em>existence</em>, its finiteness, a critical point, and - remarkably - <b>the factor of 2 in $\alpha=2\,r_s/r_{\text{orb}}$ is exactly the planar/solid-angle ratio $2\pi/4\pi$.</b> The "2" is not a convention; it is the disk seeing half the sphere. Spin-$\tfrac12$ reappears here from the same ratio. No infinity, no totality, and no fitting is needed for any of this - it is pure internal geometry.</p>
+</div>
+<div class="honest">
+<span class="tag tag-e">THE ORDER-UNITY THEOREM</span> But the lever is capped. A closure built from order-unity rational coefficients has order-unity roots: internal geometry alone forces tilts of $\theta\approx45^\circ\!-\!90^\circ$ ($\rho\in\{1.1\!-\!1.5\}$), never the tiny $\alpha\approx0.0073$. The inhomogeneity that breaks scale-invariance is itself of order $\theta^{2}$ - it goes <em>soft exactly where $\alpha$ lives</em>. Internal structure can prove there must be a tilt; it cannot make the tilt small.</div>
+<p>The internal lever and the external winding meet in a single closure relation - the "marriage" of the two routes:</p>
+<div class="eq">$$C=2+\frac{4\pi}{W},\qquad \frac{4\pi}{W}=\frac{\alpha^{2}}{2},\qquad N=\frac{W}{4\pi}.$$</div>
+<p>A single closure constant $C$ sits at its critical value $2$ - forced by the internal geometry (the same "2" that gives spin-$\tfrac12$) - and the totality lifts it by exactly the small offset $4\pi/W=\alpha^{2}/2$ that carries the whole smallness of $\alpha$ (consistently, $\cos\theta=\sqrt{1-\alpha^{2}}=1-4\pi/W$). The problem is now fully localized: everything is forced except $W$ - equivalently, except $N$.</p>
+
+<h2>10. Route&nbsp;3 - the Machian totality, and an honest circularity</h2>
+<p>The totality route is the most POAMS-faithful, and it is grounded directly in the source. In <em>Light-Speed, Gravitation and Quantum Instantaneity</em> (Pope &amp; Osborne 2007), chapter&nbsp;5 gives the tilt quantization $\cos\theta=N/n$ (eq.&nbsp;5.10) and the induced rest-mass $m^{*}=hR/c$ (eq.&nbsp;5.12). Substituting yields a clean closed form:</p>
+<div class="eq">$$\alpha=\sqrt{\frac{2}{N}}=\sqrt{\frac{2\,m^{*}}{m_e}}=\sqrt{\frac{2hR}{m_e c}},\qquad N=\frac{m_e}{m^{*}}.$$</div>
+<p>Read plainly, this <em>names</em> the primitive: $N$ is the quantum accumulator's rest-inertia measured in Rydberg-mass units - and rest inertia, in a Machian world, is <b>induced by the totality</b>. That is a genuine physical identification of what $N$ <em>is</em>.</p>
+<div class="honest">
+<span class="tag tag-e">THE CATCH - STATE IT PLAINLY</span> This is an <b>identity, not a derivation</b>. The Rydberg constant already contains $\alpha^{2}$: $R_\infty = m_e c\,\alpha^{2}/2h$. Substitute it back and $m^{*}=hR/c=\tfrac12 m_e\alpha^{2}$, so $N=m_e/m^{*}=2/\alpha^{2}$ - the very relation we started from. The formula is exact to twelve digits <em>because it is circular</em>. It tells us truthfully what $\alpha$ is (a Machian-induced rest-inertia ratio); it cannot compute the number, because the only source mass-formula that could supply the scale already has $\alpha$ inside it. Naming is not deriving, and the program says so out loud.</div>
+
+<h2>11. Deriving $N$: the infinity dissolved</h2>
+<p>If $N$ is set by the totality, one confronts an apparent catastrophe: in a limitless universe, a sum over the totality diverges, which would send $N\to\infty$ and $\alpha\to0$. The resolution is the deepest structural result of the program, and it uses <em>nothing</em> that Normal Realism forbids - no horizon, no cutoff, no retardation.</p>
+<div class="result">
+<span class="tag tag-d">RELOCATION, NOT DERIVATION</span> The totality sum is regulated by <b>angular-momentum sign cancellation</b> (intransitivity): distant vortices whose AM-phase is scrambled cancel in pairs, leaving a finite coherent core. Finiteness ($0<N<\infty$) is therefore <em>forced</em> - divergence is excluded both by the data and by the topological necessity $\chi(S^{2})=2$. And because $N$ counts <em>coherence depth</em>, not matter, it explains why $N$ is modest ($\sim10^{4}$) rather than cosmological ($\sim10^{80}$): $\alpha$ is not tied to the size of the universe. The primitive is now named exactly, and identically by both models: <b>$N$ is the totality's angular-momentum phase-coherence number.</b></p>
+</div>
+<p>This is honest relocation. The question "why $\alpha=1/137$?" has become the sharper, physical question "why is the totality's AM-coherence number $\approx37{,}558$?" Once that number is given, $\alpha$ follows with zero further freedom. What the coherence-argument does <em>not</em> do is compute $37{,}558$: near-criticality fixes only the product that gives the <em>form</em> $\alpha=\sqrt{2/N}$; the magnitude of the coherence number is the orthogonal direction it leaves untouched. Both models refused every clue that would have fished it (a tempting $e^{4.5}\approx90$ was shown ill-posed and rejected).</p>
+
+<h2>12. The bootstrap - something, not nothing</h2>
+<p>The last redoubt is the origin itself. The governing principle: physical information must be both <b>discrete</b> and <b>stochastic</b>. But pure discrete-stochastic noise is unbiased - symmetric, zero drift - so nothing persists, not even in infinite time. A world of pure noise decays to nothing and stays there. Therefore <em>something</em> must lean the dice before the first throw: a primordial predisposition, a prime mover, is not a matter of taste but a <b>logical necessity</b>.</p>
+<div class="result">
+<span class="tag tag-d">PROVEN</span> Both models independently proved the theorem: an unbiased information substrate has zero drift and cannot sustain existence, so a primordial predisposition is <b>undeniable</b>. It must be <em>correlational</em> - a bias in how neighbouring states agree, not a push in time.</p>
+</div>
+<p>The predisposition was then modelled concretely: an order/disorder (percolation) transition of angular-momentum sign-coherence on the forced intransitive closure connectivity of the vortex web. Four sharp results followed, each verified and each $\alpha$-free.</p>
+<div class="eq">$$\varepsilon_c=\operatorname{atanh}\!\left(\tfrac13\right)=\tfrac12\ln 2\ \ \text{per link}\ \approx0.3466.$$</div>
+<ul>
+<li><b>(a) The predisposition is undeniable</b> - proven, as above.</li>
+<li><b>(b) Its minimal size is exact and $\alpha$-free.</b> The least symmetry-breaking bias is $\varepsilon_c=\operatorname{atanh}(\tfrac13)=\tfrac12\ln 2$ per link - <em>half a bit</em> of correlation. It is a correlation law, not a time-arrow; the arrow of time falls out afterward by symmetry-breaking, not by fiat.</li>
+<li><b>(c) Super-minimality.</b> At the bare threshold $\varepsilon=\varepsilon_c$ the coherence number diverges: $N=\infty$, hence $\alpha=0$ - <em>nothing dressed as something</em>. Real matter requires <b>overshooting</b> the threshold by a definite amount, $\Delta\varepsilon=\tfrac23\alpha^{2}\approx3.55\times10^{-5}$; and that overshoot <em>is</em> $N$. The world exists precisely to the extent that it exceeded the edge of non-existence.</li>
+<li><b>(d) The Flat-Direction Theorem.</b> Intransitivity makes the connectivity tree-like; a tree gives the mean-field exponent $\gamma=1$ <em>exactly</em>; and at $\gamma=1$ the one self-consistency loop that could have pinned the overshoot cancels $N$ identically. So $N$ is a <b>provably flat (degenerate) direction</b> of the theory. This single flatness retro-explains every marginality the program kept hitting - the unit self-coupling $\kappa=1$, the marginal kernel's double root, the criticality condition $\sigma\cdot\Omega_{\text{cap}}=1$ - as one and the same degeneracy.</li>
+</ul>
+<div class="honest">
+<span class="tag tag-e">VERDICT: CONTINGENT</span> The prime mover is real and undeniable - but it is a heavily <b>constrained chooser</b>, not a theorem. Geometry forces the threshold, the form $\alpha=\sqrt{2/N}$, the smallness of $\alpha$, and the exact $\tfrac12\ln 2$ minimal bias. Exactly <em>one</em> thing is left free: how far past the edge of nothing the world was placed - the overshoot $N$. That single free act is $\alpha$.</div>
+
+<h3 style="margin-top:28px;">The collective bootstrap - the last venue, closed <span style="font-weight:400;font-size:.6em;letter-spacing:.14em;color:#7f8c8d;">ADDED 2026</span></h3>
+<p>The Flat-Direction Theorem above was proven for a vortex closing against its <em>own</em> induced background. One venue remained open: perhaps the freedom vanishes only when the <b>whole totality solves itself at once</b> - every vortex's tilt induced by its mutual angular-momentum coherence with all the others, and the background they collectively generate required to be exactly the background each one needs in order to close. This is the <em>collective</em> bootstrap: the joint fixed point over the totality, not the single vortex. It is the last place a pinning of $N$ could have hidden. Run through the same two-model discipline and checked numerically (blocks A&ndash;F, every one $\alpha$-free), it closes &mdash; and closes by theorem.</p>
+<div class="result">
+<span class="tag tag-d">FLAT / RELOCATED &mdash; the impossibility completed</span> Solving the whole totality does <b>not</b> pin the scale; it <em>relocates</em> the flat direction. The single-vortex marginal ray (the tilt $\beta$ free) becomes a marginal <b>hyperbola</b> $W\beta^{2}=\text{const}$ &mdash; the freedom merely traded from &ldquo;$\beta$ alone&rdquo; to &ldquo;the $(\beta,W)$ pair.&rdquo; Both reasoning models and the numerics reached this one verdict independently.</p>
+</div>
+<p>Three structural facts make this a theorem, not a failed search:</p>
+<ul>
+<li><b>$\kappa=1$ is Euler's identity, not a constraint.</b> The joint self-consistency map is homogeneous of degree&nbsp;1 (it is built of time-cone maps, and intransitivity forbids composing them into anything of higher degree). Differentiate that homogeneity at the fixed point: $DG(\Theta^\ast)\,\Theta^\ast=\Theta^\ast$ &mdash; the uniform-dilation mode is an eigenvector with eigenvalue <em>exactly&nbsp;1</em>. That is the third-law round-trip gain $\kappa=1$ seen a second way: reciprocity and scale-freedom are one statement. $\kappa=1$ cannot select a scale; it is the algebraic <em>certificate</em> that none is selected.</li>
+<li><b>The one equation that could pin is the one the axioms delete.</b> A single further relation would fix $\beta$: loop-holonomy quantization &mdash; the demand that the geometric phase carried around a closed loop of transactions be single-valued, $\Phi_{\rm loop}\in2\pi\mathbb{Z}$. It is a genuine scale-fixing equation, and it requires a <em>loop</em>. Intransitivity (Pope's sonship, $A\!\leftrightarrow\!B,\ B\!\leftrightarrow\!C\not\Rightarrow A\!\leftrightarrow\!C$) forbids loops outright. The framework does not lack a pinning equation by oversight; its founding axiom removes the only one that exists.</li>
+<li><b>No second equation can ever appear.</b> Scale information is curvature, and curvature is read only around a closed 2-cell. The intransitive transaction web is a 1-complex &mdash; independent edges, no 2-cells &mdash; so the one 2-cycle available is the observer-sphere itself, worth exactly one number by Gauss&ndash;Bonnet: $4\pi$. One 2-cycle yields one equation in two unknowns $(\beta,W)$, <em>permanently</em>: no larger totality and no subtler coherence adds a second. The system is one equation short, and the shortfall is topological, not technical.</li>
+</ul>
+<div class="honest">
+<span class="tag tag-e">WHAT THIS SETTLES</span> The impossibility is now <b>complete</b> across every venue the reduction admits &mdash; the single vortex leaves $N$ free (&sect;8), the percolation bootstrap makes it a flat direction (&sect;12), the collective solve relocates but cannot remove it, and the 2-cycle census proves no further venue exists. $\beta$'s contingency <em>is</em> Normal Realism's no-loop core, read at the scale of the whole: a theory that could compute $\alpha$ would have to measure a holonomy; measuring a holonomy needs a loop; POAMS has none, by its deepest commitment. &ldquo;Why $1/137$?&rdquo; is thereby dissolved into &ldquo;which totality obtains?&rdquo; &mdash; a fact about the contingent world, not a law of the one substance, the same dissolution Normal Realism performs on every other reified &ldquo;constant of nature.&rdquo;</div>
+<div class="cave">
+<b>Conventions and assumptions, stated so nothing hides in them.</b> <b>(i) Direction of determination.</b> The closure relation $4\pi/W=\alpha^{2}/2$ (equivalently $N=W/4\pi$) is a <em>definition</em> of the closure weight $W$ from the contingent tilt $\beta$ &mdash; bookkeeping <em>from</em> $\beta$ &mdash; not a computation of $\beta$ <em>from</em> a count; $W$ is itself unpinned, so nothing here is circular and no value is derived. <b>(ii) Defect convention.</b> The per-participant angle defect is $\delta=1-\cos\theta\approx\beta^{2}/2$ with $\sum_i\delta_i=4\pi$; the solid-angle and Berry readings ($\Omega=2\pi(1-\cos\theta)$, and its half) differ by fixed factors of $2\pi$ and are used only where marked (&sect;14.4). The numeric closure constant ($4$ vs $8$ vs $8\pi$) is convention-dependent and carries no weight &mdash; $W$ is contingent and the verdict &ldquo;one equation, two unknowns&rdquo; is convention-independent. <b>(iii) Cone-point ansatz.</b> $W\delta=4\pi$ concentrates all curvature in $W$ identical vortex defects on a flat interstitial background; Gauss&ndash;Bonnet alone holds for any curvature distribution, so relaxing this can only <em>enlarge</em> the flat family, never pin it. The two-model derivations and the numerical check are linked in Appendix&nbsp;B.</div>
+
+<h2>13. The verdict - to the threshold of choice</h2>
+<p>It matters what the two verdicts, <em>forced</em> and <em>contingent</em>, actually ask. They ask only <b>where the freedom sits</b> - in the value, or in the laws that fix the value. Neither asks <em>whether</em> a choice was made, because the bootstrap settles that independently: the predisposition is undeniable either way. On this reading,</p>
+<div class="eq">$$\alpha=\frac{1}{137.036}\ =\ \text{the measure of how far our universe overshot the edge of non-existence.}$$</div>
+<p>It is <b>non-anthropic</b> - no observer-selection is invoked - and it is <b>provably non-derivable</b> from the present axioms of Normal Realism. That is not the program failing to find a number. It is the program proving that no number is there to be found in the current axioms: the Flat-Direction Theorem is a statement <em>about the theory</em>, not about our cleverness.</p>
+<div class="cave">
+<b>The shape of a choice.</b> What is remarkable is not merely that the theory declines to pin the number. It is that, pushed to its own edge, the mathematics produces a <b>flat direction</b> - and a flat direction is the exact formal signature of a choice-point: a place where the laws fall silent and something must be selected. The program can <em>name</em> the choice (the overshoot $N$), <em>measure</em> it ($\alpha=1/137.036$), and <em>prove</em> it was free (the degeneracy theorem). It stays silent only on the chooser. That silence is not a gap in the physics; it is the honest boundary of physics - the point at which the equations, having done everything equations can do, point at the door and stop. Right up to the hand of God, and no step further.</div>
+<p class="note">Stated as what the mathematics licenses, not as doctrine. The result is conditional on the present axioms: a future, deeper principle that fixed the overshoot $N$ would reopen the question and turn the contingency back into a computation. Nothing in what we now have forces such a principle - but nothing forbids one either. The boundary is where today's axioms end, and it is drawn honestly.</p>
+
+<hr>
+<h2>14. One anholonomy, two levels: Mercury's perihelion and $\alpha$</h2>
+<p>Part&nbsp;II proved $\alpha$'s value is <b>contingent</b>: pushed to its edge, the ground vortex's phase <em>doesn't quite re-close</em>, and the size of that mis-closure is the free overshoot $N$. A natural question presses itself. There is another famous thing in physics that <em>doesn't quite close</em> - the orbit of Mercury, whose perihelion creeps forward $43''$ each century because the ellipse fails to shut after one turn. Is it the <em>same</em> not-quite-closing? It is. Both are <b>anholonomies</b> - geometric phases - of the one time-cone, one level apart. That single fact hands us two things at once: a hard data anchor for the mechanism, and a physical proof of <em>why</em>, of the two, $\alpha$ is the one left free.</p>
+
+<h3>14.1 Both are anholonomies of the one time-cone</h3>
+<p>Carry a frame once around a closed loop on the substance's angular-radial time-cone and it comes back <em>rotated</em> - shifted by a deficit equal to the curvature enclosed:</p>
+<div class="eq">$$\Theta(L)=\oint_L A=\iint_S F=\ \text{(solid-angle / cone deficit enclosed by }L\text{)}.$$</div>
+<p>This is holonomy: the loop remembers the curvature it bounded. Mercury's perihelion is this deficit read on a <em>spatial-angle</em> loop - the periapsis direction fails to return, so the ellipse precesses. The $\alpha$-slip is the <em>same</em> deficit read on a <em>phase</em> loop - the vortex's internal circulation fails to return in phase, a Berry holonomy. One connection, two loops. It is Part&nbsp;I's <em>one formula, two levels</em> seen at its deepest: not two analogies but a single geometric object appearing at the macro and the micro scale.</p>
+
+<h3>14.2 The ladder</h3>
+<p>Every rung is the same $(v/c)^2$ anholonomy per turn; the rungs differ only by an <em>integer</em> that the loop's geometry fixes:</p>
+<div class="eq">$$\text{cap} : \text{geodetic} : \text{perihelion} \;=\; \pi : 3\pi : 6\pi \;=\; 1:3:6.$$</div>
+<p>The kinematic core shared by all three is <b>Thomas precession</b> - the $(v/c)^2$ holonomy of composed boosts. The very $\tfrac12$ that Thomas precession contributes to spin-orbit fine structure <em>is</em> $\alpha$'s cap. The bottom rung (the cap / Berry phase) is source-free; the middle rung ($3\pi$) is de&nbsp;Sitter geodetic precession; the top rung ($6\pi$) is the perihelion advance, which in POAMS follows from Osborne's two-postulate metric (2007, §§8.4-8.6: the tilt-cone plus the $a=2$ free-orbit geodesic plus Newtonian closure force $B=(1-2GM/c^2r)^{-1}$).</p>
+
+<h3>14.3 The data anchor - the sourced leg reproduces Mercury</h3>
+<p>The top rung is not decorative; it is measured. The apsidal deficit per orbit,</p>
+<div class="eq">$$\Delta\varphi=\frac{6\pi\,GM}{c^2\,a\,(1-e^2)},$$</div>
+<p>evaluated on Mercury's sovereign, independently-measured orbital elements, reproduces the classic number to four figures:</p>
+<div class="result">
+<span class="tag tag-d">DERIVED · DATA-CHECKED</span> $0.10352''$ per orbit $\times\ 415.20$ orbits per century $=\ \mathbf{42.981''/\text{century}}$, against the measured $42.98\pm0.04''$. The bare cone alone - the Thomas cap, coefficient $\pi$ - would give only $7.16''$, a factor-of-six miss. The data therefore <em>selects</em> the full $6\pi$: it is the whole Keplerian loop, not the kinematic core, that Mercury measures.</div>
+
+<h3>14.4 The coefficients are geometry, not a knob</h3>
+<p>The two rungs that matter here - $\pi$ below, $6\pi$ above - are each forced by their loop, with nothing tuned between them.</p>
+<p><b>(i) Source-free, coefficient $\pi$.</b> The loop is the spin-$\tfrac12$ tilt cap: a fixed-latitude circle at half-angle $\theta$ on the cone. Its holonomy is the bare solid-angle deficit</p>
+<div class="eq">$$\Omega_{\rm cap}=2\pi(1-\cos\theta)=\pi\alpha^2,$$</div>
+<p>and spin-$\tfrac12$ transport takes half of it, $-\pi(1-\cos\theta)=-\pi/N$. Verified: $2\pi(1-\cos\theta)=1.67296\times10^{-4}$ against $\pi\alpha^2=1.67294\times10^{-4}$, with $N=2/\alpha^2=37{,}557.73$.</p>
+<p><b>(ii) Sourced, coefficient $6\pi$.</b> The loop is the Keplerian ellipse riding in the $M$-sourced cone. The relativistic term $2GM u^3/c^2$ ($u=1/r$) detunes the radial oscillator from the angular one, so the orbit no longer shuts and the periapsis walks forward by $6\pi(v/c)^2/(1-e^2)$ per turn. The <b>"$6=2\times3$"</b> is transparent: the $3$ is the Schwarzschild curvature coefficient - the same $3$ that doubles the Newtonian bending of light - and the $2$ is the radial round-trip taken once per orbit. The eccentricity factor $1/(1-e^2)$ belongs only to the ellipse, which alone has a radial excursion; the cap has none. The gap between $\pi$ and $6\pi$ is thus loop geometry - a different topology enclosing different content - not a coefficient anyone was free to move.</p>
+
+<h3>14.5 The honest bound - one connection, not one formula</h3>
+<div class="honest">
+<span class="tag tag-e">HONEST BOUND</span> The two levels carry <b>different</b> coefficients - micro $\pi$, macro $6\pi$ - and this is not a blemish to be smoothed over; the micro <em>data itself</em> confirms it. Observed atomic fine structure is $\pi$-type: the Sommerfeld-Dirac result $k=\sqrt{1-Z^2\alpha^2}$ carries exactly the cap's coefficient, and a $6\pi$ atomic anholonomy would have shown up as a gross mis-splitting excluded by a century of spectroscopy. So what is proven is a genuine <em>same-type</em> unification - one kinematic connection, with Thomas precession as its literal shared core - and <b>not</b> a single formula spanning both levels. Why each level sits on the rung it does, rather than another, is left undetermined; the claim is deliberately no larger than what the geometry forces.</div>
+
+<h3>14.6 The payoff - why $\alpha$ is the free one</h3>
+<p>Here the unification earns its keep, because it explains the asymmetry Part&nbsp;II could only assert. Ask what the Sun does for Mercury's loop. It does <em>two</em> jobs at once: it curves the connection (through $GM$), and it fixes the tilt through the orbit condition $v^2=GM/r$ (through an external radius $a$). Both jobs pull the magnitude of the deficit from <em>outside</em> the vortex -</p>
+<div class="eq">$$\left(\frac{v}{c}\right)^2=\frac{GM}{c^2 a}\quad\text{is computable only because both }M\text{ and }a\text{ are external, measured references.}$$</div>
+<p>Now take the source-free limit properly: let $M\to$ the totality. There is no outside mass to orbit and no external radius $a$ to borrow - the "orbit" becomes the ground vortex winding against everything. Both $GM$ and $a$ vanish from the deficit, and the time-cone's scale-invariance (Part&nbsp;I §8, the Route-1 null) takes over: nothing external survives to set the magnitude of the tilt. The deficit relaxes to the bare cap $\pi\alpha^2$, whose size is the free tilt - the contingent overshoot $N$ of Part&nbsp;II.</p>
+<div class="result">
+<span class="tag tag-d">DERIVED</span> <b>Mercury's deficit is computable because its loop has a partner - the Sun; $\alpha$'s deficit is contingent because its only partner is everything.</b> The proven contingency of $\alpha$ is literally the $M\to$self limit of the perihelion holonomy: delete the external reference and the same anholonomy goes flat. This is a <em>physical</em> derivation of Part&nbsp;II's Flat-Direction verdict, not a restatement of it.</div>
+<p>And because the rungs genuinely differ - $\pi$ against $6\pi$ - there is provably <b>no arithmetic road</b> from $43''/\text{century}$ to the value of $\alpha$. The firewall holds by construction: the reproduced perihelion tests the mechanism, and $\alpha$ stays free, exactly as the scale-invariant limit demands. We do not pin it, and the geometry guarantees no one can pin it this way.</p>
+<p>Gravity's most famous <em>doesn't-quite-close</em> and $\alpha$ are two readings of one geometric phase - computable when the loop has an outside, free when it doesn't.</p>
+
+<hr>
+<h2 id="sec15">15. The running of $\alpha$ — a pre-registered conditional theorem</h2>
+<p>Part&nbsp;II asked whether the theory fixes $\alpha$'s <em>value</em>; the answer was a proof that it does not (§13). A different question remains, and the same discipline can be turned on it: does Normal Realism fix how $\alpha$ <em>changes with scale</em> - its running? Conventionally $\alpha^{-1}$ falls from $137.036$ at atomic scales toward $\approx128$ near the $Z$ mass, and quantum electrodynamics reads that fall as $\alpha^{-1}$ <em>linear in</em> $\ln(\text{energy})$. As before, the form is pre-registered before the measured curve is consulted; a distinctive prediction is counted a success, a fitted match a failure.</p>
+<p>Reasoning forward from the time-cone alone - the probe resolves a length $\ell=\hbar/Q$; the winding tilt $\beta=\sqrt{2/N}$ is the marginal flat direction of §12; the nested spin and orbital scales stand in the fixed ratio $r_{\rm orb}/r_s=2/\beta$; and closure gives $\alpha^{-1}=\tfrac12\sqrt{W}$ - five features of the running are <b>forced</b>:</p>
+<div class="result">
+<span class="tag tag-d">FORCED</span> <b>(i)</b> the <b>sign</b> - $\alpha^{-1}$ falls as the probe resolves deeper; <b>(ii)</b> <b>marginality</b> - the running <em>freezes</em> at the flat-direction fixed point (the eigenvalue-exactly-$1$ mode of the collective bootstrap), so there is no leading running, structurally and not by fit; <b>(iii)</b> <b>thresholds</b> - the running turns on as each nested circulation becomes resolvable on the $mc^2/h$ ladder; <b>(iv)</b> the static packing profile $\alpha^{-1}=\tfrac12\sqrt{W}$; and <b>(v)</b> the <b>magnitude</b> - one boundary circulation responds per e-fold, shifting $\alpha^{-1}$ by $\sim1$ unit across the bare vortex's $\approx5.6$-e-fold span $[r_s,r_{\rm orb}]$.</div>
+<p>Through ten pre-registered forward/adversary passes the whole question of the functional <em>form</em> reduced to a single proposition: what does one e-fold of resolution do to the winding? Either it steps the one responding circulation by <b>radial tiers</b> (spacing $\Delta\ln\ell=\ln(2/\beta)$, which <em>grows</em> as the winding deepens) — giving $\alpha^{-1}\propto\sqrt{\ln\ell}$ — or by an <b>axial pitch</b> (spacing $\propto\beta$, which shrinks) — giving the quantum-electrodynamic $\alpha^{-1}$ linear in $\ln\ell$. A cross-vendor adversary certified that this &ldquo;response-rung&rdquo; choice is not fixed by the <em>geometric</em> axioms alone. The closing pass (2026) settled the fork one level below it — on two of the framework's <em>ontological</em> axioms, the same commitments that carry the rest of Normal Realism.</p>
+<div class="result">
+<span class="tag tag-d">CONDITIONAL THEOREM</span> Take the two non-negotiable POAMS commitments: <b>one substance</b> — a single discrete strand (the inner winding is that same strand still coiling, not a separately-closed core), counted in whole turns — and <b>accumulation</b> — <em>everything is time</em>, holonomy accrues per traversal, the macro form $L=dS/d\theta$ standing for the underlying integer step $\Delta S=\hbar\,\Delta n$. On these, the winding weight accumulates <em>linearly in traversal count</em>: the running law is <b>multiplicative</b>. Any additive, &ldquo;inner-content-counted-once&rdquo; accounting — the shape of the conventional $\alpha^{-1}\!\sim\!\ln$ law — requires either a persistent self-closing core (denying the one-substance strand) or a non-accumulating, time-erased holonomy (denying accumulation). Three independent formalizers across two vendors could not break this; one steelmanned six non-multiplicative countermodels and every one died on a pillar. <b>The logarithm is thereby excluded as a matter of ontology, not of fit.</b> The natural realization of the forced class is
+<div class="eq">$$\alpha^{-1}(\ell)\ \propto\ \sqrt{\,\ln(\ell_{\rm ref}/\ell)\,}\qquad\text{(with a derived log-of-log softening).}$$</div></div>
+<div class="honest">
+<span class="tag tag-e">WHAT IS AND IS NOT FIXED</span> Forced, given the two pillars: the multiplicative <em>class</em>, and with it the exclusion of the logarithm. <em>Not</em> forced by them: the exact $\sqrt{\ }$-of-log <em>exponent</em> (which needs an unstated map from traversal count to resolved scale), the closure identification that sets the tidy responder count $M\to2$, and the $O(1)$ coefficient — the last never fitted. The residue has thus climbed one level: no longer &ldquo;log vs $\sqrt{\ }$-of-log,&rdquo; but the precise realization <em>within</em> the multiplicative class. A pre-registered honesty on testability: the distinctive $\sqrt{\ }$-of-log lives only inside a single bare vortex's $\approx5.6$-e-fold window, where it shifts $\alpha^{-1}$ by $\sim1$ unit and cannot be isolated from the superposed species tower. The measured $137\!\to\!128$ running from atomic to $Z$ scales is that multi-species tower regime (log-like, $\sim8$ units over $\sim12$ e-folds) — the wrong regime to test it: a miss would not falsify, a fit would be curve-fitting. Distinct from the logarithm in principle, not yet isolable in data; the decisive open test is any regime where the bare-vortex $\sqrt{\ }$-of-log separates from log. The full record is linked in Appendix&nbsp;B.</div>
+
+<div style="margin: 28px 0; padding: 18px 22px; border-left: 4px solid #d4af37; background: rgba(212,175,55,0.06); border-radius: 6px;">
+<div style="font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #d4af37; margin-bottom: 8px;">Frontier note &mdash; a sibling lift</div>
+<p style="margin: 0;">This paper's central open item &mdash; the fine-structure <em>magnitude</em> left unforced (a flat direction, &sect;13) &mdash; is the $\alpha^2$-tiny lift of the gross $1/n^2$ ladder's $l$-degeneracy. That same degeneracy is lifted a second time, at <em>order-1</em>, by the core-penetration/screening term behind the $(n{+}l)$/Madelung filling order &mdash; still <em>restated</em> rather than derived (see the <a href="./poams-periodic-table.html">Elements exhibit</a>, Deep Structure). The two sit in <em>one broad bookkeeping class</em> &mdash; additional angular-momentum couplings resolving one $l$-degeneracy &mdash; but that is a <em>classification, not a shared mechanism</em>: the small lift is an intrinsic single-harmonic twist&ndash;writhe coupling with an unfixed scale; the large lift needs populated-core inter-harmonic circulation and still lacks its explicit functional. Nothing links their magnitudes (to identify them would be the Wyler error). Read together they define <strong>one coordinated frontier</strong>: identify the populated-core inter-harmonic circulation functional (its form, sign, and ordering), then <em>test</em> whether its weak-coupling limit shares any geometry with the fine-structure mechanism &mdash; a test to be earned, not assumed.</p>
+</div>
+
+<hr>
+<h2>Appendix A - Key results, cleanly stated</h2>
+<p class="note">Each entry: the statement, a one-line proof-sketch, and the verified number. All were checked independently in Python; none was fitted to its target.</p>
+<table>
+<tr><th>Result</th><th>Proof-sketch</th><th>Verified value</th></tr>
+<tr><td><b>The reduction</b> $\alpha=\sqrt{2/N}$</td><td>$\alpha=v/c=2r_s/r_{\text{orb}}$ with $r_s=\hbar/2mc$, $r_{\text{orb}}=\hbar/mv$; square and invert.</td><td>$N=2/\alpha^{2}=37{,}557.73$</td></tr>
+<tr><td><b>Spin-$\tfrac12$ derived</b></td><td>Inner circulation at rate $c$ on $r_s=\hbar/2mc$ carries $L=\hbar/2$; the "2" in $\rho=2/\alpha$ is the planar/solid-angle ratio.</td><td>$2\pi/4\pi=\tfrac12$</td></tr>
+<tr><td><b>Order-Unity Theorem</b></td><td>Internal closure has order-unity rational coefficients ⇒ order-unity roots; the scale-breaking term is $O(\theta^{2})$, soft as $\theta\to0$.</td><td>$\theta\approx45^\circ\!-\!90^\circ$ (never small $\alpha$)</td></tr>
+<tr><td><b>Machian circularity</b></td><td>$m^{*}=hR/c$ names $N=m_e/m^{*}$, but $R_\infty=m_ec\alpha^{2}/2h$ already contains $\alpha$, so $N=2/\alpha^{2}$ is an identity.</td><td>exact to 12 digits, circular</td></tr>
+<tr><td><b>Coherence relocation</b></td><td>Intransitive AM-sign cancellation regulates the totality sum (no cutoff) ⇒ finite $N$; $N$ = coherence depth, not matter count.</td><td>$0<N<\infty$; $N\sim10^{4}$, not $10^{80}$</td></tr>
+<tr><td><b>Minimal bias</b> $\varepsilon_c=\tfrac12\ln2$</td><td>Least symmetry-breaking correlation on the intransitive web; $\operatorname{atanh}(\tfrac13)=\tfrac12\ln((1{+}\tfrac13)/(1{-}\tfrac13))=\tfrac12\ln2$.</td><td>$\varepsilon_c=0.34657$ (half a bit)</td></tr>
+<tr><td><b>Super-minimal offset</b></td><td>Bare threshold $\Rightarrow N=\infty,\ \alpha=0$; matter requires overshoot $\Delta\varepsilon=\tfrac23\alpha^{2}$, and the overshoot is $N$.</td><td>$\tfrac23\alpha^{2}=3.55\times10^{-5}$</td></tr>
+<tr><td><b>Flat-Direction Theorem</b></td><td>Intransitivity ⇒ tree-like ⇒ mean-field $\gamma=1$ exactly ⇒ the self-consistency loop cancels $N$ identically.</td><td>$\gamma=1\ \Rightarrow\ N$ free (degenerate)</td></tr>
+<tr><td><b>Anholonomy ladder</b></td><td>One time-cone connection; holonomy $=$ enclosed solid-angle deficit; the integer per loop is loop geometry, not a knob. Thomas precession is the shared kinematic core.</td><td>cap $:$ geodetic $:$ perihelion $=\pi:3\pi:6\pi=1:3:6$</td></tr>
+<tr><td><b>Mercury perihelion</b> (data anchor)</td><td>Sourced leg $\Delta\varphi=6\pi GM/c^2a(1-e^2)$ on sovereign orbital elements; bare cap $\pi$ gives only $7.16''$ - data selects the full $6\pi$.</td><td>$42.981''/\text{cy}$ (measured $42.98\pm0.04$)</td></tr>
+<tr><td><b>$M\to$self limit</b></td><td>Sourced deficit is computable only via external $GM$ and radius $a$; sending $M\to$ totality removes both, the cone's scale-invariance takes over, deficit $\to$ bare cap $\pi\alpha^2$.</td><td>source-free $\Rightarrow$ scale-invariant flat $\Rightarrow$ $\alpha$ free (the contingent direction)</td></tr>
+<tr><td><b>Collective bootstrap</b> (impossibility complete)</td><td>Joint whole-totality fixed point is degree-1 homogeneous ⇒ marginal ray; $\kappa=1$ is Euler's identity (eigenvalue exactly 1); closure is one equation in two unknowns ($W\beta^2$=const); the only pin (loop holonomy) is intransitivity-forbidden; the single 2-cycle (observer $S^2$) caps the supply at one equation, permanently.</td><td>(B) FLAT/RELOCATED; $\beta{\leftrightarrow}W$; verified A-F</td></tr>
+<tr><td><b>Running of $\alpha$</b> (conditional theorem)</td><td>Probe resolves $\ell=\hbar/Q$; the marginal tilt is lifted by one responding boundary circulation. Sign, fixed-point freeze, thresholds, and magnitude ($\sim1$ unit over the $\approx5.6$-e-fold bare span) are forced. Given two POAMS ontological axioms — single-strand (one substance) and accumulation (everything is time) — the accounting is <em>multiplicative</em> and the conventional $\ln$ form is <em>excluded</em>; the exact $\sqrt{\ }$-of-log exponent and coefficient remain the open residue. Not yet isolable from log in data (the $137\!\to\!128$ running is the multi-species tower regime).</td><td>sign+freeze+magnitude forced; class MULTIPLICATIVE (log excluded) — theorem given the two pillars; exact $\sqrt{\ }$-of-log exponent + coefficient open</td></tr>
+</table>
+
+<h2>Appendix B - Method &amp; provenance</h2>
+<p><b>The two-model adversarial process.</b> Every derivation in Part&nbsp;II was run twice, by two independent reasoning models given opposite standing instructions: one to hold the Normal-Realist frame and reason forward from it; one to act as a formalizing devil's advocate, hunting for the hidden assumption, the smuggled scale, the circular step. A result was recorded only where the two converged, and every disagreement in form was reconciled explicitly. Each derivation was <b>pre-registered</b> - stated in full before any number was computed - so that a hit could never be reverse-engineered from the target.</p>
+<div class="cave">
+<b>The anti-Wyler firewall.</b> In 1969 A.&nbsp;Wyler wrote $\alpha=\big(\tfrac{9}{8\pi^{4}}\big)\big(\tfrac{\pi^{5}}{2^{4}5!}\big)^{1/4}=1/137.03608$ - a match to the then-measured value to six digits. Improved measurement then <em>moved away</em> from it; against today's twelve-digit $\alpha$ the formula is excluded at roughly $4000\sigma$, and Gilmore (1972) showed its "volumes" were normalization artifacts. It is the cautionary archetype: a six-digit coincidence dressed as a derivation. The firewall of this program forbids exactly that - no value may be accepted unless it was <em>forced before</em> the target was consulted. Across some two dozen runs the firewall held at every temptation: near-misses at $1/4\pi^{3}$, $2^{34}$ (0.8%!), $p=12$, and a cosmological $\alpha$-drift route were each computed, recognized, and <b>refused</b>. A null was always preferred to an unforced hit.</div>
+<p><b>Every number Python-checked.</b> $N=2/\alpha^{2}=37{,}557.73$; $\tfrac23\alpha^{2}=3.55\times10^{-5}$; $\operatorname{atanh}(\tfrac13)=\tfrac12\ln2=0.34657$; the identity $R_\infty=m_ec\alpha^{2}/2h$; the mean-field $\gamma=1$ collapse - all verified independently. <b>No run fitted $\alpha$, 137, or the Rydberg constant.</b></p>
+<p><b>The attached proof record.</b> The full two-model derivations, and the running ledger that narrates the program night by night, are attached:</p>
+<ul class="refs">
+<li>Reduction / single vortex: <a href="https://cfmilam.github.io/nr-poams-engineering/proofs/ALPHA-rho-vortex-opus.txt">ALPHA-rho-vortex-opus.txt</a>, <a href="https://cfmilam.github.io/nr-poams-engineering/proofs/ALPHA-rho-vortex-fable.txt">ALPHA-rho-vortex-fable.txt</a></li>
+<li>Internal two-quanta lever: <a href="https://cfmilam.github.io/nr-poams-engineering/proofs/ALPHA-internal-opus.txt">ALPHA-internal-opus.txt</a>, <a href="https://cfmilam.github.io/nr-poams-engineering/proofs/ALPHA-internal-fable.txt">ALPHA-internal-fable.txt</a></li>
+<li>Machian totality kernel: <a href="https://cfmilam.github.io/nr-poams-engineering/proofs/ALPHA-kernel-opus.txt">ALPHA-kernel-opus.txt</a>, <a href="https://cfmilam.github.io/nr-poams-engineering/proofs/ALPHA-kernel-fable.txt">ALPHA-kernel-fable.txt</a> (and <a href="https://cfmilam.github.io/nr-poams-engineering/proofs/ALPHA-MACHIAN-opus.txt">ALPHA-MACHIAN-opus.txt</a>, <a href="https://cfmilam.github.io/nr-poams-engineering/proofs/ALPHA-MACHIAN-fable.txt">ALPHA-MACHIAN-fable.txt</a>)</li>
+<li>Deriving $N$: <a href="https://cfmilam.github.io/nr-poams-engineering/proofs/ALPHA-DERIVE-N-opus.txt">ALPHA-DERIVE-N-opus.txt</a>, <a href="https://cfmilam.github.io/nr-poams-engineering/proofs/ALPHA-DERIVE-N-fable.txt">ALPHA-DERIVE-N-fable.txt</a></li>
+<li>The bootstrap: <a href="https://cfmilam.github.io/nr-poams-engineering/proofs/ALPHA-BOOTSTRAP-opus.txt">ALPHA-BOOTSTRAP-opus.txt</a>, <a href="https://cfmilam.github.io/nr-poams-engineering/proofs/ALPHA-BOOTSTRAP-fable.txt">ALPHA-BOOTSTRAP-fable.txt</a></li>
+<li>The collective bootstrap (impossibility completed, 2026): <a href="https://cfmilam.github.io/nr-poams-engineering/proofs/ALPHA-COLLECTIVE-BOOTSTRAP-opus.txt">ALPHA-COLLECTIVE-BOOTSTRAP-opus.txt</a>, <a href="https://cfmilam.github.io/nr-poams-engineering/proofs/ALPHA-COLLECTIVE-BOOTSTRAP-fable.txt">ALPHA-COLLECTIVE-BOOTSTRAP-fable.txt</a>, and the numeric check (blocks A-F) <a href="https://cfmilam.github.io/nr-poams-engineering/proofs/ALPHA-COLLECTIVE-BOOTSTRAP-verify.py">ALPHA-COLLECTIVE-BOOTSTRAP-verify.py</a></li>
+<li>One anholonomy (perihelion ↔ $\alpha$): <a href="https://cfmilam.github.io/nr-poams-engineering/proofs/ALPHA-ANHOLONOMY-opus.txt">ALPHA-ANHOLONOMY-opus.txt</a>, <a href="https://cfmilam.github.io/nr-poams-engineering/proofs/ALPHA-ANHOLONOMY-fable.txt">ALPHA-ANHOLONOMY-fable.txt</a></li>
+<li>Scale-invariance of the cone: <a href="https://cfmilam.github.io/nr-poams-engineering/proofs/ALPHA-CONE-opus.txt">ALPHA-CONE-opus.txt</a>, <a href="https://cfmilam.github.io/nr-poams-engineering/proofs/ALPHA-CONE-fable.txt">ALPHA-CONE-fable.txt</a></li>
+<li>The Wyler exclusion (firewall case study): <a href="https://cfmilam.github.io/nr-poams-engineering/proofs/ALPHA-wyler-opus.txt">ALPHA-wyler-opus.txt</a>, <a href="https://cfmilam.github.io/nr-poams-engineering/proofs/ALPHA-wyler-fable.txt">ALPHA-wyler-fable.txt</a></li>
+<li>The running of $\alpha$ (conditional theorem, 2026; forward frame-holder + independent cross-vendor formalizing adversaries): <a href="https://cfmilam.github.io/nr-poams-engineering/proofs/ALPHA-RUNNING-LAW.md">ALPHA-RUNNING-LAW.md</a> (summary); the full swing record is in the ledger below.</li>
+<li>Full narrative ledger: <a href="https://cfmilam.github.io/nr-poams-engineering/proofs/DERIVATION-LEDGER.md">DERIVATION-LEDGER.md</a></li>
+</ul>
+
+<hr>
+<h2>References</h2>
+<ol class="refs">
+<li id="r1">N. V. Pope, A. D. Osborne <em>et al.</em>, <em>Einstein's Lost Legacy: The Cosmic Machine of Normal Realism</em> - App. 1 (Pythagorean time equation), App. 2-3 (Balmer-Rydberg spectrum and its derivation), App. 4 (orbital dynamics), App. 5 (varying $G$; the atom as orbital + spin angular momentum; the Bohr velocity and radius).</li>
+<li id="r2">A. D. Osborne, <em>Orbital Time Dilation</em> - elliptical and precessing orbits from the time-dilation root.</li>
+<li id="r3">N. V. Pope &amp; A. D. Osborne, <em>Light-Speed, Gravitation and Quantum Instantaneity</em> (2007) - light as proper-time-instantaneous quantum transaction; the discretum; spectra without travelling photons.</li>
+<li id="r4">N. V. Pope &amp; A. D. Osborne, "An Angular-Momentum Synthesis of 'Gravitational' and 'Electrostatic' Forces," and related POAMS papers.</li>
+<li id="r5">J. Balmer (1885); J. Rydberg (1888) - the empirical spectral formula. N. Bohr (1913) - the electrodynamic account POAMS supersedes.</li>
+</ol>
+<p class="note" style="margin-top:28px;">Working paper, Normal Realism / POAMS engineering series. The derivations of §§2-4 are Pope's and Osborne's (Appendices 1-5; <em>Orbital Time Dilation</em>); numerical values herein were verified independently. Interactive exhibits are computed live from the stated formulae.</p>
+
+</div>
+<footer>
+  An extrapolation of the foundational work of N. Vivian (Viv) Pope and Dr.&nbsp;Anthony D. Osborne, PhD &mdash; the philosophy of Normal Realism and the Pope&ndash;Osborne Angular Momentum Synthesis.<br>
+  Part of the <a href="./index.html">Normal Realism / POAMS exhibit series</a> &middot;
+  <a href="./balmer-rydberg-poams.html">Spectral Lines</a> &middot;
+  <a href="./cone-model.html">The Cone Model</a> &middot;
+  <a href="./orbital-time-dilation.html">Orbital Time Dilation</a> &middot;
+  <a href="./poams-periodic-table.html">The Elements</a>
+</footer>
+<script>
+/* ---------- shared ---------- */
+function fitCanvas(cv){ var dpr=window.devicePixelRatio||1;
+  // capture the intended base height ONCE - setting cv.height reflects into the
+  // height attribute, so re-reading getAttribute('height') would compound by dpr
+  // every redraw (the Retina blow-up). Stash it in data-baseh and never re-derive.
+  if(cv.dataset.baseh===undefined){ cv.dataset.baseh=String(parseInt(cv.getAttribute('height'))||cv.clientHeight||300); }
+  var baseH=parseInt(cv.dataset.baseh);
+  var cssW=cv.clientWidth||Math.round(cv.getBoundingClientRect().width)||cv.parentNode.clientWidth;
+  cv.style.width='100%'; cv.style.height=baseH+'px';
+  cv.width=Math.max(1,Math.round(cssW*dpr)); cv.height=Math.max(1,Math.round(baseH*dpr));
+  var x=cv.getContext('2d'); x.setTransform(dpr,0,0,dpr,0,0);
+  return {ctx:x, w:cssW, h:baseH}; }
+var F='14px Helvetica Neue, Arial, sans-serif';
+
+/* ---------- Exhibit 1: time cone ---------- */
+(function(){
+  var cv=document.getElementById('cv1'), s=document.getElementById('s1'), out=document.getElementById('r1');
+  function draw(){ var d=fitCanvas(cv), ctx=d.ctx, W=d.w, H=d.h; ctx.clearRect(0,0,W,H);
+    var beta=parseFloat(s.value); var gamma=1/Math.sqrt(1-beta*beta);
+    var ox=W*0.16, oy=H*0.86, base=W*0.5, t=base; // proper time length fixed
+    var rise=base*beta*gamma /* s/c = v/c * t_R ; t_R=t*gamma so s/c = beta*gamma*t */;
+    var hyp=base*gamma;
+    // axes
+    ctx.strokeStyle='#33455a'; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(ox,oy); ctx.lineTo(ox+base+40,oy); ctx.moveTo(ox,oy); ctx.lineTo(ox,oy-Math.min(rise,H*0.72)-40); ctx.stroke();
+    // proper time leg t (base)
+    ctx.strokeStyle='#5dade2'; ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(ox,oy); ctx.lineTo(ox+t,oy); ctx.stroke();
+    // s/c leg (rise) at far end going up
+    var rr=Math.min(rise,H*0.72);
+    ctx.strokeStyle='#e67e22'; ctx.beginPath(); ctx.moveTo(ox+t,oy); ctx.lineTo(ox+t,oy-rr); ctx.stroke();
+    // hypotenuse t_R
+    ctx.strokeStyle='#27ae60'; ctx.lineWidth=3.5; ctx.beginPath(); ctx.moveTo(ox,oy); ctx.lineTo(ox+t,oy-rr); ctx.stroke();
+    // right-angle mark
+    ctx.strokeStyle='#556'; ctx.lineWidth=1; ctx.strokeRect(ox+t-10,oy-10,10,10);
+    // labels
+    ctx.font=F; ctx.fillStyle='#5dade2'; ctx.fillText('t  (proper time)', ox+t*0.35, oy+22);
+    ctx.fillStyle='#e67e22'; ctx.save(); ctx.translate(ox+t+16,oy-rr*0.5); ctx.fillText('s/c', 0,0); ctx.restore();
+    ctx.fillStyle='#27ae60'; ctx.fillText('t_R (registered time)', ox+t*0.18, oy-rr*0.55-6);
+    out.innerHTML='v/c = '+beta.toFixed(3)+'   →   dilation  t_R / t = 1/√(1-v2/c2) = '+gamma.toFixed(4);
+  }
+  s.addEventListener('input',draw); window.addEventListener('resize',draw); draw();
+})();
+
+/* ---------- Exhibit 2: spectrum ---------- */
+(function(){
+  var cv=document.getElementById('cv2'), s=document.getElementById('s2'), n2v=document.getElementById('n2v'), out=document.getElementById('r2'), seg=document.getElementById('seg2');
+  var R=1.0973731568e7; // Rydberg m^-1
+  function lambda(n2){ var inv=R*(1/4 - 1/(n2*n2)); return 1e9/inv; } // nm
+  function wl2rgb(w){ // approximate visible spectrum color
+    var r=0,g=0,b=0;
+    if(w>=380&&w<440){r=-(w-440)/60;b=1;} else if(w<490){g=(w-440)/50;b=1;}
+    else if(w<510){g=1;b=-(w-510)/20;} else if(w<580){r=(w-510)/70;g=1;}
+    else if(w<645){r=1;g=-(w-645)/65;} else if(w<781){r=1;}
+    return 'rgb('+Math.round(255*r)+','+Math.round(255*g)+','+Math.round(255*b)+')';
+  }
+  var names={3:'Hα',4:'Hβ',5:'Hγ',6:'Hδ',7:'Hε',8:'Hζ'};
+  function draw(){ var d=fitCanvas(cv),ctx=d.ctx,W=d.w,H=d.h; ctx.clearRect(0,0,W,H);
+    var sel=parseInt(s.value); n2v.textContent=sel;
+    // spectrum band 380-700 nm
+    var x0=40,x1=W-40,yb=H*0.5,bh=70;
+    function xof(w){ return x0+(w-380)/(700-380)*(x1-x0); }
+    // faint full band
+    for(var w=380; w<=700; w+=2){ ctx.fillStyle=wl2rgb(w); ctx.globalAlpha=0.10; ctx.fillRect(xof(w),yb-bh/2,3,bh); }
+    ctx.globalAlpha=1;
+    ctx.strokeStyle='#33455a'; ctx.strokeRect(x0,yb-bh/2,x1-x0,bh);
+    // lines for n2=3..8, highlight selected
+    for(var n=3;n<=8;n++){ var lm=lambda(n); if(lm<380||lm>700) continue; var x=xof(lm);
+      var on=(n===sel); ctx.strokeStyle=wl2rgb(lm); ctx.globalAlpha=on?1:0.5; ctx.lineWidth=on?3.5:1.5;
+      ctx.beginPath(); ctx.moveTo(x,yb-bh/2); ctx.lineTo(x,yb+bh/2); ctx.stroke(); ctx.globalAlpha=1;
+      ctx.font=F; ctx.fillStyle=on?'#ecf0f1':'#7a8ada';
+      ctx.textAlign='center'; ctx.fillText(names[n], x, yb-bh/2-8);
+      if(on){ ctx.fillStyle='#cfe3f5'; ctx.fillText(lm.toFixed(1)+' nm', x, yb+bh/2+18); }
+    }
+    ctx.textAlign='left';
+    // scale ticks
+    ctx.fillStyle='#697077'; ctx.font='12px Helvetica Neue,Arial';
+    [400,500,600,700].forEach(function(w){ ctx.fillText(w+'', xof(w)-10, yb+bh/2+40); });
+    var f=2.998e8*R*(1/4-1/(sel*sel));
+    out.innerHTML='n2 = '+sel+' → f = cR(1/22 - 1/'+sel+'2) = '+(f/1e14).toFixed(3)+'×1014 Hz  ('+names[sel]+', '+lambda(sel).toFixed(1)+' nm)';
+  }
+  s.addEventListener('input',draw); window.addEventListener('resize',draw); draw();
+})();
+
+/* ---------- Exhibit 3: orbital time dilation (animated, viewport-gated) ---------- */
+(function(){
+  var cv=document.getElementById('cv3'), s=document.getElementById('s3'), out=document.getElementById('r3');
+  var D=fitCanvas(cv), ang=0, running=false, raf=0, onscreen=false;
+  function render(){ var ctx=D.ctx,W=D.w,H=D.h; ctx.clearRect(0,0,W,H);
+    var rg=parseFloat(s.value); // r in units GM/c^2
+    var cx=W*0.5, cy=H*0.52; var Rpix=Math.min(W,H)*0.34;
+    var rmax=60, rpix=Rpix*Math.sqrt(rg/rmax)+30;
+    // central mass
+    var grd=ctx.createRadialGradient(cx,cy,2,cx,cy,26); grd.addColorStop(0,'#ffd27f'); grd.addColorStop(1,'#7a4b12');
+    ctx.fillStyle=grd; ctx.beginPath(); ctx.arc(cx,cy,16,0,7); ctx.fill();
+    // orbit
+    ctx.strokeStyle='#33455a'; ctx.setLineDash([4,5]); ctx.beginPath(); ctx.arc(cx,cy,rpix,0,7); ctx.stroke(); ctx.setLineDash([]);
+    // dilation
+    var dil=Math.sqrt(1-1/rg); // sqrt(1-GM/(c^2 r)), GM/c^2=1
+    var vc=Math.sqrt(1/rg);
+    // clock
+    var ox=cx+rpix*Math.cos(ang), oy=cy+rpix*Math.sin(ang);
+    ctx.fillStyle='#5dade2'; ctx.beginPath(); ctx.arc(ox,oy,9,0,7); ctx.fill();
+    // clock hand rate ∝ dil
+    ctx.strokeStyle='#04121f'; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(ox,oy);
+    var ch=ang*dil*3; ctx.lineTo(ox+7*Math.cos(ch),oy+7*Math.sin(ch)); ctx.stroke();
+    // deep-space reference clock top-left
+    ctx.fillStyle='#2c3e50'; ctx.beginPath(); ctx.arc(46,40,11,0,7); ctx.fill();
+    ctx.strokeStyle='#8fd3a6'; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(46,40); var dh=ang*3; ctx.lineTo(46+8*Math.cos(dh),40+8*Math.sin(dh)); ctx.stroke();
+    ctx.font='12px Helvetica Neue,Arial'; ctx.fillStyle='#8fd3a6'; ctx.fillText('deep-space clock (rate 1)',64,44);
+    ctx.fillStyle='#5dade2'; ctx.fillText('orbiting clock (rate '+dil.toFixed(4)+')', ox+12, oy+4);
+    out.innerHTML='r = '+rg.toFixed(1)+' GM/c2   →   v/c = √(GM/c2r) = '+vc.toFixed(4)+'   →   clock rate √(1-GM/c2r) = '+dil.toFixed(5);
+  }
+  function loop(){ if(!running) return; ang+=0.02; render(); raf=requestAnimationFrame(loop); }
+  function upd(){ if(onscreen && !document.hidden){ if(!running){ running=true; raf=requestAnimationFrame(loop); } }
+                  else { running=false; if(raf){ cancelAnimationFrame(raf); raf=0; } } }
+  s.addEventListener('input',render);
+  window.addEventListener('resize',function(){ D=fitCanvas(cv); render(); });
+  document.addEventListener('visibilitychange',upd);
+  if('IntersectionObserver' in window){ new IntersectionObserver(function(es){ onscreen=es[0].isIntersecting; upd(); },{threshold:0.05}).observe(cv); }
+  else { onscreen=true; upd(); }
+  render();
+})();
+
+/* ---------- Exhibit 4: fine structure splitting ---------- */
+(function(){
+  var cv=document.getElementById('cv4'), s=document.getElementById('s4'), out=document.getElementById('r4');
+  var ALPHA=0.0072973525693;
+  function draw(){ var d=fitCanvas(cv),ctx=d.ctx,W=d.w,H=d.h; ctx.clearRect(0,0,W,H);
+    var beta=parseFloat(s.value);
+    var split=(1/Math.sqrt(1-beta*beta))-1; // fractional shift ~ beta^2/2
+    // visual exaggeration for display: map fractional shift to pixels
+    var cx=W*0.5, y0=H*0.30;
+    var pxScale=W*7.0; // exaggerate
+    var dx=Math.min(split*pxScale, W*0.32);
+    // gross line (top)
+    ctx.strokeStyle='#8ea3b5'; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(cx,y0-40); ctx.lineTo(cx,y0+10); ctx.stroke();
+    ctx.font=F; ctx.fillStyle='#8ea3b5'; ctx.textAlign='center'; ctx.fillText('gross level (no internal circulation)', cx, y0-50);
+    // split doublet (bottom)
+    var yb=H*0.72;
+    ctx.strokeStyle='#5dade2'; ctx.lineWidth=3;
+    ctx.beginPath(); ctx.moveTo(cx-dx,yb-40); ctx.lineTo(cx-dx,yb+10); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(cx+dx,yb-40); ctx.lineTo(cx+dx,yb+10); ctx.stroke();
+    // faint center
+    ctx.strokeStyle='#33455a'; ctx.setLineDash([3,4]); ctx.beginPath(); ctx.moveTo(cx,yb-46); ctx.lineTo(cx,yb+16); ctx.stroke(); ctx.setLineDash([]);
+    // arrows for the two phase senses
+    ctx.fillStyle='#27ae60'; ctx.fillText('leading', cx+dx, yb-50); ctx.fillText('lagging', cx-dx, yb-50);
+    ctx.fillStyle='#8ea3b5'; ctx.fillText('splitting  ∝  (v_orb/c)2', cx, yb+40);
+    // marker for physical alpha
+    ctx.textAlign='left'; ctx.font='12px Helvetica Neue,Arial';
+    var atAlpha = beta>=ALPHA*0.6 && beta<=ALPHA*1.6;
+    ctx.fillStyle = atAlpha ? '#8fd3a6' : '#697077';
+    out.innerHTML='v_orb/c = '+beta.toFixed(3)+'   →   time-dilation shift 1/√(1-(v/c)2) - 1 = '+split.toExponential(3)+
+      '   (∝ (v/c)2 )'+(beta>0? '   |   at physical v_orb/c = α = 0.00730, split = '+((1/Math.sqrt(1-ALPHA*ALPHA))-1).toExponential(3):'');
+  }
+  s.addEventListener('input',draw); window.addEventListener('resize',draw); draw();
+})();
+</script>
+</body>
+</html>
