@@ -42,11 +42,31 @@ blockquote { border-left: 3px solid var(--blockquote-border); background: var(--
 .subtitle { color: var(--accent2); font-size: 1.15rem; font-style: italic; margin: 0.2rem 0 1rem; line-height:1.35; }
 sup, .fnref { color: var(--accent); }
 </style>
+<style id="poams-hub-nav-style">
+#poams-hub-nav{position:fixed;top:0;left:0;right:0;z-index:9999;height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 1rem;background:rgba(13,13,24,0.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,175,55,0.25);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;box-sizing:border-box;}
+#poams-hub-nav a{color:#d4af37;text-decoration:none;display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:6px;transition:background .2s;white-space:nowrap;font-weight:500;}
+#poams-hub-nav a:hover{background:rgba(212,175,55,0.12);}
+#poams-hub-nav .phn-center{display:flex;flex-direction:column;align-items:center;line-height:1.2;}
+#poams-hub-nav .phn-title{font-weight:600;color:#e8e8f0;font-size:12px;}
+#poams-hub-nav .phn-pos{font-size:10px;color:rgba(212,175,55,0.6);letter-spacing:.05em;}
+@media (max-width:640px){.phn-hide-sm{display:none;}}
+body{padding-top:72px !important;}
+</style>
 </head>
 <body>
+<div id="poams-hub-nav">
+  <a href="./poams-memory.html" title="POAMS & Memory">← <span class="phn-hide-sm">POAMS & Memory</span></a>
+  <div class="phn-center">
+    <a href="./index.html" style="flex-direction:column;gap:2px;padding:4px 12px;">
+      <span class="phn-title">The Brilliant Vortex Atom</span>
+      <span class="phn-pos">NR · POAMS · EXHIBIT SERIES</span>
+    </a>
+  </div>
+  <a href="./dunne-serialism.html" title="Dunne Serialism"><span class="phn-hide-sm">Dunne Serialism</span> →</a>
+</div>
+
 <button id="theme-btn" onclick="poamsToggleTheme()" title="Toggle theme (T)" aria-label="Toggle light/dark theme">☀️</button>
 <main>
-<a class="back-link" href="index.html">&larr; Back to Exhibits</a>
 <h1>The POAMS Brilliant Vortex Atom</h1>
 <div class="subtitle">A Comprehensive Restatement of the Pope–Osborne Angular Momentum Synthesis, with the Magnitude/Polarization Correction and its Single-Vortex Form</div>
 <div class="subtitle" style="font-size:0.95rem; margin-top:-0.5rem;">After Lord Kelvin’s vortex atom of 1867: brilliant, and right — half a century too early, before Mach’s relational turn, Planck’s quantum of action, and the computation the modes demand. And after §10a the word is literal: the vortex atom is banked light.</div>

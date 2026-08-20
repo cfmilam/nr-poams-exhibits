@@ -36,10 +36,30 @@ a{color:var(--blue)}
 .nav{display:flex;justify-content:space-between;font-size:.85rem;margin-top:3rem;border-top:1px solid var(--edge);padding-top:1rem}
 .eqbox{background:#10101e;border:1px solid var(--edge);border-radius:8px;padding:8px 12px;margin:10px 0;overflow-x:auto}
 </style>
+<style id="poams-hub-nav-style">
+#poams-hub-nav{position:fixed;top:0;left:0;right:0;z-index:9999;height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 1rem;background:rgba(13,13,24,0.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,175,55,0.25);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;box-sizing:border-box;}
+#poams-hub-nav a{color:#d4af37;text-decoration:none;display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:6px;transition:background .2s;white-space:nowrap;font-weight:500;}
+#poams-hub-nav a:hover{background:rgba(212,175,55,0.12);}
+#poams-hub-nav .phn-center{display:flex;flex-direction:column;align-items:center;line-height:1.2;}
+#poams-hub-nav .phn-title{font-weight:600;color:#e8e8f0;font-size:12px;}
+#poams-hub-nav .phn-pos{font-size:10px;color:rgba(212,175,55,0.6);letter-spacing:.05em;}
+@media (max-width:640px){.phn-hide-sm{display:none;}}
+body{padding-top:72px !important;}
+</style>
 </head>
 <body>
+<div id="poams-hub-nav">
+  <a href="./poams-telecommunications.html" title="POAMS & Telecommunications">← <span class="phn-hide-sm">POAMS & Telecoms</span></a>
+  <div class="phn-center">
+    <a href="./index.html" style="flex-direction:column;gap:2px;padding:4px 12px;">
+      <span class="phn-title">POAMS & Memory</span>
+      <span class="phn-pos">NR · POAMS · EXHIBIT SERIES</span>
+    </a>
+  </div>
+  <a href="./the-poams-brilliant-vortex-atom.html" title="The POAMS Brilliant Vortex Atom"><span class="phn-hide-sm">The Brilliant Vortex Atom</span> →</a>
+</div>
+
 <main>
-<a href="./index.html" style="font-size:.85rem">&larr; Back to Exhibits</a>
 <h1>POAMS and Memory</h1>
 <p class="note" style="margin-top:-2px">What a bit is &middot; every store you own, audited &middot; writing is torque, literally &middot; the Landauer toll and the Arrhenius lease &middot; matter was always memory</p>
 <p class="note" style="font-size:.82rem">Sibling exhibits: <a href="./poams-electricity.html">POAMS &amp; Electricity</a> §5 named the industry that stores information in angular momentum without the map — this page audits it. <a href="./heat-and-coherence.html">Heat &amp; Coherence</a> holds the two books every erasure moves between.</p>
