@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,9 +16,13 @@
     --bg:#0d0d18; --card:#1c1c30; --text:#e8e8f0; --muted:#9a9ab0;
     --gold:#d4af37; --blue:#5bc8f5; --green:#66bb6a; --cyan:#26c6da; --red:#ef5350; --edge:#2c2c46;
   }
+  body.light{
+    --bg:#faf8f2; --card:#ffffff; --text:#26211a; --muted:#6b6355;
+    --gold:#8b6914; --blue:#176e94; --green:#2e7d32; --cyan:#0e7490; --red:#b03030; --edge:#d9d2bf;
+  }
   *{box-sizing:border-box;}
   body{margin:0;background:var(--bg);color:var(--text);
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;}
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;transition:background .3s,color .3s;}
   header{padding:26px 22px 18px;border-bottom:1px solid var(--edge);text-align:center;}
   header h1{margin:0;font-size:26px;color:var(--gold);font-weight:650;}
   header .sub{margin:8px auto 0;font-size:14px;color:var(--muted);max-width:820px;}
@@ -65,6 +69,10 @@
   a.xref{color:var(--blue);text-decoration:none;}
   a.xref:hover{text-decoration:underline;}
   @media(max-width:640px){ canvas.chart{height:260px;} }
+  body.light canvas.chart{background:#f6f3ea;}
+  body.light #calcCtl select, body.light #calcCtl button{background:#f6f3ea;}
+.theme-toggle{position:fixed;top:54px;right:12px;z-index:1000;background:var(--gold);color:var(--bg);border:none;width:40px;height:40px;border-radius:8px;padding:0;cursor:pointer;font-size:1.15rem;display:flex;align-items:center;justify-content:center}
+body.light .theme-toggle{background:#8b6914;color:#faf8f2}
 </style>
 <style id="poams-hub-nav-style">
 #poams-hub-nav{position:fixed;top:0;left:0;right:0;z-index:9999;height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 1rem;background:rgba(13,13,24,0.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,175,55,0.25);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;box-sizing:border-box;}
@@ -73,6 +81,10 @@
 #poams-hub-nav .phn-center{display:flex;flex-direction:column;align-items:center;line-height:1.2;}
 #poams-hub-nav .phn-title{font-weight:600;color:#e8e8f0;font-size:12px;}
 #poams-hub-nav .phn-pos{font-size:10px;color:rgba(212,175,55,0.6);letter-spacing:.05em;}
+[data-theme="light"] #poams-hub-nav,body.light #poams-hub-nav{background:rgba(250,248,242,0.95);border-bottom-color:rgba(139,105,20,0.25);}
+[data-theme="light"] #poams-hub-nav a,body.light #poams-hub-nav a{color:#8b6914;}
+body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
+[data-theme="light"] #poams-hub-nav .phn-title,body.light #poams-hub-nav .phn-title{color:#2a2318;}
 @media (max-width:640px){.phn-hide-sm{display:none;}}
 body{padding-top:72px !important;}
 </style>
@@ -89,6 +101,7 @@ body{padding-top:72px !important;}
   </div>
   <a href="./mass-ledger.html" title="The Mass Ledger"><span class="phn-hide-sm">The Mass Ledger</span> →</a>
 </div>
+<button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle light/dark theme">☀️</button>
 <header>
   <h1>Mass as Trapped Rate</h1>
 <p class="nr-provenance" style="font-size:0.8em;font-style:italic;opacity:0.72;line-height:1.5;margin:0.5em 0 1em;text-align:center">This exhibit is an extrapolation of the foundational work of N. Vivian “Viv” Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
@@ -430,6 +443,19 @@ body{padding-top:72px !important;}
 </footer>
 
 <script>
+// ---------- theme ----------
+function pal(){return document.body.classList.contains('light')
+  ?{gridH:'#d9d2bf',gridV:'#e6e0d0',axis:'#6b6355',zero:'#b3ab94',gold:'#8b6914',blue:'#176e94',green:'#2e7d32',red:'#b03030'}
+  :{gridH:'#22223a',gridV:'#1a1a2c',axis:'#9a9ab0',zero:'#3a3a58',gold:'#d4af37',blue:'#5bc8f5',green:'#66bb6a',red:'#ef5350'}}
+function toggleTheme(){
+  document.body.classList.toggle('light');
+  const light=document.body.classList.contains('light');
+  document.querySelector('.theme-toggle').textContent=light?'🌙':'☀️';
+  try{localStorage.setItem('poams-theme',light?'light':'dark')}catch(e){}
+  drawCharts();
+}
+try{if(localStorage.getItem('poams-theme')==='light'){document.body.classList.add('light');document.querySelector('.theme-toggle').textContent='🌙';}}catch(e){}
+
 const DATA = {"mH":1.007825032,"mn":1.008664916,"uMeV":931.49410372,"els":[{"Z":1,"sym":"H","name":"Hydrogen","A":1,"m":1.007825,"t":"nonmetal","e":0},{"Z":2,"sym":"He","name":"Helium","A":4,"m":4.0026033,"t":"noble","e":0},{"Z":3,"sym":"Li","name":"Lithium","A":7,"m":7.0160034,"t":"alkali","e":0},{"Z":4,"sym":"Be","name":"Beryllium","A":9,"m":9.0121831,"t":"alkaline","e":0},{"Z":5,"sym":"B","name":"Boron","A":11,"m":11.0093052,"t":"metalloid","e":0},{"Z":6,"sym":"C","name":"Carbon","A":12,"m":12.0,"t":"nonmetal","e":0},{"Z":7,"sym":"N","name":"Nitrogen","A":14,"m":14.003074,"t":"nonmetal","e":0},{"Z":8,"sym":"O","name":"Oxygen","A":16,"m":15.9949146,"t":"nonmetal","e":0},{"Z":9,"sym":"F","name":"Fluorine","A":19,"m":18.9984032,"t":"halogen","e":0},{"Z":10,"sym":"Ne","name":"Neon","A":20,"m":19.9924402,"t":"noble","e":0},{"Z":11,"sym":"Na","name":"Sodium","A":23,"m":22.9897693,"t":"alkali","e":0},{"Z":12,"sym":"Mg","name":"Magnesium","A":24,"m":23.9850417,"t":"alkaline","e":0},{"Z":13,"sym":"Al","name":"Aluminium","A":27,"m":26.9815384,"t":"post_transition","e":0},{"Z":14,"sym":"Si","name":"Silicon","A":28,"m":27.9769265,"t":"metalloid","e":0},{"Z":15,"sym":"P","name":"Phosphorus","A":31,"m":30.973762,"t":"nonmetal","e":0},{"Z":16,"sym":"S","name":"Sulfur","A":32,"m":31.9720712,"t":"nonmetal","e":0},{"Z":17,"sym":"Cl","name":"Chlorine","A":35,"m":34.9688527,"t":"halogen","e":0},{"Z":18,"sym":"Ar","name":"Argon","A":40,"m":39.9623831,"t":"noble","e":0},{"Z":19,"sym":"K","name":"Potassium","A":39,"m":38.9637065,"t":"alkali","e":0},{"Z":20,"sym":"Ca","name":"Calcium","A":40,"m":39.9625908,"t":"alkaline","e":0},{"Z":21,"sym":"Sc","name":"Scandium","A":45,"m":44.9559071,"t":"transition","e":0},{"Z":22,"sym":"Ti","name":"Titanium","A":48,"m":47.9479407,"t":"transition","e":0},{"Z":23,"sym":"V","name":"Vanadium","A":51,"m":50.9439577,"t":"transition","e":0},{"Z":24,"sym":"Cr","name":"Chromium","A":52,"m":51.9405047,"t":"transition","e":0},{"Z":25,"sym":"Mn","name":"Manganese","A":55,"m":54.938043,"t":"transition","e":0},{"Z":26,"sym":"Fe","name":"Iron","A":56,"m":55.9349355,"t":"transition","e":0},{"Z":27,"sym":"Co","name":"Cobalt","A":59,"m":58.9331935,"t":"transition","e":0},{"Z":28,"sym":"Ni","name":"Nickel","A":58,"m":57.9353416,"t":"transition","e":0},{"Z":29,"sym":"Cu","name":"Copper","A":63,"m":62.9295971,"t":"transition","e":0},{"Z":30,"sym":"Zn","name":"Zinc","A":65,"m":64.9292405,"t":"transition","e":0},{"Z":31,"sym":"Ga","name":"Gallium","A":69,"m":68.9255735,"t":"post_transition","e":0},{"Z":32,"sym":"Ge","name":"Germanium","A":73,"m":72.923459,"t":"metalloid","e":0},{"Z":33,"sym":"As","name":"Arsenic","A":75,"m":74.9215946,"t":"metalloid","e":0},{"Z":34,"sym":"Se","name":"Selenium","A":79,"m":78.9184993,"t":"nonmetal","e":0},{"Z":35,"sym":"Br","name":"Bromine","A":80,"m":79.9185298,"t":"halogen","e":0},{"Z":36,"sym":"Kr","name":"Krypton","A":84,"m":83.9114977,"t":"noble","e":0},{"Z":37,"sym":"Rb","name":"Rubidium","A":85,"m":84.9117897,"t":"alkali","e":0},{"Z":38,"sym":"Sr","name":"Strontium","A":88,"m":87.9056123,"t":"alkaline","e":0},{"Z":39,"sym":"Y","name":"Yttrium","A":89,"m":88.9058382,"t":"transition","e":0},{"Z":40,"sym":"Zr","name":"Zirconium","A":91,"m":90.9056402,"t":"transition","e":0},{"Z":41,"sym":"Nb","name":"Niobium","A":93,"m":92.9063732,"t":"transition","e":0},{"Z":42,"sym":"Mo","name":"Molybdenum","A":96,"m":95.9046748,"t":"transition","e":0},{"Z":43,"sym":"Tc","name":"Technetium","A":98,"m":97.9072112,"t":"transition","e":0},{"Z":44,"sym":"Ru","name":"Ruthenium","A":101,"m":100.9055731,"t":"transition","e":0},{"Z":45,"sym":"Rh","name":"Rhodium","A":103,"m":102.9054941,"t":"transition","e":0},{"Z":46,"sym":"Pd","name":"Palladium","A":106,"m":105.9034803,"t":"transition","e":0},{"Z":47,"sym":"Ag","name":"Silver","A":108,"m":107.9059502,"t":"transition","e":0},{"Z":48,"sym":"Cd","name":"Cadmium","A":112,"m":111.9027639,"t":"transition","e":0},{"Z":49,"sym":"In","name":"Indium","A":115,"m":114.9038788,"t":"post_transition","e":0},{"Z":50,"sym":"Sn","name":"Tin","A":119,"m":118.9033113,"t":"post_transition","e":0},{"Z":51,"sym":"Sb","name":"Antimony","A":122,"m":121.9051693,"t":"metalloid","e":0},{"Z":52,"sym":"Te","name":"Tellurium","A":128,"m":127.9044612,"t":"metalloid","e":0},{"Z":53,"sym":"I","name":"Iodine","A":127,"m":126.9044726,"t":"halogen","e":0},{"Z":54,"sym":"Xe","name":"Xenon","A":131,"m":130.9050841,"t":"noble","e":0},{"Z":55,"sym":"Cs","name":"Caesium","A":133,"m":132.905452,"t":"alkali","e":0},{"Z":56,"sym":"Ba","name":"Barium","A":137,"m":136.9058272,"t":"alkaline","e":0},{"Z":57,"sym":"La","name":"Lanthanum","A":139,"m":138.9063629,"t":"lanthanide","e":0},{"Z":58,"sym":"Ce","name":"Cerium","A":140,"m":139.9054484,"t":"lanthanide","e":0},{"Z":59,"sym":"Pr","name":"Praseodymium","A":141,"m":140.9076596,"t":"lanthanide","e":0},{"Z":60,"sym":"Nd","name":"Neodymium","A":144,"m":143.9100928,"t":"lanthanide","e":0},{"Z":61,"sym":"Pm","name":"Promethium","A":145,"m":144.9127557,"t":"lanthanide","e":0},{"Z":62,"sym":"Sm","name":"Samarium","A":150,"m":149.917282,"t":"lanthanide","e":0},{"Z":63,"sym":"Eu","name":"Europium","A":152,"m":151.921751,"t":"lanthanide","e":0},{"Z":64,"sym":"Gd","name":"Gadolinium","A":157,"m":156.9239674,"t":"lanthanide","e":0},{"Z":65,"sym":"Tb","name":"Terbium","A":159,"m":158.9253537,"t":"lanthanide","e":0},{"Z":66,"sym":"Dy","name":"Dysprosium","A":163,"m":162.9287372,"t":"lanthanide","e":0},{"Z":67,"sym":"Ho","name":"Holmium","A":165,"m":164.9303291,"t":"lanthanide","e":0},{"Z":68,"sym":"Er","name":"Erbium","A":167,"m":166.9320562,"t":"lanthanide","e":0},{"Z":69,"sym":"Tm","name":"Thulium","A":169,"m":168.934219,"t":"lanthanide","e":0},{"Z":70,"sym":"Yb","name":"Ytterbium","A":173,"m":172.9382162,"t":"lanthanide","e":0},{"Z":71,"sym":"Lu","name":"Lutetium","A":175,"m":174.9407772,"t":"lanthanide","e":0},{"Z":72,"sym":"Hf","name":"Hafnium","A":178,"m":177.9437083,"t":"transition","e":0},{"Z":73,"sym":"Ta","name":"Tantalum","A":181,"m":180.9479985,"t":"transition","e":0},{"Z":74,"sym":"W","name":"Tungsten","A":184,"m":183.9509332,"t":"transition","e":0},{"Z":75,"sym":"Re","name":"Rhenium","A":186,"m":185.9549892,"t":"transition","e":0},{"Z":76,"sym":"Os","name":"Osmium","A":190,"m":189.9584454,"t":"transition","e":0},{"Z":77,"sym":"Ir","name":"Iridium","A":192,"m":191.9626024,"t":"transition","e":0},{"Z":78,"sym":"Pt","name":"Platinum","A":195,"m":194.9647943,"t":"transition","e":0},{"Z":79,"sym":"Au","name":"Gold","A":197,"m":196.9665701,"t":"transition","e":0},{"Z":80,"sym":"Hg","name":"Mercury","A":201,"m":200.9703031,"t":"transition","e":0},{"Z":81,"sym":"Tl","name":"Thallium","A":204,"m":203.9738634,"t":"post_transition","e":0},{"Z":82,"sym":"Pb","name":"Lead","A":207,"m":206.9758968,"t":"post_transition","e":0},{"Z":83,"sym":"Bi","name":"Bismuth","A":209,"m":208.9803986,"t":"post_transition","e":0},{"Z":84,"sym":"Po","name":"Polonium","A":209,"m":208.9824304,"t":"post_transition","e":0},{"Z":85,"sym":"At","name":"Astatine","A":210,"m":209.9871474,"t":"halogen","e":0},{"Z":86,"sym":"Rn","name":"Radon","A":222,"m":222.017576,"t":"noble","e":0},{"Z":87,"sym":"Fr","name":"Francium","A":223,"m":223.0197342,"t":"alkali","e":0},{"Z":88,"sym":"Ra","name":"Radium","A":226,"m":226.0254082,"t":"alkaline","e":0},{"Z":89,"sym":"Ac","name":"Actinium","A":227,"m":227.0277506,"t":"actinide","e":0},{"Z":90,"sym":"Th","name":"Thorium","A":232,"m":232.0380536,"t":"actinide","e":0},{"Z":91,"sym":"Pa","name":"Protactinium","A":231,"m":231.0358825,"t":"actinide","e":0},{"Z":92,"sym":"U","name":"Uranium","A":238,"m":238.0507869,"t":"actinide","e":0},{"Z":93,"sym":"Np","name":"Neptunium","A":237,"m":237.0481716,"t":"actinide","e":0},{"Z":94,"sym":"Pu","name":"Plutonium","A":244,"m":244.0642044,"t":"actinide","e":0},{"Z":95,"sym":"Am","name":"Americium","A":243,"m":243.0613799,"t":"actinide","e":0},{"Z":96,"sym":"Cm","name":"Curium","A":247,"m":247.0703527,"t":"actinide","e":0},{"Z":97,"sym":"Bk","name":"Berkelium","A":247,"m":247.0703059,"t":"actinide","e":0},{"Z":98,"sym":"Cf","name":"Californium","A":251,"m":251.0795872,"t":"actinide","e":0},{"Z":99,"sym":"Es","name":"Einsteinium","A":252,"m":252.0829792,"t":"actinide","e":0},{"Z":100,"sym":"Fm","name":"Fermium","A":257,"m":257.0951054,"t":"actinide","e":0},{"Z":101,"sym":"Md","name":"Mendelevium","A":258,"m":258.0984336,"t":"actinide","e":0},{"Z":102,"sym":"No","name":"Nobelium","A":259,"m":259.1009984,"t":"actinide","e":0},{"Z":103,"sym":"Lr","name":"Lawrencium","A":266,"m":266.119874,"t":"actinide","e":1},{"Z":104,"sym":"Rf","name":"Rutherfordium","A":267,"m":267.121787,"t":"transition","e":1},{"Z":105,"sym":"Db","name":"Dubnium","A":268,"m":268.125669,"t":"transition","e":1},{"Z":106,"sym":"Sg","name":"Seaborgium","A":269,"m":269.128495,"t":"transition","e":1},{"Z":107,"sym":"Bh","name":"Bohrium","A":270,"m":270.133366,"t":"transition","e":1},{"Z":108,"sym":"Hs","name":"Hassium","A":277,"m":277.151772,"t":"transition","e":1},{"Z":109,"sym":"Mt","name":"Meitnerium","A":278,"m":278.156487,"t":"transition","e":1},{"Z":110,"sym":"Ds","name":"Darmstadtium","A":281,"m":281.164545,"t":"transition","e":1},{"Z":111,"sym":"Rg","name":"Roentgenium","A":282,"m":282.169343,"t":"transition","e":1},{"Z":112,"sym":"Cn","name":"Copernicium","A":285,"m":285.177227,"t":"transition","e":1},{"Z":113,"sym":"Nh","name":"Nihonium","A":286,"m":286.182456,"t":"post_transition","e":1},{"Z":114,"sym":"Fl","name":"Flerovium","A":289,"m":289.190517,"t":"post_transition","e":1},{"Z":115,"sym":"Mc","name":"Moscovium","A":290,"m":290.196235,"t":"post_transition","e":1},{"Z":116,"sym":"Lv","name":"Livermorium","A":293,"m":293.204583,"t":"post_transition","e":1},{"Z":117,"sym":"Ts","name":"Tennessine","A":294,"m":294.21084,"t":"halogen","e":1},{"Z":118,"sym":"Og","name":"Oganesson","A":294,"m":294.213979,"t":"noble","e":1}]};
 
 // ---- constants (CODATA 2022) ----
@@ -484,6 +510,7 @@ document.getElementById('nextEl').onclick = ()=>showEl(+sel.value+1);
 
 // ---- charts ----
 function chart(canvasId, pts, opts){
+  const P=pal();
   const cv = document.getElementById(canvasId);
   const dpr = window.devicePixelRatio||1;
   const W = cv.clientWidth, H = cv.clientHeight;
@@ -501,26 +528,26 @@ function chart(canvasId, pts, opts){
   g.font='11px -apple-system,sans-serif'; g.textAlign='right'; g.textBaseline='middle';
   const yticks = opts.yticks;
   yticks.forEach(t=>{
-    g.strokeStyle='#22223a'; g.beginPath(); g.moveTo(padL,Y(t)); g.lineTo(W-padR,Y(t)); g.stroke();
-    g.fillStyle='#9a9ab0'; g.fillText(opts.yfmt(t), padL-8, Y(t));
+    g.strokeStyle=P.gridH; g.beginPath(); g.moveTo(padL,Y(t)); g.lineTo(W-padR,Y(t)); g.stroke();
+    g.fillStyle=P.axis; g.fillText(opts.yfmt(t), padL-8, Y(t));
   });
   g.textAlign='center'; g.textBaseline='top';
   for(let a=0;a<=300;a+=50){
-    g.strokeStyle='#1a1a2c'; g.beginPath(); g.moveTo(X(a),padT); g.lineTo(X(a),H-padB); g.stroke();
-    g.fillStyle='#9a9ab0'; g.fillText(a, X(a), H-padB+8);
+    g.strokeStyle=P.gridV; g.beginPath(); g.moveTo(X(a),padT); g.lineTo(X(a),H-padB); g.stroke();
+    g.fillStyle=P.axis; g.fillText(a, X(a), H-padB+8);
   }
-  g.fillStyle='#9a9ab0'; g.fillText('tile count A (ħ quanta)', (padL+W-padR)/2, H-padB+22);
+  g.fillStyle=P.axis; g.fillText('tile count A (ħ quanta)', (padL+W-padR)/2, H-padB+22);
   g.save(); g.translate(14,(padT+H-padB)/2); g.rotate(-Math.PI/2);
   g.textBaseline='middle'; g.fillText(opts.ylabel,0,0); g.restore();
   // zero line
-  if(ymin<0&&ymax>0){ g.strokeStyle='#3a3a58'; g.beginPath(); g.moveTo(padL,Y(0)); g.lineTo(W-padR,Y(0)); g.stroke(); }
+  if(ymin<0&&ymax>0){ g.strokeStyle=P.zero; g.beginPath(); g.moveTo(padL,Y(0)); g.lineTo(W-padR,Y(0)); g.stroke(); }
   // curve
   g.strokeStyle=opts.color; g.lineWidth=1.6; g.beginPath();
   pts.forEach((p,i)=>{ i?g.lineTo(X(p.x),Y(p.y)):g.moveTo(X(p.x),Y(p.y)); });
   g.stroke();
   // points
   pts.forEach(p=>{
-    g.fillStyle=p.est?'#ef5350':opts.color;
+    g.fillStyle=p.est?P.red:opts.color;
     g.beginPath(); g.arc(X(p.x),Y(p.y),2.1,0,7); g.fill();
   });
   // marked elements
@@ -528,15 +555,16 @@ function chart(canvasId, pts, opts){
   opts.marks.forEach(mk=>{
     const p = pts.find(q=>q.sym===mk.sym);
     if(!p) return;
-    g.fillStyle='#d4af37'; g.beginPath(); g.arc(X(p.x),Y(p.y),3.6,0,7); g.fill();
+    g.fillStyle=P.gold; g.beginPath(); g.arc(X(p.x),Y(p.y),3.6,0,7); g.fill();
     g.textAlign=mk.align||'center'; g.textBaseline=mk.base||'bottom';
     g.fillText(mk.label, X(p.x)+(mk.dx||0), Y(p.y)+(mk.dy||-7));
   });
 }
 function drawCharts(){
+  const P=pal();
   const devPts = els.map(r=>({x:r.A, y:calc(r).devPct, sym:r.sym, est:r.e}));
   chart('chartDev', devPts, {
-    color:'#5bc8f5', ylabel:'(m/A − u)/u  in %',
+    color:P.blue, ylabel:'(m/A − u)/u  in %',
     yticks:[0,0.2,0.4,0.6,0.8], yfmt:t=>t.toFixed(1)+'%',
     marks:[
       {sym:'H',label:'H: free fundamental, full fare',align:'left',dx:8,dy:2,base:'middle'},
@@ -546,7 +574,7 @@ function drawCharts(){
     ]});
   const discPts = els.map(r=>({x:r.A, y:calc(r).dqMeV*0.241799, sym:r.sym, est:r.e}));
   chart('chartDisc', discPts, {
-    color:'#66bb6a', ylabel:'closure discount per quantum (ZHz of turn rate)',
+    color:P.green, ylabel:'closure discount per quantum (ZHz of turn rate)',
     yticks:[0,0.5,1,1.5,2], yfmt:t=>t.toFixed(1),
     marks:[
       {sym:'H',label:'H: no discount (alone)',align:'left',dx:8,dy:0,base:'middle'},

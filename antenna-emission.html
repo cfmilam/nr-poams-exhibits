@@ -446,12 +446,15 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:3rem 2re
 </footer>
 
 <script>
-/* theme */
-document.getElementById('theme-btn').addEventListener('click', function(){
-  const h=document.documentElement, light=h.dataset.theme==='light';
-  h.dataset.theme=light?'dark':'light';
-  this.textContent=light?'🌙':'☀️';
+/* theme (data-theme mechanism; persisted to shared poams-theme key for cross-exhibit consistency) */
+const themeBtn=document.getElementById('theme-btn');
+themeBtn.addEventListener('click', function(){
+  const h=document.documentElement, toLight=h.dataset.theme!=='light';
+  h.dataset.theme=toLight?'light':'dark';
+  this.textContent=toLight?'🌙':'☀️';
+  try{localStorage.setItem('poams-theme',toLight?'light':'dark')}catch(e){}
 });
+try{if(localStorage.getItem('poams-theme')==='light'){document.documentElement.dataset.theme='light';themeBtn.textContent='🌙';}}catch(e){}
 
 /* dipole phase-ring animation — illustrative, not a field solver */
 (function(){
