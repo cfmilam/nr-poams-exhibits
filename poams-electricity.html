@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,9 @@
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
 <style>
 :root{--bg:#0d0d17;--card:#12121e;--edge:#2a2a3e;--fg:#e2e2ea;--mut:#9a9ab0;--gold:#c9a84c;--blue:#64b5e0;--green:#66bb6a;--red:#e05f5f;}
+body.light{--bg:#faf8f2;--card:#ffffff;--edge:#d9d2bf;--fg:#26211a;--mut:#6b6355;--gold:#8b6914;--blue:#1f6f9f;--green:#2e7d32;--red:#b03030;}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--fg);font-family:Georgia,serif;line-height:1.7;font-size:16.5px}
+body{background:var(--bg);color:var(--fg);font-family:Georgia,serif;line-height:1.7;font-size:16.5px;transition:background .3s,color .3s}
 main{max-width:880px;margin:0 auto;padding:2.2rem 1.2rem 4rem}
 h1{color:var(--gold);font-size:1.7rem;line-height:1.25;margin:.4rem 0 .6rem}
 h2{color:var(--gold);font-size:1.25rem;border-bottom:1px solid var(--edge);padding-bottom:.3rem;margin:2.2rem 0 .8rem}
@@ -35,6 +36,12 @@ a{color:var(--blue)}
 .readout{font-family:Menlo,monospace;font-size:.85rem;color:var(--green)}
 .nav{display:flex;justify-content:space-between;font-size:.85rem;margin-top:3rem;border-top:1px solid var(--edge);padding-top:1rem}
 .eqbox{background:#10101e;border:1px solid var(--edge);border-radius:8px;padding:8px 12px;margin:10px 0;overflow-x:auto}
+.theme-toggle{position:fixed;top:54px;right:12px;z-index:1000;background:var(--gold);color:var(--bg);border:none;width:40px;height:40px;border-radius:8px;padding:0;cursor:pointer;font-size:1.15rem;display:flex;align-items:center;justify-content:center}
+body.light canvas{background:#f6f3ea}
+body.light .eqbox{background:#f6f3ea}
+body.light .prov{background:rgba(139,105,20,.06)}
+body.light button{color:#fff}
+body.light button.off{background:#dcd5c2;color:#6b6355}
 </style>
 <style id="poams-hub-nav-style">
 #poams-hub-nav{position:fixed;top:0;left:0;right:0;z-index:9999;height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 1rem;background:rgba(13,13,24,0.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,175,55,0.25);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;box-sizing:border-box;}
@@ -43,6 +50,10 @@ a{color:var(--blue)}
 #poams-hub-nav .phn-center{display:flex;flex-direction:column;align-items:center;line-height:1.2;}
 #poams-hub-nav .phn-title{font-weight:600;color:#e8e8f0;font-size:12px;}
 #poams-hub-nav .phn-pos{font-size:10px;color:rgba(212,175,55,0.6);letter-spacing:.05em;}
+[data-theme="light"] #poams-hub-nav,body.light #poams-hub-nav{background:rgba(250,248,242,0.95);border-bottom-color:rgba(139,105,20,0.25);}
+[data-theme="light"] #poams-hub-nav a,body.light #poams-hub-nav a{color:#8b6914;}
+body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
+[data-theme="light"] #poams-hub-nav .phn-title,body.light #poams-hub-nav .phn-title{color:#2a2318;}
 @media (max-width:640px){.phn-hide-sm{display:none;}}
 body{padding-top:72px !important;}
 </style>
@@ -58,6 +69,8 @@ body{padding-top:72px !important;}
   </div>
   <a href="./the-rate-of-time.html" title="The Rate of Time"><span class="phn-hide-sm">The Rate of Time</span> →</a>
 </div>
+
+<button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle light/dark theme">☀️</button>
 
 <main>
 <h1>POAMS and Electricity</h1>
@@ -173,6 +186,16 @@ Sources presented: <em>POAMS and Electricity (Synopsis)</em>; <em>Why the Consta
 <div class="nav"><a href="./antenna-emission.html">&larr; Antenna Emission</a><a href="./index.html">Hub</a><a href="./poams-telecommunications.html">POAMS &amp; Telecommunications &rarr;</a></div>
 </main>
 <script>
+// ---------- theme ----------
+function pal(){return document.body.classList.contains('light')
+ ?{cbg:'#f6f3ea',edge:'#c9c2ae',frame:'#b3ab94',dead:'#d6cfba',mut:'#6b6355',ink:'#2a2318',gold:'#8b6914',blue:'#1f6f9f',green:'#2e7d32',red:'#b03030',greenA:a=>'rgba(46,125,50,'+a+')'}
+ :{cbg:'#0a0a14',edge:'#2a2a3e',frame:'#3a3a52',dead:'#333347',mut:'#9a9ab0',ink:'#e2e2ea',gold:'#c9a84c',blue:'#64b5e0',green:'#66bb6a',red:'#e05f5f',greenA:a=>'rgba(102,187,106,'+a+')'}}
+function toggleTheme(){document.body.classList.toggle('light');
+ const l=document.body.classList.contains('light');
+ document.querySelector('.theme-toggle').textContent=l?'🌙':'☀️';
+ try{localStorage.setItem('poams-theme',l?'light':'dark')}catch(e){}}
+try{if(localStorage.getItem('poams-theme')==='light'){document.body.classList.add('light');document.querySelector('.theme-toggle').textContent='🌙';}}catch(e){}
+
 // ---------- Dead circuit interactive ----------
 const cv=document.getElementById('circuitCanvas'),cx=cv.getContext('2d');
 const swBtn=document.getElementById('switchBtn'),lenS=document.getElementById('lenSlider'),lenL=document.getElementById('lenLabel'),morseBtn=document.getElementById('morseBtn'),statusLine=document.getElementById('statusLine');
@@ -181,27 +204,28 @@ function lenMeters(){const v=+lenS.value; return Math.round(Math.pow(10, 1+v*0.0
 function fmtLen(m){return m>=1e6?(m/1e6).toFixed(m>=1e7?0:1)+',000 km'.replace('1,000','000').replace(',000 km',' × 10³ km'):(m>=1000?(m/1000).toFixed(0)+' km':m+' m');}
 function fmtLen2(m){if(m>=1e6)return (m/1e6).toFixed(1)+'×10⁶ m';if(m>=1e3)return (m/1e3).toFixed(0)+' km';return m+' m';}
 function drawCircuit(){
+  const P=pal();
   const W=cv.width=cv.clientWidth*2,H=cv.height=600;cx.save();cx.scale(2,2);const w=W/2,h=300;
   cx.clearRect(0,0,w,h);
-  cx.strokeStyle='#3a3a52';cx.lineWidth=6;
+  cx.strokeStyle=P.frame;cx.lineWidth=6;
   cx.strokeRect(60,60,w-120,h-140);
   // battery at A (left mid)
-  cx.fillStyle='#c9a84c';cx.fillRect(40,120,16,60);cx.fillStyle='#e2e2ea';cx.font='12px Georgia';
+  cx.fillStyle=P.gold;cx.fillRect(40,120,16,60);cx.fillStyle=P.ink;cx.font='12px Georgia';
   cx.fillText('A — source + detector',30,105);
   cx.fillText('B — switch',w-150,105);
   // switch gap at right mid
   cx.clearRect(w-72,130,24,40);
-  cx.strokeStyle=closed?'#66bb6a':'#e05f5f';cx.lineWidth=5;cx.beginPath();cx.moveTo(w-72,170);
+  cx.strokeStyle=closed?P.green:P.red;cx.lineWidth=5;cx.beginPath();cx.moveTo(w-72,170);
   if(closed){cx.lineTo(w-72,130);}else{cx.lineTo(w-48,120);}cx.stroke();
   // energization glow
-  if(energized>0){cx.strokeStyle='rgba(102,187,106,'+(0.25+0.5*energized)+')';cx.lineWidth=10;cx.strokeRect(60,60,w-120,h-140);}
+  if(energized>0){cx.strokeStyle=P.greenA(0.25+0.5*energized);cx.lineWidth=10;cx.strokeRect(60,60,w-120,h-140);}
   // detector needle
-  cx.fillStyle='#0a0a14';cx.fillRect(80,200,120,54);cx.strokeStyle='#2a2a3e';cx.strokeRect(80,200,120,54);
-  cx.fillStyle=energized>0?'#66bb6a':'#9a9ab0';cx.font='11px Menlo';
+  cx.fillStyle=P.cbg;cx.fillRect(80,200,120,54);cx.strokeStyle=P.edge;cx.strokeRect(80,200,120,54);
+  cx.fillStyle=energized>0?P.green:P.mut;cx.font='11px Menlo';
   cx.fillText('I = '+(energized>0?(energized).toFixed(2)+' (whole circuit)':'0.00  — dead'),88,232);
   // morse pulses (drawn as timing marks arriving at A)
   const now=(performance.now()-t0)/1000;
-  cx.fillStyle='#64b5e0';
+  cx.fillStyle=P.blue;
   morse=morse.filter(m=>now-m.sent<m.delay+3);
   morse.forEach(m=>{const dt=now-m.sent;
     if(dt<m.delay){cx.fillText('… link reading: '+((m.delay-dt)).toFixed(2)+' s',88,258);}
@@ -228,23 +252,24 @@ let linked=true,phase=0,last=performance.now();
 sinkBtn.onclick=()=>{linked=!linked;sinkBtn.textContent='Sink: '+(linked?'LINKED':'UNLINKED');sinkBtn.classList.toggle('off',!linked);};
 rateS.oninput=()=>{rateL.textContent=rateS.value+' quanta/s';};
 function drawHandoff(){
+  const P=pal();
   const W=hv.width=hv.clientWidth*2,H=hv.height=460;hx.save();hx.scale(2,2);const w=W/2,h=230;
   hx.clearRect(0,0,w,h);
   const now=performance.now(),dt=(now-last)/1000;last=now;
   if(linked)phase+=dt*(+rateS.value);
   // pipe
-  hx.strokeStyle='#3a3a52';hx.lineWidth=26;hx.beginPath();hx.moveTo(90,115);hx.lineTo(w-90,115);hx.stroke();
-  hx.fillStyle='#e2e2ea';hx.font='12px Georgia';hx.fillText('A — source',60,60);hx.fillText('B — sink '+(linked?'(linked)':'(unlinked)'),w-160,60);
+  hx.strokeStyle=P.frame;hx.lineWidth=26;hx.beginPath();hx.moveTo(90,115);hx.lineTo(w-90,115);hx.stroke();
+  hx.fillStyle=P.ink;hx.font='12px Georgia';hx.fillText('A — source',60,60);hx.fillText('B — sink '+(linked?'(linked)':'(unlinked)'),w-160,60);
   // full pipe: fixed bead lattice, shifts only as a whole on each hand-off
   const N=14,span=(w-180)/N,off=(phase%1)*span;
   for(let i=0;i<N;i++){const x=90+((i*span+ (linked?off:0))%(w-180));
-    hx.fillStyle='#64b5e0';hx.beginPath();hx.arc(x+10,115,8,0,7);hx.fill();}
+    hx.fillStyle=P.blue;hx.beginPath();hx.arc(x+10,115,8,0,7);hx.fill();}
   // terminals
-  hx.fillStyle='#c9a84c';hx.fillRect(70,95,14,40);
-  hx.fillStyle=linked?'#66bb6a':'#e05f5f';hx.fillRect(w-84,95,14,40);
+  hx.fillStyle=P.gold;hx.fillRect(70,95,14,40);
+  hx.fillStyle=linked?P.green:P.red;hx.fillRect(w-84,95,14,40);
   // ledger counters
   const n=Math.floor(phase);
-  hx.fillStyle='#9a9ab0';hx.font='11px Menlo';
+  hx.fillStyle=P.mut;hx.font='11px Menlo';
   hx.fillText('entered at A: '+(linked?n:'—  (halted with sink)'),90,180);
   hx.fillText('delivered at B: '+(linked?n:'—  (one and the same count)'),w-260,180);
   hx.fillText(linked?'each entry IS a delivery — one transaction, two readings':'no sink → no entry: both ends stop together, nothing drains',90,205);

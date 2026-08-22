@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,9 @@
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
 <style>
 :root{--bg:#0d0d17;--card:#12121e;--edge:#2a2a3e;--fg:#e2e2ea;--mut:#9a9ab0;--gold:#c9a84c;--blue:#64b5e0;--green:#66bb6a;--red:#e05f5f;}
+body.light{--bg:#faf8f2;--card:#ffffff;--edge:#d9d2bf;--fg:#26211a;--mut:#6b6355;--gold:#8b6914;--blue:#1f6f9f;--green:#2e7d32;--red:#b03030;}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--fg);font-family:Georgia,serif;line-height:1.7;font-size:16.5px}
+body{background:var(--bg);color:var(--fg);font-family:Georgia,serif;line-height:1.7;font-size:16.5px;transition:background .3s,color .3s}
 main{max-width:880px;margin:0 auto;padding:2.2rem 1.2rem 4rem}
 h1{color:var(--gold);font-size:1.7rem;line-height:1.25;margin:.4rem 0 .6rem}
 h2{color:var(--gold);font-size:1.25rem;border-bottom:1px solid var(--edge);padding-bottom:.3rem;margin:2.2rem 0 .8rem}
@@ -35,6 +36,12 @@ a{color:var(--blue)}
 .readout{font-family:Menlo,monospace;font-size:.85rem;color:var(--green)}
 .nav{display:flex;justify-content:space-between;font-size:.85rem;margin-top:3rem;border-top:1px solid var(--edge);padding-top:1rem}
 .eqbox{background:#10101e;border:1px solid var(--edge);border-radius:8px;padding:8px 12px;margin:10px 0;overflow-x:auto}
+.theme-toggle{position:fixed;top:54px;right:12px;z-index:1000;background:var(--gold);color:var(--bg);border:none;width:40px;height:40px;border-radius:8px;padding:0;cursor:pointer;font-size:1.15rem;display:flex;align-items:center;justify-content:center}
+body.light canvas{background:#f6f3ea}
+body.light .eqbox{background:#f6f3ea}
+body.light .prov{background:rgba(139,105,20,.06)}
+body.light button{color:#fff}
+body.light button.off{background:#dcd5c2;color:#6b6355}
 </style>
 <style id="poams-hub-nav-style">
 #poams-hub-nav{position:fixed;top:0;left:0;right:0;z-index:9999;height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 1rem;background:rgba(13,13,24,0.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,175,55,0.25);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;box-sizing:border-box;}
@@ -43,6 +50,10 @@ a{color:var(--blue)}
 #poams-hub-nav .phn-center{display:flex;flex-direction:column;align-items:center;line-height:1.2;}
 #poams-hub-nav .phn-title{font-weight:600;color:#e8e8f0;font-size:12px;}
 #poams-hub-nav .phn-pos{font-size:10px;color:rgba(212,175,55,0.6);letter-spacing:.05em;}
+[data-theme="light"] #poams-hub-nav,body.light #poams-hub-nav{background:rgba(250,248,242,0.95);border-bottom-color:rgba(139,105,20,0.25);}
+[data-theme="light"] #poams-hub-nav a,body.light #poams-hub-nav a{color:#8b6914;}
+body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
+[data-theme="light"] #poams-hub-nav .phn-title,body.light #poams-hub-nav .phn-title{color:#2a2318;}
 @media (max-width:640px){.phn-hide-sm{display:none;}}
 body{padding-top:72px !important;}
 </style>
@@ -58,6 +69,8 @@ body{padding-top:72px !important;}
   </div>
   <a href="./the-poams-brilliant-vortex-atom.html" title="The POAMS Brilliant Vortex Atom"><span class="phn-hide-sm">The Brilliant Vortex Atom</span> →</a>
 </div>
+
+<button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle light/dark theme">☀️</button>
 
 <main>
 <h1>POAMS and Memory</h1>
@@ -136,40 +149,51 @@ Built on the corpus record: the charge dissolution (<em>POAMS and Electricity �
 <div class="nav"><a href="./heat-and-coherence.html">&larr; Heat &amp; Coherence</a><a href="./index.html">Hub</a><a href="./poams-electricity.html">POAMS &amp; Electricity &rarr;</a></div>
 </main>
 <script>
+// ---------- theme ----------
+function pal(){return document.body.classList.contains('light')
+ ?{cbg:'#f6f3ea',edge:'#c9c2ae',frame:'#b3ab94',dead:'#d6cfba',mut:'#6b6355',ink:'#2a2318',gold:'#8b6914',blue:'#1f6f9f',green:'#2e7d32',red:'#b03030',greenA:a=>'rgba(46,125,50,'+a+')'}
+ :{cbg:'#0a0a14',edge:'#2a2a3e',frame:'#3a3a52',dead:'#333347',mut:'#9a9ab0',ink:'#e2e2ea',gold:'#c9a84c',blue:'#64b5e0',green:'#66bb6a',red:'#e05f5f',greenA:a=>'rgba(102,187,106,'+a+')'}}
+function toggleTheme(){document.body.classList.toggle('light');
+ const l=document.body.classList.contains('light');
+ document.querySelector('.theme-toggle').textContent=l?'🌙':'☀️';
+ try{localStorage.setItem('poams-theme',l?'light':'dark')}catch(e){}}
+try{if(localStorage.getItem('poams-theme')==='light'){document.body.classList.add('light');document.querySelector('.theme-toggle').textContent='🌙';}}catch(e){}
+
 // ---------- Two stores: state vs process ----------
 const sc=document.getElementById('storesCanvas'),sx=sc.getContext('2d');
 const powerBtn=document.getElementById('powerBtn'),storesStatus=document.getElementById('storesStatus');
 let power=true, bias=1, lastS=performance.now(), refT=0;
 const bits=[1,0,1,1,0,1,0,0,1,0,1,1,0,1,1,0,0,1,0,1,1,0,1,0];
 function drawStores(){
+  const P=pal();
   const W=sc.width=sc.clientWidth*2,H=sc.height=540;sx.save();sx.scale(2,2);const w=W/2,h=270;
   sx.clearRect(0,0,w,h);
   const now=performance.now(),dt=(now-lastS)/1000;lastS=now;
   // bias dynamics: leaks in ~3 s; refresh every 1.2 s when powered
   bias-=dt/3; if(power){refT+=dt; if(refT>1.2){refT=0;bias=1;}} if(bias<0)bias=0;
   // left: orientation store
-  sx.fillStyle='#9a9ab0';sx.font='12px Georgia';sx.fillText('orientation store (state) — disk / MRAM',40,34);
+  sx.fillStyle=P.mut;sx.font='12px Georgia';sx.fillText('orientation store (state) — disk / MRAM',40,34);
   const ox=40,oy=56,cellW=(w/2-80)/8;
   for(let i=0;i<24;i++){const r=Math.floor(i/8),cxp=ox+(i%8)*cellW+cellW/2,cyp=oy+r*46+20;
-    sx.strokeStyle='#2a2a3e';sx.strokeRect(ox+(i%8)*cellW+2,oy+r*46,cellW-4,40);
+    sx.strokeStyle=P.edge;sx.strokeRect(ox+(i%8)*cellW+2,oy+r*46,cellW-4,40);
     const up=bits[i]===1;
-    sx.strokeStyle=up?'#64b5e0':'#c9a84c';sx.lineWidth=2;sx.beginPath();
+    sx.strokeStyle=up?P.blue:P.gold;sx.lineWidth=2;sx.beginPath();
     sx.moveTo(cxp,cyp+(up?10:-10));sx.lineTo(cxp,cyp+(up?-10:10));
     sx.lineTo(cxp-4,cyp+(up?-4:4));sx.moveTo(cxp,cyp+(up?-10:10));sx.lineTo(cxp+4,cyp+(up?-4:4));sx.stroke();
   }
-  sx.fillStyle='#66bb6a';sx.font='11px Menlo';
+  sx.fillStyle=P.green;sx.font='11px Menlo';
   sx.fillText(power?'holding — zero upkeep':'POWER OFF — still holding (a state persists)',40,oy+3*46+18);
   // right: bias store
   const bx0=w/2+40;
-  sx.fillStyle='#9a9ab0';sx.font='12px Georgia';sx.fillText('bias store (process) — DRAM cell',bx0,34);
-  sx.strokeStyle='#2a2a3e';sx.lineWidth=2;sx.strokeRect(bx0,56,90,140);
+  sx.fillStyle=P.mut;sx.font='12px Georgia';sx.fillText('bias store (process) — DRAM cell',bx0,34);
+  sx.strokeStyle=P.edge;sx.lineWidth=2;sx.strokeRect(bx0,56,90,140);
   const lvl=140*bias;
-  sx.fillStyle=bias>0.4?'#64b5e0':'#e05f5f';sx.fillRect(bx0+2,56+140-lvl,86,lvl);
-  sx.fillStyle='#e2e2ea';sx.font='11px Menlo';
+  sx.fillStyle=bias>0.4?P.blue:P.red;sx.fillRect(bx0+2,56+140-lvl,86,lvl);
+  sx.fillStyle=P.ink;sx.font='11px Menlo';
   sx.fillText((Math.round(bias*1.87e5/1000)*1000).toLocaleString()+' / 187,000 counts',bx0+104,120);
-  sx.fillStyle=power?'#66bb6a':'#e05f5f';
+  sx.fillStyle=power?P.green:P.red;
   sx.fillText(power?('refresh in '+(1.2-refT).toFixed(1)+' s (spec: 64 ms)'):'POWER OFF — census re-balancing',bx0+104,144);
-  sx.fillStyle='#9a9ab0';sx.font='11px Georgia';
+  sx.fillStyle=P.mut;sx.font='11px Georgia';
   sx.fillText(bias>0.05?'bit readable':'bit LOST — the process ended',bx0+104,168);
   sx.fillText('leak + re-pump, forever',bx0,216);
   sx.restore();requestAnimationFrame(drawStores);
@@ -186,6 +210,7 @@ const NSP=1.76e5, ETA=0.6, EQ=1.602176634e-19;
 let writing=false, prog=0, orient=1, lastW=performance.now();
 function tReal(){const I=+iS.value*1e-6; return NSP*EQ/(ETA*I);} // seconds
 function drawWrite(){
+  const P=pal();
   const W=wc.width=wc.clientWidth*2,H=wc.height=480;wx.save();wx.scale(2,2);const w=W/2,h=240;
   wx.clearRect(0,0,w,h);
   const now=performance.now(),dt=(now-lastW)/1000;lastW=now;
@@ -193,20 +218,20 @@ function drawWrite(){
   if(writing){prog+=dt/(tr*1.5e9); if(prog>=1){prog=0;writing=false;orient=-orient;}}
   // free layer arrow
   const cx0=110,cy0=110;
-  wx.strokeStyle='#2a2a3e';wx.lineWidth=2;wx.strokeRect(60,60,100,100);
-  wx.strokeStyle='#c9a84c';wx.lineWidth=4;wx.beginPath();
+  wx.strokeStyle=P.edge;wx.lineWidth=2;wx.strokeRect(60,60,100,100);
+  wx.strokeStyle=P.gold;wx.lineWidth=4;wx.beginPath();
   wx.moveTo(cx0,cy0+orient*30);wx.lineTo(cx0,cy0-orient*30);
   wx.lineTo(cx0-8,cy0-orient*16);wx.moveTo(cx0,cy0-orient*30);wx.lineTo(cx0+8,cy0-orient*16);wx.stroke();
-  wx.fillStyle='#9a9ab0';wx.font='11px Georgia';wx.fillText('free layer: 1.8×10⁵ units of ħ/2',48,182);
+  wx.fillStyle=P.mut;wx.font='11px Georgia';wx.fillText('free layer: 1.8×10⁵ units of ħ/2',48,182);
   // delivery bar
-  wx.fillStyle='#9a9ab0';wx.font='12px Georgia';wx.fillText('angular momentum delivered (slowed ~1.5×10⁹×)',210,66);
-  wx.strokeStyle='#2a2a3e';wx.strokeRect(210,80,w-260,26);
-  wx.fillStyle='#64b5e0';wx.fillRect(211,81,(w-262)*Math.min(prog,1),24);
+  wx.fillStyle=P.mut;wx.font='12px Georgia';wx.fillText('angular momentum delivered (slowed ~1.5×10⁹×)',210,66);
+  wx.strokeStyle=P.edge;wx.strokeRect(210,80,w-260,26);
+  wx.fillStyle=P.blue;wx.fillRect(211,81,(w-262)*Math.min(prog,1),24);
   const I=+iS.value;
-  wx.fillStyle='#66bb6a';wx.font='11px Menlo';
+  wx.fillStyle=P.green;wx.font='11px Menlo';
   wx.fillText('carriers/s = I/e = '+( (I*1e-6/EQ).toExponential(2) )+'   ·   η = 0.6',210,130);
   wx.fillText('t_switch = N·e/(η·I) = '+(tr*1e9).toFixed(2)+' ns (real)',210,152);
-  wx.fillStyle='#9a9ab0';wx.font='11px Georgia';
+  wx.fillStyle=P.mut;wx.font='11px Georgia';
   wx.fillText(writing?'handing the layer its angular momentum…':'idle — the orientation keeps itself (a state, not a process)',210,180);
   wx.restore();requestAnimationFrame(drawWrite);
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,9 @@
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
 <style>
 :root{--bg:#0d0d17;--card:#12121e;--edge:#2a2a3e;--fg:#e2e2ea;--mut:#9a9ab0;--gold:#c9a84c;--blue:#64b5e0;--green:#66bb6a;--red:#e05f5f;}
+body.light{--bg:#faf8f2;--card:#ffffff;--edge:#d9d2bf;--fg:#26211a;--mut:#6b6355;--gold:#8b6914;--blue:#1f6f9f;--green:#2e7d32;--red:#b03030;}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--fg);font-family:Georgia,serif;line-height:1.7;font-size:16.5px}
+body{background:var(--bg);color:var(--fg);font-family:Georgia,serif;line-height:1.7;font-size:16.5px;transition:background .3s,color .3s}
 main{max-width:880px;margin:0 auto;padding:2.2rem 1.2rem 4rem}
 h1{color:var(--gold);font-size:1.7rem;line-height:1.25;margin:.4rem 0 .6rem}
 h2{color:var(--gold);font-size:1.25rem;border-bottom:1px solid var(--edge);padding-bottom:.3rem;margin:2.2rem 0 .8rem}
@@ -31,6 +32,12 @@ a{color:var(--blue)}
 .readout{font-family:Menlo,monospace;font-size:.85rem;color:var(--green)}
 .nav{display:flex;justify-content:space-between;font-size:.85rem;margin-top:3rem;border-top:1px solid var(--edge);padding-top:1rem}
 .eqbox{background:#10101e;border:1px solid var(--edge);border-radius:8px;padding:8px 12px;margin:10px 0;overflow-x:auto}
+.theme-toggle{position:fixed;top:54px;right:12px;z-index:1000;background:var(--gold);color:var(--bg);border:none;width:40px;height:40px;border-radius:8px;padding:0;cursor:pointer;font-size:1.15rem;display:flex;align-items:center;justify-content:center}
+body.light canvas{background:#f6f3ea}
+body.light .eqbox{background:#f6f3ea}
+body.light .prov{background:rgba(139,105,20,.06)}
+body.light button{color:#fff}
+body.light button.off{background:#dcd5c2;color:#6b6355}
 </style>
 <style id="poams-hub-nav-style">
 #poams-hub-nav{position:fixed;top:0;left:0;right:0;z-index:9999;height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 1rem;background:rgba(13,13,24,0.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,175,55,0.25);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;box-sizing:border-box;}
@@ -39,6 +46,10 @@ a{color:var(--blue)}
 #poams-hub-nav .phn-center{display:flex;flex-direction:column;align-items:center;line-height:1.2;}
 #poams-hub-nav .phn-title{font-weight:600;color:#e8e8f0;font-size:12px;}
 #poams-hub-nav .phn-pos{font-size:10px;color:rgba(212,175,55,0.6);letter-spacing:.05em;}
+[data-theme="light"] #poams-hub-nav,body.light #poams-hub-nav{background:rgba(250,248,242,0.95);border-bottom-color:rgba(139,105,20,0.25);}
+[data-theme="light"] #poams-hub-nav a,body.light #poams-hub-nav a{color:#8b6914;}
+body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
+[data-theme="light"] #poams-hub-nav .phn-title,body.light #poams-hub-nav .phn-title{color:#2a2318;}
 @media (max-width:640px){.phn-hide-sm{display:none;}}
 body{padding-top:72px !important;}
 </style>
@@ -54,6 +65,8 @@ body{padding-top:72px !important;}
   </div>
   <a href="./poams-telecommunications.html" title="POAMS & Telecommunications"><span class="phn-hide-sm">POAMS & Telecoms</span> →</a>
 </div>
+
+<button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle light/dark theme">☀️</button>
 
 <main>
 <h1>The Rate of Time</h1>
@@ -145,12 +158,23 @@ $$\Delta = +4.47\times10^{-10} \;\Rightarrow\; +38.6\ \mu\text{s/day} \;\Rightar
 <div class="nav"><a href="./twins-paradox.html">&larr; Twins Non-Paradox</a><a href="./index.html">Hub</a><a href="./orbital-time-dilation.html">Orbital Time Dilation &rarr;</a></div>
 </main>
 <script>
+// ---------- theme ----------
+function pal(){return document.body.classList.contains('light')
+ ?{cbg:'#f6f3ea',edge:'#c9c2ae',frame:'#b3ab94',dead:'#d6cfba',mut:'#6b6355',ink:'#2a2318',gold:'#8b6914',blue:'#1f6f9f',green:'#2e7d32',red:'#b03030',greenA:a=>'rgba(46,125,50,'+a+')'}
+ :{cbg:'#0a0a14',edge:'#2a2a3e',frame:'#3a3a52',dead:'#333347',mut:'#9a9ab0',ink:'#e2e2ea',gold:'#c9a84c',blue:'#64b5e0',green:'#66bb6a',red:'#e05f5f',greenA:a=>'rgba(102,187,106,'+a+')'}}
+function toggleTheme(){document.body.classList.toggle('light');
+ const l=document.body.classList.contains('light');
+ document.querySelector('.theme-toggle').textContent=l?'🌙':'☀️';
+ try{localStorage.setItem('poams-theme',l?'light':'dark')}catch(e){}}
+try{if(localStorage.getItem('poams-theme')==='light'){document.body.classList.add('light');document.querySelector('.theme-toggle').textContent='🌙';}}catch(e){}
+
 // ---------- Budget triangle + two clocks ----------
 const bc=document.getElementById('budgetCanvas'),bx=bc.getContext('2d');
 const bs=document.getElementById('betaSlider'),bl=document.getElementById('betaLabel');
 let phaseRef=0, phaseBody=0, lastT=performance.now();
 function beta(){const x=+bs.value/100; return x*0.99999/0.99;} // 0..0.9999
 function drawBudget(){
+  const P=pal();
   const W=bc.width=bc.clientWidth*2,H=bc.height=540;bx.save();bx.scale(2,2);const w=W/2,h=270;
   bx.clearRect(0,0,w,h);
   const b=Math.min(beta(),0.99999), g=Math.sqrt(1-b*b);
@@ -160,25 +184,25 @@ function drawBudget(){
   const ox=w/2-95, oy=210, L=150;
   const a=Math.asin(b); // angle
   const tx=ox+L*Math.cos(0), ty=oy; // base end (tau along x)
-  bx.strokeStyle='#3a3a52';bx.lineWidth=1;
+  bx.strokeStyle=P.frame;bx.lineWidth=1;
   // hypotenuse t (fixed length), tau adjacent, s/c opposite
   const tauLen=L*g, scLen=L*b;
   bx.beginPath();bx.moveTo(ox,oy);bx.lineTo(ox+tauLen,oy);bx.stroke(); // tau
-  bx.strokeStyle='#e05f5f';bx.beginPath();bx.moveTo(ox+tauLen,oy);bx.lineTo(ox+tauLen,oy-scLen);bx.stroke(); // s/c
-  bx.strokeStyle='#c9a84c';bx.lineWidth=2;bx.beginPath();bx.moveTo(ox,oy);bx.lineTo(ox+tauLen,oy-scLen);bx.stroke(); // t
-  bx.fillStyle='#e2e2ea';bx.font='12px Georgia';
+  bx.strokeStyle=P.red;bx.beginPath();bx.moveTo(ox+tauLen,oy);bx.lineTo(ox+tauLen,oy-scLen);bx.stroke(); // s/c
+  bx.strokeStyle=P.gold;bx.lineWidth=2;bx.beginPath();bx.moveTo(ox,oy);bx.lineTo(ox+tauLen,oy-scLen);bx.stroke(); // t
+  bx.fillStyle=P.ink;bx.font='12px Georgia';
   bx.fillText('τ (internal count)',ox+tauLen*0.28,oy+18);
-  bx.fillStyle='#e05f5f';bx.fillText('s/c (motion channel)',ox+tauLen+8,oy-scLen*0.45);
-  bx.fillStyle='#c9a84c';bx.fillText('t (observational)',ox+tauLen*0.32-30,oy-scLen*0.5-12);
+  bx.fillStyle=P.red;bx.fillText('s/c (motion channel)',ox+tauLen+8,oy-scLen*0.45);
+  bx.fillStyle=P.gold;bx.fillText('t (observational)',ox+tauLen*0.32-30,oy-scLen*0.5-12);
   // clocks
   function clock(cx0,cy0,ph,label,col){
-    bx.strokeStyle='#3a3a52';bx.lineWidth=2;bx.beginPath();bx.arc(cx0,cy0,44,0,7);bx.stroke();
+    bx.strokeStyle=P.frame;bx.lineWidth=2;bx.beginPath();bx.arc(cx0,cy0,44,0,7);bx.stroke();
     bx.strokeStyle=col;bx.beginPath();bx.moveTo(cx0,cy0);bx.lineTo(cx0+38*Math.sin(ph),cy0-38*Math.cos(ph));bx.stroke();
-    bx.fillStyle='#9a9ab0';bx.font='11px Georgia';bx.textAlign='center';bx.fillText(label,cx0,cy0+64);bx.textAlign='left';
+    bx.fillStyle=P.mut;bx.font='11px Georgia';bx.textAlign='center';bx.fillText(label,cx0,cy0+64);bx.textAlign='left';
   }
-  clock(90,110,phaseRef,'reference (off-body)','#64b5e0');
-  clock(w-90,110,phaseBody,'on-body clock','#c9a84c');
-  bx.fillStyle='#66bb6a';bx.font='11px Menlo';bx.textAlign='center';
+  clock(90,110,phaseRef,'reference (off-body)',P.blue);
+  clock(w-90,110,phaseBody,'on-body clock',P.gold);
+  bx.fillStyle=P.green;bx.font='11px Menlo';bx.textAlign='center';
   bx.fillText('dτ/dt = '+g.toFixed(4)+(b>0.99?'  (muon-ring regime)':''),w/2,60);
   bx.textAlign='left';
   bx.restore();requestAnimationFrame(drawBudget);
@@ -192,6 +216,7 @@ const rc=document.getElementById('ringCanvas'),rx=rc.getContext('2d');
 const rs=document.getElementById('ringSlider'),rl=document.getElementById('ringLabel');
 let orbPh=0,lastR=performance.now();
 function drawRing(){
+  const P=pal();
   const W=rc.width=rc.clientWidth*2,H=rc.height=580;rx.save();rx.scale(2,2);const w=W/2,h=290;
   rx.clearRect(0,0,w,h);
   // log axis: rev/s from 1 to 1e8 ; v = 2πr f with r=0.159 m => v = f (m/s). c at f=3e8.
@@ -200,33 +225,33 @@ function drawRing(){
   const now=performance.now(),dt=(now-lastR)/1000;lastR=now;
   orbPh+=dt*(0.5+p*4);
   // axis
-  rx.strokeStyle='#3a3a52';rx.beginPath();rx.moveTo(60,240);rx.lineTo(w-40,240);rx.stroke();
-  rx.fillStyle='#9a9ab0';rx.font='10px Menlo';
+  rx.strokeStyle=P.frame;rx.beginPath();rx.moveTo(60,240);rx.lineTo(w-40,240);rx.stroke();
+  rx.fillStyle=P.mut;rx.font='10px Menlo';
   const ticks=[[0,'1'],[1/3,'10³'],[2/3,'10⁶ rev/s'],[1,'10⁹']];
-  ticks.forEach(([q,lab])=>{const x=60+q*(w-100);rx.beginPath();rx.moveTo(x,236);rx.lineTo(x,244);rx.strokeStyle='#3a3a52';rx.stroke();rx.fillText(lab,x-14,258);});
+  ticks.forEach(([q,lab])=>{const x=60+q*(w-100);rx.beginPath();rx.moveTo(x,236);rx.lineTo(x,244);rx.strokeStyle=P.frame;rx.stroke();rx.fillText(lab,x-14,258);});
   // fracture ceiling ~1 kHz bulk
   const xf=60+(1/3)*(w-100);
-  rx.strokeStyle='#e05f5f';rx.setLineDash([5,4]);rx.beginPath();rx.moveTo(xf,70);rx.lineTo(xf,240);rx.stroke();rx.setLineDash([]);
-  rx.fillStyle='#e05f5f';rx.fillText('mechanical fracture ceiling (bulk rotors burst)',xf-90,62);
+  rx.strokeStyle=P.red;rx.setLineDash([5,4]);rx.beginPath();rx.moveTo(xf,70);rx.lineTo(xf,240);rx.stroke();rx.setLineDash([]);
+  rx.fillStyle=P.red;rx.fillText('mechanical fracture ceiling (bulk rotors burst)',xf-90,62);
   // muon point
   const xm=60+(Math.log10(2.996e8)/9)*(w-100);
-  rx.fillStyle='#66bb6a';rx.beginPath();rx.arc(xm,240,5,0,7);rx.fill();
+  rx.fillStyle=P.green;rx.beginPath();rx.arc(xm,240,5,0,7);rx.fill();
   rx.fillText('muon rate state · β=0.99942 · γ=29.3 (measured)',xm-235,272);
   rx.fillText('its real ring: r=7.11 m → 6.7×10⁶ rev/s',xm-235,286);
   // marker
   const xq=60+p*(w-100);
-  rx.fillStyle='#c9a84c';rx.beginPath();rx.moveTo(xq,240);rx.lineTo(xq-6,228);rx.lineTo(xq+6,228);rx.closePath();rx.fill();
+  rx.fillStyle=P.gold;rx.beginPath();rx.moveTo(xq,240);rx.lineTo(xq-6,228);rx.lineTo(xq+6,228);rx.closePath();rx.fill();
   // ring + orbiting body
   const cx0=110,cy0=130,R=52;
-  rx.strokeStyle='#3a3a52';rx.lineWidth=2;rx.beginPath();rx.arc(cx0,cy0,R,0,7);rx.stroke();
-  rx.fillStyle='#c9a84c';rx.beginPath();rx.arc(cx0+R*Math.cos(orbPh),cy0+R*Math.sin(orbPh),7,0,7);rx.fill();
-  rx.fillStyle='#9a9ab0';rx.font='11px Georgia';rx.fillText('1 m ring (r = 0.159 m)',cx0-48,cy0+R+28);
+  rx.strokeStyle=P.frame;rx.lineWidth=2;rx.beginPath();rx.arc(cx0,cy0,R,0,7);rx.stroke();
+  rx.fillStyle=P.gold;rx.beginPath();rx.arc(cx0+R*Math.cos(orbPh),cy0+R*Math.sin(orbPh),7,0,7);rx.fill();
+  rx.fillStyle=P.mut;rx.font='11px Georgia';rx.fillText('1 m ring (r = 0.159 m)',cx0-48,cy0+R+28);
   // readout
-  rx.fillStyle='#66bb6a';rx.font='12px Menlo';
+  rx.fillStyle=P.green;rx.font='12px Menlo';
   rx.fillText('orbital rate: '+(f>=1e9?(f/1e9).toFixed(1)+'×10⁹':(f>=1e6?(f/1e6).toFixed(1)+'×10⁶':f.toFixed(0)))+' rev/s',260,110);
   rx.fillText('v/c = '+b.toFixed(6),260,132);
   rx.fillText('clock ratio dτ/dt = '+(1/g).toFixed(6)+'   (γ = '+g.toFixed(2)+')',260,154);
-  rx.fillStyle='#9a9ab0';rx.font='11px Georgia';
+  rx.fillStyle=P.mut;rx.font='11px Georgia';
   rx.fillText(v>2.9e8?'the asymptote: motion channel ≈ the whole budget (β→1) — no higher rung exists':(b<0.001?'everyday machinery: rate state negligible':(v<3e3?'below the ceiling: real rotors live here — γ still ≈ 1':(b<0.9?'no bulk matter can be spun here — the extant art stops':'the muon-ring regime: rate state held by drive, not by material strength'))),260,182);
   rx.restore();requestAnimationFrame(drawRing);
 }

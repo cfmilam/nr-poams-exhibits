@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,9 @@
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
 <style>
 :root{--bg:#0d0d17;--card:#12121e;--edge:#2a2a3e;--fg:#e2e2ea;--mut:#9a9ab0;--gold:#c9a84c;--blue:#64b5e0;--green:#66bb6a;--red:#e05f5f;}
+body.light{--bg:#faf8f2;--card:#ffffff;--edge:#d9d2bf;--fg:#26211a;--mut:#6b6355;--gold:#8b6914;--blue:#1f6f9f;--green:#2e7d32;--red:#b03030;}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--fg);font-family:Georgia,serif;line-height:1.7;font-size:16.5px}
+body{background:var(--bg);color:var(--fg);font-family:Georgia,serif;line-height:1.7;font-size:16.5px;transition:background .3s,color .3s}
 main{max-width:880px;margin:0 auto;padding:2.2rem 1.2rem 4rem}
 h1{color:var(--gold);font-size:1.7rem;line-height:1.25;margin:.4rem 0 .6rem}
 h2{color:var(--gold);font-size:1.25rem;border-bottom:1px solid var(--edge);padding-bottom:.3rem;margin:2.2rem 0 .8rem}
@@ -35,6 +36,12 @@ a{color:var(--blue)}
 .readout{font-family:Menlo,monospace;font-size:.85rem;color:var(--green)}
 .nav{display:flex;justify-content:space-between;font-size:.85rem;margin-top:3rem;border-top:1px solid var(--edge);padding-top:1rem}
 .eqbox{background:#10101e;border:1px solid var(--edge);border-radius:8px;padding:8px 12px;margin:10px 0;overflow-x:auto}
+.theme-toggle{position:fixed;top:54px;right:12px;z-index:1000;background:var(--gold);color:var(--bg);border:none;width:40px;height:40px;border-radius:8px;padding:0;cursor:pointer;font-size:1.15rem;display:flex;align-items:center;justify-content:center}
+body.light canvas{background:#f6f3ea}
+body.light .eqbox{background:#f6f3ea}
+body.light .prov{background:rgba(139,105,20,.06)}
+body.light button{color:#fff}
+body.light button.off{background:#dcd5c2;color:#6b6355}
 </style>
 <style id="poams-hub-nav-style">
 #poams-hub-nav{position:fixed;top:0;left:0;right:0;z-index:9999;height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 1rem;background:rgba(13,13,24,0.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,175,55,0.25);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;box-sizing:border-box;}
@@ -43,6 +50,10 @@ a{color:var(--blue)}
 #poams-hub-nav .phn-center{display:flex;flex-direction:column;align-items:center;line-height:1.2;}
 #poams-hub-nav .phn-title{font-weight:600;color:#e8e8f0;font-size:12px;}
 #poams-hub-nav .phn-pos{font-size:10px;color:rgba(212,175,55,0.6);letter-spacing:.05em;}
+[data-theme="light"] #poams-hub-nav,body.light #poams-hub-nav{background:rgba(250,248,242,0.95);border-bottom-color:rgba(139,105,20,0.25);}
+[data-theme="light"] #poams-hub-nav a,body.light #poams-hub-nav a{color:#8b6914;}
+body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
+[data-theme="light"] #poams-hub-nav .phn-title,body.light #poams-hub-nav .phn-title{color:#2a2318;}
 @media (max-width:640px){.phn-hide-sm{display:none;}}
 body{padding-top:72px !important;}
 </style>
@@ -58,6 +69,8 @@ body{padding-top:72px !important;}
   </div>
   <a href="./poams-memory.html" title="POAMS & Memory"><span class="phn-hide-sm">POAMS & Memory</span> →</a>
 </div>
+
+<button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle light/dark theme">☀️</button>
 
 <main>
 <h1>POAMS and Telecommunications</h1>
@@ -147,37 +160,48 @@ Sources presented: <em>Faster than Radar</em> (2007), <em>Faster than Radar 2</e
 <div class="nav"><a href="./poams-electricity.html">&larr; POAMS &amp; Electricity</a><a href="./index.html">Hub</a><a href="./antenna-emission.html">Antenna Emission &rarr;</a></div>
 </main>
 <script>
+// ---------- theme ----------
+function pal(){return document.body.classList.contains('light')
+ ?{cbg:'#f6f3ea',edge:'#c9c2ae',frame:'#b3ab94',dead:'#d6cfba',mut:'#6b6355',ink:'#2a2318',gold:'#8b6914',blue:'#1f6f9f',green:'#2e7d32',red:'#b03030',greenA:a=>'rgba(46,125,50,'+a+')'}
+ :{cbg:'#0a0a14',edge:'#2a2a3e',frame:'#3a3a52',dead:'#333347',mut:'#9a9ab0',ink:'#e2e2ea',gold:'#c9a84c',blue:'#64b5e0',green:'#66bb6a',red:'#e05f5f',greenA:a=>'rgba(102,187,106,'+a+')'}}
+function toggleTheme(){document.body.classList.toggle('light');
+ const l=document.body.classList.contains('light');
+ document.querySelector('.theme-toggle').textContent=l?'🌙':'☀️';
+ try{localStorage.setItem('poams-theme',l?'light':'dark')}catch(e){}}
+try{if(localStorage.getItem('poams-theme')==='light'){document.body.classList.add('light');document.querySelector('.theme-toggle').textContent='🌙';}}catch(e){}
+
 // ---------- One triangle: matter to signal ----------
 const tc=document.getElementById('triCanvas'),tx=tc.getContext('2d');
 const ts=document.getElementById('triSlider'),tl=document.getElementById('triLabel');
 let phR=0,phB=0,lastTT=performance.now();
 function triBeta(){const x=+ts.value/100; return Math.min(x*1.005,1);} // reaches exactly 1
 function drawTri(){
+  const P=pal();
   const W=tc.width=tc.clientWidth*2,H=tc.height=520;tx.save();tx.scale(2,2);const w=W/2,h=260;
   tx.clearRect(0,0,w,h);
   const b=triBeta(), light=(b>=1), g=light?0:Math.sqrt(1-b*b);
   const now=performance.now(),dt=(now-lastTT)/1000;lastTT=now;
   phR+=dt*1.2; phB+=dt*1.2*g;
   const ox=w/2-80, oy=205, L=150, tauLen=L*g, scLen=L*b;
-  tx.strokeStyle='#3a3a52';tx.lineWidth=1;
+  tx.strokeStyle=P.frame;tx.lineWidth=1;
   tx.beginPath();tx.moveTo(ox,oy);tx.lineTo(ox+tauLen,oy);tx.stroke();
-  tx.strokeStyle='#e05f5f';tx.beginPath();tx.moveTo(ox+tauLen,oy);tx.lineTo(ox+tauLen,oy-scLen);tx.stroke();
-  tx.strokeStyle=light?'#c9a84c':'#c9a84c';tx.lineWidth=light?3:2;tx.beginPath();tx.moveTo(ox,oy);tx.lineTo(ox+tauLen,oy-scLen);tx.stroke();
-  tx.fillStyle='#e2e2ea';tx.font='12px Georgia';
+  tx.strokeStyle=P.red;tx.beginPath();tx.moveTo(ox+tauLen,oy);tx.lineTo(ox+tauLen,oy-scLen);tx.stroke();
+  tx.strokeStyle=light?P.gold:P.gold;tx.lineWidth=light?3:2;tx.beginPath();tx.moveTo(ox,oy);tx.lineTo(ox+tauLen,oy-scLen);tx.stroke();
+  tx.fillStyle=P.ink;tx.font='12px Georgia';
   if(!light){tx.fillText('t_P (its own count)',ox+Math.max(tauLen*0.2,4),oy+18);}
-  else{tx.fillStyle='#9a9ab0';tx.fillText('t_P = 0 — the triangle is all edge',ox-40,oy+18);}
-  tx.fillStyle='#e05f5f';tx.fillText('s/c (motion channel)',ox+tauLen+8,oy-scLen*0.45);
-  tx.fillStyle='#c9a84c';tx.fillText('t_R (observational)',ox+tauLen*0.3-40,oy-scLen*0.55-10);
+  else{tx.fillStyle=P.mut;tx.fillText('t_P = 0 — the triangle is all edge',ox-40,oy+18);}
+  tx.fillStyle=P.red;tx.fillText('s/c (motion channel)',ox+tauLen+8,oy-scLen*0.45);
+  tx.fillStyle=P.gold;tx.fillText('t_R (observational)',ox+tauLen*0.3-40,oy-scLen*0.55-10);
   // clocks: reference & on-body
   function clock(cx0,cy0,ph,label,col,dead){
-    tx.strokeStyle='#3a3a52';tx.lineWidth=2;tx.beginPath();tx.arc(cx0,cy0,40,0,7);tx.stroke();
+    tx.strokeStyle=P.frame;tx.lineWidth=2;tx.beginPath();tx.arc(cx0,cy0,40,0,7);tx.stroke();
     if(!dead){tx.strokeStyle=col;tx.beginPath();tx.moveTo(cx0,cy0);tx.lineTo(cx0+34*Math.sin(ph),cy0-34*Math.cos(ph));tx.stroke();}
-    else{tx.fillStyle='#c9a84c';tx.font='10px Menlo';tx.textAlign='center';tx.fillText('consummated',cx0,cy0+4);tx.textAlign='left';}
-    tx.fillStyle='#9a9ab0';tx.font='11px Georgia';tx.textAlign='center';tx.fillText(label,cx0,cy0+58);tx.textAlign='left';
+    else{tx.fillStyle=P.gold;tx.font='10px Menlo';tx.textAlign='center';tx.fillText('consummated',cx0,cy0+4);tx.textAlign='left';}
+    tx.fillStyle=P.mut;tx.font='11px Georgia';tx.textAlign='center';tx.fillText(label,cx0,cy0+58);tx.textAlign='left';
   }
-  clock(85,100,phR,'observer clock','#64b5e0',false);
-  clock(w-85,100,phB,light?'the signal':'on-body clock','#c9a84c',light);
-  tx.fillStyle='#66bb6a';tx.font='11px Menlo';tx.textAlign='center';
+  clock(85,100,phR,'observer clock',P.blue,false);
+  clock(w-85,100,phB,light?'the signal':'on-body clock',P.gold,light);
+  tx.fillStyle=P.green;tx.font='11px Menlo';tx.textAlign='center';
   tx.fillText(light?'the light-quantum: t_P = 0, read as t_R = s/c':'d(t_P)/d(t_R) = '+g.toFixed(4),w/2,52);
   tx.textAlign='left';tx.restore();requestAnimationFrame(drawTri);
 }
@@ -192,36 +216,37 @@ let ready=true, pulses=[], flow=0, rT0=performance.now();
 function sepMeters(){const v=+sepS.value; return Math.round(Math.pow(10,3+v*0.055));} // 1 km .. ~3e8 m
 function fmtSep(m){if(m>=1e6)return (m/1e6).toFixed(m>=1e7?0:1)+'×10⁶ m';if(m>=1e3)return (m/1e3).toFixed(0)+' km';return m+' m';}
 function drawRetro(){
+  const P=pal();
   const W=rv.width=rv.clientWidth*2,H=rv.height=600;rx.save();rx.scale(2,2);const w=W/2,h=300;
   rx.clearRect(0,0,w,h);
   const now=(performance.now()-rT0)/1000, d=sepMeters()/3e8;
   // lane 1: conventional
-  rx.fillStyle='#9a9ab0';rx.font='11px Georgia';
+  rx.fillStyle=P.mut;rx.font='11px Georgia';
   rx.fillText('conventional: key the POWER at T1 — far end reads after s/c',60,40);
-  rx.strokeStyle='#3a3a52';rx.lineWidth=8;rx.beginPath();rx.moveTo(80,70);rx.lineTo(w-80,70);rx.stroke();
-  rx.fillStyle='#c9a84c';rx.fillRect(60,55,14,30); rx.fillStyle='#e2e2ea';rx.font='11px Georgia';rx.fillText('T1',58,102);rx.fillText('R2',58,118);
-  rx.fillStyle=ready?'#66bb6a':'#e05f5f';rx.fillRect(w-74,55,14,30); rx.fillStyle='#e2e2ea';rx.fillText('R1',w-82,102);rx.fillText('T2',w-82,118);
+  rx.strokeStyle=P.frame;rx.lineWidth=8;rx.beginPath();rx.moveTo(80,70);rx.lineTo(w-80,70);rx.stroke();
+  rx.fillStyle=P.gold;rx.fillRect(60,55,14,30); rx.fillStyle=P.ink;rx.font='11px Georgia';rx.fillText('T1',58,102);rx.fillText('R2',58,118);
+  rx.fillStyle=ready?P.green:P.red;rx.fillRect(w-74,55,14,30); rx.fillStyle=P.ink;rx.fillText('R1',w-82,102);rx.fillText('T2',w-82,118);
   pulses=pulses.filter(p=>now-p.t<p.d+2.5);
   pulses.forEach(p=>{const dt=now-p.t;
-    if(dt<p.d){const q=dt/p.d;rx.fillStyle='#64b5e0';rx.beginPath();rx.arc(80+q*(w-160),70,6,0,7);rx.fill();
+    if(dt<p.d){const q=dt/p.d;rx.fillStyle=P.blue;rx.beginPath();rx.arc(80+q*(w-160),70,6,0,7);rx.fill();
       rx.font='10px Menlo';rx.fillText('reading in progress: '+((p.d-dt)).toFixed(2)+' s of s/c remains',w/2-110,55);}
-    else{rx.fillStyle='#66bb6a';rx.font='10px Menlo';rx.fillText('pulse registered at R1 (+'+p.d.toFixed(2)+' s = s/c)',w/2-100,55);}
+    else{rx.fillStyle=P.green;rx.font='10px Menlo';rx.fillText('pulse registered at R1 (+'+p.d.toFixed(2)+' s = s/c)',w/2-100,55);}
   });
   // lane 2: retrograde
-  rx.fillStyle='#9a9ab0';rx.font='11px Georgia';
+  rx.fillStyle=P.mut;rx.font='11px Georgia';
   rx.fillText('retrograde (the record\u2019s Gedanken): key the READINESS at R1 — the source gate answers with no s/c',60,160);
-  rx.strokeStyle='#3a3a52';rx.lineWidth=8;rx.beginPath();rx.moveTo(80,190);rx.lineTo(w-80,190);rx.stroke();
+  rx.strokeStyle=P.frame;rx.lineWidth=8;rx.beginPath();rx.moveTo(80,190);rx.lineTo(w-80,190);rx.stroke();
   // full-pipe beads flow only when ready
   if(ready)flow+=(performance.now()-rT0)*0; // static lattice shift below
   const N=16,span=(w-160)/N,off=(ready?(now*40)%span:0);
   for(let i=0;i<N;i++){const x=80+((i*span+off)%(w-160));
-    rx.fillStyle=ready?'#64b5e0':'#333347';rx.beginPath();rx.arc(x,190,5,0,7);rx.fill();}
-  rx.fillStyle='#c9a84c';rx.fillRect(60,175,14,30);
-  rx.fillStyle=ready?'#66bb6a':'#e05f5f';rx.fillRect(w-74,175,14,30);
-  rx.fillStyle='#e2e2ea';rx.font='11px Georgia';rx.fillText('T1 (source gate)',60,225);rx.fillText('R1 readiness',w-160,225);
-  rx.fillStyle=ready?'#66bb6a':'#e05f5f';rx.font='11px Menlo';
+    rx.fillStyle=ready?P.blue:P.dead;rx.beginPath();rx.arc(x,190,5,0,7);rx.fill();}
+  rx.fillStyle=P.gold;rx.fillRect(60,175,14,30);
+  rx.fillStyle=ready?P.green:P.red;rx.fillRect(w-74,175,14,30);
+  rx.fillStyle=P.ink;rx.font='11px Georgia';rx.fillText('T1 (source gate)',60,225);rx.fillText('R1 readiness',w-160,225);
+  rx.fillStyle=ready?P.green:P.red;rx.font='11px Menlo';
   rx.fillText(ready?'source emitting — billet assured':'source MUTE — no billet, no departure (t_P = 0 gating)',60,248);
-  rx.fillStyle='#9a9ab0';rx.font='10px Georgia';
+  rx.fillStyle=P.mut;rx.font='10px Georgia';
   rx.fillText('idealization: this pair is alone in the universe on its rate — the vacuum-flask condition (see the gold card)',60,272);
   rx.restore();requestAnimationFrame(drawRetro);
 }
