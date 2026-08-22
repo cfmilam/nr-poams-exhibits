@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,9 @@
 <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 <style>
 :root{--bg:#0d0d18;--panel:#131322;--edge:#26263a;--gold:#d4af37;--blue:#5bc8f5;--red:#e06060;--green:#63d67e;--fg:#dfe0ea;--muted:#9a9bb0;}
+body.light{--bg:#faf8f2;--panel:#ffffff;--edge:#d9d2bf;--gold:#8b6914;--blue:#176e94;--red:#b03030;--green:#2e7d32;--fg:#26211a;--muted:#6b6355;}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font-family:Georgia,'Times New Roman',serif;line-height:1.65;}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Georgia,'Times New Roman',serif;line-height:1.65;transition:background .3s,color .3s;}
 header{padding:26px 22px 18px;border-bottom:1px solid var(--edge);text-align:center;}
 header h1{margin:0;font-size:26px;color:var(--gold);font-weight:650;}
 .sub{max-width:880px;margin:10px auto 0;color:var(--muted);font-size:15px;}
@@ -38,6 +39,14 @@ a{color:var(--blue);}
 .legend{font-size:13px;color:var(--muted);margin-top:6px;}
 .legend span{margin-right:14px;}
 .sw{display:inline-block;width:22px;height:3px;vertical-align:middle;margin-right:5px;border-radius:2px;}
+.theme-toggle{position:fixed;top:54px;right:12px;z-index:1000;background:var(--gold);color:var(--bg);border:none;width:40px;height:40px;border-radius:8px;padding:0;cursor:pointer;font-size:1.15rem;display:flex;align-items:center;justify-content:center}
+body.light canvas{background:#f6f3ea}
+body.light .eqbox{background:#f6f3ea}
+body.light button:not(.theme-toggle){background:#ece7d8}
+body.light .tag.prov{background:#dbeaf3}
+body.light .tag.assume{background:#efe7cf}
+body.light .tag.open{background:#f3dede}
+body.light footer{border-top-color:rgba(139,105,20,.35)}
 </style>
 <style id="poams-hub-nav-style">
 #poams-hub-nav{position:fixed;top:0;left:0;right:0;z-index:9999;height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 1rem;background:rgba(13,13,24,0.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,175,55,0.25);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;box-sizing:border-box;}
@@ -46,6 +55,10 @@ a{color:var(--blue);}
 #poams-hub-nav .phn-center{display:flex;flex-direction:column;align-items:center;line-height:1.2;}
 #poams-hub-nav .phn-title{font-weight:600;color:#e8e8f0;font-size:12px;}
 #poams-hub-nav .phn-pos{font-size:10px;color:rgba(212,175,55,0.6);letter-spacing:.05em;}
+[data-theme="light"] #poams-hub-nav,body.light #poams-hub-nav{background:rgba(250,248,242,0.95);border-bottom-color:rgba(139,105,20,0.25);}
+[data-theme="light"] #poams-hub-nav a,body.light #poams-hub-nav a{color:#8b6914;}
+body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
+[data-theme="light"] #poams-hub-nav .phn-title,body.light #poams-hub-nav .phn-title{color:#2a2318;}
 @media (max-width:640px){.phn-hide-sm{display:none;}}
 body{padding-top:72px !important;}
 </style>
@@ -61,6 +74,9 @@ body{padding-top:72px !important;}
   </div>
   <a href="./balmer-rydberg-poams.html" title="Spectral Lines"><span class="phn-hide-sm">Spectral Lines</span> →</a>
 </div>
+
+<button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle light/dark theme">☀️</button>
+
 <header>
   <h1>The Census Flow</h1>
 <p class="nr-provenance" style="font-size:0.8em;font-style:italic;opacity:0.72;line-height:1.5;margin:0.5em 0 1em;text-align:center">This exhibit is an extrapolation of the foundational work of N. Vivian “Viv” Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
@@ -209,6 +225,21 @@ one tangency.</p>
 </footer>
 
 <script>
+// ---------- theme ----------
+function pal(){
+  return document.body.classList.contains('light')
+    ?{axis:'#c9c0a8',label:'#6b6355',marker:'#3a3320',arrow:'rgba(120,110,90,0.30)',arrowDot:'rgba(120,110,90,0.40)',crit:'rgba(110,100,80,0.55)',orbit:f=>`rgba(${23+116*f},${110-5*f},${148-128*f},0.95)`}
+    :{axis:'#333350',label:'#9a9bb0',marker:'#cfd0e0',arrow:'rgba(140,140,170,0.28)',arrowDot:'rgba(140,140,170,0.34)',crit:'rgba(160,160,180,0.5)',orbit:f=>`rgba(${91+120*f},${200},${245-100*f},0.95)`};
+}
+function toggleTheme(){
+  document.body.classList.toggle('light');
+  const light=document.body.classList.contains('light');
+  document.querySelector('.theme-toggle').textContent=light?'🌙':'☀️';
+  try{localStorage.setItem('poams-theme',light?'light':'dark')}catch(e){}
+  draw();drawDip();
+}
+try{if(localStorage.getItem('poams-theme')==='light'){document.body.classList.add('light');document.querySelector('.theme-toggle').textContent='🌙';}}catch(e){}
+
 // ---------- integrate the census trajectory (same scheme as tier3l, JS port) ----------
 const B1 = 1.5880710226;
 function integrateOrbit(){
@@ -240,15 +271,16 @@ const cv=document.getElementById('flowCanvas'), ctx=cv.getContext('2d');
 const T0=0.0,T1=2.4,Q0=0.0,Q1=3.4; // sqrt(q) axis
 function X(t){return 54+(t-T0)/(T1-T0)*(cv.width-70);}
 function Y(r){return cv.height-40-(r-Q0)/(Q1-Q0)*(cv.height-64);}
-function gcol(v){return getComputedStyle(document.documentElement).getPropertyValue(v).trim();}
+function gcol(v){return getComputedStyle(document.body).getPropertyValue(v).trim();}
 let cVal=0.5, animI=0, playing=false;
 
 function hFun(t){return t*(1+t)*(3-t)/(5+3*t);}
 
 function draw(){
+  const P=pal();
   ctx.clearRect(0,0,cv.width,cv.height);
   // axes
-  ctx.strokeStyle='#333350';ctx.fillStyle='#9a9bb0';ctx.lineWidth=1;ctx.font='12px Georgia';
+  ctx.strokeStyle=P.axis;ctx.fillStyle=P.label;ctx.lineWidth=1;ctx.font='12px Georgia';
   ctx.beginPath();ctx.moveTo(X(T0),Y(0));ctx.lineTo(X(T1),Y(0));ctx.moveTo(X(0),Y(Q0));ctx.lineTo(X(0),Y(Q1));ctx.stroke();
   for(let t=0;t<=2.4001;t+=0.5){ctx.fillText(t.toFixed(1),X(t)-8,Y(0)+16);}
   for(let r=0;r<=3.4001;r+=0.5){ctx.fillText(r.toFixed(1),X(0)-34,Y(r)+4);}
@@ -261,16 +293,16 @@ function draw(){
       const m=Math.hypot(dt,dr); if(m<1e-9)continue;
       const ux=dt/m, uy=dr/m, L=7;
       const x1=X(t),y1=Y(r),x2=x1+ux*L,y2=y1-uy*L;
-      ctx.strokeStyle='rgba(140,140,170,0.28)';
+      ctx.strokeStyle=P.arrow;
       ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();
-      ctx.fillStyle='rgba(140,140,170,0.34)';
+      ctx.fillStyle=P.arrowDot;
       ctx.beginPath();ctx.arc(x2,y2,1.3,0,7);ctx.fill();
     }
   }
   // criticality line
-  ctx.strokeStyle='rgba(160,160,180,0.5)';ctx.setLineDash([4,4]);
+  ctx.strokeStyle=P.crit;ctx.setLineDash([4,4]);
   ctx.beginPath();ctx.moveTo(X(1),Y(Q0));ctx.lineTo(X(1),Y(Q1));ctx.stroke();ctx.setLineDash([]);
-  ctx.fillStyle='#9a9bb0';ctx.fillText('t = 1 (criticality)',X(1)+5,Y(Q1)+14);
+  ctx.fillStyle=P.label;ctx.fillText('t = 1 (criticality)',X(1)+5,Y(Q1)+14);
   // valve curve colored by crossing direction: downward-only iff h(t) < c
   const tmin=(-1+Math.sqrt(1+4*cVal))/2;
   let prev=null;
@@ -287,7 +319,7 @@ function draw(){
     const a=ORBIT[i-1],b=ORBIT[i];
     if(b[1]>Q1||b[0]>T1)continue;
     const f=i/ORBIT.length;
-    ctx.strokeStyle=`rgba(${91+120*f},${200},${245-100*f},0.95)`;
+    ctx.strokeStyle=P.orbit(f);
     ctx.beginPath();ctx.moveTo(X(a[0]),Y(a[1]));ctx.lineTo(X(b[0]),Y(b[1]));ctx.stroke();
   }
   // tangency point
@@ -296,7 +328,7 @@ function draw(){
   ctx.beginPath();ctx.arc(X(1),Y(1.5),pulse,0,7);ctx.fill();
   ctx.font='13px Georgia';ctx.fillText('(1, 3/2) — the kiss',X(1)+8,Y(1.5)-8);
   // markers
-  ctx.fillStyle='#cfd0e0';ctx.font='12px Georgia';
+  ctx.fillStyle=P.marker;ctx.font='12px Georgia';
   ctx.fillText('launch (0,0)',X(0.03)+3,Y(0.05)-6);
   ctx.fillText('→ Sommerfeld fixed point (3, 12)',X(1.62),Y(3.28));
   document.getElementById('cReadout').textContent =
@@ -322,11 +354,12 @@ document.getElementById('cSlider').oninput=e=>{cVal=parseFloat(e.target.value);}
 // ---------- dip canvas ----------
 const dv=document.getElementById('dipCanvas'), dtx=dv.getContext('2d');
 function drawDip(){
+  const P=pal();
   const t0=0.80,t1=1.12,r0=1.05,r1=1.80;
   const DX=t=>50+(t-t0)/(t1-t0)*(dv.width-64), DY=r=>dv.height-30-(r-r0)/(r1-r0)*(dv.height-48);
   dtx.clearRect(0,0,dv.width,dv.height);
-  dtx.font='12px Georgia';dtx.fillStyle='#9a9bb0';
-  dtx.strokeStyle='#333350';dtx.beginPath();dtx.moveTo(DX(t0),DY(r0));dtx.lineTo(DX(t1),DY(r0));dtx.stroke();
+  dtx.font='12px Georgia';dtx.fillStyle=P.label;
+  dtx.strokeStyle=P.axis;dtx.beginPath();dtx.moveTo(DX(t0),DY(r0));dtx.lineTo(DX(t1),DY(r0));dtx.stroke();
   for(let t=0.85;t<=1.1;t+=0.05){dtx.fillText(t.toFixed(2),DX(t)-10,DY(r0)+16);}
   // shade gap between orbit and valve where orbit below valve
   // valve
@@ -347,7 +380,7 @@ function drawDip(){
   }
   dtx.stroke();
   // criticality line + S marker
-  dtx.strokeStyle='rgba(160,160,180,0.5)';dtx.setLineDash([4,4]);
+  dtx.strokeStyle=P.crit;dtx.setLineDash([4,4]);
   dtx.beginPath();dtx.moveTo(DX(1),DY(r0));dtx.lineTo(DX(1),DY(r1));dtx.stroke();dtx.setLineDash([]);
   dtx.fillStyle=gcol('--gold');
   dtx.beginPath();dtx.arc(DX(1),DY(1.5),4,0,7);dtx.fill();
@@ -356,7 +389,7 @@ function drawDip(){
   dtx.beginPath();dtx.arc(DX(1),DY(1.46732),4,0,7);dtx.fill();
   dtx.fillText('S = 1.46732',DX(1)+6,DY(1.46732)+16);
   // t* marker
-  dtx.fillStyle='#cfd0e0';
+  dtx.fillStyle=P.marker;
   dtx.fillText('ducks under at t* = 0.882',DX(0.845),DY(1.68));
   dtx.fillText('dip = 0.0327',DX(1.015),DY(1.40));
 }

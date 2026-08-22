@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,9 @@
 <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 <style>
 :root{--bg:#0d0d18;--panel:#131322;--edge:#26263a;--gold:#d4af37;--blue:#5bc8f5;--red:#e06060;--green:#63d67e;--fg:#dfe0ea;--muted:#9a9bb0;}
+body.light{--bg:#faf8f2;--panel:#ffffff;--edge:#d9d2bf;--gold:#8b6914;--blue:#176e94;--red:#b03030;--green:#2e7d32;--fg:#26211a;--muted:#6b6355;}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font-family:Georgia,'Times New Roman',serif;line-height:1.65;}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Georgia,'Times New Roman',serif;line-height:1.65;transition:background .3s,color .3s;}
 header{padding:26px 22px 18px;border-bottom:1px solid var(--edge);text-align:center;}
 header h1{margin:0;font-size:26px;color:var(--gold);font-weight:650;}
 .sub{max-width:880px;margin:10px auto 0;color:var(--muted);font-size:15px;}
@@ -41,6 +42,15 @@ a{color:var(--blue);}
 .legend{font-size:13px;color:var(--muted);margin-top:6px;}
 .legend span{margin-right:14px;}
 .sw{display:inline-block;width:22px;height:3px;vertical-align:middle;margin-right:5px;border-radius:2px;}
+.theme-toggle{position:fixed;top:54px;right:12px;z-index:1000;background:var(--gold);color:var(--bg);border:none;width:40px;height:40px;border-radius:8px;padding:0;cursor:pointer;font-size:1.15rem;display:flex;align-items:center;justify-content:center}
+body.light canvas{background:#f6f3ea}
+body.light .eqbox{background:#f6f3ea}
+body.light button:not(.theme-toggle){background:#ece7d8}
+body.light .tag.prov{background:#dbeaf3}
+body.light .tag.assume{background:#efe7cf}
+body.light .tag.open{background:#f3dede}
+body.light .epigraph .who{color:#8a7f6b}
+body.light footer{border-top-color:rgba(139,105,20,.35)}
 </style>
 <style id="poams-hub-nav-style">
 #poams-hub-nav{position:fixed;top:0;left:0;right:0;z-index:9999;height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 1rem;background:rgba(13,13,24,0.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,175,55,0.25);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;box-sizing:border-box;}
@@ -49,6 +59,10 @@ a{color:var(--blue);}
 #poams-hub-nav .phn-center{display:flex;flex-direction:column;align-items:center;line-height:1.2;}
 #poams-hub-nav .phn-title{font-weight:600;color:#e8e8f0;font-size:12px;}
 #poams-hub-nav .phn-pos{font-size:10px;color:rgba(212,175,55,0.6);letter-spacing:.05em;}
+[data-theme="light"] #poams-hub-nav,body.light #poams-hub-nav{background:rgba(250,248,242,0.95);border-bottom-color:rgba(139,105,20,0.25);}
+[data-theme="light"] #poams-hub-nav a,body.light #poams-hub-nav a{color:#8b6914;}
+body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
+[data-theme="light"] #poams-hub-nav .phn-title,body.light #poams-hub-nav .phn-title{color:#2a2318;}
 @media (max-width:640px){.phn-hide-sm{display:none;}}
 body{padding-top:72px !important;}
 </style>
@@ -64,6 +78,9 @@ body{padding-top:72px !important;}
   </div>
   <a href="./ledger-navigator.html" title="The Ledger Navigator"><span class="phn-hide-sm">The Ledger Navigator</span> →</a>
 </div>
+
+<button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle light/dark theme">☀️</button>
+
 <header>
   <h1>The Resonance Network</h1>
 <p class="nr-provenance" style="font-size:0.8em;font-style:italic;opacity:0.72;line-height:1.5;margin:0.5em 0 1em;text-align:center">This exhibit is an extrapolation of the foundational work of N. Vivian “Viv” Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
@@ -223,6 +240,21 @@ turning changes — the rungs of one ladder, climbed from the atom's harmonics t
 </footer>
 
 <script>
+// ---------- theme ----------
+function pal(){
+  return document.body.classList.contains('light')
+    ?{ring:'#cdc4ad',gold:'#8b6914',io:'#a9781f',europa:'#176e94',ganymede:'#6f5943',flash:'rgba(46,125,50,0.55)',muted:'#6b6355',band:'rgba(46,125,50,0.16)',edge:'#cdc4ad',green:'#2e7d32',red:'#b03030',fg:'#26211a'}
+    :{ring:'#26263a',gold:'#d4af37',io:'#e8b34a',europa:'#5bc8f5',ganymede:'#b9a08c',flash:'rgba(99,214,126,0.5)',muted:'#9a9bb0',band:'rgba(99,214,126,0.13)',edge:'#26263a',green:'#63d67e',red:'#e06060',fg:'#dfe0ea'};
+}
+function toggleTheme(){
+  document.body.classList.toggle('light');
+  const light=document.body.classList.contains('light');
+  document.querySelector('.theme-toggle').textContent=light?'🌙':'☀️';
+  try{localStorage.setItem('poams-theme',light?'light':'dark')}catch(e){}
+  drawOrb();drawBoard();
+}
+try{if(localStorage.getItem('poams-theme')==='light'){document.body.classList.add('light');document.querySelector('.theme-toggle').textContent='🌙';}}catch(e){}
+
 // ---------------- Galilean orbit view + Laplace dial ----------------
 const T1=1.769137786, T2=3.551181, T3=7.15455296;   // d
 const n1=2*Math.PI/T1, n2=2*Math.PI/T2, n3=2*Math.PI/T3; // rad/day
@@ -234,18 +266,19 @@ let t=0, playing=false;
 const l10=0, l20=0, l30=Math.PI/2;  // phi0 = 0 - 0 + 2*(pi/2) = pi ✓
 function longs(t){return [l10+n1*t, l20+n2*t, l30+n3*t];}
 function drawOrb(){
+  const TH=pal();
   ctx.clearRect(0,0,cv.width,cv.height);
-  ctx.strokeStyle='#26263a';
+  ctx.strokeStyle=TH.ring;
   for(const R of [R1,R2,R3]){ctx.beginPath();ctx.arc(CX,CY,R,0,7);ctx.stroke();}
-  ctx.fillStyle='#d4af37';ctx.beginPath();ctx.arc(CX,CY,7,0,7);ctx.fill();
+  ctx.fillStyle=TH.gold;ctx.beginPath();ctx.arc(CX,CY,7,0,7);ctx.fill();
   const [a,b,c]=longs(t);
-  const P=[[R1,a,'#e8b34a',4.5],[R2,b,'#5bc8f5',4.5],[R3,c,'#b9a08c',5]];
+  const P=[[R1,a,TH.io,4.5],[R2,b,TH.europa,4.5],[R3,c,TH.ganymede,5]];
   // conjunction flashes (pairwise longitude coincidence within 4 deg)
   const pairs=[[a,b,R1,R2],[b,c,R2,R3],[a,c,R1,R3]];
   for(const [x,y,Ri,Ro] of pairs){
     let d=Math.atan2(Math.sin(x-y),Math.cos(x-y));
     if(Math.abs(d)<0.07){
-      ctx.strokeStyle='rgba(99,214,126,0.5)';ctx.lineWidth=2;
+      ctx.strokeStyle=TH.flash;ctx.lineWidth=2;
       ctx.beginPath();ctx.moveTo(CX+Ri*Math.cos(x),CY-Ri*Math.sin(x));
       ctx.lineTo(CX+Ro*Math.cos(y),CY-Ro*Math.sin(y));ctx.stroke();ctx.lineWidth=1;
     }
@@ -258,11 +291,11 @@ function drawOrb(){
   const phi=a-3*b+2*c;
   const deg=((phi*180/Math.PI)%360+360)%360;
   const dx=cv.width-52, dy=52, r=30;
-  ctx.strokeStyle='#26263a';ctx.beginPath();ctx.arc(dx,dy,r,0,7);ctx.stroke();
-  ctx.strokeStyle='#d4af37';ctx.lineWidth=2.4;
+  ctx.strokeStyle=TH.ring;ctx.beginPath();ctx.arc(dx,dy,r,0,7);ctx.stroke();
+  ctx.strokeStyle=TH.gold;ctx.lineWidth=2.4;
   ctx.beginPath();ctx.moveTo(dx,dy);
   ctx.lineTo(dx+r*Math.cos(phi),dy-r*Math.sin(phi));ctx.stroke();ctx.lineWidth=1;
-  ctx.fillStyle='#9a9bb0';ctx.font='11px Georgia';
+  ctx.fillStyle=TH.muted;ctx.font='11px Georgia';
   ctx.fillText('φ',dx-4,dy-r-6);
   document.getElementById('dialReadout').textContent=
     `t = ${t.toFixed(1)} d   λ-rates spinning;  φ = λ1−3λ2+2λ3 = ${deg.toFixed(3)}°  (pinned)`;
@@ -282,6 +315,7 @@ const rows=[
   ["golden body, best channel",  20.8, false],
 ];
 function drawBoard(){
+  const TH=pal();
   btx.clearRect(0,0,bc.width,bc.height);
   const L=210, Rr=bc.width-30, y0=44, dy=52;
   const xmin=-3, xmax=2.6; // log10(beat/W)
@@ -291,18 +325,18 @@ function drawBoard(){
   for(let i=0;i<rows.length;i++){
     const y=y0+i*dy;
     // channel band |beat/W|<1 -> log10<0
-    btx.fillStyle='rgba(99,214,126,0.13)';
+    btx.fillStyle=TH.band;
     btx.fillRect(X(0.001),y-14,X(1)-X(0.001),28);
-    btx.strokeStyle='#26263a';btx.strokeRect(X(0.001),y-14,X(1)-X(0.001),28);
+    btx.strokeStyle=TH.edge;btx.strokeRect(X(0.001),y-14,X(1)-X(0.001),28);
     // needle
     const [nm,r,open]=rows[i];
-    btx.strokeStyle=open?'#63d67e':'#e06060';btx.lineWidth=3;
+    btx.strokeStyle=open?TH.green:TH.red;btx.lineWidth=3;
     btx.beginPath();btx.moveTo(X(r),y-16);btx.lineTo(X(r),y+16);btx.stroke();btx.lineWidth=1;
-    btx.fillStyle='#dfe0ea';btx.fillText(nm,12,y+4);
-    btx.fillStyle=open?'#63d67e':'#e06060';
+    btx.fillStyle=TH.fg;btx.fillText(nm,12,y+4);
+    btx.fillStyle=open?TH.green:TH.red;
     btx.fillText(open?`OPEN (${r<0.01?'margin '+Math.round(1/r)+'×':''})`:`closed (${r.toFixed(2)}×)`,X(r)+7,y+4);
   }
-  btx.fillStyle='#9a9bb0';
+  btx.fillStyle=TH.muted;
   btx.fillText('← inside channel (open)          beat / width, log scale          outside (closed) →',L+40,y0+rows.length*dy-18);
 }
 drawBoard(); anim();
