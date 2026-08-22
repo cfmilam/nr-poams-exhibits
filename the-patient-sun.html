@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,9 @@
 <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 <style>
 :root{--bg:#0d0d18;--panel:#131322;--edge:#26263a;--gold:#d4af37;--blue:#5bc8f5;--red:#e06060;--green:#63d67e;--fg:#dfe0ea;--muted:#9a9bb0;}
+body.light{--bg:#faf8f2;--panel:#ffffff;--edge:#d9d2bf;--gold:#8b6914;--blue:#176e94;--red:#b03030;--green:#2e7d32;--fg:#26211a;--muted:#6b6355;}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font-family:Georgia,'Times New Roman',serif;line-height:1.65;}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Georgia,'Times New Roman',serif;line-height:1.65;transition:background .3s,color .3s;}
 header{padding:44px 22px 22px;border-bottom:1px solid var(--edge);text-align:center;}
 header h1{margin:0 0 14px;font-size:27px;line-height:1.35;color:var(--gold);font-weight:650;}
 .sub{max-width:880px;margin:14px auto 0;color:var(--muted);font-size:15px;}
@@ -19,6 +20,10 @@ header h1{margin:0 0 14px;font-size:27px;line-height:1.35;color:var(--gold);font
 #poams-hub-nav .phn-center{display:flex;flex-direction:column;align-items:center;line-height:1.2;}
 #poams-hub-nav .phn-title{font-weight:600;color:var(--fg);font-size:12px;}
 #poams-hub-nav .phn-pos{font-size:10px;color:rgba(212,175,55,0.6);letter-spacing:.05em;}
+[data-theme="light"] #poams-hub-nav,body.light #poams-hub-nav{background:rgba(250,248,242,0.95);border-bottom-color:rgba(139,105,20,0.25);}
+[data-theme="light"] #poams-hub-nav a,body.light #poams-hub-nav a{color:#8b6914;}
+body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
+[data-theme="light"] #poams-hub-nav .phn-title,body.light #poams-hub-nav .phn-title{color:#2a2318;}
 @media (max-width:640px){.phn-hide-sm{display:none;}}
 body{padding-top:72px;}
 main{max-width:900px;margin:0 auto;padding:10px 18px 40px;}
@@ -51,6 +56,15 @@ footer{max-width:900px;margin:36px auto 24px;padding:14px 16px 0;border-top:1px 
 a{color:var(--blue);}
 .legend{font-size:13px;color:var(--muted);margin-top:6px;}
 .bignum{font-family:ui-monospace,Menlo,monospace;color:var(--gold);}
+.theme-toggle{position:fixed;top:54px;right:12px;z-index:1000;background:var(--gold);color:var(--bg);border:none;width:40px;height:40px;border-radius:8px;padding:0;cursor:pointer;font-size:1.15rem;display:flex;align-items:center;justify-content:center}
+body.light canvas{background:#f6f3ea}
+body.light .eqbox{background:#f6f3ea}
+body.light button:not(.theme-toggle){background:#e7e0cd;color:#26211a}
+body.light th{background:#efe8d6}
+body.light .tag.prov{background:#dce8f0;color:#176e94}
+body.light .tag.assume{background:#f0e6c8;color:#8b6914}
+body.light .tag.open{background:#f2dada;color:#b03030}
+body.light .tag.pass{background:#d9ecdb;color:#2e7d32}
 </style>
 </head>
 <body>
@@ -64,6 +78,7 @@ a{color:var(--blue);}
   </div>
   <a href="./aufbau-as-closure.html" title="Aufbau as Closure"><span class="phn-hide-sm">Aufbau as Closure</span> →</a>
 </div>
+<button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle light/dark theme">☀️</button>
 <header>
   <h1>The Patient Sun</h1>
 <p class="nr-provenance" style="font-size:0.8em;font-style:italic;opacity:0.72;line-height:1.6;margin:0 auto 1.2em;max-width:820px;text-align:center">This exhibit is an extrapolation of the foundational work of N. Vivian “Viv” Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
@@ -333,6 +348,33 @@ when almost nothing escapes.</p>
 </footer>
 <script>
 (function(){
+// ---------- theme ----------
+function pal(){var l=document.body.classList.contains('light');return{
+  gold:l?'#8b6914':'#d4af37',
+  goldA:a=>l?'rgba(139,105,20,'+a+')':'rgba(212,175,55,'+a+')',
+  blue:l?'#176e94':'#5bc8f5',
+  blueA:a=>l?'rgba(23,110,148,'+a+')':'rgba(91,200,245,'+a+')',
+  green:l?'#2e7d32':'#63d67e',
+  fg:l?'#26211a':'#dfe0ea',
+  mut:l?'#6b6355':'#9a9bb0',
+  edge:l?'#d9d2bf':'#26263a',
+  track:l?'#e7e0cd':'#10101e',
+  sun0:l?'rgba(180,120,20,0.35)':'rgba(212,175,55,0.30)',
+  sun1:l?'rgba(200,110,30,0.22)':'rgba(212,120,40,0.14)',
+  sun2:l?'rgba(200,110,30,0.08)':'rgba(212,120,40,0.04)',
+  sunEdge:l?'rgba(139,105,20,0.6)':'rgba(212,175,55,0.5)',
+  sunCore:l?'rgba(139,105,20,0.95)':'rgba(212,175,55,0.9)',
+  map:l?{'#d4af37':'#8b6914','#5bc8f5':'#176e94','#63d67e':'#2e7d32'}:{}
+};}
+window.toggleTheme=function(){
+  document.body.classList.toggle('light');
+  var light=document.body.classList.contains('light');
+  document.querySelector('.theme-toggle').textContent=light?'🌙':'☀️';
+  try{localStorage.setItem('poams-theme',light?'light':'dark')}catch(e){}
+  drawLadder();drawThermo();
+};
+try{if(localStorage.getItem('poams-theme')==='light'){document.body.classList.add('light');document.querySelector('.theme-toggle').textContent='🌙';}}catch(e){}
+
 // ---------- power-density ladder ----------
 const lc=document.getElementById('ladderCanvas'), lctx=lc.getContext('2d');
 const rows=[
@@ -344,16 +386,17 @@ const rows=[
  {name:'sprinting human',v:15,c:'#5bc8f5'}
 ];
 function drawLadder(){
+ const P=pal();
  const W=lc.width,H=lc.height;lctx.clearRect(0,0,W,H);
  const x0=210,x1=W-30,lmin=-4,lmax=2;
  const X=v=>x0+(Math.log10(v)-lmin)/(lmax-lmin)*(x1-x0);
- lctx.font='12px Menlo,monospace';lctx.fillStyle='#9a9bb0';lctx.strokeStyle='#26263a';
+ lctx.font='12px Menlo,monospace';lctx.fillStyle=P.mut;lctx.strokeStyle=P.edge;
  for(let e=lmin;e<=lmax;e++){const x=X(Math.pow(10,e));lctx.beginPath();lctx.moveTo(x,26);lctx.lineTo(x,H-30);lctx.stroke();lctx.fillText('10'+(e<0?'⁻':'')+String(Math.abs(e)).replace(/\d/g,d=>'⁰¹²³⁴⁵⁶⁷⁸⁹'[d]),x-12,H-12);}
  lctx.fillText('W/kg →',x1-40,16);
  rows.forEach((r,i)=>{const y=40+i*40,x=X(r.v);
-  lctx.fillStyle=r.c;lctx.globalAlpha=0.85;lctx.fillRect(x0,y-9,Math.max(2,x-x0),18);lctx.globalAlpha=1;
-  lctx.fillStyle='#dfe0ea';lctx.font='12.5px Georgia,serif';lctx.textAlign='right';lctx.fillText(r.name,x0-8,y+4);lctx.textAlign='left';
-  lctx.fillStyle='#9a9bb0';lctx.font='11px Menlo,monospace';lctx.fillText(r.v<1e-2?r.v.toExponential(1):r.v+'',x+6,y+4);});
+  lctx.fillStyle=P.map[r.c]||r.c;lctx.globalAlpha=0.85;lctx.fillRect(x0,y-9,Math.max(2,x-x0),18);lctx.globalAlpha=1;
+  lctx.fillStyle=P.fg;lctx.font='12.5px Georgia,serif';lctx.textAlign='right';lctx.fillText(r.name,x0-8,y+4);lctx.textAlign='left';
+  lctx.fillStyle=P.mut;lctx.font='11px Menlo,monospace';lctx.fillText(r.v<1e-2?r.v.toExponential(1):r.v+'',x+6,y+4);});
 }
 drawLadder();
 
@@ -395,6 +438,7 @@ document.getElementById('btnReal').onclick=()=>{slider.value=-3;stats();};
 document.getElementById('btnGlass').onclick=()=>{slider.value=Math.log10(R);stats();};
 stats();
 function walkFrame(){
+ const P=pal();
  // schematic walker: visible step shrinks a little as slider tightens, purely cosmetic
  const f=(parseFloat(slider.value)+3.05)/(8.842+3.05); // 0 tight .. 1 transparent
  const step=8+f*70;
@@ -408,15 +452,15 @@ function walkFrame(){
  wctx.clearRect(0,0,wc.width,wc.height);
  // sun body
  const g=wctx.createRadialGradient(cx,cy,10,cx,cy,Rpx);
- g.addColorStop(0,'rgba(212,175,55,0.30)');g.addColorStop(0.55,'rgba(212,120,40,0.14)');g.addColorStop(1,'rgba(212,120,40,0.04)');
+ g.addColorStop(0,P.sun0);g.addColorStop(0.55,P.sun1);g.addColorStop(1,P.sun2);
  wctx.fillStyle=g;wctx.beginPath();wctx.arc(cx,cy,Rpx,0,7);wctx.fill();
- wctx.strokeStyle='rgba(212,175,55,0.5)';wctx.beginPath();wctx.arc(cx,cy,Rpx,0,7);wctx.stroke();
- wctx.fillStyle='rgba(212,175,55,0.9)';wctx.beginPath();wctx.arc(cx,cy,4,0,7);wctx.fill();
+ wctx.strokeStyle=P.sunEdge;wctx.beginPath();wctx.arc(cx,cy,Rpx,0,7);wctx.stroke();
+ wctx.fillStyle=P.sunCore;wctx.beginPath();wctx.arc(cx,cy,4,0,7);wctx.fill();
  // trail
- wctx.strokeStyle='rgba(91,200,245,0.55)';wctx.beginPath();
+ wctx.strokeStyle=P.blueA(0.55);wctx.beginPath();
  trail.forEach((p,i)=>{i?wctx.lineTo(p[0],p[1]):wctx.moveTo(p[0],p[1]);});wctx.stroke();
- wctx.fillStyle='#5bc8f5';wctx.beginPath();wctx.arc(px,py,3.5,0,7);wctx.fill();
- wctx.fillStyle='#9a9bb0';wctx.font='11px Menlo,monospace';
+ wctx.fillStyle=P.blue;wctx.beginPath();wctx.arc(px,py,3.5,0,7);wctx.fill();
+ wctx.fillStyle=P.mut;wctx.font='11px Menlo,monospace';
  wctx.fillText('schematic walk — real N ≈ 10²⁴',12,16);
  wctx.fillText('escapes so far: '+escaped,12,wc.height-12);
  requestAnimationFrame(walkFrame);
@@ -427,6 +471,7 @@ walkFrame();
 const tc=document.getElementById('thermoCanvas'),tctx=tc.getContext('2d');
 const ease=document.getElementById('easeSlider'),kap=document.getElementById('kappaSlider');
 function drawThermo(){
+ const P=pal();
  const S=Math.pow(10,parseFloat(ease.value)),K=Math.pow(10,parseFloat(kap.value));
  document.getElementById('easeOut').textContent='×'+S.toExponential(0).replace('e+0','e').replace('e+','e');
  document.getElementById('kappaOut').textContent='×'+K.toFixed(2);
@@ -435,12 +480,12 @@ function drawThermo(){
  const W=tc.width,H=tc.height;tctx.clearRect(0,0,W,H);
  tctx.font='13px Georgia,serif';
  function bar(y,label,frac,color,text,locked){
-  tctx.fillStyle='#9a9bb0';tctx.fillText(label,20,y-8);
-  tctx.fillStyle='#10101e';tctx.fillRect(20,y,W-260,20);
-  tctx.strokeStyle='#26263a';tctx.strokeRect(20,y,W-260,20);
-  tctx.fillStyle=color;tctx.globalAlpha=0.85;
+  tctx.fillStyle=P.mut;tctx.fillText(label,20,y-8);
+  tctx.fillStyle=P.track;tctx.fillRect(20,y,W-260,20);
+  tctx.strokeStyle=P.edge;tctx.strokeRect(20,y,W-260,20);
+  tctx.fillStyle=P.map[color]||color;tctx.globalAlpha=0.85;
   tctx.fillRect(20,y,Math.max(4,Math.min(1,frac)*(W-260)),20);tctx.globalAlpha=1;
-  tctx.fillStyle='#dfe0ea';tctx.font='12px Menlo,monospace';
+  tctx.fillStyle=P.fg;tctx.font='12px Menlo,monospace';
   tctx.fillText(text+(locked?'  🔒 exit-pinned':''),W-228,y+14);
   tctx.font='13px Georgia,serif';
  }
@@ -448,7 +493,7 @@ function drawThermo(){
  bar(38,'core temperature (the operating point — follows the ENTRY)',(Math.log10(Tc)-0)/(Math.log10(40)-0),'#5bc8f5',Tc.toFixed(1)+' MK',false);
  bar(108,'published luminosity (follows the EXIT only)',(Math.log10(L)-25)/3,'#d4af37',L.toExponential(2)+' W',Math.abs(parseFloat(kap.value))<0.001);
  bar(178,'main-sequence tenure (follows the EXIT only)',(Math.log10(life)+1)/(Math.log10(110)+1),'#63d67e',life.toFixed(1)+' Gyr',Math.abs(parseFloat(kap.value))<0.001);
- tctx.fillStyle='#9a9bb0';tctx.font='12px Georgia,serif';
+ tctx.fillStyle=P.mut;tctx.font='12px Georgia,serif';
  tctx.fillText('toy scalings, labeled in the caption — the qualitative split is the standard model\u2019s own',20,H-14);
 }
 ease.addEventListener('input',drawThermo);kap.addEventListener('input',drawThermo);

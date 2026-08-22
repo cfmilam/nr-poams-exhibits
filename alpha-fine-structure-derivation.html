@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,8 +10,9 @@ window.MathJax = { tex: { inlineMath:[['$','$'],['\\(','\\)']], displayMath:[['$
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <style>
 :root{--bg:#0d0d18;--panel:#131322;--edge:#26263a;--gold:#d4af37;--blue:#5bc8f5;--green:#63d67e;--fg:#dfe0ea;--muted:#9a9bb0;}
+body.light{--bg:#faf8f2;--panel:#ffffff;--edge:#d9d2bf;--gold:#8b6914;--blue:#176e94;--green:#2e7d32;--fg:#26211a;--muted:#6b6355;}
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:Georgia,'Times New Roman',serif;line-height:1.65;color:var(--fg);background:var(--bg);padding-top:72px;}
+body{font-family:Georgia,'Times New Roman',serif;line-height:1.65;color:var(--fg);background:var(--bg);padding-top:72px;transition:background .3s,color .3s;}
 a{color:var(--blue);}
 .container{max-width:860px;margin:0 auto;padding:40px 22px 60px;}
 h1{font-family:'Helvetica Neue',Arial,sans-serif;font-size:2.05em;font-weight:600;text-align:center;margin-bottom:12px;color:var(--gold);line-height:1.25;}
@@ -54,8 +55,27 @@ button.seg.on{background:#3498db;color:#04121f;font-weight:700;}
 #poams-hub-nav .phn-center{display:flex;flex-direction:column;align-items:center;line-height:1.2;}
 #poams-hub-nav .phn-title{font-weight:600;color:var(--fg);font-size:12px;}
 #poams-hub-nav .phn-pos{font-size:10px;color:rgba(212,175,55,0.6);letter-spacing:.05em;}
+[data-theme="light"] #poams-hub-nav,body.light #poams-hub-nav{background:rgba(250,248,242,0.95);border-bottom-color:rgba(139,105,20,0.25);}
+[data-theme="light"] #poams-hub-nav a,body.light #poams-hub-nav a{color:#8b6914;}
+body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
+[data-theme="light"] #poams-hub-nav .phn-title,body.light #poams-hub-nav .phn-title{color:#2a2318;}
 @media (max-width:640px){.phn-hide-sm{display:none;}}
 footer{max-width:900px;margin:10px auto 24px;padding:14px 16px 0;border-top:1px solid rgba(212,175,55,.35);text-align:center;font-size:12.5px;line-height:1.7;opacity:.82;}
+.theme-toggle{position:fixed;top:54px;right:12px;z-index:1000;background:var(--gold);color:var(--bg);border:none;width:40px;height:40px;border-radius:8px;padding:0;cursor:pointer;font-size:1.15rem;display:flex;align-items:center;justify-content:center}
+body.light .status{color:#2e7d32}
+body.light .cave{background:#eef2f6;color:#26313c;border-color:#d9d2bf}
+body.light .cave b{color:#8b6914}
+body.light .eq{background:#f6f3ea}
+body.light .chain{background:#f6f3ea;color:#26211a}
+body.light .refs{color:#6b6355}
+body.light .exhibit{background:#f2eee2}
+body.light .exhibit h4{color:#20303f}
+body.light .exhibit canvas{background:#f6f3ea}
+body.light .controls{color:#3a4a57}
+body.light .readout{color:#2e7d32}
+body.light .ex-cap{color:#5a6b78}
+body.light button.seg{background:#dce8f2;color:#12344d;border-color:#2f7fc0}
+body.light button.seg.on{background:#2f7fc0;color:#f6f3ea}
 </style>
 </head>
 <body>
@@ -69,6 +89,7 @@ footer{max-width:900px;margin:10px auto 24px;padding:14px 16px 0;border-top:1px 
   </div>
   <a href="./ladder-of-octaves.html" title="Ladder of Octaves"><span class="phn-hide-sm">Ladder of Octaves</span> &rarr;</a>
 </div>
+<button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle light/dark theme">☀️</button>
 <div class="container">
 
 <h1>Spectra, Gravitation, and Fine Structure in Normal Realism</h1>
@@ -405,6 +426,32 @@ $\alpha=v_{\text{orb}}/c$ - an orbital speed; its value empirical, as everywhere
   <a href="./poams-periodic-table.html">The Elements</a>
 </footer>
 <script>
+/* ---------- theme ---------- */
+function pal(){var l=document.body.classList.contains('light');return{
+  axis:l?'#b9b19b':'#33455a',
+  blue:l?'#176e94':'#5dade2',
+  orange:l?'#c2621a':'#e67e22',
+  green:l?'#2e7d32':'#27ae60',
+  greenLt:l?'#2e7d32':'#8fd3a6',
+  ra:l?'#b3ab94':'#556',
+  inkHi:l?'#26211a':'#ecf0f1',
+  lav:l?'#6b6355':'#7a8ada',
+  cyan:l?'#176e94':'#cfe3f5',
+  tick:l?'#6b6355':'#697077',
+  hand:l?'#eef4f8':'#04121f',
+  refdot:l?'#c9c2ae':'#2c3e50',
+  gray:l?'#5a6b78':'#8ea3b5',
+  mut:l?'#6b6355':'#697077'
+};}
+function toggleTheme(){
+  document.body.classList.toggle('light');
+  var light=document.body.classList.contains('light');
+  document.querySelector('.theme-toggle').textContent=light?'🌙':'☀️';
+  try{localStorage.setItem('poams-theme',light?'light':'dark')}catch(e){}
+  window.dispatchEvent(new Event('resize'));
+}
+try{if(localStorage.getItem('poams-theme')==='light'){document.body.classList.add('light');document.querySelector('.theme-toggle').textContent='🌙';}}catch(e){}
+
 /* ---------- shared ---------- */
 function fitCanvas(cv){ var dpr=window.devicePixelRatio||1;
   // capture the intended base height ONCE - setting cv.height reflects into the
@@ -422,26 +469,26 @@ var F='14px Helvetica Neue, Arial, sans-serif';
 /* ---------- Exhibit 1: time cone ---------- */
 (function(){
   var cv=document.getElementById('cv1'), s=document.getElementById('s1'), out=document.getElementById('r1');
-  function draw(){ var d=fitCanvas(cv), ctx=d.ctx, W=d.w, H=d.h; ctx.clearRect(0,0,W,H);
+  function draw(){ var P=pal(); var d=fitCanvas(cv), ctx=d.ctx, W=d.w, H=d.h; ctx.clearRect(0,0,W,H);
     var beta=parseFloat(s.value); var gamma=1/Math.sqrt(1-beta*beta);
     var ox=W*0.16, oy=H*0.86, base=W*0.5, t=base; // proper time length fixed
     var rise=base*beta*gamma /* s/c = v/c * t_R ; t_R=t*gamma so s/c = beta*gamma*t */;
     var hyp=base*gamma;
     // axes
-    ctx.strokeStyle='#33455a'; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(ox,oy); ctx.lineTo(ox+base+40,oy); ctx.moveTo(ox,oy); ctx.lineTo(ox,oy-Math.min(rise,H*0.72)-40); ctx.stroke();
+    ctx.strokeStyle=P.axis; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(ox,oy); ctx.lineTo(ox+base+40,oy); ctx.moveTo(ox,oy); ctx.lineTo(ox,oy-Math.min(rise,H*0.72)-40); ctx.stroke();
     // proper time leg t (base)
-    ctx.strokeStyle='#5dade2'; ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(ox,oy); ctx.lineTo(ox+t,oy); ctx.stroke();
+    ctx.strokeStyle=P.blue; ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(ox,oy); ctx.lineTo(ox+t,oy); ctx.stroke();
     // s/c leg (rise) at far end going up
     var rr=Math.min(rise,H*0.72);
-    ctx.strokeStyle='#e67e22'; ctx.beginPath(); ctx.moveTo(ox+t,oy); ctx.lineTo(ox+t,oy-rr); ctx.stroke();
+    ctx.strokeStyle=P.orange; ctx.beginPath(); ctx.moveTo(ox+t,oy); ctx.lineTo(ox+t,oy-rr); ctx.stroke();
     // hypotenuse t_R
-    ctx.strokeStyle='#27ae60'; ctx.lineWidth=3.5; ctx.beginPath(); ctx.moveTo(ox,oy); ctx.lineTo(ox+t,oy-rr); ctx.stroke();
+    ctx.strokeStyle=P.green; ctx.lineWidth=3.5; ctx.beginPath(); ctx.moveTo(ox,oy); ctx.lineTo(ox+t,oy-rr); ctx.stroke();
     // right-angle mark
-    ctx.strokeStyle='#556'; ctx.lineWidth=1; ctx.strokeRect(ox+t-10,oy-10,10,10);
+    ctx.strokeStyle=P.ra; ctx.lineWidth=1; ctx.strokeRect(ox+t-10,oy-10,10,10);
     // labels
-    ctx.font=F; ctx.fillStyle='#5dade2'; ctx.fillText('t  (proper time)', ox+t*0.35, oy+22);
-    ctx.fillStyle='#e67e22'; ctx.save(); ctx.translate(ox+t+16,oy-rr*0.5); ctx.fillText('s/c', 0,0); ctx.restore();
-    ctx.fillStyle='#27ae60'; ctx.fillText('t_R (registered time)', ox+t*0.18, oy-rr*0.55-6);
+    ctx.font=F; ctx.fillStyle=P.blue; ctx.fillText('t  (proper time)', ox+t*0.35, oy+22);
+    ctx.fillStyle=P.orange; ctx.save(); ctx.translate(ox+t+16,oy-rr*0.5); ctx.fillText('s/c', 0,0); ctx.restore();
+    ctx.fillStyle=P.green; ctx.fillText('t_R (registered time)', ox+t*0.18, oy-rr*0.55-6);
     out.innerHTML='v/c = '+beta.toFixed(3)+'   →   dilation  t_R / t = 1/√(1-v2/c2) = '+gamma.toFixed(4);
   }
   s.addEventListener('input',draw); window.addEventListener('resize',draw); draw();
@@ -460,7 +507,7 @@ var F='14px Helvetica Neue, Arial, sans-serif';
     return 'rgb('+Math.round(255*r)+','+Math.round(255*g)+','+Math.round(255*b)+')';
   }
   var names={3:'Hα',4:'Hβ',5:'Hγ',6:'Hδ',7:'Hε',8:'Hζ'};
-  function draw(){ var d=fitCanvas(cv),ctx=d.ctx,W=d.w,H=d.h; ctx.clearRect(0,0,W,H);
+  function draw(){ var P=pal(); var d=fitCanvas(cv),ctx=d.ctx,W=d.w,H=d.h; ctx.clearRect(0,0,W,H);
     var sel=parseInt(s.value); n2v.textContent=sel;
     // spectrum band 380-700 nm
     var x0=40,x1=W-40,yb=H*0.5,bh=70;
@@ -468,18 +515,18 @@ var F='14px Helvetica Neue, Arial, sans-serif';
     // faint full band
     for(var w=380; w<=700; w+=2){ ctx.fillStyle=wl2rgb(w); ctx.globalAlpha=0.10; ctx.fillRect(xof(w),yb-bh/2,3,bh); }
     ctx.globalAlpha=1;
-    ctx.strokeStyle='#33455a'; ctx.strokeRect(x0,yb-bh/2,x1-x0,bh);
+    ctx.strokeStyle=P.axis; ctx.strokeRect(x0,yb-bh/2,x1-x0,bh);
     // lines for n2=3..8, highlight selected
     for(var n=3;n<=8;n++){ var lm=lambda(n); if(lm<380||lm>700) continue; var x=xof(lm);
       var on=(n===sel); ctx.strokeStyle=wl2rgb(lm); ctx.globalAlpha=on?1:0.5; ctx.lineWidth=on?3.5:1.5;
       ctx.beginPath(); ctx.moveTo(x,yb-bh/2); ctx.lineTo(x,yb+bh/2); ctx.stroke(); ctx.globalAlpha=1;
-      ctx.font=F; ctx.fillStyle=on?'#ecf0f1':'#7a8ada';
+      ctx.font=F; ctx.fillStyle=on?P.inkHi:P.lav;
       ctx.textAlign='center'; ctx.fillText(names[n], x, yb-bh/2-8);
-      if(on){ ctx.fillStyle='#cfe3f5'; ctx.fillText(lm.toFixed(1)+' nm', x, yb+bh/2+18); }
+      if(on){ ctx.fillStyle=P.cyan; ctx.fillText(lm.toFixed(1)+' nm', x, yb+bh/2+18); }
     }
     ctx.textAlign='left';
     // scale ticks
-    ctx.fillStyle='#697077'; ctx.font='12px Helvetica Neue,Arial';
+    ctx.fillStyle=P.mut; ctx.font='12px Helvetica Neue,Arial';
     [400,500,600,700].forEach(function(w){ ctx.fillText(w+'', xof(w)-10, yb+bh/2+40); });
     var f=2.998e8*R*(1/4-1/(sel*sel));
     out.innerHTML='n2 = '+sel+' → f = cR(1/22 - 1/'+sel+'2) = '+(f/1e14).toFixed(3)+'×1014 Hz  ('+names[sel]+', '+lambda(sel).toFixed(1)+' nm)';
@@ -491,7 +538,7 @@ var F='14px Helvetica Neue, Arial, sans-serif';
 (function(){
   var cv=document.getElementById('cv3'), s=document.getElementById('s3'), out=document.getElementById('r3');
   var D=fitCanvas(cv), ang=0, running=false, raf=0, onscreen=false;
-  function render(){ var ctx=D.ctx,W=D.w,H=D.h; ctx.clearRect(0,0,W,H);
+  function render(){ var P=pal(); var ctx=D.ctx,W=D.w,H=D.h; ctx.clearRect(0,0,W,H);
     var rg=parseFloat(s.value); // r in units GM/c^2
     var cx=W*0.5, cy=H*0.52; var Rpix=Math.min(W,H)*0.34;
     var rmax=60, rpix=Rpix*Math.sqrt(rg/rmax)+30;
@@ -499,21 +546,21 @@ var F='14px Helvetica Neue, Arial, sans-serif';
     var grd=ctx.createRadialGradient(cx,cy,2,cx,cy,26); grd.addColorStop(0,'#ffd27f'); grd.addColorStop(1,'#7a4b12');
     ctx.fillStyle=grd; ctx.beginPath(); ctx.arc(cx,cy,16,0,7); ctx.fill();
     // orbit
-    ctx.strokeStyle='#33455a'; ctx.setLineDash([4,5]); ctx.beginPath(); ctx.arc(cx,cy,rpix,0,7); ctx.stroke(); ctx.setLineDash([]);
+    ctx.strokeStyle=P.axis; ctx.setLineDash([4,5]); ctx.beginPath(); ctx.arc(cx,cy,rpix,0,7); ctx.stroke(); ctx.setLineDash([]);
     // dilation
     var dil=Math.sqrt(1-1/rg); // sqrt(1-GM/(c^2 r)), GM/c^2=1
     var vc=Math.sqrt(1/rg);
     // clock
     var ox=cx+rpix*Math.cos(ang), oy=cy+rpix*Math.sin(ang);
-    ctx.fillStyle='#5dade2'; ctx.beginPath(); ctx.arc(ox,oy,9,0,7); ctx.fill();
+    ctx.fillStyle=P.blue; ctx.beginPath(); ctx.arc(ox,oy,9,0,7); ctx.fill();
     // clock hand rate ∝ dil
-    ctx.strokeStyle='#04121f'; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(ox,oy);
+    ctx.strokeStyle=P.hand; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(ox,oy);
     var ch=ang*dil*3; ctx.lineTo(ox+7*Math.cos(ch),oy+7*Math.sin(ch)); ctx.stroke();
     // deep-space reference clock top-left
-    ctx.fillStyle='#2c3e50'; ctx.beginPath(); ctx.arc(46,40,11,0,7); ctx.fill();
-    ctx.strokeStyle='#8fd3a6'; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(46,40); var dh=ang*3; ctx.lineTo(46+8*Math.cos(dh),40+8*Math.sin(dh)); ctx.stroke();
-    ctx.font='12px Helvetica Neue,Arial'; ctx.fillStyle='#8fd3a6'; ctx.fillText('deep-space clock (rate 1)',64,44);
-    ctx.fillStyle='#5dade2'; ctx.fillText('orbiting clock (rate '+dil.toFixed(4)+')', ox+12, oy+4);
+    ctx.fillStyle=P.refdot; ctx.beginPath(); ctx.arc(46,40,11,0,7); ctx.fill();
+    ctx.strokeStyle=P.greenLt; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(46,40); var dh=ang*3; ctx.lineTo(46+8*Math.cos(dh),40+8*Math.sin(dh)); ctx.stroke();
+    ctx.font='12px Helvetica Neue,Arial'; ctx.fillStyle=P.greenLt; ctx.fillText('deep-space clock (rate 1)',64,44);
+    ctx.fillStyle=P.blue; ctx.fillText('orbiting clock (rate '+dil.toFixed(4)+')', ox+12, oy+4);
     out.innerHTML='r = '+rg.toFixed(1)+' GM/c2   →   v/c = √(GM/c2r) = '+vc.toFixed(4)+'   →   clock rate √(1-GM/c2r) = '+dil.toFixed(5);
   }
   function loop(){ if(!running) return; ang+=0.02; render(); raf=requestAnimationFrame(loop); }
@@ -531,7 +578,7 @@ var F='14px Helvetica Neue, Arial, sans-serif';
 (function(){
   var cv=document.getElementById('cv4'), s=document.getElementById('s4'), out=document.getElementById('r4');
   var ALPHA=0.0072973525693;
-  function draw(){ var d=fitCanvas(cv),ctx=d.ctx,W=d.w,H=d.h; ctx.clearRect(0,0,W,H);
+  function draw(){ var P=pal(); var d=fitCanvas(cv),ctx=d.ctx,W=d.w,H=d.h; ctx.clearRect(0,0,W,H);
     var beta=parseFloat(s.value);
     var split=(1/Math.sqrt(1-beta*beta))-1; // fractional shift ~ beta^2/2
     // visual exaggeration for display: map fractional shift to pixels
@@ -539,22 +586,22 @@ var F='14px Helvetica Neue, Arial, sans-serif';
     var pxScale=W*7.0; // exaggerate
     var dx=Math.min(split*pxScale, W*0.32);
     // gross line (top)
-    ctx.strokeStyle='#8ea3b5'; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(cx,y0-40); ctx.lineTo(cx,y0+10); ctx.stroke();
-    ctx.font=F; ctx.fillStyle='#8ea3b5'; ctx.textAlign='center'; ctx.fillText('gross level (no internal circulation)', cx, y0-50);
+    ctx.strokeStyle=P.gray; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(cx,y0-40); ctx.lineTo(cx,y0+10); ctx.stroke();
+    ctx.font=F; ctx.fillStyle=P.gray; ctx.textAlign='center'; ctx.fillText('gross level (no internal circulation)', cx, y0-50);
     // split doublet (bottom)
     var yb=H*0.72;
-    ctx.strokeStyle='#5dade2'; ctx.lineWidth=3;
+    ctx.strokeStyle=P.blue; ctx.lineWidth=3;
     ctx.beginPath(); ctx.moveTo(cx-dx,yb-40); ctx.lineTo(cx-dx,yb+10); ctx.stroke();
     ctx.beginPath(); ctx.moveTo(cx+dx,yb-40); ctx.lineTo(cx+dx,yb+10); ctx.stroke();
     // faint center
-    ctx.strokeStyle='#33455a'; ctx.setLineDash([3,4]); ctx.beginPath(); ctx.moveTo(cx,yb-46); ctx.lineTo(cx,yb+16); ctx.stroke(); ctx.setLineDash([]);
+    ctx.strokeStyle=P.axis; ctx.setLineDash([3,4]); ctx.beginPath(); ctx.moveTo(cx,yb-46); ctx.lineTo(cx,yb+16); ctx.stroke(); ctx.setLineDash([]);
     // arrows for the two phase senses
-    ctx.fillStyle='#27ae60'; ctx.fillText('leading', cx+dx, yb-50); ctx.fillText('lagging', cx-dx, yb-50);
-    ctx.fillStyle='#8ea3b5'; ctx.fillText('splitting  ∝  (v_orb/c)2', cx, yb+40);
+    ctx.fillStyle=P.green; ctx.fillText('leading', cx+dx, yb-50); ctx.fillText('lagging', cx-dx, yb-50);
+    ctx.fillStyle=P.gray; ctx.fillText('splitting  ∝  (v_orb/c)2', cx, yb+40);
     // marker for physical alpha
     ctx.textAlign='left'; ctx.font='12px Helvetica Neue,Arial';
     var atAlpha = beta>=ALPHA*0.6 && beta<=ALPHA*1.6;
-    ctx.fillStyle = atAlpha ? '#8fd3a6' : '#697077';
+    ctx.fillStyle = atAlpha ? P.greenLt : P.mut;
     out.innerHTML='v_orb/c = '+beta.toFixed(3)+'   →   time-dilation shift 1/√(1-(v/c)2) - 1 = '+split.toExponential(3)+
       '   (∝ (v/c)2 )'+(beta>0? '   |   at physical v_orb/c = α = 0.00730, split = '+((1/Math.sqrt(1-ALPHA*ALPHA))-1).toExponential(3):'');
   }

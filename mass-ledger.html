@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,9 @@
 <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 <style>
 :root{--bg:#0d0d18;--panel:#131322;--edge:#26263a;--gold:#d4af37;--blue:#5bc8f5;--red:#e06060;--green:#63d67e;--fg:#dfe0ea;--muted:#9a9bb0;}
+body.light{--bg:#faf8f2;--panel:#ffffff;--edge:#d9d2bf;--gold:#8b6914;--blue:#176e94;--red:#b03030;--green:#2e7d32;--fg:#26211a;--muted:#6b6355;}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font-family:Georgia,'Times New Roman',serif;line-height:1.65;}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Georgia,'Times New Roman',serif;line-height:1.65;transition:background .3s,color .3s;}
 header{padding:44px 22px 22px;border-bottom:1px solid var(--edge);text-align:center;}
 header h1{margin:0 0 14px;font-size:27px;line-height:1.35;color:var(--gold);font-weight:650;}
 .sub{max-width:880px;margin:14px auto 0;color:var(--muted);font-size:15px;}
@@ -19,6 +20,10 @@ header h1{margin:0 0 14px;font-size:27px;line-height:1.35;color:var(--gold);font
 #poams-hub-nav .phn-center{display:flex;flex-direction:column;align-items:center;line-height:1.2;}
 #poams-hub-nav .phn-title{font-weight:600;color:var(--fg);font-size:12px;}
 #poams-hub-nav .phn-pos{font-size:10px;color:rgba(212,175,55,0.6);letter-spacing:.05em;}
+[data-theme="light"] #poams-hub-nav,body.light #poams-hub-nav{background:rgba(250,248,242,0.95);border-bottom-color:rgba(139,105,20,0.25);}
+[data-theme="light"] #poams-hub-nav a,body.light #poams-hub-nav a{color:#8b6914;}
+body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
+[data-theme="light"] #poams-hub-nav .phn-title,body.light #poams-hub-nav .phn-title{color:#2a2318;}
 @media (max-width:640px){.phn-hide-sm{display:none;}}
 body{padding-top:72px;}
 main{max-width:900px;margin:0 auto;padding:10px 18px 40px;}
@@ -54,6 +59,16 @@ a{color:var(--blue);}
 .legend span{margin-right:14px;white-space:nowrap;}
 .sw{display:inline-block;width:22px;height:3px;vertical-align:middle;margin-right:5px;border-radius:2px;}
 .dot{display:inline-block;width:7px;height:7px;border-radius:50%;vertical-align:middle;margin-right:5px;}
+.theme-toggle{position:fixed;top:54px;right:12px;z-index:1000;background:var(--gold);color:var(--bg);border:none;width:40px;height:40px;border-radius:8px;padding:0;cursor:pointer;font-size:1.15rem;display:flex;align-items:center;justify-content:center}
+body.light canvas{background:#f6f3ea}
+body.light .eqbox{background:#f6f3ea}
+body.light button:not(.theme-toggle){background:#e7e0cd;color:#26211a}
+body.light th{background:#efe8d6}
+body.light .tag.prov{background:#dce8f0;color:#176e94}
+body.light .tag.assume{background:#f0e6c8;color:#8b6914}
+body.light .tag.open{background:#f2dada;color:#b03030}
+body.light .tag.pass{background:#d9ecdb;color:#2e7d32}
+body.light .tag.fail{background:#f2dada;color:#b03030}
 </style>
 </head>
 <body>
@@ -67,6 +82,7 @@ a{color:var(--blue);}
   </div>
   <a href="./the-patient-sun.html" title="The Patient Sun"><span class="phn-hide-sm">The Patient Sun</span> →</a>
 </div>
+<button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle light/dark theme">☀️</button>
 <header>
   <h1>The Mass Ledger</h1>
 <p class="nr-provenance" style="font-size:0.8em;font-style:italic;opacity:0.72;line-height:1.6;margin:0 auto 1.2em;max-width:820px;text-align:center">This exhibit is an extrapolation of the foundational work of N. Vivian “Viv” Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
@@ -487,6 +503,19 @@ famous curve in nuclear physics is an accounting statement.</em></p>
 </footer>
 
 <script>
+// ---------- theme ----------
+function pal(){return document.body.classList.contains('light')
+  ?{gold:'#8b6914',goldA:a=>'rgba(139,105,20,'+a+')',blue:'#176e94',ame:'#2f6ea0',green:'#2e7d32',fg:'#26211a',mut:'#6b6355',axis:'#b3ab94'}
+  :{gold:'#d4af37',goldA:a=>'rgba(212,175,55,'+a+')',blue:'#5bc8f5',ame:'#5b8dc8',green:'#63d67e',fg:'#dfe0ea',mut:'#9a9bb0',axis:'#333350'};}
+function toggleTheme(){
+  document.body.classList.toggle('light');
+  const light=document.body.classList.contains('light');
+  document.querySelector('.theme-toggle').textContent=light?'🌙':'☀️';
+  try{localStorage.setItem('poams-theme',light?'light':'dark')}catch(e){}
+  draw();
+}
+try{if(localStorage.getItem('poams-theme')==='light'){document.body.classList.add('light');document.querySelector('.theme-toggle').textContent='🌙';}}catch(e){}
+
 // AME2020 experimental envelope: [A, max B/A in MeV] per A (generated from mass.mas20.txt, '#' entries excluded)
 const AME=[[2,1.112],[3,2.827],[4,7.074],[5,5.512],[6,5.332],[7,5.606],[8,7.062],[9,6.463],[10,6.498],[11,6.928],[12,7.68],[13,7.47],[14,7.52],[15,7.699],[16,7.976],[17,7.751],[18,7.767],[19,7.779],[20,8.032],[21,7.972],[22,8.08],[23,8.111],[24,8.261],[25,8.224],[26,8.334],[27,8.332],[28,8.448],[29,8.449],[30,8.521],[31,8.481],[32,8.493],[33,8.514],[34,8.583],[35,8.538],[36,8.575],[37,8.57],[38,8.614],[39,8.563],[40,8.595],[41,8.576],[42,8.617],[43,8.601],[44,8.658],[45,8.631],[46,8.669],[47,8.665],[48,8.723],[49,8.711],[50,8.756],[51,8.742],[52,8.776],[53,8.76],[54,8.778],[55,8.765],[56,8.79],[57,8.77],[58,8.792],[59,8.768],[60,8.781],[61,8.765],[62,8.795],[63,8.763],[64,8.777],[65,8.757],[66,8.76],[67,8.737],[68,8.756],[69,8.725],[70,8.73],[71,8.718],[72,8.732],[73,8.705],[74,8.725],[75,8.701],[76,8.711],[77,8.696],[78,8.718],[79,8.696],[80,8.711],[81,8.696],[82,8.711],[83,8.696],[84,8.717],[85,8.699],[86,8.712],[87,8.711],[88,8.733],[89,8.714],[90,8.71],[91,8.693],[92,8.693],[93,8.672],[94,8.667],[95,8.649],[96,8.654],[97,8.635],[98,8.635],[99,8.614],[100,8.619],[101,8.601],[102,8.607],[103,8.584],[104,8.587],[105,8.573],[106,8.58],[107,8.561],[108,8.567],[109,8.548],[110,8.551],[111,8.537],[112,8.545],[113,8.527],[114,8.532],[115,8.517],[116,8.523],[117,8.51],[118,8.517],[119,8.499],[120,8.504],[121,8.485],[122,8.488],[123,8.472],[124,8.473],[125,8.458],[126,8.463],[127,8.446],[128,8.449],[129,8.436],[130,8.438],[131,8.424],[132,8.428],[133,8.413],[134,8.414],[135,8.401],[136,8.403],[137,8.392],[138,8.393],[139,8.378],[140,8.376],[141,8.355],[142,8.347],[143,8.33],[144,8.327],[145,8.309],[146,8.304],[147,8.284],[148,8.28],[149,8.263],[150,8.262],[151,8.244],[152,8.244],[153,8.229],[154,8.227],[155,8.217],[156,8.215],[157,8.204],[158,8.202],[159,8.189],[160,8.184],[161,8.174],[162,8.173],[163,8.162],[164,8.159],[165,8.147],[166,8.142],[167,8.132],[168,8.13],[169,8.117],[170,8.112],[171,8.102],[172,8.097],[173,8.087],[174,8.084],[175,8.071],[176,8.064],[177,8.053],[178,8.049],[179,8.039],[180,8.035],[181,8.023],[182,8.018],[183,8.008],[184,8.005],[185,7.993],[186,7.989],[187,7.978],[188,7.974],[189,7.963],[190,7.962],[191,7.951],[192,7.949],[193,7.938],[194,7.936],[195,7.927],[196,7.927],[197,7.916],[198,7.914],[199,7.907],[200,7.906],[201,7.898],[202,7.897],[203,7.887],[204,7.886],[205,7.878],[206,7.875],[207,7.87],[208,7.867],[209,7.849],[210,7.836],[211,7.82],[212,7.81],[213,7.794],[214,7.785],[215,7.768],[216,7.759],[217,7.745],[218,7.739],[219,7.724],[220,7.717],[221,7.703],[222,7.697],[223,7.685],[224,7.68],[225,7.668],[226,7.662],[227,7.651],[228,7.645],[229,7.635],[230,7.631],[231,7.62],[232,7.615],[233,7.605],[234,7.601],[235,7.591],[236,7.586],[237,7.576],[238,7.57],[239,7.561],[240,7.556],[241,7.546],[242,7.541],[243,7.531],[244,7.525],[245,7.516],[246,7.511],[247,7.502],[248,7.497],[249,7.486],[250,7.48],[251,7.471],[252,7.465],[253,7.455],[254,7.449],[255,7.438],[256,7.432],[257,7.422],[258,7.41],[259,7.4],[260,7.343],[261,7.371],[262,7.341],[264,7.298],[265,7.296],[266,7.298],[269,7.25],[270,7.254]];
 
@@ -511,40 +540,41 @@ function X(a){return 52+(a-A0)/(A1-A0)*(cv.width-68);}
 function Y(b){return cv.height-36-(b-B0)/(B1v-B0)*(cv.height-58);}
 
 function draw(){
+  const P=pal();
   const ratio=parseFloat(document.getElementById('ratioSlider').value);
   ctx.clearRect(0,0,cv.width,cv.height);
   // registered bracket band [49,66]
-  ctx.fillStyle='rgba(212,175,55,0.12)';
+  ctx.fillStyle=P.goldA(0.12);
   ctx.fillRect(X(49),Y(B1v),X(66)-X(49),Y(B0)-Y(B1v));
-  ctx.strokeStyle='rgba(212,175,55,0.4)';ctx.setLineDash([4,4]);ctx.lineWidth=1;
+  ctx.strokeStyle=P.goldA(0.4);ctx.setLineDash([4,4]);ctx.lineWidth=1;
   ctx.strokeRect(X(49),Y(B1v),X(66)-X(49),Y(B0)-Y(B1v));
   ctx.setLineDash([]);
   // axes + ticks
-  ctx.strokeStyle='#333350';ctx.fillStyle='#9a9bb0';ctx.lineWidth=1;ctx.font='12px Georgia';
+  ctx.strokeStyle=P.axis;ctx.fillStyle=P.mut;ctx.lineWidth=1;ctx.font='12px Georgia';
   ctx.beginPath();ctx.moveTo(X(A0),Y(0));ctx.lineTo(X(A1),Y(0));ctx.moveTo(X(0),Y(B0));ctx.lineTo(X(0),Y(B1v));ctx.stroke();
   for(let a=0;a<=250;a+=50){ctx.fillText(String(a),X(a)-8,Y(0)+16);ctx.beginPath();ctx.moveTo(X(a),Y(0));ctx.lineTo(X(a),Y(0)+4);ctx.stroke();}
   for(let b=0;b<=9;b+=1){ctx.fillText(String(b),X(0)-24,Y(b)+4);ctx.beginPath();ctx.moveTo(X(0)-4,Y(b));ctx.lineTo(X(0),Y(b));ctx.stroke();}
   ctx.fillText('A (quanta packed)',X(120),cv.height-4);
   ctx.save();ctx.translate(14,Y(4.2));ctx.rotate(-Math.PI/2);ctx.fillText('discount per quantum  B/A  (record MeV)',0,0);ctx.restore();
   // bracket label
-  ctx.fillStyle='rgba(212,175,55,0.8)';ctx.fillText('registered [49,66]',X(49)+4,Y(B1v)+14);
+  ctx.fillStyle=P.goldA(0.8);ctx.fillText('registered [49,66]',X(49)+4,Y(B1v)+14);
   // AME points
-  ctx.fillStyle='#5b8dc8';
+  ctx.fillStyle=P.ame;
   for(const p of AME){ctx.beginPath();ctx.arc(X(p[0]),Y(p[1]),1.7,0,2*Math.PI);ctx.fill();}
   // alpha + Ni-62 markers
-  ctx.fillStyle='#63d67e';ctx.beginPath();ctx.arc(X(4),Y(7.074),3.2,0,2*Math.PI);ctx.fill();
+  ctx.fillStyle=P.green;ctx.beginPath();ctx.arc(X(4),Y(7.074),3.2,0,2*Math.PI);ctx.fill();
   ctx.fillText('α: filled cell',X(4)+6,Y(7.074)-6);
   const pk=AME.reduce((m,p)=>p[1]>m[1]?p:m,[0,0]);
-  ctx.fillStyle='#dfe0ea';ctx.beginPath();ctx.arc(X(pk[0]),Y(pk[1]),3.2,0,2*Math.PI);ctx.fill();
+  ctx.fillStyle=P.fg;ctx.beginPath();ctx.arc(X(pk[0]),Y(pk[1]),3.2,0,2*Math.PI);ctx.fill();
   ctx.fillText('AME max: A=62 (Ni-62)',X(pk[0])+7,Y(pk[1])-8);
   // naive leading-class curve (dashed blue)
-  ctx.strokeStyle='#5bc8f5';ctx.setLineDash([6,5]);ctx.lineWidth=1.4;ctx.beginPath();
+  ctx.strokeStyle=P.blue;ctx.setLineDash([6,5]);ctx.lineWidth=1.4;ctx.beginPath();
   let started=false;
   for(let a=4;a<=270;a+=1){const b=bNaive(a,ratio);if(b<0){if(started)break;else continue;}
     if(!started){ctx.moveTo(X(a),Y(b));started=true;}else ctx.lineTo(X(a),Y(b));}
   ctx.stroke();ctx.setLineDash([]);
   // valley ledger curve (gold)
-  ctx.strokeStyle='#d4af37';ctx.lineWidth=2.2;ctx.beginPath();started=false;
+  ctx.strokeStyle=P.gold;ctx.lineWidth=2.2;ctx.beginPath();started=false;
   let bestA=4,bestB=-1e9;
   for(let a=4;a<=270;a+=1){const b=bValley(a,ratio);
     if(b>bestB){bestB=b;bestA=a;}
@@ -552,7 +582,7 @@ function draw(){
     if(!started){ctx.moveTo(X(a),Y(b));started=true;}else ctx.lineTo(X(a),Y(b));}
   ctx.stroke();
   // drawn peak marker
-  ctx.fillStyle='#d4af37';ctx.beginPath();ctx.arc(X(bestA),Y(bestB),3.4,0,2*Math.PI);ctx.fill();
+  ctx.fillStyle=P.gold;ctx.beginPath();ctx.arc(X(bestA),Y(bestB),3.4,0,2*Math.PI);ctx.fill();
   ctx.fillText('ledger peak A='+bestA,X(bestA)+7,Y(bestB)+14);
   // readouts
   const naiveA=2*ratio*AV/AC;
