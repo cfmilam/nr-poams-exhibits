@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,9 +9,22 @@
     --bg:#0d0d18; --card:#1c1c30; --text:#e8e8f0; --muted:#9a9ab0;
     --gold:#d4af37; --blue:#5bc8f5; --edge:#2c2c46;
   }
+  body.light{
+    --bg:#faf8f2; --card:#ffffff; --text:#26211a; --muted:#6b6355;
+    --gold:#8b6914; --blue:#176e94; --edge:#d9d2bf;
+  }
   *{box-sizing:border-box;}
   html,body{margin:0;height:100%;background:var(--bg);color:var(--text);
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;}
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    transition:background .3s,color .3s;}
+  .theme-toggle{position:fixed;top:54px;right:12px;z-index:1000;background:var(--gold);color:var(--bg);border:none;width:40px;height:40px;border-radius:8px;padding:0;cursor:pointer;font-size:1.15rem;display:flex;align-items:center;justify-content:center}
+  /* the 3D stage and its overlays keep the dark instrument look in both themes */
+  body.light #stage{background:#0d0d18;}
+  body.light #hud, body.light #info, body.light #infoToggle{
+    --gold:#d4af37; --blue:#5bc8f5; --muted:#9a9ab0; --text:#e8e8f0; --edge:#2c2c46;
+    background:rgba(13,13,24,.78); color:var(--muted);
+  }
+  body.light #creed{background:#f3efe0;}
   #wrap{display:flex;flex-direction:column;height:100%;}
   header{padding:20px 22px 14px;border-bottom:1px solid var(--edge);text-align:center;}
   header h1{margin:0;font-size:24px;color:var(--gold);font-weight:650;}
@@ -75,6 +88,10 @@
 #poams-hub-nav .phn-center{display:flex;flex-direction:column;align-items:center;line-height:1.2;}
 #poams-hub-nav .phn-title{font-weight:600;color:#e8e8f0;font-size:12px;}
 #poams-hub-nav .phn-pos{font-size:10px;color:rgba(212,175,55,0.6);letter-spacing:.05em;}
+[data-theme="light"] #poams-hub-nav,body.light #poams-hub-nav{background:rgba(250,248,242,0.95);border-bottom-color:rgba(139,105,20,0.25);}
+[data-theme="light"] #poams-hub-nav a,body.light #poams-hub-nav a{color:#8b6914;}
+body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
+[data-theme="light"] #poams-hub-nav .phn-title,body.light #poams-hub-nav .phn-title{color:#2a2318;}
 @media (max-width:640px){.phn-hide-sm{display:none;}}
 body{padding-top:72px !important;}
 </style>
@@ -90,6 +107,14 @@ body{padding-top:72px !important;}
   </div>
   <a href="./poams-periodic-table.html" title="The Elements"><span class="phn-hide-sm">The Elements</span> →</a>
 </div>
+<button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle light/dark theme">☀️</button>
+<script>
+function toggleTheme(){document.body.classList.toggle('light');
+  var l=document.body.classList.contains('light');
+  document.querySelector('.theme-toggle').textContent=l?'🌙':'☀️';
+  try{localStorage.setItem('poams-theme',l?'light':'dark')}catch(e){}}
+try{if(localStorage.getItem('poams-theme')==='light'){document.body.classList.add('light');document.querySelector('.theme-toggle').textContent='🌙';}}catch(e){}
+</script>
 <div id="wrap">
   <header>
     <h1>A Closed Loop of Twisted Momentum</h1>

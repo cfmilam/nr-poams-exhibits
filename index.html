@@ -853,13 +853,15 @@ footer {
 </footer>
 
 <script>
-/* ── Theme ── */
+/* ── Theme (shared corpus key: poams-theme; legacy fallback poams-hub-theme) ── */
 (function() {
-  const saved = localStorage.getItem('poams-hub-theme');
-  if (false) { /* strict: always open light */
-    document.documentElement.dataset.theme = 'light';
-    document.getElementById('theme-btn').textContent = '☀️';
-  }
+  try {
+    const saved = localStorage.getItem('poams-theme') || localStorage.getItem('poams-hub-theme');
+    if (saved === 'light') {
+      document.documentElement.dataset.theme = 'light';
+      document.getElementById('theme-btn').textContent = '🌙';
+    }
+  } catch (e) {}
 })();
 
 document.getElementById('theme-btn').addEventListener('click', function() {
@@ -867,7 +869,7 @@ document.getElementById('theme-btn').addEventListener('click', function() {
   const isLight = html.dataset.theme === 'light';
   html.dataset.theme = isLight ? 'dark' : 'light';
   this.textContent = isLight ? '☀️' : '🌙';
-  localStorage.setItem('poams-hub-theme', isLight ? 'dark' : 'light');
+  try { localStorage.setItem('poams-theme', isLight ? 'dark' : 'light'); } catch (e) {}
 });
 
 /* ── Scroll animations ── */
