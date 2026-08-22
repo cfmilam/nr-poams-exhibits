@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Two-Slit Experiment: Interference Without Waves</title>
+<script>window.MathJax={tex:{inlineMath:[['$','$']],displayMath:[['$$','$$']]}};</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+<style>
+:root{--bg:#0d0d17;--card:#12121e;--edge:#2a2a3e;--fg:#e2e2ea;--mut:#9a9ab0;--gold:#c9a84c;--blue:#64b5e0;--green:#66bb6a;--red:#e05f5f;}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{background:var(--bg);color:var(--fg);font-family:Georgia,serif;line-height:1.7;font-size:16.5px}
+main{max-width:880px;margin:0 auto;padding:2.2rem 1.2rem 4rem}
+h1{color:var(--gold);font-size:1.7rem;line-height:1.25;margin:.4rem 0 .6rem;text-align:center}
+h2{color:var(--gold);font-size:1.25rem;border-bottom:1px solid var(--edge);padding-bottom:.3rem;margin:2.2rem 0 .8rem}
+h3{color:var(--blue);font-size:1.05rem;margin:1.4rem 0 .5rem}
+p{margin:.8rem 0}
+.prov{font-size:.82rem;color:var(--mut);border-left:3px solid var(--gold);padding:.5rem .9rem;background:rgba(201,168,76,.05);margin:.8rem 0}
+.tag{display:inline-block;font-size:.7rem;letter-spacing:.05em;padding:.05rem .4rem;border:1px solid var(--edge);border-radius:4px;color:var(--mut);vertical-align:middle}
+.fant{color:var(--mut);font-style:italic}
+.card{background:var(--card);border:1px solid var(--edge);border-radius:10px;padding:1rem 1.2rem;margin:1.1rem 0}
+.card.gold{border-color:var(--gold)}
+.note{font-size:.88rem;color:var(--mut)}
+blockquote{border-left:3px solid var(--blue);padding:.4rem .9rem;margin:.8rem 0;color:var(--mut);font-style:italic}
+blockquote .who{display:block;font-style:normal;font-size:.8rem;margin-top:.3rem;color:var(--gold)}
+canvas{width:100%;border:1px solid var(--edge);border-radius:8px;background:#0a0a14;display:block}
+.ctl{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin:.6rem 0;font-size:.9rem}
+.ctl label{color:var(--mut)}
+button{background:var(--gold);color:#111;border:none;border-radius:6px;padding:.35rem .8rem;font-family:inherit;font-size:.9rem;cursor:pointer}
+button.off{background:#333347;color:var(--mut)}
+input[type=range]{accent-color:var(--gold)}
+table{border-collapse:collapse;width:100%;font-size:.9rem;margin:.8rem 0}
+th,td{border:1px solid var(--edge);padding:.45rem .6rem;text-align:left}
+th{color:var(--gold);font-weight:normal}
+td.c{text-align:center}
+a{color:var(--blue)}
+.readout{font-family:Menlo,monospace;font-size:.85rem;color:var(--green)}
+.nav{display:flex;justify-content:space-between;font-size:.85rem;margin-top:3rem;border-top:1px solid var(--edge);padding-top:1rem}
+.eqbox{background:#10101e;border:1px solid var(--edge);border-radius:8px;padding:8px 12px;margin:10px 0;overflow-x:auto}
+.sub{text-align:center;color:var(--mut);font-style:italic;margin:0 0 1rem}
+</style>
+<style id="poams-hub-nav-style">
+#poams-hub-nav{position:fixed;top:0;left:0;right:0;z-index:9999;height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 1rem;background:rgba(13,13,24,0.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,175,55,0.25);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;box-sizing:border-box;}
+#poams-hub-nav a{color:#d4af37;text-decoration:none;display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:6px;transition:background .2s;white-space:nowrap;font-weight:500;}
+#poams-hub-nav a:hover{background:rgba(212,175,55,0.12);}
+#poams-hub-nav .phn-center{display:flex;flex-direction:column;align-items:center;line-height:1.2;}
+#poams-hub-nav .phn-title{font-weight:600;color:#e8e8f0;font-size:12px;}
+#poams-hub-nav .phn-pos{font-size:10px;color:rgba(212,175,55,0.6);letter-spacing:.05em;}
+@media (max-width:640px){.phn-hide-sm{display:none;}}
+body{padding-top:72px !important;}
+</style>
+</head>
+<body>
+<div id="poams-hub-nav">
+  <a href="./quantum-cinematograph.html" title="Quantum Cinematograph">← <span class="phn-hide-sm">Quantum Cinematograph</span></a>
+  <div class="phn-center">
+    <a href="./index.html" style="flex-direction:column;gap:2px;padding:4px 12px;">
+      <span class="phn-title">The Two-Slit Experiment</span>
+      <span class="phn-pos">NR · POAMS · EXHIBIT SERIES</span>
+    </a>
+  </div>
+  <a href="./time-rope.html" title="The Time Rope"><span class="phn-hide-sm">The Time Rope</span> →</a>
+</div>
+
+<main>
+<header>
+<h1>The Two-Slit Experiment: Interference Without Waves</h1>
+<p class="nr-provenance" style="font-size:0.8em;font-style:italic;opacity:0.72;line-height:1.6;margin:0 auto 1.2em;max-width:820px;text-align:center">This exhibit is an extrapolation of the foundational work of N. Vivian “Viv” Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
+<div class="sub">A Commonsense Look at the Two-Slit Experiment</div>
+</header>
+
+<div class="card intro-card" style="margin-top:0">
+<p style="margin:6px 0">Philosophy first: before asking what light <em>is</em>, look at what the apparatus <em>is</em>. The two-slit experiment — Feynman's <span class="fant">"only mystery"</span> of quantum mechanics — stops being mysterious the moment three habits of language are surrendered: that something must <em>travel</em> from source to screen, that the something must be a <em>wave or a particle</em>, and that the pattern must be <em>made in flight</em>. Normal Realism surrenders all three. The interference geometry is a static property of the apparatus, present before any light; the quantum is a whole turn of the one substance that either happens entire or not at all; and the connection it happens across has zero proper time — nothing is ever en route. This page rebuilds the experiment on those three feet, runs the modern record through it — single electrons, delayed choice, the quantum eraser, molecules of two thousand atoms — and shows the mystery was manufactured by the vocabulary.</p>
+<p class="note" style="margin:6px 0">Source text: N. V. Pope, <a href="https://cfmilam.github.io/nr-poams-papers/a-commonsense-look-at-the-two-slit-experiment.html"><em>A Commonsense Look at the Two-Slit Experiment</em></a> (Penclawdd, 27 November 1995). Siblings: <a href="./quantum-cinematograph.html">Quantum Cinematograph</a> holds the no-photons-in-transit picture this page cashes out; <a href="./the-rate-of-time.html">The Rate of Time</a> holds the $\tau=0$ cone edge; <a href="./poams-telecommunications.html">POAMS &amp; Telecommunications</a> names the dark fringe as a receiver standing blind. Fringe positions, device values, and all experimental numbers are the extant measured record, tagged; the native reading is ours.</p>
+</div>
+
+<h2 id="record">1 · The record, plain</h2>
+<p>Young, 1801: light through two narrow slits lands on a screen in bright and dark bands. The extant books call it <span class="fant">vivid proof that light is a wave</span>. Then the same books produce the light one quantum at a time and count arrivals with a photocell — and the bands still form, click by indivisible click. Feynman's verdict on the pair of facts is the standard one, and it is worth quoting exactly:</p>
+<blockquote>"…a phenomenon which is impossible, <em>absolutely</em> impossible, to explain in any classical way, and which has in it the heart of quantum mechanics. In reality, it contains the <em>only</em> mystery."<span class="who">— R. P. Feynman, <em>Lectures on Physics</em> III·1 <span class="tag">extant record</span></span></blockquote>
+<p>Any account must keep three measured facts <span class="tag">measured</span>:</p>
+<table>
+<tr><th></th><th>Fact</th><th>Where measured</th></tr>
+<tr><td class="c">i</td><td>Both slits open: fringes — even at intensities so low that quanta arrive one at a time</td><td>Young 1801; Taylor 1909; Tonomura 1989 (§4)</td></tr>
+<tr><td class="c">ii</td><td>Every arrival is whole. No detector has ever caught a fraction of a quantum</td><td>Grangier–Roger–Aspect 1986 (§3)</td></tr>
+<tr><td class="c">iii</td><td>Mark which slit was used and the fringes vanish; erase the mark — even <em>after</em> the slits — and they return</td><td>Kwiat–Steinberg–Chiao 1992; Kim 2000; Jacques 2007 (§5)</td></tr>
+</table>
+<p>The extant reading holds all three by letting the quantum <span class="fant">go through both slits as a wave, collapse to a point as a particle, and consult the future about which to be</span>. This page holds all three without any of that.</p>
+
+<h2 id="geometry">2 · Geometry first — the pattern is in the apparatus</h2>
+<p>Pope's opening move is to forget light entirely and measure the <em>hardware</em>. Pull two measuring-tapes tight from a source point, one through each slit, to the same point on the screen — bent nowhere but at the slits. The two tapes measure different lengths, and the <strong>difference</strong> $\Delta$ varies smoothly as the screen point moves. (His pub demonstration: palms together, fingertips on a wall; swing your arms sideways and watch the palms slide past each other — that slide is $\Delta$.)</p>
+<p>Now mark the screen wherever $\Delta$ is an <strong>even</strong> number of half-units, and leave blank wherever it is <strong>odd</strong>. A fringe pattern appears — computed from tape lengths alone. Nothing was emitted, nothing travelled, nothing waved. The apparatus owns, as built-in geometry, a <strong>static map of path-difference parity</strong>, identical in form to the interference pattern, for any unit length you care to choose. Block either slit — one tape — and the parity map collapses to a smooth single-path distribution, <em>exactly as the light experiment reports</em>.</p>
+<div class="card">
+<canvas id="tapeCanvas" height="300"></canvas>
+<div class="ctl">
+  <label>screen point: <input type="range" id="pSlider" min="0" max="1000" value="380" style="flex:1;min-width:120px"></label>
+  <label>slit separation d: <input type="range" id="dSlider" min="40" max="150" value="90" style="min-width:90px"></label>
+  <label>unit λ: <input type="range" id="lSlider" min="10" max="34" value="18" style="min-width:90px"></label>
+  <button id="blockBtn" class="off">block slit B</button>
+</div>
+<div class="readout" id="tapeReadout" style="margin:.3rem 0"></div>
+<p class="note">The tape-measure map. Two tapes, one through each slit, to a screen point you move. The strip on the right is painted from <em>tape arithmetic only</em>: bright where the length difference is an even count of half-units (in synch), dark where odd (out of synch). No source, no waves, no quanta — a static geometrical potential the apparatus possesses in the dark. <span class="tag">geometry; schematic scale</span></p>
+</div>
+<p><strong>Native reading.</strong> What the extant record calls <span class="fant">wave interference</span> is this parity map — a property of the source–slits–screen <em>relation</em>, not of anything in flight. The only question the light gets to answer is <em>which sites of the map light up</em>, and how often. That is the next section.</p>
+
+<h2 id="wholeturn">3 · The whole turn — what "quantum" means</h2>
+<p>The corpus holds one substance — angular momentum — coming only in completed closures, $\oint d\varphi = 2\pi n$: whole turns of phase, action in whole units of $h$ <span class="tag">see Aufbau as Closure · Mass as Trapped Rate</span>. A fractional turn is not a smaller thing but <em>no</em> thing: it does not close and cannot persist. So the quantum of light-interaction is not a small bullet; it is <strong>one whole cycle of action</strong> — and wholeness is why it cannot split, duplicate, or half-arrive. In Pope's line: <em>it either occurs or it doesn't</em>. The measured record agrees with the wholeness clause to the letter: Grangier, Roger &amp; Aspect put single quanta on a beamsplitter and found the two output detectors <strong>anticorrelated</strong> — one side or the other, never a divided click, at rates no classical wave can imitate — and then recombined the same source into fringes with near-unit visibility <span class="tag">measured · Europhys. Lett. 1, 173 (1986)</span>.</p>
+<p>So the quantum cannot be what interferes — it is never in two places to interfere with itself. <strong>What interferes is the paths</strong>: the two tape-lengths of §2, read as <em>potential connections</em> between source and screen. Each path admits a whole-turn connection only in proportion to how nearly the turn <em>closes</em> around it. Count each path's phase — its turn tally at the chosen rate — and compose the pair:</p>
+<div class="eqbox">$$\text{joint potential} \;\propto\; \left|\,e^{i\varphi_1} + e^{i\varphi_2}\,\right| \;=\; 2\left|\cos\!\frac{\pi \Delta}{\lambda}\right|, \qquad \varphi_{1,2} = \frac{2\pi\, r_{1,2}}{\lambda}$$</div>
+<p>— maximal where $\Delta$ is an even count of half-wavelengths (the two connections in synch: <strong>go</strong>), zero where odd (exactly out of synch: <strong>no-go</strong>). The dark fringe is not a place where two things collided and cancelled; it is a site where <em>the geometry offers no closable connection</em> — a receiver standing blind to the source <span class="tag">see POAMS &amp; Telecommunications</span>. A detector in one path is an absorber: it replaces that path's connection-to-the-screen with a connection-to-itself, and the pair-composition above loses a term — the fringes go, with no spookery <span class="tag">see POAMS &amp; Electricity</span>.</p>
+<div class="card">
+<p style="margin-top:0"><strong>Stated once, honestly: what is imported here.</strong> The parity of the sites — <em>where</em> the dark fringes sit — is forced geometry (§2). The census law between them — that arrival <em>counts</em> run as the <strong>square</strong> of the composed potential, $4\cos^2(\pi\Delta/\lambda)$ times the single-slit envelope, peaking at four times one slit, averaging two — is the measured record (the extant books call the squaring rule <span class="fant">Born's rule</span>). This corpus reads the squared magnitude natively as a census of completed transactions over potential connections, and does not claim to have derived the squaring from the pillars. Same honesty class as the Madelung filling rule <span class="tag">see Periodic Table §15</span>: the geometry is forced; one counting rule is imported intact.</p>
+</div>
+
+<h2 id="census">4 · The census — every click whole, the pattern statistical</h2>
+<p>Run the experiment the modern way, one quantum at a time, and watch both truths at once: <strong>no arrival is ever partial, and no arrival ever shows a fringe</strong>. The fringe is not in any event; it is in the <em>census of events</em> — the go/no-go geometry expressing itself in arrival statistics, click by whole click.</p>
+<div class="card">
+<canvas id="censusCanvas" height="300"></canvas>
+<div class="ctl">
+  <button id="one">release 1</button>
+  <button id="thousand">release 1,000</button>
+  <button id="markBtn" class="off">mark the path</button>
+  <button id="clearBtn">clear</button>
+  <span class="readout" id="censusReadout">0 arrivals</span>
+</div>
+<p class="note">The census builder. Each release lands as one whole click — a dot, never a fraction, never a band. The histogram below is the accumulating census; with both connections open it converges on the §2 parity map ($4\cos^2$ census inside a single-path envelope). "Mark the path" inserts a real which-way transaction: the pair-composition loses a term, and the same whole clicks converge on the envelope alone. <span class="tag">pedagogical; sampling law from §3, tagged imported</span></p>
+</div>
+<p><strong>The flagship receipt</strong> <span class="tag">measured · Hitachi, Tonomura et al. 1989</span>: electrons at 50&nbsp;kV — speed ≈ 0.4$c$, a metre-long column crossed in ~10&nbsp;ns — emitted at about <strong>ten per second</strong>, so that successive electrons stand ~12,000&nbsp;km apart in flight terms and the instrument never holds more than one. Each arrival: one whole bright spot. After twenty minutes of one-at-a-time accumulation: clean fringes, <em>made entirely of whole spots</em>. Nothing was in the apparatus for anything to interfere with — the census simply filled in the geometry's map. The extant caption calls this <span class="fant">"far from what our common sense tells us."</span> It is exactly what commonsense reports once the pattern is the apparatus's and only the clicks are the light's — frames of a cinematograph, motion in the census alone <span class="tag">see Quantum Cinematograph</span>.</p>
+
+<h2 id="enroute">5 · Nothing is en route — the τ = 0 connection</h2>
+<p>One mystery remains standing from §1: how does the quantum "know," before the slits, what stands after them? Strip the question of its stowaway premise — that the quantum spends time <em>between</em> source and screen in which knowing would have to happen. The corpus holds light as the edge of the time cone: along a light connection the proper time is <strong>zero</strong>, $\tau^2 = t^2 - (s/c)^2 = 0$ — emission and absorption are, in the connection's own books, <strong>one event</strong> <span class="tag">see The Rate of Time · Twins Paradox</span>. Gilbert Lewis said it in 1926: emitter and absorber are literally <em>touching</em>. Pope draws the terminological conclusion: the word <span class="fant">"photon"</span> — a travelling particle — describes nothing in the physics, and he retires it for <strong>photum</strong> (plural <em>phota</em>): the quantum <em>of interaction</em>, not a passenger in transit. This corpus made the same retirement on other grounds <span class="tag">see Quantum Cinematograph · GROUNDING: the photon epicycle</span>.</p>
+<p>Now re-run the "paradoxes" with nothing en route:</p>
+<table>
+<tr><th>Experiment</th><th>Extant telling</th><th>With τ = 0, nothing en route</th></tr>
+<tr><td><strong>Delayed choice</strong> (Wheeler; realized Jacques et al., <em>Science</em> 315, 966, 2007)</td><td><span class="fant">the choice, made after the photon passed the first beamsplitter, retroactively decides wave or particle</span></td><td>There is no "after" along a τ = 0 connection and no passenger to have "already passed." The transaction closes across the apparatus <em>as configured when it closes</em>. Lab-time placement of the choice — before, in, or after the slits — is ledger-irrelevant.</td></tr>
+<tr><td><strong>Quantum eraser</strong> (Kwiat–Steinberg–Chiao, <em>PRA</em> 45, 7729, 1992; delayed version Kim et al., <em>PRL</em> 84, 1, 2000)</td><td><span class="fant">erasing the which-path label after the fact restores fringes: the photons told in advance an eraser was waiting</span></td><td>Polarizer labels and erasers are parts of the <em>connection geometry</em>. Label in place: the two paths terminate in distinguishable states — no composable pair, no parity map. Eraser in place: composability restored. The census follows the geometry <em>that the completed transactions actually ran through</em>; no advance knowledge because no transit.</td></tr>
+<tr><td><strong>Which-path detection</strong></td><td><span class="fant">observation collapses the wavefunction</span></td><td>A detector is an absorber — a real transaction partner, not a spectator. Standing in a path, it takes the connection that path offered. One term of the composition gone, fringes gone. Physics, not psychics.</td></tr>
+</table>
+<p>And the standing worry — <span class="fant">"instantaneous interaction contradicts relativity"</span> — is backwards: the zero proper time of the light connection is <em>supplied by</em> relativity, first-year material read plainly. What propagates at the finite $c$ is the <strong>ordering of transactions in an observer's frame</strong> — the ratio of distance-units to time-units, as Bondi put it — not a passenger's cruise. Instantaneous in its own books, finite-rate in yours: both, with no contradiction <span class="tag">see The Rate of Time</span>.</p>
+
+<h2 id="matter">6 · Matter keeps the same books</h2>
+<p>Electrons, neutrons, atoms, molecules — slower than light, manifestly non-instantaneous — build the same fringes. Pope's essay names the native mechanism: what connects source and screen for a matter beam is not the body's cruise but its <strong>quanta of interaction</strong>, and the rate of the connecting quantum is the beam's kinetic energy on the universal converter, $\nu = E_k/h$. The geometry unit the parity map uses is the matching length — the extant books' <span class="fant">de Broglie wavelength</span>. Extant bridge, stated once for this page: $\lambda = h/p$, and 1&nbsp;eV ↔ 241.799&nbsp;THz on the rate ladder <span class="tag">bridge</span>.</p>
+<div class="eqbox">$$\nu = \frac{E_k}{h} \qquad\qquad \lambda = \frac{h}{p} \qquad\qquad \text{dark sites: } \Delta = \left(n+\tfrac12\right)\lambda$$</div>
+<p>The record, run through the ledger <span class="tag">measured · arithmetic ours</span>:</p>
+<table>
+<tr><th>Experiment</th><th>Body</th><th>Connection numbers</th><th>What it settles</th></tr>
+<tr><td>Jönsson 1961 — first true electron multi-slit (<em>Z. Phys.</em> 161, 454)</td><td>electron, 50 keV</td><td>λ ≈ 5.4 pm (relativistic)</td><td>matter obeys the slit geometry at pm units</td></tr>
+<tr><td>Tonomura 1989 (§4)</td><td>electron, 50 keV, one at a time</td><td>≤ 1 in the instrument; ~12,000 km between successive electrons</td><td>the pattern is a census, not a crowd effect</td></tr>
+<tr><td>Bach–Pope–Liou–Batelaan 2013 — Feynman's thought experiment realized with movable slit masks (<em>New J. Phys.</em> 15, 033018)</td><td>electron, 600 eV</td><td>slits 62 nm wide, 272 nm apart; λ = 50.1 pm; ν = E<sub>k</sub>/h = 145.1 PHz</td><td>open one slit, open both, watch the map switch — controlled, single electrons</td></tr>
+<tr><td>Arndt et al. 1999 (<em>Nature</em> 401, 680)</td><td>C₆₀, 720 u, ~210 m/s</td><td>λ ≈ 2.6 pm — the "wave" a thousand times smaller than the molecule (~1 nm)</td><td>sixty-atom bodies keep the books</td></tr>
+<tr><td>Fein et al. 2019 (<em>Nat. Phys.</em> 15, 1242)</td><td>oligoporphyrin, &gt;25,000 u, ~2,000 atoms, ~300 m/s</td><td>λ ≈ 53 fm — <strong>five orders of magnitude</strong> smaller than the ~5 nm body</td><td>the coup de grâce for "the object waves" (below)</td></tr>
+</table>
+<p><strong>The 53-femtometre verdict.</strong> A five-nanometre molecule of two thousand atoms fringes on a unit of 53 fm — smaller than a proton's radius, a hundred-thousandth of the body it is alleged to describe. Whatever $\lambda$ is, it is not a wobble <em>of the molecule</em>: nothing about a 5 nm body undulates at 53 fm. But as the <strong>geometry unit of the connection</strong> — the closure length the parity map is ruled in, set by $h/p$ — it is exactly at home: the heavier and faster the body, the finer the ruling, until the map's bands blur below resolution and the census looks classical. The classical world is not a different physics; it is the same parity map ruled too fine to see <span class="tag">see Quantum Cinematograph — correspondence as frame rate</span>.</p>
+
+<h2 id="language">7 · The language problem — duality as a grin without a cat</h2>
+<p>What remains of <span class="fant">wave–particle duality</span>? Two bookkeeping columns, misread as two bodies:</p>
+<table>
+<tr><th>The word</th><th>What it actually names</th><th>Status</th></tr>
+<tr><td><span class="fant">"the wave"</span></td><td>the parity map — the apparatus's static geometry of closable connections (§2), unit λ = h/p</td><td>bookkeeping; never observed as a body, never in any single click</td></tr>
+<tr><td><span class="fant">"the particle"</span></td><td>the whole-turn transaction — one completed closure, $\oint d\varphi = 2\pi n$, whole or nothing (§3)</td><td>the event; never mid-flight, never fringed</td></tr>
+</table>
+<p>The extant model keeps the interference arithmetic while denying it a subject, then mints two subjects to carry it — a wave-thing that is never caught and a particle-thing that is never partial, alternating <span class="fant">on observation</span>. That is the attribute-ontology failure the corpus has named in creed: <strong>grins without cats, and cats drawn around bookkeeping</strong> <a href="./mass-as-trapped-rate.html#grin">— the grin is the cat</a>. Promote the quantity to the substance and both phantoms retire at once: the closure <em>is</em> the "particle"; the closure-potential geometry <em>is</em> the "wave"; nothing is ever both, because neither is a thing in flight.</p>
+<p>Even the extant method already computes this way. Feynman's path integral assigns every <em>path</em> a phase — a turn tally — and composes them; the arrows are Pope's tape-measures in professional dress. The calculation sums over <strong>potential connections in a static geometry</strong> and never once propagates a body; the narration then awards the answer to <span class="fant">a particle that took every path</span>. The mathematics is transactional bookkeeping; only the <em>caption</em> travels. Wittgenstein's word for mysteries of caption is <em>Scheinprobleme</em> — and Pope's 1995 closing stands as written: what cannot be denied is that <span class="fant">"photons," "wave-particles," "the limiting speed of light in vacuo"</span> have lost touch with the logical commonness and connectedness of plain description. The experiment was never mysterious. The vocabulary was.</p>
+
+<div class="card gold">
+<p style="margin:.2rem 0"><strong>The page in one paragraph.</strong> The fringe map is the apparatus's static geometry — tape-measure parity, real before any light. The quantum is a whole turn — it happens entire at a site the map allows, or not at all. The connection it happens across has zero proper time — nothing is en route to know anything, so "delayed" choices and "erased" labels are just configurations of the geometry the transaction actually closes through. Matter runs the same ledger with the ruling set by $h/p$, down to 53 fm under a five-nanometre molecule. Wave and particle were the map and the event, wearing costumes. <em>Interference without waves; arrival without bullets; geometry deciding, the census keeping score.</em></p>
+</div>
+
+<h2 id="notes">Notes &amp; sources</h2>
+<p class="note"><strong>Source essay:</strong> N. V. Pope, <a href="https://cfmilam.github.io/nr-poams-papers/a-commonsense-look-at-the-two-slit-experiment.html"><em>A Commonsense Look at the Two-Slit Experiment</em></a>, Penclawdd, 27 Nov 1995 — the tape-measure model (§2), whole-turn probability (§3), τ = 0 / photum (§5), and the kinetic-energy rate for matter beams (§6) are his; the phasor composition, the imported-squaring disclosure, the modern receipts, and the creed reading are this corpus's extrapolation.</p>
+<p class="note"><strong>Measured record cited:</strong> Feynman, <em>Lectures</em> III·1 · G. I. Taylor, <em>Proc. Camb. Phil. Soc.</em> 15, 114 (1909) · Grangier–Roger–Aspect, <em>Europhys. Lett.</em> 1, 173 (1986) · Tonomura et al., <em>Am. J. Phys.</em> 57, 117 (1989) and Hitachi's published account (50 kV, ~10 e⁻/s, 20 min) · Jönsson, <em>Z. Phys.</em> 161, 454 (1961) · Bach–Pope–Liou–Batelaan, <em>New J. Phys.</em> 15, 033018 (2013) · Arndt et al., <em>Nature</em> 401, 680 (1999) · Fein et al., <em>Nat. Phys.</em> 15, 1242 (2019) · Kwiat–Steinberg–Chiao, <em>Phys. Rev. A</em> 45, 7729 (1992) · Kim et al., <em>Phys. Rev. Lett.</em> 84, 1 (2000) · Jacques et al., <em>Science</em> 315, 966 (2007) · G. N. Lewis, <em>Nature</em> 118, 874 (1926). Arithmetic on this page (λ, ν, spacings, ratios) re-derived from CODATA constants and checked independently.</p>
+<p class="note"><strong>What this page does not claim:</strong> a derivation of the squaring rule (§3, disclosed imported); a mechanism for single-transaction site selection beyond the census law (the ledger fixes the map and the wholeness, not the individual draw); any change to the measured record, which is kept entire and tagged.</p>
+
+<div class="nav">
+  <a href="./quantum-cinematograph.html">← Quantum Cinematograph</a>
+  <a href="./index.html">All exhibits</a>
+  <a href="./time-rope.html">The Time Rope →</a>
+</div>
+</main>
+
+<script>
+// ---------- §2 tape-measure map ----------
+const tc=document.getElementById('tapeCanvas'),tx=tc.getContext('2d');
+const pS=document.getElementById('pSlider'),dS=document.getElementById('dSlider'),lS=document.getElementById('lSlider');
+const blockBtn=document.getElementById('blockBtn'),tRead=document.getElementById('tapeReadout');
+let blocked=false;
+blockBtn.onclick=()=>{blocked=!blocked;blockBtn.textContent=blocked?'open slit B':'block slit B';blockBtn.className=blocked?'':'off';drawTape();};
+function geo(w,h){const d=+dS.value;return{S:{x:46,y:h/2},x1:200,s1:{x:200,y:h/2-d/2},s2:{x:200,y:h/2+d/2},sx:w-110};}
+function pathDiff(g,y){const r1a=Math.hypot(g.s1.x-g.S.x,g.s1.y-g.S.y),r1b=Math.hypot(g.sx-g.s1.x,y-g.s1.y);
+const r2a=Math.hypot(g.s2.x-g.S.x,g.s2.y-g.S.y),r2b=Math.hypot(g.sx-g.s2.x,y-g.s2.y);
+return{r1:r1a+r1b,r2:r2a+r2b,d:(r2a+r2b)-(r1a+r1b)};}
+function drawTape(){
+  const W=tc.width=tc.clientWidth*2;tc.height=600;tx.save();tx.scale(2,2);
+  const w=W/2,h=300;tx.clearRect(0,0,w,h);
+  const g=geo(w,h),lam=+lS.value;
+  // strip: parity map painted from tape arithmetic
+  for(let y=8;y<h-8;y++){
+    const pd=pathDiff(g,y);
+    let b;
+    if(blocked){b=0.55*Math.exp(-Math.pow((y-h/2)/(h*0.42),2));}
+    else{const c=Math.cos(Math.PI*pd.d/lam);b=Math.pow(c,2)*Math.exp(-Math.pow((y-h/2)/(h*0.42),2));}
+    tx.fillStyle='rgba(201,168,76,'+(0.08+0.9*b)+')';
+    tx.fillRect(g.sx+18,y,26,1);
+  }
+  tx.strokeStyle='#2a2a3e';tx.strokeRect(g.sx+18,8,26,h-16);
+  tx.fillStyle='#9a9ab0';tx.font='10px Georgia';tx.save();tx.translate(g.sx+58,h/2);tx.rotate(Math.PI/2);tx.textAlign='center';tx.fillText(blocked?'single-tape envelope':'parity map — painted from tape lengths alone',0,0);tx.restore();
+  // apparatus
+  tx.fillStyle='#e2e2ea';tx.beginPath();tx.arc(g.S.x,g.S.y,5,0,7);tx.fill();
+  tx.fillStyle='#9a9ab0';tx.font='11px Georgia';tx.fillText('source',g.S.x-18,g.S.y+22);
+  tx.strokeStyle='#555570';tx.lineWidth=4;
+  tx.beginPath();tx.moveTo(g.x1,6);tx.lineTo(g.x1,g.s1.y-7);tx.stroke();
+  tx.beginPath();tx.moveTo(g.x1,g.s1.y+7);tx.lineTo(g.x1,g.s2.y-7);tx.stroke();
+  tx.beginPath();tx.moveTo(g.x1,g.s2.y+7);tx.lineTo(g.x1,h-6);tx.stroke();
+  tx.font='11px Georgia';tx.fillText('A',g.x1-16,g.s1.y+4);tx.fillText('B',g.x1-16,g.s2.y+4);
+  if(blocked){tx.fillStyle='#e05f5f';tx.fillRect(g.x1-3,g.s2.y-7,6,14);}
+  tx.strokeStyle='#2a2a3e';tx.lineWidth=2;tx.beginPath();tx.moveTo(g.sx,8);tx.lineTo(g.sx,h-8);tx.stroke();
+  // screen point + tapes
+  const yP=8+(+pS.value/1000)*(h-16),pd=pathDiff(g,yP);
+  tx.lineWidth=2;
+  tx.strokeStyle='#64b5e0';tx.beginPath();tx.moveTo(g.S.x,g.S.y);tx.lineTo(g.s1.x,g.s1.y);tx.lineTo(g.sx,yP);tx.stroke();
+  if(!blocked){tx.strokeStyle='#66bb6a';tx.beginPath();tx.moveTo(g.S.x,g.S.y);tx.lineTo(g.s2.x,g.s2.y);tx.lineTo(g.sx,yP);tx.stroke();}
+  tx.fillStyle='#c9a84c';tx.beginPath();tx.arc(g.sx,yP,5,0,7);tx.fill();
+  tx.restore();
+  const halves=pd.d/(lam/2),n=Math.round(halves),even=(n%2===0),near=Math.abs(halves-n)<0.25;
+  tRead.textContent=blocked
+    ?'one tape only — Δ undefined; the parity map is gone, the smooth single-path distribution remains'
+    :'tape A = '+pd.r1.toFixed(1)+'  ·  tape B = '+pd.r2.toFixed(1)+'  ·  Δ = '+pd.d.toFixed(1)+' = '+halves.toFixed(2)+' half-units → '
+      +(near?(even?'EVEN — in synch: GO (bright site)':'ODD — out of synch: NO-GO (dark site)'):'between parities — partial synch');
+}
+[pS,dS,lS].forEach(s=>s.oninput=drawTape);
+window.addEventListener('resize',drawTape);drawTape();
+
+// ---------- §4 census builder ----------
+const cc=document.getElementById('censusCanvas'),cx=cc.getContext('2d');
+const cRead=document.getElementById('censusReadout'),markBtn=document.getElementById('markBtn');
+let marked=false,dots=[],bins=new Array(120).fill(0);
+markBtn.onclick=()=>{marked=!marked;markBtn.textContent=marked?'unmark the path':'mark the path';markBtn.className=marked?'':'off';};
+const LAM=0.09; // fringe unit in normalized screen coords
+function density(u){const env=Math.exp(-Math.pow((u-0.5)/0.32,2));if(marked)return env;const c=Math.cos(Math.PI*(u-0.5)/LAM);return env*Math.pow(c,2);}
+function sample(){for(;;){const u=Math.random(),f=Math.random();if(f<density(u))return u;}}
+function release(n){for(let i=0;i<n;i++){const u=sample();dots.push({u,j:Math.random(),m:marked});const b=Math.min(119,Math.floor(u*120));bins[b]++;}
+  if(dots.length>9000)dots=dots.slice(-9000);drawCensus();}
+document.getElementById('one').onclick=()=>release(1);
+document.getElementById('thousand').onclick=()=>release(1000);
+document.getElementById('clearBtn').onclick=()=>{dots=[];bins.fill(0);drawCensus();};
+function drawCensus(){
+  const W=cc.width=cc.clientWidth*2;cc.height=600;cx.save();cx.scale(2,2);
+  const w=W/2,h=300;cx.clearRect(0,0,w,h);
+  const pad=30,sw=w-2*pad;
+  // arrival field
+  cx.strokeStyle='#2a2a3e';cx.strokeRect(pad,14,sw,150);
+  cx.fillStyle='#9a9ab0';cx.font='11px Georgia';cx.fillText('arrival field — every mark one whole click',pad+4,28);
+  dots.forEach(d=>{cx.fillStyle=d.m?'rgba(224,95,95,.8)':'rgba(201,168,76,.8)';cx.fillRect(pad+d.u*sw,26+d.j*132,1.6,1.6);});
+  // census histogram
+  const total=bins.reduce((a,b)=>a+b,0),mx=Math.max(...bins,1);
+  cx.fillStyle='#9a9ab0';cx.fillText('the census',pad+4,190);
+  for(let b=0;b<120;b++){const bh=(bins[b]/mx)*92;cx.fillStyle='#64b5e0';cx.fillRect(pad+(b/120)*sw,286-bh,sw/120-0.5,bh);}
+  cx.strokeStyle='#2a2a3e';cx.strokeRect(pad,176,sw,112);
+  cx.restore();
+  cRead.textContent=total+' arrivals — '+(total===0?'':(marked?'which-way transaction in place: envelope only':'both connections open: parity map emerging'));
+}
+window.addEventListener('resize',drawCensus);drawCensus();
+</script>
+</body>
+</html>
