@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,9 @@
 <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 <style>
 :root{--bg:#0d0d18;--panel:#131322;--edge:#26263a;--gold:#d4af37;--blue:#5bc8f5;--red:#e06060;--green:#63d67e;--fg:#dfe0ea;--muted:#9a9bb0;}
+body.light{--bg:#faf8f2;--panel:#ffffff;--edge:#d9d2bf;--gold:#8b6914;--blue:#176e94;--red:#b03030;--green:#2e7d32;--fg:#26211a;--muted:#6b6355;}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font-family:Georgia,'Times New Roman',serif;line-height:1.65;}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Georgia,'Times New Roman',serif;line-height:1.65;transition:background .3s,color .3s;}
 header{padding:44px 22px 22px;border-bottom:1px solid var(--edge);text-align:center;}
 header h1{margin:0 0 14px;font-size:27px;line-height:1.35;color:var(--gold);font-weight:650;}
 .sub{max-width:880px;margin:14px auto 0;color:var(--muted);font-size:15px;}
@@ -19,6 +20,10 @@ header h1{margin:0 0 14px;font-size:27px;line-height:1.35;color:var(--gold);font
 #poams-hub-nav .phn-center{display:flex;flex-direction:column;align-items:center;line-height:1.2;}
 #poams-hub-nav .phn-title{font-weight:600;color:var(--fg);font-size:12px;}
 #poams-hub-nav .phn-pos{font-size:10px;color:rgba(212,175,55,0.6);letter-spacing:.05em;}
+[data-theme="light"] #poams-hub-nav,body.light #poams-hub-nav{background:rgba(250,248,242,0.95);border-bottom-color:rgba(139,105,20,0.25);}
+[data-theme="light"] #poams-hub-nav a,body.light #poams-hub-nav a{color:#8b6914;}
+body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
+[data-theme="light"] #poams-hub-nav .phn-title,body.light #poams-hub-nav .phn-title{color:#2a2318;}
 @media (max-width:640px){.phn-hide-sm{display:none;}}
 body{padding-top:72px;}
 main{max-width:900px;margin:0 auto;padding:10px 18px 40px;}
@@ -58,6 +63,12 @@ a{color:var(--blue);}
 .platecap{text-align:center;font-size:13px;color:#6b6650;margin-top:6px;font-style:italic;}
 .plate .platecap{color:#6b6650;}
 section.appendix{margin-top:30px;}
+.theme-toggle{position:fixed;top:54px;right:12px;z-index:1000;background:var(--gold);color:var(--bg);border:none;width:40px;height:40px;border-radius:8px;padding:0;cursor:pointer;font-size:1.15rem;display:flex;align-items:center;justify-content:center}
+body.light canvas{background:#f6f3ea}
+body.light .eqbox,body.light .equation{background:#f6f3ea}
+body.light button{background:#e8e0cc}
+body.light .tag.prov{background:#dbe8f0;color:#176e94}
+body.light .tag.edit{background:#f0e6c8;color:#8b6914}
 </style>
 </head>
 <body>
@@ -71,6 +82,9 @@ section.appendix{margin-top:30px;}
   </div>
   <a href="./orbital-time-dilation.html" title="Orbital Time Dilation"><span class="phn-hide-sm">Orbital Time Dilation</span> →</a>
 </div>
+
+<button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle light/dark theme">☀️</button>
+
 <header>
   <h1>A Cone-Model of Time-Dilation</h1>
 <p class="nr-provenance" style="font-size:0.8em;font-style:italic;opacity:0.72;line-height:1.6;margin:0 auto 1.2em;max-width:820px;text-align:center">This exhibit presents, unabridged, a foundational source document of the philosophy of Normal Realism (NR): N. Vivian “Viv” Pope's cone-model paper, read at the 1986 EASST Conference. Pope's text and figures are reproduced verbatim (the figures as archival plates); the interactive apparatus is added, and the mathematics anticipates the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
@@ -828,6 +842,19 @@ by the neutrino account's leg-clock). The former engineering-site copy of this p
 </footer>
 <script>
 (function(){
+/* ── theme ── */
+function pal(){return document.body.classList.contains('light')
+ ?{green:'#2e7d32',blue:'#176e94',gold:'#8b6914',edge:'#c9c2ae',mut:'#6b6355',ink:'#26211a',goldA:a=>'rgba(139,105,20,'+a+')',blueA:a=>'rgba(23,110,148,'+a+')',mutA:a=>'rgba(107,99,85,'+a+')'}
+ :{green:'#63d67e',blue:'#5bc8f5',gold:'#d4af37',edge:'#26263a',mut:'#9a9bb0',ink:'#dfe0ea',goldA:a=>'rgba(212,175,55,'+a+')',blueA:a=>'rgba(91,200,245,'+a+')',mutA:a=>'rgba(154,155,176,'+a+')'}}
+function toggleTheme(){
+ document.body.classList.toggle('light');
+ const light=document.body.classList.contains('light');
+ const tb=document.querySelector('.theme-toggle');if(tb)tb.textContent=light?'🌙':'☀️';
+ try{localStorage.setItem('poams-theme',light?'light':'dark')}catch(e){}
+ drawTri();if(spun)drawCone();drawScale();
+}
+window.toggleTheme=toggleTheme;
+try{if(localStorage.getItem('poams-theme')==='light'){document.body.classList.add('light');const tb=document.querySelector('.theme-toggle');if(tb)tb.textContent='🌙';}}catch(e){}
 function beta(el){return parseFloat(el.value);}
 function fmt(x,d){return x.toFixed(d===undefined?4:d);}
 
@@ -835,21 +862,22 @@ function fmt(x,d){return x.toFixed(d===undefined?4:d);}
 const tc=document.getElementById('triCanvas'),tctx=tc.getContext('2d');
 const tS=document.getElementById('triSlider');
 function drawTri(){
+ const PAL=pal();
  const b=beta(tS),g=1/Math.sqrt(1-b*b);
  document.getElementById('triV').textContent=fmt(b,3);
  const W=tc.width,H=tc.height;tctx.clearRect(0,0,W,H);
  const L=250, x0=90,y0=H-60;
  const sx=L*b, ty=L*Math.sqrt(1-b*b);
  // triangle: vertical leg tau up from origin, horizontal leg s/c right at top, hyp t from origin to tip
- tctx.strokeStyle='#63d67e';tctx.lineWidth=3;tctx.beginPath();tctx.moveTo(x0,y0);tctx.lineTo(x0,y0-ty);tctx.stroke();
- tctx.strokeStyle='#5bc8f5';tctx.beginPath();tctx.moveTo(x0,y0-ty);tctx.lineTo(x0+sx,y0-ty);tctx.stroke();
- tctx.strokeStyle='#d4af37';tctx.beginPath();tctx.moveTo(x0,y0);tctx.lineTo(x0+sx,y0-ty);tctx.stroke();
+ tctx.strokeStyle=PAL.green;tctx.lineWidth=3;tctx.beginPath();tctx.moveTo(x0,y0);tctx.lineTo(x0,y0-ty);tctx.stroke();
+ tctx.strokeStyle=PAL.blue;tctx.beginPath();tctx.moveTo(x0,y0-ty);tctx.lineTo(x0+sx,y0-ty);tctx.stroke();
+ tctx.strokeStyle=PAL.gold;tctx.beginPath();tctx.moveTo(x0,y0);tctx.lineTo(x0+sx,y0-ty);tctx.stroke();
  // right-angle mark
- tctx.strokeStyle='#26263a';tctx.lineWidth=1;tctx.strokeRect(x0,y0-ty,12,12);
+ tctx.strokeStyle=PAL.edge;tctx.lineWidth=1;tctx.strokeRect(x0,y0-ty,12,12);
  tctx.font='14px Georgia,serif';
- tctx.fillStyle='#63d67e';tctx.fillText('τ = '+fmt(Math.sqrt(1-b*b),3)+'  (traveller\u2019s time)',x0-72,y0-ty/2>y0-20?y0-20:y0-ty/2);
- tctx.fillStyle='#5bc8f5';tctx.fillText('s/c = '+fmt(b,3),x0+sx/2-30,y0-ty-10);
- tctx.fillStyle='#d4af37';tctx.fillText('t = 1  (observer\u2019s time, the hypotenuse)',x0+sx/2-70,y0-ty/2+26);
+ tctx.fillStyle=PAL.green;tctx.fillText('τ = '+fmt(Math.sqrt(1-b*b),3)+'  (traveller\u2019s time)',x0-72,y0-ty/2>y0-20?y0-20:y0-ty/2);
+ tctx.fillStyle=PAL.blue;tctx.fillText('s/c = '+fmt(b,3),x0+sx/2-30,y0-ty-10);
+ tctx.fillStyle=PAL.gold;tctx.fillText('t = 1  (observer\u2019s time, the hypotenuse)',x0+sx/2-70,y0-ty/2+26);
  document.getElementById('triStats').innerHTML=
   'τ/t = '+fmt(Math.sqrt(1-b*b),4)+' &nbsp;·&nbsp; γ = '+fmt(g,4)+'<br>check: τ² + (s/c)² = '+fmt((1-b*b)+b*b,4)+' = t²';
 }
@@ -891,34 +919,35 @@ function sphere3(t,color){ // wireframe sphere radius t centered origin
  for(const ph of [Math.PI/6,Math.PI/3]){circle3(t*Math.cos(ph),t*Math.sin(ph),color,1,[3,4]);circle3(t*Math.cos(ph),-t*Math.sin(ph),color,1,[3,4]);}
 }
 function drawCone(){
+ const PAL=pal();
  const b=beta(cS);document.getElementById('coneV').textContent=fmt(b,3);
  const W=cc.width,H=cc.height;cctx.clearRect(0,0,W,H);
  const TMAX=2.6, ct=Math.sqrt(1-b*b);
  // plan grid (light-plane at z=0)
- circle3(TMAX,0,'rgba(154,155,176,0.25)',1);
- line3([-TMAX,0,0],[TMAX,0,0],'rgba(154,155,176,0.2)',1);
- line3([0,-TMAX,0],[0,TMAX,0],'rgba(154,155,176,0.2)',1);
+ circle3(TMAX,0,PAL.mutA(0.25),1);
+ line3([-TMAX,0,0],[TMAX,0,0],PAL.mutA(0.2),1);
+ line3([0,-TMAX,0],[0,TMAX,0],PAL.mutA(0.2),1);
  // sphere shells (the onion)
- if(shells){for(let t=1;t<=2;t++) sphere3(t,'rgba(91,200,245,0.35)');}
+ if(shells){for(let t=1;t<=2;t++) sphere3(t,PAL.blueA(0.35));}
  // observer axis
- line3([0,0,0],[0,0,TMAX],'#63d67e',2.5);
+ line3([0,0,0],[0,0,TMAX],PAL.green,2.5);
  // cone: generators + t-rings on the surface
  const rr=b, zz=ct; // per unit t
- for(let k=0;k<12;k++){const a=k/12*2*Math.PI;line3([0,0,0],[TMAX*rr*Math.cos(a),TMAX*rr*Math.sin(a),TMAX*zz],'rgba(212,175,55,0.25)',1);}
- for(let t=1;t<=2;t++) circle3(t*rr,t*zz,'rgba(212,175,55,0.6)',1.5);
+ for(let k=0;k<12;k++){const a=k/12*2*Math.PI;line3([0,0,0],[TMAX*rr*Math.cos(a),TMAX*rr*Math.sin(a),TMAX*zz],PAL.goldA(0.25),1);}
+ for(let t=1;t<=2;t++) circle3(t*rr,t*zz,PAL.goldA(0.6),1.5);
  // traveller worldline on the cone at fixed azimuth
  const az=0.4;
- line3([0,0,0],[TMAX*rr*Math.cos(az),TMAX*rr*Math.sin(az),TMAX*zz],'#d4af37',3);
+ line3([0,0,0],[TMAX*rr*Math.cos(az),TMAX*rr*Math.sin(az),TMAX*zz],PAL.gold,3);
  // beads at t=1,2 on both histories
- cctx.fillStyle='#63d67e';
+ cctx.fillStyle=PAL.green;
  for(let t=1;t<=2;t++){const p=P(0,0,t);cctx.beginPath();cctx.arc(p[0],p[1],4,0,7);cctx.fill();}
- cctx.fillStyle='#d4af37';
+ cctx.fillStyle=PAL.gold;
  for(let t=1;t<=2;t++){const p=P(t*rr*Math.cos(az),t*rr*Math.sin(az),t*zz);cctx.beginPath();cctx.arc(p[0],p[1],4,0,7);cctx.fill();}
  // labels
  cctx.font='12.5px Georgia,serif';
- let p=P(0,0,TMAX);cctx.fillStyle='#63d67e';cctx.fillText('τ (stay-at-home time, the axis)',p[0]+8,p[1]);
- p=P(TMAX*rr*Math.cos(az),TMAX*rr*Math.sin(az),TMAX*zz);cctx.fillStyle='#d4af37';cctx.fillText('traveller — a generator on the cone',p[0]-90,p[1]-10);
- p=P(TMAX,0,0);cctx.fillStyle='#9a9bb0';cctx.fillText('the plan (s/c) — Fig 8a',p[0]-60,p[1]+18);
+ let p=P(0,0,TMAX);cctx.fillStyle=PAL.green;cctx.fillText('τ (stay-at-home time, the axis)',p[0]+8,p[1]);
+ p=P(TMAX*rr*Math.cos(az),TMAX*rr*Math.sin(az),TMAX*zz);cctx.fillStyle=PAL.gold;cctx.fillText('traveller — a generator on the cone',p[0]-90,p[1]-10);
+ p=P(TMAX,0,0);cctx.fillStyle=PAL.mut;cctx.fillText('the plan (s/c) — Fig 8a',p[0]-60,p[1]+18);
  const theta=Math.asin(b)*180/Math.PI;
  document.getElementById('coneStats').innerHTML=
   'cone half-angle θ = '+fmt(theta,1)+'° &nbsp;(sin θ = v/c)<br>'+
@@ -948,17 +977,18 @@ const sc=document.getElementById('scaleCanvas'),sctx=sc.getContext('2d');
 let curV=1.29e-5, curN='GPS satellite (3.87 km/s)';
 document.querySelectorAll('.preset').forEach(bt=>bt.addEventListener('click',()=>{curV=parseFloat(bt.dataset.v);curN=bt.dataset.n;drawScale();}));
 function drawScale(){
+ const PAL=pal();
  const b=curV,g=1/Math.sqrt(1-b*b);
  const W=sc.width,H=sc.height;sctx.clearRect(0,0,W,H);
  // log axis of (1 - tau/t) from 1e-19 to 1
  const lmin=-19,lmax=0,x0=30,x1=W-20,y=H/2+10;
  const frac=1-Math.sqrt(1-b*b);
  const X=v=>x0+(Math.log10(Math.max(v,1e-19))-lmin)/(lmax-lmin)*(x1-x0);
- sctx.strokeStyle='#26263a';sctx.beginPath();sctx.moveTo(x0,y);sctx.lineTo(x1,y);sctx.stroke();
- sctx.font='11px Menlo,monospace';sctx.fillStyle='#9a9bb0';
- for(let e=lmin;e<=lmax;e+=3){const x=X(Math.pow(10,e));sctx.fillText('1e'+e,x-12,y+22);sctx.strokeStyle='#26263a';sctx.beginPath();sctx.moveTo(x,y-4);sctx.lineTo(x,y+4);sctx.stroke();}
- sctx.fillStyle='#d4af37';const xm=X(frac);sctx.beginPath();sctx.arc(xm,y,6,0,7);sctx.fill();
- sctx.font='13px Georgia,serif';sctx.fillStyle='#dfe0ea';sctx.fillText(curN+' — fractional deficit (1 − τ/t)',x0,18);
+ sctx.strokeStyle=PAL.edge;sctx.beginPath();sctx.moveTo(x0,y);sctx.lineTo(x1,y);sctx.stroke();
+ sctx.font='11px Menlo,monospace';sctx.fillStyle=PAL.mut;
+ for(let e=lmin;e<=lmax;e+=3){const x=X(Math.pow(10,e));sctx.fillText('1e'+e,x-12,y+22);sctx.strokeStyle=PAL.edge;sctx.beginPath();sctx.moveTo(x,y-4);sctx.lineTo(x,y+4);sctx.stroke();}
+ sctx.fillStyle=PAL.gold;const xm=X(frac);sctx.beginPath();sctx.arc(xm,y,6,0,7);sctx.fill();
+ sctx.font='13px Georgia,serif';sctx.fillStyle=PAL.ink;sctx.fillText(curN+' — fractional deficit (1 − τ/t)',x0,18);
  const perDay=frac*86400;
  let human;
  if(perDay<1e-6) human=(perDay*1e9).toFixed(3)+' ns per day';
