@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Polyverse — Black Holes, the Redshift, the Big Bang, and the Microwave Sky</title>
+<script>window.MathJax={tex:{inlineMath:[['$','$']],displayMath:[['$$','$$']]}};</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+<style>
+:root{--bg:#0d0d17;--card:#12121e;--edge:#2a2a3e;--fg:#e2e2ea;--mut:#9a9ab0;--gold:#c9a84c;--blue:#64b5e0;--green:#66bb6a;--red:#e05f5f;}
+body.light{--bg:#faf8f2;--card:#ffffff;--edge:#d9d2bf;--fg:#26211a;--mut:#6b6355;--gold:#8b6914;--blue:#1f6f9f;--green:#2e7d32;--red:#b03030;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:Georgia,serif;line-height:1.7;font-size:16.5px;transition:background .3s,color .3s}
+main{max-width:880px;margin:0 auto;padding:2.2rem 1.2rem 4rem}
+h1{color:var(--gold);font-size:1.7rem;line-height:1.25;margin:.4rem 0 .6rem}
+h2{color:var(--gold);font-size:1.25rem;border-bottom:1px solid var(--edge);padding-bottom:.3rem;margin:2.2rem 0 .8rem}
+h3{color:var(--blue);font-size:1.05rem;margin:1.4rem 0 .5rem}
+p{margin:.8rem 0}
+.prov{font-size:.82rem;color:var(--mut);border-left:3px solid var(--gold);padding:.5rem .9rem;background:rgba(201,168,76,.05);margin:.8rem 0}
+.tag{display:inline-block;font-size:.7rem;letter-spacing:.05em;padding:.05rem .4rem;border:1px solid var(--edge);border-radius:4px;color:var(--mut);vertical-align:middle}
+.fant{color:var(--mut);font-style:italic}
+.card{background:var(--card);border:1px solid var(--edge);border-radius:10px;padding:1rem 1.2rem;margin:1.1rem 0}
+.card.gold{border-color:var(--gold)}
+.note{font-size:.88rem;color:var(--mut)}
+canvas{width:100%;border:1px solid var(--edge);border-radius:8px;background:#0a0a14;display:block}
+.ctl{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin:.6rem 0;font-size:.9rem}
+.ctl label{color:var(--mut)}
+button{background:var(--gold);color:#111;border:none;border-radius:6px;padding:.35rem .8rem;font-family:inherit;font-size:.9rem;cursor:pointer}
+button.off{background:#333347;color:var(--mut)}
+input[type=range]{accent-color:var(--gold)}
+table{border-collapse:collapse;width:100%;font-size:.9rem;margin:.8rem 0}
+th,td{border:1px solid var(--edge);padding:.45rem .6rem;text-align:left}
+th{color:var(--gold);font-weight:normal}
+td.c{text-align:center}
+a{color:var(--blue)}
+.readout{font-family:Menlo,monospace;font-size:.85rem;color:var(--green)}
+.nav{display:flex;justify-content:space-between;font-size:.85rem;margin-top:3rem;border-top:1px solid var(--edge);padding-top:1rem}
+.eqbox{background:#10101e;border:1px solid var(--edge);border-radius:8px;padding:8px 12px;margin:10px 0;overflow-x:auto}
+.theme-toggle{position:fixed;top:54px;right:12px;z-index:1000;background:var(--gold);color:var(--bg);border:none;width:40px;height:40px;border-radius:8px;padding:0;cursor:pointer;font-size:1.15rem;display:flex;align-items:center;justify-content:center}
+body.light canvas{background:#f6f3ea}
+body.light .eqbox{background:#f6f3ea}
+body.light .prov{background:rgba(139,105,20,.06)}
+body.light button{color:#fff}
+body.light button.off{background:#dcd5c2;color:#6b6355}
+.q{border-left:3px solid var(--blue);padding:.45rem .95rem;font-style:italic;background:rgba(100,181,224,.05);margin:.9rem 0;font-size:.95rem}
+.q .src{display:block;font-style:normal;font-size:.78rem;color:var(--mut);margin-top:4px}
+#creed{display:flex;flex-wrap:wrap;gap:0;align-items:stretch;border:1px solid var(--edge);border-radius:8px;overflow:hidden;margin:1rem 0;background:var(--card);font-size:11px;line-height:1.45}
+#creed .c{flex:1;min-width:130px;padding:7px 12px;border-right:1px solid var(--edge);color:var(--mut)}
+#creed .c:last-child{border-right:none}
+#creed .c b{color:var(--gold);display:block;font-size:10px;letter-spacing:.02em;margin-bottom:1px}
+.tier{border:1px solid var(--edge);border-radius:8px;padding:.7rem 1rem;margin:.8rem 0;font-size:.92rem}
+.tier.forced{border-left:4px solid var(--green)}
+.tier.open{border-left:4px solid var(--red)}
+</style>
+<style id="poams-hub-nav-style">
+#poams-hub-nav{position:fixed;top:0;left:0;right:0;z-index:9999;height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 1rem;background:rgba(13,13,24,0.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,175,55,0.25);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;box-sizing:border-box;}
+#poams-hub-nav a{color:#d4af37;text-decoration:none;display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:6px;transition:background .2s;white-space:nowrap;font-weight:500;}
+#poams-hub-nav a:hover{background:rgba(212,175,55,0.12);}
+#poams-hub-nav .phn-center{display:flex;flex-direction:column;align-items:center;line-height:1.2;}
+#poams-hub-nav .phn-title{font-weight:600;color:#e8e8f0;font-size:12px;}
+#poams-hub-nav .phn-pos{font-size:10px;color:rgba(212,175,55,0.6);letter-spacing:.05em;}
+[data-theme="light"] #poams-hub-nav,body.light #poams-hub-nav{background:rgba(250,248,242,0.95);border-bottom-color:rgba(139,105,20,0.25);}
+[data-theme="light"] #poams-hub-nav a,body.light #poams-hub-nav a{color:#8b6914;}
+body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
+[data-theme="light"] #poams-hub-nav .phn-title,body.light #poams-hub-nav .phn-title{color:#2a2318;}
+@media (max-width:640px){.phn-hide-sm{display:none;}}
+body{padding-top:72px !important;}
+</style>
+</head>
+<body>
+<div id="poams-hub-nav">
+  <a href="./the-poams-brilliant-vortex-atom.html" title="The POAMS Brilliant Vortex Atom">← <span class="phn-hide-sm">The Brilliant Vortex Atom</span></a>
+  <div class="phn-center">
+    <a href="./index.html" style="flex-direction:column;gap:2px;padding:4px 12px;">
+      <span class="phn-title">The Polyverse</span>
+      <span class="phn-pos">NR · POAMS · EXHIBIT SERIES</span>
+    </a>
+  </div>
+  <a href="./dunne-serialism.html" title="Dunne Serialism"><span class="phn-hide-sm">Dunne Serialism</span> →</a>
+</div>
+
+<button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle light/dark theme">☀️</button>
+
+<main>
+<h1>The Polyverse</h1>
+<p class="note" style="margin-top:-2px">No God&rsquo;s-eye instant &middot; no chalk-circle universe &middot; empty barycentres, not holes &middot; the redshift books the growth of the ledger between the two entries of one hand-off &middot; no zero &mdash; a spin-pinned bounce &middot; evolution yes, singularity no</p>
+<p class="note" style="font-size:.82rem">Sibling exhibits: <a href="./the-poams-brilliant-vortex-atom.html">The Brilliant Vortex Atom</a> classified the seeds (items 26&ndash;28) — this page grows them into the full cosmology and then <em>audits</em> them against the measured sky. <a href="./orbital-time-dilation.html">Orbital Time Dilation</a> and <a href="./gps-clocks.html">GPS Clocks</a> hold the rate-offset machinery and its engineering receipts. <a href="./varying-g.html">Varying G</a> carries the spin channel. <a href="./the-two-slit-experiment.html">The Two-Slit Experiment</a> and <a href="./antenna-emission.html">Antenna Emission</a> hold the no-photon doctrine this page enforces throughout.</p>
+<div class="prov">This exhibit is an extrapolation of the foundational work of N. Vivian &ldquo;Viv&rdquo; Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).<br>
+Primary sources: <em>The Eye of the Beholder</em> (2004) &sect;VII.1&ndash;VII.2; <em>Light-Speed, Gravitation and Quantum Instantaneity</em> (2007) Ch.&nbsp;9 &sect;&sect;9.1&ndash;9.5 with footnote 26; <em>Immediate Distant Action and Correlation in Modern Physics</em> (2005) &sect;5.9.3; <em>Wondering in the Wilderness</em> (2009) on the polyverse; A.&nbsp;D. Osborne, <em>Gravitation and the Problem of Space-time Singularities</em>, Bull. IMA <b>21</b> (1985) 123&ndash;129. Astronomical values quoted against the extant measured record, tagged; the native reading is ours.<br>This page carries a same-day audit round (transport-consistency theorems; the T(z) ladder; the Tolman exponents; the galaxy census): one staked mechanism is reported <b>refuted</b> below, at full strength, with the surviving structure re-tiered. That is the covenant of this corpus working, not failing. The chase then closed the other direction too: the carrier found (&sect;6), the shared accumulation proved (&sect;6), the floor pinned by spin (&sect;8).</div>
+
+<div id="creed">
+  <div class="c"><b>One substance</b>angular momentum keeping its books — nothing else</div>
+  <div class="c"><b>Discreteum, not continuum</b>whole &#8463; turns; the integers are primary</div>
+  <div class="c"><b>Substance, not attribute</b>the grin is the cat; nothing bears, nothing is borne</div>
+  <div class="c"><b>No force, only ledger</b>weight is the constraint bill; free bodies ride natural orbits</div>
+  <div class="c"><b>No God&rsquo;s-eye</b>books reconcile pairwise; the unity is the closure, not a container</div>
+</div>
+
+<h2 id="s1">1 &middot; The chalk circle and the missing instant</h2>
+<p>Philosophy first, because the philosophy decides what the physics is even <em>about</em>. Every Big-Bang narrative begins with the same quiet move: a boundary is drawn around &ldquo;everything,&rdquo; and the narrator steps outside it.</p>
+<div class="q">&ldquo;Something which it is all too easy for a theoretical physicist or cosmologist to do is to draw, on a blackboard, say, a large circle or square to represent &lsquo;the universe&rsquo;. In this enclosed domain, the audience, like the theoretician, can fancy that they are some kind of &lsquo;God&rsquo; who can see everything all over, everywhere within those chalk boundaries&hellip; To be truly a universe, that chalk boundary would have to include the man with the chalk, the audience, the room&hellip; in fact everything there is. But, of course, it doesn&rsquo;t.&rdquo;<span class="src">Pope, <em>The Eye of the Beholder</em> (2004), &sect;VII — &ldquo;The Naked Emperor&rdquo;</span></div>
+<p>Normal Realism refuses the chalk circle. What exists, observably, is not a container-object called &ldquo;the universe&rdquo; but a plurality of observational systems — each body booking its own turning, each observer at the centre of its own view, every pair of books reconciling where they meet. Pope&rsquo;s later name for this is exact:</p>
+<div class="q">&ldquo;&hellip;we are presented, not with a &lsquo;universe&rsquo; but an indeterminate &lsquo;pluriverse&rsquo;, or &lsquo;polyverse&rsquo; — what we might call a <em>logos</em> rather than a <em>physis</em> — which is a Whole of a very different kind.&rdquo;<span class="src">Pope, <em>Wondering in the Wilderness</em> (2009)</span></div>
+<p>Two refusals live here, and this page keeps them distinct because the sky treats them differently (&sect;6):</p>
+<ul style="margin:.6rem 0 .6rem 1.4rem">
+<li><b>The universe-object is refused.</b> &ldquo;The size of everything&rdquo; is not a quantity; &ldquo;everything is expanding&rdquo; has no residual meaning (expanding into what? measured against what?). This is a grammar fact before it is a physics fact.</li>
+<li><b>The God&rsquo;s-eye instant is refused.</b> There is no master simultaneity-slice on which &ldquo;the whole universe, now&rdquo; can be read. There are books, plural, reconciling pairwise wherever exchange happens — the <a href="./gps-clocks.html">GPS constellation</a> is this fact shipped as engineering, closing to nanoseconds with no master clock anywhere in it.</li>
+</ul>
+<p>What these refusals target in cosmology is precise: <b>winding &ldquo;the whole&rdquo; back along one clock to one point.</b> The wind-back needs the instant (one slice per tick) and the object (one size per slice) and the terminus (a first entry in a conserved ledger). All three are properties of the <em>drawing</em>, not of anything in the polyverse. Note what the refusals do <em>not</em> automatically forbid: an <em>ordering</em> that seats build relationally, by exchange, without any master slice. Whether the polyverse carries such a shared ordering is not a matter for decree either way — it is a question the sky gets to answer, and in &sect;5 it does.</p>
+<div class="q">&ldquo;Who observes this expansion? Certainly no human being does.&rdquo;<span class="src">Pope, <em>The Eye of the Beholder</em> (2004), &sect;VII.1</span></div>
+
+<h2 id="s2">2 &middot; The ledger has no zero</h2>
+<p>Now the physics. There is one substance — angular momentum, circulation, rotational time, $L = dS/d\theta$ — and it is conserved. Everything on this page follows from taking that seriously at both ends of the scale.</p>
+<p><b>Nothing carrying finite angular momentum can reach $r = 0$.</b> Circulation at zero radius would require an unbounded rate of turning: the books cannot be balanced at a point. This is the vortex&rsquo;s oldest fact — the eye of the hurricane is <em>empty</em>, and its emptiness and its wall are the same entry read from two sides. A contracting circulation does not fall to its centre; it approaches a <em>radial floor</em>, spinning faster as it contracts (the skater&rsquo;s arms), every step of the way paid for in the one currency. Pope &amp; Osborne say it plainly of galaxies: bodies that radiate away energy — and therefore angular momentum — &ldquo;simply get closer and closer to a lower radial limit&rdquo; (Ch.&nbsp;9). Not a sink. A wall.</p>
+<p>A <em>singularity claim</em>, in either time direction, is therefore not an extreme physical claim but a bookkeeping impossibility dressed as one:</p>
+<ul style="margin:.6rem 0 .6rem 1.4rem">
+<li><b>The black-hole singularity</b> asks the substance to annihilate — finite circulation compressed to a point of infinite density, the whole ledger of a star written into a zero.</li>
+<li><b>The Big-Bang singularity</b> is the same zero run backwards — it asks the substance to <em>begin</em>, all the angular momentum of everything emerging from a point that has no capacity to hold any. A conserved substance does not begin. That is what &ldquo;conserved&rdquo; means.</li>
+</ul>
+<p>The extant model knows where these zeros come from. They are theorems <em>inside</em> the field equations (Hawking&ndash;Penrose), and the field equations are being run &ldquo;many orders of magnitude beyond the range for which [their] validity has been established&rdquo; (Ch.&nbsp;9 &sect;9.2). Osborne&rsquo;s own doctoral work stood in this exact fire — <em>Gravitation and the Problem of Space-time Singularities</em> (1985) — and the synthesis&rsquo;s verdict is the sober one: a singularity in the mathematics is &ldquo;more likely to be simply an indication of the limitations&rdquo; of the theory that produced it. The map ran off the table; that is not news about the territory.</p>
+<div class="card gold"><b>The two refusals are one refusal.</b> No zero in the books, forwards or backwards. Black-hole interiors and primeval peas are the same arithmetic error — dividing the one substance by zero radius — committed in opposite time directions, and both are placed, by construction, where no observation can ever audit them. &ldquo;If the &lsquo;Big Bang&rsquo; is accepted as a fact, then there is the even more bizarre question of what preceded it, to which of course, there can be no answer&rdquo; (Ch.&nbsp;9). Keep this section in mind at &sect;6: <b>refusing the zero is not refusing evolution.</b> The ledger forbids a first entry; it says nothing against the books accumulating.</div>
+
+<h2 id="s3">3 &middot; &lsquo;Black holes&rsquo;: the empty barycentre</h2>
+<p>What is actually observed, at the centres of galaxies and in compact binaries, is this: <span class="fant">matter in rapid orbit about centres that emit nothing</span>. Stars at the core of the Milky Way whip around a dark point of enormous booked mass <span class="fant">(the S2 orbit closes on ~4.1&times;10<sup>6</sup> solar masses inside a region smaller than the solar system)</span> <span class="tag">extant record</span>; the EHT images show <span class="fant">a bright ring of emission ~42&nbsp;&mu;as across at M87&rsquo;s core, ~52&nbsp;&mu;as at Sgr&nbsp;A*</span> <span class="tag">extant record</span>; gravitational-wave detectors record <span class="fant">the chirps of compact masses spiralling together</span> <span class="tag">extant record</span>. All of that is measurement, and none of it is in dispute here. The dispute is over one inference: that the dark centre must be a <em>thing</em> — a material object of &ldquo;prodigious&rdquo; density with an interior, a horizon, and a singularity.</p>
+<div class="q">&ldquo;There is no reason to assume that centres of balance for bodies in balanced angular momentum situations are mass-objects. If the planets in our solar system were much larger than they are in comparison with our sun, the centre of rotation of the sun and planets might well lie outside the sun&rsquo;s surface, somewhere in the void between the sun and all its planets. Observed from a great distance, it might seem that these bodies are rotating around an invisible centre of balance which, in itself, emits no radiation. To call this a &lsquo;black hole&rsquo; may be picturesque but, unfortunately, lends itself to the sort of journalistic distortion that perverts the true course of science.&rdquo;<span class="src">Pope, <em>The Eye of the Beholder</em> (2004), &sect;VII.2</span></div>
+<p>The Ch.&nbsp;9 statement is even more direct. In a many-body circulation the centre-of-mass &ldquo;has none of the characteristics normally ascribed to bodies&hellip; This has no existence as a material object but only as an <b>empty barycentre for the matter swirling around it</b>. It is &lsquo;dark&rsquo; insofar as, in itself, it radiates no energy. <b>Otherwise there is nothing singular or metaphysical about it.</b>&rdquo; The named example is the same object the EHT later photographed: &ldquo;it makes no sense to explain the &lsquo;blackness&rsquo; of an invisible centre of moment in a spiral galaxy, such as the X-ray nebula in M87, as being due to its &lsquo;gravitational entrapment&rsquo; of the light it would otherwise emit.&rdquo;</p>
+<p>The dynamics complete the picture without any exotic object. A galaxy that shines, sheds energy; shedding energy, it sheds angular momentum; shedding angular momentum, it contracts and spins faster — the drain-eye logic of <a href="./mass-as-trapped-rate.html">the whole corpus</a>. Contraction has a floor (&sect;2): matter &ldquo;get[s] closer and closer to a lower radial limit,&rdquo; stacking on ever-closer natural orbits around the empty centre of balance. So the prediction of the synthesis is: <b>compact, dark-centred, extremely fast circulations of arbitrarily large booked mass — yes; holes in being — no.</b> &ldquo;POAMS finds no parallel with the idea of &lsquo;black holes&rsquo; &lsquo;hoovering up&rsquo; stars and other bits of matter into oblivion&rdquo; (Ch.&nbsp;9). What the EHT ring shows, on this reading, is emission from plasma on close natural orbits around an empty barycentre — an eyewall portrait. The darkness inside is what emptiness looks like.</p>
+<div class="card"><b>The internal audit — the extant model against its own clock.</b> Grant the Schwarzschild geometry for the sake of argument. On the external observer&rsquo;s books — the only books any astronomer keeps — an infalling clock&rsquo;s approach to the horizon takes unboundedly long: the crossing is <em>never booked</em>. Each e-fold of remaining distance costs of order $r_s/c$; for M87* <span class="fant">($M \approx 6.5\times10^9\,M_\odot$, $r_s \approx 1.92\times10^{13}$ m)</span> that is $r_s/c \approx 6.4\times10^4$ s &asymp; <b>17.8 hours per e-fold, forever</b>. The &ldquo;finished&rdquo; black hole — horizon crossed, interior formed, singularity reached — exists only in the proper time of the infalling ledger, which is exactly the God&rsquo;s-eye completion no external observer ever audits. Even inside its own formalism, the hole is an artifact of switching books mid-sentence. The pre-1960s literature said it honestly: the external solution is a <em>frozen star</em>.</div>
+<p>And the trap for light? There is no light-projectile to trap — the corpus has no ballistic photon and no pull (<a href="./the-two-slit-experiment.html">the quantum hand-off</a>; <a href="./antenna-emission.html">antenna emission</a>). Light is an exchange completed between two ledgers, not a thing labouring across a stage. &ldquo;Gravitational entrapment of light&rdquo; is a manner of speaking from the container model, taken literally. Refuse the container and the phrase has nothing to refer to.</p>
+
+<h3>Fig. A — the empty barycentre, animated</h3>
+<div class="card">
+<canvas id="baryCanvas" height="480"></canvas>
+<div class="ctl">
+  <button id="shedBtn">radiate — shed angular momentum</button>
+  <button id="ghostBtn" class="off">show the imagined &lsquo;object&rsquo;</button>
+  <button id="baryReset" class="off">reset</button>
+  <span class="readout" id="baryRead"></span>
+</div>
+<p class="note">Bodies orbit a shared centre of balance (&#8853;) that is nothing at all. Radiating sheds angular momentum: every orbit contracts toward the radial floor (dashed) and turns faster — no object forms, nothing is swallowed. The toggle overlays the &ldquo;prodigiously dense body of some exotic kind&rdquo; the classical reading is forced to imagine in the emptiness.</p>
+</div>
+<h2 id="s4">4 &middot; The redshift: what was measured, and the candidate readings</h2>
+<p>In 1929 Hubble, on Slipher&rsquo;s spectra, published a proportionality between distance and a shift of galactic spectral lines toward the red:</p>
+<div class="eqbox">$$z \;=\; \frac{\lambda_{\mathrm{obs}} - \lambda_{\mathrm{prop}}}{\lambda_{\mathrm{prop}}}, \qquad z \propto r \quad \text{(the observed law)} \tag{9.1}$$</div>
+<p>That is the entire observation: <b>a law of redshifts</b>. Hubble himself preferred exactly that phrase — &ldquo;Hubble preferred the noncommittal term redshift and referred to his and his colleague Humason&rsquo;s results as the &lsquo;law of redshifts&rsquo;&thinsp;&rdquo; (Mayall, <em>Encyclop&aelig;dia Britannica</em>, 1961) <span class="tag">extant record</span>. Recession is an <em>interpretation</em> laid on top, and the logic of the lay-on is a textbook fallacy: &ldquo;The fact that all speeds of recession cause redshifts does not imply that in observing redshifts we are observing speeds of recession&rdquo; (Ch.&nbsp;9 &sect;9.2). All crows are black; this black thing need not be a crow.</p>
+<p>Two properties of the observed shift are load-bearing for everything below. It is <b>achromatic</b> — every band shifts by the same factor, none broaden. And it is <b>rate-real</b> — distant clocks genuinely run slow in our books: supernova light-curves stretch by exactly $(1+z)$ <span class="tag">extant record</span>, and the no-dilation reading is dead on the Tolman data at &gt;10&sigma; (&sect;9). Whatever carries the redshift books <em>rates</em>, not just energies.</p>
+<table>
+<tr><th>candidate carrier</th><th>mechanism</th><th>status</th></tr>
+<tr><td><b>Tired light</b> (in-transit loss)</td><td>light loses energy crossing distance</td><td><b>dead.</b> In-transit degradation works like refraction and disperses — it broadens bands; none is seen (Ch.&nbsp;9 &sect;9.4). And it books no rates: the light-curve stretch and the Tolman exponents refute energy-only mechanisms independently (&sect;9)</td></tr>
+<tr><td><b>Recession / expansion</b></td><td>galaxies flee; the container swells</td><td><b>an inference, not an observation — and grammatically ill-formed as stated.</b> &ldquo;The universe expanding&rdquo; fails the language audit (&sect;1); universal recession strains holistic angular-momentum conservation (Ch.&nbsp;9 &sect;9.3: it requires the AM of everything to grow, or unobservable redistribution). What survives of it empirically is not the container story but a booking law that composes — see &sect;5&ndash;&sect;6</td></tr>
+<tr><td><b>Random-motion time dilation</b> (Ch.&nbsp;9 &sect;9.4)</td><td>deep bodies move fast at random; second-order dilation reddens all lines, direction-blind: $z=\gamma-1$</td><td><b>staked, audited, refuted — by this corpus&rsquo;s own transport discipline run against the measured sky.</b> The full audit is &sect;5. This was the synthesis&rsquo;s own preferred carrier; it fails the composition requirement that any shared thermal sky imposes, and the T(z) ladder measured the value that kills it</td></tr>
+<tr><td><b>The surviving class</b></td><td>an achromatic, rate-type booking of the emitter&ndash;absorber relation that <em>composes across completed hand-offs</em></td><td><b>open — the carrier is the frontier problem (&sect;11, O1).</b> &sect;6 closes it: the carrier is the shared accumulation itself &mdash; the redshift books the growth of the collective ledger between emission entry and receipt entry</td></tr>
+</table>
+<div class="card"><b>The door the photon does not get to use.</b> Nothing in this section — or anywhere in this corpus — is carried by a photon-in-flight. Light is a hand-off: an exchange completed between an emitting ledger and an absorbing ledger, booked through whatever census stands between them (<a href="./the-two-slit-experiment.html">two-slit</a>, <a href="./antenna-emission.html">antenna emission</a>). &ldquo;The light travels and loses/keeps something en route&rdquo; is container-model grammar. Every transport statement below is a statement about <em>completed ledger entries at seats</em> — which is exactly why the audit in &sect;5 has teeth: scattering media and absorber clouds genuinely complete hand-offs, so their books are facts, not narrations of a journey.</div>
+
+<h2 id="s5">5 &middot; The audit: a mechanism was staked, and the sky answered</h2>
+<p>The synthesis&rsquo;s Ch.&nbsp;9 hypothesis was concrete: deep matter has large <em>random</em> speeds (being cumulatively nearer &ldquo;the greatest (ubiquitous) accumulation of cosmic mass&rdquo;), and pairwise relativistic dilation of those random motions reddens deep light in proportion to distance. It is a beautiful mechanism — achromatic, rate-real, direction-blind — and it was published as a live alternative, not a dogma: &ldquo;our figures are included only to support our logical arguments.&rdquo; This page put it to the only court that matters. Three steps, all bookkeeping.</p>
+<h3>5.1 Level populations are frame-facts</h3>
+<p>A molecular cloud at booked shift $z_c$ sits in some ambient radiation bath. Its rotational level populations equilibrate to that bath, and the <em>ratios</em> of its absorption-line strengths hand us those populations directly. A population ratio is a dimensionless number — it survives any achromatic booking untouched. So when we read a cloud&rsquo;s excitation temperature, we are reading <b>the bath at the cloud&rsquo;s seat, in the cloud&rsquo;s books</b>. No interpretation layer. The measured ladder <span class="tag">extant record; audited</span>:</p>
+<table>
+<tr><th>system</th><th>z</th><th>bath measured (K)</th><th>2.725(1+z)</th><th>method note</th></tr>
+<tr><td>CN, local ISM (Roth et al. 1993)</td><td class="c">0</td><td class="c">2.729 +0.023/&minus;0.031</td><td class="c">2.725</td><td>collisional/electron excitation explicitly subtracted</td></tr>
+<tr><td><b>PKS 1830&minus;211 absorber (Muller et al. 2013)</b></td><td class="c">0.886</td><td class="c"><b>5.08 &plusmn; 0.10</b></td><td class="c">5.14</td><td>multi-species non-LTE; the density&ndash;temperature degeneracy <em>solved</em>, not assumed</td></tr>
+<tr><td>CO ladder, 5 systems (Noterdaeme et al. 2011)</td><td class="c">1.7&ndash;2.7</td><td class="c">7.5 &rarr; 10.5</td><td class="c">7.4 &rarr; 10.1</td><td>radiatively dominated; verified via C&nbsp;I</td></tr>
+<tr><td>CO (Srianand et al. 2008)</td><td class="c">2.418</td><td class="c">9.15 &plusmn; 0.72</td><td class="c">9.32</td><td>CMB-domination of the excitation proven in-system</td></tr>
+<tr><td>15-system reanalysis (Klimenko et al. 2020)</td><td class="c">1.7&ndash;3.3</td><td class="c">&beta; = +0.010 &plusmn; 0.013 on $T_0(1+z)^{1-\beta}$</td><td class="c">&beta; = 0</td><td>full collisional + UV-pumping corrections; $T_0$ left <em>free</em>: 2.719 &plusmn; 0.009</td></tr>
+<tr><td>SZ clusters (de Martino et al. 2015; Planck + 481 X-ray)</td><td class="c">&lt; 1</td><td class="c">&alpha; = &minus;0.007 &plusmn; 0.013</td><td class="c">&alpha; = 0</td><td>spectral-shape test — <b>independent of excitation physics entirely</b></td></tr>
+</table>
+<p class="note">The known systematic has a definite sign and a measured size: local excitation only <em>raises</em> apparent temperatures, and the full Klimenko treatment moves points by up to ~10%. A uniform 2.725 K bath at the Muller cloud would require a 54% error in the cleanest measurement on the ladder, plus matched conspiracies at every other z, plus a separate failure of the excitation-free SZ channel. That hatch does not fit through.</p>
+<h3>5.2 Our own floor overdetermines the bath at every intermediate seat</h3>
+<p>Here is the theorem that decides it, and it uses only this corpus&rsquo;s own rules. We measure, at our seat, an isotropic Planck floor at $T_0 = 2.72548$ K <span class="tag">extant record (FIRAS)</span>. Our own booking law (&sect;4) says any exchange completed between a seat at shift $(1+z_c)$ and us books down by $(1+z_c)$, achromatically. A Planck shape survives such a booking with $T \to T/(1+z_c)$. Therefore: <b>for the floor we receive to be Planck at $T_0$, the same exchange field at any intermediate seat — the bath a cloud at $z_c$ actually sits in and re-books toward us — must be Planck at $T_0(1+z_c)$.</b></p>
+<p>Now hold the two claims side by side. The uniform-floor reading (an eternal static equilibrium, the same 2.725 K bath at every seat) says the Muller cloud sits in 2.725 K. Transport consistency of our own measured floor says it sits in 5.14 K. <b>The cloud was asked. It answered 5.08 &plusmn; 0.10.</b> The uniform static floor is not merely disfavoured by data — it is <em>internally inconsistent</em> with the corpus&rsquo;s own booking law plus the floor we measure at home. (The Sunyaev&ndash;Zel&rsquo;dovich version of the same statement: a distortion imprinted on a 2.725 K bath at the cluster would arrive with its null at $217/(1+z_c)$ GHz; the observed null stays at ~217 GHz across the cluster ladder. Same theorem, read spectrally.)</p>
+<h3>5.3 Composition — and the fall of the pairwise carrier</h3>
+<p>Generalise. Radiation reaching us from deep seat W, re-booked at intermediate seat C (a scattering gas or absorbing cloud genuinely completes hand-offs at C: absorb, re-emit — its books are real entries): consistency of one shared field across the chain requires</p>
+<div class="eqbox" id="eqT1">$$ (1+z_{\,\mathrm{us}\to W}) \;=\; (1+z_{\,\mathrm{us}\to C})\,(1+z_{\,C\to W}) \tag{T1}$$<p class="note" style="margin:.2rem 0 .1rem"><b>— bookings must compose along completed hand-offs.</b></p></div>
+<p>Pairwise velocity dilation does not compose: $\gamma(v_{AC}) \neq \gamma(v_{AB})\,\gamma(v_{BC})$ — Lorentz factors of relative random motions do not multiply along chains (they agree only to first order; the floor involves bookings far beyond first order). <b>Therefore random-motion time dilation cannot carry the redshift of a sky that shares a thermal floor.</b> The staked mechanism falls — not to rival dogma, but to the measured floor plus the ladder plus this corpus&rsquo;s own insistence that transport is bookkeeping between real seats.</p>
+<div class="card gold"><b>And one more turn of the screw — the static no-go.</b> Suppose some other carrier that <em>does</em> compose (T1). Run &sect;5.2 at every seat: each seat measures its own isotropic Planck bath, and composition forces the bath temperature to rise monotonically with depth along every sightline <em>from every seat</em>. A scalar field on a static configuration cannot decrease away from every point — nothing can be everyone&rsquo;s minimum. Only two structures survive: <b>(i)</b> a preferred seat — we are the coldest point of the cosmos — anti-Copernican, anti-Normal-Realist, dead on arrival; or <b>(ii)</b> a <b>shared monotone parameter along all worldlines</b>, with every seat&rsquo;s bath varying together — in which case $T = T_0(1+z)$ is its exact signature. <b>Achromatic booking + isotropic Planck floors at every seat + seat-equivalence + static: pick three.</b> The sky picked. The ladder <em>is</em> the measurement of the shared parameter.</div>
+
+<h3>Fig. B — the ladder that answered</h3>
+<div class="card">
+<canvas id="ladderCanvas" height="480"></canvas>
+<div class="ctl"><span class="readout" id="ladderRead">the bath at depth, measured seat by seat</span></div>
+<p class="note">Points: measured ambient baths at absorber seats (filled = detections with solved excitation; open = CO ladder values; triangles = upper-limit-style extractions; vertical bars = published ranges). Gold line: $T_0(1+z)$ — shared cooling. Red dashed: the uniform 2.725 K static floor, refused by transport consistency (&sect;5.2) and by every rung above z&nbsp;=&nbsp;0. The SZ channel (excitation-free) and the 15-system reanalysis (&beta; = +0.010 &plusmn; 0.013, $T_0$ free) concur.</p>
+</div>
+<h2 id="s6">6 &middot; What the sky demands: evolution yes, singularity no</h2>
+<p>Take stock of what &sect;5 actually forced, because it is not the Big Bang and it is not the static polyverse either.</p>
+<ul style="margin:.6rem 0 .6rem 1.4rem">
+<li>The booking law that carries the cosmological redshift must be <b>achromatic</b>, <b>rate-type</b> (dilation-real — the stretch receipts stand), and <b>composing across completed hand-offs</b> (T1). Its observed local strength is the Hubble constant.</li>
+<li>The radiation floor is <b>shared</b>, and its temperature <b>varies along a monotone parameter common to all worldlines</b>: $T = T_0(1+z)$, measured to &beta; = 0.010 &plusmn; 0.013.</li>
+<li>No seat is preferred. So the parameter is not a place — it is an <b>accumulation</b>: the books of every seat growing together, mutually calibrated by exchange.</li>
+</ul>
+<p>In one sentence: <b>the sky demands a shared thermal evolution; the ledger forbids that evolution to have a first entry.</b> Evolution yes, singularity no. And the corpus is not empty-handed before that demand — it already owns the evolution equation. Ch.&nbsp;9 &sect;9.3 derives the Friedmann equation from angular-momentum conservation alone, no General Relativity anywhere in it:</p>
+<div class="eqbox">$$\left(\frac{dR}{dt}\right)^{2} \;=\; \frac{C}{R} \;+\; \frac{E}{K_T} \qquad \text{(Pope–Osborne, from the ledger alone)} \tag{9.9}$$</div>
+<p>Pope &amp; Osborne derived it, warranted it for the present epoch, and refused exactly one thing about it: the extrapolation to $R = 0$. That refusal stands in full (&sect;2, &sect;8). What does <em>not</em> survive this page&rsquo;s audit is the further step the synthesis took in &sect;9.4 — refusing the evolution itself and seeking a static carrier. The static carrier is gone (&sect;5.3). The honest position the audit leaves is: <b>the AM-ledger&rsquo;s own Friedmann bookkeeping, running without a zero</b> — accumulation with no first entry, a cosmos that is eternal <em>and</em> evolving, the no-zero floor doing at cosmic scale exactly what it does at every other scale in this corpus: forbidding the point, permitting the process.</p>
+<div class="card"><b>Does a shared accumulation violate Normal Realism?</b> It violates neither refusal of &sect;1. No universe-<em>object</em> is required: &ldquo;the books of every seat grow&rdquo; is a statement about seats and exchanges, not about a container with a size. No God&rsquo;s-eye <em>instant</em> is required: seats calibrate orderings pairwise, by exchange — the same way GPS clocks share a timescale with no master clock. A shared <em>ordering</em> built relationally is a logos-fact, exactly the kind of Whole Pope said the polyverse is. What Normal Realism refused was the master <em>slice</em> and the wind-back to a <em>point</em> — both still refused. And it can be made rigorous: composition (T1) is exactly the integrability condition for a global potential on the exchange graph &mdash; fix any reference entry, define $s$ of every entry as its booking to that reference, and path-independence does the rest. The shared ordering is <b>constructed</b> from pairwise reconciliation. A theorem now, not a conjecture.</div>
+<p><b>And the carrier itself falls out — the last one standing.</b> Enumerate the achromatic rate-booking classes: pairwise velocity dilation (dead, T1); a static spatial rate field (dead, &sect;5.3); per-path accrual in a static cosmos (dead, same no-go). One class survives: <b>booking by the ratio of the shared accumulation between the two entries of a single completed exchange.</b> Identify the potential with the collective configuration scale the ledger already owns &mdash; the $R$ of equation (9.9) &mdash; and:</p>
+<div class="eqbox">$$1+z \;=\; \frac{R(\mathrm{receipt\ entry})}{R(\mathrm{emission\ entry})} \qquad \text{(the carrier: the growth of the books between the two entries)} \tag{T2}$$</div>
+<p>Nothing travels and nothing ages en route &mdash; the booking is a property of the <em>relation</em> between two ledger entries, completed at the hand-off (the photon stays outside, &sect;4). It composes by construction (ratios), it is achromatic and rate-type, and its present strength is $H_0$ &mdash; the current fractional rate of the books. It passes the touchstone at every step: the circulation named is the collective one whose conservation generated (9.9); the booking is bookkeeping, not force; orbit and spin stay distinct; nothing was fitted.</p>
+<p><b>Optics follow, and with them the isomorphism.</b> Exchange count is conserved (nothing is lost to a void &mdash; fn.&nbsp;26); receivers ride natural orbits whose separations scale with $R$ (comoving is definitional &mdash; $R$ <em>is</em> the collection&rsquo;s configuration scale); each completed exchange books twice in rate. Those three facts give $D_L = (1+z)\,D_M$ and $D_A = D_M/(1+z)$ &mdash; Etherington duality $D_L = (1+z)^2 D_A$, which is separately <em>measured</em> to hold <span class="tag">extant record</span>. <b>The background observables of the ledger cosmology are therefore point-for-point isomorphic to the extant expansion&rsquo;s.</b> Where the two ontologies can still differ observationally: whatever survives passage through the floor (&sect;8), the census structure (&sect;9.2), and local dynamics (the <a href="./varying-g.html">varying-G</a> programme). Everything else &mdash; Tolman, angular sizes, light curves &mdash; is now common ground by theorem (&sect;9).</p>
+
+<h2 id="s7">7 &middot; The microwave sky, after the audit</h2>
+<p>What the microwave sky <em>is</em>, on the current state of the books:</p>
+<ul style="margin:.6rem 0 .6rem 1.4rem">
+<li><b>The cleanest blackbody ever measured</b> — Planck to $|\mu| \lesssim 9\times10^{-5}$, $|y| \lesssim 1.5\times10^{-5}$, at $T_0 = 2.72548 \pm 0.00057$ K <span class="tag">extant record (FIRAS)</span>.</li>
+<li><b>The visible face of the shared cooling</b> — the same field, measured at other seats, runs hotter as $T_0(1+z)$ (&sect;5.1). The floor is not a local equilibrium and not a static one; it is the current amplitude of the common accumulation, read at our seat.</li>
+<li><b>Isotropic around every audited seat, with one dipole</b> — and the dipole is us: $\Delta T = \beta T_0 = \frac{369.82\ \mathrm{km/s}}{c} \times 2.72548\ \mathrm{K} = 3.3621$ mK, against a measured $3.3621 \pm 0.0010$ mK <span class="tag">extant record</span>. <b>Our own motion, booked to four digits.</b> This receipt survives every verdict on this page untouched: whatever the floor is, we ride through it at 370 km/s and the books close.</li>
+</ul>
+<p><b>The Kepler&ndash;Olbers logic survives; the static punchline did not.</b> Kepler argued the dark night sky proves finite walls; the synthesis answered that a redshift law converts the infinite blaze into a finite, shifted glow (&ldquo;the sky should be bright in the way Kepler reasoned — though not with accumulated visible light&hellip; but with light mostly in the far-infrared,&rdquo; <em>IDA</em> &sect;5.9.3) — and Penzias &amp; Wilson duly found the sky bright at millimetre rates. The convergence half of that argument is intact: under any composing booking $\int (1+z)^{-2}\,d(\text{census})$ closes finitely; the sky is neither infinitely white nor empty, and the optical darkness and millimetre brightness of the night sky remain two faces of one booked ledger. What fell is the <em>static equilibrium</em> reading of the glow&rsquo;s temperature — refused not by taste but by transport consistency (&sect;5.2) and by the measured ladder. The equilibrium tradition&rsquo;s numbers stay in the record because they are receipts of something real that now wants explaining at a deeper level:</p>
+<table>
+<tr><th>year</th><th>author</th><th>basis</th><th>floor estimate</th></tr>
+<tr><td>1896</td><td>Guillaume</td><td>starlight equilibrium</td><td>5&ndash;6 K</td></tr>
+<tr><td>1926</td><td>Eddington</td><td>starlight energy density: $T = (u/a)^{1/4}$</td><td><b>3.18 K</b></td></tr>
+<tr><td>1933</td><td>Regener</td><td>cosmic-ray / radiative equilibrium</td><td><b>2.8 K</b></td></tr>
+<tr><td>1941</td><td>McKellar</td><td>CN excitation (measured)</td><td><b>2.3 K</b></td></tr>
+<tr><td class="fant">1948</td><td class="fant">Alpher &amp; Herman</td><td class="fant">Big-Bang relic</td><td class="fant">5 K</td></tr>
+<tr><td class="fant">1961</td><td class="fant">Gamow</td><td class="fant">Big-Bang relic (revised)</td><td class="fant">50 K</td></tr>
+<tr><td>1990&ndash;2009</td><td>COBE/FIRAS</td><td><b>measured</b></td><td><b>2.72548 &plusmn; 0.00057 K</b></td></tr>
+</table>
+<p class="note"><b>The Eddington coincidence, closed: accident.</b> The audit is unambiguous. Starlight fills ~10<sup>&minus;6</sup> of the galactic volume and its spectrum is wrong by ~10<sup>9</sup> at millimetre rates &mdash; Eddington&rsquo;s 3.18 K was an energy-density-<em>equivalent</em> temperature, never a bath; the real galactic ~eV/cm&sup3; equipartition (starlight, cosmic rays, magnetic, turbulent) is feedback-coupled and self-regulating, and the microwave floor is precisely the one uncoupled outlier that happens to land nearby today <span class="tag">extant record; audited</span>. Gamow&rsquo;s drifting 5&nbsp;&rarr;&nbsp;50 K stays in the table as the reminder of what a free dial looks like.</p>
+<p class="note"><b>And the obligation on $T_0$ is symmetric — nobody derives it.</b> The extant model predicts only the <em>scaling</em> $T_0(1+z)$; the absolute 2.72548 K bottoms out in the photon-to-baryon ratio $\eta \approx 6.1\times10^{-10}$, which is an underived initial datum in every framework (baryogenesis programmes fit it; none derives it; none is confirmed) <span class="tag">extant record; audited</span>. The ledger cosmology reads $T_0$ off the sky exactly as its rival does. What was owed under the refused static floor dissolved with it.</p>
+<p><b>What any polyverse account of the floor now owes,</b> in order: the carrier (O1); the shared accumulation without a master slice (O2); the amplitude $T_0$ (O3); the $10^{-5}$ anisotropy spectrum, where the extant six-parameter fit is the record to beat (O4); and FIRAS-grade cleanliness, $\mu, y \lesssim 10^{-5}$, as a standing constraint on all of it (O5). Stated plainly: <b>the microwave sky is currently the strongest single witness in favour of shared cosmic evolution, and this page&rsquo;s framework does not yet have its own account of it.</b> The refusals of &sect;&sect;1&ndash;3 do not depend on having one; the cosmology does.</p>
+
+<h2 id="s8">8 &middot; The Big Bang, after the audit</h2>
+<p>What stands, exactly as before:</p>
+<ul style="margin:.6rem 0 .6rem 1.4rem">
+<li><b>The singularity is refused</b> — the ledger has no zero (&sect;2). Hawking&ndash;Penrose zeros are in-model theorems run &ldquo;many orders of magnitude beyond&rdquo; established validity; a conserved substance does not begin. &ldquo;&hellip;exploded into being from something the size of a pea some fifteen billion years ago, to which there is <b>no logical, philosophical or commonsense meaning</b>&rdquo; (<em>EOTB</em> &sect;VII.1).</li>
+<li><b>The wind-back is refused</b> — it needs the God&rsquo;s-eye instant and the universe-object, both grammar errors before they are physics errors (&sect;1).</li>
+<li><b>The unauditable terminus is refused</b> — &ldquo;it puts the basic assumption out of sight where it can never be challenged by direct appeal to observation&rdquo; (Hoyle, 1950).</li>
+<li><b>Recession-as-observation is refused</b> — the law of redshifts is a law of redshifts; the container story remains an interpretation (&sect;4), and the dark-matter bill for pull-reading the dynamics still stands on the books (<a href="./varying-g.html">Varying G</a>; Ch.&nbsp;9 &sect;9.3&rsquo;s own density-mismatch diagnosis).</li>
+</ul>
+<p>What this page&rsquo;s own audit corrects in the earlier polyverse position:</p>
+<ul style="margin:.6rem 0 .6rem 1.4rem">
+<li><b>Shared thermal evolution is measured</b> (&sect;5) — by level populations at seats across the ladder, by the excitation-free SZ channel, and by the transport consistency of our own floor. A static eternal cosmos with a uniform floor is refused <em>by this corpus&rsquo;s own rules</em>. The steady-state models fall to the same theorem (their floor is temporally uniform by construction), which is fitting: they conceded the wrong half — kept the recession story, kept a beginningless book, and paid with continuous creation. The audit says the opposite trade was the right one: <b>keep conservation absolute; concede the evolution.</b></li>
+<li><b>The horizon-problem taunt is retired.</b> An eternal <em>static</em> ledger got isotropy for free; an eternal <em>evolving</em> one does not automatically — the uniformity question now lives inside the floor-passage problem (P2, &sect;11), not in rhetoric.</li>
+</ul>
+<h3>What replaces the pea: the spin-pinned floor</h3>
+<p>Restore what the coarse-graining of (9.9) absorbed — the angular momenta themselves — and the ledger supplies its own bounce, through <em>two distinct channels that must not be conflated</em> (orbit is not spin; the corpus&rsquo;s oldest discipline):</p>
+<ul style="margin:.6rem 0 .6rem 1.4rem">
+<li><b>The orbital census (writhe)</b> — pairwise mutual orbits — enters the energy budget as a negative $a^{-4}$ term: same order as radiation, so it competes but cannot guarantee a floor. And orbital angular momentum is <em>exchangeable</em> — it can be shed, radiated, redistributed.</li>
+<li><b>The intrinsic-spin census (twist)</b> — $\hbar/2$ per closure, <em>constitutive and unsheddable</em> — enters as a negative $a^{-6}$ term that grows faster than everything as $a \to 0$: <b>the floor is guaranteed.</b> This is exactly the Einstein&ndash;Cartan spin-fluid bounce class <span class="fant">(Trautman 1973; Popławski)</span> <span class="tag">extant record</span> — and Trautman&rsquo;s paper sits in Pope &amp; Osborne&rsquo;s own reference list. The synthesis&rsquo;s bibliography pointed at the spin-pinned floor fifty years early.</li>
+</ul>
+<p><b>Precisely the census that cannot be shed is the one that pins the wall.</b> &ldquo;Spin is the wall, not the drain&rdquo; — the corpus&rsquo;s anchor line — is literal cosmology: hurricane eye, galactic dark centre, &ldquo;black hole,&rdquo; and &ldquo;Big Bang&rdquo; are one conservation fact at four scales, and at the largest the wall is built from intrinsic spin. The constraint gauntlet, audited: the cosmic-rotation limit <span class="fant">((ω/H)&#8320; &lt; 7.6&times;10<sup>&minus;10</sup>, Planck)</span> binds a spin <em>axis</em> — the ledger&rsquo;s source is isotropically distributed spin-squared with no net axis, evading it by construction; the nucleosynthesis floor <span class="fant">(T &gt; ~4.7 MeV)</span> is cleared trivially by a hot bounce; the hot dense phase, its thermalization, and the opacity that terminates deep sightlines all survive intact. What remains owed <span class="tag">named residuals, &sect;11</span>: the entropy ratchet across cycles <span class="fant">(S ~ 3&times;10<sup>104</sup> k<sub>B</sub> today)</span>, and the shear-vs-spin race through contraction together with a spectrum that must exit the floor red, adiabatic, Gaussian — the standing hard problem of every bounce cosmology, now explicitly ours.</p>
+<div class="card gold"><b>The verdict, in one line: the refusal of the zero stands; the refusal of the evolution does not.</b> What died today was not the polyverse&rsquo;s philosophy — the chalk circle, the master instant, the pea, and the hole-in-being are as refused as ever. What died was one staked carrier (random-motion dilation) and one staked floor (static equilibrium), executed by the corpus&rsquo;s own transport discipline against the measured sky. What replaces them is not the extant narrative but a sharper task: the ledger&rsquo;s own evolution equation (9.9), running without a zero, behind a booking law that composes — with the carrier closed (T2), the ordering proved (&sect;6), the amplitude obligation symmetric (&sect;7), the floor pinned by the unsheddable census (&sect;8) — and the ripples through it the one physics debt still standing (&sect;11).</div>
+<h2 id="s9">9 &middot; The observational record: what still discriminates, and what no longer can</h2>
+<h3>9.1 The Tolman ledger — the rate booking is real; the discriminator is gone</h3>
+<p>The $n=2$ surface-brightness stake this page once carried was a <em>static-geometry</em> stake, and it died with the static reading (&sect;5). Under the accumulation (&sect;6) each exchange books twice in rate <em>and</em> the comoving shell dilutes twice more: the class prediction is bolometric $(1+z)^{-4}$ — <b>identical to expansion, by the isomorphism theorem</b>. Tolman photometry therefore cannot tell the two ontologies apart. What the record still settles <span class="tag">extant record; audited</span>:</p>
+<table>
+<tr><th>measurement</th><th>raw exponent</th><th>read</th></tr>
+<tr><td>Lubin &amp; Sandage 2001 (34 ellipticals, z &asymp; 0.8)</td><td class="c">2.59 &plusmn; 0.17 (R) &middot; 3.37 &plusmn; 0.13 (I)</td><td><b>no-dilation statics dead &gt;10&sigma;</b> — the rate booking is physically real (this receipt survives every verdict on this page); the remaining 4&minus;n gap is evolution-model accounting, now a <em>shared</em> bill</td></tr>
+<tr><td>JWST/ASTRODEEP 2026 (6,860 spec-z galaxies to z ~ 14)</td><td class="c">&alpha; &asymp; &minus;1 raw</td><td>~$(1+z)^{3}$ of evolution+selection owed at z &gt; 4 (&times;1300 at z = 10) — <b>by everyone, equally, under the isomorphism</b>. A community anomaly worth watching; no longer a polyverse discriminator</td></tr>
+</table>
+<h3>9.2 The census — the fork in the counting, and the method that is an ontology</h3>
+<p>How much matter sits within depth $r$? The two camps split <em>by method</em>, and the methods are the two philosophies of &sect;1 made quantitative. Counts-in-spheres with self-averaging assumes a global mean density exists — the chalk circle, operationalised. The conditional-density method counts from every occupied seat and averages the <em>relations</em> — the polyverse, operationalised. The self-averaging camp reports homogeneity ($D \to 3$) beyond 60&ndash;100 Mpc/h; the conditional camp, on the newest and deepest data <span class="fant">(DESI DR1, 2026)</span>, reports <b>$D \approx 2.2$ with no turnover to ~400 Mpc/h</b>, with extreme-value (not Gaussian) fluctuation statistics <span class="tag">extant record, contested</span>. Both camps convert redshift to distance through an assumed cosmology first — the circularity is on the record. This page no longer <em>derives</em> a census exponent (that chain fell with the carrier in &sect;5) — and under the isomorphism (&sect;6) the fork bites every framework equally: a D&nbsp;&asymp;&nbsp;2.2 no-turnover count would be a <em>shared</em> anomaly, not a polyverse asset. It remains the cleanest place where genuinely new census physics could still surface, and the clean test stands: the conditional estimator run on distances that do not assume the answer.</p>
+<h3>9.3 The angular-size test — open, and rod-loaded</h3>
+<p>Compact radio sources are claimed to show the FLRW turnover ($\theta$ minimum near z ~ 1.3&ndash;1.6); extended sources run Euclidean ($\theta \propto 1/z$, no upturn) and are attributed to evolution/selection. Every reading rests on an unfalsified no-size-evolution rod assumption <span class="tag">extant record, contested</span>. Under the isomorphism the ledger cosmology&rsquo;s $\theta(z)$ is the extant relation exactly — <b>nulled as an ontology discriminator</b>; the rod problems remain the community&rsquo;s.</p>
+
+<h3>Fig. C — the census fork</h3>
+<div class="card">
+<canvas id="censusCanvas" height="500"></canvas>
+<div class="ctl">
+  <label>depth of view</label><input type="range" id="depthSlider" min="2" max="100" value="30" style="flex:1">
+  <button id="recentreBtn" class="off">re-seat the observer</button>
+</div>
+<div class="ctl"><span class="readout" id="censusRead"></span></div>
+<p class="note">Left: the view from one seat — every deep line of sight encloses more of everyone else&rsquo;s books; re-seat the observer anywhere and the picture repeats. Right: the fork in the count — conditional census (each seat counting its own relations): $D \approx 2.2$, straight, no turnover claimed to ~400 Mpc/h; self-averaged counts-in-spheres: bends to $D \to 3$ homogeneity beyond ~100 Mpc/h. The counting method is the ontology.</p>
+</div>
+
+<h2 id="s10">10 &middot; Census &amp; receipts</h2>
+<table>
+<tr><th>item</th><th>value</th><th>status</th></tr>
+<tr><td>the observed law</td><td>$z \propto r$ (law of redshifts; recession an inference)</td><td><span class="fant">extant record</span> / critique stands</td></tr>
+<tr><td>achromaticity + light-curve stretch $(1+z)$</td><td>no dispersion; rates genuinely booked</td><td>forces rate-type carrier; kills tired light</td></tr>
+<tr><td>T(z) ladder, cleanest rung (Muller 2013)</td><td>5.08 &plusmn; 0.10 K at z = 0.886 (vs 5.14 shared / 2.725 static)</td><td><b>refuses static floor; measures shared cooling</b></td></tr>
+<tr><td>ladder synthesis (Klimenko 2020, $T_0$ free)</td><td>&beta; = +0.010 &plusmn; 0.013; $T_0$ = 2.719 &plusmn; 0.009 K</td><td><span class="fant">extant record</span>; transport-consistent</td></tr>
+<tr><td>SZ spectral-shape channel (de Martino 2015)</td><td>&alpha; = &minus;0.007 &plusmn; 0.013 (excitation-free)</td><td>independent concurrence</td></tr>
+<tr><td>composition theorem (T1)</td><td>bookings multiply along completed hand-offs</td><td>derived here; kills pairwise-&gamma; carrier</td></tr>
+<tr><td>static no-go</td><td>booking + isotropic floors + seat-equivalence + static: pick three</td><td>derived here; forces shared accumulation</td></tr>
+<tr><td>microwave floor</td><td>2.72548 &plusmn; 0.00057 K; $\mu, y \lesssim 10^{-5}$</td><td><span class="fant">extant record (FIRAS)</span>; constraint O5</td></tr>
+<tr><td>dipole: $\beta T_0$ at 369.82 km/s</td><td>3.3621 mK computed = 3.3621 &plusmn; 0.0010 mK measured</td><td><b>closes to four digits; survives everything</b></td></tr>
+<tr><td>the carrier (T2)</td><td>$1+z = R_{\mathrm{receipt}}/R_{\mathrm{emission}}$ — unique survivor of the constraint class</td><td><b>closed (&sect;6)</b>; composes by construction; no photon</td></tr>
+<tr><td>optics isomorphism</td><td>$D_L = (1+z)^2 D_A$ (Etherington) from exchange conservation + comoving orbits + double booking</td><td>derived (&sect;6); duality separately measured ✓</td></tr>
+<tr><td>spin-pinned floor</td><td>intrinsic-spin census &rArr; negative $a^{-6}$ term &rArr; guaranteed $R_{min}$ (EC spin-fluid class)</td><td><b>derived (&sect;8)</b>; Trautman 1973 in P&ndash;O&rsquo;s own refs</td></tr>
+<tr><td>cosmic-rotation limit</td><td>(&omega;/H)&#8320; &lt; 7.6&times;10<sup>&minus;10</sup> (Planck, axis-bound)</td><td><span class="fant">extant record</span>; evaded by construction (&#10216;&omega;&#10217; = 0, distributed)</td></tr>
+<tr><td>nucleosynthesis floor</td><td>T &gt; ~4.7 MeV required through the minimum</td><td><span class="fant">extant record</span>; cleared by any hot bounce</td></tr>
+<tr><td>entropy ratchet</td><td>S ~ 3&times;10<sup>104</sup> k<sub>B</sub> today; growth across cycles unresolved</td><td><span class="fant">extant record</span>; named residual P1</td></tr>
+<tr><td>$T_0$ obligation</td><td>underived in ALL frameworks (bottoms out at &eta; &asymp; 6.1&times;10<sup>&minus;10</sup>, underived)</td><td>symmetric; Eddington 3.17 K closed as accident (audited)</td></tr>
+<tr><td>Tolman raw exponents</td><td>L&ndash;S: 2.59 &plusmn; 0.17 (R), 3.37 &plusmn; 0.13 (I); JWST 2026: &alpha; &asymp; &minus;1</td><td>n = 1 dead &gt;10&sigma; (rate booking real); n = 2 retired with static geometry; n = 4 class inherited — bills shared</td></tr>
+<tr><td>galaxy census (conditional, DESI DR1 2026)</td><td>$D \approx 2.2$, no turnover to ~400 Mpc/h; Gumbel statistics</td><td><span class="fant">extant record, contested</span>; fork O6</td></tr>
+<tr><td>M87* external-clock freeze scale</td><td>$r_s/c \approx 6.4\times10^{4}$ s &asymp; 17.8 h per e-fold, unbounded total</td><td>internal audit of the extant model; stands</td></tr>
+<tr><td>EHT rings; S2 orbit; GW chirps</td><td>42 &mu;as (M87*), 52 &mu;as (Sgr A*); 4.1&times;10<sup>6</sup> M<sub>&#8857;</sub>; stellar-mass inspirals</td><td><span class="fant">extant record</span> — compactness, not holes</td></tr>
+</table>
+
+<h2 id="s11">11 &middot; What is forced, what is open</h2>
+<div class="tier forced"><b>FORCED</b> — by the two pillars, Normal Realism&rsquo;s refusals, the transport audit, and the constraint gauntlet:
+<ol style="margin:.4rem 0 .2rem 1.3rem">
+<li>No universe-object and no God&rsquo;s-eye instant; the wind-back-to-a-point is meaningless before it is false (&sect;1).</li>
+<li>The ledger has no zero: no creation, no annihilation, no singularities in either time direction (&sect;2).</li>
+<li>Dark centres are empty barycentres with radial floors; the external clock never books a crossing; &ldquo;entrapment of light&rdquo; has no referent (&sect;3).</li>
+<li>The redshift carrier must be achromatic, rate-type, and composing — and exactly one such carrier survives: <b>the accumulation itself</b>, $1+z = R_{\mathrm{receipt}}/R_{\mathrm{emission}}$ (T2). Tired light, pairwise dilation, static fields: dead (&sect;4&ndash;6).</li>
+<li>The shared accumulation <b>exists by theorem</b>: composition is the integrability condition for a global potential on the exchange graph, constructed GPS-style from pairwise reconciliation — no master slice (&sect;6).</li>
+<li>The uniform static floor is internally inconsistent; the bath varies as $T_0(1+z)$ along the shared accumulation — <b>evolution yes, singularity no</b> (&sect;5&ndash;6).</li>
+<li>The floor of the evolution is <b>pinned by the unsheddable census</b>: intrinsic spin&rsquo;s negative $a^{-6}$ term guarantees $R_{min} &gt; 0$, with no cosmic axis (constraint evaded by construction) and nucleosynthesis intact (&sect;8).</li>
+<li>Background optics are isomorphic to the extant relations — Etherington duality derived from exchange conservation + comoving orbits + double booking — so Tolman, angular sizes, and light-curve stretches are common ground, not discriminators (&sect;6, &sect;9).</li>
+<li>The dipole is our own booked motion, to four digits (&sect;7).</li>
+<li>Friedmann-from-AM (9.9) is legitimate ledger bookkeeping; only its extrapolation to $R=0$ is refused — and now cannot occur (&sect;8).</li>
+</ol></div>
+<p class="note" style="margin-top:.6rem"><b>Disposition of the chase (O1&ndash;O10, for the record):</b> O1 carrier — closed (T2). O2 shared accumulation — closed, theorem. O3 amplitude — closed: obligation symmetric in all frameworks; Eddington proximity an audited accident. O4 anisotropy — narrowed into P2. O5 FIRAS — closed, inherited. O6 census — open, reclassified shared (P3). O7 Tolman — nulled by isomorphism, final. O8 angular size — nulled, final. O9 evolution-without-zero — core derived, spin-pinned; residuals P1/P2. O10 eyewall microphysics — transferred (P5). <b>Second round (P1&ndash;P5):</b> P1 dissolved (container theorem). P2 sharpened — two lemmas, one hard null, one named residual. P3 feasibility-verified — a runnable, unpublished test. P4 closed as menu — one live 4.8&sigma; signal flagged. P5 defined into the engineering programme.</p>
+<div class="tier open"><b>THE P-ROUND, RESOLVED</b> — each item chased to a verdict or to a named, executable task (a rigorous null still beats a fabricated hit):
+<ol style="margin:.4rem 0 .2rem 1.3rem">
+<li><b>P1 — The entropy ratchet: DISSOLVED.</b> Tolman&rsquo;s theorem runs on &ldquo;the total entropy of the universe per cycle&rdquo; — a single global book for a closed whole: the chalk circle in thermodynamic dress, refused on grammar before physics. Per-seat second-law bookkeeping stands untouched; no seat possesses the cycle-sum parameter the ratchet extrapolates over. The genuine residue — how adiabatic a floor passage is — is floor microphysics, folded into P2.</li>
+<li><b>P2 — Through the floor: SHARPENED to arithmetic.</b> <em>Frozen-ratio lemma:</em> shear and spin both scale as $a^{-6}$, so their ratio is fixed at contraction onset — no relative runaway, and no rescue either: on the naive census ($|\Omega_S| \sim 10^{-69}$) a <b>single global synchronous bounce fails generically by ~50 orders of magnitude</b> — logged as a hard null. The extant literature&rsquo;s own result (BKL locality: near the floor every patch evolves as its own private cosmology) is, read natively, the polyverse&rsquo;s answer waiting: <b>no God&rsquo;s-eye instant means no God&rsquo;s-eye bounce-moment</b> — the floor is a patchwork of seat-local passages. The one debt that now decides completeness: do reconciled patch-books exit as the measured sky — red ($n_s \approx 0.965$), adiabatic, and clearing <b>$r &lt; 0.036$ and $|f_{NL}| &lt; 5$ simultaneously</b> (the published no-go that executes all global single-field routes)? Open, quantified, ours.</li>
+<li><b>P3 — The census fork: TEST BUILT, feasibility verified.</b> The circularity is real and unbroken in the literature: the D &asymp; 2.2 conditional-census result converts redshift to distance with fiducial &Lambda;CDM, and <b>nobody has published the conditional estimator on model-independent distances</b> — the nearest attempt used the normalised estimator, at z &lt; 0.2 only. The data are public (DESI DR1 clustering catalogues), the estimator is a counts-in-spheres kernel, and the run fits on a workstation: subsample discipline, boundary handling, a cosmography d(z) from public supernovae, bootstrap errors — a first result in weeks, not years. Either the slope survives model-independent distances (closing the circularity objection against <em>everyone</em>) or it shifts — and a distance-convention-dependent census dimension would be a finding in its own right. <span class="tag">executable now</span></li>
+<li><b>P4 — Pre-floor observables: MENU CLOSED — and one signal is live.</b> The audit of every proposed bounce-vs-singularity discriminator (tensor ratio, running, non-Gaussianity, low-&ell; anomalies, spectral distortions, parity) returns one already-flashing entry: <b>cosmic birefringence</b> — a rotation of the microwave sky&rsquo;s polarisation measured at <b>&beta; = 0.277&deg; &plusmn; 0.057&deg; (4.8&sigma;; 3.5&sigma; dust-robust)</b> <span class="tag">extant record (ACT DR6 &times; Planck PR4)</span>. The extant model predicts exactly zero — parity violation has no home in &Lambda;CDM+inflation. It is <em>native</em> to the spin-torsion class this page&rsquo;s floor lives in: an axial-torsion cosmos is chiral by construction. The sharpest live discriminator on the board is currently pointing our way; LiteBIRD-class instruments (&sigma;(&beta;) ~ 0.01&ndash;0.05&deg;) settle it this decade. Watch it; do not lean on it before it lands.</li>
+<li><b>P5 — The eyewall&rsquo;s microphysics: DEFINED as one programme.</b> One unknown at three scales — how circulation organises at a wall (the &lambda;-partition and its variable-G channel). The laboratory reads the partition sign directly (the YIG drive-toggle experiment); compact-object phenomenology and the floor passage&rsquo;s dissipation budget then read the same answer upward. Solve once at bench scale, read twice up. Transferred to the <a href="./varying-g.html">varying-G</a>/engineering arc as a stated dependency, not a shrug.</li>
+</ol></div>
+<p class="note" style="margin-top:.6rem"><b>What actually remains open in this cosmology, in one line:</b> the patchwork floor-exit spectrum (P2, with its two numerical gates), the census fork&rsquo;s executable test (P3), one funded-instrument verdict on parity (P4) — and a bench experiment the corpus already owned (P5).</p>
+
+<h2 id="s12">12 &middot; Standing on the record</h2>
+<p class="note">Pope, <em>The Eye of the Beholder</em> (2004): &sect;VII, &sect;VII.1&ndash;VII.2 (pp. 55&ndash;59). &middot; Pope &amp; Osborne, <em>Light-Speed, Gravitation and Quantum Instantaneity</em> (2007): Ch.&nbsp;9 (barycentre passage; &sect;9.2&ndash;9.5; fn. 26). &middot; Pope &amp; Osborne, <em>Immediate Distant Action&hellip;</em> (2005): &sect;5.9.3. &middot; Pope, <em>Wondering in the Wilderness</em> (2009). &middot; Osborne, Bull. IMA <b>21</b> (1985) 123&ndash;129. &middot; Hoyle, <em>The Nature of the Universe</em> (1950). &middot; Mayall, Enc. Britannica (1961). &middot; Assis &amp; Neves, Apeiron <b>2</b> (1995) 79&ndash;87. &middot; Audit-round record: Fixsen 2009 (FIRAS $T_0$); Roth, Meyer &amp; Hawkins 1993 (CN); Muller et al. 2013 (PKS 1830&minus;211); Srianand et al. 2008; Noterdaeme et al. 2010, 2011, 2017; Klimenko et al. 2020 (15-system reanalysis, $T_0$ free); de Martino et al. 2015 and the SZ set (Luzzi 2009/2015, Hurier 2014, Saro 2014); Riechers et al. 2022 (z = 6.34, pumping-limited); Lubin &amp; Sandage 2001; Sandage 2010; Pahre et al. 1996; Lerner et al. 2014/2018 (contested); Tsymbal, Raikov &amp; Lovyagin 2026 (JWST/ASTRODEEP); Desmond et al. 2026 (forward model); Hogg et al. 2005; Scrimgeour et al. 2012; Sylos Labini &amp; Antal 2026 (DESI DR1 conditional census); Roscoe 1999&ndash;2004; Kellermann 1993; Jackson 2004. Bounce/floor round: Trautman, Nature Phys. Sci. <b>242</b> (1973) 7 (in P&ndash;O&rsquo;s own references); Popławski 2010/2014 (torsion bounce); Egan &amp; Lineweaver 2010 (cosmic entropy); de Salas et al. 2015 (reheating floor); Planck 2015 Bianchi limits; Ijjas &amp; Steinhardt 2019, Brandenberger &amp; Peter 2017, Battefeld &amp; Peter 2015 (bounce perturbations); Baum &amp; Frampton 2007. $T_0$/&eta; round: Wright, &ldquo;Eddington&rsquo;s Temperature of Space&rdquo;; Draine / Pogge ISM energy densities. P-round: Egan &amp; Lineweaver 2010; Li, Quintin, Wang &amp; Cai 2016 (the $r$&ndash;$f_{NL}$ no-go); Planck 2018 IX ($f_{NL}$); BICEP/Keck 2021 ($r &lt; 0.036$); Eskilt et al. 2026 / Minami &amp; Komatsu lineage (birefringence, ACT DR6 &times; Planck PR4); Agullo et al. (gravitational duality anomaly); BKL 1970 / Belinski&ndash;Henneaux (locality near singular surfaces); Sylos Labini &amp; Antal 2026 (A&amp;A 707, A254); Dias, Avila &amp; Bernui 2023 (cosmography distances); DESI DR1 LSS catalogues (public, CC BY 4.0). Extant values tagged throughout; the verdicts are ours and are stated at full strength.</p>
+<p class="note">Corpus siblings: <a href="./the-poams-brilliant-vortex-atom.html">The Brilliant Vortex Atom</a> (items 26&ndash;28 — seeds, now audited: 26 refuted here, 27 upheld-and-extended, 28 untouched) &middot; <a href="./orbital-time-dilation.html">Orbital Time Dilation</a> &middot; <a href="./gps-clocks.html">GPS Clocks</a> &middot; <a href="./twins-paradox.html">Twins</a> &middot; <a href="./varying-g.html">Varying G</a> &middot; <a href="./mass-as-trapped-rate.html">Mass as Trapped Rate</a> &middot; <a href="./heat-and-coherence.html">Heat &amp; Coherence</a> &middot; <a href="./the-two-slit-experiment.html">Two-Slit</a> &middot; <a href="./antenna-emission.html">Antenna Emission</a> &middot; <a href="./dunne-serialism.html">Dunne &amp; Serialism</a>.</p>
+
+<div class="nav">
+  <a href="./the-poams-brilliant-vortex-atom.html">&larr; The Brilliant Vortex Atom</a>
+  <a href="./index.html">Exhibit Index</a>
+  <a href="./dunne-serialism.html">Dunne Serialism &rarr;</a>
+</div>
+</main>
+
+<script>
+function toggleTheme(){document.body.classList.toggle('light');
+  var l=document.body.classList.contains('light');
+  document.querySelector('.theme-toggle').textContent=l?'🌙':'☀️';
+  try{localStorage.setItem('poams-theme',l?'light':'dark')}catch(e){}}
+try{if(localStorage.getItem('poams-theme')==='light'){document.body.classList.add('light');document.querySelector('.theme-toggle').textContent='🌙';}}catch(e){}
+
+function pal(){var l=document.body.classList.contains('light');
+  return l?{bg:'#f6f3ea',edge:'#d9d2bf',fg:'#26211a',mut:'#6b6355',gold:'#8b6914',blue:'#1f6f9f',green:'#2e7d32',red:'#b03030'}
+          :{bg:'#0a0a14',edge:'#2a2a3e',fg:'#e2e2ea',mut:'#9a9ab0',gold:'#c9a84c',blue:'#64b5e0',green:'#66bb6a',red:'#e05f5f'};}
+
+// ---------- Fig A: the empty barycentre ----------
+(function(){
+var cv=document.getElementById('baryCanvas'),cx=cv.getContext('2d');
+var N=13,bod=[],shedding=false,ghost=false,FLOOR=34;
+function init(){bod=[];for(var i=0;i<N;i++){var r=60+180*Math.pow(Math.random(),1.4);
+  bod.push({r:r,th:Math.random()*6.2832,m:.6+Math.random()*1.6});}shedding=false;}
+init();
+document.getElementById('shedBtn').onclick=function(){shedding=!shedding;this.classList.toggle('off',!shedding);this.textContent=shedding?'radiating…':'radiate — shed angular momentum';};
+document.getElementById('ghostBtn').onclick=function(){ghost=!ghost;this.classList.toggle('off',!ghost);};
+document.getElementById('baryReset').onclick=function(){init();var b=document.getElementById('shedBtn');b.classList.add('off');b.textContent='radiate — shed angular momentum';};
+function step(){
+  var P=pal(),W=cv.width=cv.clientWidth*2,H=cv.height=480;cx.save();cx.scale(2,2);
+  var w=W/2,h=240,ox=w*0.5,oy=120;
+  cx.clearRect(0,0,w,h);
+  // floor ring
+  cx.strokeStyle=P.mut;cx.setLineDash([4,4]);cx.beginPath();cx.arc(ox,oy,FLOOR,0,6.2832);cx.stroke();cx.setLineDash([]);
+  // barycentre mark
+  if(ghost){cx.fillStyle='rgba(0,0,0,0.85)';cx.beginPath();cx.arc(ox,oy,FLOOR-6,0,6.2832);cx.fill();
+    cx.strokeStyle=P.red;cx.stroke();
+    cx.fillStyle=P.red;cx.font='italic 11px Georgia';cx.fillText('the imagined object: "prodigiously dense, of some exotic kind"',ox-150,oy+FLOOR+18);}
+  else{cx.strokeStyle=P.gold;cx.font='13px Georgia';
+    cx.beginPath();cx.moveTo(ox-6,oy);cx.lineTo(ox+6,oy);cx.moveTo(ox,oy-6);cx.lineTo(ox,oy+6);cx.stroke();
+    cx.strokeStyle=P.gold;cx.beginPath();cx.arc(ox,oy,6,0,6.2832);cx.stroke();
+    cx.fillStyle=P.mut;cx.font='italic 11px Georgia';cx.fillText('⊕ marks the empty barycentre — nothing there at all',14,16);}
+  var L=0;
+  for(var i=0;i<N;i++){var b=bod[i];
+    if(shedding&&b.r>FLOOR+4){b.r-=0.12*(b.r/60);} // contract toward floor
+    var om=9/Math.pow(b.r,1.5)*60; b.th+=om*0.016;
+    L+=b.m*Math.sqrt(9*b.r)*0.3;
+    var x=ox+b.r*Math.cos(b.th),y=oy+b.r*Math.sin(b.th)*0.55;
+    cx.strokeStyle=P.edge;cx.beginPath();cx.ellipse(ox,oy,b.r,b.r*0.55,0,0,6.2832);cx.stroke();
+    cx.fillStyle=i%3?P.blue:P.gold;cx.beginPath();cx.arc(x,y,2.2+b.m,0,6.2832);cx.fill();}
+  document.getElementById('baryRead').textContent=(shedding?'shedding: orbits contract, rates rise — the skater':'holding: every body on its natural orbit')+'  ·  no crossing of the floor, ever';
+  cx.restore();requestAnimationFrame(step);}
+step();})();
+
+// ---------- Fig B: the ladder that answered ----------
+(function(){
+var cv=document.getElementById('ladderCanvas'),cx=cv.getContext('2d');
+var T0=2.72548;
+var det=[[0,2.729,0.03,'CN 93'],[0.886,5.08,0.10,'Muller 13'],[2.418,9.15,0.72,'Srianand 08']];
+var co=[[1.7293,7.5],[1.7738,7.8],[2.0377,8.6],[2.5255,9.6],[2.69,10.5]];
+var lim=[[1.776,7.4,0.8,'Songaila 94'],[1.9731,7.9,1.0,'Ge 97'],[3.025,12.1,2.4,'Molaro 02']];
+var rng=[[2.3377,6,14,'Srianand 00'],[6.34,16.4,30.2,'Riechers 22']];
+function draw(){
+  var P=pal(),W=cv.width=cv.clientWidth*2,H=cv.height=480;cx.save();cx.scale(2,2);
+  var w=W/2,h=240;cx.clearRect(0,0,w,h);
+  var gx=46,gy=14,gw=w-70,gh=190;
+  cx.strokeStyle=P.edge;cx.strokeRect(gx,gy,gw,gh);
+  function X(z){return gx+z/7*gw;} function Y(T){return gy+gh-(T/32)*gh;}
+  cx.fillStyle=P.mut;cx.font='10px Georgia';
+  for(var z=0;z<=7;z++){cx.fillText(z,X(z)-2,gy+gh+12);}
+  cx.fillText('z (booked shift) →',gx+gw-90,gy+gh+24);
+  for(var t=0;t<=30;t+=10){cx.fillText(t,gx-18,Y(t)+3);}
+  cx.save();cx.translate(gx-30,gy+120);cx.rotate(-Math.PI/2);cx.fillText('bath at the seat (K)',0,0);cx.restore();
+  // uniform floor (refused)
+  cx.strokeStyle=P.red;cx.setLineDash([5,4]);cx.beginPath();cx.moveTo(X(0),Y(T0));cx.lineTo(X(7),Y(T0));cx.stroke();cx.setLineDash([]);
+  cx.fillStyle=P.red;cx.font='10px Georgia';cx.fillText('uniform static floor 2.725 K — refused (§5.2) and refuted by every rung',X(2.55),Y(T0)-6);
+  // shared cooling
+  cx.strokeStyle=P.gold;cx.lineWidth=2;cx.beginPath();
+  for(var i=0;i<=140;i++){var z=7*i/140;cx[i?'lineTo':'moveTo'](X(z),Y(T0*(1+z)));}
+  cx.stroke();cx.lineWidth=1;
+  cx.fillStyle=P.gold;cx.fillText('T₀(1+z) — shared cooling, measured',X(4.05),Y(T0*5.6));
+  // ranges
+  cx.strokeStyle=P.blue;
+  rng.forEach(function(p){cx.beginPath();cx.moveTo(X(p[0]),Y(p[1]));cx.lineTo(X(p[0]),Y(p[2]));cx.stroke();
+    cx.beginPath();cx.moveTo(X(p[0])-4,Y(p[1]));cx.lineTo(X(p[0])+4,Y(p[1]));cx.moveTo(X(p[0])-4,Y(p[2]));cx.lineTo(X(p[0])+4,Y(p[2]));cx.stroke();
+    cx.fillStyle=P.mut;cx.fillText(p[3],X(p[0])-22,Y(p[2])-6);cx.fillStyle=P.blue;});
+  // limits (triangles)
+  lim.forEach(function(p){cx.strokeStyle=P.mut;cx.beginPath();cx.moveTo(X(p[0]),Y(p[1]-p[2]));cx.lineTo(X(p[0]),Y(p[1]+p[2]));cx.stroke();
+    cx.fillStyle=P.mut;cx.beginPath();cx.moveTo(X(p[0]),Y(p[1])+5);cx.lineTo(X(p[0])-4,Y(p[1])-3);cx.lineTo(X(p[0])+4,Y(p[1])-3);cx.closePath();cx.fill();});
+  // CO open circles
+  co.forEach(function(p){cx.strokeStyle=P.blue;cx.beginPath();cx.arc(X(p[0]),Y(p[1]),3.2,0,6.2832);cx.stroke();});
+  // detections filled + bars
+  det.forEach(function(p){cx.strokeStyle=P.green;cx.beginPath();cx.moveTo(X(p[0]),Y(p[1]-p[2]));cx.lineTo(X(p[0]),Y(p[1]+p[2]));cx.stroke();
+    cx.fillStyle=P.green;cx.beginPath();cx.arc(X(p[0]),Y(p[1]),3.6,0,6.2832);cx.fill();
+    cx.fillStyle=P.fg;cx.font='10px Georgia';cx.fillText(p[3],X(p[0])+6,Y(p[1])+3);});
+  // FIRAS anchor
+  cx.fillStyle=P.gold;cx.beginPath();cx.arc(X(0),Y(2.72548),3.6,0,6.2832);cx.fill();
+  cx.fillStyle=P.mut;cx.font='10px Georgia';cx.fillText('FIRAS',X(0)+5,Y(2.72548)+12);
+  // legend
+  cx.fillStyle=P.mut;cx.fillText('● solved-excitation detections   ○ CO ladder   ▼ upper-limit extractions   | published ranges',gx+8,gy+12);
+  cx.fillText('β = +0.010 ± 0.013 (15-system reanalysis, T₀ free)   ·   SZ shape channel: α = −0.007 ± 0.013 (excitation-free)',gx+8,gy+26);
+  cx.restore();requestAnimationFrame(draw);}
+draw();})();
+
+// ---------- Fig C: the census fork ----------
+(function(){
+var cv=document.getElementById('censusCanvas'),cx=cv.getContext('2d');
+var sl=document.getElementById('depthSlider'),seed=42,stars=[];
+function rng(){seed=(seed*1664525+1013904223)>>>0;return seed/4294967296;}
+function makeStars(){stars=[];seed=(Math.random()*1e9)|0;for(var i=0;i<900;i++){
+  var u=rng(),R=240*u,a=rng()*6.2832;
+  stars.push({x:R*Math.cos(a),y:R*Math.sin(a)});}}
+makeStars();
+document.getElementById('recentreBtn').onclick=function(){makeStars();};
+function draw(){
+  var P=pal(),W=cv.width=cv.clientWidth*2,H=cv.height=500;cx.save();cx.scale(2,2);
+  var w=W/2,h=250;cx.clearRect(0,0,w,h);
+  var ox=w*0.27,oy=125,Rv=+sl.value/100*230;
+  var inview=0;
+  for(var i=0;i<stars.length;i++){var s=stars[i],d=Math.hypot(s.x,s.y);
+    var deep=d<=Rv;if(deep)inview++;
+    cx.fillStyle=deep?(d>Rv*0.66?P.gold:P.blue):P.edge;
+    cx.beginPath();cx.arc(ox+s.x*0.5,oy+s.y*0.5,deep?1.6:0.9,0,6.2832);cx.fill();}
+  cx.strokeStyle=P.gold;cx.beginPath();cx.arc(ox,oy,Rv*0.5,0,6.2832);cx.stroke();
+  cx.fillStyle=P.fg;cx.beginPath();cx.arc(ox,oy,2.6,0,6.2832);cx.fill();
+  cx.fillStyle=P.mut;cx.font='11px Georgia';cx.fillText('you — every seat sees the same deepening count',ox-115,238);
+  // right: log-log N(<r) fork
+  var gx=w*0.56,gy=24,gw=w*0.40,gh=190;
+  cx.strokeStyle=P.edge;cx.strokeRect(gx,gy,gw,gh);
+  cx.fillStyle=P.mut;cx.fillText('log N(<r)',gx-4,gy-8);cx.fillText('log depth →',gx+gw-64,gy+gh+14);
+  // conditional: straight slope 2.2 (normalized: y from 0 at left to 2.2*span)
+  var span=1.0; // decades on x
+  function yFor(frac,slope,knee){ // frac 0..1 along x
+    var xdec=frac*1.7; // 1.7 decades: 10->500 Mpc
+    var ydec;
+    if(knee===undefined){ydec=slope*xdec;}
+    else{var kd=knee*1.7;ydec=xdec<kd?slope*xdec:slope*kd+3*(xdec-kd);}
+    return gy+gh-(ydec/5.1)*gh;}
+  cx.strokeStyle=P.green;cx.lineWidth=2;cx.beginPath();
+  for(var i=0;i<=100;i++){var f=i/100;cx[i?'lineTo':'moveTo'](gx+f*gw,yFor(f,2.2));}
+  cx.stroke();
+  cx.strokeStyle=P.red;cx.beginPath();
+  for(var i=0;i<=100;i++){var f=i/100;cx[i?'lineTo':'moveTo'](gx+f*gw,yFor(f,2.2,0.55));}
+  cx.stroke();cx.lineWidth=1;
+  cx.fillStyle=P.green;cx.fillText('conditional census: D ≈ 2.2, no bend claimed (DESI)',gx+8,gy+16);
+  cx.fillStyle=P.red;cx.fillText('self-averaged spheres: bends to D → 3 (~100 Mpc/h)',gx+8,gy+30);
+  var f=+sl.value/100;cx.strokeStyle=P.gold;cx.setLineDash([3,3]);
+  cx.beginPath();cx.moveTo(gx+f*gw,gy);cx.lineTo(gx+f*gw,gy+gh);cx.stroke();cx.setLineDash([]);
+  document.getElementById('censusRead').textContent='bodies in view '+inview+'  ·  the fork: does the deep count bend?  ·  method IS ontology: counting relations vs assuming a global mean';
+  cx.restore();requestAnimationFrame(draw);}
+draw();})();
+</script>
+</body>
+</html>
