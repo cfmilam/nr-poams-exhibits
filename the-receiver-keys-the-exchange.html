@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Receiver Keys the Exchange — Normal Realism, POAMS, and Telecommunications II</title>
+<script>window.MathJax={tex:{inlineMath:[['$','$']],displayMath:[['$$','$$']]}};</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+<style>
+:root{--bg:#0d0d17;--card:#12121e;--edge:#2a2a3e;--fg:#e2e2ea;--mut:#9a9ab0;--gold:#c9a84c;--blue:#64b5e0;--green:#66bb6a;--red:#e05f5f;}
+body.light{--bg:#faf8f2;--card:#ffffff;--edge:#d9d2bf;--fg:#26211a;--mut:#6b6355;--gold:#8b6914;--blue:#1f6f9f;--green:#2e7d32;--red:#b03030;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:Georgia,serif;line-height:1.7;font-size:16.5px;transition:background .3s,color .3s}
+main{max-width:880px;margin:0 auto;padding:2.2rem 1.2rem 4rem}
+h1{color:var(--gold);font-size:1.7rem;line-height:1.25;margin:.4rem 0 .6rem}
+h2{color:var(--gold);font-size:1.25rem;border-bottom:1px solid var(--edge);padding-bottom:.3rem;margin:2.2rem 0 .8rem}
+h3{color:var(--blue);font-size:1.05rem;margin:1.4rem 0 .5rem}
+p{margin:.8rem 0}
+.prov{font-size:.82rem;color:var(--mut);border-left:3px solid var(--gold);padding:.5rem .9rem;background:rgba(201,168,76,.05);margin:.8rem 0}
+.tag{display:inline-block;font-size:.7rem;letter-spacing:.05em;padding:.05rem .4rem;border:1px solid var(--edge);border-radius:4px;color:var(--mut);vertical-align:middle}
+.fant{color:var(--mut);font-style:italic}
+.card{background:var(--card);border:1px solid var(--edge);border-radius:10px;padding:1rem 1.2rem;margin:1.1rem 0}
+.card.gold{border-color:var(--gold)}
+.note{font-size:.88rem;color:var(--mut)}
+canvas{width:100%;border:1px solid var(--edge);border-radius:8px;background:#0a0a14;display:block}
+.ctl{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin:.6rem 0;font-size:.9rem}
+.ctl label{color:var(--mut)}
+button{background:var(--gold);color:#111;border:none;border-radius:6px;padding:.35rem .8rem;font-family:inherit;font-size:.9rem;cursor:pointer}
+button.off{background:#333347;color:var(--mut)}
+input[type=range]{accent-color:var(--gold)}
+table{border-collapse:collapse;width:100%;font-size:.9rem;margin:.8rem 0}
+th,td{border:1px solid var(--edge);padding:.45rem .6rem;text-align:left}
+th{color:var(--gold);font-weight:normal}
+td.c{text-align:center}
+a{color:var(--blue)}
+.readout{font-family:Menlo,monospace;font-size:.85rem;color:var(--green)}
+.nav{display:flex;justify-content:space-between;font-size:.85rem;margin-top:3rem;border-top:1px solid var(--edge);padding-top:1rem}
+.eqbox{background:#10101e;border:1px solid var(--edge);border-radius:8px;padding:8px 12px;margin:10px 0;overflow-x:auto}
+.theme-toggle{position:fixed;top:54px;right:12px;z-index:1000;background:var(--gold);color:var(--bg);border:none;width:40px;height:40px;border-radius:8px;padding:0;cursor:pointer;font-size:1.15rem;display:flex;align-items:center;justify-content:center}
+body.light canvas{background:#f6f3ea}
+body.light .eqbox{background:#f6f3ea}
+body.light .prov{background:rgba(139,105,20,.06)}
+body.light button{color:#fff}
+body.light button.off{background:#dcd5c2;color:#6b6355}
+</style>
+<style id="poams-hub-nav-style">
+#poams-hub-nav{position:fixed;top:0;left:0;right:0;z-index:9999;height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 1rem;background:rgba(13,13,24,0.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,175,55,0.25);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;box-sizing:border-box;}
+#poams-hub-nav a{color:#d4af37;text-decoration:none;display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:6px;transition:background .2s;white-space:nowrap;font-weight:500;}
+#poams-hub-nav a:hover{background:rgba(212,175,55,0.12);}
+#poams-hub-nav .phn-center{display:flex;flex-direction:column;align-items:center;line-height:1.2;}
+#poams-hub-nav .phn-title{font-weight:600;color:#e8e8f0;font-size:12px;}
+#poams-hub-nav .phn-pos{font-size:10px;color:rgba(212,175,55,0.6);letter-spacing:.05em;}
+[data-theme="light"] #poams-hub-nav,body.light #poams-hub-nav{background:rgba(250,248,242,0.95);border-bottom-color:rgba(139,105,20,0.25);}
+[data-theme="light"] #poams-hub-nav a,body.light #poams-hub-nav a{color:#8b6914;}
+body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
+[data-theme="light"] #poams-hub-nav .phn-title,body.light #poams-hub-nav .phn-title{color:#2a2318;}
+@media (max-width:640px){.phn-hide-sm{display:none;}}
+body{padding-top:72px !important;}
+</style>
+</head>
+<body>
+<div id="poams-hub-nav">
+  <a href="./poams-telecommunications.html" title="POAMS &amp; Telecommunications">&larr; <span class="phn-hide-sm">POAMS &amp; Telecommunications</span></a>
+  <div class="phn-center">
+    <a href="./index.html" style="flex-direction:column;gap:2px;padding:4px 12px;">
+      <span class="phn-title">The Receiver Keys the Exchange</span>
+      <span class="phn-pos">NR &middot; POAMS &middot; EXHIBIT SERIES</span>
+    </a>
+  </div>
+  <a href="./computation-as-completion.html" title="Computation as Completion"><span class="phn-hide-sm">Computation as Completion</span> &rarr;</a>
+</div>
+<button class="theme-toggle" id="themeToggle" title="theme">&#9680;</button>
+<main>
+
+<h1>The Receiver Keys the Exchange</h1>
+<p class="note" style="margin-top:-2px">Normal Realism first: every exchange is two-ended — so a channel can be keyed from the receiving end &middot; load modulation read natively &middot; what emission-free standby means &middot; POAMS and Telecommunications II</p>
+<p class="note" style="font-size:.82rem">Sibling exhibit: <a href="./poams-telecommunications.html">POAMS &amp; Telecommunications</a> derived the double-ended quantum and reported the record's own limits on retrograde schemes — this page derives what the double-endedness is <em>for</em>.</p>
+<div class="prov">This exhibit is an extrapolation of the foundational work of N. Vivian &ldquo;Viv&rdquo; Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope&ndash;Osborne Angular Momentum Synthesis (POAMS). Built on the corpus record: the double-ended quantum and the hand-off transaction (<a href="./poams-telecommunications.html">POAMS &amp; Telecommunications</a>; <em>Electricity and Light</em>, 2005); the exchange as a co-signed, two-ended entry (<a href="./index.html">front door</a>, creed: <em>you happen at the exchange</em>). Published 2026-09-01; commit-dated.</div>
+<div class="card"><p class="note"><strong>Reading conventions (the labels doctrine).</strong> Extant terms in <span class="fant">&ldquo;quoted italics&rdquo;</span> are the record's own labels, kept for searchability; they commit this page to no entity ontology. Measured values carry their instruments.</p></div>
+
+<h2>1 &middot; Half a ledger line</h2>
+<p>From Marconi to 5G the grammar has never changed: a transmitter <span class="fant">&ldquo;emits&rdquo;</span>, the emission <span class="fant">&ldquo;propagates&rdquo;</span>, a receiver <span class="fant">&ldquo;detects&rdquo;</span> what arrives. One party acts; the other party waits. Every textbook diagram points the arrow one way.</p>
+<p>Normal Realism reads the same engineering the other way up. A quantum hand-off is a <em>transaction</em>: two-ended, co-signed, posted at both seats or posted at neither. No entry completes inside the transmitter alone — the &ldquo;emission&rdquo; that no sink takes up is not a faint signal lost in space but a transaction that never happened. The transmit-only grammar was always half a ledger line, and the engineering has quietly paid for the other half all along: the load impedance that <span class="fant">&ldquo;pulls&rdquo;</span> power the source cannot otherwise deliver, the matched termination without which the link budget is fiction, the antenna whose input impedance depends on what faces it. The receiver was a co-signer dressed as a bystander.</p>
+<p>If the exchange is two-ended, a question follows that the one-way grammar cannot even ask: <b>who holds the pen?</b> Nothing in the physics elects the sender. Either end of a linkage can gate whether the transaction completes — and a gate is an alphabet.</p>
+
+<h2>2 &middot; The stepping stone the art already owns</h2>
+<p>The extant record contains the seed and has spent seventy-seven years reading it as a trick. In 1948 Harry Stockman published <em>&ldquo;Communication by Means of Reflected Power&rdquo;</em> <span class="tag">extant record: Proc. IRE 36, 1196 (1948)</span>: a station that transmits nothing of its own, signalling instead by altering how it reflects an interrogating carrier. That seed became <span class="fant">&ldquo;modulated backscatter&rdquo;</span> — the RFID tag and the contactless card <span class="tag">extant record: ISO/IEC 14443, 15693 load modulation</span>: the tag switches its own load impedance, and the reader reads the tag's symbols <em>in the reader's own reflected carrier</em>.</p>
+<p>The art files this under clever impedance engineering at the interrogator. Read natively, it is the ontology showing through: <b>the receiving end is keying the exchange</b>, and the &ldquo;transmitter&rdquo; is functioning as the meter. What the extant reading hides is the generalization. Backscatter is broadband, promiscuous, and leaky — any reader can interrogate any tag, and the carrier sprays regardless. Make the linkage <em>resonant and sink-exclusive</em>, and the same inversion becomes a channel with properties the one-way grammar cannot supply at any power.</p>
+
+<h2>3 &middot; The inversion, stated</h2>
+<p>Take an established resonant linkage — coupled cavities, a guided pair, a matched near-field couple <span class="fant">(&ldquo;critical coupling&rdquo;, &ldquo;matched load&rdquo;)</span>. On such a linkage, delivery is <em>sink-gated</em>: no completed linkage, no transfer. The sink's readiness — presented, withdrawn, or detuned — is therefore not a passive condition of reception. It is a <b>symbol stream</b>.</p>
+<div class="card"><p><b>Receiver-keyed signalling.</b> The sink encodes by modulating its own readiness. The source transmits no message-bearing waveform at all: it reads the symbols in its <em>own delivery telemetry</em> — delivered power, reflected power, the lock observable. The channel's control resides at the receiving end; the sending end is the instrument.</p>
+<table style="width:100%;border-collapse:collapse;margin:.6rem 0;font-size:.92rem">
+<tr><td style="border:1px solid var(--edge);padding:.45rem .7rem;color:var(--mut)"><b>transmit-keyed (extant)</b></td><td style="border:1px solid var(--edge);padding:.45rem .7rem"><b>receiver-keyed (native)</b></td></tr>
+<tr><td style="border:1px solid var(--edge);padding:.45rem .7rem;color:var(--mut)">sender modulates an emission</td><td style="border:1px solid var(--edge);padding:.45rem .7rem">sink modulates its readiness</td></tr>
+<tr><td style="border:1px solid var(--edge);padding:.45rem .7rem;color:var(--mut)">receiver reads what arrives</td><td style="border:1px solid var(--edge);padding:.45rem .7rem">source reads its own delivery ledger</td></tr>
+<tr><td style="border:1px solid var(--edge);padding:.45rem .7rem;color:var(--mut)">radiates whether or not anyone listens</td><td style="border:1px solid var(--edge);padding:.45rem .7rem">no completed linkage &rarr; nothing to emit</td></tr>
+<tr><td style="border:1px solid var(--edge);padding:.45rem .7rem;color:var(--mut)">interceptable in transit</td><td style="border:1px solid var(--edge);padding:.45rem .7rem">an unmatched third party completes nothing</td></tr>
+</table>
+<p class="note">The transaction is the message. There is no third thing travelling between the seats carrying it.</p></div>
+
+<h2>4 &middot; What silence means</h2>
+<p>A transmit-keyed station is loud by construction: its standby is a carrier, its message is a modulation, and both are in the air for anyone. A receiver-keyed linkage is silent by <em>physics</em>, not by engineering discipline. With no completed linkage the source has no transaction to post — emission-free standby is not a low-power mode but the absence of anything to intercept. The defense art has a sober name for the goal it approaches asymptotically with spread spectrum and power management: <span class="fant">&ldquo;low probability of intercept&rdquo;</span>. Here it is not approached; it is the ground state. And because completion requires the matched, resonant counterpart, an unauthorized load does not eavesdrop weakly — it completes nothing: security by linkage rather than by key exchange over an open channel.</p>
+
+<h2>5 &middot; The guardrail — what this is not</h2>
+<p>Nothing travels between the seats, so nothing outruns anything. The linkage transacts as a whole; keying acts at the coupled pair's own response time — the loading dynamics of the resonators, their bandwidth — and no enable signal is transmitted from either end because none is needed and none exists. This page claims no retrograde signalling and no faster-than-light channel: the sibling exhibit already reported, at strength and with the record's own limits, why retrograde read-schemes achieve nothing (<a href="./poams-telecommunications.html">POAMS &amp; Telecommunications, &sect;4</a>). The well-posed quantities are rates and boundary conditions, not a message racing a wave. The claim here is an <em>inversion of control</em>, not a violation of order.</p>
+<p>Scope, stated exactly: the native domain of this page is the established resonant linkage — guided and near-field coupled systems, where sink-gating is bench physics. Whether and how the inversion extends to far-field links is an open engineering question and is stated as such.</p>
+
+<h2>6 &middot; The bench that would kill it</h2>
+<div class="card"><p><b>Three gates, all cheap.</b> (i) <b>Fidelity:</b> the source's delivery telemetry must reproduce the sink's readiness stream symbol-for-symbol, with no forward enable channel present — verified by severing every path but the linkage. (ii) <b>Exclusivity:</b> detune the sink by a stated number of linewidths — delivery and telemetry must read zero; a broadband surrogate load must read nothing at any offset. (iii) <b>Silence:</b> with the linkage open, the source's emission must sit at the instrument floor across the band. A failure at any gate is reported as a failure; the native reading earns its keep on the bench or not at all.</p></div>
+
+<h2>7 &middot; Standing on the record</h2>
+<p class="note">Stockman, <em>Communication by Means of Reflected Power</em>, Proc. IRE (1948) &middot; load-modulation backscatter, RFID/NFC <span class="fant">(ISO/IEC 14443, 15693)</span> &middot; critical coupling and matched-load delivery <span class="fant">(microwave engineering, standard)</span> &middot; cavity ring-down and Q-switching as sink-gating cousins &middot; N. V. Pope &amp; A. D. Osborne, the double-ended quantum; <em>Electricity and Light</em> (2005), the hand-off transaction &middot; corpus: <a href="./poams-telecommunications.html">POAMS &amp; Telecommunications</a>, <a href="./poams-electricity.html">POAMS &amp; Electricity</a>.</p>
+<div class="prov">Published 2026-09-01. The exchange is two-ended; the pen was always at both seats. This page hands it, deliberately, to the receiver.</div>
+
+</main>
+<script>
+document.getElementById('themeToggle').addEventListener('click',()=>{document.body.classList.toggle('light');});
+</script>
+</body></html>

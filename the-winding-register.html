@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Winding Register — Computation as Completion II: Arithmetic Where the Integers Are Physical</title>
+<script>window.MathJax={tex:{inlineMath:[['$','$']],displayMath:[['$$','$$']]}};</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+<style>
+:root{--bg:#0d0d17;--card:#12121e;--edge:#2a2a3e;--fg:#e2e2ea;--mut:#9a9ab0;--gold:#c9a84c;--blue:#64b5e0;--green:#66bb6a;--red:#e05f5f;}
+body.light{--bg:#faf8f2;--card:#ffffff;--edge:#d9d2bf;--fg:#26211a;--mut:#6b6355;--gold:#8b6914;--blue:#1f6f9f;--green:#2e7d32;--red:#b03030;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:Georgia,serif;line-height:1.7;font-size:16.5px;transition:background .3s,color .3s}
+main{max-width:880px;margin:0 auto;padding:2.2rem 1.2rem 4rem}
+h1{color:var(--gold);font-size:1.7rem;line-height:1.25;margin:.4rem 0 .6rem}
+h2{color:var(--gold);font-size:1.25rem;border-bottom:1px solid var(--edge);padding-bottom:.3rem;margin:2.2rem 0 .8rem}
+h3{color:var(--blue);font-size:1.05rem;margin:1.4rem 0 .5rem}
+p{margin:.8rem 0}
+.prov{font-size:.82rem;color:var(--mut);border-left:3px solid var(--gold);padding:.5rem .9rem;background:rgba(201,168,76,.05);margin:.8rem 0}
+.tag{display:inline-block;font-size:.7rem;letter-spacing:.05em;padding:.05rem .4rem;border:1px solid var(--edge);border-radius:4px;color:var(--mut);vertical-align:middle}
+.fant{color:var(--mut);font-style:italic}
+.card{background:var(--card);border:1px solid var(--edge);border-radius:10px;padding:1rem 1.2rem;margin:1.1rem 0}
+.card.gold{border-color:var(--gold)}
+.note{font-size:.88rem;color:var(--mut)}
+canvas{width:100%;border:1px solid var(--edge);border-radius:8px;background:#0a0a14;display:block}
+.ctl{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin:.6rem 0;font-size:.9rem}
+.ctl label{color:var(--mut)}
+button{background:var(--gold);color:#111;border:none;border-radius:6px;padding:.35rem .8rem;font-family:inherit;font-size:.9rem;cursor:pointer}
+button.off{background:#333347;color:var(--mut)}
+input[type=range]{accent-color:var(--gold)}
+table{border-collapse:collapse;width:100%;font-size:.9rem;margin:.8rem 0}
+th,td{border:1px solid var(--edge);padding:.45rem .6rem;text-align:left}
+th{color:var(--gold);font-weight:normal}
+td.c{text-align:center}
+a{color:var(--blue)}
+.readout{font-family:Menlo,monospace;font-size:.85rem;color:var(--green)}
+.nav{display:flex;justify-content:space-between;font-size:.85rem;margin-top:3rem;border-top:1px solid var(--edge);padding-top:1rem}
+.eqbox{background:#10101e;border:1px solid var(--edge);border-radius:8px;padding:8px 12px;margin:10px 0;overflow-x:auto}
+.theme-toggle{position:fixed;top:54px;right:12px;z-index:1000;background:var(--gold);color:var(--bg);border:none;width:40px;height:40px;border-radius:8px;padding:0;cursor:pointer;font-size:1.15rem;display:flex;align-items:center;justify-content:center}
+body.light canvas{background:#f6f3ea}
+body.light .eqbox{background:#f6f3ea}
+body.light .prov{background:rgba(139,105,20,.06)}
+body.light button{color:#fff}
+body.light button.off{background:#dcd5c2;color:#6b6355}
+</style>
+<style id="poams-hub-nav-style">
+#poams-hub-nav{position:fixed;top:0;left:0;right:0;z-index:9999;height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 1rem;background:rgba(13,13,24,0.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,175,55,0.25);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;box-sizing:border-box;}
+#poams-hub-nav a{color:#d4af37;text-decoration:none;display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:6px;transition:background .2s;white-space:nowrap;font-weight:500;}
+#poams-hub-nav a:hover{background:rgba(212,175,55,0.12);}
+#poams-hub-nav .phn-center{display:flex;flex-direction:column;align-items:center;line-height:1.2;}
+#poams-hub-nav .phn-title{font-weight:600;color:#e8e8f0;font-size:12px;}
+#poams-hub-nav .phn-pos{font-size:10px;color:rgba(212,175,55,0.6);letter-spacing:.05em;}
+[data-theme="light"] #poams-hub-nav,body.light #poams-hub-nav{background:rgba(250,248,242,0.95);border-bottom-color:rgba(139,105,20,0.25);}
+[data-theme="light"] #poams-hub-nav a,body.light #poams-hub-nav a{color:#8b6914;}
+body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
+[data-theme="light"] #poams-hub-nav .phn-title,body.light #poams-hub-nav .phn-title{color:#2a2318;}
+@media (max-width:640px){.phn-hide-sm{display:none;}}
+body{padding-top:72px !important;}
+</style>
+</head>
+<body>
+<div id="poams-hub-nav">
+  <a href="./computation-as-completion.html" title="Computation as Completion">&larr; <span class="phn-hide-sm">Computation as Completion</span></a>
+  <div class="phn-center">
+    <a href="./index.html" style="flex-direction:column;gap:2px;padding:4px 12px;">
+      <span class="phn-title">The Winding Register</span>
+      <span class="phn-pos">NR &middot; POAMS &middot; EXHIBIT SERIES</span>
+    </a>
+  </div>
+  <a href="./the-polyverse.html" title="The Polyverse"><span class="phn-hide-sm">The Polyverse</span> &rarr;</a>
+</div>
+<button class="theme-toggle" id="themeToggle" title="theme">&#9680;</button>
+<main>
+
+<h1>The Winding Register</h1>
+<p class="note" style="margin-top:-2px">Computation as Completion II &middot; arithmetic where the integers are physical &middot; the accumulator, the carry, the modulus, and the radix — in winding space</p>
+<p class="note" style="font-size:.82rem">Sibling exhibits: <a href="./computation-as-completion.html">Computation as Completion</a> derived the commit discipline and the processor; <a href="./poams-memory.html">POAMS &amp; Memory</a> derived the bit as a closure. This page builds the <em>arithmetic unit</em>.</p>
+<div class="prov">This exhibit is an extrapolation of the foundational work of N. Vivian &ldquo;Viv&rdquo; Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope&ndash;Osborne Angular Momentum Synthesis (POAMS). Built on the corpus record: the discreteum (<em>The Ultimately Discrete Nature of Physical Phenomena</em>, Light-Speed ch. 5); the commit as error-digitizer and its design relation (<a href="./computation-as-completion.html">Computation as Completion</a>); storage as winding (<a href="./poams-memory.html">POAMS &amp; Memory</a>). Published 2026-09-01; commit-dated.</div>
+<div class="card"><p class="note"><strong>Reading conventions (the labels doctrine).</strong> Extant terms in <span class="fant">&ldquo;quoted italics&rdquo;</span> are the record's own labels; measured values carry their instruments; no entity ontology rides on a vendor noun.</p></div>
+
+<h2>1 &middot; The premise the hardware never had</h2>
+<p>Normal Realism's ground floor is discrete: angular momentum comes only in whole turns, $\oint d\varphi = 2\pi n$, and a fractional turn is not a smaller thing but <em>no</em> thing — it does not close and cannot persist. The integers are primary; continuity is the far-field appearance of many turns read at once. Reality's own durable bookkeeping is integer-typed.</p>
+<p>Now look at what our machines store. A DRAM cell holds an integer as a leaking census of charge, refreshed every few milliseconds <span class="tag">extant record: JEDEC refresh, ~64 ms</span>. A flash cell walls the census behind an oxide barrier. A disk grain holds one bit as an orientation on an Arrhenius barrier. In every case the integer is a <em>representation</em> imposed on an analog quantity by thresholds — the machine's state variable and the number it stores are different kinds of thing. The winding register closes that gap: it stores an integer <b>as an integer</b> — the count of completed closures of a physical phase. The durable state has the same type as reality's bookkeeping.</p>
+
+<h2>2 &middot; The register</h2>
+<p>An accumulator is a resonant or delay structure whose phase is tracked modulo $2\pi$ together with a whole-turn counter: its persistent state is $n$, the winding number. Durability comes from the quantization itself — a half-turn cannot persist, so there is nothing between $n$ and $n{+}1$ for the state to decay into. Sub-turn drift is not protected against; it is <em>discarded</em>, at each scheduled commit, when the accumulated phase is resolved to the nearest whole turn. The parent exhibit derived the discipline and its design relation — the commit period that holds worst-case drift under the half-turn bound, the per-commit miscount, and the constant-overhead majority that replaces the extant art's growing error-correction tax (<a href="./computation-as-completion.html">Computation as Completion, the commit theorem</a>). The register is that discipline given a number to hold.</p>
+
+<h2>3 &middot; Arithmetic that is native, not represented</h2>
+<div class="card">
+<p><b>Addition.</b> Register values are expressed as phases, combined in an open interference stage, and the total is committed to the destination register. Subtraction is the same act in the opposite sense.</p>
+<p><b>The modulus, free.</b> Choose the register's per-turn quantum so the modulus corresponds to a whole number of turns, and the register <em>wraps at the modulus by construction</em>. There is no modulo circuit; residue arithmetic is what the hardware does when left alone. Modular exponentiation — the workhorse of period-finding — runs in the representation where reduction is the geometry.</p>
+<p><b>The carry, physical.</b> When an accumulator crosses a whole-turn boundary at commit, it emits one quantized pulse to the next register, which posts one turn. The carry is not a signal <em>about</em> arithmetic that a comparator deduces; it is a discrete physical event that <em>is</em> the arithmetic — countable, clockable, and either present or absent, never partial.</p>
+<p><b>The radix, geometric.</b> Two registers of differing per-turn quanta, coupled through an interference stage and committed, convert $N$ turns at base $a$ into the corresponding count at base $b$: base conversion as a native hardware operation — residue representation in, decimal readout out.</p>
+</div>
+
+<h2>4 &middot; Why interference alone was never enough</h2>
+<p>The record already tried computing with phase and no integers. Gauss-sum interference factoring — demonstrated in NMR, cold atoms, and shaped pulses — died by its own community's analysis: suppressing false <span class="fant">(&ldquo;ghost&rdquo;)</span> factor resonances demands a number of interfering terms that grows as a power of the target integer, exponential in the digit count <span class="tag">extant record: the ghost-factor analyses</span>. The failure mode is exactly sub-turn analog precision asked to survive an entire computation. The winding architecture inverts the burden: precision demands are confined to bounded-depth stages between commits, and everything persistent is an integer. And the scope is stated plainly, as the parent exhibit settled it: no Shor-class asymptotic speedup lives here — the merits are native modular arithmetic, commit-disciplined error, and the energy ledger in which <em>the turns are free and the postings are tolled</em>.</p>
+
+<h2>5 &middot; The cousins, each holding a shard</h2>
+<p>Goto's parametron <span class="tag">extant record: 1959</span> computed with two phase states $0/\pi$ — a winding register truncated to one bit, with no multi-turn count and no carry. Single-flux-quantum logic <span class="tag">extant record: RSFQ, Likharev &amp; Semenov 1991</span> already moves <em>quantized whole-flux events</em> as its working pulses — the art's own proof that computing with discrete closure events is fast and manufacturable — but spends its quanta as transients rather than accumulating them in registers with modular structure. Magnonic interferometer and majority logic <span class="tag">extant record: Khitun et al.</span> computes in phase without durable integers at all. Each cousin owns a shard: bistable phase, quantized events, wave interference. The register is what none of them built — the accumulated, multi-valued, modular integer as the machine's durable state.</p>
+
+<h2>6 &middot; The bench that would kill it</h2>
+<div class="card"><p><b>Four gates, one register.</b> (i) <b>Retention:</b> write $n$ counted pulses, hold, read $n$ — across hold times and power cycles of the drive. (ii) <b>Carry integrity:</b> the carry pulse fires at the whole-turn boundary and nowhere else — event statistics clean against drive noise. (iii) <b>Modular exactness:</b> the wrap at modulus $N$ is exact over arbitrarily many cycles — one lost or gained turn is a fail. (iv) <b>Radix identity:</b> conversion $a\!\rightarrow\!b$ matches integer arithmetic on every tested value. Room-temperature, garnet-class media, bench instruments throughout (<a href="./computation-as-completion.html">substrate section</a>). A machine that cannot pass gate (i) has no register; a reading that fails gate (iii) has no modulus. Failures are reported as failures.</p></div>
+
+<h2>7 &middot; Standing on the record</h2>
+<p class="note">E. Goto, the parametron (1959) &middot; K. Likharev &amp; V. Semenov, RSFQ single-flux-quantum logic (1991) &middot; S. Demokritov et al., room-temperature magnon condensation, Nature 443, 430 (2006) &middot; A. Khitun et al., magnonic logic &middot; the Gauss-sum factoring record and its ghost-factor analyses &middot; corpus: <a href="./computation-as-completion.html">Computation as Completion</a>, <a href="./poams-memory.html">POAMS &amp; Memory</a>, <em>Light-Speed</em> ch. 5 (the discreteum).</p>
+<div class="prov">Published 2026-09-01. The integers were never a notation laid over the world; they are how the world holds a value. A register that holds them the same way is not imitating mathematics — it is joining it.</div>
+
+</main>
+<script>
+document.getElementById('themeToggle').addEventListener('click',()=>{document.body.classList.toggle('light');});
+</script>
+</body></html>
