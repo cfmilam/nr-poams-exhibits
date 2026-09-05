@@ -163,8 +163,8 @@ try{if(localStorage.getItem('poams-theme')==='light'){document.body.classList.ad
         <li><b class="k">Count the crests.</b> The bright wave circling a ring is its phase crest — the winding number made visible: <span style="color:var(--blue)">p-rings carry 1 crest</span>, <span class="gr">d-rings 2</span>, <span class="cy">f-rings 3</span>; <span class="g">s-rings breathe uniformly</span> (winding 0 — near-pure internal twist, no transport). The crest is a <b>wave of turning, not a thing going around</b>.</li>
         <li><b>Orientations are derived, not assumed:</b> each angular harmonic l admits exactly 2l+1 orientations × 2 phase senses — <span class="g">s&nbsp;=&nbsp;2</span>, <span style="color:var(--blue)">p&nbsp;=&nbsp;6</span>, <span class="gr">d&nbsp;=&nbsp;10</span>, <span class="cy">f&nbsp;=&nbsp;14</span>. Pure eigen-counting on a sphere. (Each orientation is drawn in its maximal-circulation form about its own axis; the counting is untouched.)</li>
         <li><b>Paired senses counter-flow and cancel</b> — a closed pair is two adjacent rings whose crests chase in opposite directions, drawn calm and dim. <b class="k">Unpaired senses co-flow</b> bright: carbon's two open p-rings are its chemistry; iron's <span class="gr">four co-turning d-rings</span> are a net twist — its magnetism, with no "spin of a particle" anywhere. <b>Slide "closed pairs" down</b> to watch the cancellations fall silent: what survives is the atom's <span class="g">net circulation</span>. The pairs are still there (the counting never changes); zero is just what their sum looks like.</li>
-        <li><b>Shells are radial harmonics</b> (n = 1, 2, 3…). True spacing goes as <span class="g">n²</span> — compressed here for display (slider below), the same compromise every textbook makes.</li>
-        <li><b class="k">"Why do two gold bands ride way out there, alone?"</b> — the first question this drawing gets (first asked of manganese; iron answers identically). In manganese, iron, the alkaline earths — any atom whose outermost occupied shell holds only its s-pair — two gold rings ride the outermost sphere by themselves, tilted perpendicular to everything beneath: the <span class="g">valence s-pair</span>, and nothing has left its shell. s has winding 0 and owns no transport axis, so a lone s-sense is drawn on the equator and a pair straddles <b>±40° about the vertical axis</b> — a drawing convention for a mode whose orientation is a basis choice; the counting is untouched. Every ring is a circle <i>of its sphere</i>: center a distance c up the axis, radius ρ, and c² + ρ² = R² identically. Iron's 4s pair at the default compression: √(4.558² + 5.432²) = 7.091 = R₄ to the digit. The faint cages — two orthogonal great circles per shell, a third closing the outermost — are drawn so your eye can verify it. (A single equatorial trace, foreshortened under camera tilt, once read as a disk the s-pair seemed to overhang: the guide was under-drawn; the geometry never moved.)</li>
+        <li><b>Radial modes are indexed by n</b> (1, 2, 3…). True spacing goes as <span class="g">n²</span> — compressed here for display (slider below), the same compromise every textbook makes.</li>
+        <li><b class="k">"Why do two gold bands ride way out there, alone?"</b> — the first question this drawing gets (first asked of manganese; iron answers identically). In manganese, iron, the alkaline earths — any atom whose outermost occupied radial mode holds only its s-pair — two gold rings ride that mode's outer guide sphere by themselves, tilted perpendicular to everything beneath: the <span class="g">valence s-pair</span>, and nothing has left the accumulator. s has winding 0 and owns no transport axis, so a lone s-sense is drawn on the equator and a pair straddles <b>±40° about the vertical axis</b> — a drawing convention for a mode whose orientation is a basis choice; the counting is untouched. Every ring is a circle <i>of its guide sphere</i>: center a distance c up the axis, radius ρ, and c² + ρ² = R² identically. Iron's 4s pair at the default compression: √(4.558² + 5.432²) = 7.091 = R₄ to the digit. The neutral guide cages — two orthogonal great circles per radial mode, a third closing the outermost, which is emphasized — are drawn so your eye can verify it. (A single equatorial trace, foreshortened under camera tilt, once read as a disk the s-pair seemed to overhang: the guide was under-drawn; the geometry never moved.)</li>
         <li><b>The planar core</b> is the standalone <span class="g">closed loop of twisted momentum</span>, embedded at the atom's heart doing structural duty: its integer twist count IS the extra ħ that deepens the vortex without changing its pattern (convention: neutrons). C-12 carries <span class="g">Tw = +6</span> — count the colour cycles; Fe-56 carries +30, blurring toward apparent smoothness (the discreteum lesson again). Hydrogen-1 carries none — the bare fundamental.</li>
         <li><b class="k">Why a sphere and a disk at all?</b> Two channels, exhaustively: a quantum either opens a <span class="g">new slot in the orientation census</span> (the pattern — and a completed census is <i>exactly</i> spherical: the sum of any full harmonic set of orientations is angle-free, Unsöld's theorem) or <span class="g">deepens the winding of the one central loop</span> (the core — one loop, one plane; Laplace's disk). Winding a pattern ring instead would change its crest count — its chemical identity; isotopes prove the pure-depth channel exists. Full demonstration in the Elements exhibit's Vortex panel.</li>
         <li>Dim grey ghost rings mark <b>derived-but-unoccupied orientations</b> (carbon shows 2 of 6 p-positions lit). Chemistry is the reach toward closing them.</li>
@@ -457,7 +457,7 @@ function coreRing(count){
 }
 
 function makeShellHints(ns){
-  // Each shell is a SPHERE of radius rShell(n); every ring of shell n lies exactly on it
+  // Each radial mode has a spherical radius guide; every ring of mode n lies exactly on it
   // (center²+ρ²=R² by construction). A single equatorial trace under-communicates that —
   // outer s-rings (vertical planes, ±lat about z) project outside the foreshortened ellipse
   // and read as "outside the shell". So: trace each sphere with two orthogonal great
@@ -465,15 +465,21 @@ function makeShellHints(ns){
   const sorted=[...ns].sort((a,b)=>a-b), nMax=sorted[sorted.length-1];
   for(const n of sorted){
     const R=rShell(n);
+    const outer=n===nMax;
     const circles=[[a=>[R*Math.cos(a),0,R*Math.sin(a)],0.5],   // equatorial (xz)
                    [a=>[0,R*Math.cos(a),R*Math.sin(a)],0.32]]; // meridian (yz)
-    if(n===nMax) circles.push([a=>[R*Math.cos(a),R*Math.sin(a),0],0.32]); // outermost: xy
+    if(outer) circles.push([a=>[R*Math.cos(a),R*Math.sin(a),0],0.32]); // outermost: xy
     for(const [fn,op] of circles){
       const pos=[];
       for(let i=0;i<=140;i++){const a=i/140*2*Math.PI;pos.push(...fn(a));}
       const geo=new THREE.BufferGeometry();
       geo.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));
-      const ln=new THREE.LineLoop(geo,new THREE.LineBasicMaterial({color:0x22223a,transparent:true,opacity:op}));
+      const ln=new THREE.LineLoop(geo,new THREE.LineBasicMaterial({
+        color:outer?0x555570:0x22223a,
+        transparent:true,
+        opacity:outer?(op===0.5?0.82:0.58):op,
+        depthWrite:false
+      }));
       atom.add(ln); statics.push(ln);
     }
   }
@@ -552,7 +558,7 @@ function build(){
   document.getElementById('hudNet').innerHTML=BESPOKE[Z]?BESPOKE[Z].net:
     (Z===1?'1 uncancelled sense (1s) — the fundamental turn itself; everything else is this, accumulated.':netHTML(stats));
   document.getElementById('cap').innerHTML=captionFor(Z,stats,units)+
-    ' <span style="color:#6f6f88">Radial spacing compressed for display; truth is n². Faint circles are great-circle traces of the shell spheres — every ring of shell n lies exactly on its sphere (outer s-pairs straddle ±40° about z, so they ride the outermost sphere perpendicular to the core plane).</span>';
+    ' <span style="color:#6f6f88">Radial spacing compressed for display; truth is n². Neutral guide circles trace the radial-mode spheres, with the outermost emphasized — every ring of mode n lies exactly on its sphere (outer s-pairs straddle ±40° about z, so they ride the outermost sphere perpendicular to the core plane).</span>';
 }
 let buildQueued=false;
 function requestBuild(){ if(buildQueued)return; buildQueued=true;
