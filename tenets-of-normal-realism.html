@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Normal Realism — The Tenets</title>
+<style>
+  :root{
+    --bg:#0d0d18; --card:#1c1c30; --text:#e8e8f0; --muted:#9a9ab0;
+    --gold:#d4af37; --blue:#5bc8f5; --green:#66bb6a; --cyan:#26c6da; --red:#ef5350; --edge:#2c2c46;
+  }
+  body.light{
+    --bg:#faf8f2; --card:#ffffff; --text:#26211a; --muted:#6b6355;
+    --gold:#8b6914; --blue:#176e94; --green:#2e7d32; --cyan:#0e7490; --red:#b03030; --edge:#d9d2bf;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;transition:background .3s,color .3s;}
+  header{padding:26px 22px 18px;border-bottom:1px solid var(--edge);text-align:center;}
+  header h1{margin:0;font-size:26px;color:var(--gold);font-weight:650;}
+  header .sub{margin:8px auto 0;font-size:14px;color:var(--muted);max-width:820px;}
+  header .sub b{color:var(--blue);font-weight:600;}
+  main{max-width:900px;margin:0 auto;padding:10px 20px 60px;}
+  section{margin-top:38px;}
+  h2{font-size:19px;color:var(--gold);font-weight:650;margin:0 0 14px;
+     border-bottom:1px solid var(--edge);padding-bottom:8px;}
+  h3{font-size:15px;color:var(--blue);font-weight:650;margin:22px 0 8px;}
+  p{margin:12px 0;font-size:14.5px;color:var(--text);}
+  p.mut, li.mut{color:var(--muted);}
+  em{color:var(--gold);font-style:normal;font-weight:600;}
+  b{color:var(--blue);font-weight:650;}
+  .fant{color:var(--muted);}
+  .card{background:var(--card);border:1px solid var(--edge);border-radius:10px;padding:18px 20px;margin:18px 0;}
+  .card.gold{border-color:rgba(201,168,76,.45);background:rgba(201,168,76,.06);}
+  .card.blue{border-color:rgba(79,195,247,.35);background:rgba(79,195,247,.05);}
+  .card.red{border-color:rgba(239,83,80,.4);background:rgba(239,83,80,.05);}
+  .card.green{border-color:rgba(102,187,106,.4);background:rgba(102,187,106,.05);}
+  ul{margin:10px 0;padding-left:22px;}
+  li{margin:7px 0;font-size:14.5px;}
+  blockquote{margin:14px 8px;padding:10px 16px;border-left:3px solid var(--gold);
+    background:rgba(201,168,76,.05);border-radius:0 8px 8px 0;font-size:14px;color:var(--text);}
+  blockquote .who{display:block;margin-top:8px;font-size:12.5px;color:var(--muted);font-style:italic;}
+  .tenet{background:var(--card);border:1px solid var(--edge);border-left:4px solid var(--gold);
+    border-radius:10px;padding:16px 20px;margin:20px 0;}
+  .tenet .tn{font-size:12px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;}
+  .tenet h3{margin:4px 0 10px;font-size:16.5px;color:var(--gold);}
+  .tenet .read{margin-top:12px;font-size:13px;color:var(--muted);border-top:1px dashed var(--edge);padding-top:8px;}
+  .tenet .read a{color:var(--blue);text-decoration:none;border-bottom:1px solid rgba(91,200,245,.35);}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px;}
+  th{color:var(--gold);text-align:left;padding:8px;border-bottom:2px solid var(--edge);font-weight:650;}
+  td{padding:8px;border-bottom:1px solid var(--edge);vertical-align:top;}
+  td a{color:var(--blue);text-decoration:none;border-bottom:1px solid rgba(91,200,245,.35);}
+  .cap{font-size:12.5px;color:var(--muted);margin:8px 2px 0;text-align:center;}
+  a.exlink{color:var(--blue);text-decoration:none;border-bottom:1px solid rgba(91,200,245,.35);}
+  /* hub nav */
+  #poams-hub-nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;
+    justify-content:space-between;padding:10px 16px;background:rgba(13,13,24,.92);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--edge);font-size:13px;}
+  body.light #poams-hub-nav{background:rgba(250,248,242,.92);}
+  #poams-hub-nav a{color:var(--gold);text-decoration:none;padding:6px 10px;border-radius:8px;display:flex;align-items:center;gap:6px;}
+  #poams-hub-nav a:hover{background:rgba(212,175,55,.12);}
+  #poams-hub-nav .phn-center{display:flex;justify-content:center;}
+  #poams-hub-nav .phn-title{font-weight:650;color:var(--text);}
+  #poams-hub-nav .phn-pos{font-size:10.5px;letter-spacing:2px;color:var(--muted);}
+  @media (max-width:640px){.phn-hide-sm{display:none;}}
+  body{padding-top:72px !important;}
+  .theme-toggle{position:fixed;right:16px;bottom:16px;z-index:60;background:var(--card);color:var(--text);
+    border:1px solid var(--edge);border-radius:50%;width:42px;height:42px;cursor:pointer;font-size:17px;}
+</style>
+</head>
+<body>
+
+<div id="poams-hub-nav">
+  <a href="./index.html" title="POAMS Exhibit Hub">← <span class="phn-hide-sm">Exhibit Hub</span></a>
+  <div class="phn-center">
+    <a href="./index.html" style="flex-direction:column;gap:2px;padding:4px 12px;">
+      <span class="phn-title">Normal Realism — The Tenets</span>
+      <span class="phn-pos">NR · POAMS · FOUNDATIONS</span>
+    </a>
+  </div>
+  <a href="./cone-model.html" title="The Pope-Osborne Cone Model"><span class="phn-hide-sm">The Cone Model</span> →</a>
+</div>
+<button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle light/dark theme">☀️</button>
+
+<header>
+  <h1>Normal Realism — The Tenets</h1>
+  <p class="nr-provenance" style="font-size:0.8em;font-style:italic;opacity:0.72;line-height:1.5;margin:0.5em 0 1em;text-align:center">This exhibit is an extrapolation of the foundational work of N.&nbsp;Vivian &ldquo;Viv&rdquo; Pope &amp; Dr.&nbsp;Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
+  <div class="sub">The philosophy beneath every exhibit on this site — a reader's gate to sixty years of work, and to why it grants what the extant scientific enterprise cannot: <b>a world in which your choices genuinely make the future</b>.</div>
+</header>
+
+<main>
+
+<div class="card gold" style="margin-top:0;">
+  <p style="margin:6px 0;">Every exhibit in this series is physics — orbits, spectra, clocks, the periodic table, mass itself, all derived
+  from one substance keeping its books. But the physics rests on a philosophy, and the philosophy came first, developed by
+  Viv Pope over sixty years across seven major works. <em>This page is the synopsis those works never had</em>: the tenets stated
+  plainly, each with a pointer into the book where Pope argues it in full. It cannot replace the books — in
+  <i>The Eye of the Beholder</i> and <i>Einstein's Lost Legacy</i> every paragraph earns its place — but it can hand you the map
+  before you walk the country.</p>
+</div>
+
+<!-- ══════════ 1. THE LETTER ══════════ -->
+<section id="letter">
+<h2>1 · A lineman writes to Einstein</h2>
+
+<p>In March 1954, a seventy-five-year-old Albert Einstein, at the Institute for Advanced Study in Princeton,
+answered a letter from a twenty-three-year-old telephone lineman working the hills of Wales. The lineman,
+Viv Pope, had asked about the "clock paradox" — the claim that relativity makes each of two separated twins
+end up younger than the other. Einstein's reply was short and exact:</p>
+
+<blockquote>"Your question concerns the wellknown 'clock-paradoxon' and is very well formulated. The answer is:
+Two observers B<sub>1</sub> and B<sub>2</sub>, each at rest in an inertial system, can only encounter each other once.
+To make possible a second encounter one of the two observers&hellip; has to reverse his speed&hellip; This reversal
+distinguishes observer B<sub>1</sub> in comparison to observer B<sub>2</sub>&hellip; This is the cause of the dissymmetry
+of the result with respect to the two observers."
+<span class="who">— Albert Einstein to N. V. Pope, 21 March 1954 (Swansea County Archives, ref. D/D NVP/1-17)</span></blockquote>
+
+<p>Einstein died the following year and the correspondence ended. But in grappling with that letter, Pope became
+convinced of two things: that there is no clock paradox — and that Einstein's second postulate, <span class="fant">"light travels
+at a constant speed c in vacuo,"</span> is logically redundant. (There was a second letter, too: around the same time the
+young Pope independently conceived what J.&nbsp;W. Dunne had called serial time — time as a hierarchy of orthogonal
+dimensions — and wrote to Einstein again. No answer ever came; Einstein was already in his final illness. That unanswered
+thread waited fifty years, and resurfaces in §5 below.) Everything relativity actually delivers can be had without it.
+Pulling on that single thread, over the next six decades — later in mathematical collaboration with Dr. Anthony Osborne
+of Keele University — unravelled the whole fabric of field-forces, travelling photons, wave-particles, Big Bangs and
+dark matter, and rewove it into something radically simpler. Hermann Bondi reached the same reading of <i>c</i>
+independently and corresponded with Pope about it; Bondi took it as a teaching aid, and left it to Pope, with his blessing,
+to develop what it meant for philosophy. What it meant is Normal Realism.</p>
+
+<p class="mut">The name is deliberate. Normal Realism claims to be nothing more than <i>the default position of any sane,
+sensible observer not bedazzled by a theoretical belief system</i> — the realism of ordinary perception, held to with
+uncommon consistency. Its heresy is only that it refuses to abandon that position when the textbooks demand it.</p>
+</section>
+
+<!-- ══════════ 2. THE TENETS ══════════ -->
+<section id="tenets">
+<h2>2 · The tenets</h2>
+
+<p>Stated as ten commitments. Each is argued, not asserted, in the works cited beneath it — the arguments are
+Pope's (and, in the mathematics, Pope &amp; Osborne's); the compression is ours.</p>
+
+<div class="tenet" id="t1">
+  <div class="tn">Tenet I</div>
+  <h3>There is one nature, and science is the reading of it</h3>
+  <p><i>The Eye of the Beholder</i> opens: <em>"There are many sciences and scientific theories but there is only one
+  nature."</em> The most basic definition of science that is possible is <b>the rational interpretation of observational
+  and instrumental information</b> — and the ultimate reader of that information is ourselves, in communication with
+  others like ourselves. Science is therefore <b>relativistic at its root</b>: whatever it describes is described and
+  measured relative to observation. There is no "God's-eye view" from which nature is seen whole and at once; any
+  physics that tacitly assumes one has left science for metaphysics.</p>
+  <div class="read">Read: <a href="https://cfmilam.github.io/nr-poams-books/eye-of-beholder.html">Eye of the Beholder</a>, ch. I ·
+  <a href="https://cfmilam.github.io/nr-poams-books/einsteins-lost-legacy.html">Einstein's Lost Legacy</a>, chs. 1 &amp; 5</div>
+</div>
+
+<div class="tenet" id="t2">
+  <div class="tn">Tenet II</div>
+  <h3>The information is discrete — and must be</h3>
+  <p>For information to <i>be</i> information, its ultimate elements have to be discrete and unconnected. If laws
+  determined which letter followed which, every sentence would be the same sentence and there would be no news.
+  This is not an empirical accident confirmed by Planck — it is a <b>logical requirement</b> that Planck's quantum
+  <i>h</i> happened to satisfy. The ultimate element of nature is the quantum of action: a whole, irreducible,
+  probabilistic packet of energy-times-time that is simultaneously the ultimate <b>bit</b>. Reality is a
+  <b>discretum, not a continuum</b>; continuity is only how many discrete events look from far away, as a movie's
+  still frames read as motion. As CERN's founding director Weisskopf conceded to Pope: no experiment anywhere has
+  ever succeeded in "splitting <i>h</i>."</p>
+  <div class="read">Read: <a href="https://cfmilam.github.io/nr-poams-books/eye-of-beholder.html">Eye of the Beholder</a>, chs. I–II ·
+  <a href="https://cfmilam.github.io/nr-poams-books/einsteins-lost-legacy.html">Einstein's Lost Legacy</a>, chs. 3–4 ·
+  <a href="https://cfmilam.github.io/nr-poams-books/light-speed-gravitation-and-quantum-instantaneity.html">Light-Speed, Gravitation and Quantum Instantaneity</a>, ch. 5</div>
+</div>
+
+<div class="tenet" id="t3">
+  <div class="tn">Tenet III</div>
+  <h3><i>c</i> is not a speed</h3>
+  <p>What Römer measured in 1676 was a <b>constant ratio between distance-measure and time-measure</b>:
+  one second for every 300,000 kilometres, in any unmediated observational direction. All velocities are distances
+  divided by times, but not all distances divided by times are velocities — <span class="fant">"I can divide the length of my
+  lawn by the time since the Kennedy assassination without that signifying any kind of velocity."</span> Nothing is ever
+  <i>seen</i> to travel: no one has observed light leave an object, cross a void, and arrive. Bondi said it exactly:</p>
+  <blockquote>"Any attempt to measure the velocity of light is&hellip; not an attempt at measuring the velocity of light
+  but an attempt at ascertaining the length of the standard metre in Paris in terms of time-units."
+  <span class="who">— Hermann Bondi, <i>Assumption and Myth in Physical Theory</i> (1965)</span></blockquote>
+  <p>So <i>c</i> is a <b>conversion factor</b> — like pounds to kilograms — telling us that observational distance and time
+  were never two measures but one: <b>distance-time</b>. <i>Lost Legacy</i> ch. 6 gives ten independent logical proofs that
+  <i>c</i> cannot be a velocity of anything, among them: a "photon," as one irreducible quantum, has no energy to spare to
+  manifest itself anywhere between source and sink, and the one "speed" that is identical for all relatively moving
+  observers is, by that very fact, not a speed.</p>
+  <div class="read">Read: <a href="https://cfmilam.github.io/nr-poams-books/einsteins-lost-legacy.html">Einstein's Lost Legacy</a>, chs. 3 &amp; 6 ·
+  <a href="https://cfmilam.github.io/nr-poams-books/eye-of-beholder.html">Eye of the Beholder</a>, ch. I</div>
+</div>
+
+<div class="tenet" id="t4">
+  <div class="tn">Tenet IV</div>
+  <h3>Space is in the light, not light in space</h3>
+  <p>The full Copernican inversion. Light — the whole spectral range, from below infrared to beyond gamma — is not
+  a travelling intermediary <i>between</i> things; it is <b>the information itself</b>, the matrix out of which every
+  distance, duration, mass and motion is observationally projected, the way a viewer projects the depth of a video
+  scenario out of patterns of flat screen pixels. A quantum transaction is <b>proper-time-instantaneous</b>: its two
+  "ends" are one event, common to object and observer. The time-delay <i>s/c</i> lives not in the quantum but in the
+  <i>sequences</i> of quanta — the "cinematic model": stills instantaneous, action time-delayed, no contradiction.
+  This dissolves the EPR "paradox" outright: quantum immediacy and relativistic delay are complementary faces of the
+  same time-formula, never rivals. And the felt connections are the same as the seen — Mach: <span class="fant">"When the
+  subway train jerks it is the fixed stars that throw you down."</span></p>
+  <div class="read">Read: <a href="https://cfmilam.github.io/nr-poams-books/eye-of-beholder.html">Eye of the Beholder</a>, ch. VI ·
+  <a href="https://cfmilam.github.io/nr-poams-books/einsteins-lost-legacy.html">Einstein's Lost Legacy</a>, chs. 4–5, 9 ·
+  <a href="https://cfmilam.github.io/nr-poams-books/immediate-distant-action.html">Immediate Distant Action and Correlation in Modern Physics</a> (the dedicated volume)</div>
+</div>
+
+<div class="tenet" id="t5">
+  <div class="tn">Tenet V</div>
+  <h3>Relativity is Pythagoras — no light-speed axiom required</h3>
+  <p>Draw a right triangle whose legs are the proper time <i>t</i> of a moving body and its distance-as-time <i>s/c</i>;
+  the hypotenuse is the observer's time. School geometry then yields
+  <i>t</i><sub>R</sub> = <i>t</i>/&#8730;(1&nbsp;&minus;&nbsp;<i>v</i>&sup2;/<i>c</i>&sup2;) — Einstein's time dilation,
+  derived with no second postulate, no ether history, no field theory (Pope &amp; Osborne, <i>Int. J. Math. Educ. Sci.
+  Technol.</i>, 1987). Had Pythagoras thought to add a fourth dimension in the same units, he could have anticipated
+  Einstein by three thousand years. The twins "paradox" dissolves exactly as Einstein's letter said — the reversal
+  breaks the symmetry — and the same formula, with quantum-integer time-steps, yields the Balmer–Rydberg spectrum
+  (Tenet VII); with orbital substitution it yields orbital time dilation as verified by GPS and Pound–Rebka.
+  One formula; relativity and the quantum as two of its readings.</p>
+  <div class="read">Read: <a href="https://cfmilam.github.io/nr-poams-books/einsteins-lost-legacy.html">Einstein's Lost Legacy</a>, ch. 7 &amp; App. 1 ·
+  <a href="https://cfmilam.github.io/nr-poams-books/eye-of-beholder.html">Eye of the Beholder</a>, chs. II &amp; V ·
+  exhibits: <a class="exlink" href="./circular-orbit-clocks.html">Circular-Orbit Clocks</a>, <a class="exlink" href="./gps-clocks.html">GPS Clocks</a>, <a class="exlink" href="./orbital-time-dilation.html">Orbital Time Dilation</a></div>
+</div>
+
+<div class="tenet" id="t6">
+  <div class="tn">Tenet VI</div>
+  <h3>There is no gravity-force; angular momentum suffices</h3>
+  <p>Newton gave two laws that cancel: a First Law decreeing force-free motion is straight, and a "universal
+  gravitation" explaining why nothing ever moves that way. Aristotle had it right before either: uninterrupted
+  natural motion is <b>cyclic</b>. All free motion is orbital; straight-line momentum is the ideal special case of
+  an orbit of infinite radius. The single equation of orbital angular momentum, <i>mvr</i>&nbsp;=&nbsp;<i>GmM</i>/<i>v</i>,
+  is sufficient by itself to give every parameter of free orbits — no pull crossing a void. Nothing is ever
+  <i>attracted</i>; bodies simply ride the orbits their angular momentum assigns them, and the only real force is
+  whatever <b>prevents</b> that — the twig holding the apple, the ground pressing up on your feet.
+  <em>Weight is the bill for standing off your natural orbit.</em> That is why free fall feels like nothing.</p>
+  <div class="read">Read: <a href="https://cfmilam.github.io/nr-poams-books/eye-of-beholder.html">Eye of the Beholder</a>, ch. III ·
+  <a href="https://cfmilam.github.io/nr-poams-books/einsteins-lost-legacy.html">Einstein's Lost Legacy</a>, ch. 8 &amp; App. 4 ·
+  exhibits: <a class="exlink" href="./loop-of-momentum.html">The Loop of Momentum</a>, <a class="exlink" href="./geodesic-proof.html">The Geodesic Proof</a>, <a class="exlink" href="./angular-momentum-calculator.html">Angular-Momentum Calculator</a></div>
+</div>
+
+<div class="tenet" id="t7">
+  <div class="tn">Tenet VII</div>
+  <h3>The atom turned inside-out</h3>
+  <p>Democritus solved the Eleatic gridlock by putting substance inside the atom and void outside. Normal Realism
+  takes the inverse, equally logical option he missed: <b>void inside, substance outside</b>. The atom is not a
+  solid grain but a <b>quantum accumulator</b> — an irreducible angular-momentum system of paired, balanced masses
+  about an empty barycentre, storing energy in onion-layered integer levels. "Charge" is not a thing: the coulombs
+  cash out as the kinetic energy of <b>spin</b> in joules (after Uhlenbeck &amp; Goudsmit), and the alleged separate
+  "electric force" is the same restraint-against-natural-orbit as weight, with <i>G</i> promoted to a variable wherever
+  spin dominates orbit. The spectral bar-code of Balmer and Rydberg falls out of the quantised time formula with no
+  electrodynamics at all. "Atom-smashing" is a category mistake — the exotic "particles" are harmonics struck from
+  angular momentum, bell-tones, not fragments of kernels.</p>
+  <div class="read">Read: <a href="https://cfmilam.github.io/nr-poams-books/einsteins-lost-legacy.html">Einstein's Lost Legacy</a>, chs. 9–10, Apps. 3 &amp; 5 ·
+  <a href="https://cfmilam.github.io/nr-poams-books/eye-of-beholder.html">Eye of the Beholder</a>, ch. IV ·
+  exhibits: <a class="exlink" href="./atom-as-phase.html">The Atom as Organized Phase</a>, <a class="exlink" href="./balmer-rydberg-poams.html">Balmer–Rydberg</a>, <a class="exlink" href="./aufbau-as-closure.html">Aufbau as Closure</a>, <a class="exlink" href="./poams-periodic-table.html">The Periodic Table</a></div>
+</div>
+
+<div class="tenet" id="t8">
+  <div class="tn">Tenet VIII</div>
+  <h3>Existence lives in language — guard the categories</h3>
+  <p>"To exist" is not a metaphysical something-we-know-not-what; it is a function of language, bestowed on a subject
+  by the verb <i>to be</i> — and there is more than one category of it. The Cheshire Cat exists in fiction; electrons
+  exist in theory; ducks exist in the barnyard. Physics goes mad precisely where it conflates categories: calling an
+  interaction a "particle," a barycentric void a "Black Hole," a probability function a travelling "wave," quantum-level
+  talk and scenario-level talk thrown into one sentence. The repair tool is <b>linguistic analysis plus Ockham's razor</b>:
+  every concept that cannot be cashed out in observation or coherent ordinary language is cut. Pope: since nature has
+  no guile to spin theories of itself, <em>the less theory in our interpretations, the closer we stand to nature as it is</em>.</p>
+  <div class="read">Read: <a href="https://cfmilam.github.io/nr-poams-books/einsteins-lost-legacy.html">Einstein's Lost Legacy</a>, chs. 2 &amp; 5, App. 7 ·
+  <a href="https://cfmilam.github.io/nr-poams-books/wondering-wilderness.html">Wondering in the Wilderness</a> (the collected shorter pieces)</div>
+</div>
+
+<div class="tenet" id="t9">
+  <div class="tn">Tenet IX</div>
+  <h3>No universe — a polyverse</h3>
+  <p>There is no single overall space, no single overall time, no universal "now" advancing like a cosmic guillotine.
+  Time evolves at <b>points</b> — each observer, each atom, its own interactive present — a phalanx of thrusting spears,
+  not one blade. Conservation is universal in the sense of <i>holding in every case</i>, never in the sense of
+  <i>everywhere at once</i>: quantum connections are intransitive, so there is no Eleatic gridlock and no cosmic
+  simultaneity. What the theoreticians draw on the blackboard and call "the universe" never includes the man with the
+  chalk. From this one clearing follow the demolitions: the Hubble redshift is a time-dilation reading, not a recession
+  — so no expansion, no "Big Bang," no "age of the universe"; "Black Holes" are the massless barycentres every
+  angular-momentum system has, from bathtub vortex to galaxy; "dark matter" is the receipt for ignoring the spin term
+  in the orbital equations. Every epicycle is the price of insisting on a force where there is only bookkeeping.</p>
+  <div class="read">Read: <a href="https://cfmilam.github.io/nr-poams-books/eye-of-beholder.html">Eye of the Beholder</a>, chs. VII–VIII ·
+  <a href="https://cfmilam.github.io/nr-poams-books/einsteins-lost-legacy.html">Einstein's Lost Legacy</a>, chs. 10–12 ·
+  exhibits: <a class="exlink" href="./pioneer-anomaly.html">The Pioneer Anomaly</a>, <a class="exlink" href="./census-flow.html">Census Flow</a></div>
+</div>
+
+<div class="tenet" id="t10">
+  <div class="tn">Tenet X</div>
+  <h3>Mind matters — the sciences and the humanities are one subject</h3>
+  <p>Dissolving Descartes' split does not demote matter to dream; it promotes mind to nature. In an
+  information-based physics, <span class="fant">"mind, in the sense of informational recognition and communication, is the most
+  basic, most undeniable fact of nature"</span> — not a Ghost in the Machine, because there is no Machine. Causality is
+  strictly a macro-level, statistical affair; single quanta cause nothing. And the statistical laws are
+  <b>end-directed</b>: entropy names one end-state on a sliding scale of probabilities, and life works the other end —
+  negentropy, the leaf turning sunlight uphill, the hound computing the hare's futures. Aristotle's entelechies return
+  as respectable physics: <b>future states, held as probabilities, direct present ones</b>. There is no chalk line in
+  nature between physics and biology, between mechanism and intention — only positions on one scale. Deliberation,
+  volition and responsibility are real, irreducible, and physical.</p>
+  <div class="read">Read: <a href="https://cfmilam.github.io/nr-poams-books/einsteins-lost-legacy.html">Einstein's Lost Legacy</a>, chs. 12.7–13 ·
+  <a href="https://cfmilam.github.io/nr-poams-books/eye-of-beholder.html">Eye of the Beholder</a>, chs. VIII–IX ·
+  exhibits: <a class="exlink" href="./computation-as-completion.html">Computation as Completion</a>, <a class="exlink" href="./poams-memory.html">Memory</a>, <a class="exlink" href="./dunne-serialism.html">Dunne &amp; Serialism</a></div>
+</div>
+
+<div class="card blue">
+  <p><b>One sentence, if you must have it:</b> <em>Nature is one substance — angular momentum, which is organized time —
+  read directly by a community of finite observers out of discrete quanta of information; everything else in physics
+  is that reading's bookkeeping, and everything wrong in physics is a force, particle or container invented where
+  bookkeeping was enough.</em></p>
+</div>
+</section>
+
+<!-- ══════════ 3. FROM TENETS TO POAMS ══════════ -->
+<section id="poams">
+<h2>3 · Where the philosophy becomes physics</h2>
+
+<p>POAMS is what happens when the tenets are made to calculate. The one substance is angular momentum — the
+indissoluble union of mass, length and time, quantised in units of ℏ, observed directly in every orbit from
+electron to galaxy. On this site the derivations run as a connected series: the
+<a class="exlink" href="./cone-model.html">Cone Model</a> builds observer space-time; the
+<a class="exlink" href="./loop-of-momentum.html">Loop of Momentum</a> and
+<a class="exlink" href="./geodesic-proof.html">Geodesic Proof</a> retire the gravity-force;
+<a class="exlink" href="./balmer-rydberg-poams.html">Balmer–Rydberg</a>,
+<a class="exlink" href="./atom-as-phase.html">the Atom as Organized Phase</a> and
+<a class="exlink" href="./aufbau-as-closure.html">Aufbau as Closure</a> rebuild the atom and the periodic table;
+<a class="exlink" href="./mass-as-trapped-rate.html">Mass as Trapped Rate</a> and the
+<a class="exlink" href="./mass-ledger.html">Mass Ledger</a> cash mass itself out as trapped turning;
+<a class="exlink" href="./alpha-fine-structure-derivation.html">the α derivation</a>,
+<a class="exlink" href="./perihelion-precession.html">perihelion precession</a> and
+<a class="exlink" href="./gps-clocks.html">GPS clocks</a> take the same ledger to the tests.
+Every one of them passes through the same touchstone: <em>if a result cannot be cashed out as circulating angular
+momentum keeping its books, it has floated off the real world — no matter how elegant.</em></p>
+</section>
+
+<!-- ══════════ 4. THE READING MAP ══════════ -->
+<section id="works">
+<h2>4 · The major works — a reading map</h2>
+
+<p>All seven are readable in full, free, in the web editions we prepared from the originals.
+Two orders of approach:</p>
+<ul>
+  <li><b>Shortest path:</b> <i>Eye of the Beholder</i> (90 pages, the whole argument in plain language) →
+  <i>Einstein's Lost Legacy</i> (the mature, complete statement) → then wherever your questions lead.</li>
+  <li class="mut"><b>Chronological:</b> follow the table.</li>
+</ul>
+
+<table>
+  <tr><th style="width:34%">Work</th><th style="width:12%">Year</th><th>What it gives you</th></tr>
+  <tr>
+    <td><a href="https://cfmilam.github.io/nr-poams-books/the-odyssey.html">The Odyssey</a></td><td>2000</td>
+    <td>The intellectual autobiography of the journey — how a telephone lineman's questions became a system.</td>
+  </tr>
+  <tr>
+    <td><a href="https://cfmilam.github.io/nr-poams-books/eye-of-beholder.html">The Eye of the Beholder — the Role of the Observer in Modern Physics</a></td><td>2004</td>
+    <td><b>Start here.</b> The whole of Normal Realism for the intelligent non-specialist: the universal "hologram," time from Pythagoras, the non-velocity of <i>c</i>, angular momentum in place of gravity, the Einstein letter in facsimile — and the theological and social implications faced squarely (chs. VIII–IX).</td>
+  </tr>
+  <tr>
+    <td><a href="https://cfmilam.github.io/nr-poams-books/immediate-distant-action.html">Immediate Distant Action and Correlation in Modern Physics</a> <span class="fant">(ed., with Osborne &amp; Winfield)</span></td><td>2005</td>
+    <td>The instantaneity question in depth — proper-time-instantaneous quantum contact, EPR, Mach's principle — the "balanced universe" volume.</td>
+  </tr>
+  <tr>
+    <td><a href="https://cfmilam.github.io/nr-poams-books/light-speed-gravitation-and-quantum-instantaneity.html">Light-Speed, Gravitation and Quantum Instantaneity</a> <span class="fant">(with Osborne)</span></td><td>2007</td>
+    <td>The technical core: the mathematics of POAMS worked in full — orbital dynamics, spectra, varying <i>G</i>, the discrete nature of physical phenomena (ch. 5 is the discreteum chapter this site's touchstone rests on).</td>
+  </tr>
+  <tr>
+    <td><a href="https://cfmilam.github.io/nr-poams-books/wondering-wilderness.html">Wondering in the Wilderness</a> <span class="fant">(with A. M. Pope)</span></td><td>2009</td>
+    <td>Collected essays and exchanges — the philosophy applied piecewise, and the human record of arguing it against the grain for decades.</td>
+  </tr>
+  <tr>
+    <td><a href="https://cfmilam.github.io/nr-poams-books/gods-country.html">God's Country</a></td><td>2010</td>
+    <td>The memoir: a Swansea boyhood under the Luftwaffe's bombs, the fields of Carmarthenshire, and where the questions came from — why light? why distance? why me and not a sheep or a worm? The shortest book and the one that shows you the man.</td>
+  </tr>
+  <tr>
+    <td><a href="https://cfmilam.github.io/nr-poams-books/einsteins-lost-legacy.html">Einstein's Lost Legacy</a> <span class="fant">(with Osborne)</span></td><td>2015</td>
+    <td>The summa. Fourteen chapters and eight appendices: the conceptual history from Parmenides to CERN, the ten proofs, the cinematic model, the fallacies of the extant cosmology, the humanitarian implications, and Appendix 8 — Pope's own final list of "Concepts for Assimilation."</td>
+  </tr>
+  <tr>
+    <td>The Pope–Gower correspondence <span class="fant">("Theological Discussion" — archive)</span></td><td>2005–10</td>
+    <td>Six years of email between Viv Pope and Penny Gower (with Alison Pope): Normal Realism pressed to its theological limit — God by elimination, the unhappenable past, the open door on survival, the co-created Logos. Unpublished; see §5 below.</td>
+  </tr>
+</table>
+
+<p class="cap">All web editions at <a class="exlink" href="https://cfmilam.github.io/nr-poams-books/">cfmilam.github.io/nr-poams-books</a> · originals published by Philosophical Enterprises, Swansea.</p>
+</section>
+
+<!-- ══════════ 5. THE ENDING THE TENETS EARN ══════════ -->
+<section id="meaning">
+<h2>5 · Theology, free will, and the making of the future</h2>
+
+<p>Pope never treated this as an appendix to the physics. In <i>The Eye of the Beholder</i> the "Theological and
+Social Implications" are a full chapter, and <i>Lost Legacy</i> closes on the "Humanitarian Implications" — because
+the deepest failure of the extant enterprise, in his reading, is not a wrong equation but a wrong <i>ledger of
+meaning</i>. What follows is his argument, compressed.</p>
+
+<h3>What the machine-world took away</h3>
+<p>A science whose ultimate reality is mindless matter in a void has no room for anything a life is made of.
+Democritus dismissed all of it as "convention"; Descartes exiled it to a ghost-realm; and every society built on that
+physics has inherited the same split — <span class="fant">"'atheistic' Science on the one hand and Religion on the other,
+and never the twain shall meet."</span> In a machine there can be no responsibility, hence no morality, hence no meaning:
+human values become mayfly-ephemera, and the culture knows it. Pope saw the wreckage plainly — the escapism, the
+nihilism, the young unable to find any rational compass-direction for their lives — and traced it to the physics:
+<em>a society whose official picture of reality has no place for persons will not indefinitely produce people who
+believe their lives matter.</em> The race away from spirituality was never forced by the evidence. It was forced by
+a seventeenth-century category mistake.</p>
+
+<h3>What an information-world gives back</h3>
+<p>Reverse the mistake — matter as a projection from information rather than information as an accident of matter —
+and the standing of every humane thing changes at once:</p>
+<ul>
+  <li><b>Truth is objective.</b> "There is no truth, only opinion" refutes itself the moment it is asserted as true.
+  We need not possess The Truth to know it exists: the very possibility of discovering error proves a reality that
+  outruns convention.</li>
+  <li><b>Values are objective the way towers are.</b> Every observer's perspective of the distant tower differs, yet
+  the tower's height is a fact the community of perspectives converges on. Goodness, justice, beauty admit the same
+  perspectival objectivity — ideals no society invented and no society can survive abandoning, criteria that judge
+  institutions from beyond them. That is what <i>superhuman</i> literally means; and history's Socrates and Brunos
+  died for exactly that surplus.</li>
+  <li><b>Faith is not optional — it is structural.</b> Every perception beyond the present instant involves belief;
+  to trust that there is something around the next corner is already faith. And Pope argues we are equally committed
+  to <span class="fant">"a residual class of intelligence in nature&hellip; superior not only to our own but to that of mankind
+  as a whole"</span> — knowable in existence, unknowable in nature. Reason cannot produce that intelligence, but it is
+  reason that keeps belief in it from curdling into dogma: <em>there are truths beyond logic, but never contrary
+  to it.</em></li>
+  <li><b>Creation and evolution never contradicted each other.</b> The cook creates the cake by intention and then
+  entrusts it to the eminently random processes of the oven; the farmer creates the conditions and consigns the seed
+  to the weather. Purpose sets the premium; randomness runs the mechanism; the outcome is both created and evolved.
+  What is incoherent is not a creator but the alternative: life from pure chance in a world with nothing to recognise,
+  value or keep a "success" — monkeys at typewriters with no one to read.</li>
+  <li><b>Prayer is no longer a category error.</b> To an information-transacting nature, communication is not alien
+  but fundamental. <span class="fant">"It makes more sense, surely, to worship and pray to an information-transacting deity
+  than to some cosmic automaton."</span> Pope named nothing — he called the students' bluff both ways
+  (describe to me the God you don't believe in) — but he demonstrated that an information-based science
+  <em>cannot be used as a basis for atheism</em>, and quoted Voltaire for where any God must live: present everywhere
+  where there is something — never enthroned in imaginary spaces. Pressed in private, he went further: <span class="fant">"If
+  hard pressed, I would have to admit I am a believer, and a devout one at that. But as soon as I try to rationalise
+  that belief, I am stuck."</span></li>
+</ul>
+
+<h3>Free will: the physics of the open future</h3>
+<p>Here the tenets pay their deepest dividend. In the machine-world the future is a fixed reel already printed —
+<span class="fant">"the first morning of Creation wrote what the last day of reckoning shall read."</span> Normal Realism's
+future is neither that nor chaos. The holistic laws — conservation, entropy — govern <i>probabilities</i>, and
+probabilities form a live scale on which the future exists <b>definitely but indeterminately</b>: a field of weighted
+possibilities that genuinely directs the present (the hound reads the hare's futures; the seed holds the tree's),
+while leaving room that mechanism never had:</p>
+<blockquote>"In the overall angular momentum nexus there is nothing predetermined or pre-ordained. There is always room
+for actions which change the probabilities&hellip; signifying the freedom for any agent to 'change the world' by
+deliberation or design."
+<span class="who">— Einstein's Lost Legacy, ch. 8</span></blockquote>
+<p>And because there is no universal now — because time evolves at points, each observer the growing tip of its own
+world-line — there is no already-written whole for your choices to be an illusion inside. Each present moment is a
+place where the books of the world are still being written. Pope noticed how much this frightens us:</p>
+<blockquote>"We like to think that behind all our finite dealings with the world there is an absolutely permanent reality
+that is 'in God's hands' and which we can do nothing about. It scares us to think that much of the carving-out of the
+course of history that relativity entails may be in our hands. To be given that power of intervention places upon us,
+we may feel, far too great a burden of responsibility."
+<span class="who">— The Eye of the Beholder, ch. VI</span></blockquote>
+<p>The dread is the tell. The traditional comfort — a finished universe, a spectator God, a fate — was always also an
+alibi. Normal Realism cancels the alibi.</p>
+
+<h3>What each life is for</h3>
+<p>Put the pieces in one place. You are not a late accident in a dead machine, watching a reel that was printed before
+you were born. You are one of the points at which time actually advances — an encoder and decoder in the polyverse,
+a place where information becomes deliberation and deliberation becomes physical fact. The soldier at the field-gun
+deciding whether the tower stands; the mother creating the conditions of the cake; the heretic refusing the
+convention that would have kept the Earth flat — these are not metaphors of agency but instances of physics:
+choices selecting among the weighted futures, entering the conserved books of the world, co-signed and irreversible.
+<b>Whatever has happened cannot be caused to unhappen</b> — which means every genuine choice is a permanent
+contribution to what the world is. History, Pope wrote in his memoir, <span class="fant">"can be nothing without"</span> the
+actions of individuals forged by their own experience.</p>
+<p><em>That is the meaning the extant enterprise could not supply and the tenets restore: not consolation bolted onto
+physics, but a consequence derived from it.</em> A cosmology of mindless matter made every life a spectator's;
+a cosmology of information makes every life an author's. The future is real, open, and partly yours — and so, therefore,
+is the responsibility. Where there's life, there's hope; and where there's deliberation, there is a hand on the pen.</p>
+
+<h3>Six years at the edge: the Pope–Gower correspondence</h3>
+<p>Between 2005 and 2010, Viv Pope and Penny Gower — the NRIG organiser thanked in <i>Eye of the Beholder</i>'s
+acknowledgements, a believer whose faith had nearly been destroyed <i>by mechanistic science itself</i> — conducted a
+72,000-word email correspondence, with a contribution from Alison Pope, pressing Normal Realism as far into theology
+as honesty would let it go. It was never a conversion effort in either direction. It is the tenets under maximum load,
+and it produced arguments found nowhere in the published books:</p>
+<ul>
+  <li><b>Theology by elimination.</b> A Normal Realist theology asks not what God <i>is</i> — every answer shrinks the
+  Object into a tribal effigy — but what, logically, God <i>cannot be</i>, and holds <span class="fant">"a deep and reverent
+  silence in the face of such an Object of Contemplation."</span> Yet the silence is not emptiness. What we know for certain
+  is that whatever we know is never all there is: <span class="fant">"that implies an absolutely undeniable remnant of
+  knowledge that is forever unknown. And that is the most solid basis for a 'religion' that there can possibly be."</span></li>
+  <li><b>The past cannot be unhappened — and that is a theological fact.</b> If the Sun exploded tomorrow and every
+  record was gasified, would that <i>unhappen</i> what has happened here? No one can hold that it would. But then
+  everything that has ever been done persists as real when every mundane trace of it is gone — which requires a
+  dimension of reality beyond the ordinary ones, relative to something superhuman. Nihilism is not an option: to say
+  that in reality nothing is real is a flat contradiction. <span class="fant">"Given that we have once existed, nothing can
+  possibly make us never to have existed."</span> And on that ledger hangs conscience itself: if nothing we did could ever
+  be evaluated, psychopathy would be the natural norm — the fact that it is not is the oldest evidence we have that
+  the books are real and are kept.</li>
+  <li><b>The open door.</b> The dimensional analysis — the serial time of that unanswered second letter to Einstein —
+  ends not in proof but in a rigorously honest verdict: survival of death cannot be established, and cannot be logically
+  excluded. Belief in it <span class="fant">"is not necessarily nonsense"</span> — which, from the strictest logician in Wales,
+  was not a small concession. His summary of a lifetime's method: <em>there are truths beyond reason, but never contrary
+  to it.</em></li>
+  <li><b>Co-creating the Logos.</b> Alison Pope drew the consequence that closes the circle of this whole exhibit: if the
+  Logos is genuinely <i>becoming</i> — its future undetermined, awaiting the choices of the agents within it — <span class="fant">"does
+  it not follow that we are each responsible in part for what this God/Logos becomes?"</span> Viv did not retreat from it.
+  The free agent does not merely make the future; the future being made <i>is</i> the growing edge of the Logos. There is
+  no stronger statement anywhere in the corpus of what an individual life is for.</li>
+  <li><b>The testimony.</b> Penny, from the believing side: <span class="fant">"If anything chipped away at belief for me, it
+  was mechanistic science… there was a period in my life when I was hanging on by my fingertips. It was you who finally
+  helped me to see that my problem should never really have been a problem — that mechanistic science was at odds with
+  the physical world, let alone religious belief."</span> The race away from spirituality, witnessed from inside one life —
+  and reversed there by the tenets.</li>
+  <li><b>The vocation.</b> And Viv, from the questioning side, finally set down the day the work began: a young lineman,
+  wronged and raging, wandering into a small grey stone church by the sea on Gower; the stillness; and a sub-linguistic
+  resolve — <span class="fant">"I am here, with such talents as I have, to search for philosophical truth and reality and to
+  carry it through to wherever it leads"</span> — followed, through an improbable cascade of injustices and coincidences,
+  by precisely the life that could keep that pact. He weighed the word "miracle" against that record and declined to
+  rule. At eighty he closed the ledger with the 23rd Psalm — <span class="fant">"I don't know how I could express it better
+  in modern-day language"</span> — and with this: <span class="fant">"My life has been a test… and I'm glad that, so far at
+  least, I have not been tested to destruction."</span></li>
+</ul>
+<p class="mut">The correspondence survives in the POAMS source archive (<i>Theological Discussion</i>, with
+<i>Penny's Response to "The Biggest Question"</i> and the two <i>Refutation of Solipsism</i> letters) — unpublished,
+and as essential to the ending of this story as any of the books above.</p>
+
+<div class="card green">
+  <p style="margin:6px 0;"><b>The workshop's corollary.</b> The exhibits on this site carry Pope's argument one ratified step
+  further: exchanges are two-ended and co-signed, so no exchange happens <i>within</i> either endpoint — an observer is not
+  a vessel holding its experiences but <em>the census its closures maintain</em>. You happen at the exchange. Seat, not
+  container, from pebble to human to whatever reads this after us. That corollary is ours, not Pope's — stated here so the
+  provenance stays honest — but it is the same inversion he taught: look for the substance in the relation, not the relic.
+  (See the creed on the <a class="exlink" href="./index.html">hub</a> and §6 of
+  <a class="exlink" href="./mass-as-trapped-rate.html#grin">Mass as Trapped Rate</a>.)</p>
+</div>
+</section>
+
+<!-- ══════════ 6. CODA ══════════ -->
+<section id="coda">
+<h2>6 · Coda — the boy on the hill</h2>
+<p>In 1941, a Swansea evacuee sat on a milk-churn stand on a Carmarthenshire hilltop his family called God's country,
+looking at a distance he could not explain, wondering what light was, why it was coloured, what held him to the earth,
+and why he was here at all. The bombs that had driven him there were the machine-world at its most articulate.
+A dozen years later, the same boy — now a lineman with oil in his eye and an injustice in his chest — walked into a
+small grey church by the Gower sea and made the wordless pact that decided the rest. The questions outlived the bombs
+by seventy years and became the only modern physics in which the boy, the wondering,
+and the hilltop are all fully real — and in which what he chose to do about it changed, permanently, the books of the
+world. They are still open. So are yours.</p>
+<p class="cap">Exhibit prepared 2026-09-04 from complete readings of the source works · Normal Realism first, POAMS follows ·
+attribution and provenance per the standing policies of this corpus.</p>
+</section>
+
+</main>
+
+<script>
+function toggleTheme(){
+  var b=document.body, d=document.documentElement;
+  b.classList.toggle('light');
+  d.setAttribute('data-theme', b.classList.contains('light')?'light':'dark');
+  try{localStorage.setItem('poamsTheme', b.classList.contains('light')?'light':'dark');}catch(e){}
+}
+try{
+  if(localStorage.getItem('poamsTheme')==='light'){document.body.classList.add('light');document.documentElement.setAttribute('data-theme','light');}
+}catch(e){}
+</script>
+</body>
+</html>
