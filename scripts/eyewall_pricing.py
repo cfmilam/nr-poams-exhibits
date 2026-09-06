@@ -248,3 +248,67 @@ print("threshold existence) is confirmed by both pricings; the LOCATION under ev
 print("corpus-licensed zero-knob pricing is far above l*=3. The Inner Census")
 print("falsifier condition ('threshold at l* != 3') is TRIGGERED for the licensed")
 print("coupling class.")
+
+# ============================================================================
+# PHASE-3 CANDIDATE (added 2026-09-06, ratified): the CAPPED TRANSPORT LAW.
+# The gate arithmetic above is FROZEN and untouched; this section only adds a
+# new candidate and prices it through the same criteria (threshold = first l
+# with kappa/Dnu >= 1; unit descent = ratio < 2 for realized l = 3..6; band
+# l* = 3). The licensed-class FAIL above stands as the historical control.
+#
+# Derivation chain (identification grade — three joints NAMED, not forced):
+#  (1) Transactions bank per completed closure (whole-turn primacy); a
+#      winding-l mode completes l phase closures per orbit.
+#  (2) Each closure is co-signed through ONE lock; the co-signing lock's
+#      patch cone is Omega_w = 4pi/z_c EXACTLY (Mass Ledger swing 23).
+#      [JOINT J1: one closure wraps one patch cone]
+#  (3) Sense-pair transport around the cone splits the pair's phase by
+#      Omega_w  =>  per-step price (2/z_c) * Dnu.
+#  (4) INDEPENDENCE CAP (the ledger's own cycle-space theorem, swings 28-31):
+#      the cones tile the quantum's sphere exactly (z_c * Omega_w = 4pi);
+#      wrapping all of them is the trivial cycle, so at most (z_c - 1)
+#      independent wraps bank per orbit: cap = 2(1 - 1/z_c) < 2 for ANY z_c
+#      — unit descent is structural.  [JOINT J2: intrinsic tiling; the
+#      integer-seam variant 8/z_c = 1.62 noted, gates insensitive]
+#  (5) Sign: co-turning sense BANKS the transport credit (deeper); counter
+#      pays. Agrees with the App-5 channel rule and the record.
+#      [JOINT J3: bank<->co orientation]
+#
+#      LAW:  kappa(l)/Dnu = min( 2l/z_c , 2(1 - 1/z_c) )
+# ============================================================================
+
+print()
+print("=" * 78)
+print("CAPPED TRANSPORT LAW (ratified 2026-09-06; identification grade, joints J1-J3)")
+print("=" * 78)
+ZC_BAND2 = [("tangent-cone chain", 4.940), ("realized packing", 4.846),
+            ("energy route", 4.780), ("band top", 5.000)]
+REALIZED = [3, 4, 5, 6]
+all_pass = True
+for zname, zc in ZC_BAND2:
+    law = lambda l: min(2.0 * l / zc, 2.0 * (1.0 - 1.0 / zc))
+    row = "  ".join(f"l={l}:{law(l):.3f}" for l in range(1, 9))
+    lstar = next(l for l in range(1, 60) if law(l) >= 1.0)
+    unit = all(law(l) < 2.0 for l in REALIZED)
+    persist = all(law(l) >= 1.0 for l in range(3, 20))
+    r184 = law(7)
+    ok = (lstar == 3) and unit and persist and (1.0 <= r184 < 2.0)
+    all_pass &= ok
+    print(f"z_c = {zc} ({zname}):")
+    print(f"  {row}")
+    print(f"  l* = {lstar} | unit descent l=3..6: {'OK' if unit else 'BROKEN'} | "
+          f"persistence: {'OK' if persist else 'NO'} | 184 (l=7): {r184:.3f} -> "
+          f"{'UNIT descent' if 1.0 <= r184 < 2.0 else 'other'} | "
+          f"gate: {'PASS' if ok else 'FAIL'}")
+print()
+print(f"structural window for l* = 3: 4 < z_c <= 6 (derived band [4.78, 5.00] strictly inside)")
+print(f"unit descent: THEOREM (cap 2(1-1/z_c) < 2 for any finite z_c, all l)")
+print(f"persistence:  THEOREM (cap >= 1 iff z_c >= 2)")
+print(f"CAPPED LAW across the derived z_c band: {'PASS on all gates' if all_pass else 'FAIL'}")
+print()
+print("Booked alongside (standalone zero-knob exclusion): the composed-centrifugal")
+print("backreaction (j replacing l in the radial books) gives kappa/Dnu =")
+print("(2l+1)/(2l+3) < 1 for ALL l — sense composition alone can never re-file a")
+print("multiplet. Tagged extant tension, falsifiable: the law's split (~1.2 hw at")
+print("l=3) is ~2x extant-extracted spectroscopic 1f splittings; this page prices")
+print("seam bookkeeping, not level spectroscopy.")
