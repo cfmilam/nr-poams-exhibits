@@ -312,3 +312,44 @@ print("(2l+1)/(2l+3) < 1 for ALL l — sense composition alone can never re-file
 print("multiplet. Tagged extant tension, falsifiable: the law's split (~1.2 hw at")
 print("l=3) is ~2x extant-extracted spectroscopic 1f splittings; this page prices")
 print("seam bookkeeping, not level spectroscopy.")
+
+# ============================================================================
+# PHASE-5 CONTROL (added 2026-09-06, ratified): SMOOTH (CONTINUUM) TRANSPORT.
+# Gate arithmetic untouched. This is the law's SECOND control, beside the
+# licensed (v/c)^2 miss above.
+#
+# The orbit plane passes through the core, so the smoothly-transported
+# co-signing direction traces a GREAT CIRCLE on the direction sphere per
+# circuit: enclosed solid angle = 2pi exactly — every orbit, every l, every
+# eccentricity (pericenter closure never enters). Spin-1/2 pair split under
+# smooth transport = hbar * 2pi / T_orb = hw: EXACTLY 1.00 Dnu at every
+# l >= 1, l-INDEPENDENT.
+# ============================================================================
+
+print()
+print("=" * 78)
+print("SMOOTH-TRANSPORT CONTROL (continuum reading; ratified 2026-09-06)")
+print("=" * 78)
+smooth = lambda l: 1.00  # 2pi great-circle sweep -> split = hw at every l >= 1
+row = "  ".join(f"l={l}:{smooth(l):.2f}" for l in range(1, 8))
+print(f"  kappa/Dnu: {row}")
+lstar_s = next(l for l in range(1, 60) if smooth(l) >= 1.0)
+print(f"  threshold l* = {lstar_s} -> EVERY rung's co-multiplet intrudes from l = 1:")
+print(f"  the 8 and 20 seams would not exist. THE RECORD'S INTACT 8/20 SEAMS")
+print(f"  POSITIVELY EXCLUDE CONTINUUM TRANSPORT: FAIL by record.")
+print(f"  Discrete per-closure accounting is DATA-SELECTED, not assumed —")
+print(f"  'integrate, don't differentiate' at the transport level.")
+print()
+print("J1 status after the Phase-5 theorem work (see inner-census.html §6b):")
+print("  J1a PROVEN (kinematic: l whole phase turns per circuit; n_r=0 modes —")
+print("      every realized intruder — carry no other closure entries);")
+print("  J1b RATIFIED ONTOLOGY (one entry per turn, one co-signature per entry,")
+print("      footprint Omega_w = 4pi/z_c);")
+print("  J1c ONE NAMED IDENTIFICATION (wrap-per-entry: integer wraps forced by")
+print("      whole-turn discipline; cluster-style fractions are sum-preserving")
+print("      latency, cancelling in the orbit sum).")
+print("  Fraction-robustness window the gates themselves measure: f in")
+print("  (z_c/6, z_c/4] = (0.823, 1.235]; theorem value f = 1 central; no z_c")
+print("  narrowing results (non-result booked).")
+print("  GRADE: derivation with one named identification (was: identification,")
+print("  three named joints).")
