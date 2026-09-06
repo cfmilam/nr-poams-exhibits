@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Inner Census — Closure at the Eyewall</title>
+<script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)'], ['$','$']], displayMath: [['\\[','\\]'], ['$$','$$']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+    };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+  :root{
+    --bg:#0d0d18; --card:#1c1c30; --text:#e8e8f0; --muted:#9a9ab0;
+    --gold:#d4af37; --blue:#5bc8f5; --green:#66bb6a; --cyan:#26c6da; --red:#ef5350; --edge:#2c2c46;
+    --amber:#ffa726;
+  }
+  body.light{
+    --bg:#faf8f2; --card:#ffffff; --text:#26211a; --muted:#6b6355;
+    --gold:#8b6914; --blue:#176e94; --green:#2e7d32; --cyan:#0e7490; --red:#b03030; --edge:#d9d2bf;
+    --amber:#a85d00;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;transition:background .3s,color .3s;}
+  header{padding:26px 22px 18px;border-bottom:1px solid var(--edge);text-align:center;}
+  header h1{margin:0;font-size:26px;color:var(--gold);font-weight:650;}
+  header .sub{margin:8px auto 0;font-size:14px;color:var(--muted);max-width:820px;}
+  main{max-width:900px;margin:0 auto;padding:10px 20px 60px;}
+  section{margin-top:38px;}
+  h2{font-size:19px;color:var(--gold);font-weight:650;margin:0 0 14px;
+     border-bottom:1px solid var(--edge);padding-bottom:8px;}
+  h3{font-size:15px;color:var(--blue);font-weight:650;margin:22px 0 8px;}
+  p{margin:12px 0;font-size:14.5px;color:var(--text);}
+  p.mut, li.mut{color:var(--muted);}
+  em{color:var(--gold);font-style:normal;font-weight:600;}
+  b{color:var(--blue);font-weight:650;}
+  .fant{color:var(--muted);}
+  .card{background:var(--card);border:1px solid var(--edge);border-radius:10px;padding:18px 20px;margin:18px 0;}
+  .card.gold{border-color:rgba(201,168,76,.45);background:rgba(201,168,76,.06);}
+  .card.blue{border-color:rgba(79,195,247,.35);background:rgba(79,195,247,.05);}
+  .card.red{border-color:rgba(239,83,80,.4);background:rgba(239,83,80,.05);}
+  .eq{margin:16px 0;text-align:center;font-size:16px;}
+  ul,ol{margin:10px 0;padding-left:22px;}
+  li{margin:7px 0;font-size:14.5px;}
+  canvas.chart{width:100%;height:520px;background:#10101c;border:1px solid var(--edge);border-radius:10px;}
+  .cap{font-size:12.5px;color:var(--muted);margin:8px 2px 0;text-align:center;}
+  .mono{font-family:ui-monospace,Menlo,monospace;}
+  table.tab{border-collapse:collapse;margin:14px 0;font-size:14px;width:100%;}
+  table.tab th,table.tab td{border:1px solid var(--edge);padding:7px 12px;text-align:left;vertical-align:top;}
+  table.tab th{background:#10101c;color:var(--muted);font-weight:600;}
+  table.tab td.c{text-align:center;white-space:nowrap;}
+  table.tab td.g{color:#ffd699;text-align:center;white-space:nowrap;font-weight:650;}
+  footer{border-top:1px solid var(--edge);margin-top:50px;padding:18px 22px;text-align:center;
+    font-size:12.5px;color:var(--muted);}
+  footer a{color:var(--blue);text-decoration:none;}
+  a.xref{color:var(--blue);text-decoration:none;}
+  a.xref:hover{text-decoration:underline;}
+  .epi{margin:22px auto 4px;max-width:760px;text-align:center;font-style:italic;color:var(--muted);font-size:14px;}
+  @media(max-width:640px){ canvas.chart{height:380px;} table.tab{display:block;overflow-x:auto;} }
+  mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden;max-width:100%;}
+  .eq{overflow-x:auto;}
+  body.light canvas.chart{background:#f6f3ea;}
+  body.light table.tab th{background:#f6f3ea;}
+  body.light table.tab td.g{color:#a85d00;}
+.theme-toggle{position:fixed;top:54px;right:12px;z-index:1000;background:var(--gold);color:var(--bg);border:none;width:40px;height:40px;border-radius:8px;padding:0;cursor:pointer;font-size:1.15rem;display:flex;align-items:center;justify-content:center}
+body.light .theme-toggle{background:#8b6914;color:#faf8f2}
+</style>
+<style id="poams-hub-nav-style">
+#poams-hub-nav{position:fixed;top:0;left:0;right:0;z-index:9999;height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 1rem;background:rgba(13,13,24,0.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,175,55,0.25);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;box-sizing:border-box;}
+#poams-hub-nav a{color:#d4af37;text-decoration:none;display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:6px;transition:background .2s;white-space:nowrap;font-weight:500;}
+#poams-hub-nav a:hover{background:rgba(212,175,55,0.12);}
+#poams-hub-nav .phn-center{display:flex;flex-direction:column;align-items:center;line-height:1.2;}
+#poams-hub-nav .phn-title{font-weight:600;color:#e8e8f0;font-size:12px;}
+#poams-hub-nav .phn-pos{font-size:10px;color:rgba(212,175,55,0.6);letter-spacing:.05em;}
+[data-theme="light"] #poams-hub-nav,body.light #poams-hub-nav{background:rgba(250,248,242,0.95);border-bottom-color:rgba(139,105,20,0.25);}
+[data-theme="light"] #poams-hub-nav a,body.light #poams-hub-nav a{color:#8b6914;}
+body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
+[data-theme="light"] #poams-hub-nav .phn-title,body.light #poams-hub-nav .phn-title{color:#2a2318;}
+@media (max-width:640px){.phn-hide-sm{display:none;}}
+body{padding-top:72px !important;}
+</style>
+</head>
+<body>
+
+<div id="poams-hub-nav">
+  <a href="./aufbau-as-closure.html" title="Aufbau as Closure">← <span class="phn-hide-sm">Aufbau as Closure</span></a>
+  <div class="phn-center">
+    <a href="./index.html" style="flex-direction:column;gap:2px;padding:4px 12px;">
+      <span class="phn-title">The Inner Census</span>
+      <span class="phn-pos">NR · POAMS · EXHIBIT SERIES</span>
+    </a>
+  </div>
+  <a href="./mass-ledger.html" title="The Mass Ledger"><span class="phn-hide-sm">The Mass Ledger</span> →</a>
+</div>
+<button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle light/dark theme">☀️</button>
+<header>
+  <h1>The Inner Census</h1>
+<p class="nr-provenance" style="font-size:0.8em;font-style:italic;opacity:0.72;line-height:1.5;margin:0.5em 0 1em;text-align:center">This exhibit is an extrapolation of the foundational work of N. Vivian “Viv” Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
+  <div class="sub">Closure at the Eyewall</div>
+</header>
+
+<main>
+
+<div class="card intro-card" style="margin-top:0;">
+  <p style="margin:6px 0;">Philosophy first: there is one substance — angular momentum — and a quantum is a
+  <em>completed turn</em>; what does not close does not exist. The vortex has exactly two radial regimes, and
+  mathematics offers exactly two ledgers in which every circulation closes. They pair one-to-one — no choice
+  anywhere. The outer regime's census is the periodic table, already derived. This exhibit counts the <em>inner</em>
+  one — and reads off the numbers extant physics calls nuclear magic: <b>2, 8, 20, 28, 50, 82, 126</b>. The first
+  three are derived outright, zero adjustable parameters; the rest follow exactly from one counting rule carrying a
+  single named integer. The rule's threshold is the honest open joint, declared in Scope.</p>
+</div>
+
+<div class="epi">"Same vortex, two neighborhoods. The far field returns in one turn; the flat core returns in half.
+Count the returns and the books write both tables."</div>
+
+<!-- ============ 1. THE QUESTION ============ -->
+<section>
+  <h2>1 · The Question</h2>
+  <p>The measured record carries <b>two</b> closure sequences. The outer one — 2, 10, 18, 36, 54, 86 — is the noble-gas
+  census, and the corpus derives it: capacities \(2n^2\) from pure mode counting
+  (<a class="xref" href="./poams-periodic-table.html">The Elements</a>), the filling order from frontier closure
+  geometry with zero adjustable parameters (<a class="xref" href="./aufbau-as-closure.html">Aufbau as Closure</a>).
+  The inner one — 2, 8, 20, 28, 50, 82, 126, the numbers extant physics calls <span class="fant">nuclear magic
+  numbers</span> — has until now been carried honestly as a debt: <i>"structural reading; the counts are from the
+  measured record, their derivation open."</i></p>
+  <p>Extant physics explains the two sequences with two disconnected theories (atomic orbital theory; the nuclear
+  shell model with its <span class="fant">spin-orbit</span> patch). The POAMS reading has always been that they are
+  the inner and outer harmonic structure of <em>one</em> vortex. This exhibit pays down the debt: it asks what the
+  core's own closure geometry is, counts it, and checks the count against the record — by the same method that
+  cracked the Madelung rule: <em>refuse the energetics detour; find what closes; count it.</em></p>
+</section>
+
+<!-- ============ 2. TWO REGIMES, TWO GEOMETRIES ============ -->
+<section>
+  <h2>2 · Two Regimes, Two Geometries — the Forced Pairing</h2>
+  <div class="card gold">
+    <p style="margin:4px 0 10px;"><b>The license, restated once.</b> A quantum is a completed turn
+    (\( \oint d\varphi = 2\pi n \)); a circulation that does not return on itself does not close and cannot persist.
+    A census can only stack persistent closures. So the geometry of return is not a curiosity — it is the admission
+    criterion, exactly the license <a class="xref" href="./aufbau-as-closure.html">Aufbau as Closure</a> §4 states
+    for the outer frontier. Here it is applied to the core.</p>
+    <p style="margin:0;"><b>The mathematics offers exactly two ledgers.</b> Bertrand's theorem (1873): among all
+    central ledgers, precisely two return <em>every</em> bound circulation to closure — the far-field profile
+    (\( \propto 1/r \); one full turn between closest approaches, \( k = \omega_\varphi/\omega_r = 1 \); the eye at
+    the <em>focus</em>) and the confined profile (\( \propto r^2 \); pericenter every <em>half</em> turn,
+    \( k = \tfrac12 \); the eye at the <em>center</em>). These are the first two anchor panels of the Aufbau
+    dictionary. There is no third.</p>
+  </div>
+  <p>And the vortex has exactly two radial regimes:</p>
+  <ul>
+    <li><b>Outside the eyewall</b> the net interior circulation reads from afar as a single center and the books thin
+    as \(1/r\) — the far-field arm. Its ladder is the outer census: \(n\)-degeneracy, capacities \(2n^2\), the
+    periodic table (<a class="xref" href="./aufbau-as-closure.html">already computed</a>, including its ordering).</li>
+    <li><b>Inside the eyewall</b> the census is <em>saturated</em>: the
+    <a class="xref" href="./mass-ledger.html">Mass Ledger</a> proves (saturation-at-capacity, a theorem there — no
+    hard core assumed) that the interior density is pinned flat at the capacity point, meeting \( \rho_0 \) at finite
+    depth, with only the skin non-uniform. A quantum circulating <em>within</em> a flat, saturated accumulation keeps
+    books whose restoring entry grows linearly with displacement — the interior-uniform result (extant anchor:
+    Newton's interior theorem), read here as census subtraction exactly as
+    <span class="fant">"screening"</span> is read in the outer channel. A flat interior <em>is</em> the confined
+    arm.</li>
+  </ul>
+  <p><em>So the pairing is forced from both sides.</em> Two closure-compatible geometries exist; the vortex has two
+  regimes; each regime's own profile is one of the two. The outer/pattern channel took the far-field ladder — that
+  census is the periodic table. The inner/core channel takes the confined ladder. Translation, stated once: the
+  <span class="fant">"harmonic potential"</span> of the extant shell model is the mechanistic <em>representation</em>
+  of this kinematic fact — a flat saturated interior a circulation must balance its books against. No force crosses a
+  gap anywhere on this page.</p>
+</section>
+
+<!-- ============ 3. THE CONFINED LADDER ============ -->
+<section>
+  <h2>3 · The Confined Ladder: 2, 8, 20 Derived</h2>
+  <p>In the confined geometry the pericenter comes home every half turn: one radial excursion completes in the angle
+  two winding steps would take. The closure bookkeeping therefore prices <b>one radial coil at exactly two winding
+  steps</b> — the rungs of the confined ladder are the families</p>
+  <div class="eq">\[ N = 2n_r + l \]</div>
+  <p>(extant parenthetical: the oscillator's evenly spaced levels). Rung \(N\) holds the windings
+  \( l = N, N-2, \ldots, 1 \text{ or } 0 \); each winding \(l\) supports \(2l+1\) orientations; each orientation
+  holds the binary pair — the two signs of the quantum's own turn, the same doubling the outer census carries (the
+  Mass Ledger's ↑/↓ column; extant: <span class="fant">spin-½</span>). Per class the rung capacity is</p>
+  <div class="eq">\[ \mathrm{cap}(N) \;=\; 2 \sum_{l = N, N-2, \ldots} (2l+1) \;=\; (N+1)(N+2)
+  \;=\; 2,\ 6,\ 12,\ 20,\ 30,\ 42,\ \ldots \]</div>
+  <p>Cumulative closures: <b>2, 8, 20</b>, 40, 70, 112. The first three inner numbers of the measured record are
+  <em>derived</em> — the same zero-knob eigen-counting that gives the outer \(2n^2\), run in the other of Bertrand's
+  two geometries. Nothing was fitted; the only inputs are the confined closure (forced by §2) and the census kit the
+  corpus already runs on (orientations, the sense pair).</p>
+  <div class="card blue">
+    <p style="margin:4px 0;"><b>Per class, and the alpha.</b> The core census runs separately over the two classes of
+    core quanta the <a class="xref" href="./mass-ledger.html">Mass Ledger</a> reads from the four-channel data
+    (Z-class and N-class; extant labels: proton and neutron counts) — and the record confirms: the sequence holds in
+    <em>each class separately</em>, strongest where both classes close at once (the record's
+    <span class="fant">doubly magic</span> nuclei). Rung 0 closed in both classes is \(2+2=4\) — <b>the alpha</b>,
+    the Mass Ledger's one filled rate cell, now read a second way: the first inner closure, taken twice.</p>
+  </div>
+  <p>But the record's fourth number is <b>28</b>, not 40. The pure ladder is right three times and then wrong — and
+  the way it goes wrong is itself countable.</p>
+</section>
+
+<!-- ============ 4. THE CO-TURN SPLIT ============ -->
+<section>
+  <h2>4 · The Co-turn Split at the Eyewall</h2>
+  <p>Every quantum on the ladder carries two circulations at once: its <b>winding</b> about the barycenter (orbit —
+  writhe) and its <b>own turn</b> (spin — twist). The two never conflate, but they compose. Composing an orientation
+  ladder of \(2l+1\) steps with the binary pair yields exactly two combined ladders — a counting identity:</p>
+  <div class="eq">\[ 2\,(2l+1) \;=\; \underbrace{(2l+2)}_{\text{co-turning}} \;+\; \underbrace{(2l)}_{\text{counter-turning}} \]</div>
+  <p>The co-turning multiplet — own turn composed <em>with</em> the winding — is always one pair longer. In the far
+  field this split is the \( \alpha^2 \)-tiny fine structure (mechanism derived in
+  <a class="xref" href="./poams-periodic-table.html">The Elements</a>; magnitude a declared flat direction). At the
+  eyewall the local circulation gradient is orders steeper, and the same coupling class is order-unity — one
+  geometric effect, two neighborhood prices, exactly the discipline the corpus already holds for the two
+  \(l\)-lifts. Extant cross-reference, tagged: this is what extant physics calls <span class="fant">nuclear
+  spin-orbit coupling</span>, whose strength the classic shell model fits to the same record.</p>
+  <ul>
+    <li><b>Direction (channel-motivated, named in Scope):</b> a quantum whose own turn co-turns with its winding
+    routes that twist through the coupling channel — co-sense contracts the natural radius, settling <em>deeper</em>
+    in the ledger (the App-5 channel rule; micro and macro spin-orbit are one geometric effect —
+    the corpus touchstone, §4). So the <em>co</em>-multiplet descends in rate.</li>
+    <li><b>Growth (derived structure):</b> each added winding step adds one full unit of composed circulation, so the
+    co/counter rate split grows in proportion to \(2l+1\), while the confined ladder's rung spacing \(\Delta\nu\)
+    (turns/s) is <em>constant</em>. A growing split against a fixed spacing must cross it — <em>if the eyewall's
+    per-step price \(\kappa\) holds up with \(l\), a threshold winding must exist</em>, above which the co-multiplet
+    descends a full rung. Existence is forced; the location is not — that is the open joint (§6).</li>
+  </ul>
+</section>
+
+<!-- ============ 5. THE INTRUDER LEDGER ============ -->
+<section>
+  <h2>5 · The Intruder Ledger: 28, 50, 82, 126 from One Named Integer</h2>
+  <p>From the measured record the threshold sits at the f-winding: \( l^{*} = 3 \). State the rule once, then count:</p>
+  <div class="card gold">
+    <p style="margin:4px 0;"><b>The counting rule.</b> For every rung \( N \ge 3 \), the top co-turning multiplet
+    (\( l = N \), size \( 2N+2 \)) descends exactly one rung, landing just <em>above</em> the band below. A closure
+    gap always survives above a descended multiplet. Beneath it: where the band below is a complete closed rung
+    (below threshold), the seam under the intruder survives too — the 20/28 double gap; where the band below is a
+    broken remainder, the intruder joins its top and the vacated ladder seam (40, 70, 112) is destroyed as a full
+    closure — surviving at most as the weakened seams the record calls <span class="fant">semi-magic</span>
+    (e.g. 40, zirconium).</p>
+  </div>
+
+  <canvas id="ladderChart" class="chart"></canvas>
+  <div class="cap">The re-filing, drawn to count (one class). Left: the pure confined ladder, seams at 2, 8, 20, 40,
+  70, 112, 168. Gold slices: each rung's top co-turning multiplet (sizes 8, 10, 12, 14, 16 for \(l = 3\ldots7\)).
+  Right: the same quanta after the descent — closure seams now at 2, 8, 20, 28, 50, 82, 126, and next at 184.</div>
+
+  <p>The ledger, group by group (per class; extant labels tagged for cross-reference):</p>
+  <table class="tab">
+    <tr><th>closure</th><th>group contents (winding · co/counter, size)</th><th>count</th><th class="c">extant labels</th></tr>
+    <tr><td class="g">2</td><td>s-pair (2)</td><td class="c">2</td><td class="c fant">1s½</td></tr>
+    <tr><td class="g">8</td><td>p·co (4) + p·counter (2)</td><td class="c">6</td><td class="c fant">1p³⁄₂ 1p½</td></tr>
+    <tr><td class="g">20</td><td>d·co (6) + d·counter (4) + s-pair (2)</td><td class="c">12</td><td class="c fant">1d⁵⁄₂ 2s½ 1d³⁄₂</td></tr>
+    <tr><td class="g">28</td><td><b>f·co (8)</b> — the first intruder, alone in the old gap</td><td class="c">8</td><td class="c fant">1f⁷⁄₂</td></tr>
+    <tr><td class="g">50</td><td>f·counter (6) + p·co (4) + p·counter (2) + <b>g·co (10)</b></td><td class="c">22</td><td class="c fant">2p³⁄₂ 1f⁵⁄₂ 2p½ 1g⁹⁄₂</td></tr>
+    <tr><td class="g">82</td><td>g·counter (8) + d·co (6) + d·counter (4) + s-pair (2) + <b>h·co (12)</b></td><td class="c">32</td><td class="c fant">1g⁷⁄₂ 2d⁵⁄₂ 2d³⁄₂ 3s½ 1h¹¹⁄₂</td></tr>
+    <tr><td class="g">126</td><td>h·counter (10) + f·co (8) + f·counter (6) + p·co (4) + p·counter (2) + <b>i·co (14)</b></td><td class="c">44</td><td class="c fant">1h⁹⁄₂ 2f⁷⁄₂ 2f⁵⁄₂ 3p³⁄₂ 3p½ 1i¹³⁄₂</td></tr>
+    <tr><td class="g">184</td><td>i·counter (12) + g·co (10) + g·counter (8) + d·co (6) + d·counter (4) + s-pair (2) + <b>j·co (16)</b></td><td class="c">58</td><td class="c fant">(the record's own next-shell expectation)</td></tr>
+  </table>
+
+  <p>The sequence is exact — <b>2, 8, 20, 28, 50, 82, 126</b> — and closes into one line: every reordered number is
+  the full ladder through rung \(N\) plus the single multiplet down from rung \(N{+}1\),</p>
+  <div class="eq">\[ M(N) \;=\; \frac{(N+1)(N+2)(N+3)}{3} \;+\; (2N+4) \;=\; \frac{(N+2)\,(N^2+4N+9)}{3},
+  \qquad N \ge 2 \;\Rightarrow\; 28,\ 50,\ 82,\ 126,\ 184. \]</div>
+
+  <div class="card blue">
+    <p style="margin:4px 0 8px;"><b>Verification, mechanical.</b> The counting is executed by a script committed
+    beside this page (<span class="mono">scripts/inner_census.py</span>): it builds the ladder from
+    \( N = 2n_r + l \), tiles every rung into co/counter multiplets, applies the descent rule, and reads the gaps.
+    Output: <span class="mono">2, 8, 20, 28, 50, 82, 126</span> exactly, then 184 — zero continuous parameters, one
+    named integer (\(l^{*}=3\)). No quantity anywhere was tuned toward the target.</p>
+    <p style="margin:0;"><b>Below-threshold consistency.</b> Under \(l^{*}\) the split is real but sub-rung, so it
+    should leave <em>sub</em>-seams inside the low rungs at the co-multiplet boundaries: after p·co, \(2+4=6\); after
+    d·co, \(8+6=14\). The record shows exactly these light sub-closures (carbon-12 at 6/6, silicon-28 at 14/14) —
+    counted here, not fitted. And the one prediction the rule cannot avoid: the next inner closure falls at
+    <b>184</b> (rung-6 remainder + the j-intruder) — the same number the extant record projects for its
+    superheavy island, reached here by counting alone.</p>
+  </div>
+</section>
+
+<!-- ============ 6. THE THRESHOLD ============ -->
+<section>
+  <h2>6 · The Threshold — the Open Joint, Stated Plainly</h2>
+  <p><em>Why the f-winding?</em> Why does intrusion begin at \( l = 3 \) and not at p or d? This page does not know,
+  and will not pretend to. The split-to-spacing ratio \( \kappa/\Delta\nu \) is a real, dimensionless property of the
+  eyewall — and no counting argument fixes it. What counting does force (§4) is the <em>shape</em> of the answer:
+  the split grows with winding against a constant spacing, so a threshold exists and, once crossed, intrusion
+  persists at every higher rung — the pattern "pure ladder low, one intruder per rung high" is structural. Its
+  onset is not.</p>
+  <p><b>The instrument that would close it exists in the corpus and has not been run.</b> The split lives where the
+  gradient lives — at the skin. The <a class="xref" href="./mass-ledger.html">Mass Ledger</a> has already derived
+  the skin's own profile (the amplitude-count \( \lambda(u) \), tail length 0.574 fm against the measured
+  0.55 ± 0.06). Pricing the co/counter rate differential per winding step against that derived skin gradient — and
+  comparing it to the rung spacing — is the exact analogue of the Aufbau program's frontier computation: the same
+  move that turned "the Madelung rule is assumed" into "the frontier holds \(k\) just under 2, computed." Until that
+  run is executed, \( l^{*} = 3 \) is a named import from the measured record, exactly as Aufbau named its
+  fixed-point question — and the descent magnitude (one rung) and the descent sign (co-turn deeper;
+  channel-motivated by the App-5 rule) are named beside it.</p>
+  <p class="mut">Falsifier, stated: if the native skin-pricing, once run, yields a threshold at \( l^{*} \ne 3 \) or
+  a split shrinking with \(l\), the counting rule of §5 loses its physics and stands demoted to a description of the
+  record. The rule is exposed, not protected.</p>
+</section>
+
+<!-- ============ 7. WHAT THIS BUYS ============ -->
+<section>
+  <h2>7 · What This Buys</h2>
+  <ul>
+    <li><b>One method, both channels.</b> The frontier/closure method — refuse energetics, find what closes, count
+    it — now covers the outer census (<a class="xref" href="./aufbau-as-closure.html">Aufbau as Closure</a>) and the
+    inner one (this page). The two sequences extant physics splits across two disconnected theories are the two
+    Bertrand arms of one vortex, each counted in its own regime.</li>
+    <li><b>The eyewall reading is cashed out.</b> <a class="xref" href="./poams-periodic-table.html">The
+    Elements</a> has long carried the two-zone structure with its counts marked "from the measured record,
+    derivation open." That entry now reads: first three closures computed; the remaining four counted exactly from
+    one named integer; threshold open. The debt is smaller and its edges are sharp.</li>
+    <li><b>A prediction with no freedom.</b> 184 next, per class — reached by counting, not by fit. The strain
+    column (extant: <span class="fant">Coulomb</span>) prices the two classes differently in the superheavies —
+    that correction belongs to the Mass Ledger's columns and is not attempted here.</li>
+    <li><b>The alpha, twice-read.</b> Rung 0 closed in both classes = 4 = the Mass Ledger's filled rate cell — two
+    independent pages of the ledger agreeing on the same smallest closure.</li>
+  </ul>
+</section>
+
+<!-- ============ 8. SCOPE ============ -->
+<section>
+  <h2>8 · Scope &amp; Status</h2>
+  <div class="card red">
+    <p style="margin:4px 0 10px;"><b>Cited (prior art):</b> Bertrand's two-geometry theorem (1873). The
+    interior-uniform ⇒ linear-restoring result (Newton, <i>Principia</i> I). The regularity of the sequence —
+    Elsasser 1934. The intruder bookkeeping itself is Goeppert-Mayer 1949 and Haxel–Jensen–Suess 1949: the extant
+    shell model's oscillator-plus-<span class="fant">spin-orbit</span> scheme, whose coupling strength is fitted to
+    the record. This page's §5 is that counting <em>recast</em> as census bookkeeping — the arithmetic is theirs;
+    claiming otherwise would be theft. The 184 projection is also the extant record's own.</p>
+    <p style="margin:0 0 10px;"><b>Computed on this page:</b> the forced channel-pairing — the two radial regimes of
+    the one vortex are, by their own profiles, exactly Bertrand's two closure geometries (far field ⇒ the outer
+    \(2n^2\) census; saturated flat interior ⇒ the confined ladder), so the inner ladder is <em>derived, not
+    chosen</em>; the rung families \( N = 2n_r + l \) with per-class capacities \( (N+1)(N+2) \) and the first three
+    closures <b>2, 8, 20</b> at zero adjustable parameters; the co/counter multiplet sizes \( (2l+2)/(2l) \) as a
+    counting identity; the structural necessity of a threshold (growing split vs constant spacing, conditional on
+    the per-step price \(\kappa\) holding with \(l\)); and the counting theorem — given \( l^{*}=3 \) and unit
+    descent, the closure sequence is exactly 2, 8, 20, 28, 50, 82, 126, then 184, closed form
+    \( (N+2)(N^2+4N+9)/3 \), verified mechanically (<span class="mono">scripts/inner_census.py</span>), with the
+    below-threshold sub-seams (6, 14) and the destroyed seams (40 semi-magic) landing where the record puts them.</p>
+    <p style="margin:0 0 10px;"><b>Named imports:</b> the threshold \( l^{*} = 3 \) (from the measured record — the
+    one integer this page does not compute); the unit-descent magnitude (one rung, read from the record's gap
+    structure); the descent sign (co-turn settles deeper — motivated by the App-5 twist-channel rule and the
+    one-geometric-effect reading of micro/macro spin-orbit, not independently computed); the flat-interior theorem
+    and the two-class structure of the core census (both imported from the
+    <a class="xref" href="./mass-ledger.html">Mass Ledger</a>, where they are derived); the census kit itself
+    (orientations \(2l+1\), the sense pair — derived in <a class="xref" href="./poams-periodic-table.html">The
+    Elements</a>).</p>
+    <p style="margin:0;"><b>Open (the live frontier), plainly:</b> one item owns this page's future — <em>the native
+    pricing of \( \kappa/\Delta\nu \) at the derived skin</em>: run the co/counter rate differential against the
+    Mass Ledger's \( \lambda(u) \) skin profile and the confined ladder's spacing. One computation would move all
+    three named imports (threshold, magnitude, sign) into the computed column at once — or falsify the rule
+    (§6). Second-order residues: the strain-column correction to the Z-class ledger in the superheavies (the
+    record's Z = 114 island against this ladder's 126/184), and the expectation that at rungs beyond the counted
+    range the growing split drags <em>second</em> multiplets across — the same structure that ends the extant
+    scheme's clean run. Every open carries a named owner and a falsifier.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  Part of the <a href="./index.html">Normal Realism / POAMS exhibit series</a> ·
+  <a href="./aufbau-as-closure.html">Aufbau as Closure</a> ·
+  <a href="./mass-ledger.html">The Mass Ledger</a> ·
+  <a href="./poams-periodic-table.html">The Elements</a> ·
+  <a href="./loop-of-momentum.html">A Closed Loop of Twisted Momentum</a><br>
+  Sources: Bertrand, C. R. Acad. Sci. 77:849 (1873) · Elsasser, J. Phys. Radium 5:625 (1934) · Goeppert-Mayer,
+  Phys. Rev. 75:1969 (1949) · Haxel, Jensen &amp; Suess, Phys. Rev. 75:1766 (1949) · AME2020 (the measured record)
+  · Pope, <i>The Eye of the Beholder</i>, App. 5.<br>
+  The counting on this page is executed by <span class="mono">scripts/inner_census.py</span> in this repository —
+  zero continuous parameters, one named integer, output checked against the record's sequence exactly. 2026-09-06.
+</footer>
+
+<script>
+// ---------- theme ----------
+function pal(){return document.body.classList.contains('light')
+  ?{bg:'#f6f3ea',grid:'#d9d2bf',axis:'#6b6355',gold:'#8b6914',blue:'#176e94',green:'#2e7d32',amber:'#b5730a',red:'#b03030',text:'#26211a',mut:'#6b6355',box:'rgba(23,110,148,0.16)',boxline:'#176e94',co:'rgba(139,105,20,0.42)'}
+  :{bg:'#10101c',grid:'#2c2c46',axis:'#9a9ab0',gold:'#d4af37',blue:'#5bc8f5',green:'#66bb6a',amber:'#ffa726',red:'#ef5350',text:'#e8e8f0',mut:'#9a9ab0',box:'rgba(91,200,245,0.14)',boxline:'#5bc8f5',co:'rgba(212,175,55,0.45)'}}
+function toggleTheme(){
+  document.body.classList.toggle('light');
+  const light=document.body.classList.contains('light');
+  document.querySelector('.theme-toggle').textContent=light?'🌙':'☀️';
+  try{localStorage.setItem('poams-theme',light?'light':'dark')}catch(e){}
+  drawLadder();
+}
+try{if(localStorage.getItem('poams-theme')==='light'){document.body.classList.add('light');document.querySelector('.theme-toggle').textContent='🌙';}}catch(e){}
+
+// ---------- the ladder chart ----------
+// Left column: pure confined ladder (per class). Right: after the descent.
+// All numbers below are the derived/counted ones — nothing decorative.
+const RUNGS = [2,6,12,20,30,42,56];              // cap(N) = (N+1)(N+2), N=0..6
+const LADDER_SEAMS = [2,8,20,40,70,112,168];
+const INTRUDERS = [[3,8],[4,10],[5,12],[6,14]];  // [l, size] descending from rungs 3..6
+const GROUPS = [                                  // right column, bottom-up
+  {size:2,  seam:2,   intr:false},
+  {size:6,  seam:8,   intr:false},
+  {size:12, seam:20,  intr:false},
+  {size:8,  seam:28,  intr:true },
+  {size:22, seam:50,  intr:true },
+  {size:32, seam:82,  intr:true },
+  {size:44, seam:126, intr:true },
+  {size:58, seam:184, intr:true }
+];
+function drawLadder(){
+  const P=pal();
+  const cv=document.getElementById('ladderChart'), ctx=cv.getContext('2d');
+  const dpr=window.devicePixelRatio||1;
+  const cssW=cv.clientWidth||860, cssH=cv.clientHeight||520;
+  cv.width=cssW*dpr; cv.height=cssH*dpr; ctx.scale(dpr,dpr);
+  const W=cssW,H=cssH;
+  ctx.fillStyle=P.bg; ctx.fillRect(0,0,W,H);
+  const mT=34,mB=26;
+  const TOT=184;                       // draw both columns on one count axis, 0..184+
+  const Y=c=>H-mB-(c/196)*(H-mT-mB);  // count -> y
+  const colW=Math.min(150,W*0.2);
+  const xL=W*0.16, xR=W*0.62;
+  ctx.font='11.5px sans-serif';
+
+  // left column: rungs (clip at 184 for shared axis; rung 6 tops at 168, fine)
+  let c0=0;
+  for(let N=0;N<RUNGS.length;N++){
+    const c1=c0+RUNGS[N];
+    const y1=Y(c1),y0=Y(c0);
+    ctx.fillStyle=P.box; ctx.fillRect(xL,y1,colW,y0-y1);
+    ctx.strokeStyle=P.grid; ctx.strokeRect(xL,y1,colW,y0-y1);
+    // co-slice at top of rungs >= 3
+    const co=INTRUDERS.find(v=>v[0]===N);
+    if(co){
+      const ys=Y(c1), yb=Y(c1-co[1]);
+      ctx.fillStyle=P.co; ctx.fillRect(xL,ys,colW,yb-ys);
+    }
+    ctx.fillStyle=P.mut;
+    if(RUNGS[N]>=6) ctx.fillText('N = '+N, xL+6, (y0+y1)/2+4);
+    // seam label
+    ctx.fillStyle=P.axis;
+    ctx.fillText(String(c1), xL-ctx.measureText(String(c1)).width-7, y1+4);
+    ctx.strokeStyle=P.grid; ctx.beginPath(); ctx.moveTo(xL-4,y1); ctx.lineTo(xL+colW,y1); ctx.stroke();
+    c0=c1;
+  }
+  ctx.fillStyle=P.text; ctx.font='bold 12.5px sans-serif';
+  ctx.fillText('pure confined ladder', xL, Y(0)+18);
+  ctx.font='11.5px sans-serif';
+
+  // right column: groups with closure seams
+  c0=0;
+  for(const g of GROUPS){
+    const c1=c0+g.size, y1=Y(c1), y0=Y(c0);
+    ctx.fillStyle=P.box; ctx.fillRect(xR,y1,colW,y0-y1);
+    ctx.strokeStyle=P.grid; ctx.strokeRect(xR,y1,colW,y0-y1);
+    if(g.intr){ // intruder slice sits at top of its landing group
+      const isz=g.seam===28?8:(g.seam===50?10:(g.seam===82?12:(g.seam===126?14:16)));
+      ctx.fillStyle=P.co; ctx.fillRect(xR,y1,colW,Y(c1-isz)-y1);
+    }
+    ctx.strokeStyle=P.gold; ctx.lineWidth=1.6;
+    ctx.beginPath(); ctx.moveTo(xR,y1); ctx.lineTo(xR+colW+4,y1); ctx.stroke(); ctx.lineWidth=1;
+    ctx.fillStyle=P.gold; ctx.font='bold 12px sans-serif';
+    ctx.fillText(String(g.seam), xR+colW+9, y1+4);
+    ctx.font='11.5px sans-serif';
+    c0=c1;
+  }
+  ctx.fillStyle=P.text; ctx.font='bold 12.5px sans-serif';
+  ctx.fillText('after the descent — the record', xR-14, Y(0)+18);
+  ctx.font='11.5px sans-serif';
+
+  // arrows: co-multiplets descending
+  const landings={3:28,4:50,5:82,6:126};
+  for(const [l,sz] of INTRUDERS){
+    const cTop=LADDER_SEAMS[l];              // top of rung l on the left
+    const yFrom=Y(cTop-sz/2);
+    const yTo=Y(landings[l]-sz/2);
+    const x0=xL+colW+4, x1=xR-4;
+    ctx.strokeStyle=P.gold; ctx.globalAlpha=0.75;
+    ctx.beginPath(); ctx.moveTo(x0,yFrom);
+    ctx.bezierCurveTo(x0+(x1-x0)*0.45,yFrom, x1-(x1-x0)*0.45,yTo, x1,yTo); ctx.stroke();
+    // arrowhead
+    ctx.fillStyle=P.gold;
+    ctx.beginPath(); ctx.moveTo(x1,yTo); ctx.lineTo(x1-7,yTo-3.5); ctx.lineTo(x1-7,yTo+3.5); ctx.closePath(); ctx.fill();
+    ctx.globalAlpha=1;
+    const nm='fghi'[l-3];
+    ctx.fillStyle=P.gold;
+    ctx.fillText(nm+'·co ('+sz+')', x0+8, yFrom-4);
+  }
+
+  // legend
+  ctx.fillStyle=P.co; ctx.fillRect(xL, 8, 14, 10);
+  ctx.fillStyle=P.mut; ctx.fillText('top co-turning multiplet of the rung (size 2N+2) — the intruder', xL+20, 17);
+}
+drawLadder();
+window.addEventListener('resize',drawLadder);
+</script>
+</body>
+</html>
