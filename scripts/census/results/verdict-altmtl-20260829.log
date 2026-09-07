@@ -1,0 +1,65 @@
+=== ROUND2 ALTMTL LEG launched Sat Aug 29 19:29:36 CDT 2026 ===
+--- discovering catalog names at https://data.desi.lbl.gov/public/dr1/survey/catalogs/dr1/mocks/AbacusSummit/dark/v4.2/altmtl0/mock0/
+found DAT= RAN=
+DISCOVERY FAILED — index listing follows:
+href="../"
+href="LSScats/"
+href="Alltiles_dark_tilelocs.dat.fits"
+href="collision_dark_mock0.fits"
+href="datcomb_dark_tarspecwdup_zdone.fits"
+href="dr1_survey_catalogs_dr1_mocks_AbacusSummit_dark_v4.2_altmtl0_mock0.sha256sum"
+href="rancomb_0dark_Alltilelocinfo.fits"
+href="rancomb_0darkwdupspec_zdone.fits"
+href="rancomb_10dark_Alltilelocinfo.fits"
+href="rancomb_10darkwdupspec_zdone.fits"
+href="rancomb_11dark_Alltilelocinfo.fits"
+href="rancomb_11darkwdupspec_zdone.fits"
+href="rancomb_12dark_Alltilelocinfo.fits"
+href="rancomb_12darkwdupspec_zdone.fits"
+href="rancomb_13dark_Alltilelocinfo.fits"
+href="rancomb_13darkwdupspec_zdone.fits"
+href="rancomb_14dark_Alltilelocinfo.fits"
+href="rancomb_14darkwdupspec_zdone.fits"
+href="rancomb_15dark_Alltilelocinfo.fits"
+href="rancomb_15darkwdupspec_zdone.fits"
+href="rancomb_16dark_Alltilelocinfo.fits"
+href="rancomb_16darkwdupspec_zdone.fits"
+href="rancomb_17dark_Alltilelocinfo.fits"
+href="rancomb_17darkwdupspec_zdone.fits"
+href="rancomb_1dark_Alltilelocinfo.fits"
+href="rancomb_1darkwdupspec_zdone.fits"
+href="rancomb_2dark_Alltilelocinfo.fits"
+href="rancomb_2darkwdupspec_zdone.fits"
+href="rancomb_3dark_Alltilelocinfo.fits"
+href="rancomb_3darkwdupspec_zdone.fits"
+href="rancomb_4dark_Alltilelocinfo.fits"
+href="rancomb_4darkwdupspec_zdone.fits"
+href="rancomb_5dark_Alltilelocinfo.fits"
+href="rancomb_5darkwdupspec_zdone.fits"
+href="rancomb_6dark_Alltilelocinfo.fits"
+href="rancomb_6darkwdupspec_zdone.fits"
+href="rancomb_7dark_Alltilelocinfo.fits"
+href="rancomb_7darkwdupspec_zdone.fits"
+href="rancomb_8dark_Alltilelocinfo.fits"
+href="rancomb_8darkwdupspec_zdone.fits"
+=== ROUND2 ALTMTL LEG launched Sat Aug 29 21:30:46 CDT 2026 ===
+--- discovering catalog names at https://data.desi.lbl.gov/public/dr1/survey/catalogs/dr1/mocks/AbacusSummit/dark/v4.2/altmtl0/mock0/LSScats/
+found DAT=LRG_NGC_clustering.dat.fits RAN=LRG_NGC_0_clustering.ran.fits
+--- downloading altmtl0 LRG_NGC_clustering.dat.fits
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0  143M    0 61440    0     0   152k      0  0:16:02 --:--:--  0:16:02  152k 23  143M   23 33.9M    0     0  24.3M      0  0:00:05  0:00:01  0:00:04 24.3M 52  143M   52 75.9M    0     0  31.7M      0  0:00:04  0:00:02  0:00:02 31.7M 91  143M   91  130M    0     0  38.5M      0  0:00:03  0:00:03 --:--:-- 38.5M100  143M  100  143M    0     0  39.8M      0  0:00:03  0:00:03 --:--:-- 39.8M
+--- downloading altmtl0 LRG_NGC_0_clustering.ran.fits
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0 1058M    0 3364k    0     0  4296k      0  0:04:12 --:--:--  0:04:12 4296k  4 1058M    4 50.5M    0     0  28.3M      0  0:00:37  0:00:01  0:00:36 28.3M  9 1058M    9  103M    0     0  37.2M      0  0:00:28  0:00:02  0:00:26 37.2M 14 1058M   14  149M    0     0  39.5M      0  0:00:26  0:00:03  0:00:23 39.5M 17 1058M   17  189M    0     0  39.6M      0  0:00:26  0:00:04  0:00:22 39.6M 22 1058M   22  241M    0     0  41.7M      0  0:00:25  0:00:05  0:00:20 47.6M 28 1058M   28  296M    0     0  43.6M      0  0:00:24  0:00:06  0:00:18 49.1M 32 1058M   32  349M    0     0  44.8M      0  0:00:23  0:00:07  0:00:16 49.0M 38 1058M   38  404M    0     0  46.0M      0  0:00:22  0:00:08  0:00:14 51.0M 43 1058M   43  459M    0     0  46.9M      0  0:00:22  0:00:09  0:00:13 53.9M 47 1058M   47  505M    0     0  46.9M      0  0:00:22  0:00:10  0:00:12 52.9M 52 1058M   52  560M    0     0  47.5M      0  0:00:22  0:00:11  0:00:11 52.7M 57 1058M   57  607M    0     0  47.4M      0  0:00:22  0:00:12  0:00:10 51.5M 62 1058M   62  664M    0     0  48.1M      0  0:00:21  0:00:13  0:00:08 51.9M 67 1058M   67  718M    0     0  48.6M      0  0:00:21  0:00:14  0:00:07 51.9M 72 1058M   72  766M    0     0  48.5M      0  0:00:21  0:00:15  0:00:06 52.0M 77 1058M   77  822M    0     0  49.0M      0  0:00:21  0:00:16  0:00:05 52.5M 82 1058M   82  871M    0     0  49.0M      0  0:00:21  0:00:17  0:00:04 52.9M 86 1058M   86  919M    0     0  48.9M      0  0:00:21  0:00:18  0:00:03 51.1M 90 1058M   90  954M    0     0  48.2M      0  0:00:21  0:00:19  0:00:02 47.1M 95 1058M   95 1006M    0     0  48.4M      0  0:00:21  0:00:20  0:00:01 48.0M 99 1058M   99 1055M    0     0  48.4M      0  0:00:21  0:00:21 --:--:-- 46.5M100 1058M  100 1058M    0     0  48.4M      0  0:00:21  0:00:21 --:--:-- 45.8M
+--- ALTMTL0 LRG turnover 0.4-1.1, grid 10-260, fit 100-260 ---
+[LRGalt0 NGC] galaxies 1,487,585  randoms 9,483,722  z in (0.4,1.1)  ran_idx=0 fill=0.97 tag=turnover260
+  [lcdm] fit: {'slope': -0.08258023235237033, 'slope_err': 0.00044099018802572665, 'D2': 2.9174197676476297, 'rrange': [100.0, 260.0], 'npts': 8}
+wrote results/LRGalt0_NGC_turnover260_census.json  (1785s)
+=== ROUND2 ALTMTL LEG complete Sat Aug 29 22:00:57 CDT 2026 ===
+ALTMTL0 windows (complete 2.962/2.965 | ffa 2.950/2.937 | DATA 2.921/2.907):
+  150-220: D2 = 2.922
+  200-300: D2 = 2.906
+Guide: altmtl ≈ 2.92 → survey plumbing owns the residual (anomaly CLOSED).
+       altmtl ≈ 2.94+ → remainder survives full fiber treatment; imaging weights next.

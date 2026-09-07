@@ -1,0 +1,22 @@
+=== VERDICT LEG A launched Sat Aug 29 09:48:54 CDT 2026 ===
+--- LRG NGC 0.4-1.1, grid 10-260, headline fit 100-260 ---
+[LRG NGC] galaxies 1,476,135  randoms 9,389,588  z in (0.4,1.1)  ran_idx=0 fill=0.97 tag=turnover260
+  [lcdm] fit: {'slope': -0.08302884818670009, 'slope_err': 0.00041231831151286716, 'D2': 2.9169711518133, 'rrange': [100.0, 260.0], 'npts': 8}
+  [pade21] fit: {'slope': -0.0878989050694372, 'slope_err': 0.0004161521798930337, 'D2': 2.912101094930563, 'rrange': [100.0, 260.0], 'npts': 8}
+wrote results/LRG_NGC_turnover260_census.json  (2943s)
+--- ELG NGC 0.8-1.6, grid 10-300, headline fit 100-300 ---
+[ELG_LOPnotqso NGC] galaxies 1,821,322  randoms 9,719,822  z in (0.8,1.6)  ran_idx=0 fill=0.97 tag=turnover300
+  [lcdm] fit: {'slope': -0.05464073655775792, 'slope_err': 0.0004075843615965829, 'D2': 2.945359263442242, 'rrange': [100.0, 300.0], 'npts': 9}
+  [pade21] fit: {'slope': -0.06124603824167707, 'slope_err': 0.0004149780881957447, 'D2': 2.938753961758323, 'rrange': [100.0, 300.0], 'npts': 9}
+wrote results/ELG_LOPnotqso_NGC_turnover300_census.json  (3126s)
+--- BGS NGC 0.05-0.40, grid 5-150, headline fit 70-150 ---
+[BGS_BRIGHT-21.5 NGC] galaxies 217,614  randoms 13,248,857  z in (0.05,0.4)  ran_idx=0 fill=0.97 tag=turnover150
+  [lcdm] fit: {'slope': -0.18293740388423885, 'slope_err': 0.0015294792440650143, 'D2': 2.817062596115761, 'rrange': [70.0, 150.0], 'npts': 6}
+  [pade21] fit: {'slope': -0.18156293425784042, 'slope_err': 0.0014202887457051832, 'D2': 2.8184370657421596, 'rrange': [70.0, 150.0], 'npts': 6}
+wrote results/BGS_BRIGHT-21.5_NGC_turnover150_census.json  (507s)
+--- QSO NGC 0.8-1.8, grid 15-300, headline fit 120-300 ---
+[QSO NGC] galaxies 425,032  randoms 6,223,557  z in (0.8,1.8)  ran_idx=0 fill=0.97 tag=turnover300
+  [lcdm] fit: {'slope': -0.031429942411477896, 'slope_err': 0.0004685552536471771, 'D2': 2.968570057588522, 'rrange': [120.0, 300.0], 'npts': 8}
+  [pade21] fit: {'slope': -0.027417180682050457, 'slope_err': 0.00043684482353453753, 'D2': 2.9725828193179495, 'rrange': [120.0, 300.0], 'npts': 8}
+wrote results/QSO_NGC_turnover300_census.json  (348s)
+=== VERDICT LEG A complete Sat Aug 29 11:44:21 CDT 2026 ===
