@@ -1,136 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Polyverse · Appendix — Changelog, Pipeline &amp; References</title>
-<script>window.MathJax={tex:{inlineMath:[['$','$']],displayMath:[['$$','$$']]}};</script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
-<style>
-:root{--bg:#0d0d17;--card:#12121e;--edge:#2a2a3e;--fg:#e2e2ea;--mut:#9a9ab0;--gold:#c9a84c;--blue:#64b5e0;--green:#66bb6a;--red:#e05f5f;}
-body.light{--bg:#faf8f2;--card:#ffffff;--edge:#d9d2bf;--fg:#26211a;--mut:#6b6355;--gold:#8b6914;--blue:#1f6f9f;--green:#2e7d32;--red:#b03030;}
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--fg);font-family:Georgia,serif;line-height:1.7;font-size:16.5px;transition:background .3s,color .3s}
-main{max-width:880px;margin:0 auto;padding:2.2rem 1.2rem 4rem}
-h1{color:var(--gold);font-size:1.7rem;line-height:1.25;margin:.4rem 0 .6rem}
-h2{color:var(--gold);font-size:1.25rem;border-bottom:1px solid var(--edge);padding-bottom:.3rem;margin:2.2rem 0 .8rem}
-h3{color:var(--blue);font-size:1.05rem;margin:1.4rem 0 .5rem}
-p{margin:.8rem 0}
-.prov{font-size:.82rem;color:var(--mut);border-left:3px solid var(--gold);padding:.5rem .9rem;background:rgba(201,168,76,.05);margin:.8rem 0}
-.tag{display:inline-block;font-size:.7rem;letter-spacing:.05em;padding:.05rem .4rem;border:1px solid var(--edge);border-radius:4px;color:var(--mut);vertical-align:middle}
-.fant{color:var(--mut);font-style:italic}
-.card{background:var(--card);border:1px solid var(--edge);border-radius:10px;padding:1rem 1.2rem;margin:1.1rem 0}
-.card.gold{border-color:var(--gold)}
-.note{font-size:.88rem;color:var(--mut)}
-canvas{width:100%;border:1px solid var(--edge);border-radius:8px;background:#0a0a14;display:block}
-.ctl{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin:.6rem 0;font-size:.9rem}
-.ctl label{color:var(--mut)}
-button{background:var(--gold);color:#111;border:none;border-radius:6px;padding:.35rem .8rem;font-family:inherit;font-size:.9rem;cursor:pointer}
-button.off{background:#333347;color:var(--mut)}
-input[type=range]{accent-color:var(--gold)}
-table{border-collapse:collapse;width:100%;font-size:.9rem;margin:.8rem 0}
-th,td{border:1px solid var(--edge);padding:.45rem .6rem;text-align:left}
-th{color:var(--gold);font-weight:normal}
-td.c{text-align:center}
-a{color:var(--blue)}
-.readout{font-family:Menlo,monospace;font-size:.85rem;color:var(--green)}
-.nav{display:flex;justify-content:space-between;font-size:.85rem;margin-top:3rem;border-top:1px solid var(--edge);padding-top:1rem}
-.eqbox{background:#10101e;border:1px solid var(--edge);border-radius:8px;padding:8px 12px;margin:10px 0;overflow-x:auto}
-.theme-toggle{position:fixed;top:54px;right:12px;z-index:1000;background:var(--gold);color:var(--bg);border:none;width:40px;height:40px;border-radius:8px;padding:0;cursor:pointer;font-size:1.15rem;display:flex;align-items:center;justify-content:center}
-body.light canvas{background:#f6f3ea}
-body.light .eqbox{background:#f6f3ea}
-body.light .prov{background:rgba(139,105,20,.06)}
-body.light button{color:#fff}
-body.light button.off{background:#dcd5c2;color:#6b6355}
-.q{border-left:3px solid var(--blue);padding:.45rem .95rem;font-style:italic;background:rgba(100,181,224,.05);margin:.9rem 0;font-size:.95rem}
-.q .src{display:block;font-style:normal;font-size:.78rem;color:var(--mut);margin-top:4px}
-.tier{border:1px solid var(--edge);border-radius:8px;padding:.7rem 1rem;margin:.8rem 0;font-size:.92rem}
-.tier.forced{border-left:4px solid var(--green)}
-.tier.open{border-left:4px solid var(--red)}
-</style>
-<style id="poams-hub-nav-style">
-#poams-hub-nav{position:fixed;top:0;left:0;right:0;z-index:9999;height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 1rem;background:rgba(13,13,24,0.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,175,55,0.25);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;box-sizing:border-box;}
-#poams-hub-nav a{color:#d4af37;text-decoration:none;display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:6px;transition:background .2s;white-space:nowrap;font-weight:500;}
-#poams-hub-nav a:hover{background:rgba(212,175,55,0.12);}
-#poams-hub-nav .phn-center{display:flex;flex-direction:column;align-items:center;line-height:1.2;}
-#poams-hub-nav .phn-title{font-weight:600;color:#e8e8f0;font-size:12px;}
-#poams-hub-nav .phn-pos{font-size:10px;color:rgba(212,175,55,0.6);letter-spacing:.05em;}
-[data-theme="light"] #poams-hub-nav,body.light #poams-hub-nav{background:rgba(250,248,242,0.95);border-bottom-color:rgba(139,105,20,0.25);}
-[data-theme="light"] #poams-hub-nav a,body.light #poams-hub-nav a{color:#8b6914;}
-body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
-[data-theme="light"] #poams-hub-nav .phn-title,body.light #poams-hub-nav .phn-title{color:#2a2318;}
-@media (max-width:640px){.phn-hide-sm{display:none;}}
-body{padding-top:72px !important;}
-</style>
+<meta http-equiv="refresh" content="0; url=./the-polyverse.html#part-appendix">
+<link rel="canonical" href="https://cfmilam.github.io/nr-poams-exhibits/the-polyverse.html">
+<title>Appendix: Changelog, Pipeline &amp; References (folded into The Polyverse)</title>
+<script>location.replace('./the-polyverse.html#part-appendix');</script>
 </head>
 <body>
-<div id="poams-hub-nav">
-  <a href="./the-polyverse-model.html" title="The Polyverse — model fronts">&larr; <span class="phn-hide-sm">Model Fronts</span></a>
-  <div class="phn-center">
-    <a href="./index.html" style="flex-direction:column;gap:2px;padding:4px 12px;">
-      <span class="phn-title">The Polyverse &middot; Appendix</span>
-      <span class="phn-pos">NR &middot; POAMS &middot; EXHIBIT SERIES</span>
-    </a>
-  </div>
-  <a href="./dunne-serialism.html" title="Dunne Serialism"><span class="phn-hide-sm">Dunne Serialism</span> &rarr;</a>
-</div>
-
-<button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle light/dark theme">☀️</button>
-
-<main>
-<h1>The Polyverse &mdash; Appendix: Changelog, Pipeline &amp; References</h1>
-<p class="note" style="margin-top:-2px">the audit trail, dated &middot; the runnable census pipeline, published &middot; the standing references of the suite</p>
-<div class="prov">Part of <a href="./the-polyverse.html">The Polyverse</a> suite &mdash; the extrapolation of the foundational work of N. Vivian &ldquo;Viv&rdquo; Pope &amp; Dr. Anthony D. Osborne, PhD, in Normal Realism (NR) and POAMS. This page is the suite&rsquo;s working spine: the dated changelog of every audit round, retraction, and closure; the published, runnable DESI census pipeline with its settings and run record; and the full reference list. Companions: <a href="./the-polyverse-audit.html">audit</a> &middot; <a href="./the-polyverse-model.html">model fronts</a>.</div>
-<p class="note"><b>Suite map &amp; numbering.</b> Section numbers are preserved from the unified page (its full history lives in git). <a href="./the-polyverse.html">Entry</a>: &sect;&sect;1&ndash;2, the booking law stated, the FORCED tier. <a href="./the-polyverse-audit.html">Audit</a>: &sect;&sect;4&ndash;7, &sect;&sect;9&ndash;10, the watch table, &sect;12 (the retraction record). <a href="./the-polyverse-model.html">Model fronts</a>: &sect;3, &sect;8, &sect;11 (the P-round). <a href="./the-polyverse-appendix.html">Appendix</a> (this page): changelog, the census pipeline, references.</p>
-
-<h2 id="a1">A1 &middot; Changelog &mdash; the audit trail, dated</h2>
-<p>The corpus&rsquo;s replacement policy rewrites stale text outright and keeps history in git; this table is the suite&rsquo;s own summary of what changed and when. Every entry below is booked at full strength on the audit or model page.</p>
-<table>
-<tr><th>date (2026)</th><th>event</th><th>where it lives</th></tr>
-<tr><td>08-16&ndash;08-22</td><td>Page built: the two refusals, the empty barycentre, the redshift candidate table. The founding texts&rsquo; random-motion dilation carrier staked for audit.</td><td>entry &sect;&sect;1&ndash;2; model &sect;3; audit &sect;4</td></tr>
-<tr><td>08-22</td><td><b>Audit round:</b> the staked carrier <b>refuted</b> four independent ways (scatter, magnitude, thermometry, composition); T(z) ladder + SZ booked; composition theorem (T1) derived; static no-go derived; the surviving carrier (T2) closed; optics isomorphism derived. The static-polyverse reading retired.</td><td>audit &sect;&sect;5&ndash;6, &sect;12</td></tr>
-<tr><td>08-23</td><td><b>Census v1 runs</b> (P3): conditional estimator, DESI DR1, 4 tracer classes &times; 2 caps, 3 z&rarr;distance maps fixed in advance. Circularity objection killed; depth/tracer ladder exposed.</td><td>audit &sect;9.2; pipeline &sect;A2</td></tr>
-<tr><td>08-27</td><td><b>Census hardening:</b> z-slices, matched depth/density, threshold + random-realization controls. <b>P2 derivation round opens</b> (~40 firewalled arms over three days); watch table refreshed.</td><td>audit &sect;9.2; model &sect;11 P2</td></tr>
-<tr><td>08-28</td><td>Census: weights nil; catastrophic-z killed; amplitude cross-check books the QSO anomaly as two-observable. P2: read-out twice falsified (tilt, amplitude); prior census-isocurvature chain <b>retracted</b> with its exit interface.</td><td>audit &sect;9.2; model &sect;11 P2</td></tr>
-<tr><td>08-29</td><td><b>Census verdict runs:</b> wide-window turnover + AbacusSummit mock control through the identical pipeline &mdash; <b>fork closed, no fork</b>; QSO anomaly closed on all four legs; LRG plateau residual isolated, then closed <b>systematic</b> the same night (ffa a third-to-half; <b>full alt-MTL: D&#8322; = 2.922/2.906 vs data 2.921/2.907</b>). Census lane: zero standing anomalies. P2 native round: envelope derived; no-phase-locker theorem; reconciliation front + last-to-close ring.</td><td>audit &sect;9.2; pipeline &sect;A2; model &sect;11 P2/P3</td></tr>
-<tr><td>08-30</td><td>P2 offset arm (maximum hazard, target known, one tunable mechanism refused): mid-turn quadrature registration 0.75 vs measured mean 0.74 &mdash; booked at <b>identification grade</b>. Successor round (16 arms): posting-balance growth law, passage wall, residue pulse, amplitude bridge, composition; one same-day self-correction (fade claim). Unified page updated.</td><td>model &sect;11 P2 + successor round</td></tr>
-<tr><td>09-07</td><td><b>Tier-A cold review</b> (isolated Sol, no corpus context) &rarr; ratified Phase 1 + 2 repairs: stale census-fork text reconciled to the closed state; LRG watch row closed; watch count corrected (eight rows); comb trophy language regraded to identification grade; birefringence headline tempered; external links added throughout (~40); EHT/GW constraints card added and the compact-object front explicitly graded conjecture; external-clock argument relabeled (booking-postulate consequence, not a GR error); floor/bounce regraded to named EC-analog import with the native chain booked as open debt; entropy P1 reframed-not-dissolved; acceleration/no-cycles softened to model-dependent lean; <b>the page split into this four-page suite</b>; the census pipeline published (&sect;A2). Reviewer errors documented in the review record: the birefringence diode was already booked as not-leaned-on; the barycentre critique engaged a claim the page does not make (co-orbiting circulation, not a bare point).</td><td>this suite, throughout</td></tr>
-</table>
-
-<h2 id="a2">A2 &middot; The census pipeline &mdash; published, runnable</h2>
-<p>The conditional-census pipeline behind &sect;9.2&rsquo;s runs is published in this repository under <a href="./scripts/census/">scripts/census/</a> &mdash; estimator source, single-map wrapper, the hardening and verdict shell scripts exactly as run, the verdict-leg result JSONs (full &Gamma;*(r) profiles with settings echoed inline) and logs, and a <a href="./scripts/census/README.md">README</a> with the full run record. The load-bearing facts:</p>
-<ul style="margin:.6rem 0 .6rem 1.4rem">
-<li><b>Estimator:</b> conditional integrated density $\Gamma^*(r) = \langle n(&lt;r)\rangle$ over every embedded galaxy centre; embedding decided per centre per scale against a <b>radially-resolved</b> random-count expectation (fill threshold 0.97; 0.90/0.99 run as the criterion systematic); footprint solid angle from 0.5&deg; cells of the randoms; weighted mean (catalogue WEIGHT); 100-fold bootstrap over centres; fixed seeds. $D_2 = 3 + $ slope of the weighted log&ndash;log fit.</li>
-<li><b>Three z&rarr;distance maps, coefficients fixed in advance:</b> flat &Lambda;CDM (H&#8320; = 70, &Omega;<sub>m</sub> = 0.3 &mdash; the <a href="https://arxiv.org/abs/2511.21585">Sylos Labini &amp; Antal</a> fiducial); cosmography Taylor-3 and Pad&eacute;(2,1) from SN-only coefficients (q&#8320; = &minus;0.55, j&#8320; = 1.0, H&#8320; = 73); the Taylor&ndash;Pad&eacute; spread is the truncation systematic. No FLRW enters the model-independent legs.</li>
-<li><b>Data:</b> <a href="https://data.desi.lbl.gov/doc/releases/dr1/">DESI DR1 LSS clustering catalogues</a> (BGS_BRIGHT-21.5, LRG, ELG_LOPnotqso, QSO; both caps; public, CC BY 4.0). <b>Mocks:</b> <a href="https://data.desi.lbl.gov/public/dr1/survey/catalogs/dr1/mocks/">AbacusSummit dark v4.2</a> &mdash; complete, ffa, and altmtl0 flavors, downloaded and run by the verdict scripts as published.</li>
-<li><b>Run record:</b> v1 baseline 2026-08-23; hardening 2026-08-27 (z-slices, matched depth/density, refits, controls); weights/scramble/amplitude 2026-08-28; verdict legs 2026-08-29 (turnover grids to 260&ndash;300 Mpc, mock control + realization scatter, ffa, <b>alt-MTL &mdash; the residual&rsquo;s decider: D&#8322; = 2.922/2.906 vs data 2.921/2.907</b>, environment test). Verbatim logs for all four verdict legs ship with the scripts.</li>
-<li><b>Honest bounds:</b> the full 66-JSON result set and the multi-GB catalogues live off-repo (sizes); the published JSONs cover every number quoted on the suite&rsquo;s pages. Statistical errors &plusmn;0.001-class throughout &mdash; systematics own the error budget, which is why the mock controls decide.</li>
-</ul>
-
-<h2 id="s12">A3 &middot; Standing on the record &mdash; the suite&rsquo;s references</h2>
-<p class="note">Pope, <em>The Eye of the Beholder</em> (2004): &sect;VII, &sect;VII.1&ndash;VII.2 (pp. 55&ndash;59). &middot; Pope &amp; Osborne, <em>Light-Speed, Gravitation and Quantum Instantaneity</em> (2007): Ch.&nbsp;9 (barycentre passage; &sect;9.2&ndash;9.5; fn. 26). &middot; Pope &amp; Osborne, <em>Immediate Distant Action&hellip;</em> (2005): &sect;5.9.3. &middot; Pope, <em>Wondering in the Wilderness</em> (2009). &middot; Osborne, Bull. IMA <b>21</b> (1985) 123&ndash;129. &middot; Hoyle, <em>The Nature of the Universe</em> (1950). &middot; Mayall, Enc. Britannica (1961). &middot; Assis &amp; Neves, Apeiron <b>2</b> (1995) 79&ndash;87. &middot; Audit-round record: <a href="https://arxiv.org/abs/0911.1955">Fixsen 2009</a> (FIRAS $T_0$); <a href="https://ui.adsabs.harvard.edu/abs/1993ApJ...413L..67R">Roth, Meyer &amp; Hawkins 1993</a> (CN); <a href="https://arxiv.org/abs/1212.5456">Muller et al. 2013</a> (PKS 1830&minus;211); <a href="https://arxiv.org/abs/0804.0116">Srianand et al. 2008</a>; Noterdaeme et al. 2010, <a href="https://arxiv.org/abs/1012.3164">2011</a>, 2017; <a href="https://arxiv.org/abs/2106.00119">Klimenko et al. 2020</a> (15-system reanalysis, $T_0$ free); <a href="https://arxiv.org/abs/1502.06707">de Martino et al. 2015</a> and the SZ set (Luzzi 2009/2015, Hurier 2014, Saro 2014); <a href="https://arxiv.org/abs/2202.00693">Riechers et al. 2022</a> (z = 6.34, pumping-limited); <a href="https://arxiv.org/abs/astro-ph/0106566">Lubin &amp; Sandage 2001</a>; Sandage 2010; Pahre et al. 1996; Lerner et al. 2014/2018 (contested); Tsymbal, Raikov &amp; Lovyagin 2026 (JWST/ASTRODEEP); Desmond et al. 2026 (forward model); Hogg et al. 2005; Scrimgeour et al. 2012; <a href="https://arxiv.org/abs/2511.21585">Sylos Labini &amp; Antal 2026</a> (DESI DR1 conditional census); Roscoe 1999&ndash;2004; Kellermann 1993; Jackson 2004. Etherington duality, measured: <a href="https://arxiv.org/abs/astro-ph/0405620">Uzan, Aghanim &amp; Mellier 2004</a>. Compact-object record: <a href="https://arxiv.org/abs/1807.09409">GRAVITY Collaboration 2018</a> (S2 pericentre); <a href="https://arxiv.org/abs/1906.11238">EHT 2019</a> (M87*) and <a href="https://doi.org/10.3847/2041-8213/ac6674">EHT 2022</a> (Sgr A*); <a href="https://arxiv.org/abs/1602.03837">LIGO 2016</a> (GW150914) and <a href="https://arxiv.org/abs/1602.03841">tests of GR incl. ringdown</a>. Bounce/floor round: <a href="https://ui.adsabs.harvard.edu/abs/1973NPhS..242....7T">Trautman, Nature Phys. Sci. <b>242</b> (1973) 7</a> (in P&ndash;O&rsquo;s own references); <a href="https://arxiv.org/abs/1007.0587">Pop&#322;awski 2010</a>/2014 (torsion bounce); <a href="https://arxiv.org/abs/0909.3983">Egan &amp; Lineweaver 2010</a> (cosmic entropy); de Salas et al. 2015 (reheating floor); Planck 2015 Bianchi limits; Ijjas &amp; Steinhardt 2019, Brandenberger &amp; Peter 2017, Battefeld &amp; Peter 2015 (bounce perturbations); Baum &amp; Frampton 2007. $T_0$/&eta; round: Wright, &ldquo;Eddington&rsquo;s Temperature of Space&rdquo;; Draine / Pogge ISM energy densities. P-round: Egan &amp; Lineweaver 2010; Li, Quintin, Wang &amp; Cai 2016 (the $r$&ndash;$f_{NL}$ no-go); <a href="https://arxiv.org/abs/1905.05697">Planck 2018 IX</a> ($f_{NL}$); <a href="https://arxiv.org/abs/2110.00483">BICEP/Keck 2021</a> ($r &lt; 0.036$); <a href="https://arxiv.org/abs/2608.06480">Eskilt et al. 2026</a> / <a href="https://arxiv.org/abs/2011.11254">Minami &amp; Komatsu lineage</a> (birefringence, ACT DR6 &times; Planck PR4); Agullo et al. (gravitational duality anomaly); BKL 1970 / Belinski&ndash;Henneaux (locality near singular surfaces); <a href="https://arxiv.org/abs/2511.21585">Sylos Labini &amp; Antal 2026</a> (A&amp;A 707, A254); Dias, Avila &amp; Bernui 2023 (cosmography distances); <a href="https://data.desi.lbl.gov/doc/releases/dr1/">DESI DR1 LSS catalogues</a> (public, CC BY 4.0). P2 derivation round (2026-08-27): Wands, Malik, Lyth &amp; Liddle 2000; Lyth, Malik &amp; Sasaki 2005; Lyth &amp; Rodriguez 2005 (&delta;N; the conservation premise); Wilson-Ewing 2016 (separate universes through a bounce); Creminelli, Nicolis &amp; Zaldarriaga 2005 (contracting attractor); Wands 1999 (dust-contraction duality); Ijjas, Sullivan, Pretorius, Steinhardt &amp; Cook 2021 (ultralocality, asynchronous smoothing). Watch refresh (2026-08-27): BICEP Array systematics set 2026 (BK24 pending); DESI DR1 $f_{NL}$ 2026; Nieh&ndash;Yan&ndash;EM Chern&ndash;Simons cross-channel lock 2026; axion-string birefringence 2026. P2 second round + census hardening (2026-08-28): Malik &amp; Wands 2005 (interacting-fluid transfer, the honest re-derivation&rsquo;s machinery); Weinberg 2003 (adiabatic-mode conservation); Kodama &amp; Sasaki 1984; DESI DR1 LSS catalogues (weight/scramble controls and the amplitude cross-check are this page&rsquo;s own runs). Extant values tagged throughout; the verdicts are ours and are stated at full strength. P2 terminal campaign + census closure (2026-08-29): <a href="https://data.desi.lbl.gov/public/dr1/survey/catalogs/dr1/mocks/">AbacusSummit DR1 mock LSS catalogues</a> (public, CC BY 4.0; complete + ffa + altmtl flavors); the fragmentation-cascade architecture, the observation-transaction derivation, the two read-out falsifications, and the census mock-control verdicts are this corpus&rsquo;s own firewalled derivation arms and runs, hand-audited, booked 2026-08-29.</p>
-<p class="note">Corpus siblings: <a href="./the-poams-brilliant-vortex-atom.html">The Brilliant Vortex Atom</a> (items 26&ndash;28 — seeds, now audited: 26 refuted here, 27 upheld-and-extended, 28 untouched) &middot; <a href="./orbital-time-dilation.html">Orbital Time Dilation</a> &middot; <a href="./gps-clocks.html">GPS Clocks</a> &middot; <a href="./twins-paradox.html">Twins</a> &middot; <a href="./varying-g.html">Varying G</a> &middot; <a href="./mass-as-trapped-rate.html">Mass as Trapped Rate</a> &middot; <a href="./heat-and-coherence.html">Heat &amp; Coherence</a> &middot; <a href="./the-two-slit-experiment.html">Two-Slit</a> &middot; <a href="./antenna-emission.html">Antenna Emission</a> &middot; <a href="./dunne-serialism.html">Dunne &amp; Serialism</a>.</p>
-
-
-<p class="note" style="margin-top:2rem">The Polyverse suite: <a href="./the-polyverse.html">entry &mdash; the philosophical core &amp; verdict</a> &middot; <a href="./the-polyverse-audit.html">observational audit</a> &middot; <a href="./the-polyverse-model.html">model fronts</a> &middot; appendix (this page).</p>
-<div class="nav">
-  <a href="./the-polyverse-model.html">&larr; Model Fronts</a>
-  <a href="./index.html">Exhibit Index</a>
-  <a href="./dunne-serialism.html">Dunne Serialism &rarr;</a>
-</div>
-</main>
-
-<script>
-function toggleTheme(){document.body.classList.toggle('light');
-  var l=document.body.classList.contains('light');
-  document.querySelector('.theme-toggle').textContent=l?'🌙':'☀️';
-  try{localStorage.setItem('poams-theme',l?'light':'dark')}catch(e){}}
-try{if(localStorage.getItem('poams-theme')==='light'){document.body.classList.add('light');document.querySelector('.theme-toggle').textContent='🌙';}}catch(e){}
-
-function pal(){var l=document.body.classList.contains('light');
-  return l?{bg:'#f6f3ea',edge:'#d9d2bf',fg:'#26211a',mut:'#6b6355',gold:'#8b6914',blue:'#1f6f9f',green:'#2e7d32',red:'#b03030'}
-          :{bg:'#0a0a14',edge:'#2a2a3e',fg:'#e2e2ea',mut:'#9a9ab0',gold:'#c9a84c',blue:'#64b5e0',green:'#66bb6a',red:'#e05f5f'};}
-
-</script>
+<p>This page has been folded back into the single-page exhibit: <a href="./the-polyverse.html#part-appendix">The Polyverse &mdash; Appendix: Changelog, Pipeline &amp; References</a>.</p>
 </body>
 </html>

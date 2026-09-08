@@ -1,9 +1,9 @@
 # P3 — The Census Fork Test: Runnable Pipeline
 
-The conditional-census (P3) pipeline behind the Polyverse suite's census runs
+The conditional-census (P3) pipeline behind the Polyverse exhibit's census runs
 (2026-08-23 → 2026-08-29), published per the corpus's pipeline-disclosure convention.
-Companion page: [`the-polyverse-appendix.html`](../../the-polyverse-appendix.html) §A2
-(run record); results narrative: [`the-polyverse-audit.html`](../../the-polyverse-audit.html) §9.2.
+Companion page: [`the-polyverse.html`](../../the-polyverse.html#a2) §A2
+(run record); results narrative: [`the-polyverse.html#s9`](../../the-polyverse.html#s9) §9.2.
 
 ## What it computes
 
