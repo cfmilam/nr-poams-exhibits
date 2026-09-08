@@ -124,7 +124,11 @@ body{padding-top:72px !important;}
   quantum is a <em>completed turn</em>; what does not close does not exist. Then the physics has no choice: the order in
   which the elements build — the Madelung rule that quantum mechanics assumes and has never derived — must be the
   <em>geometry of return</em> at the atom's growth frontier. This exhibit computes that geometry in the real
-  self-consistent atom, with zero adjustable parameters, and reads the periodic table off it.</p>
+  self-consistent atom, with zero adjustable parameters, and reads the periodic table off it — at two declared
+  grades, stated here and not only in the fine print: the constant-\(k\) window theorem (§3) is exact and holds
+  <em>derivation</em> grade; the variable-\(k(Z,l)\) ordering (§5–§6) is an <em>identification-grade ordering
+  proxy</em> — first-order in the drift of \(k\), exact only where \(k\) is constant — whose integrated-action
+  completion is in progress (2026-09-07).</p>
 </div>
 
 
@@ -175,13 +179,17 @@ and people start making things up."</div>
 <!-- ============ 3. THE RAZOR ============ -->
 <section>
   <h2>3 · The Razor: the Whole Rule Is One Number</h2>
-  <p>Rank modes by the family label \( c = n_r + k\,l \) and scan \(k\) against the empirical 19-subshell sequence
-  (1s … 7p, all 118 elements). The result is an exact equivalence — <b>both clauses of the Madelung rule at once</b>:</p>
+  <p>Rank modes by the family label \( c = n_r + k\,l \) and scan \(k\) against the ideal Madelung 19-subshell
+  sequence (1s … 7p, all 118 elements — the textbook order; where the observed record deviates from it is tagged
+  in §6). The result is an exact equivalence — <b>both clauses of the Madelung rule at once</b>:</p>
   <div class="eq">\[ \text{full Madelung order} \iff k \in \left(\tfrac{5}{3},\; 2\right) \]</div>
   <p>with the tie-break clause ("lower \(n\) first") exactly the statement \(k &lt; 2\) <em>strict</em>. The window edges
   are analytic: \(5/3\) from the 4f/6s crossing, \(2\) from 3d/4p and 7p/8s. Demanding the standard continuation
   (8s before 5g) tightens the window to \((7/4,\,2)\). So the question "why Madelung?" becomes one
   number: <em>why does the growth frontier hold \(k\) just under 2 — almost self-dual, never quite?</em></p>
+  <p class="mut" style="font-size:13px;">This equivalence is exact — the window endpoints are analytic crossings,
+  and the theorem is the one derivation-grade result on this page. Everything downstream that evaluates a
+  <em>varying</em> \(k\) inherits a weaker grade, declared where it is used (§5).</p>
 </section>
 
 <!-- ============ 4. THE FRONTIER PRINCIPLE ============ -->
@@ -202,6 +210,18 @@ and people start making things up."</div>
   books must balance against. Closed interior shells are exactly isotropic (Unsöld), so from outside they read as a net
   reduction: <span class="fant">"screening"</span> is census subtraction. No force crosses a gap anywhere on this page;
   the map has forces, the territory has bookkeeping.</p>
+  <div class="card blue">
+    <p style="margin:4px 0;"><b>The persistence license — the quantitative rule for "near closure," stated once.</b>
+    The epigraph invites an objection that deserves its answer: the real frontier trajectory <em>never</em> closes —
+    §2's fourth panel precesses forever. So nothing on this page ranks by closure achieved; everything ranks by
+    <b>closure shortfall</b>. A frontier circulation that misses return by a per-turn deficit \(\delta\) rephases
+    only after \(\sim 2\pi/\delta\) turns — the smaller the shortfall, the longer the pattern holds its books, and
+    exact closure (\(\delta = 0\), the Demkov–Ostrovsky self-dual) is the limit of unbounded persistence. The rule,
+    quantitatively: rank frontier modes by the shortfall-weighted family label \( c = n_r + k(Z,l)\,l \) — a
+    <em>persistence proxy</em>, exact in the constant-\(k\) window limit (§3, a theorem) and first-order off it
+    (§5, the declared grade). "What does not close does not exist" cashes out at the frontier as: <em>what closes
+    worse, exists later.</em></p>
+  </div>
 </section>
 
 <!-- ============ 5. THE COMPUTATION ============ -->
@@ -215,8 +235,10 @@ and people start making things up."</div>
   <canvas id="kchart" class="chart"></canvas>
   <div class="cap">Computed \(k(Z,l)\) at the \(E=0\) frontier of the Thomas–Fermi ledger. Shaded band: the razor
   window \((5/3,2)\); lighter band: extended window \((7/4,2)\). Dots: each subshell evaluated at the middle of its own
-  empirical filling zone. Every physical point sits just under the self-dual line \(k=2\) — inside or hugging the
-  window — and never reaches it.</div>
+  empirical filling zone — a display convention, declared: the zone midpoints are read from the record, so the dots
+  show where the computed curves sit for subshells the record has already placed; they are not prediction-first
+  placements (the §6 build, which is prediction-side, recomputes \(k(Z,l)\) at every \(Z\)). Every physical point
+  sits just under the self-dual line \(k=2\) — inside or hugging the window — and never reaches it.</div>
 
   <div class="card blue">
     <p style="margin:4px 0;"><b>Validation.</b> The identical machinery reproduces the Demkov–Ostrovsky theorem on their
@@ -225,6 +247,16 @@ and people start making things up."</div>
     decimals (\(\chi(1)=0.424008\), \(\chi(10)=0.024314\), \(\chi(50)=0.000632\)). Nothing anywhere is fitted: every
     number descends from \( \chi''=\chi^{3/2}/\sqrt{x} \) plus classical mechanics.</p>
   </div>
+
+  <h3>The grade, stated where the result is claimed</h3>
+  <p>For any central ledger, \( \partial J_r/\partial L\,\big|_E = -k(L) \) — so where \(k\) varies with the
+  winding, the exact radial-action invariant carries \( \int k(L)\,dL \), not \( k\,l \). Ranking modes by
+  \( c = n_r + k(Z,l)\,l \) is therefore the <em>first-order evaluation</em> of that integral: exact at constant
+  \(k\) (the §3 window theorem keeps derivation grade), an <b>ordering proxy</b> off it. The constant-\(k\)
+  theorem and the variable-\(k\) computation are not the same argument, and this page does not pretend they are:
+  everything the emergent table below claims is claimed at <em>identification grade</em>. The completion — ranking
+  by the integrated action itself — is in progress (2026-09-07); a companion result will carry it or fail it,
+  on the books either way.</p>
 
   <h3>The architecture comes too</h3>
   <p>The same frontier decides <em>when a winding can first be held at all</em>: a bound zero-energy orbit with angular
@@ -240,6 +272,17 @@ and people start making things up."</div>
   onset of <span class="fant">"d and f electrons"</span>), the criterion stated in exactly this form — including the
   \(l+\tfrac12\) — by Oliphant (1956), onset points tabulated by Jensen &amp; Luttinger (1952). We cite and re-evaluate;
   the block structure of the periodic table was always a frontier-capture statement.</p>
+  <p class="mut"><b>Caution, from the theorem's own authors</b> (verified against the JETP English translation,
+  2026-09-07): a classical pocket is <em>necessary, not sufficient</em> — a bound zero-energy orbit does not by
+  itself guarantee a three-dimensional quantum bound state; the radial action must still fit. Demkov–Ostrovsky's
+  footnote says it with teeth, of Abrahamson's (1971) use of exactly this criterion: <i>"it is assumed that the
+  first level with a given l appears for those values of Z at which the effective potential (with allowance for the
+  centrifugal term) begins to take on negative values. It is well known, however, that this is not true in the
+  three-dimensional problem. Therefore the good agreement between the results of [Abrahamson] and the empirical
+  data should be regarded as accidental."</i> This table therefore claims necessary-condition grade and nothing
+  more — and wears the caution's own signature honestly: every empirical onset <em>lags</em> the classical
+  threshold (5 vs 4.2, 21 vs 19.6, 57 vs 53.7), exactly the direction a quantum onset trailing a classical pocket
+  demands.</p>
 </section>
 
 <!-- ============ 6. THE EMERGENT TABLE ============ -->
@@ -247,16 +290,28 @@ and people start making things up."</div>
   <h2>6 · The Emergent Table</h2>
   <p>Now let the atom build itself. At each \(Z\), the next quantum takes the available mode minimizing
   \( c = n_r + k(Z,l)\cdot l \) with the <em>computed</em> \(k\) — capacities \(2(2l+1)\), a winding available only once
-  the frontier can bind it. No parameter anywhere. The result, against the empirical sequence:</p>
+  the frontier can bind it. No parameter anywhere. The result, against the textbook sequence:</p>
 
   <div class="lbl">Emergent (computed)</div>
   <div class="chips" id="chipsE"></div>
-  <div class="lbl">Empirical</div>
+  <div class="lbl">IDEAL MADELUNG (textbook order)</div>
   <div class="chips" id="chipsX"></div>
+  <p class="mut" style="font-size:12.5px;">Label honest: that row is the <em>idealized</em> Madelung order, not the
+  literal first-occupancy record. The observed record (NIST ground configurations, tagged extant data) deviates from
+  it exactly where this page says the ties are thin: lanthanum is [Xe]5d6s² (5d first, not 4f), cerium keeps a 5d
+  quantum ([Xe]4f5d6s²), actinium is [Rn]6d7s² and thorium [Rn]6d²7s² (6d first, not 5f). The amber table below
+  scores the emergent build against both conventions; the collapse prose alongside it has carried these cases all
+  along — the labels now match it.</p>
 
-  <p><b>Fifteen of nineteen subshells open at exactly the right \(Z\)</b> — including 5s at 37, 4d at 39, 6s at 55,
-  6p at 81, 7s at 87, 6d at 89, 7p at 113. The three amber pairs are <em>swaps at computed near-ties</em>, and they
-  deserve their own table:</p>
+  <p>Two metrics score it, both printed by the instrument (<span class="mono">scripts/aufbau_closure.py</span> —
+  the \(\chi\) shooting, the apsidal integral, the thresholds, and this greedy build regenerated end-to-end from
+  \( \chi''=\chi^{3/2}/\sqrt{x} \); gates first, numbers printed whatever they are). <b>Position by position against
+  the ideal Madelung textbook order, the two sequences agree in 13 of 19 places</b> — the three amber pairs are six
+  positions. <b>Against the observed record's first-occupancy charges (NIST), fifteen of nineteen subshells open at
+  exactly the right \(Z\)</b> — including 5s at 37, 4d at 39, 6s at 55, 6p at 81, 7s at 87, 6d at 89, 7p at 113.
+  Two different metrics, not one claim twice — and per §5 the ranking they score is the identification-grade proxy,
+  not a derivation. The three amber pairs are <em>swaps at computed near-ties</em>, and they deserve their own
+  table:</p>
 
   <table class="tab">
     <tr><th>pair</th><th>cost gap<br>(model units)</th><th>what reality does</th></tr>
@@ -341,8 +396,9 @@ and people start making things up."</div>
     <li><b>2019 — Kholodenko &amp; Kauffman</b> (arXiv:1906.05278) derive Madelung regularities from exactly closed
     orbits in a Bertrand spacetime with Tietz's analytic potential — the closed-orbit instinct again, again in a model
     where closure is exact by construction.</li>
-    <li><b>2024 — Solovej et al.</b> (arXiv:2406.19839) prove the Thomas–Fermi mean-field atom is rigorously periodic
-    in \(Z^{1/3}\) — periodicity from self-consistency, no ordering read-off. The mathematics keeps circling the
+    <li><b>2024 — Solovej et al.</b> (arXiv:2406.19839) prove that the <em>large-\(Z\) limits</em> of the
+    Thomas–Fermi mean-field operators are rigorously periodic in \(Z^{1/3}\) — asymptotic periodicity from
+    self-consistency, in the mean-field limit only, no ordering read-off. The mathematics keeps circling the
     same object.</li>
     <li><b>2026 — this page:</b> the small step the record left open — evaluate the closure geometry in the <em>real</em>
     self-consistent screening function, no model, no knobs. The frontier holds \(k\) just below 2 everywhere; the
@@ -383,9 +439,11 @@ and people start making things up."</div>
     2019. The seed of the tie-break reading — D–O's own "additional precession" remark.</p>
     <p style="margin:0 0 10px;"><b>Computed on this page (new, as far as the searchable literature shows):</b> the
     zero-energy apsidal slope \(k(Z,l)\) of the actual Thomas–Fermi ledger — \(k \in (1.60, 1.94)\) across the whole
-    table, strictly below 2, inside or hugging the razor window; the emergent build-up with 15/19 exact opening-\(Z\)
-    and declared ties at the real anomaly boundaries, two of three resolved the way NIST reality resolves them; the
-    tie-break direction as the over-screened outer face. Caveat named: the pre-1990 Russian-language literature could
+    table, strictly below 2, inside or hugging the razor window; the emergent build-up scored by both of its declared
+    metrics (§6: 13/19 position-by-position against the ideal Madelung order, 15/19 exact opening-\(Z\) against the
+    observed record; instrument <span class="mono">scripts/aufbau_closure.py</span>) with declared ties at the real
+    anomaly boundaries, two of three resolved the way NIST reality resolves them; the tie-break direction as the
+    over-screened outer face. Caveat named: the pre-1990 Russian-language literature could
     not be searched exhaustively.</p>
     <p style="margin:0 0 10px;"><b>Resolved since publication (current state; the dated trail lives in the
     research ledger — pairing swings 1–7, X-3–X-9, the MADELUNG-* certificates):</b> The d-collapse — the one
@@ -405,8 +463,16 @@ and people start making things up."</div>
     amplitude, priced by the \(1/r\) strain law) forces the variational anchor
     \( \varepsilon_x = \tfrac34(3/\pi)^{1/3} e^2\rho^{1/3} \) at \(4.6\times10^{-6}\) with zero dials, both
     hole constraints falling out as the kernel's own checks, the felt booking following by the booking-pair
-    theorem. The measured Ca/Sc window is thereby <em>confirmation, not source</em> — and doubles as a basis
-    measurement: it rejects the packing-core ceiling outright and selects the closure-mode (phase) reading. On
+    theorem. The Ca/Sc window plays two roles, and the accounting is exact, entered once: its <em>coarse
+    verdict</em> — that the collapse happens at all, hence which of the two censuses is real — is <b>spent</b>
+    selecting AXIOM-C's binary basis choice (it rejects the packing-core ceiling outright and selects the
+    closure-mode reading), and a consumed bit can never be re-used to confirm the axiom it selected; its
+    <em>precise placement</em> — the flip at exactly Z = 21 with no bound d-census at Z = 20 (the registered
+    prediction that landed verbatim), and the measured coefficient window the independently-derived kernel
+    coefficient sits inside at the few-percent level — is information the selection did not consume, and that
+    surplus, with the downstream cap structure, is the legitimate confirmation. So: <em>confirmation, not
+    source</em> holds for the <b>coefficient</b>; for the <b>basis choice</b> the window is source, not
+    confirmation. One datum, two entries, no double-booking. On
     the ordering front the tie-break direction is <em>proved</em>: the Madelung deficit is an exact Abel
     transform of the ledger's width deficit (a layer-cake identity — the anchor reproduces \(2\pi\)
     identically), the sign structure carries an exact-rational certificate on every occupied row (2447 checks,
@@ -431,15 +497,29 @@ and people start making things up."</div>
     branch (certificate lineage: MADELUNG-NATIVE-CENSUS, research ledger). What remains imported at the
     foundations tier: the \(1/r\) range law itself (one import now shared with the nuclear Mass front's strain
     column), the independence of the three winding counts, and the discrete→continuum correspondence step
-    (rigorous extant anchor: Lieb–Simon 1977). \(L = l+\tfrac12\) is now a derived offset — a quarter turn held
+    (rigorous extant anchor: Lieb–Simon 1977 — cited for exactly what they proved and no more: Thomas–Fermi
+    becomes exact in the large-\(Z\) <em>bulk/core</em> regime, and they explicitly do not warrant it at the
+    zero-binding outer edge where chemistry lives; tagged extant caution). This page nonetheless evaluates at the
+    frontier — not by oversight but because the frontier is where the ordering question lives: admitting the next
+    quantum is a zero-binding event by definition. That extrapolation — a bulk-warranted census read at its own
+    edge — is a named part of §5's identification grade, not hidden: if the true frontier ledger departs from the
+    TF form, the computed \(k(Z,l)\) move with it, and the §3 window is the exact statement of how much motion
+    the ordering can absorb before it breaks. \(L = l+\tfrac12\) is now a derived offset — a quarter turn held
     at each libration fold, here the polar pair: the offset total is forced by whole-turn conservation, and the
     fold rule is the unique split reproducing both the radial \(n_r+\tfrac12\) and this Langer form (research
     ledger N-4, 2026-08-12); it remains the standard
     semiclassical convention (Oliphant's too; robustness checked — no structural change for \(l+0.4\) … \(l+0.6\));
-    the family label \(c = n_r + k\,l\) is exact at \(k=2\) and a local ordering proxy off it; the growth model
+    the family label \(c = n_r + k\,l\) is exact at \(k=2\) and a local ordering proxy off it
+    (\( \partial J_r/\partial L|_E = -k \): the exact invariant carries \( \int k\,dL \), and the label is its
+    first-order evaluation — the grade §5 declares in the headline, not only here); the growth model
     (one quantum per Z, greedy, capacities \(2(2l+1)\)) is the aufbau abstraction itself. The mode-doubling factor 2
     is the ± phase sense — derived in <a class="xref" href="./poams-periodic-table.html">The Elements</a>, imported here.</p>
-    <p style="margin:12px 0 0;"><b>Open (the live frontier), plainly:</b> three items.
+    <p style="margin:12px 0 0;"><b>Open (the live frontier), plainly:</b> four items.
+    (0) <em>The integrated-action completion</em> — the ordering claim of §5–§6 holds identification grade until
+    the ranking is done by \( n_r + \tfrac{1}{\pi}\!\int_0^{L} \Phi(L')\,dL' \)-class invariants (the exact
+    \( \int k\,dL \)) rather than their first-order proxy \( n_r + k\,l \); in progress (2026-09-07), a companion
+    result in preparation — it will either upgrade the grade or bound the proxy's error, and either lands on the
+    books.
     (1) <em>The gradient layer still owns the Sc/Ca placement — and its law is now measured natively.</em> The
     d-collapse verdict above is a TFD-fidelity result whose gradient exposure is fatal at identification grade,
     and the layer's response no longer rests on the imported bounded form: the census's own thinning family —
@@ -461,7 +541,8 @@ and people start making things up."</div>
     value, or neither, remains admissible until then (research ledger X-3 through X-9). (2) <em>AXIOM-C</em> — the one piece of physical input the pairing ledger consumes:
     the same-sense census fills closure modes with one coherent amplitude rather than packing cores adding
     densities; irreducible relative to the slot-and-winding kit (an explicit packing census satisfies every kit
-    axiom with no shared amplitude), empirically selected by the Ca/Sc window, and now carrying structure only —
+    axiom with no shared amplitude), empirically selected by the Ca/Sc window's coarse verdict — a selection,
+    therefore never confirmable by that same datum (the accounting above) — and now carrying structure only —
     its coefficient is derived (the kernel above). (3) <em>The E = 0 license</em> — classical closure at the
     zero-binding frontier as admission criterion is Normal-Realist ontology, not a theorem of quantum mechanics;
     stated as such in §4, permanent by construction. Permanent-class residues beside these: the dip's closed-form
@@ -499,7 +580,9 @@ and people start making things up."</div>
   J. Chem. Educ. 87:444 (2010) · Pyykkö, PCCP 13:161 (2011) · Makowski, PRA 86:042117 (2012) · Kholodenko &amp;
   Kauffman, arXiv:1906.05278 (2019) · Solovej et al., arXiv:2406.19839 (2024).<br>
   All computation runs in this page (orbits) or descends from \( \chi''=\chi^{3/2}/\sqrt{x} \) plus classical mechanics
-  (tables and chart; instruments and run logs in the project audit trail). 2026-08-09.
+  (tables and chart; the end-to-end instrument is <span class="mono">scripts/aufbau_closure.py</span> — \(\chi\)
+  shooting, apsidal integral, capture thresholds, greedy build, and both agreement metrics, gates printed first;
+  run logs in the project audit trail). 2026-08-09 · grade surgery &amp; instrument 2026-09-07.
 </footer>
 
 <script>
