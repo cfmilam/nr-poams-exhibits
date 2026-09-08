@@ -327,3 +327,341 @@ print(f"  gates: chi {'PASS' if ok1 else 'FAIL'} / DO+Coulomb "
       f"{'PASS' if ok2 else 'FAIL'} / arrays regenerated max|dk|={dmax:.4f}")
 print(f"  positional agreement {m1}/19 ; exact opening-Z (observed record) "
       f"{m2}/19 ; page-array match {same_as_page}")
+
+# ===========================================================================
+# ======================= PHASE 2 -- AUFBAU II ==============================
+# ======================= THE INTEGRATED ACTION =============================
+# ===========================================================================
+print()
+print("=" * 78)
+print("PHASE 2 -- AUFBAU II: THE INTEGRATED ACTION (registration first)")
+print("=" * 78)
+print("""THE FUNCTIONAL (derived from the mechanics, stated before any number):
+  For a central ledger, dJ_r/dL at fixed E is -k(L) exactly, so the object
+  that carries the integrated form int k(L) dL is the zero-energy radial
+  action itself:
+      J_r(0, L; Z) = (1/pi) int_{r1}^{r2} sqrt(g)/r dr,   g = 2 Z r chi - L^2
+  (same booked TF frontier as Phase 1; b cancels in x = r/b units).
+  Semiclassical filing (Langer L = l+1/2, radial n_r + 1/2): mode (n_r, l)
+  first EXISTS at the E = 0 frontier when
+      J_r(0, l+1/2; Z) = n_r + 1/2            [appearance charge Z*(n_r,l)]
+  -- the quantum-corrected pocket condition. The Demkov-Ostrovsky caution
+  (classical pocket necessary, not sufficient) is thereby addressed head-on:
+  the pocket must now HOLD n_r + 1/2 of radial action, not merely exist.
+
+BUILD RULE (the exact greedy; registered before use): at each Z the next
+  quantum takes the available mode with minimal frontier deficit
+      D(Z; n_r, l) = (n_r + 1/2) - J_r(0, l+1/2; Z),
+  capacities 2(2l+1), winding available above the same classical existence
+  threshold as Phase 1. LIMIT-CONSISTENCY THEOREM (why this is THE exact
+  form of Phase 1's rule): if k is constant, J_r(0,L) = J_r(0,0) - k L, so
+  D = (n_r + k l) + (1/2 + k/2 - J_r(0,0;Z)) -- the bracket is
+  mode-independent at fixed Z, hence min-D ranking == min-c ranking
+  identically. Phase 1's proxy is this rule's constant-k evaluation.
+
+GATES (frozen): G-A Coulomb E<0: J_r(E=-1/2, Z=1, L=1/2) = Z/sqrt(-2E) - L
+  = 0.500000 exactly (+-1e-5). G-B Demkov-Ostrovsky at E=0 (R=1, -V =
+  v/(r(r+1)^2)): analytic J_r(0,L) = sqrt(2v) - 2L (slope -2 = -k); numeric
+  must match (+-1e-5); appearance thresholds v* = (N+1/2)^2/2 vs DO's exact
+  quantum N(N+1)/2 -- Langer-level gap 1/8, printed, expected.
+
+METRICS (controls frozen from Phase 1): M1' positional vs IDEAL MADELUNG,
+  control 13/19. M2' opening-Z vs observed record, control 15/19.
+  M3' the three swapped pairs (4p/3d, 5d/4f, 6d/5f): healed / preserved /
+  worsened, with deficit gaps at the decision charges.
+
+PREREGISTERED PREDICTIONS (printed before any record comparison):
+  P1 continuation Z = 119-126: the exact build's opening order past the
+     table's edge -- the NON-RELATIVISTIC frontier's own testimony, offered
+     as a standing surface; the relativistic boundary is named (Pyykko 2011:
+     Dirac-Fock scrambles beyond Z ~ 120). Corpus expectation on record:
+     8s before 5g (window continuation, Phase 1 razor).
+  P2 s-ladder appearance charges Z*(n_r, 0) vs the alkali openings
+     (3, 11, 19, 37, 55, 87): appearance must LEAD opening (a level must
+     exist at the frontier before the queue reaches it); the lead is the
+     capacity queue, not error. Discussion-grade.
+
+SCOPE, declared: isoelectronic ions are OUT. Reason: for N < Z the frontier
+  potential carries a residual -(Z-N)/r Coulomb tail, whose E = 0 orbits are
+  parabolic and never return -- no closure shortfall exists at zero binding;
+  the admission edge sits at E < 0 and is different physics. The TF-frontier
+  model does not extend honestly to ions, so no ion prediction is forced.
+
+OUTCOMES (registered): (i) exact >= proxy on both metrics -> ordering moves
+  toward derivation grade (TF import, E=0 license, Langer convention stay
+  named). (ii) exact ~ proxy -> proxy error bounded and published; grade
+  stands. (iii) exact < proxy -> the proxy's success was partly accidental;
+  said at full strength.""")
+
+# ------------------------------------------------ action integrator
+def _jr_action(g, r_lo, r_peak, r_hi, n_nodes=240):
+    """J_r = (1/pi) int sqrt(g)/r dr between the two roots of g around r_peak."""
+    def _root(a, b):
+        fa, fb = g(a), g(b)
+        if fa * fb > 0: return None
+        for _ in range(200):
+            m = 0.5 * (a + b)
+            fm = g(m)
+            if fa * fm <= 0: b, fb = m, fm
+            else: a, fa = m, fm
+        return 0.5 * (a + b)
+    r1 = _root(r_lo, r_peak)
+    r2 = _root(r_peak, r_hi)
+    if r1 is None or r2 is None: return None
+    mid, half = 0.5 * (r1 + r2), 0.5 * (r2 - r1)
+    total = 0.0
+    n = n_nodes
+    for j in range(n):
+        th = math.pi * (j + 0.5) / n
+        r = mid - half * math.cos(th)
+        gg = g(r)
+        w = gg / ((r - r1) * (r2 - r))
+        if w <= 0.0: continue
+        total += (half * half) * math.sin(th) ** 2 * math.sqrt(w) / r \
+                 * (math.pi / n)
+    return total / math.pi
+
+def jr_of(Z, l):
+    """Exact zero-energy radial action on the TF frontier, L = l+1/2."""
+    A = TWO_B * Z ** (2.0 / 3.0)
+    L2 = (l + 0.5) ** 2
+    if A * fm <= L2: return None
+    gfun = lambda x: A * x * chi(x) - L2
+    return _jr_action(gfun, 1e-12, xm, 4000.0, )
+
+print("-" * 78)
+print("GATE A -- Coulomb E<0 action (must be 0.500000):")
+gEc = lambda r: 2.0 * (-0.5) * r * r + 2.0 * 1.0 * r - 0.25
+jc = _jr_action(gEc, 1e-9, 1.0, 100.0)
+okA = abs(jc - 0.5) < 1e-5
+print(f"  J_r(E=-1/2, Z=1, L=1/2) = {jc:.6f}   {'PASS' if okA else 'FAIL'}")
+
+print("GATE B -- DO action linearity J_r(0,L) = sqrt(2v) - 2L:")
+okB = True
+for v, L in ((2.0, 0.5), (2.0, 0.75), (8.0, 1.5)):
+    gd = lambda r: 2.0 * v * r / (r + 1.0) ** 2 - L * L
+    jn = _jr_action(gd, 1e-12, 1.0, 4000.0)
+    ja = math.sqrt(2.0 * v) - 2.0 * L
+    passed = jn is not None and abs(jn - ja) < 1e-5
+    okB &= passed
+    print(f"  v={v:<4} L={L:<5}: numeric {jn:.6f}  analytic {ja:.6f}   "
+          f"{'PASS' if passed else 'FAIL'}")
+print("  appearance thresholds v*(N) = (N+1/2)^2/2 vs DO exact N(N+1)/2:")
+for N in (1, 2, 3):
+    print(f"    N={N}: semiclassical {((N+0.5)**2)/2:.4f}  "
+          f"exact {N*(N+1)/2:.4f}  (Langer gap 1/8, expected)")
+
+# ------------------------------------------------ the exact greedy build
+print("-" * 78)
+print("EXACT GREEDY BUILD (min frontier deficit D; Z = 1..126):")
+ZMAX2 = 126
+jcache = {}
+def _D(Z, m):
+    l = m["l"]
+    if (Z, l) not in jcache:
+        jcache[(Z, l)] = jr_of(Z, l)
+    j = jcache[(Z, l)]
+    if j is None: return None
+    return (m["nr"] + 0.5) - j
+
+modes2 = []
+for n in range(1, 10):
+    for l in range(0, min(LMAX_UNIVERSE, n - 1) + 1):
+        modes2.append({"n": n, "l": l, "nr": n - l - 1,
+                       "cap": 2 * (2 * l + 1), "occ": 0,
+                       "name": f"{n}{LNAME[l]}"})
+opening2 = {}
+for Z in range(1, ZMAX2 + 1):
+    best, bestD = None, None
+    for m in modes2:
+        if m["occ"] >= m["cap"]: continue
+        l = m["l"]
+        if l > 0 and Z <= zc[l]: continue
+        d = _D(Z, m)
+        if d is None: continue
+        if bestD is None or d < bestD - 1e-12:
+            best, bestD = m, d
+    best["occ"] += 1
+    if best["name"] not in opening2:
+        opening2[best["name"]] = Z
+emergent2 = sorted(opening2.keys(), key=lambda nm: opening2[nm])
+emergent2_19 = [nm for nm in emergent2 if nm in OBSERVED_OPEN]
+
+# proxy control continued to 126 (same universe, Phase-1 cost)
+opening_px = {}
+modes_px = []
+for n in range(1, 10):
+    for l in range(0, min(LMAX_UNIVERSE, n - 1) + 1):
+        modes_px.append({"n": n, "l": l, "nr": n - l - 1,
+                         "cap": 2 * (2 * l + 1), "occ": 0,
+                         "name": f"{n}{LNAME[l]}"})
+for Z in range(1, ZMAX2 + 1):
+    best, bestc = None, None
+    for m in modes_px:
+        if m["occ"] >= m["cap"]: continue
+        l = m["l"]
+        if l > 0 and Z <= zc[l]: continue
+        if l == 0:
+            c = float(m["nr"])
+        else:
+            if (Z, l) not in kcache:
+                kcache[(Z, l)] = k_of(Z, l)
+            kv = kcache[(Z, l)]
+            if kv is None: continue
+            c = m["nr"] + kv * l
+        if bestc is None or c < bestc - 1e-12:
+            best, bestc = m, c
+    best["occ"] += 1
+    if best["name"] not in opening_px:
+        opening_px[best["name"]] = Z
+
+# ------------------------------------------------ P1: continuation FIRST
+print("-" * 78)
+print("P1 -- PREREGISTERED CONTINUATION, Z = 119..126 (printed before the")
+print("      record confrontation; non-relativistic frontier's own claim;")
+print("      relativistic boundary named: Pyykko 2011, beyond Z ~ 120):")
+cont_exact = [(nm, z) for nm, z in sorted(opening2.items(), key=lambda t: t[1])
+              if z > 118]
+cont_proxy = [(nm, z) for nm, z in sorted(opening_px.items(), key=lambda t: t[1])
+              if z > 118]
+print("  exact build : " + (" ".join(f"{nm}@{z}" for nm, z in cont_exact)
+                            if cont_exact else "(no new subshell opens)"))
+print("  proxy build : " + (" ".join(f"{nm}@{z}" for nm, z in cont_proxy)
+                            if cont_proxy else "(no new subshell opens)"))
+print("  corpus expectation on record: 8s before 5g (razor continuation).")
+
+# ------------------------------------------------ P2: appearance charges
+print("-" * 78)
+print("P2 -- s-LADDER APPEARANCE CHARGES  J_r(0, 1/2; Z*) = n_r + 1/2")
+print("      (appearance must LEAD the alkali opening; the lead is the")
+print("      capacity queue, not error):")
+ALKALI = {1: 1, 2: 3, 3: 11, 4: 19, 5: 37, 6: 55, 7: 87}
+def _zstar(nr, l, zlo=0.05, zhi=400.0):
+    target = nr + 0.5
+    f = lambda Z: (jr_of(Z, l) or -1e9) - target
+    if f(zhi) < 0: return None
+    lo, hi = zlo, zhi
+    if f(lo) > 0: return lo
+    for _ in range(60):
+        mid = 0.5 * (lo + hi)
+        if f(mid) < 0: lo = mid
+        else: hi = mid
+    return 0.5 * (lo + hi)
+okP2 = True
+for n in range(1, 8):
+    zs = _zstar(n - 1, 0)
+    zo = ALKALI[n]
+    lead = "leads" if (zs is not None and zs <= zo) else "LAGS (anomaly)"
+    if zs is None or zs > zo: okP2 = False
+    print(f"  {n}s: Z* = {zs:7.2f}   opening Z = {zo:>3}   {lead}")
+
+# ------------------------------------------------ THE CONFRONTATION (last)
+print("-" * 78)
+print("CONFRONTATION (blind; controls: proxy 13/19 positional, 15/19 opening):")
+print("  exact opening sequence (<=118):")
+print("   " + " ".join(f"{nm}@{opening2[nm]}" for nm in emergent2_19))
+m1x = sum(1 for i in range(19)
+          if i < len(emergent2_19) and emergent2_19[i] == IDEAL_MADELUNG[i])
+mismx = [f"{emergent2_19[i]}|{IDEAL_MADELUNG[i]}" for i in range(19)
+         if i < len(emergent2_19) and emergent2_19[i] != IDEAL_MADELUNG[i]]
+print(f"  M1' POSITIONAL vs IDEAL MADELUNG: {m1x}/19   (proxy control: 13/19)")
+print(f"      mismatches: {', '.join(mismx) if mismx else 'none'}")
+m2x = sum(1 for nm in OBSERVED_OPEN
+          if nm in opening2 and opening2[nm] == OBSERVED_OPEN[nm])
+print(f"  M2' OPENING-Z vs OBSERVED record: {m2x}/19   (proxy control: 15/19)")
+miss2x = [f"{nm}: exact {opening2.get(nm,'--')} vs record {OBSERVED_OPEN[nm]}"
+          for nm in IDEAL_MADELUNG if opening2.get(nm) != OBSERVED_OPEN[nm]]
+for x in miss2x: print(f"      miss -- {x}")
+print("  M3' the three Phase-1 swapped pairs under the exact functional:")
+for a, b, zdec in (("4p", "3d", 21), ("5d", "4f", 57), ("6d", "5f", 89)):
+    oa, ob = opening2.get(a), opening2.get(b)
+    ra, rb = OBSERVED_OPEN[a], OBSERVED_OPEN[b]
+    ma = next(m for m in modes2 if m["name"] == a)
+    mb = next(m for m in modes2 if m["name"] == b)
+    da, db = _D(zdec, ma), _D(zdec, mb)
+    gap = None if (da is None or db is None) else abs(da - db)
+    exact_order = a if oa < ob else b
+    obs_order = a if ra < rb else b
+    verdict = ("HEALED (matches record)" if exact_order == obs_order
+               else "preserved miss")
+    # Phase-1 proxy order for the pair:
+    pa, pb = opening.get(a), opening.get(b)
+    proxy_order = a if pa < pb else b
+    if proxy_order == obs_order and exact_order != obs_order:
+        verdict = "WORSENED (proxy had it right)"
+    elif proxy_order == obs_order and exact_order == obs_order:
+        verdict = "preserved (both right)"
+    gaptxt = "n/a" if gap is None else f"{gap:.3f}"
+    print(f"      {a}/{b}: exact opens {exact_order} first "
+          f"(record: {obs_order} first; proxy: {proxy_order} first) "
+          f"-> {verdict}; |D gap| @Z={zdec}: {gaptxt}")
+
+print("-" * 78)
+print("PHASE 2 VERDICT LINE:")
+outcome = ("(i) exact >= proxy on both -- toward derivation grade"
+           if (m1x >= m1 and m2x >= m2) else
+           "(iii) exact < proxy on a metric -- proxy partly accidental"
+           if (m1x < m1 or m2x < m2) else "(ii)")
+if m1x == m1 and m2x == m2:
+    outcome = "(ii) exact == proxy -- proxy error bounded; grade stands"
+print(f"  gates: Coulomb {'PASS' if okA else 'FAIL'} / DO action "
+      f"{'PASS' if okB else 'FAIL'} / P2 s-ladder "
+      f"{'all lead' if okP2 else 'ANOMALY'}")
+print(f"  M1' {m1x}/19 vs control 13/19 ; M2' {m2x}/19 vs control 15/19")
+print(f"  registered outcome: {outcome}")
+
+m2xi = sum(1 for nm in IDEAL_OPEN
+           if nm in opening2 and opening2[nm] == IDEAL_OPEN[nm])
+print(f"  (receipt: exact build opening-Z vs IDEALIZED Madelung openings: "
+      f"{m2xi}/19)")
+
+# ------------------------------------------------ robustness (post-hoc)
+print("-" * 78)
+print("ROBUSTNESS -- post-registration instrument check (labeled as such,")
+print("not a registered metric): the Langer offset. Rerun the exact build")
+print("with L = l + eps, eps in {0.45, 0.50, 0.55}; report both metrics.")
+def _build_with_offset(eps):
+    jc2 = {}
+    def jr2(Z, l):
+        key = (Z, l)
+        if key in jc2: return jc2[key]
+        A = TWO_B * Z ** (2.0 / 3.0)
+        L2 = (l + eps) ** 2
+        if A * fm <= L2:
+            jc2[key] = None; return None
+        gfun = lambda x: A * x * chi(x) - L2
+        v = _jr_action(gfun, 1e-12, xm, 4000.0)
+        jc2[key] = v
+        return v
+    ms = []
+    for n in range(1, 10):
+        for l in range(0, min(LMAX_UNIVERSE, n - 1) + 1):
+            ms.append({"n": n, "l": l, "nr": n - l - 1,
+                       "cap": 2 * (2 * l + 1), "occ": 0,
+                       "name": f"{n}{LNAME[l]}"})
+    op = {}
+    for Z in range(1, 119):
+        best, bestD = None, None
+        for m in ms:
+            if m["occ"] >= m["cap"]: continue
+            l = m["l"]
+            # existence threshold consistent with the same offset:
+            if l > 0 and TWO_B * Z ** (2/3) * fm <= (l + eps) ** 2: continue
+            j = jr2(Z, l)
+            if j is None: continue
+            d = (m["nr"] + 0.5) - j
+            if bestD is None or d < bestD - 1e-12:
+                best, bestD = m, d
+        best["occ"] += 1
+        if best["name"] not in op:
+            op[best["name"]] = Z
+    seq = [nm for nm in sorted(op, key=lambda t: op[t]) if nm in OBSERVED_OPEN]
+    p1 = sum(1 for i in range(19) if i < len(seq) and seq[i] == IDEAL_MADELUNG[i])
+    p2o = sum(1 for nm in OBSERVED_OPEN
+              if nm in op and op[nm] == OBSERVED_OPEN[nm])
+    p2i = sum(1 for nm in IDEAL_OPEN if nm in op and op[nm] == IDEAL_OPEN[nm])
+    return p1, p2o, p2i
+for eps in (0.45, 0.50, 0.55):
+    p1, p2o, p2i = _build_with_offset(eps)
+    print(f"  L = l + {eps:.2f}: positional {p1}/19 ; opening-Z (observed) "
+          f"{p2o}/19 ; opening-Z (idealized) {p2i}/19")

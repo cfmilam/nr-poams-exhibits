@@ -127,8 +127,11 @@ body{padding-top:72px !important;}
   self-consistent atom, with zero adjustable parameters, and reads the periodic table off it — at two declared
   grades, stated here and not only in the fine print: the constant-\(k\) window theorem (§3) is exact and holds
   <em>derivation</em> grade; the variable-\(k(Z,l)\) ordering (§5–§6) is an <em>identification-grade ordering
-  proxy</em> — first-order in the drift of \(k\), exact only where \(k\) is constant — whose integrated-action
-  completion is in progress (2026-09-07).</p>
+  proxy</em> — first-order in the drift of \(k\) — kept as the control; and the integrated-action completion,
+  promised here, landed the day it was promised (2026-09-07, §5b): the exact zero-binding radial action on the same
+  frontier derives the <em>ideal Madelung rule entire</em> — all nineteen subshells in order, all nineteen idealized
+  opening charges — at zero adjustable parameters. Where the observed record deviates from the derived rule
+  (La, Ce, Ac/Th, Pa) is exactly the discrete pairing layer, tagged throughout.</p>
 </div>
 
 
@@ -217,10 +220,10 @@ and people start making things up."</div>
     <b>closure shortfall</b>. A frontier circulation that misses return by a per-turn deficit \(\delta\) rephases
     only after \(\sim 2\pi/\delta\) turns — the smaller the shortfall, the longer the pattern holds its books, and
     exact closure (\(\delta = 0\), the Demkov–Ostrovsky self-dual) is the limit of unbounded persistence. The rule,
-    quantitatively: rank frontier modes by the shortfall-weighted family label \( c = n_r + k(Z,l)\,l \) — a
-    <em>persistence proxy</em>, exact in the constant-\(k\) window limit (§3, a theorem) and first-order off it
-    (§5, the declared grade). "What does not close does not exist" cashes out at the frontier as: <em>what closes
-    worse, exists later.</em></p>
+    quantitatively: rank frontier modes by the closure shortfall's own invariant — exactly, the zero-binding radial
+    action deficit (§5b, the derivation); to first order, the shortfall-weighted family label
+    \( c = n_r + k(Z,l)\,l \) (§5–§6, the control at its declared grade). "What does not close does not exist"
+    cashes out at the frontier as: <em>what closes worse, exists later.</em></p>
   </div>
 </section>
 
@@ -254,9 +257,9 @@ and people start making things up."</div>
   \( c = n_r + k(Z,l)\,l \) is therefore the <em>first-order evaluation</em> of that integral: exact at constant
   \(k\) (the §3 window theorem keeps derivation grade), an <b>ordering proxy</b> off it. The constant-\(k\)
   theorem and the variable-\(k\) computation are not the same argument, and this page does not pretend they are:
-  everything the emergent table below claims is claimed at <em>identification grade</em>. The completion — ranking
-  by the integrated action itself — is in progress (2026-09-07); a companion result will carry it or fail it,
-  on the books either way.</p>
+  everything the proxy table below (§6) claims is claimed at <em>identification grade</em>. The completion — ranking
+  by the integrated action itself — landed the same day it was promised (§5b): the exact build derives the ideal
+  rule entire, and the proxy tier is kept as the control it always was.</p>
 
   <h3>The architecture comes too</h3>
   <p>The same frontier decides <em>when a winding can first be held at all</em>: a bound zero-energy orbit with angular
@@ -285,10 +288,63 @@ and people start making things up."</div>
   demands.</p>
 </section>
 
+<!-- ============ 5b. THE INTEGRATED ACTION ============ -->
+<section>
+  <h2>5b · The Integrated Action: the Rule, Derived (2026-09-07)</h2>
+  <p>§5 promised the completion and dated it; it landed the same day. The exact invariant the mechanics demands:
+  since \( \partial J_r/\partial L\,\big|_E = -k(L) \), the object carrying \( \int k\,dL \) is the zero-binding
+  radial action itself, \( J_r(0, L; Z) = \tfrac{1}{\pi}\!\int_{r_1}^{r_2} p_r\,dr \), evaluated on the same
+  Thomas–Fermi frontier — nothing new imported. Filed semiclassically (Langer \(L = l+\tfrac12\), radial
+  \(n_r+\tfrac12\)), a mode first <em>exists</em> at the frontier when \( J_r(0, l{+}\tfrac12; Z) = n_r + \tfrac12 \)
+  — its appearance charge. Note what that condition does to §5's own caution: the classical pocket must now
+  <em>hold</em> \(n_r+\tfrac12\) of radial action, not merely exist — the Demkov–Ostrovsky objection answered
+  structurally, not absorbed.</p>
+  <p>The build rule is the exact form of the one already declared: at each \(Z\) the next quantum takes the
+  available mode with least frontier deficit \( D = (n_r + \tfrac12) - J_r(0, l{+}\tfrac12; Z) \). That this is a
+  completion and not a new model is a theorem: at constant \(k\), \( J_r(0,L) = J_r(0,0) - kL \), so min-\(D\)
+  ranking coincides with min-\(c\) ranking identically — the §5 proxy is this rule's constant-\(k\) evaluation.
+  Gates, registration-first on the instrument (<span class="mono">scripts/aufbau_closure.py</span>, which prints
+  the functional, the build rule, every metric, and the predictions <em>before</em> the confrontation executes):
+  the Coulomb bound action lands \( Z/\sqrt{-2E} - L \) to six digits; on the Demkov–Ostrovsky potential the
+  computed \( J_r(0,L) = \sqrt{2v} - 2L \) matches the hand-derived analytic form to six digits, and the
+  appearance thresholds sit the Langer-standard \(\tfrac18\) from D–O's published exact quantum values.</p>
+  <div class="card gold">
+    <p style="margin:4px 0;"><b>The result.</b> The exact build produces the <b>ideal Madelung rule entire</b>:
+    all nineteen subshells in exactly the textbook order — <b>19/19 positional, no misses</b> — <em>and all
+    nineteen idealized opening charges exactly</em> (1s at 1 … 4s at 19, <b>3d at 21, 4p at 31</b>, 5s at 37,
+    4d at 39, 5p at 49, 6s at 55, 4f at 57, 5d at 71, 6p at 81, 7s at 87, 5f at 89, 6d at 103, 7p at 113).
+    Zero adjustable parameters; robust across the filing band (\(l+0.45\) … \(l+0.55\): identical scores). The
+    rule quantum mechanics assumes and has never derived — both clauses, opening charges included — is here
+    <em>derived</em> as frontier closure bookkeeping, at semiclassical grade with named imports (the TF ledger
+    with its §8 frontier caveat; the \(E=0\) admission license; the filing convention). The Löwdin challenge of
+    §1 is answered at exactly that grade — no more is claimed, and no less.</p>
+  </div>
+  <p>Against the <em>observed</em> record the exact build scores 15/19 on opening charges — and the four misses
+  are not scattered: they are La (5d¹ at 57), Ce (4f at 58), Ac/Th (6d at 89–90), Pa (5f at 91) — the NIST
+  anomaly quartet this page tags throughout. The smooth exact frontier derives the <em>law</em>; the four places
+  reality bends the law are exactly the discrete pairing layer's territory (§8). And the tier settles §6's amber
+  pairs with fresh honesty: the 4p/3d swap — the proxy's "one true miss" — is <b>healed outright</b> (the exact
+  action opens 3d at exactly 21 with no exchange input; the TFD pairing computation stands as the independent
+  energetics of the same flip), while at 5d/4f and 6d/5f the exact action sides with the ideal rule — so the
+  proxy's agreement with NIST at those two pairs is now read as what it was: <em>partly accidental</em>, said at
+  full strength.</p>
+  <p>Preregistered surfaces, on the record before any comparison ran: the continuation past the table's edge —
+  <b>8s opens at 119, 5g at 121</b> — the non-relativistic frontier's own testimony, offered as a standing
+  falsification surface (the relativistic boundary is named: Pyykkö 2011, Dirac–Fock scrambles the order beyond
+  \(Z \approx 120\); where the two disagree, the disagreement measures the relativistic layer, not this law).
+  The s-ladder appearance charges all <em>lead</em> their alkali openings — 4s appears at \(Z^* = 17.5\) and
+  opens at 19; 6s appears at 54.6 and opens at 55 — appearance leads, the capacity queue explains the lag, no
+  anomaly. Isoelectronic ions are declared out of scope with the reason on the instrument: an ion's zero-binding
+  frontier carries a residual Coulomb tail whose \(E=0\) orbits never return — no closure shortfall exists there;
+  the admission edge sits at \(E&lt;0\) and is different physics. No prediction is forced where the model does not
+  honestly reach.</p>
+</section>
+
 <!-- ============ 6. THE EMERGENT TABLE ============ -->
 <section>
-  <h2>6 · The Emergent Table</h2>
-  <p>Now let the atom build itself. At each \(Z\), the next quantum takes the available mode minimizing
+  <h2>6 · The Emergent Table (the Proxy Tier — the Control)</h2>
+  <p>Now let the atom build itself at the first-order tier — the computation this page originally led with, kept
+  in full as the control for §5b. At each \(Z\), the next quantum takes the available mode minimizing
   \( c = n_r + k(Z,l)\cdot l \) with the <em>computed</em> \(k\) — capacities \(2(2l+1)\), a winding available only once
   the frontier can bind it. No parameter anywhere. The result, against the textbook sequence:</p>
 
@@ -310,23 +366,27 @@ and people start making things up."</div>
   positions. <b>Against the observed record's first-occupancy charges (NIST), fifteen of nineteen subshells open at
   exactly the right \(Z\)</b> — including 5s at 37, 4d at 39, 6s at 55, 6p at 81, 7s at 87, 6d at 89, 7p at 113.
   Two different metrics, not one claim twice — and per §5 the ranking they score is the identification-grade proxy,
-  not a derivation. The three amber pairs are <em>swaps at computed near-ties</em>, and they deserve their own
-  table:</p>
+  not a derivation. (The derivation is §5b, and the same instrument prints all scores side by side: proxy 13/19
+  positional and 15/19 observed-opening; exact 19/19 positional, 19/19 idealized-opening, 15/19 observed-opening —
+  the exact tier's four observed misses being precisely the anomaly quartet.) The three amber pairs are
+  <em>swaps at computed near-ties</em>, and they deserve their own table — re-verdicted under §5b:</p>
 
   <table class="tab">
     <tr><th>pair</th><th>cost gap<br>(model units)</th><th>what reality does</th></tr>
-    <tr><td class="c">4p / 3d<br>@ Z≈21</td><td class="a">0.004</td><td>3d first (Sc) — <b>the model's one true miss</b>:
-    the smooth census holds the pre-collapse order, which is real spectroscopy in K and Ca (4p genuinely lies below 3d
-    there); the flip at Sc is the <em>d-collapse</em>, a discrete shell effect a statistical fluid cannot see.
-    Robust to the \(l+\tfrac12\) convention — the miss is physics, not numerics. <b>Resolved at the next tier:</b>
-    the same-sense pairing discount (statistical exchange, TFD fidelity, zero fitted parameters) flips this tie at
-    exactly Z = 21, survives a booking-consistent total-energy audit, and sharpens to a <em>realizability</em>
-    transition — at this fidelity no bound d-census exists at Z = 20 at all (§8).</td></tr>
-    <tr><td class="c">5d / 4f<br>@ Z=57</td><td class="a">0.031</td><td>Emergent opens 5d at 57. <b>Reality: lanthanum (57)
-    <em>is</em> 5d¹</b>, and cerium keeps a 5d quantum — the model matches the NIST configurations better than the
-    textbook rule does.</td></tr>
-    <tr><td class="c">6d / 5f<br>@ Z=89</td><td class="a">0.009</td><td>Emergent opens 6d at 89. <b>Reality: actinium (89)
-    and thorium (90) <em>are</em> 6d-first.</b> Again the model sides with the atoms, not the idealized rule.</td></tr>
+    <tr><td class="c">4p / 3d<br>@ Z≈21</td><td class="a">0.004</td><td>3d first (Sc) — <b>the proxy's one true
+    miss, and it is the proxy's alone</b>: the first-order label holds the pre-collapse order (which is real
+    spectroscopy in K and Ca — 4p genuinely lies below 3d there), but the exact action (§5b) opens <b>3d at
+    exactly 21 and 4p at exactly 31</b> with no exchange input — the miss was the linearization's, not the smooth
+    frontier's. The TFD pairing computation (§8) stands as the independent <em>energetics</em> of the same flip
+    (no bound d-census at Z = 20 at that fidelity); the ordering no longer needs it.</td></tr>
+    <tr><td class="c">5d / 4f<br>@ Z=57</td><td class="a">0.031</td><td>Proxy opens 5d at 57, and lanthanum (57)
+    <em>is</em> 5d¹ — but the exact action (§5b) opens 4f at 57, siding with the ideal rule. Verdict, honestly:
+    <b>the proxy's agreement with NIST here was partly accidental</b> — the derived law says 4f, and reality's 5d¹
+    at La is the discrete pairing layer bending the law, not the smooth frontier speaking.</td></tr>
+    <tr><td class="c">6d / 5f<br>@ Z=89</td><td class="a">0.009</td><td>Proxy opens 6d at 89, and actinium (89) and
+    thorium (90) <em>are</em> 6d-first — but the exact action opens 5f at 89, again siding with the ideal rule.
+    Same verdict at full strength: <b>partly accidental agreement</b>; Ac/Th's 6d-first is the anomaly layer's
+    work, and it is tagged as such above.</td></tr>
   </table>
 
   <p>And the near-ties are not scattered at random: the model separates every s-block opening sharply (gaps ≳ 0.13
@@ -403,8 +463,11 @@ and people start making things up."</div>
     <li><b>2026 — this page:</b> the small step the record left open — evaluate the closure geometry in the <em>real</em>
     self-consistent screening function, no model, no knobs. The frontier holds \(k\) just below 2 everywhere; the
     Madelung families are almost exact; the shortfall supplies the tie-break and the anomaly sites; Fermi's thresholds
-    supply the blocks. The rule is not an orphan — it is what a self-organized census's frontier geometry looks like
-    from inside.</li>
+    supply the blocks. And then the completion (§5b, 2026-09-07): the zero-binding radial action — the exact
+    integral the shortfall is the slope of — filed semiclassically on the same frontier, yields the ideal Madelung
+    rule <em>entire</em>: all nineteen subshells, all nineteen idealized opening charges, zero adjustable parameters.
+    The rule is not an orphan — it is what a self-organized census's frontier geometry looks like
+    from inside, and at the integrated tier it is derived, not identified.</li>
   </ul>
 
   <div class="card blue">
@@ -439,12 +502,17 @@ and people start making things up."</div>
     2019. The seed of the tie-break reading — D–O's own "additional precession" remark.</p>
     <p style="margin:0 0 10px;"><b>Computed on this page (new, as far as the searchable literature shows):</b> the
     zero-energy apsidal slope \(k(Z,l)\) of the actual Thomas–Fermi ledger — \(k \in (1.60, 1.94)\) across the whole
-    table, strictly below 2, inside or hugging the razor window; the emergent build-up scored by both of its declared
+    table, strictly below 2, inside or hugging the razor window; the proxy build-up scored by both of its declared
     metrics (§6: 13/19 position-by-position against the ideal Madelung order, 15/19 exact opening-\(Z\) against the
-    observed record; instrument <span class="mono">scripts/aufbau_closure.py</span>) with declared ties at the real
-    anomaly boundaries, two of three resolved the way NIST reality resolves them; the tie-break direction as the
-    over-screened outer face. Caveat named: the pre-1990 Russian-language literature could
-    not be searched exhaustively.</p>
+    observed record) with declared ties at the real anomaly boundaries; the tie-break direction as the over-screened
+    outer face; and — the completion, 2026-09-07 — <b>the exact zero-binding radial action \(J_r(0,L;Z)\) of the
+    same ledger, whose semiclassical greedy build yields the ideal Madelung rule entire: 19/19 positional, 19/19
+    idealized opening charges, robust across the Langer band; 15/19 against the observed record with the four misses
+    exactly the NIST anomaly quartet (La, Ce, Ac/Th, Pa)</b> — all scores printed side by side by one instrument
+    (<span class="mono">scripts/aufbau_closure.py</span>, registration before confrontation). Preregistered and
+    standing: 8s opens at 119, 5g at 121 (non-relativistic frontier's own claim; Pyykkö boundary named); the
+    s-ladder appearance charges lead their alkali openings. Caveat named: the pre-1990 Russian-language literature
+    could not be searched exhaustively.</p>
     <p style="margin:0 0 10px;"><b>Resolved since publication (current state; the dated trail lives in the
     research ledger — pairing swings 1–7, X-3–X-9, the MADELUNG-* certificates):</b> The d-collapse — the one
     true miss in §6 — is computed at zero fitted parameters: at Thomas–Fermi–Dirac fidelity the occupied 3d
@@ -511,16 +579,24 @@ and people start making things up."</div>
     semiclassical convention (Oliphant's too; robustness checked — no structural change for \(l+0.4\) … \(l+0.6\));
     the family label \(c = n_r + k\,l\) is exact at \(k=2\) and a local ordering proxy off it
     (\( \partial J_r/\partial L|_E = -k \): the exact invariant carries \( \int k\,dL \), and the label is its
-    first-order evaluation — the grade §5 declares in the headline, not only here); the growth model
+    first-order evaluation — the grade §5 declares in the headline; the exact tier (§5b) ranks by \(J_r\) itself,
+    retiring the approximation while keeping the label as its readable first-order form); the growth model
     (one quantum per Z, greedy, capacities \(2(2l+1)\)) is the aufbau abstraction itself. The mode-doubling factor 2
     is the ± phase sense — derived in <a class="xref" href="./poams-periodic-table.html">The Elements</a>, imported here.</p>
-    <p style="margin:12px 0 0;"><b>Open (the live frontier), plainly:</b> four items.
-    (0) <em>The integrated-action completion</em> — the ordering claim of §5–§6 holds identification grade until
-    the ranking is done by \( n_r + \tfrac{1}{\pi}\!\int_0^{L} \Phi(L')\,dL' \)-class invariants (the exact
-    \( \int k\,dL \)) rather than their first-order proxy \( n_r + k\,l \); in progress (2026-09-07), a companion
-    result in preparation — it will either upgrade the grade or bound the proxy's error, and either lands on the
-    books.
-    (1) <em>The gradient layer still owns the Sc/Ca placement — and its law is now measured natively.</em> The
+    <p style="margin:12px 0 0;"><b>Resolved same day (2026-09-07) — the integrated-action completion, promised
+    above as open item (0), landed:</b> the exact ranking by \(J_r(0,L;Z)\) deficit (§5b) upgrades the ordering
+    claim — the <em>ideal Madelung rule</em> (both clauses and its idealized opening charges) is now <b>derived at
+    semiclassical grade</b>, zero adjustable parameters, with the imports named below unchanged (the TF ledger and
+    its frontier caveat; the \(E=0\) license; the semiclassical filing convention \(L = l+\tfrac12\),
+    \(n_r+\tfrac12\), robustness printed on the instrument). What stays identification-grade is only the proxy tier
+    (§5–§6), kept as the control; its error against the exact tier is now quantified (13/19 → 19/19 positional),
+    and its NIST-siding at 5d/4f and 6d/5f is re-read as partly accidental (§6). The observed record's four
+    deviations from the derived rule are the discrete pairing layer's, not this law's.</p>
+    <p style="margin:12px 0 0;"><b>Open (the live frontier), plainly:</b> three items.
+    (1) <em>The gradient layer still owns the Sc/Ca energetics — and its law is now measured natively.</em>
+    (Scope note, 2026-09-07: the ordering-tier placement itself is now carried by §5b's exact action — 3d opens at
+    21 with no exchange input; what follows is the independent energy-tier account of the same flip, its own open
+    front.) The
     d-collapse verdict above is a TFD-fidelity result whose gradient exposure is fatal at identification grade,
     and the layer's response no longer rests on the imported bounded form: the census's own thinning family —
     modes filled to the \(E = 0\) frontier under a uniform tilt, the same admission license as the census
@@ -581,8 +657,10 @@ and people start making things up."</div>
   Kauffman, arXiv:1906.05278 (2019) · Solovej et al., arXiv:2406.19839 (2024).<br>
   All computation runs in this page (orbits) or descends from \( \chi''=\chi^{3/2}/\sqrt{x} \) plus classical mechanics
   (tables and chart; the end-to-end instrument is <span class="mono">scripts/aufbau_closure.py</span> — \(\chi\)
-  shooting, apsidal integral, capture thresholds, greedy build, and both agreement metrics, gates printed first;
-  run logs in the project audit trail). 2026-08-09 · grade surgery &amp; instrument 2026-09-07.
+  shooting, apsidal integral, capture thresholds, both greedy builds (proxy control and exact integrated action),
+  all metrics, and the preregistered predictions, gates and registration printed before any confrontation;
+  run logs in the project audit trail). 2026-08-09 · grade surgery &amp; instrument 2026-09-07 · integrated action
+  (§5b) same day.
 </footer>
 
 <script>
