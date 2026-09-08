@@ -114,8 +114,8 @@ body{padding-top:72px !important;}
   <p style="margin:6px 0;">Philosophy first: there is one substance — angular momentum — and everything is time.
   Then the physics has no choice: <em>mass cannot be a primitive property of stuff; it must be a description of turning.</em>
   This exhibit makes that description calculable, for every element, and checks it against the measured masses.
-  <br>Continued in <a href="./mass-ledger.html"><em>The Mass Ledger</em></a> — the binding curve derived as packing bookkeeping,
-  and the nickel–iron peak as forced arithmetic.</p>
+  <br>Continued in <a href="./mass-ledger.html"><em>The Mass Ledger</em></a> — the measured binding curve organized as
+  packing bookkeeping, with its broad nickel–iron peak conditional on the stated liquid-drop assumptions.</p>
 </div>
 
 
@@ -174,7 +174,7 @@ body{padding-top:72px !important;}
 
   <canvas id="chartDev" class="chart"></canvas>
   <div class="cap">Presented mass per quantum, as deviation from the one-rate law: \( (m/A - u)/u \) in %, versus tile count A.
-  The curve is a valley: hydrogen pays full fare, the floor is iron, the heavy elements climb gently back.
+  The curve is a valley: hydrogen pays full fare, the measured per-quantum floor is Ni-62 with Fe-56 immediately behind, and the heavy elements climb gently back.
   Carbon sits at exactly zero because the unit u is pegged to carbon's own discount — the reference is inside the table it measures.</div>
 
   <h3>The calculator — every element's ledger</h3>
@@ -229,9 +229,10 @@ body{padding-top:72px !important;}
     <li><b>Starlight is the surrendered discount.</b> Fusion is quanta adopting a deeper shared closure; the rate
     difference must leave, and it leaves as light. The sun shines because hydrogen's quanta accept helium's discount.</li>
     <li><b>Nickel-62 is the champion; iron is the ash.</b> The deepest shared closure in nature is Ni-62 — 2.127 ZHz per quantum, the booking the <a class="xref" href="./mass-ledger.html">Mass Ledger</a> carries — with Fe-56 two thousandths behind. Stars still die on iron: the furnace's own path ends silicon burning at Ni-56, which re-files by two β steps to Fe-56. The burn chooses the ash; the ledger crowns the champion. From the left, fusion rolls downhill into that floor; from the right, fission and α-shedding roll down the other wall — and at the floor there is no rate left to surrender.</li>
-    <li><b>Stability is ratio arithmetic.</b> Which (Z, A−Z) splits persist is the stability valley — the pattern/support
-    ratio of the <a class="xref" href="./poams-periodic-table.html">periodic-table exhibit</a>. β decay re-files single
-    quanta between channels at fixed A, walking each count to its cheapest filing.</li>
+    <li><b>Partition is ratio arithmetic; persistence is a larger question.</b> The pattern/support ratio organizes
+    candidate (Z, A−Z) filings, and β decay re-files one count at fixed A. <a class="xref" href="./valley-of-stability.html">The Valley</a>
+    computes only a conditional static one-step-beta floor; it does not determine which nuclides persist, their
+    lifetimes, or competition with alpha, fission, and double-beta channels.</li>
   </ul>
 </section>
 
@@ -419,10 +420,11 @@ body{padding-top:72px !important;}
     \( \nu_{\text{H}} = 227.0\ \text{ZHz} \) (\( \omega_{\text{H}} = 2\pi\nu_{\text{H}} = 1.426\times10^{24} \) rad/s; equivalently the scale of u). Same epistemic slot as the fine-structure
     ratio: mechanism and form necessary, magnitude contingent-until-derived. Deriving \( \nu_{\text{H}} \) from closure
     geometry is the open frontier behind this page. Also read in: the isolated core quantum's rate, and the discount
-    curve itself — measured to high precision. Its books are now substantially derived on the companion
-    <a href="./mass-ledger.html">Mass Ledger</a> (the crown identity, the zero-dial strain column, the pairing
-    form-theorem and derived depth, the displacement layers and the skin seat — with its open items stated there);
-    this page keeps the measured curve as its working object rather than restating those books, and claims nothing
+    curve itself — measured to high precision. Its books are modelled and audited on the companion
+    <a href="./mass-ledger.html">Mass Ledger</a>: the measured curve, exact rate conversion, zero-dial strain
+    bookkeeping, and pairing-form theorem remain active; the former crown identity, cluster-derived pairing depth,
+    displacement layers, and skin seat are quarantined after correction of the finite-cluster localization bound.
+    This page keeps the measured curve as its working object rather than restating those books, and claims nothing
     beyond them.</p>
     <p style="margin:0;"><b>Data honesty:</b> masses are the AME2020 evaluation (IAEA); the 16 heaviest tiles (Lr–Og) are
     AME extrapolations, flagged in the calculator. The unit u is defined as C-12/12, so carbon's deviation is zero by
@@ -570,7 +572,7 @@ function drawCharts(){
       {sym:'H',label:'H: free fundamental, full fare',align:'left',dx:8,dy:2,base:'middle'},
       {sym:'C',label:'C ≡ 0 (unit pegged here)',dy:-9},
       {sym:'Fe',label:'Fe-56 — stellar ash',dy:-9},
-      {sym:'Ni',label:'Ni-62 — valley floor',dy:14,base:'top'},
+      {sym:'Ni',label:'Ni-62 — measured B/A maximum',dy:14,base:'top'},
       {sym:'U',label:'U',dy:-8},
     ]});
   const discPts = els.map(r=>({x:r.A, y:calc(r).dqMeV*0.241799, sym:r.sym, est:r.e}));

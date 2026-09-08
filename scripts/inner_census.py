@@ -4,16 +4,18 @@ The Inner Census — counting verification.
 
 Companion script to inner-census.html (NR/POAMS exhibit series).
 
-Derives the inner (core-channel) closure sequence — the numbers extant
-physics calls nuclear magic numbers — from the stated counting rule,
-with ZERO continuous parameters. The only imported quantity is one
-integer threshold (intrusion begins at winding l* = 3), read from the
-measured record and declared as such in the exhibit's Scope.
+Verifies two distinct arithmetic statements without promoting either one's
+physical premises: (i) a confined harmonic ladder has cumulative closures
+2, 8, 20 exactly; and (ii) the historical intruder bookkeeping reproduces
+28, 50, 82, 126 (and 184) when its threshold, one-rung descent, and sign are
+read from the measured record. Both native pricings of that intruder rule
+were later falsified. The script remains a counting certificate, not a
+derivation of the physical nuclear sequence.
 
 The rule
 --------
-1. THE CONFINED LADDER (derived; Bertrand dichotomy + flat interior).
-   Inside the saturated, flat-rate core the only closure-compatible
+1. THE CONFINED LADDER (exact conditional arithmetic).
+   Inside a specified saturated, flat-rate candidate core, the relevant closure-compatible
    geometry is the confined one: pericenter every half turn, so one
    radial coil trades for exactly two winding steps.  Rungs are
    labelled N = 2*n_r + l.  Rung N holds windings l = N, N-2, ..., 1|0,
@@ -30,10 +32,8 @@ The rule
    multiplet of size 2l+2 and the counter-turning multiplet of
    size 2l.   (2l+2) + (2l) = 2(2l+1).  Pure counting.
 
-3. THE INTRUDER RULE (structure derived, threshold named).
-   The co/counter rate split grows with winding l while the rung
-   spacing is constant, so a crossing threshold exists; from the
-   measured record it sits at l* = 3: for every rung N >= 3 the
+3. THE INTRUDER RULE (record-description; mechanism open).
+   From the measured record the threshold is l* = 3: for every rung N >= 3 the
    top co-turning multiplet (l = N, size 2N+2) descends exactly one
    rung, landing just ABOVE the band below.  A closure gap always
    survives above the descended multiplet.  Below it: if the band
@@ -43,7 +43,7 @@ The rule
    and the vacated ladder seam is destroyed as a closure (40, 70,
    112 survive at most as the record's semi-magic seams).
 
-Expected output: 2, 8, 20, 28, 50, 82, 126 (and 184 next).
+Expected arithmetic: 2, 8, 20, 28, 50, 82, 126 (and conditional 184).
 """
 
 L_STAR = 3  # the one imported integer: intrusion threshold (named, not derived)
@@ -79,7 +79,7 @@ def check(label, got, want):
         raise SystemExit(f"VERIFICATION FAILED at: {label}")
 
 
-print("== 1. The confined ladder (derived, zero parameters) ==")
+print("== 1. The confined ladder (exact conditional arithmetic) ==")
 caps = [rung_capacity(N) for N in range(N_MAX + 1)]
 check("rung capacities (N+1)(N+2)", caps[:6], [2, 6, 12, 20, 30, 42])
 check("closed form matches explicit count",
@@ -90,7 +90,7 @@ for c in caps:
     tot += c
     cum.append(tot)
 check("pure-ladder cumulative closures", cum[:6], [2, 8, 20, 40, 70, 112])
-check("first three inner closures (derived outright)", cum[:3], TARGET[:3])
+check("first three confined-ladder closures (given the premise)", cum[:3], TARGET[:3])
 
 print("\n== 2. The co-turn split (derived counting) ==")
 for N in range(N_MAX + 1):
@@ -100,7 +100,7 @@ print("  [PASS] co (2l+2) + counter (2l) multiplets exactly tile every rung 0..%
 check("top co-multiplet sizes 2N+2 (the intruders)",
       [2 * N + 2 for N in range(3, 8)], [8, 10, 12, 14, 16])
 
-print("\n== 3. The intruder rule: assemble groups, read the gaps ==")
+print("\n== 3. Imported intruder rule: assemble groups, read the gaps ==")
 # groups = lists of multiplets between consecutive closure gaps,
 # generated from the descent rule.  Start from the pure ladder
 # (one group per rung), then move each rung-N co-multiplet (N >= l*)
@@ -137,7 +137,7 @@ for i, g in enumerate(groups[:-1]):
     print(f"    up to {closures[i]:>3}: {lab}")
 
 check("closure sequence", closures[:7], TARGET)
-check("next predicted closure (rung-6 remainder + rung-7 intruder)", closures[7], 184)
+check("conditional next closure (rung-6 remainder + imported rung-7 intruder)", closures[7], 184)
 
 print("\n== 4. Closed form for the reordered numbers ==")
 # magic(N) = cumulative ladder through rung N + intruder from rung N+1
@@ -145,5 +145,6 @@ print("\n== 4. Closed form for the reordered numbers ==")
 cf = [(N + 2) * (N * N + 4 * N + 9) // 3 for N in range(2, 7)]
 check("(N+2)(N²+4N+9)/3 for N=2..6", cf, [28, 50, 82, 126, 184])
 
-print("\nALL CHECKS PASS — the stated rule reproduces 2, 8, 20, 28, 50, 82, 126 exactly")
-print("(zero continuous parameters; one named integer threshold l* = 3).")
+print("\nALL CHECKS PASS — the stated counting rule reproduces 2, 8, 20, 28, 50, 82, 126 exactly")
+print("GRADE: 2/8/20 are exact given the confined-ladder premise; 28+ are a")
+print("record-description using imported threshold/descent/sign rules whose native pricings failed.")

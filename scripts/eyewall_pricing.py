@@ -13,20 +13,27 @@ anti-record). Per the exhibit's own falsifier, the intruder counting rule
 stands demoted to a description of the record. See inner-census.html §6.
 
 Prices the co/counter rate split kappa(l) against the confined ladder's rung
-spacing, natively, from the Mass Ledger's derived skin profile lambda(u) and
-the corpus-licensed coupling class. ZERO adjustable parameters.
+spacing from the Mass Ledger model that was active when this frozen test was
+run and the corpus-licensed coupling class. A 2026-09-08 correction to the
+Mass Ledger subsequently quarantined that model's absolute normalization
+(including C, lambda(u), h, and the energy route to z_c). The numerical run
+is preserved as a historical conditional test; it is not a live zero-input
+derivation of a nuclear well.
 
 ORDER GATE (honesty): all numbers are computed and printed BEFORE any
 comparison against the l* = 3 band. The comparison is the last section.
 
-Substrate (all cited, none tuned):
-  - Skin E-L first integral (Mass Ledger swing 4/22, booked functional):
+Historical substrate (all cited; status corrected 2026-09-08):
+  - Skin E-L first integral (then-booked Mass Ledger functional; now a
+    specified model because its light-cluster calibration failed):
         lambda(u) * (hbar^2/8m) * rho0 * u'^2 / u = rho0 * u * Delta(u)
     Delta(u) = tau_b u^{2/3} - (a_v+tau_b) u + a_v ;  lambda(u) = 1/(1+8u)
-    a_v = 15.75 MeV, C = a_v + tau_b = 35.85 MeV (the crown identity)
+    a_v = 15.75 MeV, C = a_v + tau_b = 35.85 MeV (former crown identity;
+    absolute normalization now quarantined)
   - hbar^2/m_N = 41.5 MeV fm^2 (named import, same as ledger)
   - r0 = 1.2 fm (named import, same as ledger)
-  - Confined ladder (Inner Census, derived): rungs N = 2 n_r + l,
+  - Confined ladder (Inner Census, exact conditional arithmetic):
+    rungs N = 2 n_r + l,
     per-class capacity (N+1)(N+2); spacing hw fixed by matching the filled
     ladder's <r^2> to the saturated core (3/5)R^2, R = r0 A^{1/3}.
   - Single-quantum rate well: V(r) = -C * u(r) — the gross contact column
@@ -37,12 +44,13 @@ Substrate (all cited, none tuned):
     local rate gradient:
         DE(l) = (2l+1)/2 * (hbar c)^2/(2 (m c^2)^2) * <(1/r) dV/dr>
     evaluated on the intruder candidate orbital (n_r = 0, l), against the
-    DERIVED skin gradient. Sign of the bare anholonomy: co RAISED
+    selected model skin gradient. Sign of the bare anholonomy: co RAISED
     (attractive well). The App-5 channel rule (ratified) says co DEEPER.
     Both booked; see report.
-  - Comparison candidate (identification grade, NOT derived, printed for
-    the record only): the lock-patch cone anholonomy credit h = 0.95 MeV
-    (Mass Ledger swings 32-36) applied per winding step:
+  - Comparison candidate (quarantined identification, printed for the record
+    only): the former lock-patch cone credit h = 0.95 MeV (Mass Ledger
+    swings 32-36; calibration chain corrected 2026-09-08) applied per
+    winding step:
     kappa_E(l) = h (2l+1)/2.
 """
 import math
@@ -54,10 +62,10 @@ HBARC = 197.327              # MeV fm
 MC2 = 938.92                 # MeV
 R0 = 1.2                     # fm
 AV = 15.75                   # MeV
-CCAP = 35.85                 # MeV  (C = a_v + tau_b, crown identity)
+CCAP = 35.85                 # MeV  (former C = a_v + tau_b model identification)
 TAUB = CCAP - AV             # 20.10 MeV
 RHO0 = 3.0 / (4.0 * math.pi * R0**3)   # fm^-3, consistent with R = r0 A^(1/3)
-H_ANHOL = 0.95               # MeV, lock-patch cone anholonomy credit (comparison only)
+H_ANHOL = 0.95               # MeV, quarantined lock-patch credit (historical comparison only)
 
 def lam(u): return 1.0 / (1.0 + 8.0 * u)
 
@@ -171,8 +179,8 @@ print("=" * 78)
 print("EYEWALL PRICING — BLIND RUN (numbers first, comparison last)")
 print("=" * 78)
 print(f"substrate: a_v={AV}, C={CCAP}, tau_b={TAUB:.2f} MeV; hbar^2/8m={K8:.4f} MeV fm^2")
-print(f"skin profile from first integral: tail ell = {ELL_TAIL:.4f} fm "
-      f"(booked 0.574; measured diffuseness 0.55±0.06)")
+print(f"skin profile from specified historical first integral: tail ell = {ELL_TAIL:.4f} fm "
+      f"(internal model check 0.574; measured diffuseness 0.55±0.06)")
 x10, x90 = x_at_u(0.90), x_at_u(0.10)
 print(f"skin 90->10 width = {x90 - x10:.3f} fm; full profile extent {XS[-1]:.2f} fm to u=1e-6")
 print()
@@ -245,7 +253,7 @@ if not okA:
 print()
 print("VERDICT: see report. Growth ~ (2l+1) against constant spacing (structural")
 print("threshold existence) is confirmed by both pricings; the LOCATION under every")
-print("corpus-licensed zero-knob pricing is far above l*=3. The Inner Census")
+print("then-licensed conditional pricing is far above l*=3. The Inner Census")
 print("falsifier condition ('threshold at l* != 3') is TRIGGERED for the licensed")
 print("coupling class.")
 
@@ -279,7 +287,7 @@ print("coupling class.")
 
 print()
 print("=" * 78)
-print("CAPPED TRANSPORT LAW (ratified 2026-09-06; identification grade, joints J1-J3)")
+print("HISTORICAL / SUPERSEDED: CAPPED TRANSPORT LAW (ratified 2026-09-06; later falsified by corrected symmetric accounting)")
 print("=" * 78)
 ZC_BAND2 = [("tangent-cone chain", 4.940), ("realized packing", 4.846),
             ("energy route", 4.780), ("band top", 5.000)]
@@ -301,12 +309,12 @@ for zname, zc in ZC_BAND2:
           f"{'UNIT descent' if 1.0 <= r184 < 2.0 else 'other'} | "
           f"gate: {'PASS' if ok else 'FAIL'}")
 print()
-print(f"structural window for l* = 3: 4 < z_c <= 6 (derived band [4.78, 5.00] strictly inside)")
+print(f"structural window for l* = 3: 4 < z_c <= 6 (former candidate interval [4.78, 5.00] inside)")
 print(f"unit descent: THEOREM (cap 2(1-1/z_c) < 2 for any finite z_c, all l)")
 print(f"persistence:  THEOREM (cap >= 1 iff z_c >= 2)")
-print(f"CAPPED LAW across the derived z_c band: {'PASS on all gates' if all_pass else 'FAIL'}")
+print(f"CAPPED LAW across the former candidate z_c interval: {'PASS on all gates' if all_pass else 'FAIL'}")
 print()
-print("Booked alongside (standalone zero-knob exclusion): the composed-centrifugal")
+print("Booked alongside (standalone algebraic exclusion inside the stated model): the composed-centrifugal")
 print("backreaction (j replacing l in the radial books) gives kappa/Dnu =")
 print("(2l+1)/(2l+3) < 1 for ALL l — sense composition alone can never re-file a")
 print("multiplet. Tagged extant tension, falsifiable: the law's split (~1.2 hw at")
@@ -351,8 +359,8 @@ print("      latency, cancelling in the orbit sum).")
 print("  Fraction-robustness window the gates themselves measure: f in")
 print("  (z_c/6, z_c/4] = (0.823, 1.235]; theorem value f = 1 central; no z_c")
 print("  narrowing results (non-result booked).")
-print("  GRADE: derivation with one named identification (was: identification,")
-print("  three named joints).")
+print("  HISTORICAL PHASE-5 GRADE: derivation with one named identification")
+print("  (superseded by the corrected-accounting Phase-6 falsification below).")
 
 # ============================================================================
 # PHASE-6 ADJUDICATION (added 2026-09-07): CORRECTED-ACCOUNTING CONFRONTATION.
@@ -468,11 +476,11 @@ print("""REGISTRATION (printed before any computation):
   (2N-1)/z_c >= 1. Seam-death threshold N* = 3  <=>  3 < z_c <= 5, with the
   z_c = 5 boundary EXACTLY marginal (G(3) = 0): handled as dead, printed.
   GATES (the record's requirements, frozen NOW, tested at every z_c in the
-  derived band [4.78, 5.00]):
+  former candidate interval [4.78, 5.00]):
    G1 seams 2, 8, 20 survive with positive gap (Ca-40/Ca-48 doubly magic);
    G2 the FIRST destroyed ladder seam is 40 (N = 4), never 20;
    G3 census: the 7 largest gaps at cum <= 130 sit exactly at
-      {2, 8, 20, 28, 50, 82, 126} (rank-based, tie-safe, zero knobs);
+      {2, 8, 20, 28, 50, 82, 126} (rank-based and tie-safe inside the model);
    G4 hierarchy: sub-seam gaps (6, 14) strictly weaker than (8, 20);
    G5 published mechanism reachable: some branch descends >= 1 full rung;
    G6 the 184 seam: top-8 gaps at cum <= 190 = magic set + {184}.
@@ -492,7 +500,7 @@ for i, (e, s, lab) in enumerate(lv0):
     if cum <= 190:
         print(f"  {e:7.4f}  +{s:>2}  cum={cum:>3}  gap_above={gap:6.4f}  {lab}{mark}")
 print()
-print("--- ladder-seam gaps G(N) across the derived band ---")
+print("--- ladder-seam gaps G(N) across the former candidate interval ---")
 print("  z_c     G(1)/2  G(2)/8  G(3)/20  G(4)/40  G(5)/70  first dead seam")
 for zname, zc in ZC_BAND2:
     gs = [seam_gap(N, zc) for N in range(1, 6)]
@@ -501,7 +509,7 @@ for zname, zc in ZC_BAND2:
     print(f"  {zc:5.3f}  {gs[0]:6.3f}  {gs[1]:6.3f}  {gs[2]:7.3f}  {gs[3]:7.3f}  "
           f"{gs[4]:7.3f}  N={dead} (the {seamno.get(dead,'-')} seam)")
 print()
-print("--- per-gate PASS/FAIL across the derived z_c band ---")
+print("--- per-gate PASS/FAIL across the former candidate z_c interval ---")
 print(f"  {'z_c':>5} {'G1:2/8/20':>10} {'G2:40first':>11} {'G3:census':>10} "
       f"{'G4:hier':>8} {'G5:mech':>8} {'G6:184':>7}  overall")
 overall_any = False
@@ -528,7 +536,7 @@ print("  Persistence: sigma nondecreasing in l => relative closure")
 print("  nondecreasing in N => a dead seam class stays dead. Survives.")
 print("  Record-required window for G1^G2 (20 survives, 40 first to die):")
 print("  sigma(2)+sigma(3) < 1 <= sigma(3)+sigma(4)  <=>  5 < z_c <= 7.")
-print("  Derived band [4.78, 5.00] is DISJOINT from (5, 7]; the touch point")
+print("  Former candidate interval [4.78, 5.00] is DISJOINT from (5, 7]; the touch point")
 print("  z_c = 5.00 gives G(3) = 0 exactly -- zero-width gap, seam dead.")
 print()
 print("--- registered diagnostic: z_c scan for ANY census reproduction ---")
@@ -560,13 +568,13 @@ print("=" * 78)
 if overall_any:
     print("At least one band point passes all gates -- see table (HELD).")
 else:
-    print("ALL GATES FAIL AT EVERY z_c IN THE DERIVED BAND. Under its own")
+    print("ALL GATES FAIL AT EVERY z_c IN THE FORMER CANDIDATE INTERVAL. Under its own")
     print("corrected accounting the capped transport law (i) kills the 20 seam")
     print("across the whole band (G(3) <= 0; exactly marginal only at the band")
     print("top z_c = 5.00 -- still no gap), anti-record; (ii) puts the record's")
-    print("required window (5, 7] outside the derived band; (iii) reproduces the")
+    print("required window (5, 7] outside that interval; (iii) reproduces the")
     print("census at NO z_c anywhere in [2.05, 12] (registered scan); (iv) cannot")
     print("even produce its own headline one-rung descent (cap < 1 per branch).")
     print("SECOND FALSIFICATION of the intruder law -- at full strength. The 2,")
     print("8, 20 ladder, both exclusion controls, persistence, and the relative-")
-    print("depth bound survive as stated above. Outcome HELD for ratification.")
+    print("depth bound survive as stated above. Outcome RATIFIED and published 2026-09-07.")

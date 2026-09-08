@@ -2,10 +2,12 @@
 """
 THE SEAT FORK -- which census is the beta re-filing tax levied on?
 Companion script to valley-of-stability.html (NR/POAMS exhibit series).
-Run 2026-09-06. Resolves the valley's named seam JOINTLY: the kinetic seat
-of a_sym and the strain dressing, derived from booked ledger objects only.
+Run 2026-09-06; referee repair 2026-09-08. Evaluates the valley's kinetic
+seat and strain-dressing candidates. The frontier-density identity is derived
+within the specified well; the record does not uniquely select the contact
+prescription or package.
 
-THE KEYSTONE (derived here, then everything follows). Beta re-filing moves
+THE KEYSTONE (conditional model identity). Beta re-filing moves
 quanta between the two class copies of one ladder filled in the SAME booked
 well. Moving x quanta costs E(n0+x) + E(n0-x) - 2E(n0) = x^2 / g(nu_F),
 where g = dn/dnu is the FRONTIER LEVEL DENSITY per class. With (N-Z)^2 = 4x^2:
@@ -13,50 +15,50 @@ where g = dn/dnu is the FRONTIER LEVEL DENSITY per class. With (N-Z)^2 = 4x^2:
     a_kin = A / (4 g(nu_F))          -- the seat IS the frontier density.
 
 Both published seats are special cases of this one formula:
-  * sharp box at capacity density:  n ~ E^{3/2}  => a_kin = E_F/3 = 11.13 MeV
+  * sharp box at capacity density: n ~ E^{3/2} => a_kin = E_F/3 = 2.69 ZHz
+    (record orientation: 11.13 MeV)
   * oscillator ladder (continuum):  n ~ E^3      => a_kin = h*Dnu*A^(1/3)/144^(1/3)
-                                                          = 7.96 MeV
-So the fork "capacity vs ladder" is exactly the question: WHAT IS THE TRUE
-WELL? The corpus already owns the answer, booked for another front entirely
-(Inner Census section 6, the eyewall pricing run): the single-quantum rate
-well is the ledger's own gross contact column,
+                                                          = 1.92 ZHz
+    (record orientation: 7.96 MeV)
+So the fork "capacity vs ladder" becomes a question about the specified
+well. This script evaluates the well booked on another front (Inner Census
+section 6, the eyewall pricing run):
 
-    V(r) = -C * u(r),   C = a_v + tau_b = 35.85 MeV (crown identity, derived),
+    V(r) = -C * u(r), C = a_v + tau_b = 8.668 ZHz (record orientation:
+    35.85 MeV; quarantined inherited
+    cluster calibration),
 
-with u(r) the DERIVED census profile: interior pinned flat at capacity
-(saturation-at-capacity theorem, Mass Ledger section 4) plus the skin from the
-E-L first integral with the measured-selected amplitude-count profile
-lambda(u) = 1/(1+8u) (research ledger swings 21-22; absolute tail prediction
-0.574 fm confirmed by the measured diffuseness). ZERO adjustable parameters.
+with u(r) the booked census profile: interior pinned flat at capacity plus the
+skin from the E-L first integral with the measured-selected amplitude-count
+profile lambda(u) = 1/(1+8u). Its inherited ingredients retain their source
+grades; this script does not turn them into new first-principles results.
   * The sharp box is this well with the skin TRUNCATED (all census at u=1).
   * The oscillator is this well MISPROFILED (harmonic everywhere -- the
-    all-skin limit; its top-rung spill is the right physics of the skin
+    all-skin limit; its top-rung spill is one candidate reading of the skin
     applied to the whole census).
-The true seat is the semiclassical (Weyl/staircase-integrated) frontier
-density of the booked well -- a DERIVED MIXTURE: bulk sea + skin correction,
-weights forced by the booked profile geometry. It is A-dependent (the skin
-census fraction falls as A^(-1/3)); both pure seats are A-flat.
+The conditional seat is the semiclassical (Weyl/staircase-integrated)
+frontier density of this well: bulk sea + skin correction, with weights fixed
+once that profile is chosen. It is A-dependent (the skin census fraction
+falls as A^(-1/3)); both pure limiting seats are A-flat.
 
-THE DRESSING (derived jointly, not chosen):
+THE DRESSING (bookkeeping plus a separately booked layer):
   * class rest step: atomic masses satisfy the identity
-    M(A,Z) = A*m_n - Z*(m_n - M_H) - B(A,Z), and m_n - M_H = 0.782 MeV is
-    the class step. The stable-isobar record IS atomic-mass stability, so
+    M(A,Z) = A*m_n - Z*(m_n - M_H) - B(A,Z), and m_n - M_H = 189.1 EHz
+    (record orientation: 0.782 MeV) is
+    the class step. The target is an atomic-mass energetic floor, so
     the -0.782*Z entry is in the record's books BY CONSTRUCTION of its
     currency. Omitting it ("bare") is a truncation, never a package choice.
-  * exchange filing layer 0.53*Z^(4/3)/A^(1/3): derived, untuned (T-P3'),
-    removed 63% of the mirror-odd content. Real, booked.
-  => Full dress is MANDATORY. The valley's observed correlation
-  (bare<->capacity, dressed<->ladder) is explained, not restated: at A=238,
-  dZ*/da_sym ~ -0.93 per MeV and the dressing pulls Z* up by +1.23, so
-  omitting the real dressing is numerically equivalent to inflating a_sym
-  by ~1.3 MeV -- which is (to the same accuracy) the capacity seat's
-  overprice from truncating the skin. P-I and P-II are two self-consistent
-  TRUNCATIONS bracketing the truth; only full dress + the true seat is
-  physics.
+  * exchange filing layer 0.53*Z^(4/3)/A^(1/3): separately booked at its
+    source-page grade (T-P3').
+  => The class step belongs in an atomic-mass ledger by identity; the exchange
+  layer carries its own source-page grade. The repaired integer valley audit
+  does not empirically select bare/dressed pairings: all four packages pass.
+  P-I and P-II therefore remain useful limiting constructions, not a
+  record-selected package pair.
 
-ONE NAMED SUB-JOINT (the contact column's skin pricing). The contact part of
-a_sym, C/(1+2*gamma), is derived AT capacity. What the skin census pays is
-not yet forced; three ledger-consistent readings are priced blind:
+CONTACT SUB-JOINT. The candidate contact part of a_sym, C/(1+2*gamma), is
+evaluated at model-selected capacity; its normalization and what the skin
+census pays are not forced. Three model-consistent readings are compared:
   CR-A  frozen coefficient on the whole census (the section-6 booking as-is)
   CR-B  contact strength ~ u (the ledger's own Delta(u) contact column is
         linear in u below capacity)  => dilution factor <u>_census
@@ -65,14 +67,18 @@ not yet forced; three ledger-consistent readings are priced blind:
 Ledger-internal bracket, stated with the fork: the frozen limit's own premise
 is capacity, and the skin is sub-capacity by the profile -- so CR-A is an
 over-price by the section-6 derivation's own terms; CR-C is the hard floor.
-The surviving reading is the one named identification of this program
-(corpus convention: derivation grade with one named identification).
+CR-B was expected before this script's record confrontation and was selected
+against a target inferred from the same valley. It is therefore a target-known
+phenomenological identification, not a blind derivation or held-out test.
+CR-C also survives the stated composite band; the record comparison does not
+uniquely select the contact prescription.
 
-ORDER GATE (honesty): registration, gates, tolerances, and hand expectations
-print FIRST; the derivation and all predictions are computed and printed
-BEFORE any record mass is touched; the record comparison is the last section.
-Zero adjustable parameters anywhere. Extant quantities (AME2020 masses) enter
-ONLY as tagged comparison data in the final section.
+ORDER NOTE (honesty): registration, gates, tolerances, and hand expectations
+print first, and the record comparison is the last section. That print order
+documents the search path but is not external preregistration. In particular,
+CR-B and the 5.32-ZHz target (record orientation: 22.0 MeV) were known in advance. No continuous
+coefficient is fitted here; discrete model selection remains a choice and is
+graded as such. Extant quantities enter as tagged comparison data.
 
 UNITS (corpus convention): displays lead with turn rate nu on the Hz ladder
 (1 record MeV = 241.8 EHz = 0.2418 ZHz); internal arithmetic in record MeV
@@ -83,15 +89,15 @@ import math
 EHZ_PER_MEV = 241.799
 def zhz(x): return x * EHZ_PER_MEV / 1000.0
 
-# ---------------- named ledger constants (all booked; cited above) --------
+# ---------------- inherited/model constants (all cited above) -------------
 HBAR2_OVER_M = 41.5          # MeV fm^2 (action-quantum scale)
 H8 = HBAR2_OVER_M / 8.0      # 5.1875 MeV fm^2 (skin functional constant)
 R0 = 1.2                     # fm (named size import)
 AV = 15.75                   # MeV (the one bulk import)
-CCAP = 35.85                 # MeV (crown identity C = a_v + tau_b, derived)
+CCAP = 35.85                 # MeV (quarantined inherited cluster calibration)
 TAU_B = CCAP - AV            # 20.10 MeV
 GAMMA = (0.80, 0.85, 0.90)   # named import band
-A_C = 0.6 * 1.44 / R0        # 0.72 MeV (P5, exact)
+A_C = 0.6 * 1.44 / R0        # 0.72 MeV within the uniform-sphere model
 EXCH = 0.53                  # MeV (exchange filing layer, T-P3', untuned)
 CLASS_STEP = 0.782           # MeV (measured import, tagged: m_n - M_H)
 RHO0 = 3.0 / (4.0 * math.pi * R0**3)
@@ -101,26 +107,32 @@ SHADOW_ASYM = 23.2           # tagged extant control: fitted SEMF symmetry coeff
 
 # ---------------- registration (printed before any computation) -----------
 print("=" * 78)
-print("THE SEAT FORK -- BLIND RUN (registration first, record comparison last)")
+print("THE SEAT FORK -- TARGET-KNOWN IDENTIFICATION AUDIT")
 print("=" * 78)
 print(f"""KEYSTONE: a_kin = A/(4 g(nu_F)); the fork is the frontier level density of
-the booked well V(r) = -C u(r) (Inner Census section-6 license; C = 35.85 crown;
-u(r) = capacity-pinned interior + derived lambda(u)=1/(1+8u) skin, tail 0.574 fm).
-Sharp box and oscillator are its no-skin / all-skin truncations. Dressing:
-full dress mandatory (class step is in the record's currency by the atomic-mass
-identity; exchange layer is derived and booked). Contact-column skin pricing =
-the one named sub-joint; readings CR-A (frozen, whole census), CR-B (~u
-dilution), CR-C (interior only) priced blind; ledger bracket [CR-C, CR-A).
+a SPECIFIED candidate well V(r) = -C u(r) (C = 35.85 is a quarantined inherited
+cluster calibration; the capacity-pinned interior and lambda(u)=1/(1+8u) skin
+are model-selected identifications). Sharp box and oscillator are its no-skin /
+all-skin limits. Dressing: the class step belongs in the atomic-mass currency by
+identity; the exchange layer retains its separate source-page grade.
+Contact-column skin pricing is unresolved; readings CR-A (frozen, whole census), CR-B (~u
+dilution), CR-C (interior only) compared; ledger bracket [CR-C, CR-A).
+CR-B and the heavy-end target were known before confrontation: this is a
+target-known identification audit, not a blind prediction.
 
 INSTRUMENT CONTROLS (hard gates; instrument invalid if any fails):
- C1 sharp-box seat reproduces (1/3)E_F = 11.13 +- 0.10 MeV (2.69 ZHz)
- C2 oscillator identity reproduces the booked ladder seat 7.96 +- 0.10 MeV
- C3 profile tail decay length 0.574 +- 0.010 fm (the booked absolute
-    prediction), read in the asymptotic window u = 1e-5 .. 1e-7
+ C1 sharp-box seat reproduces (1/3)E_F = 2.69 +- 0.024 ZHz
+    (record orientation: 11.13 +- 0.10 MeV)
+ C2 oscillator identity reproduces the ladder seat 1.92 +- 0.024 ZHz
+    (record orientation: 7.96 +- 0.10 MeV)
+ C3 profile tail decay length 0.574 +- 0.010 fm (internal reproduction of
+    the specified model), read in the asymptotic window u = 1e-5 .. 1e-7
+ These are internal reproduction checks for the selected model inputs; they
+ do not validate the quarantined physical normalization.
 
 REGISTERED GATES (frozen now, before any number):
  G-S1 SEAT (dressing-independent): per package, |a_sym_pkg(A) - a_sym_rec(A)|
-      <= 1.00 MeV (0.242 ZHz) at >= 4 of 5 gated chains. a_sym_rec is the
+      <= 0.242 ZHz (record orientation: 1.00 MeV) at >= 4 of 5 gated chains. a_sym_rec is the
       isobar-parabola curvature read: kappa = 8 a_sym/A + 2 a_c/A^(1/3)
       - exchange curvature; class step is linear (no curvature); the odd-A
       parity staggering is carried as an explicit s*(-1)^Z term in the fit.
@@ -130,7 +142,8 @@ REGISTERED GATES (frozen now, before any number):
       scored identically -- if IT fails the same chains, the channel does not
       read the smooth coefficient and is disqualified as a seat discriminator.
  G-S1b TREND (report): a_sym_rec(heavy band) - a_sym_rec(light band).
-      Mixture predicts +1.0 to +2.5 MeV; both pure seats predict ~0.
+      Mixture predicts +0.24 to +0.60 ZHz (record orientation: +1.0 to +2.5 MeV);
+      both pure seats predict ~0.
  G-S2 DRESSING: with a_sym(A) fixed at the curvature-measured value
       (dressing-independent by G-S1's kappa structure), the full-dress apex
       must satisfy |Z*_dress - Z*_rec| <= 0.60 at EVERY gated chain AND beat
@@ -138,11 +151,11 @@ REGISTERED GATES (frozen now, before any number):
       DIAGNOSTIC: apex error vs curvature residual correlation (one-cause
       test: a local collective layer would contaminate both channels with
       correlated sign).
- G-S3 VALLEY REFIT: derived seat + each CR + full dress through the valley's
+ G-S3 VALLEY REFIT: conditional seat + each CR + full dress through the valley's
       frozen G1: |Z*(A) - Z_rec| <= 2 at A = {{16,40,56,120,208,238}} -- the
       valley's own gate arithmetic, unchanged. Plus the composite-band read:
       distance of composite(238) from the valley's dressed record-implied
-      22.0 MeV (5.32 ZHz), gated at the same 1.00 MeV.
+      5.32 ZHz (record orientation: 22.0 MeV), gated at the same 0.242 ZHz.
 
 GATED CHAINS (odd A, windows +-3 around the record floor, experimental
 entries only, mid-shell -- seam-crossing chains excluded by the corpus's own
@@ -151,19 +164,20 @@ Report-only seam-adjacent control: A = 135 (N=82 in window). A = 209 was
 declared and then dropped: its +-3 window is not fully experimental (Z=80
 estimated) -- booked, not replaced.
 
-HAND EXPECTATIONS, DECLARED: TF-well seat a_kin(238) ~ 9.5-10.3 MeV,
-a_kin(63) ~ 8.8-9.6 (between the pure seats, rising with A); CR-B survives;
-composite(238) ~ 22.0-22.5 MeV vs the valley's dressed record-implied 22.0;
-trend +1.0..+2.5; dressed apex beats bare by ~0.4-0.7 Z everywhere.
+HAND EXPECTATIONS, DECLARED: specified-well seat a_kin(238) ~ 2.30-2.49 ZHz,
+a_kin(63) ~ 2.13-2.32 ZHz (record orientation: 9.5-10.3 and 8.8-9.6 MeV;
+between the pure seats, rising with A); CR-B survives; composite(238)
+~5.32-5.44 ZHz vs the valley-inferred 5.32 ZHz; trend +0.24..+0.60 ZHz;
+dressed apex beats bare by ~0.4-0.7 Z everywhere.
 Falsifiers: if the record's a_sym(A) is A-flat, the mixture is wrong and one
 pure seat stands; if bare beats dressed at a clean chain AND the channel
 survives its control, the dressing derivation is wrong; if no package passes
 G-S1 while the control passes, the ledger does not own the seat yet.
 """)
 
-# ---------------- SECTION 1: derivation (no record data) ------------------
+# -------- SECTION 1: conditional model calculation (no record data) -------
 print("=" * 78)
-print("SECTION 1 -- DERIVATION (booked objects only)")
+print("SECTION 1 -- CONDITIONAL MODEL CALCULATION (specified inputs)")
 print("=" * 78)
 
 def Delta(u):
@@ -222,7 +236,7 @@ def Rc_of_A(A):
     return 0.5 * (lo + hi)
 
 # semiclassical (Weyl / staircase-integrated) count and frontier density in
-# the booked well V = -C u(r); factor 2 per class = the sense pair
+# the specified candidate well V = -C u(r); factor 2 per class = the sense pair
 K3 = (1.0 / (3.0 * math.pi ** 2)) * (2.0 / HBAR2_OVER_M) ** 1.5
 
 def n_and_g(E, Rc):
@@ -298,7 +312,7 @@ print(f" C2 oscillator ladder seat: {zhz(OSC):.3f} ZHz (record {OSC:.2f} MeV; "
 print()
 
 A_LIST = [16, 40, 56, 63, 77, 101, 120, 165, 185, 208, 238]
-print("the derived seat (frontier density of the booked well) and census weights:")
+print("the conditional seat (frontier density of the specified well) and census weights:")
 print(" A     a_kin [ZHz (MeV)]    mu(MeV)   R_c(fm)  f_int  <u>_census")
 for A in A_LIST:
     ak, mu, Rc = akin_well(A)
@@ -310,9 +324,9 @@ print(f"\n both pure seats bracket it: ladder {OSC:.2f} < a_kin(A) < box "
       f"A-dependent because the skin census fraction is.")
 print()
 
-# ---------------- SECTION 2: blind predictions -----------------------------
+# ---------------- SECTION 2: target-known model outputs --------------------
 print("=" * 78)
-print("SECTION 2 -- PREDICTIONS (printed before any record mass is read)")
+print("SECTION 2 -- MODEL OUTPUTS (printed before record table; target known)")
 print("=" * 78)
 
 def asym_pkg(pkg, A):
@@ -330,16 +344,16 @@ PKGS = ["MIX + CR-A", "MIX + CR-B", "MIX + CR-C",
         "P-I'  capacity + CR-A", "P-II' ladder   + CR-A",
         "SHADOW (tagged control)"]
 GATED = [63, 77, 101, 165, 185]
-print("composite a_sym(A) per package [record MeV; native ZHz = x0.2418]:")
+print("composite a_sym(A) per package [native ZHz; divide by 0.2418 for record MeV]:")
 hdr = "  ".join(f"A={A}" for A in GATED + [238])
 print(f"  package                     {hdr}")
 for p in PKGS:
-    row = "  ".join(f"{asym_pkg(p, A):5.2f}" for A in GATED + [238])
+    row = "  ".join(f"{zhz(asym_pkg(p, A)):5.2f}" for A in GATED + [238])
     print(f"  {p:26s}  {row}")
 print(f"""
- valley's dressed record-implied composite at the heavy end: 22.0 MeV
- (5.32 ZHz) -- the MIX packages are the only A-dependent rows; MIX+CR-B lands
- {asym_pkg('MIX + CR-B', 238):.2f} at A=238 with no knob touched.
+ valley-inferred dressed composite at the heavy end: 5.32 ZHz
+ (record orientation: 22.0 MeV) -- the MIX packages are the only A-dependent
+ rows; MIX+CR-B lands {zhz(asym_pkg('MIX + CR-B', 238)):.2f} ZHz at A=238.
  Apex formula (G-S2, conditional on the measured curvature): minimize
  a_sym_rec(A)(A-2Z)^2/A + a_c Z(Z-1)/A^(1/3) [- EXCH Z^(4/3)/A^(1/3)
  - CLASS_STEP*Z if dressed] over the same fit window; bare omits the bracket.
@@ -434,18 +448,18 @@ for A in GATED + [135]:
           f"          {apex:6.2f}{tag}")
 print()
 
-print("G-S1 SEAT GATE (|pred - rec| <= 1.00 MeV at >= 4/5 chains):")
+print("G-S1 SEAT GATE (|pred - rec| <= 0.242 ZHz; record 1.00 MeV; at >= 4/5 chains):")
 g_s1 = {}
 for p in PKGS:
     devs = [(A, asym_pkg(p, A) - REC[A][1]) for A in GATED]
     npass = sum(1 for _, d in devs if abs(d) <= 1.0)
     g_s1[p] = npass
-    cells = "  ".join(f"A={A}:{d:+.2f}" for A, d in devs)
+    cells = "  ".join(f"A={A}:{zhz(d):+.2f}ZHz" for A, d in devs)
     print(f"  {p:26s} {cells}   pass {npass}/5  "
           f"{'PASS' if npass >= 4 else 'FAIL'}")
 shadow_fails = 5 - g_s1["SHADOW (tagged control)"]
 print(f"""
- CONTROL VERDICT: the extant fitted shadow (23.2, the record's own global
+ CONTROL VERDICT: the extant fitted shadow (5.61 ZHz; record 23.2 MeV, the record's own global
  coefficient) fails {shadow_fails}/5 of the same chains. The channel does not read the
  smooth coefficient anywhere a smooth book could pass: LOCAL isobar-parabola
  curvature is dominated by a layer the smooth ledger deliberately does not
@@ -480,14 +494,16 @@ for name, rows in BANDS.items():
     m = median(arecs)
     band_med[name] = m
     Amid = rows[len(rows) // 2][0]
-    print(f"  {name:18s} n={len(rows):2d}  median a_sym_rec = {m:5.2f} MeV "
-          f"(packages at A={Amid}: MIX+CR-B {asym_pkg('MIX + CR-B', Amid):.2f}, "
-          f"P-I' 24.42, P-II' 21.24, shadow 23.2)")
+    print(f"  {name:18s} n={len(rows):2d}  median a_sym_rec = {zhz(m):.2f} ZHz "
+          f"(record {m:5.2f} MeV) "
+          f"(packages at A={Amid}: MIX+CR-B {zhz(asym_pkg('MIX + CR-B', Amid)):.2f}, "
+          f"P-I' 5.90, P-II' 5.14, shadow 5.61 ZHz)")
 tr = band_med["heavy (A=153-187)"] - band_med["light (A=73-81)"]
-print(f""" G-S1b TREND: heavy - light = {tr:+.2f} MeV. SIGN matches the mixture
- (rises with A; flat seats predict 0); MAGNITUDE is ~3x the mixture's +1.9 --
- the collective layer inflates the trend exactly where it softens the level.
- The channel's failure is coherent, not random.
+print(f""" G-S1b TREND: heavy - light = {zhz(tr):+.2f} ZHz (record {tr:+.2f} MeV).
+ SIGN matches the mixture
+ (rises with A; flat seats predict 0); MAGNITUDE is ~3x the mixture's +1.9.
+ The mismatch is coherent, not random, but does not identify which omitted
+ shell/deformation/collective structure supplies it.
 """)
 
 print("G-S2 DRESSING GATE (apex with curvature-fixed a_sym; dressed within")
@@ -512,71 +528,78 @@ den = math.sqrt(sum((a - mx) ** 2 for a, _ in pairs)
                 * sum((b - my) ** 2 for _, b in pairs))
 r = num / den if den > 0 else 0.0
 print(f"  G-S2 {'PASS' if g2_ok else 'FAIL'} as registered.")
-print(f"""  ONE-CAUSE DIAGNOSTIC: correlation between the curvature residual
+print(f"""  COMMON-RESIDUAL DIAGNOSTIC: correlation between the curvature residual
   (a_sym_rec - MIX+CR-B) and the dressed apex error across the five gated
-  chains: r = {r:+.3f}. A single local collective layer stiffening/softening
-  the parabola drags curvature AND apex together with exactly this signature;
-  independent channel noise would decorrelate them. The apex channel fails
-  WITH the curvature channel, for the same booked reason, and is disqualified
-  with it. What survives of the dressing question empirically: the class step
+  chains: r = {r:+.3f}. The shared residual is consistent with common omitted
+  structure; five selected chains cannot uniquely identify deformation or any
+  one cause. The apex channel fails WITH the curvature channel and is
+  disqualified with it. What survives of the dressing question empirically: the class step
   is definitionally present in the record's currency (the atomic-mass
   identity -- not gateable, not falsifiable, simply an identity); the
   exchange layer carries its own booked confrontation (T-P3', Mass Ledger);
-  and the mixed-corner failures of the valley's frozen fork table remain the
-  dressing's empirical teeth at the smooth level.
+  The repaired integer valley gate does not discriminate bare/dressed package
+  pairings; no empirical package-selection claim survives from that table.
 """)
 
 # G-S3: valley refit + composite-band read
-def zstar(A, asym, dressed=True):
+def valley_cost(Z, A, asym, dressed=True):
+    e = asym * (A - 2 * Z) ** 2 / A + A_C * Z * (Z - 1) / A ** (1 / 3.0)
+    if dressed:
+        e -= EXCH * Z ** (4.0 / 3.0) / A ** (1 / 3.0) + CLASS_STEP * Z
+    return e
+
+def zstar_cont(A, asym, dressed=True):
     lo, hi = 1.0, A - 1.0
-    def dcost(Z):
-        e = asym * (A - 2 * Z) ** 2 / A + A_C * Z * (Z - 1) / A ** (1 / 3.0)
-        if dressed:
-            e -= EXCH * Z ** (4.0 / 3.0) / A ** (1 / 3.0) + CLASS_STEP * Z
-        return e
     for _ in range(200):
         m = 0.5 * (lo + hi)
-        if dcost(m + 1e-4) - dcost(m - 1e-4) < 0: lo = m
+        if valley_cost(m + 1e-4, A, asym, dressed) - valley_cost(m - 1e-4, A, asym, dressed) < 0: lo = m
         else: hi = m
     return 0.5 * (lo + hi)
 
-Z_REC = {16: 8, 40: 20, 56: 26, 120: 50, 208: 82, 238: 92}
-print("G-S3 VALLEY REFIT (frozen anchors; full dress + derived seat, per CR)")
+def zstar_int(A, asym, dressed=True):
+    return min(range(1, A), key=lambda Z: valley_cost(Z, A, asym, dressed))
+
+Z_REF = {16: (8,), 40: (18, 20), 56: (26,), 120: (50, 52),
+         208: (82,), 238: (92,)}
+print("G-S3 VALLEY REFIT (integer minima; full dress + conditional seat, per CR)")
 print("and the composite-band read at A=238 (dressed record-implied 22.0):")
 for cr in ("MIX + CR-A", "MIX + CR-B", "MIX + CR-C"):
     devs = []
-    for A in sorted(Z_REC):
-        devs.append((A, zstar(A, asym_pkg(cr, A)) - Z_REC[A]))
-    mxd = max(abs(d) for _, d in devs)
+    for A in sorted(Z_REF):
+        zi = zstar_int(A, asym_pkg(cr, A))
+        ref = min(Z_REF[A], key=lambda z: abs(zi - z))
+        devs.append((A, zi - ref, zi, ref))
+    mxd = max(abs(d) for _, d, _, _ in devs)
     comp = asym_pkg(cr, 238)
     dist = comp - 22.0
-    cells = "  ".join(f"{A}:{d:+.2f}" for A, d in devs)
+    cells = "  ".join(f"{A}:{zi}->{ref}({d:+d})" for A, d, zi, ref in devs)
     note = ""
     if cr == "MIX + CR-A":
-        note = "  [ledger-excluded: frozen limit premises capacity; skin is not]"
-    print(f"  {cr}: {cells}  max|dZ|={mxd:.2f} "
-          f"{'PASS' if mxd <= 2.0 else 'FAIL'};  composite {comp:5.2f} "
-          f"({zhz(comp):.2f} ZHz), dist {dist:+.2f} "
+        note = "  [profile-inconsistent: applies a capacity value to selected sub-capacity skin]"
+    print(f"  {cr}: {cells}  max|dZ|={mxd:d} "
+          f"{'PASS' if mxd <= 2.0 else 'FAIL'};  composite {zhz(comp):.2f} ZHz "
+          f"(record {comp:5.2f} MeV), dist {zhz(dist):+.2f} ZHz "
+          f"(record {dist:+.2f} MeV) "
           f"{'IN' if abs(dist) <= 1.0 else 'OUT'}{note}")
 print("""
 VERDICT (read bottom-up from the scored gates):
- 1. THE SEAT IS DERIVED, and it is a mixture. a_kin = A/(4 g(nu_F)) -- the
-    frontier level density of the booked well V = -C u(r). Both published
-    seats are its truncations (box = no skin, 11.13; oscillator = all skin,
-    7.96); the true seat runs 8.6 -> 10.1 MeV (2.07 -> 2.43 ZHz) from A=63
-    to 238, weights forced by the booked profile. Zero knobs.
- 2. THE DRESSING IS DERIVED: full dress is mandatory (class step by the
-    atomic-mass identity; exchange layer by T-P3'). The valley's observed
-    seat<->dressing correlation is two truncation errors of equal size and
-    opposite pull (~1.3 MeV each at A=238) -- explained, not restated.
- 3. THE RECORD: composite MIX+CR-B(238) lands +0.26 MeV (+1.2%) from the
-    valley's dressed record-implied 22.0 -- inside the straddle band the
-    seam named, with the frozen G1 anchors re-passed. The contact-column
-    skin pricing is the one named identification (CR-B, the contact
-    column's own u-linearity; CR-A excluded by the ledger's frozen-limit
-    premise; CR-C floor survives at -0.93).
+ 1. CONDITIONAL ON THE SPECIFIED WELL, the seat is a calculated mixture.
+    a_kin = A/(4 g(nu_F)) -- the
+    frontier level density of the specified well V = -C u(r). Both candidate
+    seats are its truncations (box = no skin, 2.69 ZHz; oscillator = all skin,
+    1.92 ZHz); the candidate seat runs 2.07 -> 2.43 ZHz (record orientation:
+    8.6 -> 10.1 MeV) from
+    A=63 to 238, with weights fixed by the selected profile. Its physical
+    normalization is not established by this script.
+ 2. Full dress follows when the target is atomic mass (class step by the
+    atomic-mass identity; exchange layer by T-P3'), but the repaired integer
+    valley gate does not empirically select a package pairing.
+ 3. TARGET-KNOWN IDENTIFICATION: MIX+CR-B(238) lands +0.06 ZHz (+1.2%;
+    record +0.26 MeV) from the valley-inferred 5.32-ZHz target. CR-C also
+    survives at -0.22 ZHz (record -0.93 MeV). This is an
+    in-sample model identification, not a blind derivation or unique selection.
  4. THE LOCAL CHANNELS ARE DISQUALIFIED BY THEIR OWN CONTROL: isobar-
-    parabola curvature and apex both read a collective layer the smooth
-    ledger does not carry (shadow control fails identically; one-cause
-    correlation printed). A named contaminant and a named future front --
-    not a silent miss.""")
+    parabola curvature and apex both contain structure the smooth ledger does
+    not carry (shadow control fails identically; correlation printed). The
+    failure does not uniquely identify deformation or any one omitted layer.
+    It is a named contaminant and future front, not a silent miss.""")
