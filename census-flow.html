@@ -87,9 +87,11 @@ body{padding-top:72px !important;}
 <div class="card intro-card" style="margin-top:0;">
   <p style="margin:6px 0;">Philosophy first: there is one substance — angular momentum — and a quantum is a completed turn.
   The order in which the elements build was computed from that premise in <a href="./aufbau-as-closure.html">Aufbau as Closure</a>.
-  This exhibit shows <em>why the computation had no choice</em>: written in its natural variables, the self-consistent
-  census is a single flowing curve in a plane, and an exact piece of algebra pins that flow to the closure value
-  at the one point where the frontier is read. The picture below is the argument.</p>
+  This exhibit shows the computation's shape: written in its natural variables, the self-consistent
+  census is a single flowing curve in a plane, and an exact piece of algebra checks that flow against the closure
+  value at the one point where the frontier is read — a tangency built from the closure member's own rate, so a
+  <em>consistency check</em> of the closure, not an independent generation of it (§3). The picture below is the
+  argument.</p>
 </div>
 
 
@@ -111,7 +113,9 @@ ledger — a log-slope and a weighted count. Nothing here moves through a void; 
 <h2>2 · The criticality line and the closure point</h2>
 <p>Two facts single out one point of the plane before any dynamics:</p>
 <p><strong>The criticality line $t=1$.</strong> On every zero-energy orbit, in any central ledger, the
-angle-averaged steepness is exactly $1$ (a one-line identity proved in the research ledger) — the frontier is a
+angle-averaged steepness is exactly $1$ (a one-line identity — proved in
+<a href="https://github.com/cfmilam/nr-poams-engineering/blob/gh-pages/proofs/MADELUNG-FIXEDPOINT-THEOREM.md">MADELUNG-FIXEDPOINT-THEOREM</a>,
+the public derivation record) — the frontier is a
 <em>critical</em> probe, always reading the marginal exponent. The frontier's edge — where the last winding barely
 binds — sits precisely where the ledger crosses $t=1$.</p>
 <p><strong>The closure value $\sqrt{q} = 3/2$.</strong> The apsidal slope at the edge obeys
@@ -132,9 +136,18 @@ factors <em>exactly</em>:</p>
 $t \in (0,1)$ the curve $\mathcal{B}_{1/2}$ is a <em>one-way valve</em>: the census flow can cross it downward
 only, strictly. At $t = 1$ — the criticality line — the flow is <em>exactly tangent</em> to the curve, and the
 curve passes exactly through $\sqrt{q} = 3/2$ — the closure point. Beyond $t=1$ the valve flips (upward-crossable,
-until $t = \tfrac{1+\sqrt{11}}{2} \approx 2.158$). The number $3/2$ is not imported and not fitted:
-<em>it is where $(t-1)$ divides the census field's crossing polynomial.</em> The criticality point and the closure
-value are welded together by the algebra of the flow itself.</p>
+until $t = \tfrac{1+\sqrt{11}}{2} \approx 2.158$). The factorization is exact: $(t-1)$ divides the crossing
+polynomial, so the tangency falls at the criticality line and passes through the closure value.</p>
+</div>
+<div class="card gold">
+<p style="margin:0"><span class="tag assume">REGRADED</span> <strong>Consistency check, not generation (Tier-A
+review, 2026-09-07).</strong> The valve's rate $c = \tfrac12$ is the closure member's own peak rate — fixed by the
+$k = 2$ target it is compared against, not produced upstream of it. What the theorem proves is therefore a
+<em>consistency check</em> of the closure value: the flow built from the census equation is exactly tangent, at the
+criticality line, to the barrier built from the closure member — the two constructions meet at one point and the
+flow cannot pierce. Real, exact structure — and not an independent derivation of $k = 2$. The derivation of closure
+and ordering lives in <a href="./aufbau-as-closure.html">Aufbau as Closure</a> (§3 window theorem; §5b exact
+action); this page shows that the frontier and the closure <em>fit</em>.</p>
 </div>
 
 <h2>4 · Watch the census kiss closure</h2>
@@ -168,18 +181,29 @@ value are welded together by the algebra of the flow itself.</p>
     <p class="readout">√q(1) = S = 1.4673200&ensp;→&ensp;k_edge = √(2/(2−S)) = 1.9377</p>
     <p class="note">then re-crosses upward at $t = 2.063$ (the valve has flipped) and climbs to the Sommerfeld
     point. The dip depth $3/2 - S = 0.0327$ is the entire distance between the real table and ideal closure.</p>
+    <p class="note"><strong>Stated plainly (review repair):</strong> the trajectory reads $\sqrt{q}(1) = 1.46732$ —
+    2.2% below $3/2$. The factorization and the exact certificate support the <em>bound and its sign</em>
+    ($S < 3/2$ strict; the duck-under is real and one-way); they do not explain the <em>smallness</em> of the miss.
+    No mechanism on this page prices 0.0327.</p>
   </div>
 </div>
 
 <h2>5 · What the picture settles</h2>
 <div class="card blue">
 <p style="margin:0"><span class="tag prov">PROVED / VERIFIED</span> <strong>The ordering story, end to end.</strong>
-(i) The apsidal slope is an exact linear functional of the ledger's width function (research ledger, Lemma 3);
-the Madelung deficit $2-k$ is the Abel transform of the width deficit to the closure member. (ii) The deficit's
+(i) The apsidal slope is an exact linear functional of the ledger's width function
+(<a href="https://github.com/cfmilam/nr-poams-engineering/blob/gh-pages/proofs/MADELUNG-FIXEDPOINT-THEOREM.md">MADELUNG-FIXEDPOINT-THEOREM</a>
+§4, Lemma 3 — public); the Madelung deficit $2-k$ is the Abel transform of the width deficit to the closure member.
+(ii) The deficit's
 sign structure is verified across the whole occupied table — $k<2$ strict, the tie-break direction, lower-$n$
 first. (iii) The $k(l)$ hierarchy — periods opening with s — is the kernel's reach into the over-screened outer
 wing. (iv) The edge identity and this page's tangency theorem pin the edge value: the census can only duck under
-the closure valve in the one window the tangency leaves open, and $k_{edge} = 1.938$ reads the depth of that dip.</p>
+the closure valve in the one window the tangency leaves open, and $k_{edge} = 1.938$ reads the depth of that dip.
+(v) The completion this analysis pointed toward has since landed: the exact zero-binding radial action on the same
+frontier — $\int k\,dL$, not $k \cdot L$ — derives the ideal Madelung rule <em>entire</em>: 19/19 subshell order,
+19/19 idealized opening charges, zero knobs (<a href="./aufbau-as-closure.html">Aufbau as Closure</a> §5b,
+2026-09-07; the cold review that regraded this page's kiss predates that result by hours and is answered by
+it).</p>
 </div>
 <div class="card gold">
 <p style="margin:0"><span class="tag assume">IMPORTED / ASSUMED</span> The census ledger is the equation the
@@ -188,23 +212,33 @@ extant record calls Thomas–Fermi — no longer a stand-in but <em>derived as c
 \( E = 0 \) frontier, forces the census density and its coefficient (see <a href="./aufbau-as-closure.html">Aufbau
 as Closure</a>, Imports). What remains imported at the foundations tier is named there: the \( 1/r \) range law,
 winding independence, the correspondence step. The closure license — zero-energy closure as the admission
-criterion — is Normal-Realist ontology, stated as such there (§4, §8).</p>
+criterion — is Normal-Realist ontology, stated as such there (§4, §8). Bulk versus frontier, mirrored from Aufbau
+(review repair): the rigorous extant anchor is Lieb–Simon 1977, cited for exactly what they proved and no more —
+Thomas–Fermi becomes exact in the large-$Z$ <em>bulk</em>, and they explicitly do not warrant it at the
+zero-binding edge where this page reads the frontier. The edge evaluation is a named extrapolation, not an
+oversight — the frontier is where the closure question lives — and Aufbau's §3 window states exactly how much
+motion the ordering can absorb if the true frontier ledger departs from the TF form.</p>
 </div>
 <div class="card red">
 <p style="margin:0"><span class="tag open">STATUS</span> Two items, exactly stated. (1) The dip itself —
 $S &lt; 3/2$ strict — initially verified by two independent integrations, is now <strong>enclosed by an exact
 rational barrier certificate</strong> (2026-08-12): $S \in [1.465319,\ 1.469320]$, margin $767/25000$, every
 check in exact arithmetic — the unconditional proof this item asked for; the item is closed on
-<a href="./aufbau-as-closure.html">Aufbau as Closure</a>. (2) The value $S = 1.4673200$ is transcendental-grade,
+<a href="./aufbau-as-closure.html">Aufbau as Closure</a>. The certificate, its instrument, and its run log are
+public and auditable (review repair — nothing referred-to-but-unauditable):
+<a href="https://github.com/cfmilam/nr-poams-engineering/blob/gh-pages/proofs/MADELUNG-DIP-ENCLOSURE.md">MADELUNG-DIP-ENCLOSURE</a>
+with <a href="https://github.com/cfmilam/nr-poams-engineering/blob/gh-pages/madelung/madelung-swingB.py">madelung-swingB.py</a>
+and its run log (1564 exact-rational checks, 0 failures; zero floating point in the verification layer). (2) The value $S = 1.4673200$ is transcendental-grade,
 like the launch constant $B_1 = 1.5880710\ldots$ it inherits from: computable to arbitrary digits, no closed
 form claimed — permanent-class, not an open task.</p>
 </div>
 
 <h2>6 · Reading it as Normal Realism</h2>
 <p>Strip the machinery and one sentence remains. The census — the atom's own bookkeeping of stacked closures —
-flows from the bare eye to the far field along one universal curve, and the geometry of that flow contains a
-valve whose only point of tangency is the closure value at the criticality line. <em>The table of elements closes
-at two turns because the census kisses closure at its frontier and cannot pierce it.</em> The 0.033 shortfall is
+flows from the bare eye to the far field along one universal curve, and that flow, held against the valve built at
+the closure member's own rate, is tangent to it exactly at the criticality line. <em>The table of elements closes
+at two turns; the census, read at its frontier, kisses that closure and cannot pierce it</em> — the fit is checked
+here, derived in <a href="./aufbau-as-closure.html">Aufbau as Closure</a>. The 0.033 shortfall is
 not failure but signature: the real, finitely-screened ledger holds just under the ideal — which is exactly why
 every period opens with the humblest winding and the anomalies cluster at the near-ties. One substance, one flow,
 one tangency.</p>
@@ -220,8 +254,10 @@ one tangency.</p>
   classical parent of the width machinery) · Firsov, ZhETF 24:279 (1953) · Castelli, JMAA 428:653 (2015) · Rojas
   (2017) · Simon-Petit &amp; Perez, CMP 363 (2018) · Hille, <em>Some aspects of the Thomas–Fermi equation</em>
   (1970) · Gorenflo &amp; Vessella, <em>Abel Integral Equations</em>, LNM 1461 (1991) · Borg, Acta Math. 78:1
-  (1946) · Sommerfeld (1932) · Full derivation record: the POAMS research ledger (MADELUNG-THEOREM-SKETCH §C1–C3,
-  tier3k/tier3l instruments).</div>
+  (1946) · Sommerfeld (1932) · Lieb &amp; Simon, Phys. Rev. Lett. 31:681 (1973) / Adv. Math. 23:22 (1977) · Full
+  derivation record: the POAMS research ledger (MADELUNG-THEOREM-SKETCH §C1–C3, tier3k/tier3l instruments) — public
+  proofs and instruments: <a href="https://github.com/cfmilam/nr-poams-engineering">nr-poams-engineering</a>
+  (proofs/MADELUNG-*, madelung/).</div>
 </footer>
 
 <script>

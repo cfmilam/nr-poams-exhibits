@@ -353,3 +353,220 @@ print("  (z_c/6, z_c/4] = (0.823, 1.235]; theorem value f = 1 central; no z_c")
 print("  narrowing results (non-result booked).")
 print("  GRADE: derivation with one named identification (was: identification,")
 print("  three named joints).")
+
+# ============================================================================
+# PHASE-6 ADJUDICATION (added 2026-09-07): CORRECTED-ACCOUNTING CONFRONTATION.
+#
+# Tier-A review (Sol, gpt-5.6-sol, 2026-09-07) caught a CONFIRMED accounting
+# error in the published capped law: its own step 3 splits the sense pair
+# SYMMETRICALLY ("-/+ Omega/2 each"), so kappa(l)/Dnu = 2l/z_c is the PAIR
+# SEPARATION -- each branch shifts by only half of it -- while the published
+# gate spent the whole separation as the CO-BRANCH'S DESCENT. Factor-2
+# internal inconsistency in a ratified law. This tier confronts the law under
+# its OWN corrected accounting. Every earlier tier is a FROZEN CONTROL,
+# untouched; the gate arithmetic above is not altered.
+#
+# REGISTRATION FIRST: the corrected criterion and all gates are printed
+# before any level diagram is computed. Outcomes HELD for ratification.
+# ============================================================================
+
+EPS = 1e-9
+MAGIC = [2, 8, 20, 28, 50, 82, 126]
+
+def sigma(l, zc):
+    """Corrected per-branch shift (rung units): half the pair separation,
+    capped per branch at (1 - 1/z_c) (separation cap 2(1-1/z_c))."""
+    if l == 0:
+        return 0.0
+    return min(l / zc, 1.0 - 1.0 / zc)
+
+def build_levels(zc, nmax=8):
+    """Full corrected level diagram: rung N multiplet l -> co at N - sigma(l),
+    counter at N + sigma(l); l = 0 unshifted. Returns sorted merged levels
+    [(energy, size, labels)] per class."""
+    lv = []
+    for N in range(nmax + 1):
+        for l in range(N, -1, -2):
+            if l == 0:
+                lv.append((float(N), 2, f"{N}s"))
+            else:
+                lv.append((N - sigma(l, zc), 2 * l + 2, f"{N}{'spdfghijkl'[l]}co"))
+                lv.append((N + sigma(l, zc), 2 * l, f"{N}{'spdfghijkl'[l]}ct"))
+    lv.sort()
+    merged = []
+    for e, s, lab in lv:
+        if merged and abs(e - merged[-1][0]) < EPS:
+            merged[-1] = (merged[-1][0], merged[-1][1] + s, merged[-1][2] + "+" + lab)
+        else:
+            merged.append((e, s, lab))
+    return merged
+
+def boundaries(levels):
+    """[(cumulative_count, gap_above, label_below)] at every inter-level gap."""
+    out, cum = [], 0
+    for i, (e, s, lab) in enumerate(levels[:-1]):
+        cum += s
+        out.append((cum, levels[i + 1][0] - e, lab))
+    return out
+
+def seam_gap(N, zc):
+    """Ladder-seam gap between rungs N-1 and N under corrected accounting:
+    bounded below by rung N-1's counter-top (l'=N-1), above by rung N's
+    co-top (l=N):  G(N) = 1 - sigma(N) - sigma(N-1)."""
+    return 1.0 - sigma(N, zc) - sigma(N - 1, zc)
+
+def gate_results(zc):
+    lv = build_levels(zc)
+    bd = boundaries(lv)
+    bmap = {c: g for c, g, _ in bd}
+    # G1: seams 2, 8, 20 survive (boundary exists with positive gap)
+    g1 = all(bmap.get(m, 0.0) > EPS for m in (2, 8, 20))
+    # G2: first DEAD ladder seam is 40 (N=4), i.e. G(3) > 0 >= G(4)
+    dead = [N for N in range(1, 8) if seam_gap(N, zc) <= EPS]
+    g2 = (dead and dead[0] == 4)
+    # G3: rank-based census -- the seven largest gaps at cum <= 130 sit
+    # EXACTLY at the magic set (tie-safe: every boundary whose gap ties the
+    # 7th-largest must belong to the set)
+    cand = sorted([b for b in bd if b[0] <= 130], key=lambda b: -b[1])
+    g3 = False
+    if len(cand) >= 7:
+        thresh = cand[6][1]
+        top = {c for c, g, _ in cand if g >= thresh - EPS}
+        g3 = (top == set(MAGIC))
+    # G4: hierarchy -- sub-seams weaker than magic seams: gap(6)<gap(8), gap(14)<gap(20)
+    g4 = (bmap.get(6, 0) > EPS and bmap.get(14, 0) > EPS
+          and bmap.get(6, 0) < bmap.get(8, -1) - EPS
+          and bmap.get(14, 0) < bmap.get(20, -1) - EPS)
+    # G5: published mechanism reachable -- some branch descends a full rung
+    g5 = any(sigma(l, zc) >= 1.0 - EPS for l in range(1, 60))
+    # G6: the 184 seam -- top-8 gaps at cum <= 190 are exactly magic + {184}
+    cand8 = sorted([b for b in bd if b[0] <= 190], key=lambda b: -b[1])
+    g6 = False
+    if len(cand8) >= 8:
+        thresh8 = cand8[7][1]
+        top8 = {c for c, g, _ in cand8 if g >= thresh8 - EPS}
+        g6 = (top8 == set(MAGIC) | {184})
+    return (g1, g2, g3, g4, g5, g6), lv, bd
+
+print()
+print("=" * 78)
+print("PHASE-6: CORRECTED-ACCOUNTING CONFRONTATION (adjudication, 2026-09-07)")
+print("=" * 78)
+print("""REGISTRATION (printed before any computation):
+  ERROR UNDER TEST (confirmed, Tier-A review/Sol 2026-09-07): the published
+  law's step 3 splits the pair SYMMETRICALLY (-/+ Omega/2 per branch), so
+  2l/z_c is the pair SEPARATION; the published gate spent it as the single
+  co-branch's descent -- a factor-2 inconsistency.
+  CORRECTED ACCOUNTING: per-branch shift sigma(l) = min(l/z_c, 1 - 1/z_c);
+  rung N multiplet l sits at N -/+ sigma(l) (co down, counter up); l = 0
+  unshifted. Separation = published kappa; cap per branch (1 - 1/z_c).
+  DERIVED SEAM CRITERION (from the ledger's own diagram, before numbers):
+  the ladder seam between rungs N-1 and N is bounded below by rung N-1's
+  counter-top at (N-1) + sigma(N-1) and above by rung N's co-top at
+  N - sigma(N). Gap G(N) = 1 - sigma(N) - sigma(N-1); the seam is DEAD iff
+  G(N) <= 0 (a zero-width gap is no closure gap). Uncapped criterion:
+  (2N-1)/z_c >= 1. Seam-death threshold N* = 3  <=>  3 < z_c <= 5, with the
+  z_c = 5 boundary EXACTLY marginal (G(3) = 0): handled as dead, printed.
+  GATES (the record's requirements, frozen NOW, tested at every z_c in the
+  derived band [4.78, 5.00]):
+   G1 seams 2, 8, 20 survive with positive gap (Ca-40/Ca-48 doubly magic);
+   G2 the FIRST destroyed ladder seam is 40 (N = 4), never 20;
+   G3 census: the 7 largest gaps at cum <= 130 sit exactly at
+      {2, 8, 20, 28, 50, 82, 126} (rank-based, tie-safe, zero knobs);
+   G4 hierarchy: sub-seam gaps (6, 14) strictly weaker than (8, 20);
+   G5 published mechanism reachable: some branch descends >= 1 full rung;
+   G6 the 184 seam: top-8 gaps at cum <= 190 = magic set + {184}.
+  STRUCTURAL RESTATEMENTS (computed after gates): relative-depth bound,
+  persistence, and the record-required z_c window for G1^G2.
+  DIAGNOSTIC (registered now): scan z_c in [2.05, 12.00] step 0.005 for ANY
+  z_c passing G3 -- does the corrected law reproduce the census ANYWHERE?""")
+print()
+print("--- level diagram, central z_c = 4.940 (energy | size | cum | label) ---")
+_, lv0, bd0 = None, None, None
+res0, lv0, bd0 = gate_results(4.940)
+cum = 0
+for i, (e, s, lab) in enumerate(lv0):
+    cum += s
+    gap = (lv0[i + 1][0] - e) if i + 1 < len(lv0) else float('nan')
+    mark = " <== record magic" if cum in MAGIC else ""
+    if cum <= 190:
+        print(f"  {e:7.4f}  +{s:>2}  cum={cum:>3}  gap_above={gap:6.4f}  {lab}{mark}")
+print()
+print("--- ladder-seam gaps G(N) across the derived band ---")
+print("  z_c     G(1)/2  G(2)/8  G(3)/20  G(4)/40  G(5)/70  first dead seam")
+for zname, zc in ZC_BAND2:
+    gs = [seam_gap(N, zc) for N in range(1, 6)]
+    dead = next((N for N in range(1, 8) if seam_gap(N, zc) <= EPS), None)
+    seamno = {1: 2, 2: 8, 3: 20, 4: 40, 5: 70, 6: 112, 7: 168}
+    print(f"  {zc:5.3f}  {gs[0]:6.3f}  {gs[1]:6.3f}  {gs[2]:7.3f}  {gs[3]:7.3f}  "
+          f"{gs[4]:7.3f}  N={dead} (the {seamno.get(dead,'-')} seam)")
+print()
+print("--- per-gate PASS/FAIL across the derived z_c band ---")
+print(f"  {'z_c':>5} {'G1:2/8/20':>10} {'G2:40first':>11} {'G3:census':>10} "
+      f"{'G4:hier':>8} {'G5:mech':>8} {'G6:184':>7}  overall")
+overall_any = False
+for zname, zc in ZC_BAND2:
+    g, _, _ = gate_results(zc)
+    ok = all(g)
+    overall_any |= ok
+    row = "  ".join("PASS" if x else "FAIL" for x in g)
+    print(f"  {zc:5.3f} {'PASS' if g[0] else 'FAIL':>10} {'PASS' if g[1] else 'FAIL':>11} "
+          f"{'PASS' if g[2] else 'FAIL':>10} {'PASS' if g[3] else 'FAIL':>8} "
+          f"{'PASS' if g[4] else 'FAIL':>8} {'PASS' if g[5] else 'FAIL':>7}  "
+          f"{'PASS' if ok else 'FAIL'}")
+print()
+print("--- structural statements (theorems under corrected accounting) ---")
+print("  Published one-rung descent UNREACHABLE: max branch shift = cap")
+print("  1 - 1/z_c < 1 for every finite z_c -- no multiplet ever descends a")
+print("  full rung; the published law's headline mechanism cannot occur under")
+print("  its own step-3 accounting (G5 is a theorem-level FAIL, all z_c).")
+print("  Relative-depth bound (corrected analog of no-second-descent):")
+print("  relative closure sigma(N) + sigma(N-1) <= 2(1 - 1/z_c) < 2, so no")
+print("  multiplet can interleave past the band TWO below. Survives, but no")
+print("  longer delivers the record.")
+print("  Persistence: sigma nondecreasing in l => relative closure")
+print("  nondecreasing in N => a dead seam class stays dead. Survives.")
+print("  Record-required window for G1^G2 (20 survives, 40 first to die):")
+print("  sigma(2)+sigma(3) < 1 <= sigma(3)+sigma(4)  <=>  5 < z_c <= 7.")
+print("  Derived band [4.78, 5.00] is DISJOINT from (5, 7]; the touch point")
+print("  z_c = 5.00 gives G(3) = 0 exactly -- zero-width gap, seam dead.")
+print()
+print("--- registered diagnostic: z_c scan for ANY census reproduction ---")
+scan_pass_g3, scan_pass_g12 = [], []
+zc_scan = [round(2.05 + 0.005 * i, 3) for i in range(int((12.00 - 2.05) / 0.005) + 1)]
+for zc in zc_scan:
+    g, _, _ = gate_results(zc)
+    if g[2]:
+        scan_pass_g3.append(zc)
+    if g[0] and g[1]:
+        scan_pass_g12.append(zc)
+def _ranges(xs):
+    if not xs:
+        return "NONE"
+    runs, a, b = [], xs[0], xs[0]
+    for x in xs[1:]:
+        if x - b <= 0.0051:
+            b = x
+        else:
+            runs.append((a, b)); a = b = x
+    runs.append((a, b))
+    return ", ".join(f"[{a:.3f}, {b:.3f}]" for a, b in runs)
+print(f"  z_c where G3 (census {MAGIC} reproduced): {_ranges(scan_pass_g3)}")
+print(f"  z_c where G1^G2 (20 survives, 40 first dead): {_ranges(scan_pass_g12)}")
+print()
+print("=" * 78)
+print("PHASE-6 VERDICT")
+print("=" * 78)
+if overall_any:
+    print("At least one band point passes all gates -- see table (HELD).")
+else:
+    print("ALL GATES FAIL AT EVERY z_c IN THE DERIVED BAND. Under its own")
+    print("corrected accounting the capped transport law (i) kills the 20 seam")
+    print("across the whole band (G(3) <= 0; exactly marginal only at the band")
+    print("top z_c = 5.00 -- still no gap), anti-record; (ii) puts the record's")
+    print("required window (5, 7] outside the derived band; (iii) reproduces the")
+    print("census at NO z_c anywhere in [2.05, 12] (registered scan); (iv) cannot")
+    print("even produce its own headline one-rung descent (cap < 1 per branch).")
+    print("SECOND FALSIFICATION of the intruder law -- at full strength. The 2,")
+    print("8, 20 ladder, both exclusion controls, persistence, and the relative-")
+    print("depth bound survive as stated above. Outcome HELD for ratification.")
