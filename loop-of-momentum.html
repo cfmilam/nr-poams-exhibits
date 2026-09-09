@@ -122,33 +122,34 @@ try{if(localStorage.getItem('poams-theme')==='light'){document.body.classList.ad
     <p style="margin:6px auto 0;font-size:13px;color:var(--muted);">Depicting the Non-Thing</p>
   </header>
   <div class="intro-card" style="max-width:920px;margin:14px auto 0;padding:12px 18px;background:var(--card,#12121e);border:1px solid var(--edge);border-radius:10px;font-size:14px;line-height:1.6;flex-shrink:0;text-align:center;">
-    <p style="margin:4px 0;">There is <i>no thing</i> here — no rim, no strip, no stuff in a void. Only <b>phase</b>: an angle that closes on itself (∮dφ = 2πn) and keeps turning (that turning <i>is</i> time). The one real, countable quantity is the integer <b>linking number</b>. Where "twist" ends and "writhe" begins is a smooth representational choice — only their sum is invariant.</p>
+    <p style="margin:4px 0;">There is <i>no thing</i> here — no rim, no strip, no stuff in a void. Only <b>phase</b>: an angle that closes on itself (∮dφ = 2πn) and keeps turning (that turning <i>is</i> time). The integer winding sets a framed loop whose two implied push-offs have linking number <b>Lk = n</b>. As the centerline deforms continuously, computed geometric twist and writhe trade while their sum stays fixed.</p>
   </div>
   <div id="creed">
-    <div class="c"><b>Discreteum, not continuum</b>the substance is discrete — whole ħ turns</div>
+    <div class="c"><b>Discreteum, not continuum</b>the substance is discrete — integer ħ angular momentum</div>
     <div class="c"><b>Integers primary</b>only closures exist; a partial turn is no thing</div>
     <div class="c"><b>Continuity = appearance</b>the smooth look of many turns at once</div>
     <div class="c"><b>Integrate, don’t differentiate</b>sum turns; don’t differentiate a continuum</div>
-    <div class="c"><b>Staircase under the ramp</b><code>L=dS/dθ</code> over <code>ΔS=ħΔn</code></div>
+    <div class="c"><b>Staircase under the ramp</b><code>L=dS/dθ=nħ</code>; <code>∮L dθ=nh</code></div>
     <div class="c"><b>Kinematic, not mechanistic</b>turning is real; mechanism is representation</div>
     <div class="c"><b>Substance, not attribute</b>the grin is the cat — momentum is the thing, not a property of one</div>
   </div>
   <div id="stage">
     <canvas id="c"></canvas>
     <div id="hud">
-      <div><span class="lk">Lk = <span id="lk">3</span></span> &nbsp;<span class="em">— integer, invariant, the only real quantity</span></div>
-      <div style="margin-top:5px;">= Twist <span class="sp" id="tw">3.0</span> + Writhe <span class="sp" id="wr">0.0</span> &nbsp;<span class="em">(a continuous split — not fundamental)</span></div>
-      <div style="margin-top:6px;" class="em">Barycenter empty — nothing reaches r = 0. Nothing is solid; this is phase, not matter.</div>
+      <div><span class="lk">Lk = <span id="lk">3</span></span> &nbsp;<span class="em">— integer linking of the implied push-offs C±</span></div>
+      <div style="margin-top:5px;">≈ Twist <span class="sp" id="tw">3.000</span> + Writhe <span class="sp" id="wr">0.000</span> &nbsp;<span class="em">(computed geometric split)</span></div>
+      <div style="margin-top:3px;" class="em">numerical closure residual: <span id="resid">0.000</span></div>
+      <div style="margin-top:6px;" class="em">Central origin unoccupied — nothing reaches r = 0. Nothing is solid; this is phase, not matter.</div>
     </div>
     <div id="info">
       <span class="close" id="infoClose" title="hide">×</span>
       <h2>How to read a no-thing</h2>
       <ul>
         <li>There is <b class="k">no object here</b> — no rim, no strip, no stuff in a void. The glowing strokes are not matter; each is only <span class="g">where the phase points now</span> — the local <b>sense of rotation</b>.</li>
-        <li>The faint ellipse is not a wire. It is the <span class="g">closed locus the phase winds around</span> — a relation, not a thing.</li>
+        <li>The faint closed locus is not a wire. It is the <span class="g">centerline the phase winds around</span> — a relation, not a thing.</li>
         <li>The strokes <b>circulate</b> because the substance <span class="g">is its own turning</span>. That turning <b class="k">is time</b> (L = dS/dθ) — there is nothing else underneath.</li>
-        <li>The one real, countable quantity is the integer <b class="k">linking number Lk</b> — how many times the phase closes on itself (∮dφ = 2πn).</li>
-        <li><b>Twist ↔ Writhe:</b> drag it and spin trades for coil, yet <span class="g">Lk never moves</span>. Which part we <i>call</i> spin vs orbit is a <b>viewpoint</b>; only the invariant sum is real (Călugăreanu: Lk = Tw + Wr).</li>
+        <li>The phase-map winding is <b>n</b>, with ∮dφ = 2πn. It supplies the framing winding in this construction; for sufficiently small ε, the implied disjoint curves <b>C± = r ± εU</b> define the ribbon linking number <b class="k">Lk = n</b>.</li>
+        <li><b>Twist ↔ Writhe:</b> move the deformation slider and the centerline coils continuously. The displayed <b>Tw</b> and <b>Wr</b> are separately evaluated from the framing and Gauss integrals; their residual against Lk is printed in the HUD (Călugăreanu–White: Lk = Tw + Wr).</li>
         <li><b class="k">Discreteum, not continuum:</b> at low Lk you can count the turns. Crank it high and they blur into an apparent smooth glow — <span class="g">continuity is just many turns seen at once</span>, never a substance beneath them.</li>
       </ul>
     </div>
@@ -161,13 +162,13 @@ try{if(localStorage.getItem('poams-theme')==='light'){document.body.classList.ad
       <div class="ends"><span class="a">count the turns</span><span class="b">many → looks smooth</span></div>
     </div>
     <div class="ctl">
-      <label>Twist ↔ Writhe <b id="sv">0%</b> writhe</label>
+      <label>Continuous centerline deformation <b id="sv">0%</b></label>
       <input id="s" type="range" min="0" max="1" step="0.01" value="0">
-      <div class="ends"><span class="a">all twist (spin)</span><span class="b">all writhe (coil)</span></div>
+      <div class="ends"><span class="a">planar reference</span><span class="b">coiled centerline</span></div>
     </div>
     <div class="ctl" style="min-width:150px;flex:0;">
       <div class="toggles">
-        <label><input type="checkbox" id="flow" checked> phase flows</label>
+        <label><input type="checkbox" id="flow" checked> global phase advances</label>
         <label><input type="checkbox" id="spin" checked> rotate</label>
       </div>
     </div>
@@ -191,7 +192,7 @@ const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true; controls.dampingFactor = 0.08;
 controls.minDistance = 3; controls.maxDistance = 20;
 
-// ---- empty barycenter (the eye): faint ring + void, NO solid mass ----
+// ---- empty central origin (the eye): faint ring + void, NO solid mass ----
 const eyeGrp = new THREE.Group(); scene.add(eyeGrp);
 const ring = new THREE.Mesh(new THREE.TorusGeometry(0.26,0.006,8,64),
   new THREE.MeshBasicMaterial({color:0x44445f,transparent:true,opacity:0.8}));
@@ -199,80 +200,166 @@ ring.rotation.x=Math.PI/2; eyeGrp.add(ring);
 
 // ---- the phase loop: rendered ONLY as glowing phase, no surface ----
 const loop = new THREE.Group(); scene.add(loop);
-let rungs=null, ends=null, spine=null;
+let rungs=null, ends=null, spine=null, handSamples=[];
+let rungPos=null, rungCol=null, tipPos=null, tipCol=null;
 
-const R=1.75, COILAMP=0.52, HAND=0.30;   // loop radius, writhe-coil amplitude, phase-hand half-length
-let n=3, sWrithe=0.0, phase0=0;
+const TAU=2*Math.PI;
+const R=1.75, COILAMP=0.52, HAND=0.30;
+let n=3, deformation=0.0, phase0=0;
 
-function Tw(){ return Math.round(n*(1-sWrithe)); }
-function Wr(){ return n-Tw(); }
-
-// closed centerline; writhe w = number of times the closed locus coils through its own plane
+// A continuous family of embedded centerlines. The coil frequency remains n while
+// its amplitude changes continuously; the framing retains n phase turns.
 function centerline(t){
-  const w=Wr(), ang=2*Math.PI*t, coil=2*Math.PI*w*t;
-  const rad=R + (w>0?COILAMP*Math.cos(coil):0);
-  const y = w>0 ? COILAMP*Math.sin(coil) : 0;
-  return new THREE.Vector3(rad*Math.cos(ang), y, rad*Math.sin(ang));
+  const ang=TAU*t, coil=TAU*n*t, amp=COILAMP*deformation;
+  const rad=R+amp*Math.cos(coil);
+  return new THREE.Vector3(rad*Math.cos(ang),amp*Math.sin(coil),rad*Math.sin(ang));
 }
 function frame(t){
-  const e=6e-4;
-  const T=centerline((t+e+1)%1).sub(centerline((t-e+1)%1)).normalize();
+  const e=1e-5;
+  const T=centerline((t+e)%1).sub(centerline((t-e+1)%1)).normalize();
   const up=new THREE.Vector3(0,1,0);
-  let B=new THREE.Vector3().crossVectors(T,up).normalize();
-  if(!isFinite(B.x)||B.lengthSq()<1e-6) B.set(1,0,0);
+  const B=new THREE.Vector3().crossVectors(T,up).normalize();
   const N=new THREE.Vector3().crossVectors(B,T).normalize();
-  return {p:centerline(t),N,B};
+  return {p:centerline(t),T,N,B};
+}
+function directionAt(f,t,phase){
+  const th=TAU*n*t+phase;
+  return f.N.clone().multiplyScalar(Math.cos(th))
+    .add(f.B.clone().multiplyScalar(Math.sin(th)));
+}
+function put3(a,i,v){a[i]=v.x;a[i+1]=v.y;a[i+2]=v.z;}
+function colorAt(t){
+  return new THREE.Color().setHSL(((n*t+phase0/TAU)%1+1)%1,0.92,0.62);
+}
+function updateHands(){
+  if(!rungs||!ends)return;
+  for(let i=0;i<handSamples.length;i++){
+    const q=handSamples[i], dir=directionAt(q.f,q.t,phase0);
+    const a=q.f.p.clone().addScaledVector(dir,HAND);
+    const b=q.f.p.clone().addScaledVector(dir,-HAND);
+    const col=colorAt(q.t), dim=col.clone().multiplyScalar(0.18);
+    const rp=i*12, rc=i*12, tp=i*6, tc=i*6;
+    put3(rungPos,rp,a); put3(rungPos,rp+3,q.f.p);
+    put3(rungPos,rp+6,q.f.p); put3(rungPos,rp+9,b);
+    put3(rungCol,rc,col); put3(rungCol,rc+3,dim);
+    put3(rungCol,rc+6,dim); put3(rungCol,rc+9,dim);
+    put3(tipPos,tp,a); put3(tipPos,tp+3,b);
+    put3(tipCol,tc,col); put3(tipCol,tc+3,dim);
+  }
+  rungs.geometry.attributes.position.needsUpdate=true;
+  rungs.geometry.attributes.color.needsUpdate=true;
+  ends.geometry.attributes.position.needsUpdate=true;
+  ends.geometry.attributes.color.needsUpdate=true;
+}
+function mk(pos,col){
+  const g=new THREE.BufferGeometry();
+  g.setAttribute('position',new THREE.BufferAttribute(pos,3));
+  g.setAttribute('color',new THREE.BufferAttribute(col,3));
+  return g;
 }
 
 function build(){
   [rungs,ends,spine].forEach(o=>{if(o){loop.remove(o);o.geometry.dispose();o.material.dispose();}});
-  const twc=Tw(), wrc=Wr();
-  // discrete phase-hands: a local sense-of-rotation sampled around the closed locus.
-  // NOT a surface, NOT stuff — each stroke is where the phase points right now.
-  const K = Math.min(Math.max(Math.round(n*26),56),380);
-  const hp=[], hc=[], sp=[], sc=[];
-  const SS=360;
-  for(let i=0;i<K;i++){
-    const t=i/K;
-    const f=frame(t);
-    const th=2*Math.PI*twc*t + phase0;            // local phase = twist winding + flow (time)
-    const dir=f.N.clone().multiplyScalar(Math.cos(th)).add(f.B.clone().multiplyScalar(Math.sin(th)));
-    const a=f.p.clone().add(dir.clone().multiplyScalar(HAND));
-    const b=f.p.clone().add(dir.clone().multiplyScalar(-HAND));
-    const hue=((twc*t) + phase0/(2*Math.PI)) % 1;
-    const col=new THREE.Color().setHSL((hue+1)%1,0.92,0.62);
-    const dim=col.clone().multiplyScalar(0.18);
-    // bright tip -> dim center: a directed stroke, reads as rotational sense not a bar
-    hp.push(a.x,a.y,a.z, f.p.x,f.p.y,f.p.z,  f.p.x,f.p.y,f.p.z, b.x,b.y,b.z);
-    hc.push(col.r,col.g,col.b, dim.r,dim.g,dim.b,  dim.r,dim.g,dim.b, col.r,col.g,col.b);
-  }
-  for(let i=0;i<=SS;i++){ const f=frame((i%SS)/SS); sp.push(f.p.x,f.p.y,f.p.z); sc.push(0.30,0.30,0.42); }
-  const mk=(pos,col)=>{
-    const g=new THREE.BufferGeometry();
-    g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));
-    g.setAttribute('color',new THREE.Float32BufferAttribute(col,3));
-    return g;
-  };
-  // the phase-hands (the star): discrete strokes of rotational sense, glowing, additively blended
-  rungs=new THREE.LineSegments(mk(hp,hc),
+  const K=Math.min(Math.max(Math.round(n*26),56),416);
+  handSamples=Array.from({length:K},(_,i)=>({t:i/K,f:frame(i/K)}));
+  rungPos=new Float32Array(K*12); rungCol=new Float32Array(K*12);
+  tipPos=new Float32Array(K*6); tipCol=new Float32Array(K*6);
+
+  rungs=new THREE.LineSegments(mk(rungPos,rungCol),
     new THREE.LineBasicMaterial({vertexColors:true,transparent:true,opacity:0.95,
       blending:THREE.AdditiveBlending,depthWrite:false}));
-  loop.add(rungs);
-  // bright bead at each hand tip so you can COUNT the turns at low n
-  ends=new THREE.Points(mk(hp,hc),
+  ends=new THREE.Points(mk(tipPos,tipCol),
     new THREE.PointsMaterial({size:0.055,vertexColors:true,transparent:true,opacity:0.9,
       blending:THREE.AdditiveBlending,depthWrite:false,sizeAttenuation:true}));
-  loop.add(ends);
-  // the closed locus itself: very dim — a relation the phase winds around, not a wire of stuff
+  loop.add(rungs,ends);
+  updateHands();
+
+  const SS=Math.max(360,n*32), sp=new Float32Array((SS+1)*3), sc=new Float32Array((SS+1)*3);
+  for(let i=0;i<=SS;i++){
+    put3(sp,i*3,centerline((i%SS)/SS));
+    sc[i*3]=0.30;sc[i*3+1]=0.30;sc[i*3+2]=0.42;
+  }
   spine=new THREE.Line(mk(sp,sc),
     new THREE.LineBasicMaterial({vertexColors:true,transparent:true,opacity:0.4,depthWrite:false}));
   loop.add(spine);
 
+  const inv=computeInvariants();
   document.getElementById('lk').textContent=n;
   document.getElementById('nv').textContent=n;
-  document.getElementById('tw').textContent=twc;
-  document.getElementById('wr').textContent=wrc;
-  document.getElementById('sv').textContent=Math.round(sWrithe*100)+'%';
+  document.getElementById('tw').textContent=inv.tw.toFixed(3);
+  document.getElementById('wr').textContent=inv.wr.toFixed(3);
+  const residual=inv.tw+inv.wr-n;
+  document.getElementById('resid').textContent=(residual>=0?'+':'')+residual.toFixed(3);
+  document.getElementById('sv').textContent=Math.round(deformation*100)+'%';
+}
+
+// Independent numerical evaluations of geometric twist and writhe.
+// Twist uses discrete parallel transport of the framing; writhe uses the Gauss
+// self-integral over the polygonal centerline. Neither value is assigned by subtraction.
+function computeInvariants(){
+  const M=Math.max(512,n*64);
+  const p=new Float64Array(M*3), T=new Float64Array(M*3), U=new Float64Array(M*3);
+  const amp=COILAMP*deformation;
+  for(let i=0;i<M;i++){
+    const t=i/M, ang=TAU*t, coil=TAU*n*t, rad=R+amp*Math.cos(coil), k=i*3;
+    p[k]=rad*Math.cos(ang);p[k+1]=amp*Math.sin(coil);p[k+2]=rad*Math.sin(ang);
+  }
+  for(let i=0;i<M;i++){
+    const im=((i-1+M)%M)*3, ip=((i+1)%M)*3, k=i*3;
+    let tx=p[ip]-p[im],ty=p[ip+1]-p[im+1],tz=p[ip+2]-p[im+2];
+    const tl=Math.hypot(tx,ty,tz);tx/=tl;ty/=tl;tz/=tl;
+    T[k]=tx;T[k+1]=ty;T[k+2]=tz;
+    const h=Math.hypot(tx,tz), bx=-tz/h, by=0, bz=tx/h;
+    const nx=-bz*ty, ny=bz*tx-bx*tz, nz=bx*ty;
+    const th=TAU*n*i/M, c=Math.cos(th), s=Math.sin(th);
+    U[k]=nx*c+bx*s;U[k+1]=ny*c+by*s;U[k+2]=nz*c+bz*s;
+  }
+
+  let twistAngle=0;
+  for(let i=0;i<M;i++){
+    const j=(i+1)%M, a=i*3, b=j*3;
+    const t0x=T[a],t0y=T[a+1],t0z=T[a+2], t1x=T[b],t1y=T[b+1],t1z=T[b+2];
+    let ax=t0y*t1z-t0z*t1y, ay=t0z*t1x-t0x*t1z, az=t0x*t1y-t0y*t1x;
+    const sn=Math.hypot(ax,ay,az), cs=Math.max(-1,Math.min(1,t0x*t1x+t0y*t1y+t0z*t1z));
+    let vx=U[a],vy=U[a+1],vz=U[a+2];
+    if(sn>1e-12){
+      ax/=sn;ay/=sn;az/=sn;
+      const cx=ay*vz-az*vy,cy=az*vx-ax*vz,cz=ax*vy-ay*vx;
+      const kd=ax*vx+ay*vy+az*vz, omc=1-cs;
+      vx=vx*cs+cx*sn+ax*kd*omc;
+      vy=vy*cs+cy*sn+ay*kd*omc;
+      vz=vz*cs+cz*sn+az*kd*omc;
+    }
+    let vd=vx*t1x+vy*t1y+vz*t1z;
+    vx-=vd*t1x;vy-=vd*t1y;vz-=vd*t1z;
+    let vl=Math.hypot(vx,vy,vz);vx/=vl;vy/=vl;vz/=vl;
+    let ux=U[b],uy=U[b+1],uz=U[b+2],ud=ux*t1x+uy*t1y+uz*t1z;
+    ux-=ud*t1x;uy-=ud*t1y;uz-=ud*t1z;
+    const ul=Math.hypot(ux,uy,uz);ux/=ul;uy/=ul;uz/=ul;
+    const cx=vy*uz-vz*uy,cy=vz*ux-vx*uz,cz=vx*uy-vy*ux;
+    twistAngle+=Math.atan2(t1x*cx+t1y*cy+t1z*cz,vx*ux+vy*uy+vz*uz);
+  }
+
+  const d=new Float64Array(M*3), mid=new Float64Array(M*3);
+  for(let i=0;i<M;i++){
+    const j=(i+1)%M, a=i*3, b=j*3;
+    d[a]=p[b]-p[a];d[a+1]=p[b+1]-p[a+1];d[a+2]=p[b+2]-p[a+2];
+    mid[a]=(p[a]+p[b])/2;mid[a+1]=(p[a+1]+p[b+1])/2;mid[a+2]=(p[a+2]+p[b+2])/2;
+  }
+  let writheSum=0;
+  for(let i=0;i<M;i++){
+    const a=i*3;
+    for(let j=i+1;j<M;j++){
+      if(j===i+1||(i===0&&j===M-1))continue;
+      const b=j*3, x=mid[a]-mid[b],y=mid[a+1]-mid[b+1],z=mid[a+2]-mid[b+2];
+      const r2=x*x+y*y+z*z;
+      const cx=d[a+1]*d[b+2]-d[a+2]*d[b+1];
+      const cy=d[a+2]*d[b]-d[a]*d[b+2];
+      const cz=d[a]*d[b+1]-d[a+1]*d[b];
+      writheSum+=2*(cx*x+cy*y+cz*z)/(r2*Math.sqrt(r2));
+    }
+  }
+  return {tw:twistAngle/TAU,wr:writheSum/(4*Math.PI)};
 }
 
 // ---- UI ----
@@ -280,38 +367,38 @@ const nEl=document.getElementById('n'), sEl=document.getElementById('s');
 const flowEl=document.getElementById('flow'), spinEl=document.getElementById('spin');
 const cap=document.getElementById('cap');
 function caption(){
-  if(sWrithe<0.08){
-    cap.innerHTML='<b>All twist.</b> The phase spins about the loop\u2019s own axis \u2014 <i>spin</i>. Count the colour-cycles: that count is the integer. Nothing is spinning <i>in</i> anything; the turning is the whole of it.';
-  }else if(sWrithe>0.92){
-    cap.innerHTML='<b>All writhe.</b> The same linking, now spent on the loop <i>coiling through space</i> \u2014 <i>orbit</i>. Twist and writhe traded freely, yet <b>Lk stayed fixed</b>. The integer is conserved; its split is just how we choose to read it.';
+  if(deformation<0.08){
+    cap.innerHTML='<b>Planar reference.</b> The integer linking is carried almost entirely as framing twist. The phase turns about the loop\u2019s own axis \u2014 the POAMS <i>spin</i> reading.';
+  }else if(deformation>0.92){
+    cap.innerHTML='<b>Coiled centerline.</b> Part of the same fixed linking now appears as geometric writhe \u2014 the POAMS <i>orbit</i> reading \u2014 while the computed twist supplies the remainder.';
   }else{
-    cap.innerHTML='<b>Twist + writhe, summing to Lk.</b> Spin trades for coil while the integer never moves. Which part we <i>call</i> spin vs orbit is a viewpoint; the integer sum is the <b>reality</b> (C\u0103lug\u0103reanu: Lk = Tw + Wr).';
+    cap.innerHTML='<b>Continuous twist\u2013writhe trade.</b> The centerline deforms without a jump; separately computed Tw and Wr compensate while the integer linking stays fixed.';
   }
-  if(n>=11) cap.innerHTML+=' <span style="color:#6f6f88">\u2014 crank n high and the beads blur into an apparent smooth glow: continuity is just many turns seen at once.</span>';
+  if(n>=11)cap.innerHTML+=' <span style="color:#6f6f88">At high n the strokes blur into an apparent smooth glow: the exhibit\u2019s discreteum-to-continuity illustration.</span>';
 }
-function refresh(){ build(); caption(); }
+function refresh(){build();caption();}
 nEl.addEventListener('input',()=>{n=parseInt(nEl.value);refresh();});
-sEl.addEventListener('input',()=>{sWrithe=parseFloat(sEl.value);refresh();});
+sEl.addEventListener('input',()=>{deformation=parseFloat(sEl.value);refresh();});
 refresh();
 
 function resize(){
   const r=cv.getBoundingClientRect();
   renderer.setSize(r.width,r.height,false);
-  camera.aspect=r.width/r.height; camera.updateProjectionMatrix();
+  camera.aspect=r.width/r.height;camera.updateProjectionMatrix();
 }
-window.addEventListener('resize',resize); resize();
+window.addEventListener('resize',resize);resize();
 
 // info box show/hide
-const infoBox=document.getElementById('info'), infoClose=document.getElementById('infoClose'), infoToggle=document.getElementById('infoToggle');
+const infoBox=document.getElementById('info'),infoClose=document.getElementById('infoClose'),infoToggle=document.getElementById('infoToggle');
 infoClose.addEventListener('click',()=>{infoBox.style.display='none';infoToggle.style.display='block';});
 infoToggle.addEventListener('click',()=>{infoBox.style.display='block';infoToggle.style.display='none';});
 
 let last=performance.now();
 function anim(now){
   requestAnimationFrame(anim);
-  const dt=(now-last)/1000; last=now;
-  if(flowEl.checked){ phase0 += dt*1.1; build(); }   // phase advances = time = L=dS/dθ
-  if(spinEl.checked){ loop.rotation.y+=0.0032; eyeGrp.rotation.y+=0.0032; }
+  const dt=(now-last)/1000;last=now;
+  if(flowEl.checked){phase0+=dt*1.1;updateHands();}
+  if(spinEl.checked){loop.rotation.y+=0.0032;eyeGrp.rotation.y+=0.0032;}
   controls.update();
   renderer.render(scene,camera);
 }
@@ -324,6 +411,13 @@ requestAnimationFrame(anim);
   <a href="./mass-as-trapped-rate.html">Mass as Trapped Rate</a> ·
   <a href="./aufbau-as-closure.html">Aufbau as Closure</a> ·
   <a href="./poams-periodic-table.html">The Elements</a>
+  <div style="margin-top:8px;font-size:11px;">
+    Mathematical definitions:
+    <a href="https://doi.org/10.2307/2373348">White (1969), self-linking and the Gauss integral</a> ·
+    <a href="https://doi.org/10.1073/pnas.68.4.815">Fuller (1971), writhing number</a>.
+    The POAMS identification of twist with spin and writhe with orbit is the model reading;
+    the displayed Tw and Wr are numerical geometric integrals.
+  </div>
 </footer>
 </body>
 </html>
