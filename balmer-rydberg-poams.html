@@ -1337,7 +1337,7 @@
 
         // Ensure MathJax renders after theme changes
         document.addEventListener('DOMContentLoaded', function() {
-            if (window.MathJax) {
+            if (window.MathJax && typeof MathJax.typesetPromise === 'function') {
                 MathJax.typesetPromise();
             }
         });
