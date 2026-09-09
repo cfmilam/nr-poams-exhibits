@@ -293,29 +293,29 @@ try{if(localStorage.getItem('poams-theme')==='light'){document.body.classList.ad
   <p style="margin:6px 0;">Philosophy first: a body in orbit is not being steered by a force through a void — it rides the
   natural path its angular momentum assigns, and its clock reads the Pythagorean time book along that path
   (<a href="./cone-model.html">the Cone Model</a>). This page works Osborne &amp; Pope's paper
-  <em>"Orbital Time Dilation"</em> end to end, live, in the paper's own order: the circular-orbit clock and its
-  factor of three (Eqs 2.8, 2.9, 3.6) · the natural-path condition that <em>forces</em> the three (Eq 3.5, a = 2) ·
-  the general ellipse where the dilation varies point by point (Eq 2.12) · the cubic term that makes every real
-  orbit's axis advance (Eq 4.6, Mercury's 43″) · and the engineering receipt: the GPS constellation, which pays
+  <em>"Orbital Time Dilation"</em> as five live panels in the paper's own order: the circular-orbit clock and its
+  factor of three (Eqs 2.8, 2.9, 3.6) · the paper's natural-path matching condition for the three (Eq 3.5, a = 2) ·
+  the general ellipse where the dilation varies point by point (Eq 2.12) · the cubic term that advances a modeled
+  bound orbit's axis (Eq 4.6, compared with Mercury's 43″ record) · and the engineering receipt: the GPS constellation, which pays
   these equations every day. Five windows, one paper — formerly five separate exhibit pages, consolidated
   2026-08-14.</p>
 </div>
 
 
 <h2 class="sect" id="circular">1 · The circular orbit and the factor of three — Eqs 2.8, 2.9, 3.6</h2>
-<p class="lead">Two clocks, one orbit. Velocity-only bookkeeping (Eq 2.9) undercounts: the closed path adds its own
-turning, and the full orbital rate (Eq 3.6) carries $3GM/rc^2$ — the same three GR reaches through curved-spacetime
-language. Section 2 shows why it must be exactly three. Effect exaggerated ~10⁹× for visibility, as labeled.</p>
+<p class="lead">Two clocks, one orbit. In the paper's ledger, velocity-only bookkeeping (Eq 2.9) carries one part,
+while the adopted natural-path relation supplies two more, so Eq 3.6 carries $3GM/rc^2$. Section 2 shows the
+algebraic match between the paper's two stated speed relations. The dimensionless display scale is exaggerated for visibility.</p>
 <section class="demo" id="circular-sec">
 <div class="explanation">
 <p>A particle <b>P</b> orbits a central mass <b>M</b> on a circular path at radius <i>r</i>. We compare two clocks:</p>
 <p><span class="blue">■</span> <b>Deep Space Time (DST)</b> — coordinate time <i>t</i>, far from any gravity.</p>
 <p><span class="gold">■</span> <b>Orbiter Proper Time</b> — time τ experienced by P.</p>
-<p><span class="eq-label">Eq 2.9 — Velocity-only (gravitational) dilation:</span><br>
+<p><span class="eq-label">Eq 2.9 — Velocity-only contribution:</span><br>
 \(\displaystyle \tau = \sqrt{1 - \frac{GM}{rc^2}}\;\cdot\; t\)</p>
-<p><span class="eq-label">Eq 3.6 — True orbital dilation (gravity + orbital velocity):</span><br>
+<p><span class="eq-label">Eq 3.6 — Paper's full circular-orbit rate:</span><br>
 \(\displaystyle \tau = \sqrt{1 - \frac{3GM}{rc^2}}\;\cdot\; t\)</p>
-<p style="color:#999;font-size:.82rem">Effect is exaggerated ~10⁹× for visibility. Adjust the radius slider to explore.</p>
+<p style="color:#999;font-size:.82rem">Dimensionless illustration: $\rho=rc^2/(GM)$; the control stays inside the printed square-root domain.</p>
 </div>
 
 <div class="main-area">
@@ -333,15 +333,15 @@ language. Section 2 shows why it must be exactly three. Effect exaggerated ~10�
   </div>
 
   <div class="info-box">
-    <div>Mode: <span id="circular-modeLabel" class="gold">True Orbital (Eq 3.6)</span></div>
+    <div>Mode: <span id="circular-modeLabel" class="gold">Full Circular-Orbit (Eq 3.6)</span></div>
     <div>Dilation factor: <span id="circular-factorVal" class="factor gold">—</span></div>
-    <div>Radius: <span id="circular-radiusVal">—</span> km &nbsp;|&nbsp; Δτ lag: <span id="circular-lagVal">0.0</span>s</div>
+    <div>Normalized radius $\rho$: <span id="circular-radiusVal">—</span> &nbsp;|&nbsp; Δτ lag: <span id="circular-lagVal">0.0</span>s</div>
   </div>
 
   <div class="controls">
-    <label>Orbital Radius <i>r</i></label>
-    <input type="range" id="circular-radiusSlider" min="10" max="200" value="80" step="1">
-    <div class="range-info"><span>Close (10)</span><span>Far (200)</span></div>
+    <label>Normalized orbital radius $\rho=rc^2/(GM)$</label>
+    <input type="range" id="circular-radiusSlider" min="4" max="40" value="16" step="0.5">
+    <div class="range-info"><span>Close (4)</span><span>Far (40)</span></div>
 
     <button class="toggle-btn orbital" id="circular-toggleBtn">Switch to Velocity-Only (Eq 2.9)</button>
 
@@ -363,10 +363,8 @@ language. Section 2 shows why it must be exactly three. Effect exaggerated ~10�
   const ctx = canvas.getContext('2d');
   const W = canvas.width, H = canvas.height, cx = W/2, cy = H/2;
 
-  // Exaggerated GM/c² so dilation is visible. Real Schwarzschild radius of Earth ~ 9mm.
-  // We set GM/c² = 5 (in our radius units) so at r=10, factor=sqrt(1-3*5/10)=sqrt(-0.5) → clamp.
-  // At r=80 default, factor=sqrt(1-15/80)=sqrt(0.8125)≈0.90
-  const GMc2 = 5; // exaggerated
+  // Dimensionless display coordinate rho = r c²/(GM). Shared domain rho >= 4 keeps both
+  // printed radicands positive; no physical length unit is implied.
 
   let mode = 'orbital'; // 'orbital' or 'velocity'
   let angle = 0;
@@ -385,10 +383,9 @@ language. Section 2 shows why it must be exactly three. Effect exaggerated ~10�
   const radiusVal = document.getElementById('circular-radiusVal');
   const lagVal = document.getElementById('circular-lagVal');
 
-  function getDilationFactor(r) {
+  function getDilationFactor(rho) {
     const k = mode === 'orbital' ? 3 : 1;
-    const val = 1 - k * GMc2 / r;
-    return val > 0 ? Math.sqrt(val) : 0;
+    return Math.sqrt(1 - k / rho);
   }
 
   function formatTime(s) {
@@ -399,14 +396,14 @@ language. Section 2 shows why it must be exactly three. Effect exaggerated ~10�
   }
 
   function updateUI() {
-    const r = +radiusSlider.value;
-    const f = getDilationFactor(r);
+    const rho = +radiusSlider.value;
+    const f = getDilationFactor(rho);
     const col = mode==='orbital'?'gold':'blue';
     const colHex = mode==='orbital'?'#d4af37':'#5bc8f5';
 
     factorVal.textContent = f.toFixed(6);
     factorVal.className = 'factor '+col;
-    radiusVal.textContent = (r*100).toLocaleString(); // pretend units: r*100 km
+    radiusVal.textContent = rho.toFixed(1);
 
     const properTime = dstTime * f;
     dstClock.textContent = formatTime(dstTime);
@@ -414,14 +411,14 @@ language. Section 2 shows why it must be exactly three. Effect exaggerated ~10�
     lagVal.textContent = (dstTime - properTime).toFixed(2);
 
     properBox.className = 'clock-box proper '+(col===  'gold'?'gold-mode':'blue-mode');
-    modeLabel.textContent = mode==='orbital'?'True Orbital (Eq 3.6)':'Velocity-Only (Eq 2.9)';
+    modeLabel.textContent = mode==='orbital'?'Full Circular-Orbit (Eq 3.6)':'Velocity-Only (Eq 2.9)';
     modeLabel.className = col;
   }
 
   function draw() {
-    const r = +radiusSlider.value;
-    const orbitR = 20 + (r-10)*1.3; // pixel radius
-    const f = getDilationFactor(r);
+    const rho = +radiusSlider.value;
+    const orbitR = 25 + (rho-4)*3.4; // pixel radius, visualization only
+    const f = getDilationFactor(rho);
     const colHex = mode==='orbital'?pc('#d4af37','#8b6914'):pc('#5bc8f5','#176e94');
 
     ctx.clearRect(0,0,W,H);
@@ -456,14 +453,14 @@ language. Section 2 shows why it must be exactly three. Effect exaggerated ~10�
 
     // labels
     ctx.fillStyle=pc('#e0e0e0','#26211a');ctx.font='12px Georgia';ctx.textAlign='left';
-    ctx.fillText('r = '+(r*100).toLocaleString()+' km',8,20);
+    ctx.fillText('ρ = '+rho.toFixed(1),8,20);
     ctx.fillStyle=colHex;
     ctx.fillText('f = '+f.toFixed(4),8,36);
   }
 
   toggleBtn.addEventListener('click',()=>{
     mode = mode==='orbital'?'velocity':'orbital';
-    toggleBtn.textContent = mode==='orbital'?'Switch to Velocity-Only (Eq 2.9)':'Switch to True Orbital (Eq 3.6)';
+    toggleBtn.textContent = mode==='orbital'?'Switch to Velocity-Only (Eq 2.9)':'Switch to Full Circular-Orbit (Eq 3.6)';
     toggleBtn.className = 'toggle-btn '+(mode==='orbital'?'orbital':'velocity');
     updateUI();
   });
@@ -483,8 +480,8 @@ language. Section 2 shows why it must be exactly three. Effect exaggerated ~10�
     if(lastTs!==null){
       const dt = (ts-lastTs)/1000 * speed;
       dstTime += dt;
-      const r = +radiusSlider.value;
-      const orbitR = 20 + (r-10)*1.3;
+      const rho = +radiusSlider.value;
+      const orbitR = 25 + (rho-4)*3.4;
       // angular speed: faster when closer
       const omega = 80 / (orbitR * Math.sqrt(orbitR)) * speed;
       angle += omega * (ts-lastTs)/1000;
@@ -502,13 +499,13 @@ language. Section 2 shows why it must be exactly three. Effect exaggerated ~10�
 </section>
 
 <h2 class="sect" id="geodesic">2 · Why three: the natural-path condition — Eq 3.5, a = 2</h2>
-<p class="lead">The paper fixes its constant $a$ by requiring the circular orbit to be the natural (force-free) path.
-Slide $a$ off 2 and watch the books refuse to close — the required speed and the actual orbital speed disagree, and
-the orbit destabilizes. At $a=2$: total coefficient $1+a=3$ — one part relative rate, two parts closed-path geometry,
-the same $(v/c)^2$ anholonomy that gives Thomas's cap and the geodetic precession in the fixed ratio $1:3:6$.</p>
+<p class="lead">The paper fixes its constant $a$ by matching its natural-path speed relation to its circular-orbit
+speed relation. Slide $a$ off 2 and the two stated equations no longer agree. At $a=2$, the adopted coefficient
+$1+a$ is 3: one part relative rate and two parts assigned by the paper to closed-path geometry. This panel checks
+that algebra; it does not independently derive Eq 3.5 or simulate off-match dynamics.</p>
 <section class="demo" id="geodesic-sec">
 <div class="explanation">
-In the source paper the constant <em>a</em> is fixed by requiring that circular orbits be “geodesics” — the extant record's stage language. Read natively: the circular orbit <em>is</em> the force-free path (a free body rides its natural orbit weightless — the straight line through a void was never the natural motion), and carrying the time-cone around that closed path adds the path's own turning to the velocity term. This is the same one \((v/c)^2\) anholonomy that gives the Thomas cap, the geodetic precession, and the perihelion advance in the fixed ratio \(1:3:6\) (\(\pi : 3\pi : 6\pi\)). Only <strong>a&nbsp;=&nbsp;2</strong> closes those books — the total \(1+a=3\) reads one part relative rate, two parts closed-path geometry — the same number General Relativity reaches through curved-spacetime language.
+In the source paper the constant <em>a</em> is fixed by requiring that circular orbits be “geodesics” — the source's stage language. Read natively: the circular orbit <em>is</em> the force-free path, and carrying the time-cone around that closed path adds the path's own turning to the velocity term. The paper further places the Thomas, geodetic, and perihelion terms in the ratio \(1:3:6\) (\(\pi : 3\pi : 6\pi\)); that broader relation is a source-paper claim, not a result derived by this matching panel. Given Eqs 3.5 and 2.8, equality requires <strong>a&nbsp;=&nbsp;2</strong>, and the adopted total \(1+a=3\).
 </div>
 
 <div class="controls">
@@ -527,7 +524,7 @@ In the source paper the constant <em>a</em> is fixed by requiring that circular 
 <div class="match-label" id="geodesic-matchLabel"></div>
 </div>
 <div class="panel">
-<h2>Orbit Simulation</h2>
+<h2>Matching Schematic</h2>
 <canvas id="geodesic-orbitCanvas" width="280" height="280"></canvas>
 </div>
 </div>
@@ -546,7 +543,7 @@ In the source paper the constant <em>a</em> is fixed by requiring that circular 
 <div id="geodesic-eqTD">$$\tau = \sqrt{1 - \frac{(1+a)\,GM}{rc^2}}\;\cdot\; t$$</div>
 </div>
 <div class="eq-row">
-<div class="eq-label" id="geodesic-eq36label" style="color:#d4af37">At \(a=2\): Eq 3.6 — matches GR</div>
+<div class="eq-label" id="geodesic-eq36label" style="color:#d4af37">At \(a=2\): the paper's Eq 3.6</div>
 <div id="geodesic-eq36">$$\tau = \sqrt{1 - \frac{3\,GM}{rc^2}}\;\cdot\; t$$</div>
 </div>
 </div>
@@ -564,7 +561,7 @@ const orbitCanvas = document.getElementById('geodesic-orbitCanvas');
 const bctx = barCanvas.getContext('2d');
 const octx = orbitCanvas.getContext('2d');
 
-let a = 2, angle = 0, radius = 0, radVel = 0;
+let a = 2, angle = 0, radius = 0;
 let animId;
 
 function getA(){ return parseFloat(slider.value); }
@@ -613,12 +610,12 @@ function drawBars(a){
   bctx.fillText('v² / (GM/r)', w/2, 14);
 
   matchLabel.style.color = isMatch ? pc('#d4af37','#8b6914') : pc('#e74c3c','#b03030');
-  matchLabel.textContent = isMatch ? '✓ Perfect match — geodesic condition satisfied' : '✗ Mismatch — orbit is NOT a geodesic';
+  matchLabel.textContent = isMatch ? '✓ Adopted speed relations match' : '✗ Adopted speed relations differ';
 }
 
 // Orbit animation
 const cx=140, cy=140, baseR=80;
-function resetOrbit(){ radius=baseR; radVel=0; angle=0; }
+function resetOrbit(){ radius=baseR; angle=0; }
 
 function drawOrbit(a){
   const w=orbitCanvas.width, h=orbitCanvas.height;
@@ -633,18 +630,7 @@ function drawOrbit(a){
   const speed = 0.03;
   angle += speed;
 
-  if(isMatch){
-    radius = baseR;
-    radVel = 0;
-  } else {
-    // drift: if a<2 geodesic wants slower orbit → particle spirals in; a>2 spirals out
-    const drift = (a - 2) * 0.15;
-    radVel += drift * 0.01;
-    radVel *= 0.999;
-    radius += radVel;
-    if(radius < 20){ radius=baseR; radVel=0; }
-    if(radius > 130){ radius=baseR; radVel=0; }
-  }
+  radius = baseR;
 
   const px = cx + radius * Math.cos(angle);
   const py = cy + radius * Math.sin(angle);
@@ -660,7 +646,7 @@ function drawOrbit(a){
 
   // status
   octx.fillStyle=isMatch?pc('#d4af37','#8b6914'):pc('#e74c3c','#b03030'); octx.font='bold 12px Georgia'; octx.textAlign='center';
-  octx.fillText(isMatch?'Stable geodesic':'Unstable — not a geodesic', cx, h-10);
+  octx.fillText(isMatch?'equations match at a = 2':'equations do not match', cx, h-10);
 }
 
 function tick(){
@@ -707,9 +693,9 @@ tick();
 </section>
 
 <h2 class="sect" id="ellipse">3 · The general ellipse — Eq 2.12</h2>
-<p class="lead">Real orbits are ellipses, so the dilation is not one number but a rhythm: deepest at periapsis (fast
-and low), lightest at apoapsis (slow and high). The proper-time integral runs continuously along the path — the trail
-is colored by the local clock rate. Exaggerated central mass, as labeled.</p>
+<p class="lead">For an elliptical model orbit, the displayed rate varies along the path: lowest at periapsis and
+highest at apoapsis. The semi-major axis now changes the stated model physics at fixed $GM/c^2$, while a separate
+playback control changes only animation speed. The trail is colored by the computed local rate.</p>
 <section class="demo" id="ellipse-sec">
 <div class="container">
   <div class="canvas-wrap">
@@ -720,9 +706,9 @@ is colored by the local clock rate. Exaggerated central mass, as labeled.</p>
       <h3>Controls</h3>
       <label>Eccentricity: <span id="ellipse-eVal">0.60</span></label>
       <input type="range" id="ellipse-eSlider" min="0" max="90" value="60">
-      <label>Semi-major axis: <span id="ellipse-aVal">1.00</span></label>
-      <input type="range" id="ellipse-aSlider" min="20" max="100" value="50">
-      <label>Speed: <span id="ellipse-sVal">1.0×</span></label>
+      <label>Semi-major axis $a$ (model units): <span id="ellipse-aVal">1.00</span></label>
+      <input type="range" id="ellipse-aSlider" min="50" max="200" value="100" step="5">
+      <label>Playback: <span id="ellipse-sVal">1.0×</span></label>
       <input type="range" id="ellipse-sSlider" min="1" max="50" value="10">
       <div class="btn-row">
         <button class="btn active" id="ellipse-playBtn">▶ Play</button>
@@ -755,8 +741,8 @@ is colored by the local clock rate. Exaggerated central mass, as labeled.</p>
 </div>
 
 <div class="explanation">
-  <p><em>$$\tau = \int \sqrt{1 - \frac{2GM}{rc^2} - \frac{v^2}{c^2}}\; dt$$</em></p>
-  <p style="margin-top:10px">In an elliptical orbit, time dilation varies continuously. The proper time integral (2.12) captures this — clocks tick slowest at periapsis (closest approach) and fastest at apoapsis (farthest point). This is a direct consequence of the combined gravitational and kinematic time dilation described in POAMS. The vis-viva equation $v^2 = GM\!\left(\frac{2}{r}-\frac{1}{a}\right)$ determines the speed at each point, while Kepler's second law ensures the orbiter sweeps equal areas in equal times, moving fastest at periapsis and slowest at apoapsis.</p>
+  <p><em>$$\tau = \int \sqrt{1 - \frac{2GM}{rc^2} - \frac{K}{c^2}}\; dt \tag{2.12}$$</em></p>
+  <p style="margin-top:10px">The panel evaluates the source paper's Eq 2.12 together with $K=-GM/a$, $v^2=GM\!\left(\frac{2}{r}-\frac{1}{a}\right)$, and Kepler's area law in a dimensionless model with fixed $GM/c^2=0.002$. Thus the radicand is $1-2GM/(rc^2)+GM/(ac^2)=1-v^2/c^2$. Its entire control range keeps the printed square root real. These are computations from the displayed premises, not independent evidence for them.</p>
 </div>
 
 <script>
@@ -766,21 +752,21 @@ const cv = document.getElementById('ellipse-cv');
 const ctx = cv.getContext('2d');
 
 // --- state ---
-let e = 0.6, aFrac = 0.5, speedMul = 1.0, playing = true;
+let e = 0.6, aModel = 1.0, playback = 1.0, playing = true;
 let coordTime = 0, properTime = 0, meanAnomaly = 0;
-let orbitProperTime = 0, orbitCoordTime = 0; // accumulators for per-orbit delta
 let lastOrbitDelta = 0;
 
-// Physics scaling: GM/c² expressed as fraction of semi-major axis
-// We want visible dilation, so set rs = 2GM/c² = schwRatio * a
-const schwRatio = 0.15; // Schwarzschild radius as fraction of a — exaggerated for visibility
+// Fixed model scale in the same abstract length units as a and r.
+const mu = 0.002; // GM/c²
+
+function resetEllipse(){ coordTime=0;properTime=0;meanAnomaly=0;lastOrbitDelta=0; }
 
 // --- sliders ---
-document.getElementById('ellipse-eSlider').oninput = function(){ e = this.value/100; document.getElementById('ellipse-eVal').textContent = e.toFixed(2); };
-document.getElementById('ellipse-aSlider').oninput = function(){ aFrac = this.value/100; document.getElementById('ellipse-aVal').textContent = (aFrac*2).toFixed(2); };
-document.getElementById('ellipse-sSlider').oninput = function(){ speedMul = this.value/10; document.getElementById('ellipse-sVal').textContent = speedMul.toFixed(1)+'×'; };
+document.getElementById('ellipse-eSlider').oninput = function(){ e = this.value/100; document.getElementById('ellipse-eVal').textContent = e.toFixed(2); resetEllipse(); };
+document.getElementById('ellipse-aSlider').oninput = function(){ aModel = this.value/100; document.getElementById('ellipse-aVal').textContent = aModel.toFixed(2); resetEllipse(); };
+document.getElementById('ellipse-sSlider').oninput = function(){ playback = this.value/10; document.getElementById('ellipse-sVal').textContent = playback.toFixed(1)+'×'; };
 document.getElementById('ellipse-playBtn').onclick = function(){ playing=!playing; this.textContent=playing?'⏸ Pause':'▶ Play'; this.classList.toggle('active',playing); };
-document.getElementById('ellipse-resetBtn').onclick = function(){ coordTime=0;properTime=0;meanAnomaly=0;orbitProperTime=0;orbitCoordTime=0;lastOrbitDelta=0; };
+document.getElementById('ellipse-resetBtn').onclick = resetEllipse;
 
 // --- legend gradient ---
 (function(){
@@ -824,12 +810,20 @@ function dilationColor(factor, minF, maxF) {
 
 function computeDilationFactor(a, ecc, theta) {
   const r = rFromTheta(a, ecc, theta);
-  const rs = schwRatio * a; // Schwarzschild radius
-  // v²/c² from vis-viva scaled: v²/c² = (rs/2)*(2/r - 1/a)  ... since GM/c² = rs/2
-  const v2c2 = (rs / 2) * (2/r - 1/a);
-  const grav = rs / r;
-  const val = 1 - grav - v2c2;
-  return val > 0 ? Math.sqrt(val) : 0.001;
+  const val = 1 - 2*mu/r + mu/a; // Eq 2.12 with K/c² = -mu/a
+  return val > 0 ? Math.sqrt(val) : NaN;
+}
+
+function computeOrbitDelta(a, ecc, samples=1440) {
+  const n = Math.sqrt(mu / Math.pow(a, 3));
+  const dM = 2*Math.PI/samples;
+  let proper = 0;
+  for (let i=0; i<samples; i++) {
+    const E = solveKepler((i+0.5)*dM, ecc);
+    const theta = trueAnomalyFromE(E, ecc);
+    proper += computeDilationFactor(a, ecc, theta) * dM/n;
+  }
+  return 2*Math.PI/n - proper;
 }
 
 // Precompute min/max dilation for current params
@@ -863,41 +857,27 @@ function frame(ts) {
   const W = cv.getBoundingClientRect().width;
   const H = W;
   const cx = W / 2, cy = H / 2;
-  const a = (0.15 + aFrac * 0.25) * W; // semi-major in pixels
-  const b = a * Math.sqrt(1 - e * e);
-  // focus offset from center of ellipse
-  const foc = a * e;
+  const drawA = (0.16 + ((aModel - 0.5) / 1.5) * 0.20) * W;
 
-  // Orbital period (arbitrary units, scale for nice animation)
-  // T = 2π * sqrt(a³/GM). We set GM so period is reasonable.
-  // With our scaling GM/c²=schwRatio*a/2, GM = schwRatio*a*c²/2
-  // Use abstract time unit where T = 2π / n, n = mean motion
-  // Just pick n so orbit takes ~4 seconds at speed=1
-  const n = 0.4 * speedMul; // mean motion (rad/s of coordinate time)
+  // Model mean motion obeys n² a³ = GM. A display factor advances model time; playback
+  // changes wall-clock speed only and therefore cannot change the per-orbit result.
+  const n = Math.sqrt(mu / Math.pow(aModel, 3));
+  const modelDt = dt * 20 * playback;
 
   if (playing) {
-    const dM = n * dt;
+    const dM = n * modelDt;
     meanAnomaly += dM;
-
-    // Track orbit completion for delta
-    orbitCoordTime += dt * speedMul;
 
     const E = solveKepler(meanAnomaly, e);
     const theta = trueAnomalyFromE(E, e);
-    const factor = computeDilationFactor(1, e, theta); // a=1 normalized
+    const factor = computeDilationFactor(aModel, e, theta);
 
-    const dTau = factor * (dM / n); // proper time increment = factor * dt
+    const dTau = factor * modelDt;
     properTime += dTau;
-    coordTime += dM / n;
-    orbitProperTime += dTau;
-
+    coordTime += modelDt;
     // Check orbit completion
     if (meanAnomaly >= 2 * Math.PI) {
-      lastOrbitDelta = orbitCoordTime / speedMul - orbitProperTime * (1/n) ;
-      // Simpler: track in mean anomaly units
-      lastOrbitDelta = (2*Math.PI/n) - orbitProperTime;
-      orbitProperTime = 0;
-      orbitCoordTime = 0;
+      lastOrbitDelta = computeOrbitDelta(aModel, e);
       meanAnomaly -= 2 * Math.PI;
     }
   }
@@ -906,7 +886,7 @@ function frame(ts) {
   ctx.clearRect(0, 0, W, H);
 
   // Compute dilation range
-  const range = dilationRange(1, e);
+  const range = dilationRange(aModel, e);
 
   // Draw orbit trail with color gradient
   const segments = 200;
@@ -918,14 +898,14 @@ function frame(ts) {
     // Ellipse parametric: x = a*cos(E), y = b*sin(E), shifted so focus at center
     // But we want true anomaly-based coloring. Convert E to theta for color.
     // Actually let's just parameterize by true anomaly for simplicity.
-    const r0 = rFromTheta(a, e, t0);
-    const r1 = rFromTheta(a, e, t1);
+    const r0 = rFromTheta(drawA, e, t0);
+    const r1 = rFromTheta(drawA, e, t1);
     const x0 = cx + r0 * Math.cos(t0);
     const y0 = cy - r0 * Math.sin(t0);
     const x1 = cx + r1 * Math.cos(t1);
     const y1 = cy - r1 * Math.sin(t1);
 
-    const f = computeDilationFactor(1, e, tMid);
+    const f = computeDilationFactor(aModel, e, tMid);
     ctx.strokeStyle = dilationColor(f, range.min, range.max);
     ctx.lineWidth = 2.5;
     ctx.beginPath();
@@ -948,11 +928,11 @@ function frame(ts) {
   // Orbiting particle
   const E_now = solveKepler(meanAnomaly, e);
   const theta_now = trueAnomalyFromE(E_now, e);
-  const r_now = rFromTheta(a, e, theta_now);
+  const r_now = rFromTheta(drawA, e, theta_now);
   const px = cx + r_now * Math.cos(theta_now);
   const py = cy - r_now * Math.sin(theta_now);
 
-  const fNow = computeDilationFactor(1, e, theta_now);
+  const fNow = computeDilationFactor(aModel, e, theta_now);
   const col = dilationColor(fNow, range.min, range.max);
 
   // Glow
@@ -968,16 +948,16 @@ function frame(ts) {
   // Periapsis / Apoapsis labels
   ctx.font = '11px Georgia';
   ctx.fillStyle = '#ff664488';
-  const rPeri = rFromTheta(a, e, 0);
+  const rPeri = rFromTheta(drawA, e, 0);
   ctx.fillText('P', cx + rPeri + 8, cy + 4);
   ctx.fillStyle = '#4488ff88';
-  const rApo = rFromTheta(a, e, Math.PI);
+  const rApo = rFromTheta(drawA, e, Math.PI);
   ctx.fillText('A', cx - rApo - 16, cy + 4);
 
   // --- update readouts ---
-  const r_norm = rFromTheta(1, e, theta_now);
-  const rs = schwRatio;
-  const v2c2 = (rs/2) * (2/r_norm - 1);
+  const rModel = rFromTheta(aModel, e, theta_now);
+  const r_norm = rModel / aModel;
+  const v2c2 = mu * (2/rModel - 1/aModel);
   const vc = Math.sqrt(Math.max(0, v2c2));
 
   document.getElementById('ellipse-clockDST').textContent = coordTime.toFixed(3);
@@ -997,11 +977,10 @@ requestAnimationFrame(frame);
 </section>
 
 <h2 class="sect" id="precession">4 · The advance of the orbit — Eq 4.6 and Mercury's 43″</h2>
-<p class="lead">Carry the varying clock rate into the orbit equation and a cubic term $2\mathcal{M}u^3$ appears — too
-small to change the ellipse's shape, large enough that the ellipse never quite closes: the axis advances. For Mercury
-that advance is the famous <span class="tag prov">measured</span> 43″ per century, the number that made Einstein's
-name — here read from the time book, no field equations consulted. Strength slider exaggerates the term for
-visibility.</p>
+<p class="lead">In the source paper, carrying the varying clock rate into the orbit equation supplies a cubic
+term $2\mathcal{M}u^3$ and a bound model orbit advances. The panel separately computes the source equation's
+first-order Mercury value from stated inputs and uses a much larger dimensionless $\epsilon$ only to make the
+advance visible. The animation is an equation visualizer, not a measurement.</p>
 <section class="demo" id="precession-sec">
 <div class="container">
 <div class="canvas-wrap">
@@ -1018,7 +997,7 @@ $$\left(\frac{du}{d\theta}\right)^{\!2} + u^2 = K^* + \frac{2\mathcal{M}c^2}{\be
 
 <div class="card">
 <h3>Controls</h3>
-<label>Precession strength <span class="val" id="precession-pVal">1.00×</span></label>
+<label>Illustrative $\epsilon$ <span class="val" id="precession-pVal">0.0100</span></label>
 <input type="range" id="precession-pSlider" min="0" max="200" value="20" step="1">
 <label>Eccentricity <span class="val" id="precession-eVal">0.206</span></label>
 <input type="range" id="precession-eSlider" min="5" max="80" value="21" step="1">
@@ -1033,8 +1012,9 @@ $$\left(\frac{du}{d\theta}\right)^{\!2} + u^2 = K^* + \frac{2\mathcal{M}c^2}{\be
 <div class="card">
 <h3>Statistics</h3>
 <div class="stats">
-Precession per orbit: <span id="precession-precVal">—</span><br>
-Mercury (observed): <span>43.1″/century ≈ 0.104″/orbit</span><br>
+Illustrative precession per orbit: <span id="precession-precVal">—</span><br>
+Mercury record: <span>43.1″/century</span><br>
+Source-equation check: <span id="precession-mercuryCalc">—</span><br>
 Orbits completed: <span id="precession-orbCount">0</span><br>
 Current angle: <span id="precession-curAngle">0°</span>
 </div>
@@ -1043,9 +1023,9 @@ Current angle: <span id="precession-curAngle">0°</span>
 <div class="card">
 <h3>About This Exhibit</h3>
 <div class="explain">
-<strong>POAMS</strong> (the Pope–Osborne Angular Momentum Synthesis) derives perihelion precession from orbital time dilation — without invoking Einstein's field equations or curved spacetime geometry.<br><br>
-The key insight: a gravitational potential alters the rate of local clocks, modifying the effective orbital equation. The resulting <span style="color:#d4af37">$2\mathcal{M}u^3$</span> correction term is identical in form to the GR prediction, producing the same 43 arcseconds/century for Mercury.<br><br>
-Move the <strong>precession slider</strong> to zero to see a closed Newtonian ellipse, then increase it to watch the perihelion advance — the hallmark signature that confirmed general relativity, here derived from first principles in POAMS.
+<strong>POAMS</strong> (the Pope–Osborne Angular Momentum Synthesis) reads the source paper's cubic term as a consequence of orbital time bookkeeping.<br><br>
+This page starts from the printed first integral, differentiates it to obtain $u''+u=\mathcal{M}c^2/\beta^2+3\mathcal{M}u^2$, and integrates the normalized form. It does not re-derive the first integral in this panel.<br><br>
+Move illustrative $\epsilon$ to zero for the closed baseline and increase it to inspect the equation's advancing axis. The Mercury line is computed separately at physical scale; $\epsilon=0.0100$ is roughly $3.8\times10^5$ times larger and is used only for visibility.
 </div>
 </div>
 </div>
@@ -1079,10 +1059,18 @@ let measuredPrec = 0;
 
 function getParams() {
   const ecc = eSlider.value / 100;
-  const precStrength = pSlider.value / 20; // 0 to 10
+  const epsilon = pSlider.value / 2000; // 0 to 0.1, illustrative
   const speed = sSlider.value / 10;
-  return { ecc, precStrength, speed };
+  return { ecc, epsilon, speed };
 }
+
+const Gp = 6.67430e-11, M_sun = 1.98847e30, cp = 299792458;
+const mercuryA = 57.90905e9, mercuryE = 0.205630, mercuryPeriodDays = 87.9691;
+const mercuryEpsilon = Gp*M_sun/(mercuryA*(1-mercuryE*mercuryE)*cp*cp);
+const mercuryArcsecOrbit = 6*Math.PI*mercuryEpsilon*206264.80624709636;
+const mercuryArcsecCentury = mercuryArcsecOrbit*(36525/mercuryPeriodDays);
+document.getElementById('precession-mercuryCalc').textContent =
+  mercuryArcsecOrbit.toFixed(4)+'″/orbit · '+mercuryArcsecCentury.toFixed(2)+'″/century';
 
 function initOrbit() {
   const { ecc } = getParams();
@@ -1100,12 +1088,9 @@ function initOrbit() {
 }
 
 function step(dtheta) {
-  const { ecc, precStrength } = getParams();
-  // d²u/dθ² = -u + 1 + precStrength * 3 * u²
-  // The "1" comes from GM/L² in normalized units where p=1
-  // precStrength scales the relativistic term
-  // For Mercury, the 3Mu² term is tiny; we exaggerate for visibility
-  const epsilon = precStrength * 0.01; // scale factor
+  const { epsilon } = getParams();
+  // d²u/dθ² = -u + 1 + 3 epsilon u² in normalized units.
+  // Mercury's epsilon is computed separately; the control is deliberately magnified.
 
   // RK4 integration
   const f = (u_val, du_val) => -u_val + 1 + epsilon * 3 * u_val * u_val;
@@ -1251,8 +1236,8 @@ function draw() {
 }
 
 pSlider.addEventListener('input', () => {
-  const v = pSlider.value / 20;
-  pVal.textContent = v.toFixed(2) + '×';
+  const v = pSlider.value / 2000;
+  pVal.textContent = v.toFixed(4);
   initOrbit();
 });
 eSlider.addEventListener('input', () => {
@@ -1273,7 +1258,7 @@ window.addEventListener('resize', resize);
 resize();
 initOrbit();
 // Set initial display values
-pVal.textContent = (pSlider.value/20).toFixed(2) + '×';
+pVal.textContent = (pSlider.value/2000).toFixed(4);
 eVal.textContent = (eSlider.value/100).toFixed(3);
 sVal.textContent = (sSlider.value/10).toFixed(1) + '×';
 window.__poamsRedraws.push(draw);
@@ -1284,11 +1269,10 @@ requestAnimationFrame(update);
 
 </section>
 
-<h2 class="sect" id="gps">5 · The receipt: GPS — the constellation pays Eq 3.6 daily</h2>
-<p class="lead"><span class="tag prov">measured/standard values</span> Every satellite clock is corrected by exactly
-the bookkeeping above — ~38 μs/day net, or the fix drifts by kilometers per day. The corrections are not a theory's
-courtesy; they are an operating cost, paid since 1978. (The altitude book and the speed book run in opposite
-directions — the full constraint-ledger reading of <em>why</em> lives in the Navigation Engine.)</p>
+<h2 class="sect" id="gps">5 · The receipt: a simplified GPS clock budget</h2>
+<p class="lead"><span class="tag prov">standard inputs · computed outputs</span> Using the stated spherical-Earth
+constants, the leading clock budget is +45.72 μs/day from altitude and −7.21 μs/day from orbital motion, for
++38.51 μs/day net. This panel is a simplified calculation, not the full operational GPS correction model.</p>
 <section class="demo" id="gps-sec">
 <div class="container">
 <div class="row">
@@ -1298,13 +1282,13 @@ directions — the full constraint-ledger reading of <em>why</em> lives in the N
 <div class="panel" style="flex:1.2">
 <h2>Explanation</h2>
 <div class="explain">
-<p>GPS satellites must correct for time dilation effects. <em>POAMS predicts the same corrections as General Relativity</em> — derived purely from conservation of angular momentum and the time dilation formula, without Einstein's field equations.</p>
+<p>GPS operation requires clock-rate correction. This panel evaluates the paper's circular-orbit rate and a stationary ground reference using the constants printed in the code. POAMS supplies the page's ledger interpretation; the numerical comparison by itself does not choose an ontology.</p>
 <div class="eq" id="gps-eq-render">
 Eq 2.9 (velocity only): &nbsp; $\tau = \sqrt{1 - \frac{GM}{rc^2}}\; t$<br><br>
 Eq 3.6 (full orbital): &nbsp; $\tau = \sqrt{1 - \frac{3GM}{rc^2}}\; t$
 </div>
-<p style="margin-top:8px">The factor of 3 in Eq 3.6 arises because orbital motion contributes <em>both</em> kinetic and gravitational time dilation — linked through angular momentum conservation. For a circular orbit, $v^2 = GM/r$, so the velocity term adds another $GM/rc^2$ on top of the gravitational $2GM/rc^2$.</p>
-<p style="margin-top:8px">For GPS at 26,571 km, the satellite clock runs ~38 μs/day <em>fast</em> relative to ground. Without correction, positioning errors grow by ~11.4 km/day.</p>
+<p style="margin-top:8px">Given the page's adopted circular relation $v^2=GM/r$, the motion debit contributes one $GM/rc^2$ term while the altitude comparison contributes the other two. The component ledger is computed independently below and asserted to close to the net.</p>
+<p style="margin-top:8px">At the stated 26,571 km orbital radius, this simplified calculation gives +38.51 μs/day relative to the stated ground clock, corresponding to 11.55 km of light-travel distance per day if left unbudgeted.</p>
 </div>
 </div>
 </div>
@@ -1316,9 +1300,9 @@ Eq 3.6 (full orbital): &nbsp; $\tau = \sqrt{1 - \frac{3GM}{rc^2}}\; t$
 <div class="drift">Reference (Earth surface, r = 6,371 km)</div>
 </div>
 <div class="clock-card velocity">
-<h3>🛰️ Satellite — Velocity Only</h3>
-<div class="clock-time" id="gps-clk-vel">00:00:00.000000</div>
-<div class="drift">Drift: <span id="gps-drift-vel">0.000</span> μs</div>
+<h3>🛰️ Satellite — Altitude Only</h3>
+<div class="clock-time" id="gps-clk-grav">00:00:00.000000</div>
+<div class="drift">Drift: <span id="gps-drift-grav">0.000</span> μs</div>
 </div>
 <div class="clock-card full">
 <h3>🛰️ Satellite — Full Orbital</h3>
@@ -1361,7 +1345,7 @@ Eq 3.6 (full orbital): &nbsp; $\tau = \sqrt{1 - \frac{3GM}{rc^2}}\; t$
 (function(){
 
 // Physics constants
-const G = 6.674e-11;
+const G = 6.67430e-11;
 const M = 5.972e24;
 const c = 299792458;
 const c2 = c * c;
@@ -1374,33 +1358,25 @@ const DAY = 86400;              // seconds
 // τ_ground/t = sqrt(1 - 2GM/(r_earth * c²))
 const rate_ground = Math.sqrt(1 - 2*G*M/(R_earth*c2));
 
-// Satellite velocity-only (Eq 2.9): sqrt(1 - GM/(r*c²))
-// But we compare to ground, so relative rate = rate_sat / rate_ground
-const rate_sat_vel = Math.sqrt(1 - G*M/(R_gps*c2));
-
-// Satellite full orbital (Eq 3.6): sqrt(1 - 3GM/(r*c²))
+// Altitude-only satellite baseline and full circular-orbit rate.
+const rate_sat_grav_only = Math.sqrt(1 - 2*G*M/(R_gps*c2));
 const rate_sat_full = Math.sqrt(1 - 3*G*M/(R_gps*c2));
 
-// Drift rates relative to ground (positive = satellite faster)
-const drift_vel = rate_sat_vel - rate_ground;    // satellite vs ground
+// Component ledger relative to the stated ground clock.
+const drift_grav = rate_sat_grav_only - rate_ground;
+const drift_kinematic = rate_sat_full - rate_sat_grav_only;
 const drift_full = rate_sat_full - rate_ground;
-
-// Per day in microseconds
-const drift_vel_us_day = drift_vel * DAY * 1e6;
+const drift_grav_us_day = drift_grav * DAY * 1e6;
+const drift_kinematic_us_day = drift_kinematic * DAY * 1e6;
 const drift_full_us_day = drift_full * DAY * 1e6;
+const closure_us_day = drift_grav_us_day + drift_kinematic_us_day - drift_full_us_day;
+if (Math.abs(closure_us_day) > 1e-6) throw new Error('GPS component ledger failed to close');
 
-// Update static stats
-document.getElementById('gps-s-vel-day').textContent = (drift_vel_us_day > 0 ? '+' : '') + drift_vel_us_day.toFixed(1) + ' μs';
-document.getElementById('gps-s-grav-day').textContent = 'see net';
-document.getElementById('gps-s-net-day').textContent = (drift_full_us_day > 0 ? '+' : '') + drift_full_us_day.toFixed(1) + ' μs';
-document.getElementById('gps-s-km-day').textContent = (Math.abs(drift_full_us_day) * 0.3).toFixed(1) + ' km';
-
-// Compute gravitational-only component for display
-const rate_sat_grav_only = Math.sqrt(1 - 2*G*M/(R_gps*c2));
-const drift_grav_only = rate_sat_grav_only - rate_ground;
-const drift_grav_us_day = drift_grav_only * DAY * 1e6;
-document.getElementById('gps-s-grav-day').textContent = (drift_grav_us_day > 0 ? '+' : '') + drift_grav_us_day.toFixed(1) + ' μs';
-document.getElementById('gps-s-vel-day').textContent = (drift_vel_us_day - drift_grav_us_day > 0 ? '+' : '') + (drift_vel_us_day - drift_grav_us_day).toFixed(1) + ' μs';
+function signed(value, digits=2){ return (value >= 0 ? '+' : '') + value.toFixed(digits); }
+document.getElementById('gps-s-vel-day').textContent = signed(drift_kinematic_us_day) + ' μs';
+document.getElementById('gps-s-grav-day').textContent = signed(drift_grav_us_day) + ' μs';
+document.getElementById('gps-s-net-day').textContent = signed(drift_full_us_day) + ' μs';
+document.getElementById('gps-s-km-day').textContent = (Math.abs(drift_full_us_day) * 1e-6 * c / 1000).toFixed(2) + ' km';
 
 // Simulation state
 let simTime = 0; // seconds of simulated time elapsed
@@ -1450,11 +1426,11 @@ function updateDisplay() {
     // Ground clock shows simTime as reference
     document.getElementById('gps-clk-ground').textContent = formatTime(simTime % DAY);
 
-    // Velocity-only drift
-    const driftVelUs = drift_vel * simTime * 1e6;
-    const satVelTime = simTime + driftVelUs * 1e-6;
-    document.getElementById('gps-clk-vel').textContent = formatTime(satVelTime % DAY);
-    document.getElementById('gps-drift-vel').textContent = driftVelUs.toFixed(3);
+    // Altitude-only baseline relative to ground
+    const driftGravUs = drift_grav * simTime * 1e6;
+    const satGravTime = simTime + driftGravUs * 1e-6;
+    document.getElementById('gps-clk-grav').textContent = formatTime(satGravTime % DAY);
+    document.getElementById('gps-drift-grav').textContent = driftGravUs.toFixed(3);
 
     // Full orbital drift
     const driftFullUs = drift_full * simTime * 1e6;
@@ -1564,20 +1540,28 @@ requestAnimationFrame(frame);
 
 </section>
 
+<h2 class="sect">Sources</h2>
+<div class="card">
+<ul style="margin:4px 0 4px 1.2em;line-height:1.65">
+<li><a href="https://cfmilam.github.io/nr-poams-papers/orbital-time-dilation-osborne.html">Anthony D. Osborne &amp; N. Vivian Pope, “Orbital Time Dilation”</a> — source equations and POAMS interpretation worked by this exhibit.</li>
+<li><a href="https://doi.org/10.12942/lrr-2003-1">Neil Ashby, “Relativity in the Global Positioning System”</a> — GPS clock-budget context and standard leading values.</li>
+<li><a href="https://www.navcen.uscg.gov/gps-technical-references">U.S. Navigation Center, GPS Technical References</a> — operational specifications and standards library.</li>
+</ul>
+</div>
+
 <h2 class="sect">Scope &amp; status</h2>
 <div class="card red">
 <p style="margin:4px 0 10px;"><b>What this page is:</b> the five formerly-separate orbital-clock exhibits of this
-series (Circular Orbit Clocks, the a = 2 Geodesic Proof, Elliptical Dilation, Perihelion Precession, GPS Clocks),
-consolidated 2026-08-14 into the one paper they were always windows onto — Osborne &amp; Pope, <em>"Orbital Time
-Dilation."</em> Each demo is carried over intact; the old URLs redirect to their sections here.</p>
-<p style="margin:0 0 10px;"><b>Imports, named:</b> <span class="tag prov">measured</span> Mercury's 43.1″/century;
-GPS constellation radii, drift rates (+45.6 μs/day gravitational, −7.1 μs/day velocity, ~38.5 μs/day net) and the
-~11 km/day uncorrected position error; $G$, $M_\oplus$, $c$. Demo exaggeration factors are declared on their
-panels (visibility scaling only — the arithmetic underneath is the paper's).</p>
+series, consolidated 2026-08-14 into one worked reading of Osborne &amp; Pope's <em>"Orbital Time Dilation."</em>
+The panels now distinguish source premises, algebraic consequences, numerical integrations, illustrative scaling,
+and imported operational records. The old URLs redirect to their sections here.</p>
+<p style="margin:0 0 10px;"><b>Imports, named:</b> <span class="tag prov">record/source inputs</span> Mercury's
+43.1″/century record; GPS orbital/ground radii; $G$, $M_\oplus$, $M_\odot$, $c$, Mercury's semimajor axis,
+eccentricity, and period. The Mercury and GPS outputs shown here are computed from those inputs. Illustrative
+parameters are labeled and are never presented as physical normalizations.</p>
 <p style="margin:0;"><b>Reading discipline:</b> "geodesic" is the source paper's stage-language, kept where it quotes
 the paper and read natively as the force-free path (a free body rides its natural orbit weightless; the straight
-line through a void was never the natural motion). The factor-three's native basis — closed-path anholonomy in the
-fixed $1:3:6$ ratio — is stated in §2; the constraint-ledger reading of weight lives in
+line through a void was never the natural motion). The factor-three's native basis is the source paper's closed-path account; §2 verifies the displayed algebraic match while clearly leaving the broader $1:3:6$ derivation with the source; the constraint-ledger reading of weight lives in
 <a href="./navigation-engine.html">the Navigation Engine</a>, and the time book itself in
 <a href="./cone-model.html">the Cone Model</a> and <a href="./twins-paradox.html">Twins</a>.</p>
 </div>
