@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>POAMS Quantum Cinematograph - Interactive Visualization</title>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="icon" href="data:,">
     <script>
         window.MathJax = {
             tex: {
@@ -13,6 +13,7 @@
             }
         };
     </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
         :root {
             --bg-dark: #0d0d18;
@@ -319,15 +320,17 @@
         }
 
         .status-display {
-            position: absolute;
-            top: 10px;
-            left: 10px;
+            position: static;
+            width: fit-content;
+            max-width: 100%;
+            margin: 12px auto 0;
             background: rgba(0, 0, 0, 0.7);
             color: var(--gold);
             padding: 10px;
             border-radius: 5px;
             font-family: monospace;
             font-size: 12px;
+            overflow-wrap: anywhere;
         }
 
         .quantum-frame {
@@ -455,14 +458,14 @@
 </head>
 <body>
 <div id="poams-hub-nav">
-  <a href="./pioneer-anomaly.html" title="The Pioneer Anomaly">← <span class="phn-hide-sm">The Pioneer Anomaly</span></a>
+  <a href="./the-two-slit-experiment.html" title="The Two-Slit Experiment">← <span class="phn-hide-sm">The Two-Slit Experiment</span></a>
   <div class="phn-center">
     <a href="./index.html" style="flex-direction:column;gap:2px;padding:4px 12px;">
       <span class="phn-title">Quantum Cinematograph</span>
       <span class="phn-pos">NR · POAMS · EXHIBIT SERIES</span>
     </a>
   </div>
-  <a href="./the-two-slit-experiment.html" title="The Two-Slit Experiment"><span class="phn-hide-sm">The Two-Slit Experiment</span> →</a>
+  <a href="./the-receiver-keys-the-exchange.html" title="The Receiver Keys the Exchange"><span class="phn-hide-sm">The Receiver Keys the Exchange</span> →</a>
 </div>
 
     <button class="theme-toggle" onclick="toggleTheme()">☀️ Light Mode</button>
@@ -472,6 +475,7 @@
             <div class="film-strip-border"></div>
             <h1>POAMS Quantum Cinematograph</h1>
 <p class="nr-provenance" style="font-size:0.8em;font-style:italic;opacity:0.72;line-height:1.5;margin:0.5em 0 1em;text-align:center">This exhibit is an extrapolation of the foundational work of N. Vivian “Viv” Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
+            <p class="nr-provenance" style="font-size:0.78em;opacity:0.72;line-height:1.5;margin:0 auto 1em;max-width:900px;text-align:center">Source texts: N. V. Pope, <a href="https://cfmilam.github.io/nr-poams-papers/the-new-quantum-touching-a-cinematic-model-of-instantaneous.html"><em>The New Quantum Touching: A Cinematic Model of Instantaneous Action-at-a-Distance</em></a>; <a href="https://cfmilam.github.io/nr-poams-papers/a-quantum-digital-theory-of-light.html"><em>A Quantum Digital Theory of Light</em></a>; and <a href="https://cfmilam.github.io/nr-poams-papers/the-epr-paradox-a-cinematic-solution.html"><em>The EPR Paradox: A Cinematic Solution</em></a>. The canvases below are executable illustrations of that ontology, not empirical measurements or independent proofs of their premises.</p>
             <p class="subtitle">Interactive Exploration of Pope's Revolutionary Physics</p>
             <p class="intro-text">
                 Reality is not a continuous flow—it's a movie. Each quantum interaction is a discrete "frame" 
@@ -491,11 +495,11 @@
             </div>
             <div class="concept-card">
                 <h3>🎯 Quantum Discretum</h3>
-                <p>Reality is fundamentally discrete — counted in whole turns of action (ħ closures), not in pixels of space. Between quantum events there is no space, no time, no void — no stage at all; continuity is the appearance their succession presents.</p>
+                <p>Reality is fundamentally discrete — counted in completed integer windings, not in pixels of space. One winding carries an angular-momentum unit \(\hbar\); one complete \(2\pi\) turn accumulates action \(h=2\pi\hbar\). Between quantum events there is no space, no time, no void — no stage at all; continuity is the appearance their succession presents.</p>
             </div>
             <div class="concept-card">
                 <h3>👻 Flickering Atoms</h3>
-                <p>Atoms don't exist continuously. They pop in and out of existence sporadically, existing only when interacting. Between interactions, they literally do nothing—consistent with Heisenberg uncertainty.</p>
+                <p>Atoms do not persist as little bodies between interactions. In the POAMS reading they are the sporadic completed interactions themselves; the flicker panel below illustrates that premise rather than deriving it from an uncertainty relation.</p>
             </div>
         </div>
 
@@ -505,20 +509,20 @@
                 <p>This is the heart of POAMS—the film strip analogy. Just as a movie creates the illusion of continuous motion from discrete still frames, physical reality creates the appearance of continuous change from discrete quantum events. Each "frame" is a complete, instantaneous quantum state. There are no "in-between" states.</p>
                 
                 <div class="key-insight">
-                    <strong>Pope's Key Insight:</strong> "The action is always BETWEEN the stills, not WITHIN them." Each quantum event is like a photograph—complete and instantaneous. Physical change happens in the transitions between events, not during them.
+                    <strong>Cinematic premise:</strong> action is read in the difference between completed stills, not as motion inside either still. Each quantum event is a complete, instantaneous record; physical change is their ordered relation.
                 </div>
             </div>
             
             <div class="canvas-container">
                 <canvas id="filmStripCanvas" width="800" height="200"></canvas>
-                <div class="status-display" id="filmStripStatus">Frame: 1 | Rate: 24 fps</div>
+                <div class="status-display" id="filmStripStatus">Frame: 0 | Rate: 24 events/s</div>
             </div>
             
             <div class="controls">
                 <div class="control-group">
-                    <label for="frameRate">Frame Rate (Quantum Events/Second)</label>
+                    <label for="frameRate">Illustrated Event Rate</label>
                     <input type="range" id="frameRate" min="1" max="60" value="24">
-                    <span id="frameRateValue">24 fps</span>
+                    <span id="frameRateValue">24 events/s</span>
                 </div>
                 <div class="control-group">
                     <button onclick="toggleFilmStrip()">▶️ Play/Pause</button>
@@ -528,11 +532,11 @@
             </div>
             
             <div class="explanation">
-                <p><strong>What you're seeing:</strong> At high frame rates, the motion appears continuous—just like classical physics. Slow it down and you see the truth: reality is composed of discrete quantum events. At the slowest setting, each frame exists completely on its own. There's no gradual transition, no "morphing" between states—just instantaneous quantum jumps.</p>
+                <p><strong>What you're seeing:</strong> The canvas samples a programmed position sequence at integer frames. At high display rates the samples appear continuous; at low rates their separation is visible. This demonstrates the cinema analogy, not the physical premise that nature itself uses these particular frames.</p>
                 
                 <div class="equation-box">
-                    <p><strong>Quantum Duration:</strong> $t = \frac{h}{E}$</p>
-                    <p>Higher energy quantum events have shorter duration. Time itself is discrete!</p>
+                    <p><strong>Cycle duration under the rate premise:</strong> $E=h\nu \Rightarrow T=\frac{1}{\nu}=\frac{h}{E}$</p>
+                    <p>For a completed interaction assigned the definite turn rate \(\nu\), this is the duration of one rate cycle. The algebra does not independently prove the discreteum; integer closure is the stated POAMS premise.</p>
                 </div>
             </div>
         </div>
@@ -540,16 +544,16 @@
         <div class="visualization-section">
             <h2 class="section-title">2. Instantaneous vs Time-Delayed Interaction</h2>
             <div class="explanation">
-                <p>This visualization demonstrates the heart of POAMS: quantum interactions are proper-time instantaneous (τ=0), but we observe them with a time delay t_R = s/c. This resolves the EPR paradox—there's no "spooky action at a distance," just Pythagoras!</p>
+                <p>This visualization lays out the POAMS two-ledger reading: a completed interaction has no internal elapsed interval (τ=0), while the observer ledger orders the corresponding record by t_R = s/c. The canvas illustrates that interpretation; it does not measure a transit.</p>
                 
                 <div class="split-screen">
                     <div class="split-panel">
                         <h3>Proper Time (τ)</h3>
-                        <p>From the perspective of the interacting atoms (the extant record's "particles"), the "touch" happens instantly. This is proper time τ = 0, regardless of spatial separation.</p>
+                        <p>In the interacting pair's native transaction ledger, the two endpoints co-sign one completed event. Its internal elapsed interval is τ = 0, regardless of the observer's projected separation.</p>
                     </div>
                     <div class="split-panel">
                         <h3>Observation Time (t_R)</h3>
-                        <p>From our external observation frame, we see the interaction after light has traveled distance s at speed c, giving us t_R = s/c.</p>
+                        <p>In the observer ledger, the record is ordered by the distance–time conversion t_R = s/c. This is a relation among received records, not a claim that content crossed a void.</p>
                     </div>
                 </div>
             </div>
@@ -582,7 +586,7 @@
         <div class="visualization-section">
             <h2 class="section-title">3. The Quantum Tag Game</h2>
             <div class="explanation">
-                <p>Atoms interact like players in a cosmic game of tag. A "touches" B (instantly), then B "touches" C (instantly), and so on. These touches are intransitive—they don't all happen simultaneously (that would create stasis). The sporadicity ensures both continuity and fluidity, creating wave-like patterns from discrete interactions.</p>
+                <p>Atoms interact like players in a cosmic game of tag. A "touches" B (instantly), then B "touches" C (instantly), and so on. These touches are intransitive—they do not all happen simultaneously. The deterministic relay below shows how a sequence can present a moving front; it does not calculate a wave or a statistical law.</p>
                 
                 <div class="key-insight">
                     <strong>No Photons!</strong> Light doesn't "travel" through space as particles or waves. Each interaction is a direct, instantaneous atomic touch. The appearance of light "traveling" at speed c comes from the time-sequenced observation of discrete events.
@@ -591,14 +595,14 @@
             
             <div class="canvas-container">
                 <canvas id="tagGameCanvas" width="800" height="400"></canvas>
-                <div class="status-display" id="tagGameStatus">Touches: 0 | Wave Speed: c</div>
+                <div class="status-display" id="tagGameStatus">Touches: 0 | Step interval: 100 ms</div>
             </div>
             
             <div class="controls">
                 <div class="control-group">
-                    <label for="touchRate">Touch Propagation Rate</label>
+                    <label for="touchRate">Sequence Rate (display multiplier)</label>
                     <input type="range" id="touchRate" min="0.1" max="2.0" step="0.1" value="1.0">
-                    <span id="touchRateValue">1.0c</span>
+                    <span id="touchRateValue">1.0×</span>
                 </div>
                 <div class="control-group">
                     <button onclick="startTagGame()">🏃 Start Tag Chain</button>
@@ -608,14 +612,14 @@
             </div>
             
             <div class="explanation">
-                <p><strong>Click anywhere on the canvas to trigger a quantum touch!</strong> Watch how individual instantaneous interactions create the appearance of wave propagation. Each touch is Newton's 3rd law in action—reciprocal and instantaneous. The wave-like behavior emerges from the statistical pattern of discrete touches.</p>
+                <p><strong>Click anywhere on the canvas to trigger a quantum touch.</strong> Each programmed step is a reciprocal equal-and-opposite booking. The moving front is a deterministic teaching animation; the multiplier changes its display interval and is not a measured velocity or a value of \(c\).</p>
             </div>
         </div>
 
         <div class="visualization-section">
             <h2 class="section-title">4. EPR Non-Paradox Resolution</h2>
             <div class="explanation">
-                <p>Einstein's "spooky action at a distance" concerned him because he thought quantum correlations implied faster-than-light signaling. POAMS shows this isn't paradoxical—it's just Pythagoras. The correlation exists in proper time (τ=0), while its observation takes time t_R = s/c.</p>
+                <p>The POAMS resolution treats the correlated endpoints as one co-signed transaction in the native ledger, while comparison of their observer-side records remains ordered by t_R = s/c. This panel is an ontological sketch: it does not generate outcome frequencies, a correlation function, or a CHSH statistic.</p>
             </div>
             
             <div class="split-screen">
@@ -646,6 +650,7 @@
                     <button onclick="showCorrelation()">🔗 Show Correlation</button>
                 </div>
             </div>
+            <div class="status-display" id="eprStatus">No local record opened | Observer-ledger comparison: 10 years</div>
             
             <div class="equation-box">
                 <p><strong>The Resolution:</strong> Entangled systems (the extant record's "particles") are in direct contact via proper time τ = 0</p>
@@ -658,10 +663,10 @@
         <div class="visualization-section">
             <h2 class="section-title">5. The Flickering Atom</h2>
             <div class="explanation">
-                <p>Atoms don't exist continuously like tiny billiard balls. They exist only when interacting—popping in and out of existence sporadically. Between interactions, an atom literally does nothing. It's a succession of discrete events, not a permanent object. This is perfectly consistent with Heisenberg uncertainty.</p>
+                <p>Atoms do not exist continuously like tiny billiard balls. In this POAMS ontology they are manifested by sporadic completed interactions rather than persisting as objects in a container. The stochastic panel is an explicit toy process for that premise, not a derivation from the extant uncertainty relation.</p>
                 
                 <div class="key-insight">
-                    <strong>Quantum Accumulator:</strong> An atom is like a movie character—it only exists in the frames where it appears. Between quantum events, there's no atom at all, just probability patterns governing when it might next manifest.
+                    <strong>Quantum Accumulator:</strong> An atom is like a movie character—it manifests in the frames where it appears. The ghostly halos in this toy canvas are bookkeeping markers only; they are not a calculated probability density.
                 </div>
             </div>
             
@@ -672,7 +677,7 @@
             
             <div class="controls">
                 <div class="control-group">
-                    <label for="flickerRate">Manifestation Frequency</label>
+                    <label for="flickerRate">Expected Manifestation Rate per Atom</label>
                     <input type="range" id="flickerRate" min="0.1" max="5.0" step="0.1" value="1.0">
                     <span id="flickerRateValue">1.0 Hz</span>
                 </div>
@@ -695,7 +700,7 @@
         <div class="visualization-section">
             <h2 class="section-title">6. Discretum vs Continuum</h2>
             <div class="explanation">
-                <p>The fundamental difference between classical physics (a continuum) and POAMS (the discreteum). Classical physics treats change as smooth, infinitely divisible. POAMS reads reality as discrete whole turns — completed ħ closures — whose succession only <em>appears</em> continuous.</p>
+                <p>The fundamental difference between a continuum description and the POAMS discreteum. POAMS reads reality as completed integer windings: \(\hbar\) per angular-momentum unit and \(h=2\pi\hbar\) per full-turn action. Their succession only <em>appears</em> continuous.</p>
             </div>
             
             <div class="split-screen">
@@ -711,7 +716,7 @@
                     <div class="canvas-container">
                         <canvas id="discretumCanvas" width="350" height="250"></canvas>
                     </div>
-                    <p>POAMS reality: discrete whole-turn events — ħ closures. Their succession creates the appearance of continuity, frames read as flow.</p>
+                    <p>POAMS reality: completed integer-winding events. Their succession creates the appearance of continuity, frames read as flow.</p>
                 </div>
             </div>
             
@@ -727,17 +732,17 @@
                     <span id="pixelSizeValue">8px</span>
                 </div>
                 <div class="control-group">
-                    <button onclick="animateContinuum()">🌊 Wave Animation</button>
+                    <button onclick="animateContinuum()">🌊 Advance Phase</button>
                     <button onclick="togglePixelation()">🎮 Toggle Pixels</button>
                 </div>
             </div>
             
             <div class="explanation">
-                <p><strong>Zoom in to see the frames!</strong> At high zoom levels, the discrete nature becomes obvious. Zoom out, and the discreteum appears continuous—explaining why classical physics works at macro scales. (The cells drawn here are a visual metaphor: POAMS discreteness is counted in whole turns of action — ħ closures — not in pixels of space.)</p>
+                <p><strong>Change the display scale to compare the drawings.</strong> The cells are a visual metaphor only: POAMS discreteness is counted in completed windings, not pixels of space. The control changes when this teaching canvas exposes its pixel grid; it is not a microscope or evidence of a spatial lattice.</p>
                 
                 <div class="equation-box">
-                    <p><strong>The scales, read correctly:</strong> the quantum of action is the POAMS graining — discreteness is counted in whole turns of \(h\), not in cells of space. The Planck length and time below are the <em>extant record's</em> stage-graining, kept for comparison:</p>
-                    <p>Quantum of action (the native count): $h = 6.626 \times 10^{-34}$ J·s</p>
+                    <p><strong>The scales, read correctly:</strong> the native integer closes angular momentum in units of \(\hbar\); over one full \(2\pi\) winding the accumulated action is \(h=2\pi\hbar\). The Planck length and time below are the <em>extant record's</em> stage-graining, kept for comparison rather than adopted as cells:</p>
+                    <p>Full-turn action: $h = 6.62607015 \times 10^{-34}$ J·s (exact SI)</p>
                     <p>Planck length (extant stage unit): $l_P = \sqrt{\frac{\hbar G}{c^3}} \approx 1.6 \times 10^{-35}$ m</p>
                     <p>Planck time (extant stage unit): $t_P = \sqrt{\frac{\hbar G}{c^5}} \approx 5.4 \times 10^{-44}$ s</p>
                 </div>
@@ -745,9 +750,9 @@
         </div>
 
         <div class="visualization-section">
-            <h2 class="section-title">7. Pope's Key Insight: Action Between Frames</h2>
+            <h2 class="section-title">7. The Relational Insight: Action Between Frames</h2>
             <div class="explanation">
-                <p>The revolutionary insight at the heart of POAMS: <strong>"The action is always BETWEEN the stills, not WITHIN them."</strong> Each quantum event is a complete, instantaneous "photograph" of reality. Physical change—motion, transformation, interaction—happens in the transitions between these discrete events.</p>
+                <p>The insight at the heart of this POAMS picture is that action is relational: each completed event is a "still," and change is the ledger difference from closure \(n\) to closure \(n+1\). “Between” names that ordered relation, not an intervening container, hidden trajectory, or duration.</p>
                 
                 <div class="key-insight">
                     This is the conceptual breakthrough that bridges quantum mechanics and relativity. Quantum events are timelessly instantaneous (like movie frames), but sequences of events create the appearance of temporal flow and spatial motion.
@@ -770,7 +775,7 @@
                 </div>
                 <div class="control-group">
                     <button onclick="previousFrame()">⏮️ Previous Frame</button>
-                    <button onclick="playTransition()">▶️ Play Transition</button>
+                    <button onclick="playTransition()">↔️ Show Transition</button>
                     <button onclick="nextFrame()">⏭️ Next Frame</button>
                 </div>
                 <div class="control-group">
@@ -782,7 +787,7 @@
             <div class="explanation">
                 <p><strong>Frame Analysis:</strong> Each frame is complete and self-contained. Notice that within any single frame, nothing is "moving"—motion exists only in the comparison between frames. The ball doesn't gradually slide from position A to position B; it exists at A in frame N and at B in frame N+1. The motion is in the discontinuous jump between frames.</p>
                 
-                <p><strong>This explains quantum tunneling:</strong> nothing gradually penetrates a barrier. The system's record has it on one side at closure N and on the other side at closure N+1 — "tunneling" is the discontinuous succession of whole turns, not a journey through a wall.</p>
+                <p><strong>POAMS reading of a tunnelling record:</strong> the system is recorded on one side at closure N and on the other at closure N+1; no in-between journey is added. This page does not calculate the frequency of such closures or its dependence on the apparatus, so the panel supplies an ontology for the record rather than a quantitative tunnelling law.</p>
                 
                 <div class="equation-box">
                     <p><strong>Quantum Change:</strong> Δx between frames, not within frames</p>
@@ -814,15 +819,15 @@
                     </div>
                     <div class="concept-card">
                         <h3>📐 Pythagorean Time</h3>
-                        <p>t_R² = (s/c)² + τ² resolves EPR "paradox"—correlations are instantaneous AND time-delayed simultaneously</p>
+                        <p>t_R² = (s/c)² + τ² states the POAMS EPR reading: native co-signing and observer-delayed comparison are distinct ledgers</p>
                     </div>
                     <div class="concept-card">
                         <h3>👻 Sporadic Existence</h3>
-                        <p>Atoms exist only when interacting, popping in/out of existence consistent with Heisenberg uncertainty</p>
+                        <p>Atoms manifest as completed interactions rather than persisting as little bodies; this is the stated POAMS ontology</p>
                     </div>
                     <div class="concept-card">
                         <h3>🎮 Digital Reality</h3>
-                        <p>Change is fundamentally discrete — whole ħ closures — appearing continuous in succession; the "pixel" picture is the extant record's stage-graining, used here only as metaphor</p>
+                        <p>Change is fundamentally discrete — integer windings carrying \(\hbar\), with full-turn action \(h\) — appearing continuous in succession; the pixel picture is metaphor only</p>
                     </div>
                 </div>
                 
@@ -832,11 +837,11 @@
                 
                 <div class="equation-box">
                     <p><strong>The Fundamental POAMS Equations:</strong></p>
-                    <p>Quantum Duration: $t = \frac{h}{E}$ (discrete time)</p>
+                    <p>Rate-cycle duration: $E=h\nu \Rightarrow T=\frac{h}{E}$</p>
                     <p>Pythagorean Time: $t_R^2 = \left(\frac{s}{c}\right)^2 + \tau^2$ (instantaneous + delayed)</p>
-                    <p>Quantum Action: $S = nh$ (discrete action units)</p>
+                    <p>Closure bookkeeping: $L=n\hbar$ and $S_{\rm turn}=\oint L\,d\theta=nh$ for one complete turn</p>
                     <p>Interaction Frequency: $\nu = \frac{E}{h}$ (quantum event rate)</p>
-                    <p><em>Reality is quantized in space, time, and action—truly digital at its core!</em></p>
+                    <p><em>POAMS quantizes completed angular-momentum events; projected space and continuous time are the observer-scale appearance of their ordered census.</em></p>
                 </div>
             </div>
         </div>
@@ -851,15 +856,20 @@
         let filmStripPlaying = true;
         let filmStripFrame = 0;
         let filmStripRate = 24;
+        let filmStripLastTimestamp = null;
 
         // Time Delay Visualization
-        let timeDelayAnimation = null;
+        let interactionTriggered = false;
+        let interactionTriggeredAt = null;
         let showingPythagorean = false;
 
         // Tag Game Visualization
         let tagGameActive = false;
         let clickToTouchMode = false;
-        let touches = [];
+        let tagParticles = [];
+        let tagTouchCount = 0;
+        let tagTimer = null;
+        let propagateTouch = () => {};
 
         // EPR Visualization
         let eprDistance = 10;
@@ -869,6 +879,7 @@
         let flickerActive = false;
         let atoms = [];
         let manifestationCount = 0;
+        let triggerManifestation = () => {};
 
         // Discretum Visualization
         let continuumWave = 0;
@@ -929,7 +940,7 @@
                     ctx.strokeRect(frameX, frameY, frameWidth - 10, frameHeight);
                     
                     // Frame content - simple animated ball
-                    const ballX = frameX + 25 + ((filmStripFrame + i * 10) % 50);
+                    const ballX = frameX + 25 + ((Math.floor(filmStripFrame) + i * 10) % 50);
                     const ballY = frameY + frameHeight / 2;
                     
                     ctx.fillStyle = '#5bc8f5';
@@ -945,23 +956,26 @@
                 
                 // Update status
                 document.getElementById('filmStripStatus').innerHTML = 
-                    `Frame: ${Math.floor(filmStripFrame)} | Rate: ${filmStripRate} fps`;
+                    `Frame: ${Math.floor(filmStripFrame)} | Rate: ${filmStripRate} events/s`;
             }
             
-            function animateFilmStrip() {
+            function animateFilmStrip(timestamp) {
+                if (filmStripLastTimestamp === null) filmStripLastTimestamp = timestamp;
+                const elapsedSeconds = Math.min((timestamp - filmStripLastTimestamp) / 1000, 0.25);
+                filmStripLastTimestamp = timestamp;
                 if (filmStripPlaying) {
-                    filmStripFrame += filmStripRate / 60;
+                    filmStripFrame += filmStripRate * elapsedSeconds;
                 }
                 drawFilmStrip();
                 requestAnimationFrame(animateFilmStrip);
             }
             
-            animateFilmStrip();
+            requestAnimationFrame(animateFilmStrip);
             
             // Event listeners
             document.getElementById('frameRate').addEventListener('input', (e) => {
                 filmStripRate = parseInt(e.target.value);
-                document.getElementById('frameRateValue').textContent = filmStripRate + ' fps';
+                document.getElementById('frameRateValue').textContent = filmStripRate + ' events/s';
             });
         }
 
@@ -981,9 +995,6 @@
         function initTimeDelay() {
             const canvas = document.getElementById('timeDelayCanvas');
             const ctx = canvas.getContext('2d');
-            let animationTime = 0;
-            let interactionTriggered = false;
-            
             function drawTimeDelay() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 
@@ -1021,18 +1032,17 @@
                     ctx.fillText('Instantaneous Touch (τ=0)', canvas.width/2 - 80, atomY - 40);
                     
                     // Show observation delay
-                    const observationProgress = (animationTime / distance) % 2;
-                    if (observationProgress < 1) {
-                        const lightX = atomA_x + (atomB_x - atomA_x) * observationProgress;
+                    const elapsedSeconds = (performance.now() - interactionTriggeredAt) / 1000;
+                    const observationProgress = Math.min(elapsedSeconds / distance, 1);
+                    const recordX = atomA_x + (atomB_x - atomA_x) * observationProgress;
                         ctx.fillStyle = '#ffff00';
                         ctx.beginPath();
-                        ctx.arc(lightX, atomY + 40, 5, 0, 2 * Math.PI);
+                    ctx.arc(recordX, atomY + 40, 5, 0, 2 * Math.PI);
                         ctx.fill();
                         
                         ctx.fillStyle = '#5bc8f5';
-                        ctx.fillText('Observer sees light travel', lightX - 70, atomY + 70);
+                    ctx.fillText(observationProgress < 1 ? 'Observer-ledger record ordering' : 'Record available at B', Math.max(10, recordX - 95), atomY + 70);
                     }
-                }
                 
                 if (showingPythagorean) {
                     // Draw Pythagorean triangle
@@ -1056,7 +1066,6 @@
                     ctx.fillText('t_R', atomA_x + (atomB_x - atomA_x)/2 - 40, triangleY - 60);
                 }
                 
-                animationTime += 0.02;
             }
             
             function animate() {
@@ -1076,8 +1085,11 @@
         }
 
         function triggerInteraction() {
-            timeDelayAnimation = Date.now();
+            interactionTriggeredAt = performance.now();
             interactionTriggered = true;
+            const distance = parseFloat(document.getElementById('separation').value);
+            document.getElementById('timeDelayStatus').innerHTML =
+                `Distance: ${distance} ly | Proper Time: 0 | Observer Time: ${distance} years | Display scale: 1 s/year`;
         }
 
         function showPythagorean() {
@@ -1088,12 +1100,12 @@
         function initTagGame() {
             const canvas = document.getElementById('tagGameCanvas');
             const ctx = canvas.getContext('2d');
-            let particles = [];
-            let touchCount = 0;
+            tagParticles = [];
+            tagTouchCount = 0;
             
-            // Initialize particles
+            // Initialize sites
             for (let i = 0; i < 20; i++) {
-                particles.push({
+                tagParticles.push({
                     x: 50 + i * 35,
                     y: canvas.height / 2,
                     touched: false,
@@ -1105,7 +1117,7 @@
             function drawTagGame() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 
-                particles.forEach((particle, index) => {
+                tagParticles.forEach((particle, index) => {
                     const timeSinceTouched = Date.now() - particle.touchTime;
                     
                     if (particle.active) {
@@ -1130,35 +1142,35 @@
                     
                     // Show connections during touch
                     if (particle.touched && timeSinceTouched < 200) {
-                        if (index < particles.length - 1) {
+                        if (index < tagParticles.length - 1) {
                             ctx.strokeStyle = '#d4af37';
                             ctx.lineWidth = 2;
                             ctx.beginPath();
                             ctx.moveTo(particle.x, particle.y);
-                            ctx.lineTo(particles[index + 1].x, particles[index + 1].y);
+                            ctx.lineTo(tagParticles[index + 1].x, tagParticles[index + 1].y);
                             ctx.stroke();
                         }
                     }
                 });
                 
                 document.getElementById('tagGameStatus').innerHTML = 
-                    `Touches: ${touchCount} | Wave Speed: c`;
+                    `Touches: ${tagTouchCount} | Step interval: ${(100 / parseFloat(document.getElementById('touchRate').value)).toFixed(0)} ms`;
             }
             
-            function propagateTouch() {
+            propagateTouch = function() {
                 if (!tagGameActive) return;
                 
-                const activeIndex = particles.findIndex(p => p.active);
-                if (activeIndex !== -1 && activeIndex < particles.length - 1) {
-                    particles[activeIndex].active = false;
-                    particles[activeIndex].touched = true;
-                    particles[activeIndex].touchTime = Date.now();
-                    
-                    particles[activeIndex + 1].active = true;
-                    touchCount++;
+                const activeIndex = tagParticles.findIndex(p => p.active);
+                if (activeIndex !== -1 && activeIndex < tagParticles.length - 1) {
+                    tagParticles[activeIndex].active = false;
+                    tagParticles[activeIndex].touched = true;
+                    tagParticles[activeIndex].touchTime = Date.now();
+                    tagParticles[activeIndex + 1].active = true;
+                    tagTouchCount++;
+                    tagTimer = setTimeout(propagateTouch, 100 / parseFloat(document.getElementById('touchRate').value));
+                } else {
+                    tagGameActive = false;
                 }
-                
-                setTimeout(propagateTouch, 100 / parseFloat(document.getElementById('touchRate').value));
             }
             
             function animate() {
@@ -1172,13 +1184,13 @@
             canvas.addEventListener('click', (e) => {
                 if (clickToTouchMode) {
                     const rect = canvas.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
+                    const x = (e.clientX - rect.left) * canvas.width / rect.width;
+                    const y = (e.clientY - rect.top) * canvas.height / rect.height;
                     
                     // Find nearest particle
                     let nearest = 0;
                     let minDist = Infinity;
-                    particles.forEach((particle, index) => {
+                    tagParticles.forEach((particle, index) => {
                         const dist = Math.sqrt((particle.x - x) ** 2 + (particle.y - y) ** 2);
                         if (dist < minDist) {
                             minDist = dist;
@@ -1186,26 +1198,30 @@
                         }
                     });
                     
-                    // Start touch from clicked particle
-                    particles.forEach(p => p.active = false);
-                    particles[nearest].active = true;
+                    // Start touch from clicked site
+                    clearTimeout(tagTimer);
+                    tagParticles.forEach(p => p.active = false);
+                    tagParticles[nearest].active = true;
                     tagGameActive = true;
                     propagateTouch();
                 }
             });
             
             document.getElementById('touchRate').addEventListener('input', (e) => {
-                document.getElementById('touchRateValue').textContent = e.target.value + 'c';
+                document.getElementById('touchRateValue').textContent = e.target.value + '×';
             });
         }
 
         function startTagGame() {
+            clearTimeout(tagTimer);
             tagGameActive = true;
-            touchCount = 0;
-            particles.forEach((p, i) => {
+            tagTouchCount = 0;
+            tagParticles.forEach((p, i) => {
                 p.active = i === 0;
                 p.touched = false;
+                p.touchTime = 0;
             });
+            propagateTouch();
         }
 
         function clickTouch() {
@@ -1217,10 +1233,12 @@
         function resetTagGame() {
             tagGameActive = false;
             clickToTouchMode = false;
-            touchCount = 0;
-            particles.forEach((p, i) => {
+            clearTimeout(tagTimer);
+            tagTouchCount = 0;
+            tagParticles.forEach((p, i) => {
                 p.active = i === 0;
                 p.touched = false;
+                p.touchTime = 0;
             });
             document.getElementById('clickTouchBtn').textContent = '👆 Click to Touch';
         }
@@ -1287,18 +1305,22 @@
             document.getElementById('eprDistance').addEventListener('input', (e) => {
                 eprDistance = parseInt(e.target.value);
                 document.getElementById('eprDistanceValue').textContent = eprDistance + ' ly';
+                document.getElementById('eprStatus').textContent =
+                    `No local record opened | Observer-ledger comparison: ${eprDistance} years`;
             });
         }
 
         function measureEntanglement() {
             correlationShowing = false;
-            setTimeout(() => {
-                correlationShowing = true;
-            }, 500);
+            document.getElementById('eprStatus').textContent =
+                `Local A record opened | Pairwise comparison not yet shown (${eprDistance} observer-years)`;
         }
 
         function showCorrelation() {
             correlationShowing = !correlationShowing;
+            document.getElementById('eprStatus').textContent = correlationShowing
+                ? `Co-signed relation shown | Observer-ledger comparison: ${eprDistance} years`
+                : `Relation hidden | Observer-ledger comparison: ${eprDistance} years`;
         }
 
         // Flicker Implementation
@@ -1355,15 +1377,17 @@
                 
                 // Update manifestation count
                 document.getElementById('flickerStatus').innerHTML = 
-                    `Manifestations: ${manifestationCount} | Interaction Rate: Variable`;
+                    `Manifestations: ${manifestationCount} | Expected ensemble rate: ${(atoms.length * parseFloat(document.getElementById('flickerRate').value)).toFixed(1)} Hz`;
             }
             
-            function triggerManifestation() {
+            triggerManifestation = function() {
                 if (!flickerActive) return;
                 
                 atoms.forEach(atom => {
                     const rate = parseFloat(document.getElementById('flickerRate').value);
-                    if (Math.random() < rate * 0.01) {
+                    const stepSeconds = 0.05;
+                    const manifestationProbability = rate * stepSeconds;
+                    if (Math.random() < manifestationProbability) {
                         atom.manifesting = true;
                         atom.lastManifestation = Date.now();
                         manifestationCount++;
@@ -1391,7 +1415,7 @@
                 atoms = [];
                 for (let i = 0; i < count; i++) {
                     atoms.push({
-                        x: 50 + (i * (canvas.width - 100) / (count - 1)),
+                        x: count === 1 ? canvas.width / 2 : 50 + (i * (canvas.width - 100) / (count - 1)),
                         y: canvas.height / 2 + (Math.random() - 0.5) * 100,
                         manifesting: false,
                         lastManifestation: 0,
@@ -1454,7 +1478,7 @@
                     for (let x = 0; x < discretumCanvas.width; x += pixelSize) {
                         for (let y = 0; y < discretumCanvas.height; y += pixelSize) {
                             const intensity = (Math.sin((x + continuumWave) * 0.02) + 
-                                             Math.sin((y + continuumWave) * 0.03)) * 0.5 + 0.5;
+                                             Math.sin((y + continuumWave) * 0.03) + 2) / 4;
                             const alpha = intensity * 0.8;
                             discretumCtx.fillStyle = `rgba(79, 195, 247, ${alpha})`;
                             discretumCtx.fillRect(x, y, pixelSize - 1, pixelSize - 1);
