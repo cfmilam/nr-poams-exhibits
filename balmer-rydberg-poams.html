@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spectral Lines — Balmer-Rydberg from First Principles</title>
+    <title>Spectral Lines — A POAMS Balmer–Rydberg Derivation</title>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         window.MathJax = {
@@ -198,10 +198,8 @@
         }
 
         .energy-levels {
-            display: flex;
-            justify-content: space-around;
-            align-items: flex-end;
-            height: 400px;
+            display: grid;
+            gap: 10px;
             margin: 20px 0;
             padding: 20px;
             background: var(--bg-darker);
@@ -210,9 +208,10 @@
         }
 
         .energy-level {
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: 52px 1fr;
             align-items: center;
+            gap: 10px;
             cursor: pointer;
             transition: all 0.3s ease;
         }
@@ -222,7 +221,7 @@
         }
 
         .level-line {
-            width: 80px;
+            width: 100%;
             height: 3px;
             background: var(--accent-blue);
             margin: 2px 0;
@@ -237,9 +236,9 @@
 
         .spectrum {
             height: 100px;
-            background: linear-gradient(to right, 
-                #ff0000 0%, #ff8800 20%, #ffff00 40%, 
-                #00ff00 60%, #0088ff 80%, #8800ff 100%);
+            background: linear-gradient(to right,
+                #6f2cff 0%, #3f6fff 25%, #25c9c3 43%,
+                #73d055 57%, #ffe34d 72%, #ff8a30 86%, #ff3434 100%);
             border-radius: 10px;
             position: relative;
             margin: 20px 0;
@@ -271,6 +270,7 @@
             padding: 12px 16px;
             margin: 14px 0;
             text-align: center;
+            overflow-x: auto;
         }
 
         .cone-diagram {
@@ -380,11 +380,7 @@
                 height: auto;
             }
             
-            .energy-levels {
-                height: 300px;
-                flex-direction: column;
-                align-items: stretch;
-            }
+            .energy-levels { padding: 14px 10px; }
         }
 
         .mjx-chtml {
@@ -460,6 +456,11 @@
     }
     /* push body content below fixed nav */
     body { padding-top: 72px !important; }
+    @media (max-width: 560px) {
+      #poams-hub-nav .phn-hide-sm { display: none; }
+      #poams-hub-nav { padding: 0 .35rem; }
+      #poams-hub-nav a { padding: 5px 7px; }
+    }
 
     </style>
 <style id="poams-btn-normalize">
@@ -483,7 +484,7 @@
     <header>
         <h1>Spectral Lines</h1>
 <p class="nr-provenance" style="font-size:0.8em;font-style:italic;opacity:0.72;line-height:1.5;margin:0.5em 0 1em;text-align:center">This exhibit is an extrapolation of the foundational work of N. Vivian “Viv” Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
-        <div class="subtitle">Deriving the Balmer-Rydberg Formula from First Principles</div>
+        <div class="subtitle">A POAMS derivation of the inverse-square ladder from stated discrete-time premises</div>
     </header>
 
     <div class="container">
@@ -493,17 +494,19 @@
             <div class="explanation">
                 <p><strong>POAMS</strong> — the Pope–Osborne Angular Momentum Synthesis — revolutionizes our understanding of atomic structure by treating <strong>angular momentum as the fundamental substance</strong> of reality, quantized in units of ℏ = h/2π.</p>
                 
-                <p>Unlike traditional quantum mechanics, POAMS derives the Balmer-Rydberg formula through pure geometry and angular momentum, without invoking mysterious "forces" or "charges." In POAMS <strong>there is no charge at all</strong>: what textbooks bundle under that one word splits into two features a spinning vortex already has — its <em>sign</em> is the <strong>phase sense</strong> (the binary sign of the vortex's intrinsic spin circulation, ∮dφ = ±2πn), and its <em>binding</em> is <strong>spin kinetic energy</strong> ("charge," in coulombs, cashed out entirely in joules — following Uhlenbeck and Goudsmit). No third thing called "charge" is left over.</p>
+                <p>POAMS reads the Balmer–Rydberg ladder through geometry and angular-momentum bookkeeping, without adding a force or charge substance. In the governing POAMS ontology, the sign conventionally recorded as charge is the <strong>phase sense</strong> of intrinsic circulation (∮dφ = ±2πn), while binding is booked as organized angular-momentum energy. That is the page's stated ontology; the mathematical question here is whether the displayed ledger follows from its stated premises.</p>
             </div>
             
             <div class="formula-box">
                 <h3>The POAMS Spectral Formula</h3>
-                <p><strong>Level (term) rate.</strong> Appendix 3 derives, from time dilation plus the requirement that time is discrete (so t_R/t = n/N, integers), the standing-mode rate:</p>
-                $$\nu = cR\left(1 - \frac{N^2}{n^2}\right)$$
-                <p>With the ground mode as reference (N = 1) this is the level ladder — in rate, ν<sub>n</sub> = ν<sub>R</sub>(1 − 1/n²), with cR = ν<sub>R</sub> = 3.290 PHz, <strong>the Rydberg rate</strong>, named here at its birthplace; in energy costume, E<sub>n</sub> = hν<sub>n</sub> = mc²(1 − 1/n²) — rising as n → ∞ to the ionization limit: the full internal rate mc²/h.</p>
-                <p><strong>Observed spectral lines.</strong> Each line is a <em>difference</em> of two levels — a re-closure from one standing mode to another — giving the standard Balmer–Rydberg form:</p>
-                $$\nu = cR\left(\frac{1}{N^2} - \frac{1}{n^2}\right)$$
-                <p>N is the lower mode, n the upper: Lyman (N = 1), Balmer (N = 2), Paschen (N = 3)… The level form and the line form coincide for transitions to the ground mode (N = 1), which is why N = 1 reproduces observed hydrogen directly. (Pope, <em>Einstein's Lost Legacy</em>, Appendix 3; the line form matches <em>The POAMS Brilliant Vortex Atom</em>, eq 4.)</p>
+                <p><strong>Premises and normalization.</strong> Pope's Appendix 3 adopts the Pythagorean time ratio and the whole-number closure rule t<sub>R</sub>/t = n for the ground-referenced ladder. It then books the associated mode deficit as e = m<sub>R</sub>v². These are POAMS premises, stated rather than hidden. They give</p>
+                $$\frac{v_n^2}{c^2}=1-\frac{1}{n^2},\qquad
+                  \nu_n=\frac{e_n}{h}=\nu_R\left(1-\frac{1}{n^2}\right).$$
+                <p>The inverse-square <em>shape</em> follows from those premises. Its scale does not: this page imports the hydrogen Rydberg rate ν<sub>R</sub> = cR<sub>H</sub> = 3.288051 PHz. Equivalently, Pope's scale mass is m<sub>R</sub> = hν<sub>R</sub>/c² = 2.4241×10⁻³⁵ kg; it is not the electron mass used in the separate radius scaffold.</p>
+                <p><strong>Spectral lines.</strong> A re-closure from upper mode n to lower mode N is the difference of two ground-referenced terms:</p>
+                $$\nu_{n\to N}=\nu_n-\nu_N
+                =cR_H\left(\frac{1}{N^2}-\frac{1}{n^2}\right),\qquad n>N.$$
+                <p>N = 1, 2, 3 gives the Lyman, Balmer, and Paschen series. The interactives below calculate vacuum gross-line values from this equation and the imported R<sub>H</sub>; they do not claim to derive the empirical scale, resolved components, or intensities.</p>
             </div>
         </div>
 
@@ -511,7 +514,7 @@
         <div class="section">
             <h2>1. The POAMS Atom Visualizer</h2>
             <div class="explanation">
-                <p><strong>What you are looking at:</strong> the POAMS atom is a <strong>standing angular-momentum vortex</strong>, shown here in its <em>n</em>th <strong>harmonic mode</strong> — a closed circulating wave whose <strong>winding number</strong> is n (∮dφ = 2πn), carrying net angular momentum L = nℏ. The n gold crests are the mode's ℏ-quanta; the mode radius grows as n·r₀. The two counter-rotating tracings are the vortex's <strong>two phase senses</strong> — the solid blue is this vortex's sense, the faint dashed is its opposite — the one binary that conventional physics misnames "spin" and "charge sign." Following Pope and Osborne, the older "electron–proton pair orbiting a barycenter" image is a <strong>convenience-mapping, not a claim about structure</strong>: the "electron" and "proton" are convenient labels for measures of one angular-momentum whole, and "it makes no sense to investigate the physical nature of these labels." We keep that orbiting-pair scaffold only in the algebra of §7, where the 1/n² formula reads cleanly off L = mvr = nℏ; the structural picture is this mode account (see the Elements restatement).</p>
+                <p><strong>What you are looking at:</strong> a diagram of the POAMS atom as a <strong>standing angular-momentum vortex</strong> in its <em>n</em>th harmonic mode. The planar rosette draws n radial lobes; it is not itself a topological winding measurement. The POAMS ledger separately assigns the closed internal phase ∮dφ = 2πn and L = nℏ, marked by n gold completion points. Solid blue and faint dashed purple show the two phase senses. The linearly expanding display radius n·r₀ is an illustrative scale map, not a premise used in the spectral derivation.</p>
             </div>
             
             <div class="canvas-container">
@@ -541,7 +544,7 @@
             </div>
             
             <div class="explanation">
-                <p><strong>Key Insight:</strong> As n increases, the mode radius expands as nr₀, where r₀ ≈ 0.529 Å is the ground-level radius (the value conventionally called the "Bohr radius" — used here as an empirical reference point for the mapping, not a quantity POAMS claims to derive from the point-particle picture). The orbital angular momentum is quantized: L = nℏ.</p>
+                <p><strong>Display key:</strong> the canvas maps mode n to radius nr₀ using the empirical r₀ ≈ 0.529 Å. That linear display rule is independent of the inverse-square rate derivation. The POAMS winding ledger assigns L = nℏ.</p>
             </div>
         </div>
 
@@ -549,7 +552,7 @@
         <div class="section">
             <h2>2. Interactive Level-Rate Diagram</h2>
             <div class="explanation">
-                <p>The POAMS level rates follow the Balmer-Rydberg step formula. Each level is a harmonic mode — a stable configuration of angular-momentum quanta. Click on any transition to see the quantum details.</p>
+                <p>The rows plot the ground-referenced term fraction 1 − 1/n². Choose a series and click any allowed upper mode n &gt; N; the transition values are calculated from the displayed Balmer–Rydberg difference formula.</p>
             </div>
             
             <div class="energy-levels" id="energyLevels">
@@ -569,11 +572,11 @@
             
             <div class="info-panel">
                 <div id="transitionInfo">
-                    <strong>Select a transition to see details</strong><br>
-                    Angular momentum change: Δn × ℏ<br>
-                    Energy quantum: E = hν<br>
-                    Time quantum: t = h/E<br>
-                    Wavelength: λ = c/ν
+                    <strong>Select an allowed upper mode</strong><br>
+                    POAMS winding-ledger change: (n − N)ℏ<br>
+                    Turn rate: ν = cR<sub>H</sub>(1/N² − 1/n²)<br>
+                    One-turn period: T = 1/ν<br>
+                    Vacuum wavelength: λ = c/ν
                 </div>
             </div>
         </div>
@@ -582,8 +585,8 @@
         <div class="section">
             <h2>3. "Charge" → Spin Collapse Visualization</h2>
             <div class="explanation">
-                <p>The demonstration: there is no "charge" to replace — its <em>binding</em> aspect simply <em>is</em> <strong>spin kinetic energy</strong> (its <em>sign</em> being the separate phase-sense binary). Drop the charge fiction and use that spin energy directly (≈ 2.18×10⁻¹⁸ J) and the orbital radius collapses dramatically from ~10²⁹ m — the radius a purely gravitational binding would demand — to the Bohr radius (~10⁻¹¹ m).</p>
-                <p><em>Scaffold note:</em> this calculation rides the source's point-particle orbital chassis (the §1 convenience-mapping — labels for measures of one angular-momentum whole, kept for algebra only), with gravitational binding as the comparison foil. What it demonstrates is <strong>scale arithmetic</strong> — binding booked as spin kinetic energy sits ~39 orders of magnitude tighter than binding booked through 𝒢* — not atomic structure; the structural picture is the organized-phase mode account of §1 (see The Elements and Atom-as-Phase).</p>
+                <p>This panel checks one <strong>scale comparison</strong> inside the source's point-mass scaffold. With L = ℏ, the reference-G radius is about 1.20×10²⁹ m. Booking the imported Rydberg energy E<sub>R</sub> = hν<sub>R</sub> in the same rotational relation gives 5.29×10⁻¹¹ m.</p>
+                <p><em>Scope:</em> this is dimensionally valid scale arithmetic, not an independent derivation of E<sub>R</sub>, r₀, atomic structure, or the POAMS charge identification. The energy scale is the same imported Rydberg datum used above. The animation uses a logarithmic label and a linear screen-radius encoding so both endpoints remain visible.</p>
             </div>
             
             <div class="controls">
@@ -594,7 +597,7 @@
             </div>
             
             <div class="scale-display" id="scaleDisplay">
-                Orbital Radius: 1.0 × 10²⁹ m (Gravitational)
+                Radius scale: 1.20 × 10²⁹ m (reference G)
             </div>
             
             <div class="canvas-container">
@@ -603,9 +606,10 @@
             
             <div class="formula-box">
                 <h3>The Collapse Calculation</h3>
-                $$r_{gravitational} = \frac{G^* m_e M_p}{\hbar^2} \approx 10^{29} \text{ m}$$
-                $$r_{spin} = \frac{\hbar^2}{m_e E_{spin}} \approx 0.529 \times 10^{-10} \text{ m}$$
-                <p>Where E<sub>spin</sub> ≈ 2.18×10⁻¹⁸ J is the spin kinetic energy</p>
+                $$r_G = \frac{\hbar^2}{Gm_e^2M_p}=1.20\times10^{29}\ \mathrm m$$
+                $$r_{\rm spin}=\frac{\hbar}{\sqrt{2m_eE_R}}
+                =5.29\times10^{-11}\ \mathrm m$$
+                <p>Here G is used only for the comparison foil and E<sub>R</sub> = hν<sub>R</sub> = 2.1787×10⁻¹⁸ J is an empirical input. Both equations now have dimensions of length.</p>
             </div>
         </div>
 
@@ -613,14 +617,14 @@
         <div class="section">
             <h2>4. Quantization of Time</h2>
             <div class="explanation">
-                <p>POAMS reveals that time itself is quantized. Each quantum interaction has a discrete duration t = h/E. This is not continuous time but a <strong>discreteum</strong> — discrete whole turns whose far-field appearance is continuity, like cinema frames read as motion. The frames are the reality; the flow is the reading.</p>
+                <p>Under the POAMS whole-turn postulate, one completed turn carries action h. If E is its action rate, the corresponding one-turn period is T = h/E = 1/ν. The discrete claim comes from the whole-turn premise; the reciprocal conversion alone does not establish it. Different rates therefore have different turn periods rather than sharing one universal clock tick.</p>
             </div>
             
             <div class="controls">
                 <div class="control-group">
-                    <label for="energyLevel">Turn rate ν:</label>
+                    <label for="energyLevel">Reference energy E:</label>
                     <input type="range" id="energyLevel" min="1" max="10" value="5" step="1">
-                    <span id="energyValue">1.21 PHz</span>
+                    <span id="energyValue">5 eV</span>
                 </div>
             </div>
             
@@ -638,7 +642,7 @@
             </div>
             
             <div class="explanation">
-                <p><strong>Profound Implication:</strong> Time is not a smooth continuum but discrete "ticks" of quantum duration. Higher energy = shorter time quanta. The universe operates like a cosmic digital clock!</p>
+                <p><strong>POAMS reading:</strong> completed turns are the discrete events; the smooth flow is their far-field appearance. A higher action rate gives a shorter period per completed turn.</p>
             </div>
         </div>
 
@@ -646,7 +650,7 @@
         <div class="section">
             <h2>5. The Pythagorean Unification</h2>
             <div class="explanation">
-                <p>The same Pythagorean cone geometry that explains time dilation in relativity also governs the atomic level rates. This is the key unifying insight of POAMS.</p>
+                <p>POAMS adopts the same Pythagorean time relation at macro and micro scales. Here it supplies the ratio used in the inverse-square ladder once the whole-number closure premise is added.</p>
             </div>
             
             <div class="cone-diagram" id="coneDiagram">
@@ -656,12 +660,12 @@
             <div class="formula-box">
                 <h3>The Universal Pythagorean Relationship</h3>
                 $$t^2 = \tau^2 + \left(\frac{s}{c}\right)^2$$
-                <p><strong>Macro (Relativity):</strong> Twin aging in orbital motion<br>
-                <strong>Micro (Quantum):</strong> the atom's harmonic mode energies</p>
+                <p><strong>Macro:</strong> reunited turn-count comparisons<br>
+                <strong>Micro:</strong> the adopted harmonic-mode rate ratio</p>
             </div>
             
             <div class="explanation">
-                <p>Both phenomena arise from the same geometric principle: the Pythagorean theorem applied to spacetime intervals. POAMS unifies relativity and quantum mechanics through angular momentum and pure geometry.</p>
+                <p>The shared algebra is a POAMS unification proposal. This panel demonstrates the common ratio; it does not by itself derive every microscopic coupling or the empirical Rydberg scale.</p>
             </div>
         </div>
 
@@ -669,7 +673,7 @@
         <div class="section">
             <h2>6. Live Hydrogen Emission Spectrum</h2>
             <div class="explanation">
-                <p>Watch the hydrogen emission spectrum change as you adjust the levels. Each line corresponds to a specific POAMS transition and represents a quantum of angular momentum being released as light.</p>
+                <p>Choose a series and maximum upper mode. Every line is generated from ν = cR<sub>H</sub>(1/N² − 1/n²); the displayed wavelength is the gross vacuum value. The chart tests the page's arithmetic, not line intensity or resolved structure.</p>
             </div>
             
             <div class="spectrum" id="spectrum">
@@ -686,11 +690,8 @@
             
             <div class="info-panel">
                 <div id="spectrumInfo">
-                    <strong>Visible Balmer Series:</strong><br>
-                    Hα (n=3→2): 656.3 nm (Red)<br>
-                    Hβ (n=4→2): 486.1 nm (Cyan)<br>
-                    Hγ (n=5→2): 434.0 nm (Violet)<br>
-                    Hδ (n=6→2): 410.2 nm (Violet)
+                    <strong>Formula-generated Balmer series</strong><br>
+                    Adjust the controls to list calculated gross vacuum wavelengths.
                 </div>
             </div>
         </div>
@@ -699,61 +700,73 @@
         <div class="section">
             <h2>7. The POAMS Mathematical Derivation</h2>
             <div class="explanation">
-                <p>Here's how POAMS derives the Balmer-Rydberg formula from first principles using only angular momentum quantization and Pythagorean geometry:</p>
+                <p>This is the complete derivation of the inverse-square <em>shape</em> used by the page. It begins from two stated POAMS premises and keeps the empirical normalization visible.</p>
             </div>
-            
+
             <div class="formula-box">
-                <h3>Step 1: Angular Momentum Quantization</h3>
-                $$L = mvr = n\hbar$$
-                <p>Angular momentum comes in discrete units of ℏ. (The total n is a <em>whole</em> number of turns. Split the closure into its radial and angular winding ledgers and each libration fold holds a quarter turn in escrow — (n<sub>r</sub>&nbsp;+&nbsp;½)&nbsp;+&nbsp;(l&nbsp;+&nbsp;½)&nbsp;=&nbsp;n — offsets that are themselves derived bookkeeping now; the total stays whole, as here.)</p>
+                <h3>Step 1: Pythagorean time ratio</h3>
+                $$t_R^2=t^2+\left(\frac{s}{c}\right)^2,\qquad v=\frac{s}{t_R}$$
+                $$\frac{t_R^2}{t^2}=\frac{1}{1-v^2/c^2}.$$
+                <p>Here t is the intrinsic leg and t<sub>R</sub> the reunited observational count.</p>
             </div>
-            
+
             <div class="formula-box">
-                <h3>Step 2: Energy from Angular Momentum</h3>
-                $$E = \frac{L^2}{2mr^2} = \frac{n^2\hbar^2}{2mr^2}$$
-                <p>Kinetic energy of orbital angular momentum</p>
+                <h3>Step 2: Whole-number closure</h3>
+                $$\frac{t_R}{t}=n,\qquad n=1,2,3,\ldots$$
+                $$\Longrightarrow\quad \frac{v_n^2}{c^2}=1-\frac{1}{n^2}.$$
+                <p>The integer ratio is the POAMS discreteness premise. It is not inferred from the numerical spectrum.</p>
             </div>
-            
+
             <div class="formula-box">
-                <h3>Step 3: Time Dilation Relationship</h3>
-                $$E = mc^2\left[1 - \frac{\tau^2}{t^2}\right]$$
-                <p>Where τ is proper time, t is coordinate time</p>
+                <h3>Step 3: Mode-deficit bookkeeping</h3>
+                <p>Pope's Appendix 3 defines the booked mode energy as e<sub>n</sub> = m<sub>R</sub>v<sub>n</sub>². Therefore</p>
+                $$e_n=m_Rc^2\left(1-\frac{1}{n^2}\right),\qquad
+                  \nu_n=\frac{e_n}{h}=\nu_R\left(1-\frac{1}{n^2}\right),$$
+                $$\nu_R\equiv\frac{m_Rc^2}{h}=cR_H.$$
+                <p>The factor m<sub>R</sub> is Pope's spectral scale mass, not m<sub>e</sub>. On this page ν<sub>R</sub> is normalized to the imported hydrogen value.</p>
             </div>
-            
+
             <div class="formula-box">
-                <h3>Step 4: Level Energies, then the Spectral Lines</h3>
-                <p>The time-relation gives the standing-mode <strong>level (term) energy</strong>:</p>
-                $$\nu = cR\left(1 - \frac{N^2}{n^2}\right)$$
-                <p>The <strong>observed lines</strong> are <em>differences</em> of these levels — the standard Balmer–Rydberg form:</p>
-                $$\nu = cR\left(\frac{1}{N^2} - \frac{1}{n^2}\right)$$
-                <p>Directly derived from the angular-momentum–time relationship</p>
+                <h3>Step 4: Subtract two terms</h3>
+                $$\nu_{n\to N}=\nu_n-\nu_N
+                =cR_H\left(\frac{1}{N^2}-\frac{1}{n^2}\right),\qquad n>N.$$
+                <p>The subtraction is exact. Thus POAMS derives the inverse-square ladder from its stated ratio and energy-booking premises; spectroscopy supplies the dimensional scale R<sub>H</sub>.</p>
             </div>
-            
+
             <div class="explanation">
-                <p><strong>The Result:</strong> The famous Balmer–Rydberg formula emerges naturally from angular-momentum quantization and relativistic time dilation: the standing modes fix the level energies, and each spectral line is a <em>difference</em> of two levels — a re-closure from one closed winding to another. No mysterious forces, no arbitrary assumptions — just pure geometry and the fundamental nature of angular momentum as substance.</p>
-                <p><strong>Look closer: the fine structure.</strong> Under higher resolution each of these lines splits. The gross ladder on this page is derived; a scalar time-dilation calculation identifies an \(\alpha^2\)-sized correction once the measured \(\alpha\) is supplied, but it cannot produce the signed doublet. The native rule that couples angular harmonic \(l\) to phase sense remains open. Current ledger: <a href="./poams-periodic-table.html#alpha-problem">the Alpha Problem</a>.</p>
+                <p><strong>What has been earned:</strong> given the POAMS whole-number time ratio and e = m<sub>R</sub>v² bookkeeping, the inverse-square term pattern and its line-difference formula follow. The live panels calculate their outputs from that formula.</p>
+                <p><strong>What remains open:</strong> this exhibit does not independently derive R<sub>H</sub>, line intensities, resolved fine structure, or the native coupling between angular harmonic l and phase sense. Current ledger: <a href="./poams-periodic-table.html#alpha-problem">the Alpha Problem</a>.</p>
             </div>
         </div>
 
         <!-- Conclusions -->
         <div class="section">
-            <h2>8. POAMS Insights & Implications</h2>
+            <h2>8. POAMS Insights &amp; Scope</h2>
             <div class="explanation">
-                <h3>Key POAMS Discoveries:</h3>
+                <h3>Results carried by this exhibit</h3>
                 <ul style="margin-left: 20px; margin-top: 15px;">
-                    <li><strong>Angular momentum is the fundamental substance</strong> — the irreducible "atom" of reality</li>
-                    <li><strong>There is no charge</strong> — its <em>sign</em> is phase sense (the sign of intrinsic spin), its <em>binding</em> is spin kinetic energy (Uhlenbeck & Goudsmit); no third "charge" property remains</li>
-                    <li><strong>Time is quantized</strong> — discrete "ticks" of duration t = h/E, not continuous flow</li>
-                    <li><strong>Mass-energy is quantized</strong> — comes in discrete packets tied to angular momentum</li>
-                    <li><strong>The level ladder is a trapped-rate ledger</strong> — each mode surrenders rate mc²/n² against the ionization limit; the same bookkeeping the nuclear exhibits carry as <a href="./mass-as-trapped-rate.html">mass as trapped rate</a>: one ledger, two scales</li>
-                    <li><strong>Relativity and quantum mechanics unify</strong> — through the same Pythagorean geometry</li>
-                    <li><strong>The Balmer-Rydberg formula</strong> — derived from pure angular momentum, no forces needed</li>
+                    <li><strong>Angular momentum is the POAMS substance</strong>; whole closures are counted by n.</li>
+                    <li><strong>Charge is not a second substance in POAMS</strong>; phase sense carries sign and organized circulation carries the binding ledger.</li>
+                    <li><strong>Completed turns are discrete</strong>; T = h/E is the period implied when one whole turn carries action h.</li>
+                    <li><strong>The inverse-square ladder follows</strong> from the stated integer time ratio and Pope energy-booking premise.</li>
+                    <li><strong>The dimensional Rydberg scale is imported</strong>; the page does not claim to derive its numerical value.</li>
+                    <li><strong>Spectral lines are term differences</strong>, calculated rather than hard-coded in both interactives.</li>
+                    <li><strong>The shared Pythagorean ratio is a unification proposal</strong>, not a completed derivation of every atomic detail.</li>
                 </ul>
-                
-                <h3 style="margin-top: 30px;">Philosophical Implications:</h3>
-                <p>POAMS suggests that reality is fundamentally geometric and quantum. The universe operates like a vast angular momentum accounting system, with energy, time, and space emerging from the quantized rotation of substance itself.</p>
-                
-                <p>This revolutionary perspective eliminates the need for mysterious forces and provides a unified foundation for both relativity and quantum mechanics — all through the power of Pythagorean geometry and the primacy of angular momentum.</p>
+
+                <p>The result is a POAMS-native derivation with an explicit premise boundary: the algebraic ladder is earned inside the framework; normalization and unresolved spectral structure remain empirical or open.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>9. Sources and numerical conventions</h2>
+            <div class="explanation">
+                <ul style="margin-left:20px">
+                    <li>N. Vivian Pope, Anthony D. Osborne, and A. F. Osborne, <em>Einstein's Lost Legacy</em> (Dorset, 2015), Appendix 3, pp. 179–180 — source of the POAMS time-ratio derivation and scale-mass definition.</li>
+                    <li><a href="https://physics.nist.gov/cgi-bin/cuu/Value?ryd">NIST/CODATA, Rydberg constant</a> — external numerical reference.</li>
+                    <li><a href="https://physics.nist.gov/PhysRefData/Handbook/Tables/hydrogentable2.htm">NIST Atomic Spectra Database, hydrogen strong lines</a> — operational comparison record.</li>
+                </ul>
+                <p>Calculations use exact c and h, CODATA R<sub>∞</sub> reduced by the electron–proton mass ratio to R<sub>H</sub> = 10,967,758.340 m⁻¹. Wavelengths shown by the interactives are gross vacuum values; observed components and air wavelengths differ slightly.</p>
             </div>
         </div>
     </div>
@@ -768,34 +781,47 @@
         let coneCanvas, coneCtx;
         let time = 0;
 
-        // Constants
-        const BOHR_RADIUS = 0.529; // Angstroms
-        const PLANCK_CONSTANT = 6.626e-34; // J·s
+        // Exact SI constants plus an explicitly imported hydrogen Rydberg scale.
+        const BOHR_RADIUS = 0.529321; // Å; empirical display/scaffold value
+        const PLANCK_CONSTANT = 6.62607015e-34; // J·s, exact
         const HBAR = PLANCK_CONSTANT / (2 * Math.PI);
-        const ELECTRON_MASS = 9.109e-31; // kg
-        const PROTON_MASS = 1.673e-27; // kg
-        const SPEED_OF_LIGHT = 3e8; // m/s
-        const RYDBERG_CONSTANT = 1.097e7; // m⁻¹
+        const ELECTRON_MASS = 9.1093837139e-31; // kg
+        const PROTON_MASS = 1.67262192595e-27; // kg
+        const GRAVITATIONAL_CONSTANT = 6.67430e-11; // m³ kg⁻¹ s⁻²
+        const SPEED_OF_LIGHT = 299792458; // m/s, exact
+        const RYDBERG_H = 10967758.340; // m⁻¹, hydrogen reduced-mass value
+        const RYDBERG_RATE = SPEED_OF_LIGHT * RYDBERG_H; // Hz
+        const RYDBERG_ENERGY = PLANCK_CONSTANT * RYDBERG_RATE; // J
+        const ELECTRON_VOLT = 1.602176634e-19; // J, exact
 
-        // Spectral line data
-        const spectralLines = {
-            balmer: [
-                { n1: 2, n2: 3, wavelength: 656.3, color: '#ff4444', name: 'Hα' },
-                { n1: 2, n2: 4, wavelength: 486.1, color: '#5bc8f5', name: 'Hβ' },
-                { n1: 2, n2: 5, wavelength: 434.0, color: '#9966ff', name: 'Hγ' },
-                { n1: 2, n2: 6, wavelength: 410.2, color: '#ff8800', name: 'Hδ' }
-            ],
-            lyman: [
-                { n1: 1, n2: 2, wavelength: 121.6, color: '#ffffff', name: 'Lα' },
-                { n1: 1, n2: 3, wavelength: 102.6, color: '#ffffff', name: 'Lβ' },
-                { n1: 1, n2: 4, wavelength: 97.3, color: '#ffffff', name: 'Lγ' }
-            ],
-            paschen: [
-                { n1: 3, n2: 4, wavelength: 1875, color: '#ff0000', name: 'Pα' },
-                { n1: 3, n2: 5, wavelength: 1282, color: '#ff0000', name: 'Pβ' },
-                { n1: 3, n2: 6, wavelength: 1094, color: '#ff0000', name: 'Pγ' }
-            ]
+        const seriesConfig = {
+            lyman:  { N: 1, label: 'Lyman',  prefix: 'L' },
+            balmer: { N: 2, label: 'Balmer', prefix: 'H' },
+            paschen:{ N: 3, label: 'Paschen',prefix: 'P' }
         };
+        const greek = ['α', 'β', 'γ', 'δ', 'ε', 'ζ', 'η'];
+
+        function selectedSeries() {
+            return seriesConfig[document.getElementById('series').value];
+        }
+
+        function lineRate(N, n) {
+            return RYDBERG_RATE * (1 / (N * N) - 1 / (n * n));
+        }
+
+        function lineWavelengthNm(N, n) {
+            return SPEED_OF_LIGHT / lineRate(N, n) * 1e9;
+        }
+
+        function wavelengthColor(wavelength) {
+            if (wavelength < 380 || wavelength > 700) return '#ffffff';
+            if (wavelength < 430) return '#7d4dff';
+            if (wavelength < 500) return '#46bfff';
+            if (wavelength < 570) return '#55d86a';
+            if (wavelength < 590) return '#ffe34d';
+            if (wavelength < 620) return '#ff9838';
+            return '#ff4444';
+        }
 
         // Initialize when page loads
         document.addEventListener('DOMContentLoaded', function() {
@@ -846,12 +872,14 @@
             const energySlider = document.getElementById('energyLevel');
             energySlider.addEventListener('input', function() {
                 const energy = parseInt(this.value);
-                document.getElementById('energyValue').textContent = (energy * 0.241799).toFixed(2) + ' PHz';
+                document.getElementById('energyValue').textContent = energy.toFixed(0) + ' eV';
                 updateTimeQuantization(energy);
             });
 
-            // Max level slider
+            // Series selector and maximum-level slider
+            const seriesSelect = document.getElementById('series');
             const maxLevelSlider = document.getElementById('maxLevel');
+            seriesSelect.addEventListener('change', syncSeriesControls);
             maxLevelSlider.addEventListener('input', function() {
                 const maxLevel = parseInt(this.value);
                 document.getElementById('maxLevelValue').textContent = maxLevel;
@@ -860,82 +888,116 @@
 
             updateAtomInfo();
             updateTimeQuantization(5);
+            syncSeriesControls();
+        }
+
+        function syncSeriesControls() {
+            const { N } = selectedSeries();
+            const slider = document.getElementById('maxLevel');
+            slider.min = N + 1;
+            if (Number(slider.value) < N + 1) slider.value = N + 1;
+            document.getElementById('maxLevelValue').textContent = slider.value;
+            initializeEnergyLevels();
+            updateSpectrum(Number(slider.value));
         }
 
         function initializeEnergyLevels() {
             const container = document.getElementById('energyLevels');
+            const { N, label } = selectedSeries();
             container.innerHTML = '';
 
-            for (let n = 1; n <= 6; n++) {
+            for (let n = 1; n <= 8; n++) {
                 const level = document.createElement('div');
                 level.className = 'energy-level';
                 level.onclick = () => selectEnergyLevel(n);
-                
-                const energy = -13.6 / (n * n);
-                const height = Math.abs(energy) * 15;
-                
+                if (n <= N) level.style.opacity = '0.35';
+
+                const labelNode = document.createElement('div');
+                labelNode.textContent = 'n=' + n;
+                labelNode.style.color = 'var(--text-dim)';
+                labelNode.style.fontSize = '12px';
+
                 const line = document.createElement('div');
                 line.className = 'level-line';
-                line.style.height = height + 'px';
-                line.style.marginBottom = (400 - height - 30) + 'px';
-                
-                const label = document.createElement('div');
-                label.textContent = `n=${n}`;
-                label.style.color = 'var(--text-dim)';
-                label.style.fontSize = '12px';
-                label.style.marginTop = '5px';
-                
+                line.style.width = Math.max(8, (1 - 1 / (n * n)) * 100) + '%';
+                line.title = 'Ground-referenced term fraction: ' +
+                    (1 - 1 / (n * n)).toFixed(6);
+
+                level.appendChild(labelNode);
                 level.appendChild(line);
-                level.appendChild(label);
                 container.appendChild(level);
             }
+            container.setAttribute('aria-label', label + ' series; lower mode N=' + N);
         }
 
         function selectEnergyLevel(n) {
-            // Update transition info
             const info = document.getElementById('transitionInfo');
-            const energy1 = -13.6 / (n * n);
-            const energy2 = -13.6 / (4); // Assuming transition to n=2
-            const deltaE = Math.abs(energy2 - energy1);
-            const frequency = deltaE * 1.602e-19 / PLANCK_CONSTANT;
-            const wavelength = SPEED_OF_LIGHT / frequency * 1e9;
-            const timeQuantum = PLANCK_CONSTANT / (deltaE * 1.602e-19);
+            const { N, label } = selectedSeries();
 
-            info.innerHTML = `
-                <strong>Transition n=${n} → n=2</strong><br>
-                Angular momentum change: ${n-2} × ℏ<br>
-                Rate quantum: ${(deltaE * 241.799).toFixed(0)} THz<br>
-                Time quantum: ${timeQuantum.toExponential(2)} s<br>
-                Wavelength: ${wavelength.toFixed(1)} nm
-            `;
-
-            // Highlight the selected level
             document.querySelectorAll('.level-line').forEach(line => line.classList.remove('active'));
             const levels = document.querySelectorAll('.energy-level');
-            if (levels[n-1]) {
-                levels[n-1].querySelector('.level-line').classList.add('active');
+            if (levels[n - 1]) levels[n - 1].querySelector('.level-line').classList.add('active');
+
+            if (n <= N) {
+                info.innerHTML = '<strong>' + label + ': choose an upper mode n &gt; ' + N +
+                    '</strong><br>The emission ledger requires n &gt; N.';
+                return;
             }
+
+            const frequency = lineRate(N, n);
+            const wavelength = SPEED_OF_LIGHT / frequency * 1e9;
+            const oneTurnPeriod = 1 / frequency;
+            info.innerHTML =
+                '<strong>' + label + ' transition n=' + n + ' → N=' + N + '</strong><br>' +
+                'POAMS winding-ledger change: ' + (n - N) + ' × ℏ<br>' +
+                'Turn rate: ' + (frequency / 1e12).toFixed(3) + ' THz<br>' +
+                'One-turn period: ' + oneTurnPeriod.toExponential(3) + ' s<br>' +
+                'Gross vacuum wavelength: ' + wavelength.toFixed(3) + ' nm';
         }
 
         function initializeSpectrum() {
-            updateSpectrum(4);
+            updateSpectrum(Number(document.getElementById('maxLevel').value));
         }
 
         function updateSpectrum(maxLevel) {
             const spectrum = document.getElementById('spectrum');
+            const info = document.getElementById('spectrumInfo');
+            const { N, label, prefix } = selectedSeries();
             spectrum.innerHTML = '';
 
-            const series = spectralLines.balmer;
-            series.forEach(line => {
-                if (line.n2 <= maxLevel) {
-                    const spectralLine = document.createElement('div');
-                    spectralLine.className = 'spectral-line';
-                    spectralLine.style.left = ((line.wavelength - 400) / 300 * 100) + '%';
-                    spectralLine.style.backgroundColor = line.color;
-                    spectralLine.title = `${line.name}: ${line.wavelength} nm`;
-                    spectrum.appendChild(spectralLine);
-                }
+            const lines = [];
+            for (let n = N + 1; n <= maxLevel; n++) {
+                lines.push({
+                    n,
+                    wavelength: lineWavelengthNm(N, n),
+                    name: prefix + (greek[n - N - 1] || n)
+                });
+            }
+
+            const values = lines.map(line => line.wavelength);
+            const min = Math.min(...values);
+            const max = Math.max(...values);
+            const span = Math.max(max - min, 1);
+            spectrum.style.background = label === 'Balmer'
+                ? 'linear-gradient(to right,#6f2cff 0%,#3f6fff 25%,#25c9c3 43%,#73d055 57%,#ffe34d 72%,#ff8a30 86%,#ff3434 100%)'
+                : 'linear-gradient(to right,#181d31,#303957,#181d31)';
+
+            lines.forEach(line => {
+                const spectralLine = document.createElement('div');
+                spectralLine.className = 'spectral-line';
+                spectralLine.style.left = lines.length === 1
+                    ? '50%'
+                    : (8 + 84 * (line.wavelength - min) / span) + '%';
+                spectralLine.style.backgroundColor = wavelengthColor(line.wavelength);
+                spectralLine.title = line.name + ': ' +
+                    line.wavelength.toFixed(3) + ' nm vacuum';
+                spectrum.appendChild(spectralLine);
             });
+
+            info.innerHTML = '<strong>Formula-generated ' + label +
+                ' series (N=' + N + ')</strong><br>' +
+                lines.map(line => line.name + ' (n=' + line.n + '→' + N + '): ' +
+                    line.wavelength.toFixed(3) + ' nm vacuum').join('<br>');
         }
 
         function initializeTimeTicks() {
@@ -946,7 +1008,7 @@
             const container = document.getElementById('timeTicks');
             container.innerHTML = '';
 
-            const energy = energyLevel * 1.602e-19; // Convert eV to J
+            const energy = energyLevel * ELECTRON_VOLT; // Convert eV to J
             const timeQuantum = PLANCK_CONSTANT / energy;
             const frequency = energy / PLANCK_CONSTANT;
 
@@ -955,8 +1017,7 @@
             for (let i = 0; i < numTicks; i++) {
                 const tick = document.createElement('div');
                 tick.className = 'tick';
-                const height = 50 + Math.random() * 100; // Vary heights
-                tick.style.height = height + 'px';
+                tick.style.height = '110px';
                 tick.style.animationDelay = (i * 0.1) + 's';
                 container.appendChild(tick);
             }
@@ -1084,7 +1145,7 @@
             atomCtx.fillText(`n = ${currentN}`, cx, 32);
             atomCtx.font = '13px Arial';
             atomCtx.fillStyle = css('--text-dim');
-            atomCtx.fillText(`harmonic mode  ·  L = ${currentN}ℏ  ·  winding ∮dφ = 2π·${currentN}`, cx, atomCanvas.height - 16);
+            atomCtx.fillText(`harmonic diagram · POAMS phase ledger: L=${currentN}ℏ, ∮dφ=2π·${currentN}`, cx, atomCanvas.height - 16);
         }
 
         function drawCollapse(progress) {
@@ -1100,8 +1161,9 @@
             collapseCtx.fillRect(0, 0, width, height);
 
             // Calculate current scale (logarithmic interpolation)
-            const startScale = 1e29; // Gravitational scale
-            const endScale = 5.29e-11; // Bohr radius
+            const startScale = HBAR ** 2 /
+                (GRAVITATIONAL_CONSTANT * ELECTRON_MASS ** 2 * PROTON_MASS);
+            const endScale = HBAR / Math.sqrt(2 * ELECTRON_MASS * RYDBERG_ENERGY);
             const logStart = Math.log10(startScale);
             const logEnd = Math.log10(endScale);
             const currentLog = logStart + progress * (logEnd - logStart);
@@ -1109,7 +1171,8 @@
 
             // Draw scale visualization
             const maxRadius = Math.min(width, height) * 0.4;
-            const currentRadius = maxRadius * Math.pow((startScale - currentScale) / startScale, 0.1);
+            const minRadius = Math.max(12, maxRadius * 0.08);
+            const currentRadius = minRadius + (maxRadius - minRadius) * (1 - progress);
 
             // Draw outer reference circle
             collapseCtx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--border');
@@ -1141,9 +1204,9 @@
             collapseCtx.textAlign = 'center';
             
             if (progress < 0.5) {
-                collapseCtx.fillText('Gravitational Orbit', centerX, centerY + maxRadius + 30);
+                collapseCtx.fillText('Reference-G scale', centerX, centerY + maxRadius + 30);
             } else {
-                collapseCtx.fillText('Spin Energy Orbit (Bohr Radius)', centerX, centerY + maxRadius + 30);
+                collapseCtx.fillText('Rydberg-energy scale', centerX, centerY + maxRadius + 30);
             }
         }
 
@@ -1177,7 +1240,7 @@
             coneCtx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--accent-blue');
             coneCtx.lineWidth = 3;
 
-            // Time component (vertical)
+            // Intrinsic-time component (vertical leg)
             coneCtx.beginPath();
             coneCtx.moveTo(centerX, centerY - coneHeight);
             coneCtx.lineTo(centerX, centerY + coneHeight/2);
@@ -1189,7 +1252,7 @@
             coneCtx.lineTo(centerX + coneBase/2, centerY + coneHeight/2);
             coneCtx.stroke();
 
-            // Spacetime interval (hypotenuse)
+            // Reunited observational count (hypotenuse)
             coneCtx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--h-alpha');
             coneCtx.lineWidth = 3;
             coneCtx.beginPath();
@@ -1202,9 +1265,9 @@
             coneCtx.font = '16px Arial';
             coneCtx.textAlign = 'center';
 
-            coneCtx.fillText('t', centerX - 20, centerY);
+            coneCtx.fillText('τ', centerX - 20, centerY);
             coneCtx.fillText('s/c', centerX + coneBase/4, centerY + coneHeight/2 + 20);
-            coneCtx.fillText('τ', centerX + coneBase/4, centerY - coneHeight/2);
+            coneCtx.fillText('t', centerX + coneBase/4 + 12, centerY - coneHeight/2);
 
             // Equation
             coneCtx.font = 'bold 20px Arial';
@@ -1215,7 +1278,7 @@
         function updateAtomInfo() {
             const radius = (BOHR_RADIUS * currentN).toFixed(3);
             const angularMomentum = (currentN * HBAR * 1e34).toFixed(3);
-            const energy = (-13.6 / (currentN * currentN) * 0.241799).toFixed(3);
+            const energy = (-RYDBERG_RATE / (currentN * currentN) / 1e15).toFixed(3);
 
             document.getElementById('infoN').textContent = currentN;
             document.getElementById('infoRadius').textContent = radius;
@@ -1224,8 +1287,9 @@
         }
 
         function updateScaleDisplay(progress) {
-            const startScale = 1e29;
-            const endScale = 5.29e-11;
+            const startScale = HBAR ** 2 /
+                (GRAVITATIONAL_CONSTANT * ELECTRON_MASS ** 2 * PROTON_MASS);
+            const endScale = HBAR / Math.sqrt(2 * ELECTRON_MASS * RYDBERG_ENERGY);
             const logStart = Math.log10(startScale);
             const logEnd = Math.log10(endScale);
             const currentLog = logStart + progress * (logEnd - logStart);
@@ -1233,13 +1297,13 @@
 
             const display = document.getElementById('scaleDisplay');
             if (progress < 0.1) {
-                display.textContent = `Orbital Radius: ${currentScale.toExponential(1)} m (Gravitational)`;
+                display.textContent = `Radius scale: ${currentScale.toExponential(2)} m (reference G)`;
                 display.style.color = 'var(--h-alpha)';
             } else if (progress > 0.9) {
-                display.textContent = `Orbital Radius: ${currentScale.toExponential(1)} m (Bohr Radius)`;
+                display.textContent = `Radius scale: ${currentScale.toExponential(2)} m (Rydberg energy)`;
                 display.style.color = 'var(--accent-blue)';
             } else {
-                display.textContent = `Orbital Radius: ${currentScale.toExponential(1)} m (Collapsing...)`;
+                display.textContent = `Radius scale: ${currentScale.toExponential(2)} m (log interpolation)`;
                 display.style.color = 'var(--accent-gold)';
             }
         }
