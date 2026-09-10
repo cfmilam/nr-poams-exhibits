@@ -82,7 +82,7 @@
     .fill.hot  { background: linear-gradient(90deg, #b8471f, var(--hot)); }
     .fill.gold { background: linear-gradient(90deg, rgba(201,168,76,0.5), var(--gold)); }
     .meter .bar.center::before { content:''; position:absolute; left:50%; top:-1px; bottom:-1px; width:1px; background: var(--gold-dim); }
-    .fill.wt { background: var(--cool); width: 5px !important; border-radius: 3px; transition: left 0.1s linear; }
+    .fill.lever { background: linear-gradient(90deg, rgba(91,155,213,0.45), var(--cool)); }
 
     .readout { font-size: 12.5px; color: var(--muted); padding: 2px 4px 0; display: flex; flex-wrap: wrap; gap: 6px 20px; }
     .readout b { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
@@ -137,7 +137,7 @@
 <p class="nr-provenance" style="font-size:0.8em;font-style:italic;opacity:0.72;line-height:1.5;margin:0.5em 0 1em;text-align:center">This exhibit is an extrapolation of the foundational work of N. Vivian “Viv” Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
     <p class="subtitle">Angular momentum going nowhere vs. going somewhere — what temperature <em>is</em>, and where the weight-lever hides in it</p>
     <p class="intro-text">
-      An atom is a rate that clears, not a store that holds — a closed winding of the one substance, endlessly transacting quanta of action without changing what it is. Below is that winding's <strong>flex</strong>: a ring of phase-oscillators, each a mode of the same circulation. Feed them power and watch two utterly different fates. Leave them <strong>incoherent</strong> and they churn every-which-way — the phases scatter, the net winding advance cancels to zero, and nothing moves but the thermometer: <strong>this disordered churn is heat, and its intensity is temperature.</strong> Now turn up <strong>coherence</strong> and the same power reorganizes into a directed advance — the ring locks, its resultant swings around, the natural orbit shifts, and <strong>weight moves.</strong> Heat and the weight-lever are one axis of one substance: <em>how coherent its re-phasing is.</em>
+      An atom is a rate that clears, not a store that holds — a closed winding of the one substance, endlessly transacting quanta of action without changing what it is. Below is a <strong>normalized POAMS ledger illustration</strong> of that winding's flex: a ring of phase-oscillators, each representing a mode of the same circulation. At fixed total input, the control partitions the display between disordered kicks and ordered advance. Leave the modes <strong>incoherent</strong> and they churn every-which-way — the phases scatter and the mean advance nearly cancels: in POAMS, <strong>this disordered churn is heat, and its intensity is temperature.</strong> Turn up <strong>coherence</strong> and the same normalized input is reallocated into directed advance. That advance is the proposed input to the natural-orbit/weight lever; <strong>this page does not calculate a scale reading, its sign, or its magnitude.</strong>
     </p>
   </div>
 
@@ -149,19 +149,19 @@
     <label>Coherence
       <input id="coh" type="range" min="0" max="1" step="0.001" value="0.06">
     </label>
-    <label>Power <span class="phn-hide-sm">(agitation)</span>
+    <label>Normalized input P
       <input id="pow" type="range" min="0.3" max="1.5" step="0.01" value="0.95">
     </label>
     <span class="sep"></span>
     <button id="btnHeat">🔥 Heat it</button>
     <button id="btnOrder">❄️ Order it</button>
-    <button id="btnKill">⚡ Kill drive</button>
+    <button id="btnKill">⚡ Remove ordered drive</button>
     <button id="btnReset">↺ Reset</button>
   </div>
 
   <div class="meters">
     <div class="meter">
-      <span class="meter-label"><span>🔥 Temperature <em>— churn intensity</em></span><b id="vTemp">—</b></span>
+      <span class="meter-label"><span>🔥 POAMS temperature proxy <em>— normalized churn variance</em></span><b id="vTemp">—</b></span>
       <div class="bar"><div class="fill hot" id="mTemp"></div></div>
     </div>
     <div class="meter">
@@ -169,30 +169,43 @@
       <div class="bar"><div class="fill gold" id="mCoh"></div></div>
     </div>
     <div class="meter">
-      <span class="meter-label"><span>⚖️ Weight shift <em>— natural orbit</em></span><b id="vWt">—</b></span>
-      <div class="bar center"><div class="fill wt" id="mWt"></div></div>
+      <span class="meter-label"><span>⚖️ Weight-lever input <em>— ordered advance, not a scale output</em></span><b id="vWt">—</b></span>
+      <div class="bar"><div class="fill lever" id="mWt"></div></div>
     </div>
   </div>
 
   <div class="readout">
-    <span>Net winding advance <b id="vPsi">0.0</b> turns</span>
-    <span>Identity crossing-count <b id="vLk">Lk = 3 🔒</b> <em>(never changes)</em></span>
+    <span>Integrated ordered-advance proxy <b id="vPsi">0.0</b> turns</span>
+    <span>Illustrative identity input <b id="vLk">Lk = 3 🔒</b> <em>(held fixed; not computed here)</em></span>
+    <span>Input ledger <b id="vLedger">—</b></span>
     <span id="vState">—</span>
   </div>
-  <p class="hint" id="hint">Drag the <b>Coherence</b> slider up: watch the scattered arrows lock, the gold resultant swing, and the weight marker leave centre — while the crossing-count never budges.</p>
+  <p class="hint" id="hint">Drag <b>Coherence</b> upward: watch the scattered arrows lock, the gold resultant grow, and the proposed weight-lever input rise. The fixed Lk label belongs to the assumed identity ledger, not to the oscillator calculation.</p>
+
+  <div class="grounding">
+    <h3>What this instrument computes</h3>
+    With coherence setting <em>c</em> and normalized input <em>P</em>, the illustration assigns
+    <strong>P<sub>churn</sub> = (1 − c)P</strong> and
+    <strong>P<sub>ordered</sub> = cP</strong>, so the two displayed shares always sum to P.
+    It computes the circular order parameter <strong>r = |N<sup>−1</sup>Σe<sup>iφ</sup>|</strong>,
+    the ordered-advance proxy <strong>ΩP<sub>ordered</sub>r</strong>, and churn as the variance
+    rate of the individual phase increments about their ensemble mean. These are normalized
+    ledger quantities, not calibrated watts, kelvin, orbital radius, or force. Coupling
+    K = K<sub>max</sub>c is the illustration's locking rule, not a measured power channel.
+  </div>
 
   <div class="cards">
     <div class="card">
       <h3>Two ledgers</h3>
-      The winding keeps two sets of books. The <strong>identity ledger</strong> — its crossing-count (Lk) — is the topology that makes it <em>this</em> element; ordinary light never touches it. The <strong>state ledger</strong> — this flex — is where every absorbed and emitted quantum lands. A face flooded with light stays the same face because the flood only ever writes on the state ledger.
+      The winding keeps two sets of books. The <strong>identity ledger</strong> — its crossing-count (Lk) — is the topology that makes it <em>this</em> element; ordinary state-ledger transactions do not rewrite it. The <strong>state ledger</strong> — this flex — is where absorbed and emitted quanta land. In this illustration Lk = 3 is a declared, fixed input: the oscillator ensemble neither computes nor proves that topological identity.
     </div>
     <div class="card">
       <h3>Heat = churn that goes nowhere</h3>
-      Incoherent re-phasing is disordered: summed around the ring it advances no net winding (∮ cancels), so it shifts no natural orbit and moves no weight. <strong>Heat is angular momentum churning in place; temperature is the intensity of that churn</strong> — Pope's "concentration of heat," made literal.
+      Incoherent re-phasing is disordered: averaged across the modeled modes it produces nearly zero ordered advance, so the proposed natural-orbit lever receives nearly zero input. <strong>POAMS identifies heat with angular momentum churning in place and temperature with the intensity of that churn</strong> — Pope's “concentration of heat,” stated here as the governing ontology. The meter is an uncalibrated variance proxy for that intensity, not a thermometer.
     </div>
     <div class="card">
       <h3>Coherence = the lever</h3>
-      Order the same churn and it stops cancelling: a directed phase-advance accumulates, the natural radius shifts, and weight follows. Ordering churn into advance is Pope's <em>negentropy</em>; it is also <em>information</em>; it is also the <em>weight-lever</em> the phase-rotation experiment reaches for. One axis, three readings.
+      Order the same normalized input and its modeled advance stops cancelling. POAMS proposes that a directed advance changes the natural-radius ledger and therefore weight; the linked phase-rotation experiment is the bench test of that prophetic bridge. Ordering churn into advance is Pope's <em>negentropy</em>, an ordering of information, and the proposed lever. This canvas illustrates the ledger relation; it does not report an observed weight change.
     </div>
   </div>
 
@@ -202,11 +215,11 @@
 
   <div class="grounding">
     <h3>The touchstone</h3>
-    Every claim here cashes out as the one substance keeping its books: a real circulation (the phase of each mode), pure bookkeeping (no thermal fluid, no force — temperature is a <em>ledger level</em>, heat-flow the transient imbalance), and no orbit/spin conflation (the churn is undirected internal re-phasing; the lever is a directed <em>net</em> advance, its sign set by the deposit channel, not chosen here — see §15). Nothing is fitted. Full argument: <a href="./the-poams-brilliant-vortex-atom.html#the-transaction-and-temperature"><em>The POAMS Brilliant Vortex Atom</em> §10b</a>, resting on the <a href="./index.html">One-Substance</a> anchor.
+    The claim cashes out as the one substance keeping two books: disordered internal re-phasing and directed net advance. There is no thermal fluid and no force crossing a gap; temperature is a <em>state-ledger level</em>, while heat flow is a transient imbalance. The sign of any weight response is set by the deposit channel and is deliberately not chosen by this illustration. Its constants and smoothing rates are illustrative, not fitted to a weight or temperature data set. Full argument: <a href="./the-poams-brilliant-vortex-atom.html#the-transaction-and-temperature"><em>The POAMS Brilliant Vortex Atom</em> §10b</a>, resting on the <a href="./index.html">One-Substance</a> anchor.
   </div>
 
   <div class="sources">
-    <strong>Sources.</strong> N. V. Pope, <em>Entropy and Negentropy</em> ("heat is disorder among the motions"; "a concentration of heat is temperature"). N. V. Pope &amp; A. Osborne, <em>Einstein's Lost Legacy</em>, Ch. 5–7 (the atom as quantum accumulator; the photum). <em>The POAMS Brilliant Vortex Atom</em>, §§8–10b. Companion: the <a href="./time-rope.html">time-rope</a> and <a href="./quantum-cinematograph.html">quantum-cinematograph</a> exhibits. The weight-lever it points to: the <a href="https://cfmilam.github.io/nr-poams-engineering/yig-levitation-experiment.html">phase-rotation experiment</a>.
+    <strong>Sources.</strong> N. V. Pope, <a href="https://cfmilam.github.io/nr-poams-papers/entropy-and-negentropy.html"><em>Entropy and Negentropy</em></a>, paragraph beginning “Insofar as all physical causality…” (“heat is disorder among those motions”; “a concentration of heat is temperature”). N. V. Pope &amp; A. Osborne, <a href="https://cfmilam.github.io/nr-poams-books/einsteins-lost-legacy.html"><em>Einstein's Lost Legacy</em></a> (2015), Chs. 5–7 and §9.3.1 (photum and atom as quantum accumulator). <a href="./the-poams-brilliant-vortex-atom.html#the-transaction-and-temperature"><em>The POAMS Brilliant Vortex Atom</em> §10b</a>. Companion: the <a href="./time-rope.html">time-rope</a> and <a href="./quantum-cinematograph.html">quantum-cinematograph</a> exhibits. Bench adjudication of the prophetic weight bridge belongs to the <a href="https://cfmilam.github.io/nr-poams-engineering/yig-levitation-experiment.html">phase-rotation experiment</a>.
   </div>
 
   <div class="footer">
@@ -255,8 +268,8 @@
   var DNOISE = 3.1;    // thermal noise scale
 
   var coh = 0.06, power = 0.95;
-  var driveOn = 1, killTimer = 0;
-  var psi = 0, psiPrev = 0, netPsi = 0;
+  var driveOn = 1;
+  var psi = 0, netPsi = 0;
   var tempS = 0, wtS = 0, rS = 0;      // smoothed meters
   var running = true, last = 0;
 
@@ -281,10 +294,11 @@
   }
 
   function step(dt) {
-    if (killTimer > 0) { killTimer -= dt; if (killTimer <= 0) driveOn = 1; }
     var K = Kmax * coh;
-    var directed = driveOn * coh * OMEGA * power;              // common, ordered advance
-    var noiseAmp = Math.sqrt(2 * (1 - coh) * DNOISE * power * dt); // zero-mean churn
+    var orderedShare = coh * power;
+    var churnShare = (1 - coh) * power;
+    var directed = driveOn * OMEGA * orderedShare;              // common, ordered advance
+    var noiseAmp = Math.sqrt(2 * DNOISE * churnShare * dt);      // zero-mean churn
     var o0 = order();
     var dphi = new Float64Array(N);
     for (var k = 0; k < N; k++) {
@@ -295,20 +309,19 @@
       phi[k] += kick;
     }
     var o1 = order();
-    // resultant angle (for drawing) — noisy/meaningless when r≈0, so NOT used for weight
-    var d = o1.psi - psiPrev;
-    while (d > Math.PI) d -= 2 * Math.PI;
-    while (d < -Math.PI) d += 2 * Math.PI;
-    psiPrev = o1.psi;
     psi = o1.psi;
 
-    // manifest coherent advance = applied drive × realized order (robust at r≈0 → weight≈0 when hot)
+    // modeled ordered advance: a normalized lever input, not a force or scale reading
     var coherentAdv = directed * o1.r;    // rad/s, signed by drive direction
     netPsi += coherentAdv * dt;
 
-    // measured churn about the collective advance = heat
+    // Churn is the phase-increment variance rate about the ensemble mean.
+    // The resultant angle is ill-conditioned when r is small and is not used.
+    var meanDphi = 0;
+    for (var j = 0; j < N; j++) meanDphi += dphi[j];
+    meanDphi /= N;
     var churn = 0;
-    for (var m = 0; m < N; m++) { var e = dphi[m] - d; churn += e * e; }
+    for (var m = 0; m < N; m++) { var e = dphi[m] - meanDphi; churn += e * e; }
     churn = churn / N / dt;
 
     tempS += (churn - tempS) * Math.min(1, dt * 6);
@@ -400,9 +413,10 @@
   var mTemp = document.getElementById('mTemp'), vTemp = document.getElementById('vTemp');
   var mCoh = document.getElementById('mCoh'), vCoh = document.getElementById('vCoh');
   var mWt = document.getElementById('mWt'), vWt = document.getElementById('vWt');
-  var vPsi = document.getElementById('vPsi'), vState = document.getElementById('vState');
+  var vPsi = document.getElementById('vPsi'), vLedger = document.getElementById('vLedger');
+  var vState = document.getElementById('vState');
 
-  var TEMP_REF = 9.0, WT_REF = 1.15;
+  var TEMP_REF = 2 * DNOISE * 1.5, WT_REF = OMEGA * 1.5;
   function paint() {
     var tp = Math.max(0, Math.min(1, tempS / TEMP_REF));
     mTemp.style.width = (tp * 100).toFixed(1) + '%';
@@ -410,17 +424,22 @@
     var rr = Math.max(0, Math.min(1, rS));
     mCoh.style.width = (rr * 100).toFixed(1) + '%';
     vCoh.textContent = rr.toFixed(2);
-    // weight: signed marker off centre
-    var wn = Math.max(-1, Math.min(1, wtS / WT_REF));
-    mWt.style.left = (50 + wn * 47).toFixed(1) + '%';
-    var wl = Math.abs(wn) < 0.04 ? '0 (at rest)'
-           : (wn > 0 ? '+' : '−') + (Math.abs(wn) * 100).toFixed(0) + '% ' + (wn > 0 ? '(one way)' : '(other way)');
-    vWt.textContent = wl;
+    var wn = Math.max(0, Math.min(1, Math.abs(wtS) / WT_REF));
+    mWt.style.width = (wn * 100).toFixed(1) + '%';
+    vWt.textContent = (wn * 100).toFixed(0) + '% of display scale';
     vPsi.textContent = (netPsi / (2 * Math.PI)).toFixed(1);
-    var st = rS < 0.25
-      ? 'State: HOT — power spent as disordered churn; net advance ≈ 0; weight unmoved.'
+    var churnShare = (1 - coh) * power;
+    var orderedShare = coh * power;
+    var activeOrdered = driveOn * orderedShare;
+    var activeInput = churnShare + activeOrdered;
+    vLedger.textContent = 'churn ' + churnShare.toFixed(3) + ' + active ordered ' +
+      activeOrdered.toFixed(3) + ' = active input ' + activeInput.toFixed(3);
+    var st = !driveOn
+      ? 'State: ordered drive removed - any retained coherence is configuration, not active advance.'
+      : rS < 0.25
+      ? 'State: HOT — input is allocated mainly to disordered churn; ordered advance ≈ 0.'
       : rS > 0.7
-        ? 'State: COHERENT — power spent as directed advance; weight displaced. Ordering is negentropy.'
+        ? 'State: COHERENT — input is allocated mainly to directed advance; the prophetic weight bridge is activated, not measured.'
         : 'State: mixed — some churn, some advance.';
     vState.textContent = st;
   }
@@ -456,20 +475,22 @@
     clearTimeout(el._t); el._t = setTimeout(function () { el.style.opacity = '0'; }, 2600);
   }
   document.getElementById('btnHeat').onclick = function () {
+    driveOn = 1;
     animateSlider(cohEl, 0.04, 900);
-    toast('🔥 Incoherent: the power scatters into churn. Temperature climbs; weight stays put.');
+    toast('🔥 Incoherent allocation: the normalized input goes mainly to churn; ordered advance falls.');
   };
   document.getElementById('btnOrder').onclick = function () {
+    driveOn = 1;
     animateSlider(cohEl, 0.98, 1100);
-    toast('❄️ Coherent: the churn reorganizes into a directed advance. Weight moves; temperature falls.');
+    toast('❄️ Coherent allocation: the same normalized input goes mainly to ordered advance.');
   };
   document.getElementById('btnKill').onclick = function () {
-    driveOn = 0; killTimer = 1.8;
-    toast('⚡ Drive killed: the net advance relaxes and weight returns — but the heat lingers. (The relaxation-time test.)');
+    driveOn = 0;
+    toast('⚡ Ordered drive removed. The blue meter follows a 0.2 s display smoother; this is not a material relaxation measurement.');
   };
   document.getElementById('btnReset').onclick = function () {
     for (var k = 0; k < N; k++) phi[k] = Math.random() * Math.PI * 2;
-    netPsi = 0; tempS = 0; wtS = 0; rS = 0; driveOn = 1; killTimer = 0;
+    netPsi = 0; tempS = 0; wtS = 0; rS = 0; driveOn = 1;
     cohEl.value = 0.06; coh = 0.06; powEl.value = 0.95; power = 0.95;
   };
 })();
