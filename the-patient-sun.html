@@ -65,6 +65,16 @@ body.light .tag.prov{background:#dce8f0;color:#176e94}
 body.light .tag.assume{background:#f0e6c8;color:#8b6914}
 body.light .tag.open{background:#f2dada;color:#b03030}
 body.light .tag.pass{background:#d9ecdb;color:#2e7d32}
+@media (max-width:640px){
+  table,tbody,tr,td{display:block;width:100%}
+  table{font-size:13px}
+  tr:first-child{display:none}
+  tr{margin:0 0 10px;border:1px solid var(--edge);border-radius:7px;overflow:hidden}
+  td{border:0;border-bottom:1px solid var(--edge);padding:8px 10px;overflow-wrap:anywhere}
+  td:last-child{border-bottom:0}
+  td::before{content:attr(data-label);display:block;color:var(--gold);font-size:11px;font-weight:600;letter-spacing:.04em;margin-bottom:2px;text-transform:uppercase}
+  td.c{text-align:left}
+}
 </style>
 </head>
 <body>
@@ -90,9 +100,11 @@ body.light .tag.pass{background:#d9ecdb;color:#2e7d32}
 <div class="card intro-card" style="margin-top:0;">
   <p style="margin:6px 0;">The textbook's "nuclear inferno" is wrong twice — there is no nucleus-thing and nothing burns. This page reads the Sun
   as a ledger with two throttles: an <em>entry</em> throttle (how rarely the census can re-file) and an <em>exit</em>
-  throttle (how slowly the published difference can leave). The endurance of the stars is the second throttle's doing —
-  a sun lasts ten billion years because almost nothing escapes. The stellar arithmetic here is standard and is kept;
-  what this exhibit changes is what that arithmetic is <em>about</em>.</p>
+  throttle (how slowly the published difference can leave). Stellar endurance belongs to their coupled bookkeeping:
+  entry rarity sets how reluctantly the deep ledger supplies rate, the exit sets the demanded publication rate and
+  operating point in this POAMS reading, and the accessible fuel census closes the tenure bill. The stellar arithmetic
+  here is imported and kept; what this exhibit changes is what that arithmetic is <em>about</em>. Exit-throttle
+  dominance is a POAMS hypothesis, not a result proved by the toy controls below.</p>
 </div>
 
 
@@ -116,15 +128,17 @@ sentence on this page is bookkeeping — what the one substance's ledger permits
 <h2>2 · How dim a sun actually is</h2>
 <p>The Sun's endurance stops being mysterious the moment its output is booked <em>per kilogram</em>.
 <span class="tag prov">measured</span> $L_\odot = 3.828\times10^{26}$ W against $M_\odot = 1.989\times10^{30}$ kg:</p>
-<div class="eqbox">$$\frac{L_\odot}{M_\odot} \;=\; 1.9\times10^{-4}\ \mathrm{W/kg}
-\qquad\qquad
-\frac{L_\odot}{M_\odot c^2} \;=\; 2.1\times10^{-21}\ \mathrm{s^{-1}}.$$</div>
+<div class="eqbox">$$\begin{aligned}
+\frac{L_\odot}{M_\odot} &\;=\; 1.9\times10^{-4}\ \mathrm{W/kg},\\[4pt]
+\frac{L_\odot}{M_\odot c^2} &\;=\; 2.1\times10^{-21}\ \mathrm{s^{-1}}.
+\end{aligned}$$</div>
 <p>A fifth of a milliwatt per kilogram. Your own resting body runs near $1.4$ W/kg — <strong>seven thousand times the
 power density of the Sun</strong>. A compost heap outperforms the solar average; so does a resting lizard. Even the
 core — the only region where re-filing happens at all — peaks near $276$ W/m³ ($\approx 2$ mW/kg), garden-compost
-territory. The Sun is not intense. The Sun is <em>large</em>. It blinds by size and endures by throttle: per second it
-publishes $2\times10^{-21}$ of its books, and over its entire ten-billion-year tenure it will publish
-<strong>less than a tenth of one percent</strong> of the rate it holds.</p>
+territory. The Sun's <em>mass-averaged specific luminosity</em> is not intense. The Sun is <em>large</em>. It blinds by
+size and endures by throttle: at today's average luminosity it publishes $2\times10^{-21}$ of its rest-rate ledger per
+second, and the ten-billion-year fuel-budget estimate below totals <strong>less than a tenth of one percent</strong>
+of the Sun's mass-equivalent ledger.</p>
 <div class="panel">
   <canvas id="ladderCanvas" width="860" height="300"></canvas>
 </div>
@@ -141,9 +155,13 @@ closed POAMS cell: four occupants, six pair relations, and no same-cell duplicat
 does <em>not</em> derive one common rate for all six relations; that calibration remains open. The Sun's net transaction is four quanta of the long-range-handle sense
 class (label: protons, "charge" dissolved — the binding aspect <em>is</em> spin kinetic energy, the sign a phase
 sense) re-filed into one alpha:</p>
-<div class="eqbox">$$4\,^1\mathrm{H} \;\longrightarrow\; ^4\mathrm{He} + 2\,(\text{sense flips}) + \text{published rate},
-\qquad \Delta = 6.463\ \mathrm{ZHz} = 0.71\%\ \text{of the entering rest rate}.$$</div>
-<p>The re-filed arrangement traps $0.71\%$ less rate than its parts. <span class="tag prov">measured</span> The Sun
+<div class="eqbox">$$\begin{aligned}
+4\,^1\mathrm{H}_{\rm atom} &\;\longrightarrow\; ^4\mathrm{He}_{\rm atom}+2\nu_e+\text{deposited rate},\\[4pt]
+\Delta &\;=\; 6.463\ \mathrm{ZHz}\;=\;0.71\%\ \text{of entering rest rate}.
+\end{aligned}$$</div>
+<p>This is neutral-atom mass bookkeeping: the two proton-to-neutron sense flips and their positron/annihilation
+handle bookkeeping are included in the quoted gross difference; the neutrino share is then separated from the rate
+deposited in the star. The re-filed arrangement traps $0.71\%$ less rate than its parts. <span class="tag prov">measured</span> The Sun
 processes about $6.2\times10^{11}$ kg of quanta per second — 620 megatonnes — and publishes $4.3\times10^{9}$ kg/s of
 rate ($L_\odot/c^2$). Two of the four entering quanta must <em>change sense class</em> along the way (label: β⁺ steps,
 p→n); about $2\%$ of the published difference leaves with the flip's uncoupled packets (label: neutrinos — §7).
@@ -151,13 +169,13 @@ A small side channel (label: CNO cycle, $\sim$1% in the Sun <span class="tag pro
 net transaction through a heavier scaffold; it changes nothing in this page's reading.</p>
 <table>
 <tr><th>step (ppI chain, labels extant)</th><th>what it is in the ledger</th><th>mean wait <span class="tag prov">computed/measured</span></th></tr>
-<tr><td>$p+p \to d$</td><td>same-sense contact <em>plus</em> a sense flip during contact</td><td class="c"><b>~9 billion years</b> per quantum</td></tr>
-<tr><td>$d+p \to {}^3\mathrm{He}$</td><td>ordinary re-filing, no flip needed</td><td class="c">seconds</td></tr>
-<tr><td>$^3\mathrm{He}+{}^3\mathrm{He} \to {}^4\mathrm{He}+2p$</td><td>finding a matching rare partner</td><td class="c">~10⁵–10⁶ years</td></tr>
+<tr><td data-label="step">$p+p \to d$</td><td data-label="ledger reading">same-sense contact <em>plus</em> a sense flip during contact</td><td data-label="mean wait" class="c"><b>~9 billion years</b> per quantum</td></tr>
+<tr><td data-label="step">$d+p \to {}^3\mathrm{He}$</td><td data-label="ledger reading">ordinary re-filing, no flip needed</td><td data-label="mean wait" class="c">seconds</td></tr>
+<tr><td data-label="step">$^3\mathrm{He}+{}^3\mathrm{He} \to {}^4\mathrm{He}+2p$</td><td data-label="ledger reading">finding a matching rare partner</td><td data-label="mean wait" class="c">~10⁵–10⁶ years</td></tr>
 </table>
 <p class="note">The first row is the entry throttle in one line: the census <em>can</em> re-file, and almost never
-does. A given quantum in the core waits, on average, longer than the present age of the universe's stars for its first
-successful transaction.</p>
+does. The quoted per-quantum mean wait is comparable to the Sun's main-sequence tenure; it is not longer than the age
+of the oldest stars or the Universe.</p>
 
 <h2>4 · The entry throttle — strain hill and sense flip</h2>
 <p>Two same-sense quanta approaching each other climb a <strong>phase-strain hill</strong>: like sense repels, and the
@@ -174,12 +192,13 @@ continuous paths that must top the hill. The old bookkeeping computes this admis
 what happened: no path, a re-filing whose entry fee is set by the strain profile.</p>
 <p>And contact alone is not enough. The two-quantum closure (label: the deuteron) only books if one partner
 <strong>flips sense class during the contact frame</strong> — the global re-booking the old ontology files as the weak
-interaction. Flips are rare in exactly the way the arithmetic says <span class="tag prov">the p+p S-factor has never
-been measured in any laboratory; it is computed, and the Sun is its confirmation</span>. Multiply a rare admission by
-a rare flip and the 9-billion-year wait of §3 falls out. <strong>That is why the fuel is not consumed quickly at the
+interaction. The imported calculation assigns the rare rate through the p+p S-factor; it has not been measured at
+solar energies in a laboratory. Solar-neutrino observations test the resulting solar bookkeeping, but do not
+independently derive the POAMS sense-flip interpretation. Multiply a rare admission by a rare flip and the quoted
+multi-billion-year mean wait of §3 follows in that imported calculation. <strong>That is why the fuel is not consumed quickly at the
 entry side: the deep ledger hardly ever accepts a filing.</strong></p>
 
-<h2>5 · The exit throttle — almost nothing escapes</h2>
+<h2>5 · The exit throttle — little escapes per unit observer time</h2>
 <p>Here is the half of the story the furnace picture hides, and the reason this page exists. Published rate does not
 "radiate away." In this series' reading of emission (<a href="./antenna-emission.html">Antenna &amp; Emission</a>),
 rate leaves matter only by <strong>emitter→absorber hand-offs</strong> — end-to-end transactions, each instantaneous
@@ -187,26 +206,29 @@ in its own proper time, sequenced in observer time. A hand-off needs an absorber
 <em>the next absorber is about a millimeter away.</em></p>
 <p>So a core re-filing's published rate does not depart. It is re-absorbed, re-published, re-absorbed —
 a random walk of discrete transactions:</p>
-<div class="eqbox">$$N \;\approx\; \left(\frac{R_\odot}{\ell}\right)^{\!2} \;\approx\; 10^{24}\ \text{hand-offs},
-\qquad
-t \;\approx\; \frac{R_\odot^{2}}{\ell\,c} \;\approx\; 10^{5}\ \text{years}
-\quad\big(\ell \sim 1\ \mathrm{mm};\ \text{profile-integrated models give} \sim 1\!-\!2\times10^{5}\ \mathrm{yr}\big).$$</div>
+<div class="eqbox">$$\begin{aligned}
+N &\;\approx\; \left(\frac{R_\odot}{\ell}\right)^{\!2} \;\approx\; 10^{24}\ \text{hand-offs},\\[4pt]
+t &\;\approx\; \frac{R_\odot^{2}}{\ell\,c} \;\approx\; 10^{5}\ \text{years},\\[4pt]
+&\hspace{1em}\ell \sim 1\ \mathrm{mm}\quad(\text{constant-}\ell\text{ estimate}).
+\end{aligned}$$</div>
 <p>The straight-line bill would be $R_\odot/c = 2.32$ s. The interior detains outbound rate by a factor of
 $\sim10^{12}$. And nothing "travels" for those hundred thousand years — there is no photon-thing in flight holding the
 energy in its hands. There are $10^{24}$ ledger entries. The "surface of the Sun" (label: photosphere) is simply the
-first shell whose next absorber is off-star — the depth at which the hand-off horizon opens to the sky. You have never
-seen the core; you see the census's last re-publication.</p>
+POAMS reading of the finite region where the outward hand-off horizon opens; it is not a mathematically sharp shell,
+and the imported photospheric location depends on wavelength and direction. You have never seen the core; you see the
+census's last re-publication.</p>
 <p><strong>The retail shredding.</strong> The books enter the walk as EHz-class entries and leave it as THz-class
-change: each $6.46$ ZHz re-filing is finally published as $\sim2\times10^{7}$ quanta near $314$ THz (the thermal retail
-of a 5772 K surface). The rate is conserved; the <em>record</em> is not. What escapes is rate with its coherent history
-ground to noise — the Sun exports energy, and almost no information. The one unshredded copy leaves by a different
-door (§7).</p>
+change: dividing $6.46$ ZHz by $314$ THz gives an <em>energy-equivalent average count</em> of
+$\sim2\times10^{7}$ surface quanta; it is not a census of identifiable descendants of one core event. The rate is
+conserved; the <em>event record</em> is not. Thermalization erases recoverable event-by-event linkage between a
+surface quantum and a particular core re-filing; the outgoing light still carries measurable spectral, directional,
+temporal, and polarization information. The comparatively unshredded audit leaves by a different door (§7).</p>
 <div class="card gold">
-<p style="margin:4px 0;"><strong>The historical proof that the exit sets the rate.</strong> Eddington derived the
-mass–luminosity relation of the stars from <em>transport bookkeeping alone</em> — how fast rate can leak through
-stellar matter — in 1924, <strong>fifteen years before anyone knew what the energy source was</strong> (Bethe's
-chains: 1939). The brightness law never needed the burn. That is not a POAMS claim; it is the textbook's own history,
-read plainly: <em>a star's output is fixed by its exit, and the source is conscripted to match.</em></p>
+<p style="margin:4px 0;"><strong>Historical motivation, not proof.</strong> Eddington developed mass–luminosity
+relations from stellar structure and transport before Bethe's 1939 reaction-chain account supplied the detailed
+source. That chronology shows that important luminosity structure can be obtained without first specifying the
+microscopic entry chain. It does <em>not</em> prove zero dependence on entry physics. The stronger POAMS reading —
+that the exit sets the demanded output and the source re-settles to match — remains a testable hypothesis.</p>
 </div>
 <div class="panel">
   <canvas id="walkCanvas" width="500" height="420"></canvas>
@@ -224,29 +246,29 @@ read plainly: <em>a star's output is fixed by its exit, and the source is conscr
 
 <h2>6 · The thermostat — why the two throttles cannot fight</h2>
 <p>What if the entry throttle were loosened — the strain hill lowered, the flip made common? The furnace picture says
-the Sun explodes. The ledger says: <em>the exit does not care.</em> The star re-settles. If re-filing briefly outruns
+the Sun explodes. The POAMS exit-throttle hypothesis says the star re-settles. If re-filing briefly outruns
 the leak, the surplus lands in the incoherent book (heat <em>is</em> incoherent circulation —
 <a href="./heat-and-coherence.html">Heat &amp; Coherence</a>), the incoherent push wins a little against every
 shell's constraint balance, shells step outward, contact thins, re-filing throttles back. Negative feedback with no
-governor part — constraint bookkeeping doing what it must. The published luminosity stays pinned at what the exit can
-pass; the <em>operating point</em> (core temperature) is what moves.</p>
+governor part — constraint bookkeeping doing what it must. The hypothesis is that the published luminosity responds
+more weakly than the entry ease because the <em>operating point</em> shifts. This page does not derive that response
+coefficient from a native stellar ledger.</p>
 <div class="panel">
   <canvas id="thermoCanvas" width="860" height="270"></canvas>
   <div class="controls">
     <label>Entry ease (strain-hill admission × flip rate): <span class="readout" id="easeOut">×1</span></label>
-    <input type="range" id="easeSlider" min="-2" max="4" step="0.1" value="0">
+    <input type="range" id="easeSlider" min="-0.5" max="0.5" step="0.05" value="0">
     <label>Exit choke (interior opacity): <span class="readout" id="kappaOut">×1</span></label>
-    <input type="range" id="kappaSlider" min="-1" max="1" step="0.05" value="0">
-    <p class="note" style="margin-top:8px">Toy scalings, labeled as such: at fixed demanded output, admission
-    $\propto S\,T^{4}$ near solar conditions, so the settling core temperature runs as $T_c \propto S^{-1/4}$; the
-    demanded output itself runs as $L \propto 1/\kappa$, and the tenure as its inverse. Make the entry a million times
-    easier: the Sun <em>dims nothing, lasts just as long</em>, and merely idles cooler. Choke or open the <em>exit</em>
-    and both move. The lifetime of the stars belongs to the exit throttle.</p>
+    <input type="range" id="kappaSlider" min="-0.5" max="0.5" step="0.05" value="0">
+    <p class="note" style="margin-top:8px"><span class="tag assume">illustrative local algebra</span> The widget
+    imposes admission $\propto S\,T^{4}$, $T_c \propto S^{-1/4}$, $L=L_\odot/\kappa$, and a fixed-fuel tenure
+    $t=10.5\kappa$ Gyr. It therefore illustrates the exit-throttle hypothesis; it cannot prove the independence it
+    builds in. The restricted sliders show only a local sensitivity exercise, not a million-fold stellar prediction.</p>
   </div>
 </div>
-<p class="note">Scope of the claim, stated plainly: this is the leading-order structure of a radiative main-sequence
-star (the Sun's leak is radiative through the deep interior; the outer convective fifth and structural readjustments
-are second-order for this argument, and are imported unchanged from the standard model of stellar structure).</p>
+<p class="note">Scope of the claim, stated plainly: this is a schematic POAMS sensitivity ledger, not a stellar-
+structure solver. The imported solar record includes varying density, opacity, reaction rates, and radiative and
+convective regions; none of those profiles is computed by this widget.</p>
 
 <h2>7 · The audit that escapes unshredded</h2>
 <p>The sense flips of §3 publish about $2\%$ of the difference into packets that almost never find an absorber
@@ -257,9 +279,9 @@ ledger, unopened. Earth receives the rate $\sim10^{5}$ years stale and the <em>n
 <p><span class="tag prov">measured</span> That freshness is not rhetoric — it is the audit that closed the books:
 Davis's mine tank first counted the flux (1968, and counted it low); the flavor bookkeeping that resolved the deficit
 is extant physics' own (SNO, 2001–02, total flux confirmed); Borexino (2014) finally read the pp packets directly and
-found the live core generating <em>exactly the rate the surface publishes</em>. The core audited in real time matches
-the century-delayed retail: the ledger is in steady state, the walk of §5 is real, and the Sun is doing today what its
-surface will report in a hundred thousand years.</p>
+found the neutrino-inferred generation rate consistent with the photon luminosity within stated experimental and
+solar-model uncertainties. The core audit and the roughly hundred-thousand-year-delayed retail are consistent with a
+steady-state ledger; that agreement does not by itself select a transport ontology.</p>
 <p class="note"><span class="tag pass">NATIVE — ratified 2026-08-14</span> The account this page's first publication
 declared open is now on the books
 (<a href="https://github.com/cfmilam/nr-poams-engineering/blob/gh-pages/proofs/NEUTRINO-SENSE-REMAINDER-FOUNDATION.md">the
@@ -267,11 +289,12 @@ foundation record</a>): the neutrino is the <strong>sense remainder</strong> —
 sense flip must publish once the handle book (the e±) and the census books balance. It carries no long-range handle
 and no census winding, so the only door it can ever use is the one it came through — a conjugate flip: "weak-only"
 coupling as an inventory theorem, and this section's transparency as port scarcity. It is massive <em>because it
-beats in transit</em>: a beat is a clock, a clock is proper time, proper time on a rate-carrying leg is trapped rate
-(τ ⇔ m — mass and oscillation are one ledger entry read twice; the Standard Model's 1998 patch reads natively as
-<em>the leg accumulates, of course it weighs</em>). Its oscillation phase is its own clock counted over the leg,
-$\varphi = \omega_0\tau \propto m^2 L/E$ — the very $L/E$ form the data draw — and its handedness is what sense looks
-like with no other book to compare against. Still open there, still unclaimed here: the mass magnitudes and the
+beats across the co-signed observer-time leg</em>: a beat is a clock, a clock is proper time, and accumulated proper
+time on a rate-bearing relation is trapped rate (τ ⇔ m — mass and oscillation are one ledger entry read twice; no
+travelling bearer is introduced). The imported oscillation record constrains phase differences in the form
+$\Delta\varphi \propto \Delta m^2 L/E$; it establishes nonzero mass-squared differences, not an absolute neutrino
+mass. The POAMS account reads that relational beat as the sense remainder's clock, and its handedness as what sense
+looks like with no other book to compare against. Still open there, still unclaimed here: the mass magnitudes and the
 flavor count; the flavor-mixing numbers remain imported.</p>
 
 <h2>8 · The clock that settled a century</h2>
@@ -281,10 +304,12 @@ contraction account (the constraint ledger paying out as the body settles — re
 entry) funds <strong>~30 million</strong>. Geology and Darwin's descent demanded vastly more, and the physicists of
 the day told the geologists they were wrong. The geologists were not wrong. The bill is paid from the deep ledger,
 $0.71\%$ of rest rate on the fraction of the census the core can reach:</p>
-<div class="eqbox">$$t_{\rm MS} \;\approx\; \frac{0.007 \times 0.1 \times M_\odot c^2}{L_\odot}
-\;\approx\; 3.3\times10^{17}\ \mathrm{s} \;\approx\; 10.5\ \text{billion years}.$$</div>
-<p>Ten billion years, from two small numbers: a $0.7\%$ discount, published through an exit that passes
-$2\times10^{-21}$ of the books per second. The stars are not prodigies of fuel. They are prodigies of
+<div class="eqbox">$$\begin{aligned}
+t_{\rm MS} &\;\approx\; \frac{0.007 \times 0.1 \times M_\odot c^2}{L_\odot},\\[4pt]
+&\;\approx\; 3.3\times10^{17}\ \mathrm{s} \;\approx\; 10.5\ \text{billion years}.
+\end{aligned}$$</div>
+<p>Ten billion years, from the coupled fuel-budget assumptions: a $0.7\%$ discount on an accessible $10\%$ census,
+published at an exit rate that passes $2\times10^{-21}$ of the books per second. The stars are not prodigies of fuel. They are prodigies of
 <em>restraint</em>.</p>
 
 <h2>9 · What holds it together</h2>
@@ -323,23 +348,34 @@ claims no new number.</p>
 magnitudes and the flavor count (no number claimed; the flavor-triple↔winding-counts conjecture stays flagged,
 unclaimed); a native derivation of the interior hand-off cross-section (the opacity — the real prize: derive the exit
 throttle from the census itself, as the mass front organized its conditional terms — and its sibling, the flip-port cross-section);
-the post-main-sequence chapters in ledger form.</p>
-<p style="margin:0;"><b>Falsifiers, named:</b> the exit-throttle reading dies if stellar brightness tracks the entry
-cross-sections rather than the transport — it does not, and the mass–luminosity law predating Bethe by fifteen years
-is the standing exhibit; the steady-state reading dies if the live neutrino audit diverges from the published
-luminosity — Borexino says it does not; the entry numbers move if a laboratory p+p cross-section ever contradicts
-the computed S-factor. The sense-remainder account carries its own: it dies if the oscillation phase departs the
-$m^2L/E$ clock form, if a neutrino ever transacts at a non-flip port, or if a large neutrino handle (magnetic
-moment) appears.</p>
+the post-main-sequence chapters in ledger form; and a native coefficient for how equilibrium luminosity responds to
+entry ease at fixed exit bookkeeping.</p>
+<p style="margin:0 0 10px;"><b>Falsifiers, named:</b> exit-throttle dominance predicts that an entry-ease perturbation
+is substantially absorbed by a changed operating point rather than copied one-for-one into equilibrium luminosity.
+This page supplies no native coefficient, so the claim remains prophetic; it fails if a controlled, ontology-neutral
+record shows no such compensation at fixed exit conditions. The steady-state reading fails if neutrino-inferred
+generation and photon luminosity disagree beyond their stated uncertainties. The imported entry numbers move if a
+laboratory p+p result contradicts the computed S-factor. The sense-remainder account carries its own: it fails if the
+oscillation phase departs the $\Delta m^2L/E$ clock form, if a neutrino transacts at a non-flip port, or if a large
+neutrino handle (magnetic moment) appears.</p>
+<p style="margin:0;"><b>Primary and authoritative records:</b>
+<a href="https://nssdc.gsfc.nasa.gov/planetary/factsheet/sunfact.html">NASA Sun Fact Sheet</a> (nominal solar
+constants); <a href="https://doi.org/10.1103/RevModPhys.83.195">Adelberger et al., <em>Solar fusion cross sections
+II</em></a> (pp-chain rates and S-factors); <a href="https://doi.org/10.1103/PhysRevLett.89.011301">SNO total active
+solar-neutrino flux</a>; <a href="https://doi.org/10.1038/nature13702">Borexino pp-neutrino measurement</a>;
+<a href="https://doi.org/10.1038/s41586-020-2934-0">Borexino CNO-neutrino measurement</a>; and
+<a href="https://archive.org/details/internalconstitu0000eddi">Eddington, <em>The Internal Constitution of the
+Stars</em></a> (historical source).</p>
 </div>
 
 <h2>11 · Reading it as Normal Realism</h2>
 <p>A fire consumes; a census endures. The Sun is not violence sustained for ten billion years — it is patience
 organized: $10^{57}$ circulation quanta re-filing toward the deep ledger's cheapest arrangement at the pace their own
-strain hills and sense flips allow, behind an exit that opens a millimeter at a time. Nothing is being devoured in
+strain hills and sense flips allow, behind an exit whose interior hand-offs are millimeter-scale in the illustrative
+constant-$\ell$ estimate. Nothing is being devoured in
 the sky. The one substance is balancing its books, and publishing, per second, two parts in $10^{21}$ of what it
 holds. That the night is full of ten-billion-year lamps is not a miracle of fuel. It is what angular momentum does
-when almost nothing escapes.</p>
+when entry, exit, and accessible fuel keep one coupled ledger.</p>
 
 </main>
 <footer>
@@ -381,34 +417,48 @@ try{if(localStorage.getItem('poams-theme')==='light'){document.body.classList.ad
 // ---------- power-density ladder ----------
 const lc=document.getElementById('ladderCanvas'), lctx=lc.getContext('2d');
 const rows=[
- {name:'Sun — whole-body average',v:1.9e-4,c:'#d4af37'},
- {name:'Sun — core peak',v:2.0e-3,c:'#d4af37'},
- {name:'resting lizard',v:0.3,c:'#5bc8f5'},
- {name:'compost heap',v:1.0,c:'#63d67e'},
- {name:'resting human',v:1.4,c:'#5bc8f5'},
- {name:'sprinting human',v:15,c:'#5bc8f5'}
+ {name:'Sun — whole-body average',short:'Sun average',v:1.9e-4,c:'#d4af37'},
+ {name:'Sun — core peak',short:'Sun core',v:2.0e-3,c:'#d4af37'},
+ {name:'resting lizard',short:'lizard',v:0.3,c:'#5bc8f5'},
+ {name:'compost heap',short:'compost',v:1.0,c:'#63d67e'},
+ {name:'resting human',short:'human',v:1.4,c:'#5bc8f5'},
+ {name:'sprinting human',short:'sprinting',v:15,c:'#5bc8f5'}
 ];
+function fitLadder(){
+ const width=Math.min(860,Math.floor(lc.parentElement.clientWidth));
+ if(lc.width!==width)lc.width=width;
+ lc.height=width<600?340:300;
+ drawLadder();
+}
 function drawLadder(){
  const P=pal();
- const W=lc.width,H=lc.height;lctx.clearRect(0,0,W,H);
- const x0=210,x1=W-30,lmin=-4,lmax=2;
+ const W=lc.width,H=lc.height,mobile=W<600;lctx.clearRect(0,0,W,H);
+ const x0=mobile?108:210,x1=W-(mobile?14:30),lmin=-4,lmax=2;
  const X=v=>x0+(Math.log10(v)-lmin)/(lmax-lmin)*(x1-x0);
- lctx.font='12px Menlo,monospace';lctx.fillStyle=P.mut;lctx.strokeStyle=P.edge;
- for(let e=lmin;e<=lmax;e++){const x=X(Math.pow(10,e));lctx.beginPath();lctx.moveTo(x,26);lctx.lineTo(x,H-30);lctx.stroke();lctx.fillText('10'+(e<0?'⁻':'')+String(Math.abs(e)).replace(/\d/g,d=>'⁰¹²³⁴⁵⁶⁷⁸⁹'[d]),x-12,H-12);}
- lctx.fillText('W/kg →',x1-40,16);
- rows.forEach((r,i)=>{const y=40+i*40,x=X(r.v);
+ lctx.font=(mobile?'10px':'12px')+' Menlo,monospace';lctx.fillStyle=P.mut;lctx.strokeStyle=P.edge;
+ for(let e=lmin;e<=lmax;e++){const x=X(Math.pow(10,e));lctx.beginPath();lctx.moveTo(x,26);lctx.lineTo(x,H-30);lctx.stroke();lctx.fillText('10'+(e<0?'⁻':'')+String(Math.abs(e)).replace(/\d/g,d=>'⁰¹²³⁴⁵⁶⁷⁸⁹'[d]),x-(mobile?8:12),H-12);}
+ lctx.fillText('W/kg →',x1-(mobile?38:40),16);
+ rows.forEach((r,i)=>{const y=(mobile?50+i*48:40+i*40),x=X(r.v);
   lctx.fillStyle=P.map[r.c]||r.c;lctx.globalAlpha=0.85;lctx.fillRect(x0,y-9,Math.max(2,x-x0),18);lctx.globalAlpha=1;
-  lctx.fillStyle=P.fg;lctx.font='12.5px Georgia,serif';lctx.textAlign='right';lctx.fillText(r.name,x0-8,y+4);lctx.textAlign='left';
-  lctx.fillStyle=P.mut;lctx.font='11px Menlo,monospace';lctx.fillText(r.v<1e-2?r.v.toExponential(1):r.v+'',x+6,y+4);});
+  lctx.fillStyle=P.fg;lctx.font=(mobile?'12.5px':'12.5px')+' Georgia,serif';lctx.textAlign='right';lctx.fillText(mobile?r.short:r.name,x0-6,y+4);lctx.textAlign='left';
+  lctx.fillStyle=P.mut;lctx.font=(mobile?'10.5px':'11px')+' Menlo,monospace';lctx.fillText(r.v<1e-2?r.v.toExponential(1):r.v+'',Math.min(x+4,x1-28),y+4);});
 }
-drawLadder();
+fitLadder();
 
 // ---------- the leak: random walk ----------
 const wc=document.getElementById('walkCanvas'),wctx=wc.getContext('2d');
 const R=6.957e8,C=2.998e8;
-const cx=wc.width/2,cy=wc.height/2-8,Rpx=170;
+let cx=wc.width/2,cy=wc.height/2-8,Rpx=170;
 let px=cx,py=cy,trail=[],escaped=0,steps=0;
 const slider=document.getElementById('mfpSlider');
+function fitWalk(){
+ const width=Math.min(500,Math.floor(wc.parentElement.clientWidth));
+ const height=width<450?360:420;
+ if(wc.width!==width)wc.width=width;
+ if(wc.height!==height)wc.height=height;
+ cx=wc.width/2;cy=wc.height/2-8;Rpx=Math.min(170,wc.width/2-18);
+ px=cx;py=cy;trail=[];
+}
 function fmtTime(s){
  if(s<60)return s.toFixed(2)+' s';
  if(s<3600)return (s/60).toFixed(1)+' min';
@@ -439,7 +489,7 @@ function stats(){
 slider.addEventListener('input',stats);
 document.getElementById('btnReal').onclick=()=>{slider.value=-3;stats();};
 document.getElementById('btnGlass').onclick=()=>{slider.value=Math.log10(R);stats();};
-stats();
+fitWalk();stats();
 function walkFrame(){
  const P=pal();
  // schematic walker: visible step shrinks a little as slider tightens, purely cosmetic
@@ -463,7 +513,7 @@ function walkFrame(){
  wctx.strokeStyle=P.blueA(0.55);wctx.beginPath();
  trail.forEach((p,i)=>{i?wctx.lineTo(p[0],p[1]):wctx.moveTo(p[0],p[1]);});wctx.stroke();
  wctx.fillStyle=P.blue;wctx.beginPath();wctx.arc(px,py,3.5,0,7);wctx.fill();
- wctx.fillStyle=P.mut;wctx.font='11px Menlo,monospace';
+ wctx.fillStyle=P.mut;wctx.font=(wc.width<450?'12px':'11px')+' Menlo,monospace';
  wctx.fillText('schematic walk — real N ≈ 10²⁴',12,16);
  wctx.fillText('escapes so far: '+escaped,12,wc.height-12);
  requestAnimationFrame(walkFrame);
@@ -473,34 +523,43 @@ walkFrame();
 // ---------- thermostat ----------
 const tc=document.getElementById('thermoCanvas'),tctx=tc.getContext('2d');
 const ease=document.getElementById('easeSlider'),kap=document.getElementById('kappaSlider');
+function fitThermo(){
+ const width=Math.min(860,Math.floor(tc.parentElement.clientWidth));
+ const height=width<600?330:270;
+ if(tc.width!==width)tc.width=width;
+ if(tc.height!==height)tc.height=height;
+ drawThermo();
+}
 function drawThermo(){
  const P=pal();
  const S=Math.pow(10,parseFloat(ease.value)),K=Math.pow(10,parseFloat(kap.value));
- document.getElementById('easeOut').textContent='×'+S.toExponential(0).replace('e+0','e').replace('e+','e');
+ document.getElementById('easeOut').textContent='×'+S.toFixed(2);
  document.getElementById('kappaOut').textContent='×'+K.toFixed(2);
- const Tc=15.7*Math.pow(S,-0.25)*Math.pow(K,-0.0); // entry sets T only
+ const Tc=15.7*Math.pow(S,-0.25);
  const L=3.828e26/K, life=10.5*K;
- const W=tc.width,H=tc.height;tctx.clearRect(0,0,W,H);
- tctx.font='13px Georgia,serif';
- function bar(y,label,frac,color,text,locked){
-  tctx.fillStyle=P.mut;tctx.fillText(label,20,y-8);
-  tctx.fillStyle=P.track;tctx.fillRect(20,y,W-260,20);
-  tctx.strokeStyle=P.edge;tctx.strokeRect(20,y,W-260,20);
+ const W=tc.width,H=tc.height,mobile=W<600;tctx.clearRect(0,0,W,H);
+ tctx.font=(mobile?'12.5px':'13px')+' Georgia,serif';
+ function bar(y,label,frac,color,text){
+  const left=mobile?12:20,barWidth=mobile?W-24:W-260;
+  tctx.fillStyle=P.mut;tctx.fillText(label,left,y-8);
+  tctx.fillStyle=P.track;tctx.fillRect(left,y,barWidth,20);
+  tctx.strokeStyle=P.edge;tctx.strokeRect(left,y,barWidth,20);
   tctx.fillStyle=P.map[color]||color;tctx.globalAlpha=0.85;
-  tctx.fillRect(20,y,Math.max(4,Math.min(1,frac)*(W-260)),20);tctx.globalAlpha=1;
-  tctx.fillStyle=P.fg;tctx.font='12px Menlo,monospace';
-  tctx.fillText(text+(locked?'  🔒 exit-pinned':''),W-228,y+14);
-  tctx.font='13px Georgia,serif';
+  tctx.fillRect(left,y,Math.max(4,Math.min(1,frac)*barWidth),20);tctx.globalAlpha=1;
+  tctx.fillStyle=P.fg;tctx.font=(mobile?'12px':'12px')+' Menlo,monospace';
+  tctx.fillText(text,mobile?left:W-228,y+(mobile?38:14));
+  tctx.font=(mobile?'12.5px':'13px')+' Georgia,serif';
  }
  // T on log scale 1..40 MK ; L log 25..28 ; life log 0.1..110 Gyr
- bar(38,'core temperature (the operating point — follows the ENTRY)',(Math.log10(Tc)-0)/(Math.log10(40)-0),'#5bc8f5',Tc.toFixed(1)+' MK',false);
- bar(108,'published luminosity (follows the EXIT only)',(Math.log10(L)-25)/3,'#d4af37',L.toExponential(2)+' W',Math.abs(parseFloat(kap.value))<0.001);
- bar(178,'main-sequence tenure (follows the EXIT only)',(Math.log10(life)+1)/(Math.log10(110)+1),'#63d67e',life.toFixed(1)+' Gyr',Math.abs(parseFloat(kap.value))<0.001);
- tctx.fillStyle=P.mut;tctx.font='12px Georgia,serif';
- tctx.fillText('toy scalings, labeled in the caption — the qualitative split is the standard model\u2019s own',20,H-14);
+ bar(38,'imposed settling temperature (entry sensitivity)',(Math.log10(Tc)-0)/(Math.log10(40)-0),'#5bc8f5',Tc.toFixed(1)+' MK');
+ bar(mobile?138:108,'imposed publication rate (exit sensitivity)',(Math.log10(L)-25)/3,'#d4af37',L.toExponential(2)+' W');
+ bar(mobile?238:178,'fixed-fuel tenure from imposed L',(Math.log10(life)+1)/(Math.log10(110)+1),'#63d67e',life.toFixed(1)+' Gyr');
+ tctx.fillStyle=P.mut;tctx.font=(mobile?'11px':'12px')+' Georgia,serif';
+ tctx.fillText(mobile?'local algebra — assumptions shown below':'illustrative local algebra — assumptions shown beside the controls',mobile?12:20,H-14);
 }
 ease.addEventListener('input',drawThermo);kap.addEventListener('input',drawThermo);
-drawThermo();
+fitThermo();
+window.addEventListener('resize',()=>{fitLadder();fitWalk();fitThermo();});
 })();
 </script>
 </body>
