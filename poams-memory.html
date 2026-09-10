@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>POAMS and Memory — The Bit as a Closure, the Write as a Torque, and the Ledger That Keeps Itself</title>
+<title>Memory — The Bit as a Closure, the Write as a Torque, and the Ledger That Keeps Itself</title>
 <script>window.MathJax={tex:{inlineMath:[['$','$']],displayMath:[['$$','$$']]}};</script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
 <style>
@@ -29,6 +29,8 @@ button{background:var(--gold);color:#111;border:none;border-radius:6px;padding:.
 button.off{background:#333347;color:var(--mut)}
 input[type=range]{accent-color:var(--gold)}
 table{border-collapse:collapse;width:100%;font-size:.9rem;margin:.8rem 0}
+.table-scroll{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.table-scroll table{min-width:720px}
 th,td{border:1px solid var(--edge);padding:.45rem .6rem;text-align:left}
 th{color:var(--gold);font-weight:normal}
 td.c{text-align:center}
@@ -42,6 +44,7 @@ body.light .eqbox{background:#f6f3ea}
 body.light .prov{background:rgba(139,105,20,.06)}
 body.light button{color:#fff}
 body.light button.off{background:#dcd5c2;color:#6b6355}
+@media(max-width:640px){main{padding:1.4rem .8rem 3rem}body{font-size:16px}h1{font-size:1.5rem}h2{font-size:1.15rem;margin-top:2rem}.card{padding:.8rem}.eqbox{font-size:.9rem}.nav{gap:.5rem;flex-wrap:wrap}}
 </style>
 <style id="poams-hub-nav-style">
 #poams-hub-nav{position:fixed;top:0;left:0;right:0;z-index:9999;height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 1rem;background:rgba(13,13,24,0.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,175,55,0.25);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;box-sizing:border-box;}
@@ -63,7 +66,7 @@ body{padding-top:72px !important;}
   <a href="./poams-telecommunications.html" title="POAMS & Telecommunications">← <span class="phn-hide-sm">POAMS & Telecoms</span></a>
   <div class="phn-center">
     <a href="./index.html" style="flex-direction:column;gap:2px;padding:4px 12px;">
-      <span class="phn-title">POAMS & Memory</span>
+      <span class="phn-title">Memory</span>
       <span class="phn-pos">NR · POAMS · EXHIBIT SERIES</span>
     </a>
   </div>
@@ -73,8 +76,8 @@ body{padding-top:72px !important;}
 <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle light/dark theme">☀️</button>
 
 <main>
-<h1>POAMS and Memory</h1>
-<p class="note" style="margin-top:-2px">What a bit is &middot; every store you own, audited &middot; writing is torque, literally &middot; the Landauer toll and the Arrhenius lease &middot; matter was always memory</p>
+<h1>Memory</h1>
+<p class="note" style="margin-top:-2px">What a bit is &middot; representative stores audited &middot; writing as an angular-momentum receipt &middot; the Landauer toll and the Arrhenius lease &middot; matter as memory</p>
 <p class="note" style="font-size:.82rem">Sibling exhibits: <a href="./poams-electricity.html">POAMS &amp; Electricity</a> §5 named the industry that stores information in angular momentum without the map — this page audits it. <a href="./heat-and-coherence.html">Heat &amp; Coherence</a> holds the two books every erasure moves between.</p>
 <div class="prov">This exhibit is an extrapolation of the foundational work of N. Vivian “Viv” Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).<br>
 Built on the corpus record: the charge dissolution (<em>POAMS and Electricity — Synopsis</em>); the quantum hand-off (<em>Electricity and Light</em>, 2005); <a href="./mass-as-trapped-rate.html">Mass as Trapped Rate</a> · <a href="./aufbau-as-closure.html">Aufbau as Closure</a> · <a href="./heat-and-coherence.html">Heat &amp; Coherence</a>. Industry and physics values are the extant measured record, tagged; the native reading is ours.</div>
@@ -85,8 +88,9 @@ Built on the corpus record: the charge dissolution (<em>POAMS and Electricity �
 <p style="margin-top:0"><strong>Why digital won — the discreteum's own verdict.</strong> The corpus holds that reality is a <em>discreteum</em>: angular momentum comes in whole closures or not at all — a fractional turn is not a smaller thing but <em>no</em> thing, because it does not close and cannot persist <span class="tag">see Aufbau as Closure · the Restatement</span>. Persistence therefore belongs to <em>completed organizations</em> and to nothing else. An analog store asks a continuum to hold still; a digital store asks a closure to remain a closure — which is what closures do. The industry discovered by attrition (analog drift, analog noise, analog decay) what the ontology states in one line: <strong>only the discrete persists.</strong></p>
 </div>
 
-<h2>2 · The audit — every store you own</h2>
-<p>Take the technologies in your pocket and on your desk, and read each one natively. They divide into exactly two families, and the division is the physics of this page:</p>
+<h2>2 · The audit — two storage variables, a separate persistence axis</h2>
+<p>The representative technologies below admit two POAMS-native state-variable readings: an <strong>orientation store</strong> records directed organization, while a <strong>bias store</strong> records an off-balance census. That taxonomy says <em>what variable carries the bit</em>. Volatile versus nonvolatile is a separate question: <em>how long the chosen organization remains distinguishable</em>, whether by an intrinsic barrier, an engineered wall, or active refresh.</p>
+<div class="table-scroll">
 <table>
 <tr><th>Store</th><th>Extant description</th><th>Native reading</th><th>Measured anchors</th></tr>
 <tr><td>Hard disk / tape</td><td><span class="fant">magnetized grains</span></td><td><strong>orientation store</strong> — aligned circulation senses; the bit is which way the turning points</td><td>grain barriers spec'd in $kT$ units — §4's lease <span class="tag">measured</span></td></tr>
@@ -95,7 +99,8 @@ Built on the corpus record: the charge dissolution (<em>POAMS and Electricity �
 <tr><td>Flash / SSD</td><td><span class="fant">electrons trapped on a floating gate</span></td><td><strong>bias store</strong> behind a wall — a census locked in by a barrier organization</td><td>oxide barrier 3.2 eV — extant bridge, stated once for this page: 1 eV ↔ 241.8 THz, so a <strong>774 THz</strong> wall <span class="tag">measured</span></td></tr>
 <tr><td>Read head (GMR/TMR)</td><td><span class="fant">magnetoresistance senses the field</span></td><td>an <strong>orientation reader</strong> — a linked transaction that senses which way the books point <em>without re-organizing them</em></td><td>non-destructive read; DRAM's bias read, by contrast, spends the census and must re-write <span class="tag">measured</span></td></tr>
 </table>
-<p><strong>The two families are not equal.</strong> An orientation store keeps a <em>state</em>: a completed organization of the substance, which persists because being organized is not a process and costs no upkeep — pull the power and the disk remembers for decades. A bias store keeps a <em>process</em>: a census held away from balance by a wall or a refresh pump — pull the power (or just wait 64 ms) and the ledger re-balances, taking the bit with it. The industry's entire non-volatile/volatile divide is the ontology's state/process divide, wearing shop clothes.</p>
+</div>
+<p><strong>State variable is not volatility.</strong> Hard-disk and MRAM orientations can be nonvolatile because a barrier protects their selected orientation. DRAM is a volatile bias store because leakage requires active refresh. Flash is a <em>nonvolatile bias store</em>: an engineered barrier holds its off-balance census after power removal. The page therefore does not identify orientation/bias with the industry's nonvolatile/volatile divide; persistence must be audited separately for each implementation.</p>
 
 <div class="card">
 <canvas id="storesCanvas" height="270"></canvas>
@@ -103,13 +108,13 @@ Built on the corpus record: the charge dissolution (<em>POAMS and Electricity �
   <button id="powerBtn">Power: ON</button>
   <span class="readout" id="storesStatus">both stores holding — bias store refreshing every cycle</span>
 </div>
-<p class="note">Left: an orientation store — the bit is which way the turning points; a state, no upkeep. Right: a bias store — a count held off balance, leaking toward equilibrium, re-pumped each refresh. Cut the power and watch the difference between a state and a process. <span class="tag">pedagogical; counts and refresh interval from the measured column above</span></p>
+<p class="note">Left: a barrier-protected orientation example. Right: an actively refreshed DRAM-like bias example. This comparison is not a universal volatility rule: flash is the counterexample, a barrier-protected nonvolatile bias store. The right-hand animation is deliberately time-expanded: its 1.2 s display cycle represents a 64 ms <em>all-row refresh window</em>; its 3 s display leak is illustrative and is not a physical retention distribution. <span class="tag">pedagogical · timing scale disclosed</span></p>
 </div>
 
 <h2>3 · Writing is torque — the industry's write equation is AM conservation</h2>
-<p>How does one <em>write</em> an orientation? The extant answer for modern MRAM is spin-transfer torque: <span class="fant">a spin-polarized current exerts a torque on the free layer's magnetization</span>. Strip the costume and read what the equation says. Torque <em>is</em> $d\mathbf L/dt$ — the rate of angular-momentum delivery. Each carrier in the write current hands the layer up to $\hbar/2$ of the one substance; the layer flips when it has been handed enough:</p>
-<div class="eqbox">$$\frac{dL}{dt} \;=\; \eta\,\frac{\hbar}{2}\,\frac{I}{e} \qquad\qquad t_{\text{switch}} \;\approx\; \frac{N_{\text{spins}}\,(\hbar/2)}{\eta\,(\hbar/2)(I/e)} \;=\; \frac{N_{\text{spins}}\,e}{\eta\, I}$$</div>
-<p><strong>Worked, on public device numbers</strong> <span class="tag">measured specs · arithmetic ours</span>: a 40 nm × 1.3 nm free layer at $M_s = 10^6$ A/m holds a moment of $1.6\times10^{-18}$ A·m² — about $\boldsymbol{1.8\times10^{5}}$ <strong>units of $\mu_B$</strong>, i.e. $1.8\times10^{5}$ half-turn senses to be out-voted. A 50 µA write current delivers carriers at $I/e = 3.1\times10^{14}$ per second; at a transfer efficiency $\eta \approx 0.6$ that is $1.9\times10^{14}$ units of $\hbar/2$ per second. Divide: <strong>$t_{\text{switch}} \approx 0.9$ ns</strong> — the nanosecond class the datasheets report. Pure angular-momentum bookkeeping, run on the industry's own numbers, lands on the industry's own switching time. The write head does not <em>persuade</em> the bit; it hands it angular momentum until its books flip. That the extant art calls the delivered quantity <span class="fant">"spin current"</span> and the stored quantity <span class="fant">"magnetization"</span> changes nothing: the conservation arithmetic closes because both are the one substance.</p>
+<p>How does one <em>write</em> an orientation? The extant answer for modern MRAM is spin-transfer torque: <span class="fant">a spin-polarized current exerts a torque on the free layer's magnetization</span>. Natively, torque is $d\mathbf L/dt$ — a rate of angular-momentum delivery. If $N_\mu=\mu/\mu_B$ counts the layer's aligned magnetic-moment units and each transferred carrier contributes at most $\hbar/2$ with net efficiency $\eta$, a literal sign reversal changes the layer from $+N_\mu\hbar/2$ to $-N_\mu\hbar/2$. The signed receipt is therefore:</p>
+<div class="eqbox">$$\left|\Delta L_{\rm flip}\right|=2N_\mu\frac{\hbar}{2}=N_\mu\hbar,\qquad \left|\frac{dL}{dt}\right|=\eta\frac{\hbar}{2}\frac{I}{e},\qquad t_{\rm full\,receipt}=\frac{2N_\mu e}{\eta I}.$$</div>
+<p><strong>Worked ideal receipt on declared public-scale inputs</strong> <span class="tag">illustrative geometry · arithmetic ours</span>: take a <strong>40 nm diameter circular</strong> free layer, 1.3 nm thick, at $M_s=10^6$ A/m. Then $V=\pi(20\,\mathrm{nm})^2(1.3\,\mathrm{nm})=1.63\times10^{-24}$ m³, $\mu=M_sV=1.63\times10^{-18}$ A·m², and $N_\mu=\mu/\mu_B=1.76\times10^5$. A 50 µA current supplies $I/e=3.12\times10^{14}$ carriers/s; at $\eta=0.6$, the ideal signed-delivery rate is $1.87\times10^{14}$ units of $\hbar/2$ per second. A full reversal requires $2N_\mu=3.52\times10^5$ such units, giving <strong>$t_{\rm full\,receipt}=1.88$ ns</strong>. This is an ideal conservation timescale, not a complete switching-dynamics prediction: anisotropy, damping, thermal activation, nonuniform reversal, and angular momentum returned to the reaction system remain device-dependent. The corrected receipt still lands in the nanosecond class without pretending to derive a particular datasheet value.</p>
 
 <div class="card">
 <canvas id="writeCanvas" height="240"></canvas>
@@ -118,33 +123,43 @@ Built on the corpus record: the charge dissolution (<em>POAMS and Electricity �
   <input type="range" id="iSlider" min="10" max="200" value="50" style="flex:1;min-width:140px">
   <button id="fireBtn">Write the bit</button>
 </div>
-<p class="note">The ledger of one write: carriers deliver $\hbar/2$ units into the free layer until its $1.8\times10^{5}$-unit book is out-voted and the orientation flips. The bar runs slowed ~10⁹×; the readout shows the real time, $t = N e/\eta I$. Drag the current and watch the write time obey the conservation arithmetic. <span class="tag">public specs; pedagogical animation</span></p>
+<p class="note">The ideal signed ledger of one complete reversal: the layer moves from $+N_\mu\hbar/2$ to $-N_\mu\hbar/2$, so carriers must deliver $2N_\mu$ effective units of $\hbar/2$. The bar runs slowed $1.5\times10^9$; the readout shows $t_{\rm full\,receipt}=2N_\mu e/(\eta I)$. It is a conservation lower-bound illustration, not a switching solver. <span class="tag">declared inputs · pedagogical animation</span></p>
 </div>
 
 <h2>4 · The toll and the lease — what memory costs and how long it keeps</h2>
 <p><strong>The toll (writing's floor).</strong> Landauer's bound — imported by the extant record and kept by this corpus <span class="tag">see Periodic Table §Landauer · imported extant</span> — prices the <em>erasure</em> of one bit at no less than $kT\ln 2$ of energy, re-filed into the incoherent book <span class="tag">see Heat &amp; Coherence</span>. Read natively, at room temperature:</p>
 <div class="eqbox">$$\frac{kT\ln 2}{h}\Big|_{300\text{ K}} \;=\; 4.33\ \text{THz} \qquad\left(\frac{kT}{h} = 6.25\ \text{THz}\right)$$</div>
-<p>— erasing a bit surrenders at least <strong>4.33 THz of turn rate</strong> to the heat census. Orientation is free to <em>keep</em>; it is the <em>re-organizing</em> — the forced un-choosing of a closure — that the ledger charges for. (Reading done right is charged nothing: the GMR head's sense-preserving transaction in §2's table.)</p>
+<p>— logically irreversible erasure carries a lower bound equivalent to <strong>4.33 THz of turn rate</strong> at 300 K. A state-preserving read need not pay that <em>erasure</em> toll; this page does not calculate or claim zero device energy for reading.</p>
 <p><strong>The lease (keeping's clock).</strong> How long does an orientation store hold? The industry's own retention law is Arrhenius: a written grain re-organizes spontaneously at $\tau = \tau_0\, e^{KV/kT}$, with the attempt time $\tau_0 \sim 1$ ns and the barrier $KV$ spec'd in multiples of $kT$ <span class="tag">measured · recording-industry design rule</span>:</p>
 <div class="eqbox">$$\tau = \tau_0\, e^{KV/kT}: \qquad 40\,kT \;\Rightarrow\; \tau \approx 7\ \text{years} \qquad 60\,kT \;\Rightarrow\; \tau \approx 3.6\times10^{9}\ \text{years}$$</div>
-<p>— every $0.69\,kT$ of barrier (one factor of $\ln 2$) <em>doubles</em> the memory's life. Twenty $kT$ of barrier separate a bit that survives a product warranty from one that would outlive the Sun. Memory, natively read, is <strong>rented from the heat book at an exponential discount</strong>: the closure keeps itself; thermal traffic occasionally forces a re-organization; the engineer buys nines of persistence with linear spend on barrier rate. The same arithmetic in the other family: DRAM's unwalled bias leaks in <em>milliseconds</em>; flash's 774-THz wall holds its census for decades. The whole memory industry is one Arrhenius ladder, climbed in $kT$ rungs.</p>
+<p>— within this single-barrier model, every additional $0.69\,kT$ (one factor of $\ln 2$) doubles the mean waiting time. Twenty $kT$ changes that idealized mean by $e^{20}\approx4.85\times10^8$. Real products have barrier distributions and additional failure modes, so these are model examples rather than warranty predictions. DRAM's 64 ms figure is an all-row refresh requirement, not an exact bit-loss instant; without refresh, leakage eventually makes its bias unreadable. Flash demonstrates the independent persistence axis: its off-balance census is nonvolatile because a barrier suppresses escape. The storage examples audited here therefore occupy different points on a barrier-and-refresh ledger, not one universal Arrhenius ladder.</p>
 
 <h2>5 · The garnet frontier — kept books with no census traffic at all</h2>
-<p>The <a href="./poams-electricity.html">electricity exhibit</a> named the convergence: <span class="fant">spintronics</span> stores bits in aligned angular momentum while narrating them as labels on charge-carriers; <span class="fant">magnonics</span> carries signals as ordered precession through electrically dead insulating crystals — no conduction census moving at all, information as <em>organized turning in place</em>. The measured facts are remarkable and public <span class="tag">measured · literature</span>: in the crowned crystal class — the iron garnets — precessional order propagates centimetres with damping $\alpha \sim 3\times10^{-5}$, the lowest known in any magnetic material; logic elements built on it have been demonstrated. Decades of empirical exhaustion selected the same garnet class this corpus selects from first principles as the natural coherence medium <span class="tag">see Heat &amp; Coherence</span>.</p>
+<p>The <a href="./poams-electricity.html">Electricity exhibit</a> named the convergence: <span class="fant">spintronics</span> stores bits in aligned angular momentum, while <span class="fant">magnonics</span> carries signals as ordered precession through electrically insulating crystals. Bulk YIG spheres have reported Gilbert damping near $\alpha=2.7(5)\times10^{-5}$, and YIG magnonic transistors and logic elements have been demonstrated <span class="tag">measured · sources below</span>. The separate claim that garnets are the corpus's natural coherence medium is a <strong>referenced POAMS corpus conclusion</strong>, not a first-principles selection derived on this page <span class="tag">see Heat &amp; Coherence · not derived here</span>.</p>
 <p>The diagnosis of record, restated for memory: a two-valued label offers an engineer one bit and no reason to look for more; a <em>turning organization</em> — aligned, wound, phased, and read — is a far richer register than the label admits. The industries built on the label have left capability on the table that the native reading makes visible. The specifics belong to the engineering program rather than to this page; the point of record is that the substance already computes and already remembers, in hardware shipping today, one bit at a time, under the wrong name.</p>
 
 <h2>6 · Matter was always memory</h2>
-<p>Step back once more. An atom, in this corpus, is a standing book of turn rate — hundreds of zettahertz per constituent, held in closure <span class="tag">see Mass as Trapped Rate</span>. Its census organization — which closures, in which order — is the periodic table itself <span class="tag">see Aufbau as Closure</span>; a spectral line is that register being <em>read out</em>, a linked hand-off that reports an organization across any distance. Iron remembers being iron with perfect fidelity for the age of the universe, at zero upkeep, because its content <em>is</em> completed closures and completed closures are what persistence is. Human memory technology, audited honestly, is the borrowing of this native persistence — coaxing small populations of the substance to hold <em>our</em> chosen organizations instead of only their own. The ledger has kept itself for 13.8 billion years. We have learned, in one century, to write in its margins.</p>
+<p>Step back once more. An atom, in this corpus, is a standing book of turn rate — hundreds of zettahertz per constituent, held in closure <span class="tag">see Mass as Trapped Rate</span>. Its census organization — which closures, in which order — is the periodic table itself <span class="tag">see Aufbau as Closure</span>; a spectral line is that register being <em>read out</em>, a linked hand-off that reports an organization across any distance. Stable atomic identities persist without an active refresh clock; POAMS reads that persistence as completed closure, while this page does not claim a measured zero-energy upkeep for an isolated atom. Human memory technology, in this reading, borrows that organizational persistence by preparing populations to hold selected states. We have learned to write in the ledger's margins.</p>
 
 <h2>7 · More here than meets the eye</h2>
 <div class="card gold">
-<p>The audit closed cleanly: every memory you own is angular momentum or its bias (§2); the write equation is conservation of the one substance, closing to the datasheet nanosecond on public numbers (§3); the cost floor and the retention clock are both rate bookkeeping against the heat census (§4); and the frontier medium the industry crowned by trial is the corpus's first-principles choice (§5). Not one measured number changed anywhere on this page. What changed is what a bit <em>is</em> — and an industry that knew what its own state variable was would not treat two values as the end of the register.</p>
+<p>The representative stores audited here admit an orientation-or-bias state-variable reading (§2), while their persistence depends separately on barriers and refresh. The corrected MRAM example gives a signed full-reversal receipt in the nanosecond class without substituting that receipt for device dynamics (§3). Landauer supplies an erasure floor, not a zero-cost-read theorem, and the Arrhenius examples show conditional barrier sensitivity rather than one universal device clock (§4). YIG's low damping and demonstrated magnonic devices make it an empirical frontier; its POAMS selection remains a referenced corpus conclusion (§5). The synthesis survives because its claims now stop where the displayed arithmetic and cited record stop.</p>
 <p style="font-style:italic;text-align:center;margin:12px 0 4px">“If we knew just a little more about what is actually true, how much further would that take us technologically?”</p>
 <p class="note" style="text-align:center">The sibling exhibits' standing question — posed here about the machines we trust with everything we know.</p>
 </div>
 
-<h2>8 · Scope</h2>
-<div class="card"><p class="note"><strong>Presented from the corpus record:</strong> the charge dissolution and sense two-valuedness (Synopsis; Periodic Table); the hand-off transaction (2005); the discreteum/closure reading of persistence (the Restatement; Aufbau as Closure); the coherence/heat two-book frame (Heat &amp; Coherence). <strong>Imported measured values, tagged:</strong> DRAM cell capacitance, voltage and the 64 ms JEDEC refresh; flash oxide barrier 3.2 eV (the page's single extant bridge: 1 eV ↔ 241.8 THz, stated once, §2); MRAM cell geometry, $M_s$, write currents and ns switching class; Landauer $kT\ln2$; the Arrhenius retention rule and its $kT$-unit barriers; garnet damping $\alpha\sim3\times10^{-5}$ and magnonic demonstrations. <strong>Editorial (ours):</strong> the state/process reading of the volatile divide; the $dL/dt$ restatement of spin-transfer torque and the worked 0.9 ns closure; the turn-rate pricing of Landauer (4.33 THz at 300 K); the Arrhenius-as-lease framing; the interactives (pedagogical); §6's synthesis; the horizon note, which alludes to engineering directions without specifying any apparatus. <strong>Not claimed:</strong> any deviation from measured device physics, which this reading reproduces exactly; any new storage apparatus.</p></div>
+<h2>8 · Sources</h2>
+<div class="card"><ul class="note sources">
+<li><a href="https://doi.org/10.1016/0304-8853(96)00062-5">Slonczewski (1996)</a>, current-driven excitation of magnetic multilayers; <a href="https://doi.org/10.1016/j.jmmm.2007.12.019">Ralph &amp; Stiles (2008)</a>, spin-transfer-torque review.</li>
+<li><a href="https://www.jedec.org/standards-documents/docs/jesd79-4">JEDEC JESD79-4</a>, DDR4 SDRAM; the 64 ms value is an all-row refresh window, not one command interval or a universal bit-loss time.</li>
+<li><a href="https://patents.google.com/patent/US7570521B2/en">US 7,570,521</a>, conventional Si/SiO₂ flash barrier near 3.2 eV.</li>
+<li><a href="https://doi.org/10.1147/rd.53.0183">Landauer (1961)</a>, logically irreversible operations and dissipative cost.</li>
+<li><a href="https://doi.org/10.1103/PhysRev.130.1677">Brown (1963)</a>, thermally activated single-domain magnetic relaxation.</li>
+<li><a href="https://doi.org/10.1063/1.4977649">Gloppe et al. (2017)</a>, measured Gilbert damping of magnetostatic modes in a YIG sphere; <a href="https://doi.org/10.1038/ncomms5700">Chumak et al. (2014)</a>, YIG magnon transistor.</li>
+</ul></div>
+
+<h2>9 · Scope</h2>
+<div class="card"><p class="note"><strong>Presented from the corpus record:</strong> the charge dissolution and sense two-valuedness (Synopsis; Periodic Table); the hand-off transaction (2005); the discreteum/closure reading of persistence (the Restatement; Aufbau as Closure); the coherence/heat two-book frame (Heat &amp; Coherence). <strong>Imported or declared inputs, tagged:</strong> representative DRAM capacitance and voltage; the JEDEC 64 ms all-row refresh window; a conventional Si/SiO₂ flash barrier near 3.2 eV; the illustrative circular MRAM geometry, $M_s$, current, and efficiency; Landauer $kT\ln2$; the single-barrier Arrhenius model; measured YIG damping and demonstrated magnonic devices. <strong>Computed here:</strong> the DRAM census, 3.2 eV/$h$ rate equivalent, MRAM geometry and signed full-reversal receipt, Landauer rate equivalent, and ideal Arrhenius examples. <strong>POAMS interpretation:</strong> orientation/bias as two state-variable families; volatility as a separate persistence axis; torque as angular-momentum delivery; the heat-book and matter-as-memory readings. <strong>Not claimed:</strong> an exhaustive taxonomy of every memory technology, a complete MRAM switching solver, exact DRAM bit-loss at 64 ms, zero read energy, a first-principles garnet selection derived here, or a new storage apparatus.</p></div>
 
 <div class="nav"><a href="./heat-and-coherence.html">&larr; Heat &amp; Coherence</a><a href="./index.html">Hub</a><a href="./poams-electricity.html">POAMS &amp; Electricity &rarr;</a></div>
 </main>
@@ -169,7 +184,8 @@ function drawStores(){
   const W=sc.width=sc.clientWidth*2,H=sc.height=540;sx.save();sx.scale(2,2);const w=W/2,h=270;
   sx.clearRect(0,0,w,h);
   const now=performance.now(),dt=(now-lastS)/1000;lastS=now;
-  // bias dynamics: leaks in ~3 s; refresh every 1.2 s when powered
+  // Pedagogical time expansion: 1.2 display s represents the 64 ms all-row refresh window.
+  // The 3 s display leak is illustrative, not a physical retention distribution.
   bias-=dt/3; if(power){refT+=dt; if(refT>1.2){refT=0;bias=1;}} if(bias<0)bias=0;
   // left: orientation store
   sx.fillStyle=P.mut;sx.font='12px Georgia';sx.fillText('orientation store (state) — disk / MRAM',40,34);
@@ -182,7 +198,7 @@ function drawStores(){
     sx.lineTo(cxp-4,cyp+(up?-4:4));sx.moveTo(cxp,cyp+(up?-10:10));sx.lineTo(cxp+4,cyp+(up?-4:4));sx.stroke();
   }
   sx.fillStyle=P.green;sx.font='11px Menlo';
-  sx.fillText(power?'holding — zero upkeep':'POWER OFF — still holding (a state persists)',40,oy+3*46+18);
+  sx.fillText(power?'barrier-protected orientation':'POWER OFF — orientation still readable',40,oy+3*46+18);
   // right: bias store
   const bx0=w/2+40;
   sx.fillStyle=P.mut;sx.font='12px Georgia';sx.fillText('bias store (process) — DRAM cell',bx0,34);
@@ -192,7 +208,7 @@ function drawStores(){
   sx.fillStyle=P.ink;sx.font='11px Menlo';
   sx.fillText((Math.round(bias*1.87e5/1000)*1000).toLocaleString()+' / 187,000 counts',bx0+104,120);
   sx.fillStyle=power?P.green:P.red;
-  sx.fillText(power?('refresh in '+(1.2-refT).toFixed(1)+' s (spec: 64 ms)'):'POWER OFF — census re-balancing',bx0+104,144);
+  sx.fillText(power?('display refresh in '+(1.2-refT).toFixed(1)+' s (represents 64 ms window)'):'POWER OFF — census re-balancing',bx0+104,144);
   sx.fillStyle=P.mut;sx.font='11px Georgia';
   sx.fillText(bias>0.05?'bit readable':'bit LOST — the process ended',bx0+104,168);
   sx.fillText('leak + re-pump, forever',bx0,216);
@@ -208,7 +224,7 @@ const wc=document.getElementById('writeCanvas'),wx=wc.getContext('2d');
 const iS=document.getElementById('iSlider'),iL=document.getElementById('iLabel'),fireBtn=document.getElementById('fireBtn');
 const NSP=1.76e5, ETA=0.6, EQ=1.602176634e-19;
 let writing=false, prog=0, orient=1, lastW=performance.now();
-function tReal(){const I=+iS.value*1e-6; return NSP*EQ/(ETA*I);} // seconds
+function tReal(){const I=+iS.value*1e-6; return 2*NSP*EQ/(ETA*I);} // full signed reversal, seconds
 function drawWrite(){
   const P=pal();
   const W=wc.width=wc.clientWidth*2,H=wc.height=480;wx.save();wx.scale(2,2);const w=W/2,h=240;
@@ -222,7 +238,7 @@ function drawWrite(){
   wx.strokeStyle=P.gold;wx.lineWidth=4;wx.beginPath();
   wx.moveTo(cx0,cy0+orient*30);wx.lineTo(cx0,cy0-orient*30);
   wx.lineTo(cx0-8,cy0-orient*16);wx.moveTo(cx0,cy0-orient*30);wx.lineTo(cx0+8,cy0-orient*16);wx.stroke();
-  wx.fillStyle=P.mut;wx.font='11px Georgia';wx.fillText('free layer: 1.8×10⁵ units of ħ/2',48,182);
+  wx.fillStyle=P.mut;wx.font='11px Georgia';wx.fillText('free layer: ±1.76×10⁵ units of ħ/2',48,182);
   // delivery bar
   wx.fillStyle=P.mut;wx.font='12px Georgia';wx.fillText('angular momentum delivered (slowed ~1.5×10⁹×)',210,66);
   wx.strokeStyle=P.edge;wx.strokeRect(210,80,w-260,26);
@@ -230,7 +246,7 @@ function drawWrite(){
   const I=+iS.value;
   wx.fillStyle=P.green;wx.font='11px Menlo';
   wx.fillText('carriers/s = I/e = '+( (I*1e-6/EQ).toExponential(2) )+'   ·   η = 0.6',210,130);
-  wx.fillText('t_switch = N·e/(η·I) = '+(tr*1e9).toFixed(2)+' ns (real)',210,152);
+  wx.fillText('t_full receipt = 2N·e/(η·I) = '+(tr*1e9).toFixed(2)+' ns',210,152);
   wx.fillStyle=P.mut;wx.font='11px Georgia';
   wx.fillText(writing?'handing the layer its angular momentum…':'idle — the orientation keeps itself (a state, not a process)',210,180);
   wx.restore();requestAnimationFrame(drawWrite);
