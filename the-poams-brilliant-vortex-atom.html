@@ -10,26 +10,40 @@
 :root {
   --bg: #ffffff; --fg: #2a2a2a; --accent: #8b6914; --accent2: #c9a84c;
   --link: #8b6914; --blockquote-bg: rgba(139,105,20,0.06); --blockquote-border: #8b6914;
+  --card: #fffdf8; --line: rgba(139,105,20,.24); --muted:#6f6655;
 }
 :root[data-theme="dark"] {
   --bg: #1a1a2e; --fg: #e0e0e0; --accent: #c9a84c; --accent2: #8b6914;
   --link: #c9a84c; --blockquote-bg: rgba(201,168,76,0.08); --blockquote-border: #c9a84c;
+  --card:#222238; --line:rgba(201,168,76,.22); --muted:#b7af9f;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: Georgia, serif; background: var(--bg); color: var(--fg); line-height: 1.75; font-size: 16px; }
-main { max-width: 750px; margin: 0 auto; padding: 3rem 2rem; }
-h1 { font-size: 1.8rem; color: var(--accent); margin: 1rem 0; line-height: 1.3; }
-h2 { font-size: 1.3rem; color: var(--accent); margin: 2rem 0 0.8rem; border-bottom: 1px solid var(--accent); padding-bottom: 0.3rem; }
-h3 { font-size: 1.1rem; color: var(--accent2); margin: 1.5rem 0 0.6rem; }
+body { font-family: Georgia, serif; background: var(--bg); color: var(--fg); line-height: 1.72; font-size: 17px; }
+main { max-width: 940px; margin: 0 auto; padding: 3.4rem 2rem 5rem; }
+h1 { font-size: clamp(2rem,5vw,3.35rem); color: var(--accent); margin: 1rem 0; line-height: 1.08; letter-spacing:-.025em; }
+h2 { font-size: clamp(1.3rem,2.4vw,1.65rem); color: var(--accent); margin: 2.6rem 0 0.9rem; border-bottom: 1px solid var(--line); padding-bottom: 0.45rem; line-height:1.25; }
+h3 { font-size: 1.12rem; color: var(--accent2); margin: 1.6rem 0 0.65rem; }
 p { margin: 0.8rem 0; text-align: left; }
 a { color: var(--link); }
 blockquote { border-left: 3px solid var(--blockquote-border); background: var(--blockquote-bg); padding: 1rem 1.5rem; margin: 1.2rem 0; font-style: italic; }
-.reader-note { border: 1px solid var(--blockquote-border); border-top: 3px solid var(--accent); background: var(--blockquote-bg); border-radius: 6px; padding: 1.1rem 1.5rem; margin: 1.7rem 0; }
+.reader-note { border: 1px solid var(--line); border-top: 3px solid var(--accent); background: var(--card); border-radius: 14px; padding: 1.15rem 1.4rem; margin: 1.7rem 0; box-shadow:0 12px 34px rgba(0,0,0,.055); }
 .reader-note .rn-label { display: block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.55rem; }
 .reader-note p { margin: 0.55rem 0; }
 .reader-note ul { margin: 0.4rem 0 0.2rem 1.15rem; }
 .reader-note li { margin: 0.25rem 0; }
 .meta { color: var(--accent2); font-size: 0.95rem; margin-bottom: 2rem; }
+.roadmap,.result-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.75rem;margin:1.4rem 0 2.1rem;}
+.roadmap div,.result-grid div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:.9rem;min-width:0;}
+.roadmap b,.result-grid b{display:block;color:var(--accent);font:700 .72rem/1.25 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.35rem;}
+.roadmap span,.result-grid span{display:block;font-size:.88rem;line-height:1.42;}
+.status-line{display:flex;flex-wrap:wrap;gap:.45rem;margin:.8rem 0 1.4rem;}
+.status-line span{border:1px solid var(--line);border-radius:999px;padding:.28rem .62rem;font:700 .7rem/1.2 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);background:var(--card);}
+.derivation-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:1.15rem 1.35rem;margin:1rem 0;box-shadow:0 12px 34px rgba(0,0,0,.05);}
+.derivation-card p:first-child{margin-top:0}.derivation-card p:last-child{margin-bottom:0}
+.muted{color:var(--muted);font-size:.93rem;}
+table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.9rem;}
+th,td{border-bottom:1px solid var(--line);padding:.55rem .45rem;text-align:right;vertical-align:top;}
+th:first-child,td:first-child{text-align:left;}
 .back-link { display: inline-block; margin-bottom: 1.5rem; font-size: 0.9rem; }
 #theme-btn {
   position: fixed; top: 1rem; right: 1rem; z-index: 200;
@@ -45,7 +59,8 @@ mjx-container[jax="CHTML"][display="true"] {
 @media (max-width: 640px) {
   mjx-container[jax="CHTML"][display="true"] { min-width: 0 !important; }
 }
-@media (max-width: 768px) { main { padding: 2rem 1rem; } body { font-size: 16px; } }
+@media (max-width: 768px) { main { padding: 2rem 1rem 4rem; } body { font-size: 16px; } .roadmap,.result-grid{grid-template-columns:1fr 1fr}.roadmap div:last-child{grid-column:1/-1} }
+@media (max-width: 430px){.result-grid{grid-template-columns:1fr}.derivation-card{padding:1rem}.table-scroll{overflow-x:auto}table{min-width:560px}}
 
 .subtitle { color: var(--accent2); font-size: 1.15rem; font-style: italic; margin: 0.2rem 0 1rem; line-height:1.35; }
 sup, .fnref { color: var(--accent); }
@@ -81,6 +96,13 @@ body{padding-top:72px !important;}
 <div class="meta">This exhibit is an extrapolation of the foundational work of N. Vivian “Viv” Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).<br>A comprehensive restatement · 2026</div>
 <div style="border-left:3px solid var(--accent);background:var(--blockquote-bg);padding:0.8rem 1.2rem;margin:1rem 0;font-size:0.92rem;"><strong>A restatement, not the original.</strong> This page restates the authors' programme in the exhibit corpus's current voice and adopts its subsequent findings and conventions (including energy read natively as turn rate, <span class="math inline">$E=h\nu$</span>). The authors' original work stands untouched and is the authority for what <em>they</em> said: <a href="https://cfmilam.github.io/nr-poams-books/light-speed-gravitation-and-quantum-instantaneity.html"><em>Light-Speed, Gravitation and Quantum Instantaneity</em></a> (the book restated here), and the <a href="https://cfmilam.github.io/nr-poams-papers/">papers archive</a>.</div>
 <div class="reader-note"><span class="rn-label">Mathematics-and-logic audit · 10 September 2026</span><p>This restatement preserves the POAMS ontology while distinguishing what the cited sources assert from what this corpus independently establishes. <strong>[SOURCE]</strong> means an attributed Pope–Osborne proposition, not a proof supplied by this page; <strong>[CORPUS]</strong> marks a separately audited corpus result; <strong>[HYPOTHESIS]</strong> marks a live POAMS proposal; <strong>[OPEN]</strong> marks missing closure; and <strong>[REFUTED]</strong> retains a failed claim as history. No conventional field, particle, carrier, Hamiltonian, locality mechanism, spacetime metric, or thermodynamic identity is required by this audit.</p></div>
+<div class="roadmap" aria-label="Exhibit roadmap">
+  <div><b>1 · Source</b><span>What Pope and Osborne proposed.</span></div>
+  <div><b>2 · Retained</b><span>What the POAMS corpus still adopts.</span></div>
+  <div><b>3 · Derived</b><span>What closes mathematically.</span></div>
+  <div><b>4 · Open</b><span>The exact missing constitutive bridges.</span></div>
+  <div><b>5 · Test</b><span>What the YIG experiment can decide.</span></div>
+</div>
 <h2 id="abstract">Abstract</h2>
 <p><em>Light-Speed, Gravitation and Quantum Instantaneity</em> presents a programme organized around two governing commitments: (i) the constant <span class="math inline">$c$</span> is a dimensional conversion factor relating observed distance and observed time, not a traveller’s speed; and (ii) free motion is angular momentum, holistically conserved. Its chapters also adopt additional premises and imported mathematical conditions—discrete time, natural-orbit closure, geodesic motion, and a Newtonian ellipse condition—to construct its treatments of relativistic timing, the hydrogen spectrum, variable <span class="math inline">$G$</span>, orbital timing, and cosmology. This page restates that programme and audits each step in its own stated domain; it does not present the entire chain as following from two premises alone.</p>
 <p>The restatement then expresses the synthesis in the corpus’s single-vortex ontology, in which orbital angular momentum is represented by winding/writhe and intrinsic spin by twist, related for a framed closed loop by <span class="math inline">$\mathrm{Lk}=\mathrm{Tw}+\mathrm{Wr}$</span>. It also preserves a testable <strong>polarization hypothesis</strong>: driven alignment may add a net intrinsic-twist contribution to the body’s POAMS ledger. The magnitude, sign, material dependence, and crossover law are not derived here and must be measured. The page therefore separates source propositions, independently audited corpus results, live hypotheses, open derivations, and retained refutations.</p>
@@ -208,6 +230,28 @@ the enlargement being nothing but the relatively enormous spin kinetic energy. E
 <span class="math display">$$K_s^{\rm eff}=K_s^{\rm bulk}+\Delta K_{\rm align},\qquad\Delta K_{\rm align}=fN\varepsilon_{\rm align}. \tag{13}$$</span>
 where <span class="math inline">$f$</span> is an operationally measured aligned fraction and <span class="math inline">$\varepsilon_{\rm align}$</span> is the incremental POAMS ledger price per aligned constituent. Neither quantity is derived here, and <span class="math inline">$\varepsilon_{\rm align}$</span> is not identified with <span class="math inline">$hcR_\infty$</span> without an independent bridge.</p>
 <p>Hayasaka and Takeuchi reported a direction-dependent balance signal; Quinn and Picard reported a null result in an independent rotor test. Those records conflict operationally and neither is erased by the other. The live POAMS hypothesis is that a sufficiently characterized alignment protocol may deposit net intrinsic twist and alter the natural-radius/weight ledger. A decisive test must measure alignment, thermal state, orientation, drive, and force concurrently, with reversal and null controls. The magnitude, sign, material dependence, crossover, and any optimum remain open.</p>
+<h2 id="yig-conditional-derivation">20a. YIG: the conditional derivation reaches the constitutive wall <strong>[CORPUS · OPEN]</strong></h2>
+<div class="status-line"><span>count closes</span><span>angular momentum closes</span><span>radius law conditional</span><span>energy bridge open</span></div>
+<p>For a concrete reference body choose the 10.00&nbsp;mm YIG sphere used by the companion qualification programme. YIG is ferrimagnetic, so the honest bulk unit is its measured net ordered population rather than a fictitious count of identical free atoms. Let <span class="math inline">$p=|\sum_i\hat{\mathbf s}_i|/N$</span> be the measured directed order parameter, with <span class="math inline">$0\le p\le1$</span>. Measured saturation magnetization closes the bulk angular-momentum census without guessing the microscopic participation:</p>
+<div class="derivation-card">
+<span class="math display">$$V=\frac{4\pi}{3}(5.00\ {\rm mm})^3=5.2360\times10^{-7}\ {\rm m^3},$$</span>
+<span class="math display">$$\mu_{\rm sat}=M_sV=0.07330\ {\rm A\,m^2},\qquad J_{\rm sat}=\frac{\mu_{\rm sat}}{|\gamma|}=4.163\times10^{-13}\ {\rm J\,s}=3.948\times10^{21}\hbar,$$</span>
+<span class="math display">$$\mathbf J_{\rm align}(p)=pJ_{\rm sat}\hat{\mathbf n}=\hbar\sum_i(\mathrm{Tw}_i+\mathrm{Wr}_i)\hat{\mathbf n}_i.$$</span>
+</div>
+<p>Here <span class="math inline">$M_s=140\ {\rm kA\,m^{-1}}$</span> is a representative room-temperature saturation value and <span class="math inline">$|\gamma|=1.76086\times10^{11}\ {\rm rad\,s^{-1}\,T^{-1}}$</span> is the adopted gyromagnetic conversion. Those are measured/imported material quantities. The last equality is the POAMS action-scale identification; under static alignment its directed increment is assigned to intrinsic twist.</p>
+<p>Appendix&nbsp;5 then supplies a conditional natural-orbit map. Holding the Earth-frame orbital ledger <span class="math inline">$L_o$</span> fixed and writing <span class="math inline">$K_o=\tfrac12mv_0^2$</span>, a co-sense direction-coordinated spin-energy increment gives</p>
+<div class="derivation-card">
+<span class="math display">$$\frac{v(p)}{v_0}=\sqrt{1+\frac{K_s(p)}{K_o}},\qquad \frac{r_{\rm ff}(p)}{r_0}=\left(1+\frac{K_s(p)}{K_o}\right)^{-1/2}.$$</span>
+<p>For the 2.71&nbsp;g reference sphere at the Earth’s equator, this bookkeeping gives <span class="math inline">$r_0=22.077\ {\rm km}$</span> and <span class="math inline">$K_o=2.446\times10^7\ {\rm J}$</span>. The radial and support-force changes therefore become numerical as soon as <span class="math inline">$K_s(p)$</span> is supplied.</p>
+</div>
+<p><strong>The wall is exact:</strong> magnetometry gives <span class="math inline">$J_{\rm align}$</span>, but angular momentum alone does not determine energy. A constitutive turn rate or a measured work integral is required to close <span class="math inline">$K_s(J_{\rm align})$</span>. The familiar scale <span class="math inline">$\mu_{\rm sat}B$</span> is useful for experimental planning, but it is field-dependent work and is <em>not</em> silently equated with intrinsic POAMS spin energy.</p>
+<div class="table-scroll"><table><thead><tr><th>Directed order</th><th><span class="math inline">$J_{\rm align}/\hbar$</span></th><th>Conditional <span class="math inline">$\Delta r$</span></th><th>Conditional <span class="math inline">$\Delta F$</span></th></tr></thead><tbody>
+<tr><td>1%</td><td>3.948×10<sup>19</sup></td><td>−0.0595&nbsp;µm</td><td>+0.0716&nbsp;pN</td></tr>
+<tr><td>10%</td><td>3.948×10<sup>20</sup></td><td>−0.595&nbsp;µm</td><td>+0.716&nbsp;pN</td></tr>
+<tr><td>50%</td><td>1.974×10<sup>21</sup></td><td>−2.977&nbsp;µm</td><td>+3.580&nbsp;pN</td></tr>
+<tr><td>100%</td><td>3.948×10<sup>21</sup></td><td>−5.954&nbsp;µm</td><td>+7.161&nbsp;pN</td></tr>
+</tbody></table></div>
+<p class="muted">The last two columns are an explicitly conditional scale illustration using <span class="math inline">$K_s(p)=p\mu_{\rm sat}B$</span> at <span class="math inline">$B=0.180\ {\rm T}$</span>. They are not a POAMS prediction until the experiment or a separate derivation validates that energy identification.</p>
 <hr />
 <h1 id="part-vi-gravitation-and-space-time">PART VI · GRAVITATION AND SPACE-TIME</h1>
 <h2 id="orbital-time-dilation-the-circular-geodesic-and-the-factor-3-forced-ch.-8-8.18.4">21. Orbital time-dilation; the circular geodesic and the factor 3 <strong>[SOURCE]</strong> <em>(Ch. 8 §§8.1–8.4)</em></h2>
@@ -261,7 +305,11 @@ Here <span class="math inline">$\mathrm{Lk}$</span> is an integer invariant unde
 <h2 id="spin-½-and-the-2-in-alpha-ext">31. The half-twist analogy — physical identification still open <strong>[HYPOTHESIS · REGRADED 2026-09-07]</strong></h2>
 <p>A ribbon carrying a <strong>half-twist</strong> (<span class="math inline">$\mathrm{Tw}=\tfrac12$</span>) must be traversed twice — through <span class="math inline">$720^\circ$</span> — before its framing returns. That is a useful topological analogue of spinor double-cover behavior; it is not, by itself, a derivation of physical spin-½. The retired 2026 fine-structure program also failed to derive <span class="math inline">$\alpha$</span>: its proposed whole-turn count was non-integer, and writing a half into the construction merely returned the half supplied. Accordingly, neither the former <span class="math inline">$\alpha=\sqrt{2/N}$</span> claim nor the identification of twist sign with the full measured phase-sense doublet is carried as a result here. The live questions are whether closure geometry forces the half-integer representation, whether its two senses map to the measured branches, and whether their magnitude can be obtained without importing <span class="math inline">$\alpha$</span>.</p>
 <h2 id="polarization-phase-advance-and-swamping-in-vortex-language-ext">32. Polarization and phase advance in vortex language <strong>[HYPOTHESIS · OPEN]</strong></h2>
-<p>Each atom is represented as a micro-vortex with intrinsic twist. A driven protocol may create a nonzero aggregate twist ledger; a separate coherent phase advance may add writhe/orbital angular momentum. Those channels must not be conflated. The Barnett effect, dynamic nuclear polarization, and Alzofon’s Dynamic Nuclear Orientation are operational analogues involving different preparations, not proof that they instantiate one identical microscopic mechanism. Under the current corpus convention, co-sense intrinsic twist enters the variable-<span class="math inline">$G$</span> route as heavier, while co-sense driven writhe enters the orbital-numerator route as lighter. The microscopic transfer law, coupling magnitude, and crossover remain <strong>[OPEN]</strong>.</p>
+<p>Each atom is represented as a micro-vortex with constitutive intrinsic twist. Static alignment can order that existing twist only up to <span class="math inline">$p=1$</span>; it cannot manufacture more intrinsic spin by declaring 110% polarization. A separate coherent drive advances the orientation of the ordered population and may therefore enter the writhe/orbital channel. Those channels must not be conflated. Under the current corpus convention, co-sense intrinsic twist enters the variable-<span class="math inline">$G$</span> route as heavier, while co-sense driven writhe enters the orbital-numerator route as lighter.</p>
+<div class="derivation-card"><p><strong>What “wind it up” must mean.</strong> A drive at frequency <span class="math inline">$\nu_d$</span> acting for <span class="math inline">$\tau$</span> executes <span class="math inline">$C=\nu_d\tau$</span> phase cycles. That count is an exposure history, not automatically stored angular momentum. For it to become accumulated writhe, the medium must perform a physical topological posting or commit:</p>
+<span class="math display">$$\Delta \mathrm{Wr}_{\rm stored}=\eta_{\rm post}\,C\,q(\theta),\qquad 0\le\eta_{\rm post}\le1,$$</span>
+<p>where <span class="math inline">$q(\theta)$</span> is the measured per-cycle swept-writhe fraction and <span class="math inline">$\eta_{\rm post}$</span> is the fraction that survives as a registered closure. If <span class="math inline">$\eta_{\rm post}=0$</span>, repeated cycles do not accumulate: the instantaneous coherent state is bounded by cone angle and decays at drive-off. If <span class="math inline">$\eta_{\rm post}>0$</span>, the retained register—not the raw cycle counter—is the quantity that may extend the natural radius through the orbital numerator. Ring-down and drive-off persistence therefore distinguish ordinary bounded precession from genuine winding storage.</p></div>
+<p>The Barnett effect, dynamic nuclear polarization, and Alzofon’s Dynamic Nuclear Orientation are operational analogues involving different preparations, not proof that they instantiate one identical microscopic mechanism. The static energy bridge <span class="math inline">$K_s(J_{\rm align})$</span>, the posting efficiency <span class="math inline">$\eta_{\rm post}$</span>, the microscopic transfer law, and the support-force response remain <strong>[OPEN]</strong> and are now named separately.</p>
 <hr />
 <h1 id="part-ix-résumé-and-scope">PART IX · RÉSUMÉ AND SCOPE</h1>
 <h2 id="the-conceptual-catharsis-forced-ch.-10">33. The conceptual catharsis <strong>[SOURCE]</strong> <em>(Ch. 10)</em></h2>
