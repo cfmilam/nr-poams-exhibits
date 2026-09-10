@@ -42,10 +42,15 @@ def main() -> None:
 
     required_page_phrases = (
         "one observable · no fitted rung",
-        "This color is not a resonance verdict",
+        "so its color is not a resonance verdict",
         "A slow beat is necessary, never sufficient",
         "imported resonance dynamics supplies the tested phase-angle form",
         "The asteroid belt: destructive closure written as absence",
+        "30-year consistency check",
+        "adjacent bins near 457 and 498 days",
+        "Eight-family history ledger",
+        "Lykawka, Horner &amp; Bernardinelli (2026)",
+        "Registered n-centre derivation and audit record",
         "resonance can preserve",
         "not destruction of matter",
         "Integer closure alone therefore does not predict clearing",
@@ -64,6 +69,11 @@ def main() -> None:
         "Why Powers of 2?",
         "One ladder from atoms to planets",
         "The entire solar system is organized by powers of two",
+        "Nesvorný et al. (2026)",
+        "with a 476.48-day slow period",
+        "direct 30-year angles",
+        "direct inclination lock",
+        "The eight-family audit does this",
     )
     for phrase in forbidden_live_claims:
         require(phrase not in page, f"retired claim leaked into replacement: {phrase}")
@@ -72,6 +82,8 @@ def main() -> None:
 
     ids = re.findall(r'\bid=["\']([^"\']+)["\']', page)
     require(len(ids) == len(set(ids)), "duplicate HTML id in replacement")
+    require("let best={p:1,q:1,d:Math.abs(r-1)}" in page, "1:1 screen candidate missing")
+    require(page.count("function hostBodies(host,scope)") == 1, "duplicate hostBodies implementation")
     local_targets = re.findall(r'(?:href|src)=["\']\.\/([^"\'#?]+)', page)
     for target in local_targets:
         require((ROOT / target).exists(), f"broken local link: {target}")
