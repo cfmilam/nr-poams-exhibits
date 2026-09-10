@@ -24,6 +24,7 @@ h1 { font-size: clamp(1.9rem,4vw,2.7rem); color: var(--accent); margin: 1rem 0; 
 h1[id^="part-"] { font-size: clamp(1.3rem,2.2vw,1.58rem); margin: 4.2rem 0 1.35rem; line-height:1.25; letter-spacing:.035em; }
 h2 { font-size: clamp(1.16rem,1.8vw,1.42rem); color: var(--accent); margin: 3.25rem 0 1rem; border-bottom: 1px solid var(--line); padding-bottom: 0.5rem; line-height:1.3; }
 h3 { font-size: 1.12rem; color: var(--accent2); margin: 1.6rem 0 0.65rem; }
+h1[id],h2[id],h3[id]{scroll-margin-top:5rem;}
 p { margin: 0.8rem 0; text-align: left; }
 a { color: var(--link); }
 blockquote { border-left: 3px solid var(--blockquote-border); background: var(--blockquote-bg); padding: 1rem 1.5rem; margin: 1.2rem 0; font-style: italic; }
@@ -42,6 +43,15 @@ blockquote { border-left: 3px solid var(--blockquote-border); background: var(--
 .derivation-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:1.15rem 1.35rem;margin:1rem 0;box-shadow:0 12px 34px rgba(0,0,0,.05);}
 .derivation-card p:first-child{margin-top:0}.derivation-card p:last-child{margin-bottom:0}
 .muted{color:var(--muted);font-size:.93rem;}
+.manual-step{display:grid;grid-template-columns:3.2rem minmax(0,1fr);gap:.85rem;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1rem 1.15rem;margin:.85rem 0;}
+.manual-step .step-no{display:flex;align-items:center;justify-content:center;width:2.35rem;height:2.35rem;border-radius:50%;background:var(--accent);color:var(--bg);font:800 .78rem/1 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
+.manual-step h4{color:var(--accent);font:700 1rem/1.3 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;margin:.05rem 0 .35rem;}
+.manual-step p,.manual-step ul{margin:.35rem 0;}.manual-step ul{padding-left:1.15rem;}
+.gate{border-left:4px solid var(--accent);background:var(--blockquote-bg);padding:.85rem 1rem;margin:.75rem 0;}
+.gate strong{color:var(--accent);}
+.protocol-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem;margin:1rem 0;}
+.protocol-grid>div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1rem;min-width:0;}
+.protocol-grid h4{color:var(--accent);font:700 .94rem/1.3 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;margin:0 0 .45rem;}
 table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.9rem;}
 th,td{border-bottom:1px solid var(--line);padding:.55rem .45rem;text-align:right;vertical-align:top;}
 th:first-child,td:first-child{text-align:left;}
@@ -60,7 +70,7 @@ mjx-container[jax="CHTML"][display="true"] {
 @media (max-width: 640px) {
   mjx-container[jax="CHTML"][display="true"] { min-width: 0 !important; }
 }
-@media (max-width: 768px) { main { padding: 2rem 1rem 4rem; } body { font-size: 16px; } h1[id^="part-"]{margin-top:3.5rem}.roadmap,.result-grid{grid-template-columns:1fr 1fr}.roadmap div:last-child{grid-column:1/-1} }
+@media (max-width: 768px) { main { padding: 2rem 1rem 4rem; } body { font-size: 16px; } h1[id^="part-"]{margin-top:3.5rem}.roadmap,.result-grid{grid-template-columns:1fr 1fr}.roadmap div:last-child{grid-column:1/-1}.protocol-grid{grid-template-columns:1fr} }
 @media (max-width: 430px){.result-grid{grid-template-columns:1fr}.derivation-card{padding:1rem}.table-scroll{overflow-x:auto}table{min-width:560px}}
 
 .subtitle { color: var(--accent2); font-size: 1.15rem; font-style: italic; margin: 0.2rem 0 1rem; line-height:1.35; }
@@ -282,6 +292,68 @@ where <span class="math inline">$f$</span> is an operationally measured aligned 
 <li><strong>Persistent post-drive winding:</strong> after the coherent mode and cavity field have decayed, test for an independently readable retained state, whole-step structure, sense reversal, angular-momentum closure, and a force response that tracks that retained state.</li>
 </ol>
 <p>A bias-following signal is static alignment. A cone-following signal that dies with ring-down is bounded coherent precession. Only a separately retained, receipted post-drive state is evidence of stored writhe. This is the bridge from the Brilliant Vortex Atom to the PROV-A experimental architecture.</p></div>
+
+<h2 id="prov-a-instruction-manual">20b. PROV-A instruction manual: from ordered twist to posted writhe <strong>[PROTOCOL · CORPUS · OPEN]</strong></h2>
+<div class="status-line"><span>reference specimen fixed</span><span>three channels separated</span><span>receipts required</span><span>posting mechanism open</span></div>
+<p>This section is the operating bridge from the Brilliant Vortex Atom to PROV-A. It consolidates the derivation above into a qualification sequence. Its purpose is not merely to ask whether a balance moves. It must determine <em>which angular-momentum account changed</em>: constitutive twist already present in the material, bounded coherent motion about that ordered state, or a newly retained writhe register after the drive is gone.</p>
+
+<div class="reader-note"><span class="rn-label">Reference article and scope</span>
+<p>Begin with a single-crystal YIG sphere of diameter <span class="math inline">$10.00\,\mathrm{mm}$</span> and measured mass near <span class="math inline">$2.71\,\mathrm{g}$</span>. Record the actual diameter, mass, density, crystallographic orientation, surface finish, mounting axis, temperature, saturation magnetization, linewidth, anisotropy, and demagnetizing geometry for the tested article. The numerical values in §20a are the reference calculation; the specimen's measured values replace every reference input in a qualified run.</p>
+<p>YIG is chosen because the net ferrimagnetic formula-unit population, bulk magnetization, uniform precession, linewidth, cone angle, and ring-down can be measured in one article. No claim is made that YIG is optimal. Material, preparation method, and achievable polarization are experimental variables.</p></div>
+
+<h3 id="manual-ledger">A. Establish the specimen ledger before weighing</h3>
+<div class="manual-step"><div class="step-no">A1</div><div><h4>Count the body operationally</h4><p>Measure <span class="math inline">$m$</span> and the three orthogonal dimensions; compute volume from the measured geometry and compare <span class="math inline">$m/V$</span> with the batch density. Do not substitute a nominal catalogue diameter into the final ledger.</p></div></div>
+<div class="manual-step"><div class="step-no">A2</div><div><h4>Measure directed order</h4><p>Acquire the specimen-specific magnetization path <span class="math inline">$\mu(B,T)$</span>, including approach to saturation, reversal, hysteresis, and return. Define</p><span class="math display">$$p(B,T)=\frac{|\mu(B,T)|}{\mu_{\rm sat}(T)},\qquad 0\le p\le1.$$</span><p>Polarization means this measured vector order parameter—not a nominal field setting or the percentage of atoms presumed to participate.</p></div></div>
+<div class="manual-step"><div class="step-no">A3</div><div><h4>Convert order to angular momentum</h4><span class="math display">$$J_{\rm align}(p)=\frac{|\mu(p)|}{|\gamma|}=pJ_{\rm sat},\qquad J_{\rm sat}=\frac{M_sV}{|\gamma|}.$$</span><p>This closes the population angular-momentum census. In POAMS bookkeeping the static directed increment is assigned to ordered intrinsic twist.</p></div></div>
+<div class="manual-step"><div class="step-no">A4</div><div><h4>Close the static constitutive energy</h4><p>Along a declared quasistatic stationary-state path, measure the conjugate rate <span class="math inline">$\Omega_s(J)$</span> or equivalent effective induction <span class="math inline">$B_{\rm eff}(\mu)$</span>, then integrate:</p><span class="math display">$$K_s(p)-K_s(0)=\int_0^{pJ_{\rm sat}}\Omega_s(J')\,dJ'=\int_0^{p\mu_{\rm sat}}B_{\rm eff}(\mu')\,d\mu'.$$</span><p>Report supplied, returned, retained, and dissipated work separately. The constant-rate form <span class="math inline">$K_s=p\mu_{\rm sat}B_{\rm eff}$</span> is permitted only when the measured path supports that approximation.</p></div></div>
+<div class="manual-step"><div class="step-no">A5</div><div><h4>Generate the static POAMS prediction</h4><p>Insert the measured <span class="math inline">$K_s(p)$</span> into the Appendix-5 natural-radius law:</p><span class="math display">$$r_{\rm ff}^{(s)}(p)=r_0\left(1+\frac{K_s(p)}{K_o}\right)^{-1/2},\qquad \Delta r_s=r_{\rm ff}^{(s)}-r_0.$$</span><p>Convert <span class="math inline">$\Delta r_s$</span> to an expected support-force signal only through the independently calibrated load-path response. Do not equate radial displacement with force without that calibration.</p></div></div>
+
+<h3 id="manual-apparatus">B. Instrument the same article and the whole reaction system</h3>
+<div class="protocol-grid">
+<div><h4>State readouts</h4><p>Vector magnetometry; bias magnitude and direction; resonance frequency; phase; cone angle or calibrated mode amplitude; linewidth; absorbed and returned RF power; specimen and fixture temperature; post-drive magnetic/topological-state readout.</p></div>
+<div><h4>Mechanical readouts</h4><p>Support force with raw time series; six-axis acceleration and tilt; vibration; acoustic level; pressure; cable forces; coolant and gas flow; fixture strain; platform temperature; orientation relative to the Earth-frame orbital ledger.</p></div>
+<div><h4>Conservation receipts</h4><p>Drive torque impulse, fixture reaction, RF energy in/returned/lost, magnetic work in/returned/lost, and every retained-state observable. The specimen alone is not a closed angular-momentum system.</p></div>
+</div>
+<p>Synchronize every channel to one clock. Preserve raw samples, calibration records, blind condition codes, software revision, and a run manifest. Pre-register the analysis windows, ring-down threshold, force threshold, exclusion rules, and family-wise statistics before unblinding.</p>
+
+<h3 id="manual-stage-one">C. Stage 1 — static constitutive alignment</h3>
+<div class="manual-step"><div class="step-no">C1</div><div><h4>Sweep order without resonant drive</h4><p>Step the bias through randomized target values spanning the attainable range from the lowest reproducible order to saturation. Include both alignment senses, both sweep directions, matched dwell times, and repeated zero-bias returns.</p></div></div>
+<div class="manual-step"><div class="step-no">C2</div><div><h4>Test the twist-channel law</h4><p>For each plateau calculate <span class="math inline">$p$</span>, <span class="math inline">$J_{\rm align}$</span>, <span class="math inline">$K_s$</span>, <span class="math inline">$\Delta r_s$</span>, and the calibrated expected force. Compare the measured force with the prediction as a function of measured state—not nominal field.</p></div></div>
+<div class="gate"><strong>Stage-1 classification.</strong> A reproducible signal that follows <span class="math inline">$K_s(p)$</span>, reverses or transforms according to the registered twist-channel sign, survives thermal/mechanical controls, and returns with the static state is a static constitutive candidate. A field-following signal without state covariance is apparatus coupling, not a POAMS result. No static result may exceed <span class="math inline">$p=1$</span> by definition.</div>
+
+<h3 id="manual-stage-two">D. Stage 2 — bounded coherent precession</h3>
+<div class="manual-step"><div class="step-no">D1</div><div><h4>Hold the static ledger fixed</h4><p>Operate at a declared saturated or otherwise fixed <span class="math inline">$p$</span>. Toggle resonant and detuned drives in blinded order while matching heating, cable loading, and total delivered energy as closely as practicable.</p></div></div>
+<div class="manual-step"><div class="step-no">D2</div><div><h4>Measure the coherent action, not elapsed cycles</h4><span class="math display">$$\Delta J_{\rm coh}=J_{\rm sat}(1-\cos\theta),\qquad \Delta K_{\rm coh}=\int\Omega_d(J)\,dJ,$$</span><p>or <span class="math inline">$\Delta K_{\rm coh}=\Omega_d\Delta J_{\rm coh}$</span> only within the measured single-mode constant-rate envelope. Cone angle and mode purity bound the instantaneous ledger; the RF cycle count does not multiply it.</p></div></div>
+<div class="manual-step"><div class="step-no">D3</div><div><h4>Test the bounded writhe ceiling</h4><p>Use the deliberately generous upper bound that assigns all measured coherent displacement to the orbital/writhe numerator:</p><span class="math display">$$r_{\rm ff}^{(c)}=r_0\left(1+\frac{\Delta J_{\rm coh}}{L_o}\right)^2.$$</span><p>Compare any synchronous force with this ceiling and with cone angle, linewidth, absorbed energy, and ring-down. A response vastly larger than the ceiling cannot be attributed to the bounded coherent ledger without an additional account.</p></div></div>
+<div class="gate"><strong>Stage-2 classification.</strong> A response that appears only during coherent drive, scales with <span class="math inline">$\Delta J_{\rm coh}$</span> or <span class="math inline">$\Delta K_{\rm coh}$</span>, and decays with magnetic/cavity ring-down is bounded coherent precession. It is not persistent winding, even after billions of completed RF cycles.</div>
+
+<h3 id="manual-stage-three">E. Stage 3 — search for persistent post-drive winding</h3>
+<div class="manual-step"><div class="step-no">E1</div><div><h4>Define “drive off” physically</h4><p>Begin the post-drive window only after the cavity field, coherent magnetic mode, fixture vibration, and thermal transient have crossed their pre-registered thresholds. A command bit changing state is not proof that the driven state is gone.</p></div></div>
+<div class="manual-step"><div class="step-no">E2</div><div><h4>Demand an independent retained-state witness</h4><p>Measure a post-ring-down state variable independent of the balance. Its sign and magnitude must co-vary with the alleged retained winding. Force persistence by itself is insufficient because drift, thermal memory, and fixture memory can also persist.</p></div></div>
+<div class="manual-step"><div class="step-no">E3</div><div><h4>Close the posting ledger</h4><span class="math display">$$\Delta Wr_{\rm stored}=\eta_{\rm post}Cq(\theta),\qquad C=\nu_d\tau,$$</span><span class="math display">$$\Delta J_{\rm retained}\le\int\tau_{\rm drive}(t)\,dt-J_{\rm returned}-J_{\rm fixture},$$</span><span class="math display">$$\eta_{\rm post}=\frac{\Delta J_{\rm retained}}{\hbar Cq(\theta)}.$$</span><p>Every term must be measured or bounded. The phase counter supplies <span class="math inline">$C$</span> only; it does not prove <span class="math inline">$\eta_{\rm post}>0$</span>.</p></div></div>
+<div class="manual-step"><div class="step-no">E4</div><div><h4>Test retention, reversal, erasure, and steps</h4><p>Vary drive duration at fixed cone angle, reverse phase sense, interrupt the drive, wait through multiple ring-down times, attempt a controlled erase, and repeat after remounting. Search for retained-state plateaus or whole-step structure without forcing integer fits onto continuous noise.</p></div></div>
+<div class="gate"><strong>Stage-3 classification.</strong> Persistent post-drive winding requires all four: (1) a force or radius response after ordinary ring-down; (2) an independent retained-state readout; (3) sense/dose/erase behavior registered in advance; and (4) angular-momentum closure within uncertainty. Failure of any one leaves <span class="math inline">$\eta_{\rm post}$</span> unestablished.</div>
+
+<h3 id="manual-controls">F. Minimum control matrix</h3>
+<div class="table-scroll"><table><thead><tr><th>Control</th><th>What is held/matched</th><th>What it excludes</th></tr></thead><tbody>
+<tr><td>Unpowered baseline</td><td>Identical duration and analysis</td><td>Drift and spontaneous steps</td></tr>
+<tr><td>Bias-only</td><td>Same static <span class="math inline">$p$</span>, no RF</td><td>Separates Stage 1 from Stage 2</td></tr>
+<tr><td>Detuned RF</td><td>Power, cabling, duty cycle, heating</td><td>Nonresonant RF and thermal artifacts</td></tr>
+<tr><td>Dummy load</td><td>Electrical and thermal load, no YIG mode</td><td>Fixture/cable/electronics coupling</td></tr>
+<tr><td>Sense reversal</td><td>Magnitude, cone angle, energy</td><td>Tests signed channel prediction</td></tr>
+<tr><td>Orientation reversal</td><td>Article and drive state</td><td>Tests Earth-frame and apparatus geometry</td></tr>
+<tr><td>Mode substitution</td><td>Comparable absorbed energy</td><td>Tests uniform-mode specificity</td></tr>
+<tr><td>Mass/material scaling</td><td>Geometry or state as registered</td><td>Tests <span class="math inline">$N$</span>, <span class="math inline">$V$</span>, and material dependence</td></tr>
+</tbody></table></div>
+
+<h3 id="manual-decision-tree">G. Read the outcome without moving the goalposts</h3>
+<div class="protocol-grid">
+<div><h4>Static only</h4><p>Signal follows <span class="math inline">$p$</span> or <span class="math inline">$K_s$</span>; RF adds no qualified increment. Report a constitutive twist result and a null coherent/posting result.</p></div>
+<div><h4>Coherent only</h4><p>Drive-toggle signal follows cone/mode energy and vanishes with ring-down. Report bounded coherent coupling; do not multiply it by elapsed cycles.</p></div>
+<div><h4>Persistent candidate</h4><p>A retained readout and force co-persist, reverse, erase, and close the angular-momentum receipt. Only then estimate <span class="math inline">$\eta_{\rm post}$</span> and test stored-writhe scaling.</p></div>
+</div>
+<p><strong>Stopping rule.</strong> If no independent retained state appears, the experiment has still succeeded: it has bounded <span class="math inline">$\eta_{\rm post}$</span> and separated static alignment from coherent precession. If a retained state appears without conservation closure, the result is an anomaly requiring a wider reaction-system census—not evidence of free angular momentum.</p>
+<p><strong>PROV-A hand-off.</strong> PROV-A supplies the driven-medium hardware, phase control, differential support-force architecture, null/reference bodies, thermal/mechanical rejection, and staged qualification. This section supplies its physical interpretation: saturation exhausts constitutive twist alignment; coherent coning is bounded; only independently witnessed, receipted retention can qualify as additional writhe that “winds up” the natural-radius ledger.</p>
 <hr />
 <h1 id="part-vi-gravitation-and-space-time">PART VI · GRAVITATION AND SPACE-TIME</h1>
 <h2 id="orbital-time-dilation-the-circular-geodesic-and-the-factor-3-forced-ch.-8-8.18.4">21. Orbital time-dilation; the circular geodesic and the factor 3 <strong>[SOURCE]</strong> <em>(Ch. 8 §§8.1–8.4)</em></h2>
