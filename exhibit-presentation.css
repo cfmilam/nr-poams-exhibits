@@ -1,0 +1,245 @@
+/* Shared reader presentation for the three early interactive exhibits.
+   Scoped to opt-in pages; historical content and calculation code stay intact. */
+body.standard-exhibit {
+  --reader-bg: #0d0d18;
+  --reader-card: #131322;
+  --reader-inset: #10101e;
+  --reader-fg: #dfe0ea;
+  --reader-muted: #aaa8b7;
+  --reader-gold: #d4af37;
+  --reader-blue: #5bc8f5;
+  --reader-border: #303044;
+  margin: 0;
+  padding: 44px 0 0 !important;
+  background: var(--reader-bg);
+  color: var(--reader-fg);
+  font: 16px/1.65 Georgia, 'Times New Roman', serif;
+}
+[data-theme="light"] body.standard-exhibit,
+body.standard-exhibit[data-theme="light"] {
+  --reader-bg: #fff;
+  --reader-card: #fffdf8;
+  --reader-inset: #f6f4ee;
+  --reader-fg: #2a2a2a;
+  --reader-muted: #6f6655;
+  --reader-gold: #8b6914;
+  --reader-blue: #0369a1;
+  --reader-border: #ded8ca;
+}
+.standard-exhibit .container,
+.standard-exhibit > main,
+.standard-exhibit > .hero {
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 2.25rem 1.25rem 4rem;
+}
+.standard-exhibit > main { padding-top: 0; }
+.standard-exhibit > .hero { padding-bottom: 1.75rem; }
+.standard-exhibit .container > header {
+  margin: 0 0 1.75rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  -webkit-text-fill-color: currentColor;
+}
+.standard-exhibit header,
+.standard-exhibit .hero { text-align: center; }
+.standard-exhibit h1,
+.standard-exhibit .hero h1,
+.standard-exhibit .header h1 {
+  max-width: none;
+  margin: .45rem 0 .75rem;
+  color: var(--reader-gold);
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  font: 700 clamp(1.65rem, 3.2vw, 2rem)/1.22 Georgia, 'Times New Roman', serif;
+  letter-spacing: -.015em;
+}
+.standard-exhibit header p,
+.standard-exhibit .hero p,
+.standard-exhibit .subtitle {
+  max-width: 800px;
+  margin: .7rem auto;
+  color: var(--reader-muted);
+  font-size: .95rem;
+  line-height: 1.6;
+}
+.standard-exhibit .nr-provenance {
+  max-width: 800px;
+  margin: .6rem auto 1rem !important;
+  color: var(--reader-muted);
+  opacity: 1 !important;
+  font-size: .8rem !important;
+}
+.standard-exhibit .record-note {
+  margin: 1.2rem 0;
+  padding: 1rem 1.2rem;
+  border: 1px solid rgba(227,93,106,.45);
+  border-left: 3px solid #c66b72;
+  border-radius: 10px;
+  background: rgba(227,93,106,.045);
+  color: var(--reader-fg);
+  font-size: .85rem;
+  line-height: 1.65;
+  text-align: left;
+}
+.standard-exhibit a { color: var(--reader-blue); }
+.standard-exhibit .section,
+.standard-exhibit .panel {
+  min-width: 0;
+  margin: 0 0 1.4rem;
+  padding: 1.2rem 1.4rem;
+  background: var(--reader-card);
+  border: 1px solid var(--reader-border);
+  border-radius: 12px;
+  box-shadow: none;
+  scroll-margin-top: 64px;
+}
+.standard-exhibit h2,
+.standard-exhibit .section h2,
+.standard-exhibit .panel h2 {
+  display: block;
+  margin: 0 0 1rem;
+  padding: 0 0 .55rem;
+  color: var(--reader-gold);
+  border-bottom: 1px solid var(--reader-border);
+  font: 700 1.35rem/1.3 Georgia, 'Times New Roman', serif;
+}
+.standard-exhibit .section-title::before { content: none; }
+.standard-exhibit h3,
+.standard-exhibit .panel h3 {
+  margin: 1.15rem 0 .5rem;
+  color: var(--reader-blue);
+  font-size: 1.05rem;
+  line-height: 1.4;
+}
+.standard-exhibit .section p,
+.standard-exhibit .panel p { margin: .65rem 0; color: var(--reader-fg); }
+.standard-exhibit .section p:last-child,
+.standard-exhibit .panel p:last-child { margin-bottom: 0; }
+.standard-exhibit :is(.grid, .grid-3, .calc, .controls, .results, .split-screen, .force-comparison, .comparison-grid) > * { min-width: 0; }
+.standard-exhibit :is(.grid, .split-screen, .force-comparison, .comparison-grid) {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+.standard-exhibit :is(.controls, .split-screen, .force-comparison, .derivation-steps) { margin-bottom: 1.2rem; }
+.standard-exhibit .slider-container { min-width: 0; width: 100%; }
+.standard-exhibit .force-bar { max-width: 100%; }
+.standard-exhibit .section .controls {
+  padding: 1rem;
+  margin: 1rem 0;
+  border: 1px solid var(--reader-border);
+  border-radius: 8px;
+  background: var(--reader-inset);
+}
+.standard-exhibit .section button {
+  padding: .55rem .85rem;
+  border: 1px solid var(--reader-border);
+  border-radius: 8px;
+  background: var(--reader-card);
+  color: var(--reader-fg);
+}
+.standard-exhibit .section button:is(:hover, .active) { border-color: var(--reader-gold); color: var(--reader-gold); }
+.standard-exhibit :is(button, input, select, label, .badge, .eyebrow, .metric, .value-display, .step-header, .orbit-label, .legend, .timeline-year) {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+.standard-exhibit button { font-size: .85rem; }
+.standard-exhibit :is(input, select) { font-size: 1rem; }
+.standard-exhibit label { font-size: .85rem; }
+.standard-exhibit input[type="number"] {
+  width: 100%;
+  padding: .6rem .7rem;
+  border: 1px solid var(--reader-border);
+  border-radius: 8px;
+  color: var(--reader-fg);
+  background: var(--reader-bg);
+}
+.standard-exhibit :is(.concept-card, .theory-card, .metric, .callout, .math-explanation, .formula-box, .equation) {
+  border-radius: 8px;
+  box-shadow: none;
+}
+.standard-exhibit :is(.concept-card, .theory-card, .math-explanation, .formula-box, .equation) { padding: 1rem; }
+.standard-exhibit :is(.callout, .controls) h3:first-child { margin-top: 0; }
+.standard-exhibit .value-display { font-size: .9rem; }
+.standard-exhibit .metric .v { font-size: 1rem; }
+.standard-exhibit .bigmetric .v { font-size: clamp(1.15rem, 3vw, 1.55rem); }
+.standard-exhibit .quote { font-size: .95rem; }
+.standard-exhibit .timeline-item { padding: 1rem 0 1rem 1.6rem; }
+.standard-exhibit .timeline-year { font-size: 1rem; }
+.standard-exhibit .eyebrow { font-size: .7rem; letter-spacing: .14em; }
+.standard-exhibit .badge-row { margin-top: 1rem; justify-content: center; }
+.standard-exhibit .badge { font-size: .75rem; padding: .3rem .6rem; }
+.standard-exhibit :is(pre, .value-display, .metric .v) { font-family: 'SFMono-Regular', Menlo, Consolas, monospace; }
+.standard-exhibit pre { font-size: .82rem; border-radius: 8px; padding: .85rem; }
+.standard-exhibit .table-wrap { max-width: 100%; border-radius: 8px; }
+.standard-exhibit .table-scroll { max-width: 100%; overflow-x: auto; }
+.standard-exhibit .table-scroll table { min-width: 680px; }
+.standard-exhibit .table-scroll:focus-visible { outline: 2px solid var(--reader-blue); outline-offset: 3px; }
+.standard-exhibit table { font-size: .9rem; }
+.standard-exhibit :is(canvas, img, svg) { max-width: 100%; }
+.standard-exhibit .orbit-container { height: auto; aspect-ratio: 1; border-width: 1px; background: #0f1830; }
+.standard-exhibit .orbit-container[style] { height: auto !important; aspect-ratio: 4 / 3; }
+.standard-exhibit .orbit-label { font-size: .8rem; }
+.standard-exhibit .key-insight { font-size: .95rem; font-weight: 400; padding: 1rem; }
+.standard-exhibit .formula-box,
+.standard-exhibit .equation { max-width: 100%; overflow-x: auto; }
+.standard-exhibit mjx-container[display="true"] { max-width: 100%; overflow-x: auto; overflow-y: hidden; }
+.standard-exhibit #poams-hub-nav {
+  position: fixed;
+  height: 44px;
+  min-height: 44px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: .4rem;
+  padding: 0 60px 0 12px;
+  font: 13px/1.2 -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+.standard-exhibit #poams-hub-nav > a:last-child { justify-self: end; }
+.standard-exhibit #poams-hub-nav .phn-center a { line-height: 1.2; }
+.standard-exhibit #poams-hub-nav .phn-title { font-size: 12px; }
+.standard-exhibit #poams-hub-nav .phn-pos { font-size: 10px; letter-spacing: .05em; }
+.standard-exhibit .theme-toggle,
+.standard-exhibit #theme-btn {
+  position: fixed;
+  top: 4px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  background: var(--reader-gold);
+  color: var(--reader-bg);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: none;
+  font-size: 1.1rem;
+}
+.standard-exhibit :is(button, summary, a):focus-visible { outline: 2px solid var(--reader-blue); outline-offset: 3px; }
+@media (max-width: 760px) {
+  .standard-exhibit :is(.grid, .grid-3, .calc, .split-screen, .force-comparison, .comparison-grid) { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  .standard-exhibit .container,
+  .standard-exhibit > main,
+  .standard-exhibit > .hero { padding-left: 1rem; padding-right: 1rem; }
+  .standard-exhibit :is(.container, .hero) { padding-top: 1.5rem; }
+  .standard-exhibit :is(.section, .panel) { padding: 1rem; }
+  .standard-exhibit h2,
+  .standard-exhibit .section h2,
+  .standard-exhibit .panel h2 { font-size: 1.2rem; }
+  .standard-exhibit .record-note { padding: .85rem 1rem; }
+  .standard-exhibit #poams-hub-nav { padding-left: 4px; padding-right: 52px; }
+  .standard-exhibit #poams-hub-nav a { padding: 5px 4px; }
+  .standard-exhibit #poams-hub-nav .phn-center a { padding: 4px 2px !important; }
+  .standard-exhibit #poams-hub-nav .phn-pos { font-size: 9px; letter-spacing: 0; }
+  .standard-exhibit .phn-hide-sm { display: none; }
+  .standard-exhibit .theme-toggle,
+  .standard-exhibit #theme-btn { right: 8px; }
+}
