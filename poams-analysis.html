@@ -1,21 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The POAMS Framework: A Comprehensive Analysis</title>
-    <meta name="description" content="Based on analysis of 74 papers by N.V. Pope, A.D. Osborne, and collaborators, plus 7 complete books">
+    <meta name="description" content="A source-linked synthesis of Normal Realism and the Pope–Osborne Angular Momentum Synthesis: premises, conditional mathematics, worked examples and open tests.">
+    <link rel="icon" href="data:,">
     
     <!-- MathJax -->
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
     <script>
-        MathJax = {
+        window.MathJax = {
             tex: {
                 inlineMath: [['$', '$'], ['\\(', '\\)']],
                 displayMath: [['$$', '$$'], ['\\[', '\\]']]
             }
         };
     </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
     
     <style>
         :root {
@@ -199,7 +200,14 @@
             text-align: center;
             margin: 1.5rem 0;
             font-size: 1.1rem;
+            overflow-x: auto;
+            overflow-y: hidden;
         }
+        a { color: var(--link); overflow-wrap: anywhere; }
+        h1[id], h2[id], h3[id] { scroll-margin-top: 64px; }
+        .scope { border-left: 4px solid var(--accent); padding: 1rem 1.2rem; margin: 1.5rem 0; background: var(--blockquote-bg); }
+        .scope p:last-child { margin-bottom: 0; }
+        mjx-container[display="true"] { max-width: 100%; overflow-x: auto; overflow-y: hidden; }
         
         @media (max-width: 768px) {
             .container {
@@ -219,11 +227,12 @@
             }
             
             .theme-toggle {
-                top: 0.5rem;
+                top: 54px;
                 right: 0.5rem;
                 padding: 0.4rem 0.8rem;
                 font-size: 0.9rem;
             }
+            #poams-hub-nav .phn-hide-sm { display: none; }
         }
     </style>
 <style>
@@ -310,14 +319,18 @@
   <a href="./loop-of-momentum.html" title="A Closed Loop of Twisted Momentum"><span class="phn-hide-sm">Loop of Twisted Momentum</span> →</a>
 </div>
 
-    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle light/dark theme">☀️</button>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle light/dark theme">🌙</button>
     
     <div class="container">
         <div class="title-section">
             <h1 class="main-title">The POAMS Framework: A Comprehensive Analysis</h1>
 <p class="nr-provenance" style="font-size:0.8em;font-style:italic;opacity:0.72;line-height:1.5;margin:0.5em 0 1em">This exhibit is an extrapolation of the foundational work of N. Vivian “Viv” Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
-            <p class="subtitle">Based on analysis of 74 papers by N.V. Pope, A.D. Osborne, and collaborators, plus 7 complete books (2000-2015)</p>
+            <p class="subtitle">Normal Realism first; the physics that follows. A source-linked synthesis of Pope, Osborne and collaborators.</p>
         </div>
+        <aside class="scope" id="reading-status">
+            <p><strong>How to read this analysis.</strong> Normal Realism supplies the philosophical position; POAMS supplies the one-substance angular-momentum ontology. A <strong>premise</strong> is adopted, a <strong>conditional result</strong> follows under named assumptions, and a <strong>worked example</strong> uses declared inputs. Source arguments and engineering hypotheses retain their own standing. Agreement of numbers does not, by itself, decide between ontologies.</p>
+            <p>This is a selected synthesis, not a certification that every statement in the archive has been independently proved. The <a href="#key-papers-summary">paper guide</a> and <a href="#book-list">seven-book reading list</a> identify the sources. Source-comparison energy budgets retain joules; their native turn-rate representation is $\nu=K/h$, with $h=2\pi\hbar$ per full turn. These are printed calculations, not a live simulation.</p>
+        </aside>
 
         <div class="part-divider">Part I — Philosophy & Worldview</div>
 
@@ -329,8 +342,8 @@
 
         <ol>
             <li><strong>Normal Realism</strong>: A neo-Machian philosophical approach where physical reality consists entirely of observational phenomena, with no appeal to metaphysical entities "behind" appearances.</li>
-            <li><strong>Angular Momentum Unity</strong>: All physical interactions can be reduced to angular momentum conservation, eliminating the need for separate gravitational, electromagnetic, or other "field" theories.</li>
-            <li><strong>Digital Reality</strong>: Physical processes are fundamentally discrete (like digital cinema frames) rather than continuous (analog), resolving the relativity-quantum paradox.</li>
+            <li><strong>Angular Momentum Unity</strong>: One substance, angular momentum, is the governing ontology; apparent interaction types are to be accounted for within its conserved ledger, not by adding separate substances in a void.</li>
+            <li><strong>Digital Reality</strong>: Whole-turn closure and discrete completion are POAMS primitives. The cinema analogy illustrates how joint events and observer-time sequences can coexist; the analogy alone is not a quantitative derivation of every quantum result.</li>
         </ol>
 
         <h2 id="core-claims">Core Claims</h2>
@@ -342,7 +355,7 @@
             <li><strong>No photons</strong>: Light consists of instantaneous quantum "touchings" between atoms, not traveling particles</li>
             <li><strong>Instant action-at-a-distance</strong>: All quantum interactions are proper-time instantaneous while maintaining relativistic time delays for observers</li>
             <li><strong>Space is in light</strong>: Rather than light traveling through space, spatial relationships are projected from informational patterns in light</li>
-            <li><strong>No Big Bang</strong>: The Hubble redshift is explained by time dilation effects, not universal expansion</li>
+            <li><strong>No Big Bang</strong>: Pope proposes a time-ledger interpretation of redshift rather than an expanding-space origin. Its quantitative cosmological development and remaining observational distinctions belong to <a href="./the-polyverse.html">The Polyverse</a>.</li>
         </ul>
 
         <h1 id="the-philosophy">2. The Philosophy</h1>
@@ -387,15 +400,15 @@
         <h1 id="the-luminiferous-aether-analogy">3. The Luminiferous Aether Analogy</h1>
 
         <p><strong>POAMS as the Next Scientific Revolution:</strong>
-        The transcript draws a powerful parallel between POAMS and the most famous paradigm shift in physics history.</p>
+        Pope's interpretive comparison is with the removal of a mechanically necessary light-bearing medium. It motivates a change of ontology; an analogy with an earlier change is not evidence that every new calculation succeeds.</p>
 
         <p><strong>The Historical Precedent:</strong></p>
         <ul>
             <li><strong>19th century problem</strong>: How does light travel through empty space?</li>
             <li><strong>Scientific "solution"</strong>: Invent the luminiferous aether — an invisible medium permeating all space</li>
             <li><strong>The assumption</strong>: Light needs a medium to propagate, just like sound needs air</li>
-            <li><strong>Einstein's insight</strong>: The math works perfectly <strong>without</strong> the aether assumption</li>
-            <li><strong>Result</strong>: Aether disappeared from physics — it was never needed</li>
+            <li><strong>Point of the analogy</strong>: a successful calculation need not settle the ontology assigned to its symbols</li>
+            <li><strong>NR question</strong>: which entities are indispensable to the observational account, and which are interpretive additions?</li>
         </ul>
 
         <p><strong>POAMS Parallel:</strong></p>
@@ -403,25 +416,25 @@
             <li><strong>Current problem</strong>: Why do objects follow curved orbital paths?</li>
             <li><strong>Scientific "solution"</strong>: Invent "gravitational force" — invisible action-at-a-distance pulling objects</li>
             <li><strong>The assumption</strong>: Curved motion needs a "force," because straight-line motion is "natural"</li>
-            <li><strong>POAMS insight</strong>: The math works perfectly <strong>without</strong> force assumptions</li>
+            <li><strong>POAMS construction</strong>: the conditional orbital ledger can be written without an in-vacuo pulling force; <a href="#the-derivation-chain">§6 states its premises</a></li>
             <li><strong>Proposed result</strong>: "Gravitational force" should disappear from physics — it was never needed</li>
         </ul>
 
-        <h1 id="the-full-chain-of-errors">4. The Full Chain of Errors (350 Years)</h1>
+        <h1 id="the-full-chain-of-errors">4. Pope's Historical Critique</h1>
 
-        <p><strong>The Historical Cascade of Compounding Mistakes:</strong></p>
+        <p><strong>Critical reading, not an independently demonstrated history of errors.</strong> The following summarizes Pope's argument that later theories inherited unnecessary interpretive entities. Calling an entity fictional expresses that philosophical critique; it does not establish an algebraic contradiction. The source discussion is in <a href="https://cfmilam.github.io/nr-poams-books/light-speed-gravitation-and-quantum-instantaneity.html">the 2007 book, Chapters 1–2 and 6–7</a>.</p>
 
         <p><strong>1687 — Newton's Original Error:</strong></p>
         <ul>
             <li>Invents fictional "gravity force" acting at a distance</li>
-            <li>Actually describes Bertrand's theorem and angular momentum conservation</li>
+            <li>The modern POAMS reconstruction instead uses angular-momentum conservation, the later Bertrand theorem, and explicit branch-selection premises</li>
             <li>Treats masses as point particles, ignoring spin effects</li>
             <li>Creates false dichotomy: "force" vs "no force"</li>
         </ul>
 
         <p><strong>1785 — Coulomb's Micro-Level Copy:</strong></p>
         <ul>
-            <li>Reproduces Newton's inverse-square law at atomic scale</li>
+            <li>Uses a similar inverse-square mathematical form in electrical measurements; its later atomic application is a separate step</li>
             <li>Same mathematical form, different constant, different scale</li>
             <li>Invents fictional "electric charge" as carrier of "force"</li>
             <li>Actually describing spin angular momentum of quantum accumulators</li>
@@ -440,11 +453,11 @@
             <li>Inherits Maxwell's speed-of-light interpretation</li>
             <li>Adds unnecessary second postulate about light speed constancy</li>
             <li>Builds entire framework around propagation that doesn't exist</li>
-            <li>Creates "photon" concept to explain quantum effects</li>
+            <li>Introduces the light-quantum hypothesis; POAMS later disputes its traveling-content reading</li>
         </ul>
 
         <blockquote>
-            <p>Each generation builds on the previous error, creating ever-more-complex patches to fix problems that don't exist in the correct framework. Like building a skyscraper on quicksand — each floor requires more elaborate supports.</p>
+            <p><strong>The NR challenge:</strong> preserve the operational relationships while asking whether their inherited ontological interpretation is necessary. That is a program of reconstruction, not a substitute for checking each reconstruction's mathematics.</p>
         </blockquote>
 
         <div class="part-divider">Part II — Foundational Mathematics</div>
@@ -455,84 +468,87 @@
 
         <p>POAMS makes several specific mathematical claims:</p>
 
-        <p><strong>1. Fundamental Angular Momentum Formula:</strong></p>
-        <div class="equation">$$J = mvr = 2(K_o + K_x)r/v = \mathfrak{g}mM/v$$</div>
-        <p>Where $\mathfrak{g}$ is a variable that equals the gravitational constant G when $K_x$ (extra kinetic energy like spin) is zero.</p>
+        <p><strong>1. Orbital and spin-adjusted ledgers:</strong> for a body of mass $m$ about a declared centre,</p>
+        <div class="equation">$$\mathbf L_o=m\mathbf r\times\mathbf v,\qquad L_o=mr v_\perp.$$</div>
+        <p>When radial speed is zero, transverse speed $v_\perp$ is the whole orbital speed; circular motion satisfies this throughout the orbit. The source's spin-adjusted circular model distinguishes baseline energy $K_o=mv_0^2/2$ from a new effective orbital booking $\mathcal K$. Given the source rule for $\mathcal K$,</p>
+        <div class="equation">$$v_s=\sqrt{2\mathcal K/m},\quad r_s=\frac{L_o}{mv_s},\quad \mathfrak g=\frac{r_s v_s^2}{M},\quad L_o=\frac{2\mathcal K r_s}{v_s}=\frac{\mathfrak g mM}{v_s}.$$</div>
+        <p>These equalities use the <em>same adjusted state</em>. They do not add spin energy a second time to that state's kinetic energy. $L_o$ is the selected orbital ledger, not the vector total $\mathbf J=\mathbf L_o+\mathbf S$. The directional source rule and its limits appear in <a href="#spin-weight-coupling">§15</a>; see the 2007 book §§7.3–7.4.</p>
 
         <p><strong>2. Time Dilation via Pythagoras:</strong></p>
-        <div class="equation">$$t_r = \sqrt{(s/c)^2 + t^2}$$</div>
-        <p>This yields the standard Lorentz formula:</p>
-        <div class="equation">$$t = t_r\sqrt{1 - v^2/c^2}$$</div>
+        <div class="equation">$$T^2=\tau^2+(s/c)^2,\qquad s=vT.$$</div>
+        <p>With this adopted orthogonal time geometry and constant-rate segment, $T$ is observer time, $\tau$ proper time and $0\le v&lt;c$. Algebra gives:</p>
+        <div class="equation">$$\tau=T\sqrt{1-v^2/c^2}.$$</div>
 
         <p><strong>3. Orbital Time Dilation:</strong></p>
-        <div class="equation">$$t = \left(1 - \frac{3GM}{rc^2}\right)^{1/2} t_r$$</div>
+        <div class="equation">$$\tau=\sqrt{1-\frac{3GM}{rc^2}}\;T.$$</div>
+        <p>This is the cited circular-orbit source relation, not the result of inserting circular speed into the preceding velocity-only equation. Its real-clock domain here is $r&gt;3GM/c^2$. Section 8 distinguishes the two relations.</p>
 
         <p><strong>4. Spectral Formula:</strong>
-        From the time dilation relationship, POAMS derives the Balmer-Rydberg formula for atomic spectra:</p>
-        <div class="equation">$$\nu = cR[1 - (N/n^2)]$$</div>
+        The <a href="./balmer-rydberg-poams.html">POAMS spectral derivation</a> uses the time ratio, integer closure and Pope's energy-booking premise. With empirical hydrogen normalization $\nu_R=cR_H$, excitation terms measured from the ground term and their differences are:</p>
+        <div class="equation">$$\nu_n^{\rm exc}=\nu_R(1-n^{-2}),\qquad \nu_{n\to N}=\nu_R(N^{-2}-n^{-2}),\quad n&gt;N\ge1.$$</div>
+        <p>$n,N$ are integer state indices, not fitted coefficients. The term pattern is conditional mathematics; the measured $R_H$ fixes its scale. This is the gross line formula, not a derived fine-structure or running-constant result.</p>
 
         <h2 id="the-cone-model">The Cone Model</h2>
 
         <p>POAMS represents motion in a three-dimensional "cone model" where:</p>
         <ul>
-            <li><strong>t-axis</strong>: Proper time (Newtonian aspect, unlimited speeds)</li>
+            <li><strong>τ-axis</strong>: Proper time; $s/\tau$ is a different rate from observer speed $s/T$</li>
             <li><strong>s/c-axis</strong>: Observer distance-time (converted to time units)</li>
-            <li><strong>t<sub>r</sub>-axis</strong>: Relative/observer time (Einsteinian aspect, speed limit c)</li>
+            <li><strong>T-axis</strong>: Observer time; the real triangle gives $s/T\le c$</li>
         </ul>
 
-        <p>The cone surface represents: $t_r^2 = t^2 + (s/c)^2$</p>
+        <p>The cone surface represents $T^2=\tau^2+(s/c)^2$. These are three chart coordinates, not three independent clocks.</p>
 
-        <p>This model shows that Newtonian and Einsteinian physics are complementary projections of the same reality, resolving the classical-quantum divide.</p>
+        <p>POAMS reads the two rates as complementary projections. The geometry does not by itself prove a complete quantum theory; <a href="./cone-model.html">Cone Model</a> and <a href="./twins-paradox.html">Twins</a> show the conditional timing calculation.</p>
 
         <h1 id="the-derivation-chain">6. The Derivation Chain: From Angular Momentum to Inverse Square Relationships</h1>
 
-        <p><strong>The Clear Logical Path:</strong>
-        The transcript reveals the cleanest derivation sequence for understanding orbital mechanics without invoking "forces":</p>
+        <p><strong>The conditional native derivation:</strong> conservation, the full closure condition and the branch boundary play different roles. The ratified <a href="https://github.com/cfmilam/nr-poams-engineering/blob/gh-pages/nbody/NCENTRE-CLOSURE-DERIVATION.md">n-centre closure derivation, §§1–4</a>, supplies P1–P5; none is silently replaced by a foreign force ontology.</p>
 
         <p><strong>Step 1: Angular Momentum Conservation</strong></p>
         <ul>
             <li>Starting point: dL/dt = 0 (angular momentum is conserved)</li>
-            <li>L = mvr = constant for any orbiting system</li>
-            <li>This is the fundamental postulate — no other assumptions needed</li>
+            <li>$L_o=mr v_\perp=mr^2\dot\theta$ for the chosen planar orbital component at fixed $m$</li>
+            <li>Conservation does not alone require that $r$ be bounded, that an orbit close, or that one radial law be selected</li>
         </ul>
 
         <p><strong>Step 2: Kepler's Second Law (Falls Out Directly)</strong></p>
         <ul>
-            <li>Since L = mvr = constant, and L = mr²ω, we get r²ω = constant</li>
+            <li>Since $L_o=mr^2\dot\theta$, we get $r^2\dot\theta=L_o/m$</li>
             <li>The quantity r²ω directly relates to area swept per unit time</li>
             <li>Therefore: equal areas swept in equal times (Kepler's 2nd Law)</li>
-            <li><strong>Crucial insight</strong>: Kepler's 2nd Law is not evidence to be explained — it's a prerequisite for stable orbits</li>
+            <li><strong>Exact consequence</strong>: $dA/dt=L_o/(2m)$; this area law alone is not a stability test</li>
         </ul>
 
         <p><strong>Step 3: Bertrand's Theorem (Only Two Possibilities)</strong></p>
         <ul>
-            <li>For closed, stable orbits that don't precess, acceleration must be central: A = -H(r)·r̂</li>
-            <li>Bertrand's theorem proves mathematically: <strong>only two possible forms</strong> for H(r) exist</li>
+            <li>In the ideal isolated, regular central family write $\mathbf A=-H(r)\hat{\mathbf r}$</li>
+            <li>The ratified closure premise requires <strong>every stable bounded natural orbit</strong> in that family to close. Under the <a href="https://arxiv.org/abs/1008.0559">Bertrand theorem's conditions</a>, two radial branches remain. A single closed orbit is insufficient.</li>
             <li>Either H(r) ∝ r (acceleration proportional to distance)</li>
             <li>Or H(r) ∝ 1/r² (inverse square relationship)</li>
         </ul>
 
-        <p><strong>Step 4: Physical Reality Eliminates Linear Option</strong></p>
+        <p><strong>Step 4: The Ratified Zero-Remainder Boundary Selects the Branch</strong></p>
         <ul>
-            <li>H(r) ∝ r would mean strongest acceleration when farthest away</li>
-            <li>Mars at aphelion (farthest from Sun) would have maximum acceleration — contradicts observation</li>
-            <li>Only option remaining: <strong>H(r) ∝ 1/r²</strong> forced by geometry and stability requirements</li>
+            <li>P5 requires a pair's booked term to tend to zero as its relational overlap is removed</li>
+            <li>The isotropic-linear branch has a pair term proportional to $r^2$, which cannot satisfy that boundary as separation grows</li>
+            <li>The $-1/r$ pair term can; its radial derivative gives $H(r)\propto1/r^2$. This is conditional on the stated joints, not conservation alone.</li>
         </ul>
 
         <blockquote>
-            <p><strong>The Revolutionary Insight:</strong> We derive the inverse square relationship purely from: (1) Angular momentum conservation (mathematical postulate), (2) Geometric requirements for stable closed orbits, (3) Elimination of physically impossible solutions. No "gravitational force" was assumed, invented, or needed.</p>
+            <p><strong>What is derived:</strong> on ratified P1–P5, the point-centre inverse-square orbital book is fixed without an in-vacuo force. The general n-centre ledger is already derived within that tier; this is not a claim of a closed-form solution for every trajectory. <a href="./solar-system.html">The Solar System</a> separates that theorem from finite-window resonance and capture-history evidence.</p>
         </blockquote>
 
         <h1 id="conservation-properties">7. Conservation Properties</h1>
 
-        <p><strong>The Four Essential Characteristics of Angular Momentum Conservation:</strong></p>
+        <p><strong>The POAMS conservation architecture.</strong> The first three entries express the adopted ontology; they are not separate theorems of $d\mathbf J/dt=0$.</p>
 
         <p><strong>1. Holistic:</strong></p>
         <ul>
-            <li>Entire system adjusts simultaneously to maintain conservation</li>
+            <li>The total joint ledger is conserved across the correlated system</li>
             <li>No local "forces" acting on individual particles</li>
             <li>Whole system response to any perturbation</li>
-            <li>Like a soap bubble — touch any point, entire surface adjusts</li>
+            <li>A whole-system analogy illustrates joint accounting; it does not supply a response-time law</li>
         </ul>
 
         <p><strong>2. Instantaneous:</strong></p>
@@ -540,7 +556,7 @@
             <li>No propagation delay in proper time</li>
             <li>Conservation operates outside relativistic time delays</li>
             <li>Observer time delays don't affect conservation reality</li>
-            <li>Maintains universal simultaneity for conservation events</li>
+            <li>A joint completion is not a universal observer timestamp; the observer-relative “now” in §2 is preserved</li>
         </ul>
 
         <p><strong>3. Unmediated:</strong></p>
@@ -551,50 +567,50 @@
             <li>Eliminates infinite regression of force-carrying forces</li>
         </ul>
 
-        <p><strong>4. Quantized AND Transitive:</strong></p>
+        <p><strong>4. Quantized and Composable, Not Automatically Pair-Transitive:</strong></p>
         <ul>
             <li>Angular momentum comes in discrete units (ℏ)</li>
-            <li>Transitivity: if A conserves with B, and B with C, then A with C</li>
-            <li>Avoids Eleatic stasis (Zeno's paradox)</li>
-            <li>Allows motion while maintaining conservation</li>
+            <li>AB and BC settlements contribute to one total; they do not imply a primitive AC settlement</li>
+            <li>For example, AB transfers 2 ledger units and BC transfers 3: the centre changes $(-2,-1,+3)$ sum to zero, with no direct AC event</li>
+            <li>This is the intransitive two-ended rule P3. Composed correlations and motion remain possible without manufacturing an extra transaction.</li>
         </ul>
 
         <h1 id="orbital-time-dilation-derivation">8. The Orbital Time Dilation Derivation — From Pythagoras to Schwarzschild</h1>
 
-        <p><em>Based on Osborne & Pope's "Orbital Time Dilation" paper, with supplementary exposition from the "How Pythagorean Geometry Replaces Einsteinian Relativity" Deep Dive podcast.</em></p>
+        <p><em>Source: Osborne &amp; Pope, <a href="https://cfmilam.github.io/nr-poams-papers/orbital-time-dilation.html">Orbital Time Dilation</a>, §§2–4. The source's equations, their algebraic consequences and their interpretation are distinct.</em></p>
 
-        <h2 id="three-levels-of-time-dilation">The Three Levels of Time Dilation in POAMS</h2>
+        <h2 id="three-levels-of-time-dilation">Two Clock Relations and Their Scope</h2>
 
-        <p>The Orbital Time Dilation paper establishes a crucial hierarchy of time dilation effects, each building on the last:</p>
+        <p>The overview uses $T$ consistently for observer time and $\tau$ for proper time; the source's symbols differ. A comparison between two clocks also needs both clocks referred to the same reference.</p>
 
         <p><strong>Level 1 — Velocity-Only Dilation (Special Relativity equivalent):</strong>
-        Starting from the Pythagorean time-cone relationship $t^2 = \tau^2 + (s/c)^2$, the standard time dilation formula emerges:</p>
-        <div class="equation">$$\tau = \sqrt{1 - v^2/c^2}\; t \tag{Eq 1.1/2.1}$$</div>
+        Adopting the time triangle and constant-rate segment $s=vT$ gives:</p>
+        <div class="equation">$$\tau = \sqrt{1 - v^2/c^2}\; T \tag{source 1.1/2.1}$$</div>
         <p>For a circular orbit where $v^2 = GM/r$ (Eq 2.8), this gives:</p>
-        <div class="equation">$$\tau = \sqrt{1 - \frac{GM}{rc^2}}\; t \tag{Eq 2.9}$$</div>
+        <div class="equation">$$\tau = \sqrt{1 - \frac{GM}{rc^2}}\; T \tag{source 2.9}$$</div>
         <p>This accounts only for relative speed — it would apply equally to straight-line motion at the same speed.</p>
 
         <p><strong>Level 2 — True Orbital Dilation (The Geodesic Correction):</strong>
-        POAMS recognizes that velocity-only dilation is incomplete because it implicitly assumes Minkowski (straight-line) geodesics. Since POAMS postulates that natural motion is orbital, the geodesics are curves, not lines. This produces an <em>additional</em> geometric time dilation effect.</p>
+        The paper supplies an additional orbital-clock relation through its Eqs. 3.5–3.6. The fact that a path curves does not alone determine the coefficient of that relation.</p>
 
-        <p>This yields the true orbital time dilation formula:</p>
-        <div class="equation">$$\tau = \sqrt{1 - \frac{3GM}{rc^2}}\; t \tag{Eq 3.6}$$</div>
+        <p>The circular source result is:</p>
+        <div class="equation">$$\tau = \sqrt{1 - \frac{3GM}{rc^2}}\; T \tag{source 3.6}$$</div>
 
-        <p>The factor of 3 = 1 (velocity) + 2 (geodesic geometry). This is identical to what General Relativity derives from Einstein's field equations for circular geodesics in Schwarzschild spacetime — but POAMS obtains it from pure geometry and angular momentum conservation.</p>
+        <p>The factor-three accounting separates a velocity term from the additional source term. <a href="./orbital-time-dilation.html#geodesic">The orbital-clock exhibit</a> shows the conditional algebraic match; it does not claim that the time triangle alone derives the extra two. Equality with another framework's circular expression is a mathematical comparison, not proof of full metric equivalence or a preferred ontology. The square root requires $r&gt;3GM/c^2$ for a positive clock rate; this domain statement alone is not an orbital stability theorem.</p>
 
         <div class="part-divider">Part III — Higher-Order Concepts</div>
 
         <h1 id="equator-example">9. The Equator Example: Concrete POAMS in Action</h1>
 
-        <p><strong>The Most Intuitive POAMS Demonstration:</strong>
-        A 1-kilogram mass sitting on Earth's equator provides the clearest example of the difference between natural orbital motion and constrained motion.</p>
+        <p><strong>An idealized constraint calculation:</strong> a 1-kilogram mass carried at Earth's equator illustrates natural-orbit versus held-state bookkeeping. The numbers below use a declared point-centre approximation, not a measured local geodetic model.</p>
 
         <p><strong>The Setup:</strong></p>
         <ul>
             <li>Mass: 1 kg</li>
             <li>Current orbit: Constrained to Earth's radius = 6.37 × 10⁶ m</li>
             <li>Current velocity: Earth's rotational speed = 465 m/s (at equator)</li>
-            <li>Current angular momentum: L = mvr (fixed by current state)</li>
+            <li>$G=6.67430\times10^{-11}\;\mathrm{m^3\,kg^{-1}\,s^{-2}}$, $M=5.97\times10^{24}\;\mathrm{kg}$</li>
+            <li>Specific orbital angular momentum $\ell=L_o/m=rv$ = $2.96205\times10^9\;\mathrm{m^2/s}$</li>
         </ul>
 
         <p><strong>Calculating the Preferred Orbit:</strong>
@@ -604,32 +620,32 @@
         <ul>
             <li>G-prime = rv²/M_earth</li>
             <li>G-prime = (6.37×10⁶)(465²)/(5.97×10²⁴)</li>
-            <li><strong>G-prime ≈ 2.3 × 10⁻¹³</strong></li>
+            <li><strong>G-prime ≈ 2.307124 × 10⁻¹³ m³/(kg s²)</strong></li>
         </ul>
 
         <p><strong>Comparison with Standard G:</strong></p>
         <ul>
-            <li>Standard Newtonian G ≈ 6.7 × 10⁻¹¹</li>
-            <li>G-prime is <strong>hundreds of times smaller</strong> than G</li>
-            <li>This massive difference proves the mass is severely constrained from its natural orbit</li>
+            <li>$G/G'\approx289.291$ for the declared inputs</li>
+            <li>$G'$ encodes the held circular state; $G$ is the reference coefficient in this example</li>
+            <li>The mismatch quantifies the POAMS constraint in this model, not a new independent measurement of either coefficient</li>
         </ul>
 
         <p><strong>The Natural Orbit Parameters:</strong>
         Based on its conserved angular momentum, the mass's natural (force-free) orbit is:</p>
         <ul>
-            <li><strong>Force-free radius</strong>: r = L²/GM ≈ 22 km — measured <em>from Earth's center</em>, deep in the interior, ~6,349 km beneath the mass's feet</li>
-            <li><strong>Orbital velocity there</strong>: ~135 km/s — the same angular momentum at a far smaller radius (135 km/s × 22 km = 465 m/s × 6,371 km — the skater pulling her arms in)</li>
+            <li><strong>Formal force-free radius</strong>: $r_{\rm ff}=\ell^2/(GM)=L_o^2/(m^2GM)$, or <span data-audit="equator-radius-km">22.01936</span> km from the centre</li>
+            <li><strong>Formal orbital speed</strong>: $v_{\rm ff}=\ell/r_{\rm ff}\approx134.5203$ km/s; the product $r_{\rm ff}v_{\rm ff}=rv$ closes exactly before rounding</li>
             <li>This radius is bookkeeping, not a navigable path; what matters is its <strong>direction</strong> — the natural orbit lies far <em>inside</em>, and the ground holds the mass off it</li>
         </ul>
 
-        <p><strong>The Measured Force:</strong></p>
+        <p><strong>The calculated support magnitude:</strong></p>
         <ul>
             <li>F = |G - G-prime| × mM_earth/r²</li>
-            <li><strong>F = 9.81 Newtons</strong> (exactly the weight of 1 kg)</li>
+            <li>$F=m(GM/r^2-v^2/r)=$ <strong><span data-audit="equator-force">9.78582</span> N</strong> for these inputs; no exact 9.81 N measurement is claimed</li>
         </ul>
 
         <blockquote>
-            <p><strong>POAMS Interpretation:</strong> The 9.81 N is <strong>not</strong> a downward pull from Earth. It is the <strong>constraint bill</strong>: the mass's angular momentum assigns it a natural orbit ~22 km from Earth's center, and the ground holds it ~6,349 km <em>off</em> that orbit — the force a scale reads is the cost of that stand-off. (That is why free fall feels like nothing: nothing is holding the body off its books.) Weight is resistance to constraint, not attraction to center.</p>
+            <p><strong>POAMS interpretation:</strong> weight is the measured constraint required to hold a body off its natural orbit, not an in-vacuo attraction. The formal interior radius is a ledger comparison, not a proposed path through Earth. Its conversion to a local support magnitude here uses the displayed, idealized constraint law.</p>
         </blockquote>
 
         <h1 id="script-g">10. Script G: The Variable "Gravitational" Factor</h1>
@@ -639,7 +655,7 @@
 
         <p><strong>The Traditional View:</strong></p>
         <ul>
-            <li>Newtonian physics: G = 6.67 × 10⁻¹¹ m³/kg·s² (universal constant)</li>
+            <li>Newtonian comparison: $G\approx6.67\times10^{-11}\;\mathrm{m^3/(kg\,s^2)}$ as a fixed coefficient</li>
             <li>General relativity: G appears in Einstein field equations as fixed universal constant</li>
             <li>Both theories assume G never changes regardless of system properties</li>
         </ul>
@@ -655,7 +671,7 @@
         <h1 id="four-forces-are-one">11. Four Forces Are One</h1>
 
         <p><strong>The Hurricane/Galaxy Analogy:</strong>
-        All four "fundamental forces" are actually angular momentum conservation manifesting at different energy density scales within the same rotating system.</p>
+        The one-substance ontology interprets the four conventional interaction categories through angular-momentum organization. The hurricane regions below are a schematic analogy, not a computed radial law or four calibrated thresholds.</p>
 
         <p><strong>The Single Rotating System:</strong></p>
         <ul>
@@ -666,7 +682,7 @@
             <li><strong>Galactic scale</strong>: very low energy density (orbital mechanics)</li>
         </ul>
 
-        <p><strong>Force Unification:</strong></p>
+        <p><strong>Proposed correspondence:</strong> a mapping of conventional names onto the native ontology, not four quantitative results derived from the analogy.</p>
         <ol>
             <li><strong>Strong Force</strong>: High energy density gradients near quantum accumulator center</li>
             <li><strong>Weak Force</strong>: Transition zones between energy density levels</li>
@@ -689,56 +705,55 @@
             <li>Assume minimum quantum angular momentum: L = ℏ</li>
             <li>Use standard gravitational constant G</li>
             <li><strong>Result</strong>: Orbital radius ≈ 1.2 × 10²⁹ meters</li>
-            <li>This is <strong>thousands of times larger than the observable universe</strong></li>
-            <li>Proves that conventional "gravitational" effects are essentially zero at atomic scales</li>
+            <li>The explicit trial is $r_G=\hbar^2/(Gm_e^2M_p)$ with the baseline coefficient and $L_o=\hbar$</li>
+            <li>It does not give an atomic-scale radius; the comparison tests this trial's inputs, not every possible native state</li>
         </ul>
 
-        <p><strong>The Spin Revolution:</strong>
-        <strong>Key insight</strong>: At atomic scales, intrinsic angular momentum (spin) completely dominates orbital angular momentum.</p>
+        <p><strong>The source's spin-dominant energy reconstruction:</strong> the assigned atomic energy overwhelms the abandoned baseline trial's energy. This is not a claim that intrinsic angular momentum overwhelms the final orbital angular momentum; energy and angular momentum are different quantities.</p>
 
         <p><strong>Energy Comparison:</strong></p>
         <ul>
-            <li><strong>Orbital kinetic energy</strong>: K_orbital ≈ 10⁻⁹⁷ joules</li>
-            <li><strong>Spin kinetic energy</strong>: K_spin ≈ 2.2 × 10⁻¹⁸ joules</li>
-            <li><strong>Spin dominance factor: ~10⁷⁹ orders of magnitude</strong></li>
-            <li>Spin kinetic energy overwhelms orbital by an almost unimaginable amount</li>
+            <li><strong>Abandoned trial orbital energy</strong>: $K_G\approx4.23537\times10^{-97}$ J</li>
+            <li><strong>Imported hydrogen scale</strong>: $R_H=10\,967\,758.340\;\mathrm{m^{-1}}$, $\nu_R=cR_H\approx3.288051$ PHz; $K_R=h\nu_R\approx2.178686\times10^{-18}$ J</li>
+            <li><strong>Scale-to-trial energy ratio:</strong> <span data-audit="hydrogen-ratio">5.14402e78</span>, or about <strong>78.71 orders of magnitude</strong></li>
+            <li>In the reconstructed final state $m_e v_s^2/2=K_R$: the final orbital energy is not the abandoned trial's $10^{-97}$ J</li>
         </ul>
 
         <p><strong>Charge Demystified:</strong></p>
         <ul>
-            <li>Electron "charge" cashes out as energy, and energy as rate: hydrogen's ionization is a turn rate of 3.288 PHz (extant record: 13.6 eV = 2.18×10<sup>−18</sup> J) — the eV itself is only the record's label (a "charge dropped through a volt" prices energy in two objects POAMS dissolves)</li>
-            <li><strong>POAMS interpretation</strong>: This energy is the mechanical equivalent of the intrinsic spin QM assigns to the electron</li>
-            <li>No mysterious "charge" property needed — it's pure kinetic energy. Substance, not attribute — the grin is the cat: "intrinsic charge" keeps the coulombs while banning what the sign <em>is</em> (a phase sense); promote the turning to the substance and nothing is left unowned</li>
-            <li>We should measure joules, not coulombs</li>
+            <li><strong>Record-unit bridge:</strong> the gross hydrogen scale is approximately 13.6 eV, or 2.18×10<sup>−18</sup> J, represented natively by about 3.288 PHz through $E=h\nu$</li>
+            <li><strong>POAMS identification:</strong> the source assigns that energy scale to intrinsic circulation; the sign is phase sense, not a second substance called charge</li>
+            <li>The identification does not turn coulombs into joules. An energy/rate record and a charge-count record require a separately dimensioned operational map if compared numerically.</li>
         </ul>
 
-        <p><strong>Results:</strong></p>
+        <p><strong>Conditional reconstruction:</strong> use the declared $R_H$, $m_e=9.1093837139\times10^{-31}$ kg, $M_p=1.67262192595\times10^{-27}$ kg, exact SI $h=6.62607015\times10^{-34}$ J s and $c=299\,792\,458$ m/s:</p>
+        <div class="equation">$$v_s=\sqrt{2K_R/m_e},\qquad r_s=\frac{\hbar}{m_e v_s},\qquad \mathfrak g_s=\frac{r_s v_s^2}{M_p}.$$</div>
         <ul>
-            <li><strong>Orbital velocity</strong>: 2.19 × 10⁶ m/s (1/137th the conversion constant c)</li>
-            <li><strong>Orbital radius</strong>: 5.29 × 10⁻¹¹ m (<strong>exactly the Bohr radius</strong>)</li>
-            <li><strong>Script-G for hydrogen</strong>: ≈ 1.5 × 10²⁹ (<strong>40 orders of magnitude above planetary G</strong>)</li>
+            <li><strong>Effective orbital speed:</strong> 2.187096 × 10⁶ m/s</li>
+            <li><strong>Radius:</strong> <span data-audit="hydrogen-radius">5.293213e-11</span> m; an atomic-scale reconstruction, not an exact infinite-mass Bohr-radius equality</li>
+            <li><strong>Script-G:</strong> 1.513761 × 10²⁹ m³/(kg s²), about 2.268 × 10³⁹ times the declared baseline $G$</li>
         </ul>
 
         <blockquote>
-            <p><strong>Unification Achievement:</strong> Same inverse square mathematical form for planets and atoms. Only the energy scale (and thus script-G coefficient) changes. No separate "forces" — one unified angular momentum framework.</p>
+            <p><strong>What survives:</strong> the same circular algebra admits the atomic scale within the POAMS energy identification. This does not independently predict the inserted Rydberg scale, the numerical value of $\alpha$, or a signed fine-structure doublet. Those distinctions are maintained in <a href="./balmer-rydberg-poams.html">Balmer–Rydberg</a> and <a href="./alpha-fine-structure-derivation.html">The Alpha Problem</a>.</p>
         </blockquote>
 
-        <h1 id="maxwells-equations">13. Maxwell's Equations — Internal Inconsistency</h1>
+        <h1 id="maxwells-equations">13. Maxwell's Equations — An Interpretive Dispute</h1>
 
-        <p><strong>Critical Discovery:</strong> Maxwell's equations contain a fundamental internal inconsistency that has propagated errors through 160 years of physics.</p>
+        <p>Pope disputes the ontology assigned to the equations. Correct arithmetic with disputed category meanings is not, by itself, an internal mathematical contradiction. This section makes the interpretive claim, not a proof of inconsistent equations.</p>
 
         <p><strong>The Weber/Kohlrausch Ratio:</strong></p>
         <ul>
             <li>c originally appeared as Weber and Kohlrausch's ratio of electrostatic to electromagnetic units (the extant labels)</li>
-            <li>Has dimensions of speed but was <strong>never measured AS a speed</strong></li>
-            <li>Maxwell misinterpreted this dimensional constant as the "speed of light"</li>
+            <li>That unit-ratio experiment was not itself a time-of-flight measurement</li>
+            <li>POAMS treats $c$ as a conversion primitive; a unit-ratio measurement alone neither proves nor disproves a propagation interpretation</li>
             <li>The mathematics works correctly, but the conceptual interpretation is wrong</li>
         </ul>
 
-        <p><strong>The False Foundation:</strong></p>
+        <p><strong>Keep interpretation and units distinct:</strong></p>
         <ul>
-            <li>Coulombs (static) and joules (kinetic) are inter-transformable through c²</li>
-            <li>"Charge" on what QM calls the electron = spin angular momentum of ½ℏ</li>
+            <li>$c^2$ has units m²/s²: multiplying a mass by it gives energy, but multiplying a coulomb by it does not give a joule</li>
+            <li>Charge as signed circulation is a POAMS identification, not numerical equality of coulombs and angular momentum</li>
             <li>The equations give correct computational results but are built on conceptual misinterpretation</li>
             <li><strong>"False accounting"</strong> — the books balance perfectly, but the ledger categories are wrong</li>
         </ul>
@@ -764,56 +779,60 @@
 
         <h1 id="spin-weight-coupling">15. Spin-Weight Coupling: Testable Predictions</h1>
 
-        <p><strong>The Steel Ball Experiment:</strong>
-        The transcript provides specific predictions for measurable weight changes due to spin orientation.</p>
+        <p><strong>A source-defined steel-ball prediction.</strong> <a href="https://cfmilam.github.io/nr-poams-books/immediate-distant-action.html">Osborne, 2005 volume, Chapter 9 §4, Example 1</a>, calculates a conditional mass-equivalent change of about ±8 mg. It is a prediction of the stated source model, not a reported steel-ball measurement.</p>
 
         <p><strong>Experimental Setup:</strong></p>
         <ul>
             <li>Object: 2.52 kg steel ball</li>
+            <li>Radius $b=0.0425$ m; uniform-sphere inertia $I=2mb^2/5$</li>
             <li>Spin rate: 2000 revolutions per second (120,000 RPM)</li>
             <li>Location: Earth's equator</li>
             <li>Measurement: Precision weight changes based on spin direction</li>
         </ul>
 
+        <p><strong>Source-comparison energy worksheet:</strong> the unspun <em>formal natural orbit</em> has $K_o=2.293948\times10^{10}$ J. This is not the energy of the held 465 m/s state. Rotation at $\nu_s=2000$ turns/s gives</p>
+        <div class="equation">$$K_s=\tfrac12I(2\pi\nu_s)^2=\frac{m(b\,2\pi\nu_s)^2}{5}\approx143\,756.71\;\mathrm J.$$</div>
+        <p>The nonnegative scalar $K_s$ is unchanged by reversal. The source separately adopts a direction-dependent <em>effective orbital booking</em>,</p>
+        <div class="equation">$$\mathcal K(\theta)=\sqrt{K_o^2+K_s^2+2K_oK_s\cos\theta}.$$</div>
+        <p>For aligned spin this is $K_o+K_s$; for anti-aligned spin it is $|K_o-K_s|$. Here $K_s/K_o\approx6.266782\times10^{-6}$, so the anti-aligned branch is positive $K_o-K_s$. This is a POAMS constitutive premise, not subtraction of the physical body's scalar spin energy.</p>
+
         <p><strong>Scenario 1: Co-Rotating Spin (Same as Earth's Rotation)</strong></p>
         <ul>
-            <li>Total K increases: K = K_orbital + K_spin</li>
-            <li>Angular momentum conservation → natural radius decreases slightly</li>
-            <li>Stronger "attraction" to Earth</li>
-            <li><strong>Predicted weight increase: ~8 milligrams</strong></li>
+            <li>$v_s/v_0=\sqrt{1+K_s/K_o}$ and $r_s/r_0=(1+K_s/K_o)^{-1/2}$ at fixed source orbital ledger</li>
+            <li>The intrinsic-spin source branch reduces the formal radius and increases its constraint bill</li>
         </ul>
 
         <p><strong>Scenario 2: Counter-Rotating Spin (Opposite to Earth's Rotation)</strong></p>
         <ul>
-            <li>Total K decreases: K = K_orbital - K_spin</li>
-            <li>Angular momentum conservation → natural radius increases slightly</li>
-            <li>Weaker "attraction" to Earth</li>
-            <li><strong>Predicted weight decrease: ~8 milligrams</strong></li>
+            <li>$v_s/v_0=\sqrt{1-K_s/K_o}$ and $r_s/r_0=(1-K_s/K_o)^{-1/2}$ in this $K_s&lt;K_o$ branch</li>
+            <li>The formal radius increases and its constraint bill decreases</li>
         </ul>
+        <p><strong>Support-map calculation:</strong> the source uses $\mathfrak g_s/G=v_s/v_0$ and $F_s=mM(\mathfrak g_s-G')/r^2$, with source constants $G=6.67259\times10^{-11}$ and $G'=2.298254\times10^{-13}$ in m³/(kg s²). Thus the mass-equivalent difference, relative to the unspun scale reading, is</p>
+        <div class="equation">$$\Delta m_{\rm eq}=m\,\frac{\sqrt{1\pm K_s/K_o}-1}{1-G'/G}.$$</div>
+        <p><strong>Computed:</strong> co-spin <span data-audit="spin-co-mg">7.92342</span> mg; anti-spin <span data-audit="spin-anti-mg">-7.92345</span> mg. The two magnitudes are approximately, not exactly, equal. The source constants here intentionally differ from the rounded modern-input worksheet in §9.</p>
 
         <blockquote>
-            <p><strong>Scientific Significance:</strong> Provides testable prediction distinguishing POAMS from Newtonian physics. Effect is small but potentially measurable with modern precision instruments.</p>
+            <p><strong>Scientific significance:</strong> the conditional ±8 mg prediction survives a reproducible calculation. A test must measure the prepared spin state and support response, use matched reversals and nulls, and report uncertainty. Agreement would test that constitutive model; disagreement would locate a failed relation or preparation assumption, not automatically refute the one-substance ontology.</p>
         </blockquote>
 
-        <h1 id="engineering-application">16. Engineering Application — CRITICAL NEW SECTION</h1>
+        <h1 id="engineering-application">16. Engineering Application — Spin, Phase and Constraint Control</h1>
 
         <p><strong>The Newton-Hayasaka Connection:</strong></p>
 
-        <p><strong>Newton's Fundamental Error:</strong></p>
+        <p><strong>The POAMS device hypothesis:</strong> prepared angular-momentum states alter the natural-radius and support ledger. Identify the deposited channel before predicting its sign.</p>
         <ul>
-            <li>Gravity equations only correct for <strong>non-spinning point masses</strong></li>
-            <li>Real objects have spin — affects orbital radius directly</li>
-            <li>Co-spin (same direction) = smaller orbital radius</li>
-            <li>Anti-spin (opposite direction) = larger orbital radius</li>
+            <li><strong>Intrinsic twist:</strong> the co-sense source branch in §15 reduces the formal radius and raises support weight; the opposite branch can reduce it</li>
+            <li><strong>Driven orbital writhe:</strong> changing the orbital numerator is a different route; adding co-sense orbital angular momentum can increase natural radius and reduce weight</li>
+            <li>A drive's twist/writhe partition is a physical preparation question, not a freely chosen sign convention</li>
         </ul>
 
         <p><strong>The Engineering Reality:</strong></p>
 
         <p><strong>Material Structure:</strong></p>
         <ul>
-            <li>All matter = billions of quantum accumulators with Boltzmann-randomized spins</li>
-            <li>Random thermal motion keeps spins uncorrelated in natural state</li>
-            <li>Natural materials show minimal net spin alignment</li>
+            <li>A bulk body contains many phase-organized constituents, whose net orientation depends on its preparation and material</li>
+            <li>Cancellation of vector moments does not cancel positive scalar intrinsic energy</li>
+            <li>Measure the initial and prepared order rather than assuming that every natural material is disordered</li>
         </ul>
 
         <p><strong>Hyperpolarization — The Key:</strong></p>
@@ -825,27 +844,28 @@
 
         <p><strong>Conservation Mechanics:</strong></p>
         <ul>
-            <li>Angular momentum conservation: L_orbital + L_spin = constant</li>
-            <li>Constant orbital velocity + increased spin angular momentum = radius change</li>
-            <li>For radius > Earth surface radius: <strong>levitation achieved</strong></li>
-            <li>Variable spin plane orientation: <strong>directional control = flight</strong></li>
+            <li>The full vector ledger includes orbital, intrinsic and preparation-apparatus contributions</li>
+            <li>Conservation alone does not specify which velocity, radius or constituent state changes, or calculate a support-force response</li>
+            <li><strong>Levitation and directional control remain intended device outcomes.</strong> A changed formal radius is not by itself a demonstrated zero-support or controlled-flight state.</li>
+            <li>The current <a href="./the-poams-brilliant-vortex-atom.html#yig-conditional-derivation">YIG derivation</a> closes the static preparation energy as $\Delta K=\int\Omega\,dJ$ and the bounded coherent-mode ledger. Persistent posting, retention and their support response remain distinct tests; the entire bridge is not being called absent.</li>
         </ul>
 
-        <p><strong>The Experimental Record (corrected 2026-08-14 — two routes, two different outcomes):</strong></p>
+        <p><strong>Experimental reports and their standing:</strong></p>
         <ul>
-            <li><strong>Macrophysical route — PROVED:</strong> reversible weight change in spinning brass rotors was experimentally demonstrated — measurable changes in both directions, reversing with rotation sense, consistent with the POAMS radius-change reading</li>
-            <li><strong>Microphysical route — NOT proved:</strong> the bismuth-puck approach (driving the material's internal circulations with a spinning microwave field; two years of controlled experiments at Marshall's Advanced Propulsion Lab) did not demonstrate reversible weight change — the drive stayed in the skin depth, bulk coherence was never achieved, damping was high</li>
+            <li><strong>Project account:</strong> reversible, sense-dependent balance changes were reported for spinning brass rotors. This overview does not supply that run's calibration, traces and uncertainty, so the report is retained as attributed experience rather than a conclusive dataset reproduced here.</li>
+            <li><strong>Distinct published rotor tests:</strong> Hayasaka–Takeuchi reported a direction-dependent signal; <a href="https://www.nature.com/articles/343732a0">Quinn–Picard (1990)</a> reported no significant residual after their apparatus corrections. Neither result erases a different experiment. Compare actual preparations and records, not just the word “rotor.”</li>
+            <li><strong>Microphysical project account:</strong> the bismuth-puck program did not demonstrate reversible weight change. Its reported diagnosis cites limited drive penetration, absent bulk coherence and damping; that diagnosis is not proof that coherence alone is a sufficient remedy.</li>
             <li>Neither route reached a zero-weight condition</li>
-            <li>The bismuth failure's lesson — bulk coherence is the requirement — drove the later single-crystal YIG design, which is the open engineering program</li>
+            <li>The later single-crystal YIG program tests separate alignment, bounded coherent motion and retained-state routes. Its architecture and intended effects remain; prospective operation is not relabeled as achieved.</li>
         </ul>
 
         <h1 id="ligo-gravitational-waves">17. LIGO / Gravitational Waves — Interpretive Framework vs. Data</h1>
 
         <p><strong>Pope's 2015 Prediction:</strong></p>
         <ul>
-            <li>Explicitly predicted "there will never be any real evidence of 'gravity waves' or 'gravitons'"</li>
-            <li>Offered this as a falsifiable test of POAMS validity</li>
-            <li>Argued that angular momentum conservation is instantaneous, making propagating "waves" impossible</li>
+            <li><a href="https://cfmilam.github.io/nr-poams-books/einsteins-lost-legacy.html">Einstein's Lost Legacy</a> argues against propagating gravitational entities within the POAMS ontology</li>
+            <li>To become an operational falsifier, that position needs a predeclared instrument-level discriminator; rejecting an entity name alone does not specify one</li>
+            <li>Instantaneous joint conservation remains a premise, not an inference from the absence of a conventional carrier</li>
         </ul>
 
         <p><strong>LIGO 2016 Announcement — Interpretation vs. Data:</strong></p>
@@ -858,13 +878,13 @@
         <p><strong>POAMS Alternative Interpretation:</strong></p>
         <ul>
             <li>Instrument oscillations could result from terrestrial angular momentum fluctuations</li>
-            <li>Seismic, thermal, or other terrestrial environmental effects</li>
-            <li>No need to invoke cosmic catastrophes billions of light-years away</li>
-            <li>Instantaneous angular momentum conservation explains correlations without propagation</li>
+            <li>Seismic, thermal, or other environmental candidates are hypotheses, not explanations established by naming them</li>
+            <li>The <a href="https://dcc.ligo.org/LIGO-P1500238/public">detector-characterization record</a> includes auxiliary environmental channels and noise checks. A proposed local account must identify its correlated record and quantitative contribution.</li>
+            <li>A joint angular-momentum account of the observed traces is an open calculation here; no completed fit or unique cause is claimed</li>
         </ul>
 
         <blockquote>
-            <p><strong>The Interpretation Trap:</strong> Raw instrument data exists independently of theoretical interpretation. Same data can be explained through different theoretical frameworks. LIGO's "detection" assumes the correctness of the very theories POAMS challenges.</p>
+            <p><strong>The distinction:</strong> calibrated detector records and an account of their cause are different evidentiary objects. The accepted causal account does not become POAMS ontology by default; equally, disputing it does not construct an alternative quantitative fit. Neither ontology is settled by changing the label on an unexamined record.</p>
         </blockquote>
 
         <div class="part-divider">Part V — Reference & Assessment</div>
@@ -873,27 +893,27 @@
 
         <h2 id="foundational-philosophy-papers">Foundational Philosophy Papers</h2>
 
-        <p><strong>A Synopsis of Normal Realism (Original & Revised)</strong>
+        <p><strong><a href="https://cfmilam.github.io/nr-poams-papers/a-synopsis-of-normal-realism-revised.html">A Synopsis of Normal Realism</a></strong>
         Pope establishes the philosophical foundation: all reality, including "physical" and "psychological" worlds, are human linguistic conventions. Logic, not external "nature," makes these conventions coherent. The constant c is reinterpreted as a dimensional constant relating length and time units.</p>
 
-        <p><strong>Normal Realism the Machian Legacy</strong>
+        <p><strong><a href="https://cfmilam.github.io/nr-poams-papers/normal-realism-the-machian-legacy.html">Normal Realism the Machian Legacy</a></strong>
         Develops the connection to Ernst Mach's phenomenalism, arguing that time is known only through observed changes and space only through measured distances. Rejects Newton's absolute space and time in favor of observer-relative measurements.</p>
 
         <h2 id="core-physics-papers">Core Physics Papers</h2>
 
-        <p><strong>The Complete Physics Heresy</strong>
-        The most comprehensive technical exposition. Argues for switching from "analog" to "digital" physics where reality consists of discrete quantum "stills" like movie frames. Derives relativistic formulas from angular momentum principles and eliminates electromagnetic field theory entirely.</p>
+        <p><strong><a href="https://cfmilam.github.io/nr-poams-papers/the-complete-physics-heresy.html">The Complete Physics Heresy</a></strong>
+        Argues for a digital rather than continuous physical ontology and develops Pope's interpretation of the timing and angular-momentum relations. A statement of that interpretation is not an independent derivation of every device response.</p>
 
-        <p><strong>Why the Constant c Cannot be a Speed (definitive)</strong>
-        Provides logical proof that c cannot be a velocity using electrical circuit analogies. When a switch in an electrical circuit is open, no current flows at all—if electricity "traveled" at speed c, there should be detectable current starting from the source.</p>
+        <p><strong><a href="https://cfmilam.github.io/nr-poams-papers/why-the-constant-c-cannot-be-a-speed-definitive.html">Why the Constant c Cannot be a Speed</a></strong>
+        Presents Pope's conversion-factor and dead-circuit arguments. The cited no-current claim requires apparatus, bandwidth, noise floor and source-trace information to state its operational content. Absence of a signal alone does not logically exclude a finite-speed parameter: a zero signal can satisfy a translation rule for any speed. POAMS nevertheless retains $c$ as its conversion primitive. <a href="./poams-electricity.html">Electricity</a> states the source claim and finite-instrument evidence boundary without imposing a conventional transient mechanism.</p>
 
         <h2 id="mathematical-framework-papers">Mathematical Framework Papers</h2>
 
-        <p><strong>The Nature of Time (Osborne Essay)</strong>
-        Osborne provides the most detailed mathematical development. Shows how time dilation emerges from a Pythagorean relationship: $t_r^2 = t^2 + (s/c)^2$, where c is a dimensional constant. Develops orbital time dilation formulas that predict GPS satellite clock corrections to high accuracy.</p>
+        <p><strong><a href="https://cfmilam.github.io/nr-poams-papers/the-nature-of-time-osborne-essay.html">The Nature of Time</a> (Osborne)</strong>
+        Develops the time-cone account, with $c$ as the distance/time conversion. Use the explicit assumptions, reference clock and equation scope when applying its results, rather than treating geometry alone as a proof of a clock's operational behavior.</p>
 
-        <p><strong>The Angular Momentum 'Ether'</strong>
-        Demonstrates that angular momentum serves as the non-local "ether" connecting all bodies instantaneously. Uses galaxy M31 as an example—its coherent structure requires instant communication across vast distances, impossible if limited by light speed.</p>
+        <p><strong><a href="https://cfmilam.github.io/nr-poams-papers/the-angular-momentum-ether.html">The Angular Momentum 'Ether'</a></strong>
+        Interprets galactic organization through holistic angular-momentum conservation. Coherence alone does not determine a communication delay: variables $\theta_i(T)=\Omega T+\phi_i$ retain fixed phase differences from shared initial conditions without that equation specifying messages. This counterexample does not model M31; it identifies the extra inference an argument from coherence would need. POAMS joint conservation remains the source's premise.</p>
 
         <h1 id="osborne-contributions">19. The Osborne Contributions</h1>
 
@@ -902,122 +922,131 @@
         <p>The contributions of Dr. Anthony D. Osborne, PhD, focus primarily on the mathematical development of time dilation in orbital motion and its applications:</p>
 
         <p><strong>1. Orbital Time Dilation Formula:</strong>
-        Osborne developed the precise mathematical formulation:</p>
-        <div class="equation">$$t = \left(1 - \frac{3GM}{rc^2}\right)^{1/2} t_r$$</div>
+        The circular source relation, restated in this page's clock symbols, is:</p>
+        <div class="equation">$$D_s\equiv\frac{d\tau_s}{dT}=\sqrt{1-\frac{3GM}{rc^2}}.$$</div>
 
         <p><strong>2. GPS Applications:</strong>
-        Osborne demonstrated that this formula predicts GPS satellite clock corrections to high accuracy, providing empirical validation for the POAMS approach to gravitational time dilation without requiring Einstein's "curved spacetime."</p>
+        A satellite-to-ground comparison requires the constrained ground-clock rate $D_g$ against the same reference: $d\tau_s/d\tau_g=D_s/D_g$. The circular satellite factor alone is insufficient. The <a href="./orbital-time-dilation.html#gps">worked GPS budget</a> states both rates and its imported inputs, giving a simplified net offset of about +38.5 μs/day. That is a reproducible arithmetic comparison, not a complete navigation-service error budget or independent proof of the ontology.</p>
 
         <p><strong>3. Cone Model Development:</strong>
         Osborne contributed to the three-dimensional geometric representation showing how Newtonian (unlimited speed) and Einsteinian (speed-limited) physics are complementary projections of the same conic surface.</p>
 
         <p><strong>4. Bridge to General Relativity:</strong>
-        Osborne showed how POAMS derives the same mathematical results as General Relativity (like the Schwarzschild metric) but through angular momentum principles rather than spacetime curvature, providing an alternative theoretical foundation with identical empirical consequences.</p>
+        Section 4 of the <a href="https://cfmilam.github.io/nr-poams-papers/orbital-time-dilation.html">orbital-time paper</a> develops its coordinate-form comparison. Agreement on a specified expression or tested clock ratio is a scoped result; this overview does not establish identical empirical consequences for every configuration.</p>
 
         <h1 id="the-books">20. The Books (2000-2015)</h1>
 
-        <p><em>This section analyzes all seven book-length treatments that significantly expand and mature the POAMS framework:</em></p>
+        <p><em>A seven-title reading map of the public archive, not a claim to have verified every argument in every volume. Archive dates and descriptions identify editions; each source retains its own voice.</em></p>
+        <div id="book-list">
 
-        <h2 id="the-odyssey-2000">The Odyssey (2000) - The Origin Story</h2>
+        <h2 id="the-odyssey-2000"><a href="https://cfmilam.github.io/nr-poams-books/the-odyssey.html">The Odyssey (2000)</a> — The Origin Story</h2>
 
         <p>This autobiographical account reveals how POAMS emerged from Pope's correspondence with Einstein in 1954 and his practical experience as a telephone lineman. Key developments include the detailed development of the cone model using engineering drawing techniques, comprehensive treatment of the two-slit experiment as path interference, and integration of angular momentum with quantum mechanics through the "cinematic model."</p>
 
-        <h2 id="eye-of-beholder-2004">2004 The Eye of the Beholder - The Information Revolution</h2>
+        <h2 id="eye-of-beholder-2004"><a href="https://cfmilam.github.io/nr-poams-books/eye-of-beholder.html">The Eye of the Beholder (2004)</a> — Information and Observation</h2>
 
         <p>This book explores the philosophical foundations of the observer's role in physics and the transition from mechanics-based to information-based physics. Core thesis: Nature is transitioning from being viewed as a "great machine" to being understood as an "informational matrix" or "hologram."</p>
 
-        <h2 id="immediate-distant-action-2005">2005 Immediate Distant Action and Correlation in Modern Physics - The Workshop Consensus</h2>
+        <h2 id="immediate-distant-action-2005"><a href="https://cfmilam.github.io/nr-poams-books/immediate-distant-action.html">Immediate Distant Action and Correlation in Modern Physics (2005)</a> — Workshop Proceedings</h2>
 
-        <p>This multi-author volume represents the most comprehensive treatment of instantaneous action-at-a-distance, documenting the Swansea Workshop proceedings that brought together researchers supporting unmediated instantaneous action. The workshop achieved consensus on 15 fundamental principles including the proposition that angular momentum conservation is the instantaneously correlating principle.</p>
+        <p>Edited by Pope, Osborne and Winfield, this volume records the Swansea discussions and proposed points of consensus. Discussion agreement is not an experimental validation. Chapter 9 supplies the steel-ball example reproduced in §15.</p>
 
-        <h2 id="light-speed-gravitation-2007">2007 Light-Speed, Gravitation and Quantum Instantaneity - The Mathematical Framework</h2>
+        <h2 id="light-speed-gravitation-2007"><a href="https://cfmilam.github.io/nr-poams-books/light-speed-gravitation-and-quantum-instantaneity.html">Light-Speed, Gravitation and Quantum Instantaneity (2007)</a> — The Mathematical Framework</h2>
 
-        <p>This technically rigorous volume by Osborne and Pope provides the most comprehensive mathematical treatment of POAMS, including complete derivation of special relativity from dimensional constant interpretation of c, detailed cone model with geometric relationships, and extension to orbital time-dilation and general relativistic effects.</p>
+        <p>Osborne and Pope develop the time-cone, natural-orbit and spin-adjusted bookkeeping. Chapters 6–7 are the source for the orbital/spin distinctions used above. Its formulas must be read with their state definitions and adopted premises.</p>
 
-        <h2 id="einsteins-lost-legacy-2015">2015 Einstein's Lost Legacy - The Mature Framework</h2>
+        <h2 id="wondering-wilderness-2009"><a href="https://cfmilam.github.io/nr-poams-books/wondering-wilderness.html">Wondering in the Wilderness (2009)</a></h2>
+        <p>The archive lists this volume under A. M. and N. Vivian Pope. It belongs to the wider philosophical reading map; no additional numerical physics result is credited to it by this overview.</p>
 
-        <p>This final major work represents the complete POAMS system with full mathematical development and definitive arguments. It provides ten logical proofs against c as velocity, sophisticated development of light as "energetic pixels of observed information," and explicit predictions that gravitational waves, dark matter, dark energy, and Higgs boson (as described) will never be truly detected.</p>
+        <h2 id="gods-country-2010"><a href="https://cfmilam.github.io/nr-poams-books/gods-country.html">God's Country (2010)</a></h2>
+        <p>The archive lists this philosophical volume by N. Vivian Pope. Its place in the collection does not turn a theological conclusion into a theorem of the displayed orbital equations.</p>
+
+        <h2 id="einsteins-lost-legacy-2015"><a href="https://cfmilam.github.io/nr-poams-books/einsteins-lost-legacy.html">Einstein's Lost Legacy (2015)</a> — The Later Synthesis</h2>
+
+        <p>Pope and Osborne consolidate their interpretation of light, time and angular momentum. Arguments presented as proofs in the source remain attributed arguments: the label does not replace checking their premises, deductions or instrument-level consequences.</p>
+        </div>
 
         <h1 id="strengths">21. Strengths</h1>
 
         <h2 id="where-poams-is-genuinely-insightful">Where POAMS is Genuinely Insightful:</h2>
 
-        <p><strong>1. Resolving the Quantum-Relativity Paradox</strong>
-        The "movie analogy" brilliantly resolves the EPR paradox. Just as movie frames can contain instantaneous spatial relationships while the sequence between frames creates temporal flow, quantum interactions can be instantaneous while relativistic observations remain time-delayed.</p>
+        <p><strong>1. Separating joint events from observer sequences</strong>
+        The movie analogy makes the distinction intelligible: a joint completion and an observer's sequence need not share one time description. Its quantitative content comes from the event and clock ledgers, not from the analogy alone.</p>
 
-        <p><strong>2. Eliminating Unnecessary Metaphysics</strong>
-        POAMS systematically applies Occam's razor to remove concepts like "fields," "forces," "photons," and "spacetime curvature" that were historically introduced to solve problems that don't exist under proper analysis.</p>
+        <p><strong>2. A disciplined ontological choice</strong>
+        POAMS asks whether operational records can be organized without a second substance or an entity traveling in a void. That is its governing research commitment, not a penalty for differing from conventional physics.</p>
 
         <p><strong>3. Unifying Physics</strong>
-        By reducing all interactions to angular momentum conservation, POAMS provides genuine unification without the artificiality of "unified field theories" that try to merge fundamentally different concepts.</p>
+        The single-substance architecture offers one vocabulary across orbital, spectral and phase problems. Ontological unity and a quantitatively complete response model are different achievements; neither should impersonate the other.</p>
 
         <p><strong>4. Maintaining Empirical Contact</strong>
-        Unlike string theory and other modern approaches that postulate unobservable entities, POAMS stays grounded in measurable phenomena like mass, length, and time.</p>
+        Measured clock rates, distances, spectra and prepared states can be recorded independently of choosing the ontology of their causes. Explicit inputs and uncertainty make a calculation checkable.</p>
 
-        <p><strong>5. Predictive Success</strong>
-        The orbital time dilation formula accurately predicts GPS satellite clock corrections. The angular momentum approach explains observed phenomena without requiring "dark matter" or other ad hoc additions.</p>
+        <p><strong>5. Quantitative footholds</strong>
+        The conditional spectral pattern, circular-clock relations and sourced spin prediction supply concrete calculations. Empirical scale inputs, retrospective comparisons and predictions not yet measured retain distinct labels.</p>
 
         <p><strong>6. Logical Coherence</strong>
-        POAMS provides a genuinely integrated worldview where relativity, quantum mechanics, and classical mechanics emerge as different aspects of the same underlying angular momentum reality.</p>
+        Definitions, source premises and derivations can be checked within the same native ledger. Coherence is maintained by repairing a failed inference, not by treating all claims in an overview as one indivisible proof.</p>
 
-        <h1 id="weaknesses">22. Weaknesses</h1>
+        <h1 id="weaknesses">22. Open Work Within the Framework</h1>
 
-        <p><em>The following analysis incorporates findings from all seven books (2000-2015) that fundamentally address many previously identified weaknesses:</em></p>
+        <p><em>These are native derivation, bookkeeping and observational tasks. The absence of a conventional field, particle or metric mechanism is not used as an adverse criterion.</em></p>
 
-        <h2 id="weaknesses-that-remain">Weaknesses That Remain Largely Unresolved:</h2>
+        <h2 id="weaknesses-that-remain">Calculations and Records Still Required:</h2>
 
-        <p><strong>1. QED Precision Predictions</strong>
-        While the complete book collection addresses quantum mechanics extensively through the angular momentum approach, they don't provide equivalent computational tools for the extraordinary precision achieved by quantum field theory calculations (electron magnetic moment predicted to 12 decimal places).</p>
+        <p><strong>1. Microscopic spectral completion</strong>
+        The gross line pattern and its empirical normalization are separated above. The numerical value of $\alpha$, its running and the sign-sensitive fine-structure term remain explicit opens in the current Alpha program. The target is a POAMS derivation and predeclared quantitative tests, not adoption of another theory's machinery.</p>
 
-        <p><strong>2. Mathematical Completeness for Complex Phenomena</strong>
-        Despite the comprehensive mathematical work by Osborne across multiple books, the collection doesn't demonstrate how POAMS would handle the full range of complex electromagnetic calculations needed for modern technology design at the level of precision achieved by Maxwell's equations.</p>
+        <p><strong>2. Device-specific completion and response</strong>
+        A proposed apparatus needs its own prepared-state census, response map, boundary conditions and error budget. The already-derived point-centre n-body book is not a universal microscopic or engineering transfer function.</p>
 
-        <h2 id="weaknesses-partially-addressed">Weaknesses That Are Partially Addressed:</h2>
+        <h2 id="weaknesses-partially-addressed">Existing Work and Its Remaining Boundaries:</h2>
 
-        <p><strong>3. Technological Applications</strong> <em>(SUBSTANTIALLY ADDRESSED)</em>
-        The complete book collection directly confronts this issue through Pope's experience as a telephone lineman and collaborative work with practicing engineers. The 2007 book provides detailed electrical circuit argument showing how electromagnetic calculations can work pragmatically without requiring the concepts to describe true underlying reality.</p>
+        <p><strong>3. Technological applications</strong>
+        Electrical endpoint-completion and spin/phase-control architectures remain live native proposals. Static constitutive energy and bounded coherent motion have specified ledgers; persistent posting and usable support-force performance require their separate records. A future calibration does not erase the device concept.</p>
 
-        <p><strong>4. Gravitational Waves (LIGO)</strong> <em>(STRONGLY ADDRESSED)</em>
-        The 2015 book explicitly predicts that "there will never be any real evidence of 'gravity waves' or 'gravitons'" and includes this as a falsifiable test of POAMS. The complete framework argues that gravitational effects are instantaneous angular momentum redistributions, making propagating "waves" impossible.</p>
+        <p><strong>4. Joint-event and cosmological records</strong>
+        A native account must state which operational correlations it predicts and how they differ from competing accounts. An interpretive objection alone neither refutes a calibrated record nor supplies a successful alternative fit.</p>
 
         <h1 id="synthesis">23. Synthesis</h1>
 
         <h2 id="overall-assessment">Overall Assessment of the POAMS Framework:</h2>
 
-        <p>The Pope-Osborne Angular Momentum Synthesis represents one of the most comprehensive alternative approaches to fundamental physics developed in the 20th century. Its core insight—that many conceptual problems in modern physics result from unnecessary theoretical complications rather than genuine features of nature—has significant merit and potentially transformative implications.</p>
+        <p>Normal Realism leads this reconstruction: what is observed, what language organizes it, and which ontological commitments are necessary? POAMS answers with an angular-momentum substance and relational ledgers. The value of this analysis is to make that answer and its calculations inspectable.</p>
 
         <p><strong>Intellectual Achievement:</strong>
-        POAMS demonstrates remarkable logical consistency across a vast range of phenomena. The ability to derive standard relativistic results from angular momentum principles, explain quantum mechanics without "wavefunction collapse," and unify classical and modern physics represents a genuine intellectual achievement regardless of its ultimate validity.</p>
+        The time triangle, conditional orbital closure and spectral term construction supply concrete mathematical work. Their premises and empirical inputs must remain visible; this overview is not proof that every phenomenon has already been calculated.</p>
 
         <p><strong>Philosophical Sophistication:</strong>
         The Normal Realist philosophy provides a sophisticated alternative to both naive realism and postmodern relativism. By grounding objectivity in logical consistency rather than correspondence to absolute reality, Pope navigates between dogmatism and subjectivism in a potentially valuable way.</p>
 
         <p><strong>Empirical Grounding:</strong>
-        Unlike many alternative physics theories, POAMS maintains close contact with observable phenomena. The successful prediction of GPS clock corrections and other measurable effects demonstrates that this is not merely philosophical speculation but a framework capable of quantitative success.</p>
+        The worked examples give reproducible consequences of declared inputs and native rules. The next evidentiary step for an unmeasured device is a registered prepared-state/response test, not a change of ontology by assertion.</p>
 
         <p><strong>Historical Significance:</strong>
         Independent of its ultimate truth, POAMS represents an important case study in alternative scientific thinking. It shows how radically different interpretations of the same empirical data can emerge from different philosophical starting points, illuminating the theory-dependent nature of observation.</p>
 
         <blockquote>
-            <p><strong>Verdict:</strong> POAMS succeeds brilliantly in its primary goal of showing that alternative approaches to fundamental physics are both possible and potentially fruitful. The framework represents a remarkable intellectual achievement that, at minimum, illuminates important philosophical issues in the foundations of physics and, at maximum, might point toward a genuine conceptual revolution in our understanding of space, time, and matter.</p>
+            <p><strong>Synthesis:</strong> preserve the philosophical position, the one-substance ontology and the supported conditional results. Keep hypotheses as hypotheses, expose scale inputs, and reject a bad inference without confusing it with the whole framework. That is how this research program remains both native and testable.</p>
         </blockquote>
 
-        <p><em>The POAMS project represents one of the most sustained and comprehensive alternative approaches to fundamental physics developed in the modern era. The complete seven-book collection reveals a sophisticated framework that goes far beyond the individual papers in scope, mathematical development, and philosophical integration. While many specific claims remain controversial, its emphasis on logical coherence, empirical grounding, and conceptual unification provides valuable insights for anyone seeking to understand the philosophical foundations of physical science.</em></p>
+        <p><em>Further reading: the seven books and linked papers above preserve the source voices; the linked current exhibits distinguish their adopted premises, completed calculations and remaining opens.</em></p>
     </div>
 
     <script>
-        function toggleTheme() {
-            const body = document.body;
-            const button = document.querySelector('.theme-toggle');
-            
-            body.classList.toggle('light');
-            
-            if (body.classList.contains('light')) {
-                button.textContent = '🌙';
-            } else {
-                button.textContent = '☀️';
-            }
+        function setTheme(theme) {
+            const light=theme==='light';
+            document.documentElement.dataset.theme=light?'light':'dark';
+            document.body.classList.toggle('light',light);
+            document.querySelector('.theme-toggle').textContent=light?'🌙':'☀️';
         }
+        function toggleTheme() {
+            const next=document.documentElement.dataset.theme==='light'?'dark':'light';
+            setTheme(next);
+            try { localStorage.setItem('poams-analysis-theme',next); } catch (_) {}
+        }
+        try { setTheme(localStorage.getItem('poams-analysis-theme')==='dark'?'dark':'light'); }
+        catch (_) { setTheme('light'); }
     </script>
 
 <footer style="max-width:900px;margin:36px auto 24px;padding:14px 16px 0;border-top:1px solid rgba(212,175,55,.35);text-align:center;font-size:12.5px;line-height:1.7;opacity:.82;">
