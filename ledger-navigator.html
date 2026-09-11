@@ -2,6 +2,7 @@
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="data:,">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Ledger Navigator — Flying the Solar System on Measured Books</title>
 <style>
@@ -17,7 +18,10 @@ h2{color:var(--gold);font-size:19px;margin:30px 0 8px;border-bottom:1px solid va
 .card{background:var(--panel);border:1px solid var(--edge);border-radius:10px;padding:12px 15px;margin:12px 0;font-size:14px;}
 .card.gold{border-left:3px solid var(--gold);} .card.red{border-left:3px solid var(--red);}
 canvas{background:#07070f;border:1px solid var(--edge);border-radius:10px;display:block;max-width:100%;}
-.panel{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-start;margin:12px 0;}
+.panel{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(260px,1fr);gap:14px;align-items:start;margin:12px 0;}
+.plot{min-width:0;} #sys{width:100%;height:auto;aspect-ratio:1;}
+@media(max-width:760px){.panel{grid-template-columns:minmax(0,1fr)}header{padding-top:32px}}
+button:disabled{opacity:.5;cursor:default}.readout{overflow-wrap:anywhere;}
 .controls{flex:1 1 280px;min-width:260px;font-size:14px;}
 .controls label{display:block;margin:8px 0 2px;color:var(--muted);font-size:13px;}
 select,input{background:#1c1c30;border:1px solid var(--edge);color:var(--fg);border-radius:6px;padding:5px 8px;font-size:14px;width:100%;}
@@ -69,216 +73,257 @@ body{padding-top:72px !important;}
 <main>
 
 <div class="card intro-card" style="margin-top:0;">
-  <p style="margin:6px 0;">Philosophy first: there is no pull and no void — only one angular-momentum ledger, every entry
-  measured. This calculator flies a vehicle between planets on any date you choose, with everything in motion,
-  using <strong>no gravitational constant and no masses anywhere</strong>: the Sun's pair invariant is read off
-  Earth's own orbit (μ☉ = 4π² AU³/yr² — the exactness theorem of
-  <a href="./resonance-network.html">The Resonance Network</a>), planetary positions come from their measured
-  elements, and the transfer arc is solved in the ledger. Pick two worlds and a day. The books do the rest.</p>
+  <p style="margin:6px 0;">Within Normal Realism / POAMS, the transfer is a relation in one angular-momentum ledger,
+  not a pulled trajectory through a void. This calculator combines <strong>imported fitted planetary positions</strong>
+  with a <strong>declared two-centre transfer model</strong>. No gravitational constant or masses are entered into
+  its calculation. Choose a route, departure date, and flight time; a result is shown only if the model's
+  time-of-flight and endpoint checks pass. This is an illustrative planning calculation, not a flown mission.</p>
 </div>
 
 
 <div class="panel">
-  <canvas id="sys" width="640" height="640"></canvas>
+  <div class="plot"><canvas id="sys" width="640" height="640" aria-label="Ecliptic projection of planetary positions and the computed transfer"></canvas><p id="epoch" class="sub"></p></div>
   <div class="controls">
-    <label>Departure body</label><select id="from"></select>
-    <label>Arrival body</label><select id="to"></select>
-    <label>Departure date</label><input type="date" id="dep" value="2026-11-05">
-    <label>Time of flight (days): <span id="tofv">210</span></label>
+    <label for="from">Departure body</label><select id="from"></select>
+    <label for="to">Arrival body</label><select id="to"></select>
+    <label for="dep">Departure date</label><input type="date" id="dep" min="1800-01-01" max="2050-01-01" value="2026-11-05">
+    <label for="tof">Time of flight (days): <span id="tofv">210</span></label>
     <input type="range" id="tof" min="30" max="3000" step="5" value="210">
     <button id="solve">✦ Solve transfer</button>
-    <button id="best">◎ Scan window (best TOF)</button>
-    <button id="fly">▶ Fly it</button>
-    <div class="readout" id="out">Pick a route and solve.</div>
+    <button id="best">◎ Scan sampled flight times</button>
+    <button id="fly" disabled>▶ Fly it</button>
+    <div class="readout" id="out" role="status" aria-live="polite">Pick a route and solve.</div>
   </div>
 </div>
 
-<h2>What this is — and its honest tier</h2>
+<h2>Inputs, calculation, and scope</h2>
 <div class="card gold">
-<b>All measured, nothing fitted:</b> planetary positions on any date from standard measured mean elements +
-secular rates (planning-grade table, valid ~1800–2050); the one invariant μ⊙ read from Earth's own orbit;
-the transfer solved by a Lambert pass in that ledger; Δv = the vector gap between the arc and each planet's
-own measured motion at the endpoints (heliocentric planning Δv — parking-orbit injection bookkeeping not
-included). Kinematic, not mechanistic: the arc is a bookkeeping solution, not a pulled trajectory.</div>
+<b>Imported positions:</b> all six element values and all six centennial rates from
+<a href="https://ssd.jpl.nasa.gov/planets/approx_pos.html">JPL SSD's approximate-position Table 1</a>
+are used. They are <em>fitted coefficients</em>, not raw measurements or an independent POAMS ephemeris.
+The Earth entry is the <strong>Earth–Moon barycenter</strong>, not Earth's centre. The displayed velocity is the
+analytic time derivative of that same position formula, including changing elements and orientation.
+Both departure and arrival must lie from 1800-01-01 through 2050-01-01. Calendar midnight is treated as the
+table's day coordinate; sub-minute time-scale conversion is not modeled.</div>
+<div class="card">
+<b>Declared transfer ledger:</b> the fixed reference is μ₀ = 4π² AU³/(Julian yr)². This chooses a one-AU,
+one-year reference ellipse; it is <em>not an exact measured value for the Sun</em>. In the adopted isolated
+inverse-square ellipse, μ = ℓ(v<sub>p</sub> + v<sub>a</sub>)/2 = 4π²a³/T², with specific angular momentum
+ℓ = r<sub>p</sub>v<sub>p</sub> = r<sub>a</sub>v<sub>a</sub>.
+The identity's conditional scope is set out in <a href="./resonance-network.html">The Resonance Network</a>.
+The transfer uses the corresponding relation r″ = −μ₀r/|r|³ as kinematic bookkeeping, not a new force ontology.
+The imported planets are not re-integrated in that normalized two-centre model.</div>
+<div class="card">
+<b>Computed, not assumed:</b> a universal-variable Lambert calculation selects the zero-revolution prograde
+branch. A separate initial-value conic calculation checks the endpoint position and velocity and draws
+241 equal-time samples; the destination is never substituted for the computed endpoint.
+The time residual must be ≤ 10<sup>−9</sup> max(1, T/yr) yr, the position residual ≤
+10<sup>−7</sup> max(1, |r<sub>arrival</sub>|/AU) AU, and the velocity residual ≤
+10<sup>−7</sup> max(1, |v<sub>arrival</sub>|/(AU/yr)) AU/yr. These are numerical acceptance tolerances,
+not ephemeris uncertainties. Near-collinear or unvalidated cases are declined, not declared physically impossible.</div>
 <div class="card red">
-<b>Limits, stated:</b> arcminute-grade ephemeris ⇒ mission-planning and visualization grade, not operations
-targeting; two-centre ledger per arc (planetary flyby dressing and resonance-channel kicks not applied);
-short horizons only — long-horizon single trajectories are refused on principle (the momenta are exact
-forever; individual paths are not). See <a href="./navigation-engine.html">The Navigation Engine</a> §D.</div>
+<b>Limits:</b> the source's nominal longitude errors vary by body (10–600 arcseconds), and its distance errors
+are much larger than a rendezvous tolerance. This is not operations targeting or mission feasibility:
+no parking-orbit injection/capture, propulsion budget, clearance, flyby dressing, resonance kicks, or
+multi-revolution search is included. Δv is only the sum of two heliocentric vector gaps.
+The scan holds departure fixed and chooses the lowest validated sample at 10-day intervals from 60 to
+1400 days; it does not prove a continuous or global optimum. The supported single-flight range is 30–3000 days,
+subject to the date boundary. See <a href="./navigation-engine.html">The Navigation Engine</a> for the wider research program.</div>
+<p class="sub">The view is an XY projection of the three-dimensional calculation. Rings are snapshot ellipses,
+not future ephemeris samples. Flight playback spans eight seconds, preserves the solved inputs, and ends
+at arrival; changing any route input clears the old result.</p>
+</main>
 
 <footer>
   <div>Part of the Normal Realism / POAMS exhibit series ·
   <a href="./resonance-network.html">The Resonance Network</a> ·
   <a href="./navigation-engine.html">The Navigation Engine</a> ·
   <a href="./index.html">All exhibits</a></div>
-  <div style="margin-top:6px">Elements: standard Keplerian mean elements + centennial rates (planning table,
-  J2000). Lambert: universal-variables formulation. μ⊙ = 4π² AU³/yr² (measured, Earth's orbit). Full
-  registration-first background: the POAMS engineering repository (nbody/).</div>
+  <div style="margin-top:6px">Data and validity: <a href="https://ssd.jpl.nasa.gov/planets/approx_pos.html">JPL SSD Table 1</a>.
+  Unit bridge: 1 AU/Julian yr ≈ 4.74047046 km/s, from the <a href="https://ssd.jpl.nasa.gov/astro_par.html">JPL unit definitions</a>.
+  Algorithm reference: <a href="https://celestrak.org/software/vallado-sw.php">Vallado's universal-variable methods</a>.
+  Model inputs, fitted ephemeris, and numerical closure are distinct parts of the book.</div>
 </footer>
 
 <script>
-// ---------- theme ----------
-function pal(){
-  return document.body.classList.contains('light')
-    ?{sun:'#8b6914',orbit:'rgba(110,100,80,.30)',label:'#6b6355',arc:'#2e7d32',ship:'#26211a',col:["#6b6b78","#9a8438","#176e94","#b03030","#a9781f","#8f7d4e","#3f8078","#3a5aa8"]}
-    :{sun:'#d4af37',orbit:'rgba(120,120,150,.25)',label:'#9a9bb0',arc:'#63d67e',ship:'#fff',col:["#b5b5c0","#e8d9a0","#5bc8f5","#e06060","#e8b34a","#d9c9a0","#9fd8d0","#7a9de0"]};
-}
-function toggleTheme(){
-  document.body.classList.toggle('light');
-  const light=document.body.classList.contains('light');
-  document.querySelector('.theme-toggle').textContent=light?'🌙':'☀️';
-  try{localStorage.setItem('poams-theme',light?'light':'dark')}catch(e){}
-  try{draw(jd(document.getElementById('dep').value));}catch(e){}
-}
-try{if(localStorage.getItem('poams-theme')==='light'){document.body.classList.add('light');document.querySelector('.theme-toggle').textContent='🌙';}}catch(e){}
-
-// ---------- measured mean elements (J2000) + centennial rates: a(AU), e, I, L, pi(varpi), Om (deg) ----------
+// JPL SSD approximate-position Table 1. Elements: a,e,I,L,varpi,Omega.
+// Rates: per Julian century; angular entries in degrees. Earth entry is the EMB.
 const P=[
-["Mercury",0.38709927,0.20563593,7.00497902,252.25032350,77.45779628,48.33076593,149472.67411175,0.00001906],
-["Venus",0.72333566,0.00677672,3.39467605,181.97909950,131.60246718,76.67984255,58517.81538729,-0.00004107],
-["Earth",1.00000261,0.01671123,-0.00001531,100.46457166,102.93768193,0.0,35999.37244981,0.00000562],
-["Mars",1.52371034,0.09339410,1.84969142,-4.55343205,-23.94362959,49.55953891,19140.30268499,0.00007882],
-["Jupiter",5.20288700,0.04838624,1.30439695,34.39644051,14.72847983,100.47390909,3034.74612775,-0.00011607],
-["Saturn",9.53667594,0.05386179,2.48599187,49.95424423,92.59887831,113.66242448,1222.49362201,-0.00025015],
-["Uranus",19.18916464,0.04725744,0.77263783,313.23810451,170.95427630,74.01692503,428.48202785,-0.00004397],
-["Neptune",30.06992276,0.00859048,1.77004347,-55.12002969,44.96476227,131.78422574,218.45945325,0.00005105]];
-const MU=4*Math.PI*Math.PI; // AU^3/yr^2 — measured from Earth's own orbit
-const D2R=Math.PI/180, YR=365.25;
-function jd(dateStr){const d=new Date(dateStr+"T00:00:00Z");return d.getTime()/86400000+2440587.5;}
-function kepE(M,e){let E=M;for(let i=0;i<40;i++)E-=(E-e*Math.sin(E)-M)/(1-e*Math.cos(E));return E;}
-function pos(ip,JD){ // heliocentric ecliptic xyz (AU) + velocity (AU/yr)
-  const T=(JD-2451545.0)/36525.0, p=P[ip];
-  const a=p[1]+ (ip==2?0:0), e=p[2]+p[8]*T, I=p[3]*D2R, L=(p[4]+p[7]*T)*D2R,
-        w=p[5]*D2R, Om=p[6]*D2R;
-  const M=L-w, om=w-Om, E=kepE(((M%(2*Math.PI))+3*Math.PI)%(2*Math.PI)-Math.PI,e);
-  const xp=a*(Math.cos(E)-e), yp=a*Math.sqrt(1-e*e)*Math.sin(E);
-  const n=Math.sqrt(MU/(a*a*a)); // rad/yr
-  const Edot=n/(1-e*Math.cos(E));
-  const vxp=-a*Math.sin(E)*Edot, vyp=a*Math.sqrt(1-e*e)*Math.cos(E)*Edot;
-  const co=Math.cos(om),so=Math.sin(om),cO=Math.cos(Om),sO=Math.sin(Om),ci=Math.cos(I),si=Math.sin(I);
-  function rot(x,y){return [
-    (co*cO-so*sO*ci)*x+(-so*cO-co*sO*ci)*y,
-    (co*sO+so*cO*ci)*x+(-so*sO+co*cO*ci)*y,
-    (so*si)*x+(co*si)*y];}
-  return {r:rot(xp,yp), v:rot(vxp,vyp), a:a, e:e};
+{name:'Mercury',el:[.38709927,.20563593,7.00497902,252.25032350,77.45779628,48.33076593],rate:[.00000037,.00001906,-.00594749,149472.67411175,.16047689,-.12534081]},
+{name:'Venus',el:[.72333566,.00677672,3.39467605,181.97909950,131.60246718,76.67984255],rate:[.00000390,-.00004107,-.00078890,58517.81538729,.00268329,-.27769418]},
+{name:'Earth–Moon barycenter',el:[1.00000261,.01671123,-.00001531,100.46457166,102.93768193,0],rate:[.00000562,-.00004392,-.01294668,35999.37244981,.32327364,0]},
+{name:'Mars',el:[1.52371034,.09339410,1.84969142,-4.55343205,-23.94362959,49.55953891],rate:[.00001847,.00007882,-.00813131,19140.30268499,.44441088,-.29257343]},
+{name:'Jupiter',el:[5.202887,.04838624,1.30439695,34.39644051,14.72847983,100.47390909],rate:[-.00011607,-.00013253,-.00183714,3034.74612775,.21252668,.20469106]},
+{name:'Saturn',el:[9.53667594,.05386179,2.48599187,49.95424423,92.59887831,113.66242448],rate:[-.00125060,-.00050991,.00193609,1222.49362201,-.41897216,-.28867794]},
+{name:'Uranus',el:[19.18916464,.04725744,.77263783,313.23810451,170.95427630,74.01692503],rate:[-.00196176,-.00004397,-.00242939,428.48202785,.40805281,.04240589]},
+{name:'Neptune',el:[30.06992276,.00859048,1.77004347,-55.12002969,44.96476227,131.78422574],rate:[.00026291,.00005105,.00035372,218.45945325,-.32241464,-.00508664]}
+];
+const D2R=Math.PI/180,YR=365.25,MU=4*Math.PI*Math.PI;
+const AUYR=149597870.7/(YR*86400); // display bridge only: km/s per AU/Julian yr
+const norm=v=>Math.hypot(...v),dot=(a,b)=>a.reduce((s,x,i)=>s+x*b[i],0);
+const sub=(a,b)=>a.map((x,i)=>x-b[i]);
+function jd(s){
+ if(!/^\d{4}-\d{2}-\d{2}$/.test(s))return NaN;
+ const t=Date.parse(s+'T00:00:00Z');
+ return Number.isFinite(t)&&new Date(t).toISOString().slice(0,10)===s?t/86400000+2440587.5:NaN;
 }
-// ---------- Lambert (universal variables, prograde) ----------
-function stC(z){return z>1e-8?(1-Math.cos(Math.sqrt(z)))/z : z<-1e-8?(Math.cosh(Math.sqrt(-z))-1)/(-z):0.5;}
-function stS(z){if(z>1e-8){const s=Math.sqrt(z);return (s-Math.sin(s))/(s*s*s);}if(z<-1e-8){const s=Math.sqrt(-z);return (Math.sinh(s)-s)/(s*s*s);}return 1/6;}
-function lambert(r1,r2,tof){ // tof in years; returns [v1,v2] AU/yr or null
-  const n1=Math.hypot(...r1), n2=Math.hypot(...r2);
-  const cross=[r1[1]*r2[2]-r1[2]*r2[1], r1[2]*r2[0]-r1[0]*r2[2], r1[0]*r2[1]-r1[1]*r2[0]];
-  let cosd=(r1[0]*r2[0]+r1[1]*r2[1]+r1[2]*r2[2])/(n1*n2);
-  cosd=Math.max(-1,Math.min(1,cosd));
-  let dnu=Math.acos(cosd); if(cross[2]<0)dnu=2*Math.PI-dnu; // prograde
-  const A=Math.sin(dnu)*Math.sqrt(n1*n2/(1-cosd));
-  if(!isFinite(A)||A===0)return null;
-  let zlo=-4*Math.PI*Math.PI, zhi=4*Math.PI*Math.PI;
-  function tofz(z){const C=stC(z),S=stS(z);
-    const y=n1+n2+A*(z*S-1)/Math.sqrt(C);
-    if(y<0)return null;
-    const chi=Math.sqrt(y/C);
-    return {t:(chi*chi*chi*S+A*Math.sqrt(y))/Math.sqrt(MU), y:y};}
-  let z=0;
-  for(let i=0;i<120;i++){
-    z=(zlo+zhi)/2; const r=tofz(z);
-    if(r===null){zlo=z;continue;}
-    if(r.t<tof)zlo=z;else zhi=z;
-  }
-  const r=tofz(z); if(!r)return null;
-  const y=r.y, f=1-y/n1, g=A*Math.sqrt(y/MU), gd=1-y/n2;
-  const v1=[(r2[0]-f*r1[0])/g,(r2[1]-f*r1[1])/g,(r2[2]-f*r1[2])/g];
-  const v2=[(gd*r2[0]-r1[0])/g,(gd*r2[1]-r1[1])/g,(gd*r2[2]-r1[2])/g];
-  return [v1,v2];
+const MIN_JD=jd('1800-01-01'),MAX_JD=jd('2050-01-01');
+function elements(i,JD){const p=P[i],T=(JD-2451545)/36525;return p.el.map((v,k)=>(v+p.rate[k]*T)*(k<2?1:D2R));}
+function kepE(M,e){M=Math.atan2(Math.sin(M),Math.cos(M));let E=M;
+ for(let i=0;i<30;i++){const d=(E-e*Math.sin(E)-M)/(1-e*Math.cos(E));E-=d;if(Math.abs(d)<1e-14)break;}return E;}
+function rotateZ(v,a){const c=Math.cos(a),s=Math.sin(a);return [c*v[0]-s*v[1],s*v[0]+c*v[1],v[2]];}
+function rotateX(v,a){const c=Math.cos(a),s=Math.sin(a);return [v[0],c*v[1]-s*v[2],s*v[1]+c*v[2]];}
+function orientation(x,y,I,w,O){return rotateZ(rotateX(rotateZ([x,y,0],w),I),O);}
+function pos(i,JD){
+ const [a,e,I,L,peri,O]=elements(i,JD),w=peri-O;
+ const [ad,ed,Id,Ld,pd,Od]=P[i].rate.map((v,k)=>v/100*(k<2?1:D2R));
+ const E=kepE(L-peri,e),q=Math.sqrt(1-e*e),c=Math.cos(E),s=Math.sin(E);
+ const Ed=(Ld-pd+ed*s)/(1-e*c);
+ const x=a*(c-e),y=a*q*s,dx=ad*(c-e)-a*(s*Ed+ed),dy=(ad*q-a*e*ed/q)*s+a*q*c*Ed;
+ let r=rotateZ([x,y,0],w),v=rotateZ([dx,dy,0],w),wd=pd-Od;
+ v=v.map((z,k)=>z+[-r[1]*wd,r[0]*wd,0][k]);
+ r=rotateX(r,I);v=rotateX(v,I);v=v.map((z,k)=>z+[0,-r[2]*Id,r[1]*Id][k]);
+ r=rotateZ(r,O);v=rotateZ(v,O);v=v.map((z,k)=>z+[-r[1]*Od,r[0]*Od,0][k]);
+ return {r,v,a,e}; // v is the analytic derivative of this fitted r, in AU/Julian yr.
 }
-const AUYR=4.74057; // km/s per AU/yr
-// ---------- UI + canvas ----------
-const cv=document.getElementById('sys'),ctx=cv.getContext('2d');
-const selF=document.getElementById('from'),selT=document.getElementById('to');
-P.forEach((p,i)=>{selF.add(new Option(p[0],i));selT.add(new Option(p[0],i));});
-selF.value=2; selT.value=3;
-document.getElementById('tof').oninput=e=>document.getElementById('tofv').textContent=e.target.value;
-let arc=null, flyT=-1;
-const COL=["#b5b5c0","#e8d9a0","#5bc8f5","#e06060","#e8b34a","#d9c9a0","#9fd8d0","#7a9de0"];
-function scaleFor(){const i=Math.max(+selF.value,+selT.value);return P[i][1]*1.25;}
-function X(x,s){return cv.width/2+x/s*(cv.width/2-20);}
-function Y(y,s){return cv.height/2-y/s*(cv.height/2-20);}
+function stumpff(z){
+ if(Math.abs(z)<1e-4){let C=.5,S=1/6,tc=C,ts=S;for(let k=1;k<=7;k++){tc*=-z/((2*k+1)*(2*k+2));ts*=-z/((2*k+2)*(2*k+3));C+=tc;S+=ts;}return {C,S};}
+ if(z>0){const x=Math.sqrt(z);return {C:2*Math.sin(x/2)**2/z,S:(x-Math.sin(x))/x**3};}
+ const x=Math.sqrt(-z);return {C:2*Math.sinh(x/2)**2/(-z),S:(Math.sinh(x)-x)/x**3};
+}
+function lambert(r1,r2,T){
+ if(!(T>0)||![...r1,...r2,T].every(Number.isFinite))return null;
+ const n1=norm(r1),n2=norm(r2);if(!(n1>0&&n2>0))return null;
+ const cos=Math.max(-1,Math.min(1,dot(r1,r2)/n1/n2)),cz=r1[0]*r2[1]-r1[1]*r2[0];
+ // A collinear or nearly polar boundary needs a separate plane/branch choice.
+ if(1-Math.abs(cos)<1e-10||Math.abs(cz)/(n1*n2)<1e-10)return null;
+ const A=Math.sign(cz)*Math.sqrt(n1*n2*(1+cos));
+ function at(z){const {C,S}=stumpff(z);if(!(C>0))return null;
+  const y=n1+n2+A*(z*S-1)/Math.sqrt(C);if(y<0)return null;
+  return {y,t:((y/C)**1.5*S+A*Math.sqrt(y))/Math.sqrt(MU)};}
+ let lo=-4*Math.PI**2,hi=4*Math.PI**2-1e-5;
+ for(let i=0;i<12&&at(lo)?.t>T;i++)lo*=2;
+ if(at(lo)?.t>T||!(at(hi)?.t>T))return null;
+ let z,r;
+ for(let i=0;i<110;i++){z=(lo+hi)/2;r=at(z);if(!r||r.t<T)lo=z;else hi=z;}
+ r=at(z);if(!r||!Number.isFinite(r.t)||Math.abs(r.t-T)>1e-9*Math.max(T,1))return null;
+ const f=1-r.y/n1,g=A*Math.sqrt(r.y/MU),gd=1-r.y/n2;
+ const v1=r2.map((x,i)=>(x-f*r1[i])/g),v2=r2.map((x,i)=>(gd*x-r1[i])/g);
+ if(![...v1,...v2].every(Number.isFinite))return null;
+ return {v1,v2,timeResidual:r.t-T,z};
+}
+// Independent initial-value equation: exact conic f,g evaluation, not fixed-step leapfrog.
+function conicState(r0,v0,T){
+ if(T===0)return {r:[...r0],v:[...v0]};
+ if(!(T>0))return null;
+ const radius=norm(r0),rv=dot(r0,v0),sqrtMu=Math.sqrt(MU),alpha=2/radius-dot(v0,v0)/MU;
+ function equation(chi){const {C,S}=stumpff(alpha*chi*chi);return rv/sqrtMu*chi*chi*C+(1-alpha*radius)*chi**3*S+radius*chi-sqrtMu*T;}
+ let lo=0,hi=Math.min(1,sqrtMu*T/radius);
+ for(let i=0;i<100&&equation(hi)<0;i++)hi*=2;
+ if(!(equation(hi)>=0))return null;
+ let chi=0;
+ for(let i=0;i<100;i++){chi=(lo+hi)/2;const f=equation(chi);if(!Number.isFinite(f)||f>0)hi=chi;else lo=chi;}
+ const {C,S}=stumpff(alpha*chi*chi),f=1-chi*chi*C/radius,g=T-chi**3*S/sqrtMu;
+ const r=r0.map((x,i)=>f*x+g*v0[i]),rmag=norm(r),fd=sqrtMu/(rmag*radius)*(alpha*chi**3*S-chi),gd=1-chi*chi*C/rmag;
+ const v=r0.map((x,i)=>fd*x+gd*v0[i]);
+ if(![...r,...v].every(Number.isFinite)||Math.abs(equation(chi)/sqrtMu)>1e-9*Math.max(T,1))return null;
+ return {r,v};
+}
+function inputError(i,j,JD,days){
+ if(!Number.isInteger(i)||!Number.isInteger(j)||!P[i]||!P[j])return 'Select two bodies.';
+ if(i===j)return 'Select different departure and arrival bodies.';
+ if(!Number.isFinite(JD)||JD<MIN_JD||JD>MAX_JD)return 'Departure must be a valid date from 1800-01-01 to 2050-01-01.';
+ if(!Number.isFinite(days)||days<30||days>3000)return 'Time of flight must be 30–3000 days.';
+ if(JD+days>MAX_JD)return 'Arrival exceeds the table boundary (2050-01-01). Shorten the flight or depart earlier.';
+ return null;
+}
+function transfer(i,j,JD,days,sample=true){
+ const error=inputError(i,j,JD,days);if(error)return {error};
+ const A=pos(i,JD),B=pos(j,JD+days),T=days/YR,L=lambert(A.r,B.r,T);
+ if(!L)return {error:'No validated zero-revolution prograde solution from this solver. Try another date or flight time.'};
+ const end=conicState(A.r,L.v1,T),tol=1e-7*Math.max(1,norm(B.r));
+ const miss=end?norm(sub(end.r,B.r)):Infinity,vmiss=end?norm(sub(end.v,L.v2)):Infinity;
+ if(miss>tol||vmiss>1e-7*Math.max(1,norm(L.v2)))return {error:'Numerical endpoint check failed; no transfer is shown. Try another date or flight time.'};
+ const pts=[];
+ if(sample)for(let k=0;k<=240;k++){const state=conicState(A.r,L.v1,T*k/240);if(!state)return {error:'Arc sampling failed; no transfer is shown.'};pts.push(state.r);}
+ return {i,j,JD,days,A,B,L,pts,miss,tol,vmiss,dv1:norm(sub(L.v1,A.v)),dv2:norm(sub(L.v2,B.v))};
+}
+
+// ---------- view and controls ----------
+function pal(){return document.body.classList.contains('light')
+ ?{sun:'#8b6914',orbit:'rgba(110,100,80,.30)',label:'#6b6355',arc:'#2e7d32',ship:'#26211a',col:['#6b6b78','#9a8438','#176e94','#b03030','#a9781f','#8f7d4e','#3f8078','#3a5aa8']}
+ :{sun:'#d4af37',orbit:'rgba(120,120,150,.25)',label:'#9a9bb0',arc:'#63d67e',ship:'#fff',col:['#b5b5c0','#e8d9a0','#5bc8f5','#e06060','#e8b34a','#d9c9a0','#9fd8d0','#7a9de0']};}
+function toggleTheme(){
+ const light=!document.body.classList.contains('light');document.body.classList.toggle('light',light);document.documentElement.dataset.theme=light?'light':'dark';
+ document.querySelector('.theme-toggle').textContent=light?'🌙':'☀️';
+ try{localStorage.setItem('poams-theme',light?'light':'dark')}catch(e){}
+ draw(viewJD);
+}
+try{if(localStorage.getItem('poams-theme')==='light'){document.body.classList.add('light');document.documentElement.dataset.theme='light';document.querySelector('.theme-toggle').textContent='🌙';}}catch(e){}
+const cv=document.getElementById('sys'),ctx=cv.getContext('2d'),selF=document.getElementById('from'),selT=document.getElementById('to');
+const dateInput=document.getElementById('dep'),tofInput=document.getElementById('tof'),out=document.getElementById('out'),flyButton=document.getElementById('fly');
+P.forEach((p,i)=>{selF.add(new Option(p.name,i));selT.add(new Option(p.name,i));});selF.value=2;selT.value=3;
+let arc=null,flyT=0,flyRAF=null,flyRunning=false,lastFrame=null,viewJD=jd(dateInput.value);
+function stopFlight(){if(flyRAF!==null)cancelAnimationFrame(flyRAF);flyRAF=null;flyRunning=false;lastFrame=null;flyButton.textContent='▶ Fly it';}
+function readInputs(){return {i:+selF.value,j:+selT.value,JD:jd(dateInput.value),days:+tofInput.value};}
+function invalidate(){stopFlight();arc=null;flyT=0;flyButton.disabled=true;const p=readInputs();viewJD=Number.isFinite(p.JD)?Math.max(MIN_JD,Math.min(MAX_JD,p.JD)):2451545;
+ out.textContent='Inputs changed. Solve a new transfer.';draw(viewJD);}
+function scaleFor(){let s=Math.max(P[+selF.value].el[0],P[+selT.value].el[0])*1.25;
+ if(arc)for(const p of arc.pts)s=Math.max(s,Math.hypot(p[0],p[1])*1.15);return s;}
 function draw(JD){
-  const TH=pal();
-  ctx.clearRect(0,0,cv.width,cv.height);
-  const s=scaleFor();
-  ctx.fillStyle=TH.sun;ctx.beginPath();ctx.arc(cv.width/2,cv.height/2,5,0,7);ctx.fill();
-  for(let i=0;i<P.length;i++){
-    if(P[i][1]>s*1.05)continue;
-    ctx.strokeStyle=TH.orbit;ctx.beginPath();
-    for(let k=0;k<=128;k++){const q=pos(i,JD+ k/128*P[i][1]**1.5*YR);
-      const x=X(q.r[0],s),y=Y(q.r[1],s); k?ctx.lineTo(x,y):ctx.moveTo(x,y);}
-    ctx.stroke();
-    const q=pos(i,JD);
-    ctx.fillStyle=TH.col[i];ctx.beginPath();ctx.arc(X(q.r[0],s),Y(q.r[1],s),4,0,7);ctx.fill();
-    ctx.fillStyle=TH.label;ctx.font="11px Georgia";ctx.fillText(P[i][0],X(q.r[0],s)+6,Y(q.r[1],s)-4);
-  }
-  if(arc){
-    ctx.strokeStyle=TH.arc;ctx.lineWidth=2;ctx.beginPath();
-    arc.pts.forEach((p,k)=>{const x=X(p[0],s),y=Y(p[1],s);k?ctx.lineTo(x,y):ctx.moveTo(x,y);});
-    ctx.stroke();ctx.lineWidth=1;
-    if(flyT>=0&&flyT<=1){
-      const k=Math.floor(flyT*(arc.pts.length-1)),p=arc.pts[k];
-      ctx.fillStyle=TH.ship;ctx.beginPath();ctx.arc(X(p[0],s),Y(p[1],s),3.5,0,7);ctx.fill();
-    }
-  }
+ viewJD=JD;const size=cv.clientWidth,dpr=window.devicePixelRatio||1;
+ if(size<=0)return; // A temporarily hidden or resizing canvas has no drawable viewport.
+ if(cv.width!==Math.round(size*dpr)||cv.height!==Math.round(size*dpr)){cv.width=Math.round(size*dpr);cv.height=Math.round(size*dpr);}
+ ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,size,size);
+ const TH=pal(),s=scaleFor(),margin=24,X=x=>size/2+x/s*(size/2-margin),Y=y=>size/2-y/s*(size/2-margin);
+ const mark=(p,r,color)=>{ctx.fillStyle=color;ctx.beginPath();ctx.arc(X(p[0]),Y(p[1]),r,0,2*Math.PI);ctx.fill();};
+ mark([0,0],4,TH.sun);
+ for(let i=0;i<P.length;i++){
+  const [a,e,I,L,peri,O]=elements(i,JD);if(a>s*1.05)continue;
+  ctx.strokeStyle=TH.orbit;ctx.lineWidth=1;ctx.beginPath();
+  // Snapshot ellipses, not future ephemerides (which could cross the table's validity boundary).
+  for(let k=0;k<=128;k++){const E=2*Math.PI*k/128,p=orientation(a*(Math.cos(E)-e),a*Math.sqrt(1-e*e)*Math.sin(E),I,peri-O,O);k?ctx.lineTo(X(p[0]),Y(p[1])):ctx.moveTo(X(p[0]),Y(p[1]));}ctx.stroke();
+  const q=pos(i,JD);mark(q.r,3.5,TH.col[i]);ctx.fillStyle=TH.label;ctx.font='11px Georgia';
+  const label=i===2?'Earth–Moon':P[i].name,tw=ctx.measureText(label).width;
+  ctx.fillText(label,Math.max(4,Math.min(size-tw-4,X(q.r[0])+6)),Math.max(14,Math.min(size-12,Y(q.r[1])-5)));
+ }
+ if(arc){
+  ctx.strokeStyle=TH.arc;ctx.lineWidth=2;ctx.beginPath();arc.pts.forEach((p,k)=>k?ctx.lineTo(X(p[0]),Y(p[1])):ctx.moveTo(X(p[0]),Y(p[1])));ctx.stroke();ctx.lineWidth=1;
+  ctx.beginPath();ctx.arc(X(arc.B.r[0]),Y(arc.B.r[1]),5,0,2*Math.PI);ctx.stroke();
+  ctx.fillStyle=TH.arc;ctx.font='11px Georgia';
+  const arrivalLabel='Arrival position',labelWidth=ctx.measureText(arrivalLabel).width;
+  ctx.fillText(arrivalLabel,Math.max(4,Math.min(size-labelWidth-4,X(arc.B.r[0])+8)),Math.max(14,Math.min(size-12,Y(arc.B.r[1])+15)));
+  const ship=conicState(arc.A.r,arc.L.v1,arc.days/YR*flyT);if(ship)mark(ship.r,3.5,TH.ship);
+ }
+ ctx.fillStyle=TH.label;ctx.font='11px Georgia';ctx.fillText(`Ecliptic XY · ±${s.toFixed(2)} AU`,8,size-9);
+ document.getElementById('epoch').textContent='View date: '+new Date((JD-2440587.5)*86400000).toISOString().slice(0,10)+(arc?` · flight ${(flyT*100).toFixed(0)}%`:'');
 }
-function propagate(r0,v0,T,N){ // leapfrog in the Sun's ledger — momentum books by construction
-  const pts=[];let r=[...r0],v=[...v0];const dt=T/N;
-  function acc(r){const d=Math.hypot(...r);const c=-MU/(d*d*d);return [c*r[0],c*r[1],c*r[2]];}
-  let a=acc(r);
-  for(let i=0;i<=N;i++){
-    pts.push([...r]);
-    v=[v[0]+0.5*dt*a[0],v[1]+0.5*dt*a[1],v[2]+0.5*dt*a[2]];
-    r=[r[0]+dt*v[0],r[1]+dt*v[1],r[2]+dt*v[2]];
-    a=acc(r);
-    v=[v[0]+0.5*dt*a[0],v[1]+0.5*dt*a[1],v[2]+0.5*dt*a[2]];
-  }
-  return pts;
+function show(result,prefix=''){
+ stopFlight();flyT=0;arc=null;flyButton.disabled=true;
+ if(result.error){out.textContent=result.error;draw(viewJD);return false;}
+ arc=result;flyButton.disabled=false;draw(arc.JD);
+ const arrival=new Date((arc.JD+arc.days-2440587.5)*86400000).toISOString().slice(0,10);
+ out.textContent=prefix+`${P[arc.i].name} → ${P[arc.j].name}\ndepart ${dateInput.value}; arrive ${arrival}\nflight ${arc.days} d · zero-revolution prograde\nΔv depart ${arc.dv1.toFixed(5)} AU/yr; arrive ${arc.dv2.toFixed(5)} AU/yr\ntotal ${(arc.dv1+arc.dv2).toFixed(5)} AU/yr ≈ ${((arc.dv1+arc.dv2)*AUYR).toFixed(2)} km/s\nModel endpoint residual ${arc.miss.toExponential(2)} AU\nTime residual ${(Math.abs(arc.L.timeResidual)*YR*86400).toExponential(2)} s\nNumerical closure only; not ephemeris accuracy or a mission-feasibility certificate.`;
+ return true;
 }
-function solve(tofDays){
-  const JD=jd(document.getElementById('dep').value);
-  const i1=+selF.value,i2=+selT.value;
-  const tof=(tofDays??+document.getElementById('tof').value)/YR;
-  const A=pos(i1,JD),B=pos(i2,JD+tof*YR);
-  const L=lambert(A.r,B.r,tof);
-  if(!L){document.getElementById('out').textContent="No solution (geometry too tight) — adjust TOF.";return null;}
-  const dv1=Math.hypot(L[0][0]-A.v[0],L[0][1]-A.v[1],L[0][2]-A.v[2])*AUYR;
-  const dv2=Math.hypot(L[1][0]-B.v[0],L[1][1]-B.v[1],L[1][2]-B.v[2])*AUYR;
-  arc={pts:propagate(A.r,L[0],tof,600), JD:JD, tofDays:tof*YR};
-  draw(JD);
-  return {JD,dv1,dv2,tof,i1,i2};
+function solve(){const p=readInputs();return show(transfer(p.i,p.j,p.JD,p.days));}
+function scan(){
+ stopFlight();const p=readInputs();let best=null,valid=0,total=0;
+ const err=inputError(p.i,p.j,p.JD,30);if(err){show({error:err});return;}
+ for(let d=60;d<=1400;d+=10){total++;const r=transfer(p.i,p.j,p.JD,d,false);if(r.error)continue;valid++;if(!best||r.dv1+r.dv2<best.dv1+best.dv2)best=r;}
+ if(!best){show({error:'No validated candidates in the 60–1400-day sample grid at this departure date.'});return;}
+ tofInput.value=best.days;document.getElementById('tofv').textContent=best.days;
+ show(transfer(p.i,p.j,p.JD,best.days),`Lowest sampled Δv (${valid}/${total} candidates validated)\n60–1400 d, every 10 d; fixed departure date\n`);
 }
-document.getElementById('solve').onclick=()=>{
-  const s=solve(); if(!s)return;
-  document.getElementById('out').textContent=
-`${P[s.i1][0]} → ${P[s.i2][0]}   depart ${document.getElementById('dep').value}
-time of flight ${Math.round(s.tof*YR)} d
-Δv depart ${s.dv1.toFixed(2)} km/s   Δv arrive ${s.dv2.toFixed(2)} km/s   total ${(s.dv1+s.dv2).toFixed(2)} km/s
-(heliocentric planning Δv; μ⊙ = 4π² AU³/yr², measured — no G, no masses)`;
-};
-document.getElementById('best').onclick=()=>{
-  let best=null;
-  for(let d=60;d<=1400;d+=10){const s=solve(d);if(s&&(!best||s.dv1+s.dv2<best.dv1+best.dv2))best={...s,d};}
-  if(best){document.getElementById('tof').value=best.d;document.getElementById('tofv').textContent=best.d;
-    const s=solve(best.d);
-    document.getElementById('out').textContent=
-`BEST in window: ${P[s.i1][0]} → ${P[s.i2][0]}  TOF ${best.d} d
-Δv ${s.dv1.toFixed(2)} + ${s.dv2.toFixed(2)} = ${(s.dv1+s.dv2).toFixed(2)} km/s
-(scan 60–1400 d at this departure date)`;}
-};
-document.getElementById('fly').onclick=()=>{
-  if(!arc)return; flyT=0;
-  const tick=()=>{flyT+=0.003;draw(arc.JD+flyT*arc.tofDays);   // v2: the sky moves while you fly
-    if(flyT<=1)requestAnimationFrame(tick);else{flyT=-1;draw(arc.JD);}};
-  tick();
-};
-draw(jd(document.getElementById('dep').value));
+function advanceFlight(seconds){if(!arc)return;flyT=Math.min(1,flyT+Math.max(0,seconds)/8);draw(arc.JD+flyT*arc.days);if(flyT===1){stopFlight();flyButton.textContent='↺ Replay flight';}}
+function tick(now){flyRAF=null;if(!flyRunning)return;if(lastFrame!==null)advanceFlight((now-lastFrame)/1000);lastFrame=now;if(flyRunning)flyRAF=requestAnimationFrame(tick);}
+function toggleFlight(){if(!arc)return;if(flyRunning){stopFlight();flyButton.textContent='▶ Resume flight';return;}if(flyT===1)flyT=0;flyRunning=true;lastFrame=null;flyButton.textContent='⏸ Pause flight';flyRAF=requestAnimationFrame(tick);}
+selF.addEventListener('change',invalidate);selT.addEventListener('change',invalidate);dateInput.addEventListener('input',invalidate);
+tofInput.addEventListener('input',()=>{document.getElementById('tofv').textContent=tofInput.value;invalidate();});
+document.getElementById('solve').addEventListener('click',solve);document.getElementById('best').addEventListener('click',scan);flyButton.addEventListener('click',toggleFlight);
+window.addEventListener('resize',()=>draw(viewJD));document.addEventListener('visibilitychange',()=>{if(document.hidden)lastFrame=null;});
+draw(viewJD);
+
 </script>
 </body>
 </html>
