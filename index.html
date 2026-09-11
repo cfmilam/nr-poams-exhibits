@@ -164,6 +164,14 @@ body {
 .creed-cell p em { color:var(--blue); font-style:normal; }
 .creed-cell code { font-family:'SF Mono',ui-monospace,Menlo,monospace; font-size:0.8rem; color:var(--gold2); background:var(--surface); padding:0.05em 0.35em; border-radius:4px; }
 .foundation-pills { display:flex; flex-wrap:wrap; gap:0.5rem 0.75rem; justify-content:center; margin:1rem auto 0; }
+.action-note { margin-top:1.4rem; padding:clamp(1.2rem,3vw,2rem); text-align:left; background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); }
+.action-note h3 { font-family:'Inter',sans-serif; font-size:1.08rem; font-weight:600; color:var(--fg); line-height:1.4; margin-bottom:1rem; }
+.action-note p { font-size:0.95rem; color:var(--fg2); margin-bottom:0.9rem; }
+.action-note p:last-child { margin-bottom:0; }
+.action-note strong { color:var(--fg); font-weight:600; }
+.action-note .action-equation { display:flex; flex-wrap:wrap; justify-content:center; gap:0.1em 0.35em; margin:1rem 0; color:var(--fg); font-family:Georgia,serif; font-size:1.15rem; }
+.action-equation span { white-space:nowrap; }
+.action-note a { color:var(--gold2); text-underline-offset:0.15em; }
 
 /* ─── Arc Section ────────────────────────────────────────────────────── */
 .arc-wrap {
@@ -548,6 +556,16 @@ footer {
         <p>The momentum is the <em>thing</em>, not an attribute of the thing. Every extant "intrinsic" confesses a grin kept while the cat is banned — the quantity retained, the phenomenon outlawed — and every epicycle is a cat drawn around bookkeeping. Nothing bears and nothing is borne: the grin, closed into a whole turn, <em>is</em> the cat — <a href="./mass-as-trapped-rate.html#grin" style="color:var(--gold2);text-decoration:none;border-bottom:1px solid rgba(201,168,76,.4);">the full narrative, from the spin record</a>.</p>
       </div>
     </div>
+    <aside class="action-note" id="h-and-hbar" aria-labelledby="h-and-hbar-title">
+      <h3 id="h-and-hbar-title">h and ħ: one circulation, two quantities</h3>
+      <p><strong>Stored angular momentum.</strong> In POAMS’s elementary unit-circulation model, a closed quantum accumulator carries angular momentum <i>L</i> = ħ. Completing the circle does not replace the accumulator’s ħ with h.</p>
+      <p><strong>Full-cycle angular action.</strong> For that constant <i>L</i>, a complete turn spans 2π radians. Integrating the angular momentum over that angle gives:</p>
+      <p class="action-equation" aria-label="Cycle angular action equals the closed integral of L d theta, equals two pi h-bar, equals h."><span><i>S</i><sub>cycle</sub> = ∮ <i>L</i> dθ</span><span>= 2πħ = h</span></p>
+      <p><strong>The same closed circulation carries ħ of angular momentum and accounts for h of full-cycle angular action.</strong> “Whole turns in h” describes the integrated action, not a different amount of stored angular momentum.</p>
+      <p><strong>Energy is a third quantity.</strong> An interaction quantum has energy:</p>
+      <p class="action-equation" aria-label="Delta E equals h nu equals h-bar omega; omega equals two pi nu."><span>Δ<i>E</i> = hν = ħω,</span><span>ω = 2πν</span></p>
+      <p>Here ν counts cycles per second and ω radians per second. Energy is measured in joules; h and ħ both have units of joule-seconds, so neither constant alone is an energy. The factor 2π is an angle-normalization distinction, <strong>not an energy change caused by storage.</strong> <a href="https://www.nist.gov/si-redefinition/kilogram/kilogram-mass-and-plancks-constant">Planck relation and units</a>.</p>
+    </aside>
   </div>
 </section>
 

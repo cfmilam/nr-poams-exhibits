@@ -55,6 +55,9 @@ canvas{width:100%;height:auto;aspect-ratio:1;max-width:340px}
 .gauge-fill{width:0}
 button:disabled{opacity:.45;cursor:not-allowed}
 @media(max-width:760px){.panel{grid-template-columns:minmax(0,1fr)}.phn-hide-sm{display:none}main{padding:1rem}.card{padding:1rem}.theme-toggle{width:32px;height:32px;top:.5rem}h1{font-size:1.7rem}}
+
+/* Keep the center Hub link usable on narrow screens. */
+@media(max-width:480px){#poams-hub-nav .phn-title{font-size:12px;white-space:nowrap}#poams-hub-nav .phn-pos{font-size:9px;white-space:nowrap}#poams-hub-nav .phn-center>a{padding:4px 6px!important}}
 </style>
 </head>
 <body>
@@ -62,7 +65,7 @@ button:disabled{opacity:.45;cursor:not-allowed}
   <a href="./angular-momentum-calculator.html" title="AM Calculator">← <span class="phn-hide-sm">AM Calculator</span></a>
   <div class="phn-center">
     <a href="./index.html" style="flex-direction:column;gap:2px;padding:4px 12px;">
-      <span class="phn-title">The Navigation Engine</span>
+      <span class="phn-title">Return to Hub</span>
       <span class="phn-pos">NR · POAMS · EXHIBIT SERIES</span>
     </a>
   </div>

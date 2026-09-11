@@ -453,6 +453,9 @@
     </style>
 <style id="poams-btn-normalize">
 .theme-toggle,#theme-btn{position:fixed !important;top:54px;right:12px;z-index:1200;width:40px;height:40px;padding:0;border:none;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;line-height:1;cursor:pointer;background:var(--accent-gold,var(--accent,var(--gold,#8b6914)));color:var(--bg,var(--bg-dark,var(--bg-primary,#ffffff)));box-shadow:0 2px 8px rgba(0,0,0,.18);}
+
+/* Keep the center Hub link usable on narrow screens. */
+@media(max-width:760px){#poams-hub-nav{height:60px;padding:0 8px}#poams-hub-nav .phn-hide-sm{display:none}#poams-hub-nav .phn-pos{white-space:normal;text-align:center;max-width:180px}}
 </style>
 </head>
 <body data-theme="dark">
@@ -460,7 +463,7 @@
   <a href="./balmer-rydberg-poams.html" title="Spectral Lines">← <span class="phn-hide-sm">Spectral Lines</span></a>
   <div class="phn-center">
     <a href="./index.html" style="flex-direction:column;gap:2px;padding:4px 12px;">
-      <span class="phn-title">Hotson's Octave Tables</span>
+      <span class="phn-title">Return to Hub</span>
       <span class="phn-pos">HISTORICAL REFERENCE · NOT A POAMS RESULT</span>
     </a>
   </div>
