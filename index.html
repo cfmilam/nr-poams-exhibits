@@ -326,7 +326,7 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 
 .library-cols {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.5rem;
 }
 @media (max-width: 900px) { .library-cols { grid-template-columns: 1fr; gap: 1.2rem; } }
@@ -783,7 +783,7 @@ footer {
   <div class="section">
     <div class="library-header">
       <h2>The Library</h2>
-      <p>Books, papers, and engineering documents from five decades of work.</p>
+      <p>Books, papers, lectures, and engineering documents from five decades of work.</p>
     </div>
     <div class="library-cols">
 
@@ -832,6 +832,21 @@ footer {
           <li><a href="https://cfmilam.github.io/nr-poams-engineering/poams-engineering-review.html" target="_blank">Engineering Review</a></li>
         </ul>
         <a class="lib-cta" href="https://cfmilam.github.io/nr-poams-engineering/" target="_blank">Engineering repository →</a>
+      </div>
+
+      <!-- Lectures -->
+      <div class="lib-card">
+        <div class="lib-card-icon">🎓</div>
+        <h3>Lectures</h3>
+        <p>Dr. Anthony D. Osborne's Series A lectures—an accessible course beginning with the historical and philosophical foundations of Normal Realism, then proceeding to POAMS.</p>
+        <div class="lib-featured-label">Series A</div>
+        <ul class="lib-list">
+          <li><a href="./lectures/poams-lecture-1-introduction-and-historical-background-i.pdf" target="_blank">Lecture 1 — Introduction &amp; Historical Background I</a></li>
+          <li><a href="./lectures/poams-lecture-2-historical-background-ii.pdf" target="_blank">Lecture 2 — Historical Background II</a></li>
+          <li><a href="./lectures/poams-lecture-3-philosophical-background-normal-realism.pdf" target="_blank">Lecture 3 — Philosophical Background: Normal Realism</a></li>
+          <li><a href="./lectures/poams-lecture-4-the-universal-constant-c.pdf" target="_blank">Lecture 4 — The Universal Constant c</a></li>
+        </ul>
+        <a class="lib-cta" href="./lectures/poams-lectures-series-a-syllabus.pdf" target="_blank">Series A syllabus →</a>
       </div>
 
     </div>
