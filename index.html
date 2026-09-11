@@ -16,6 +16,7 @@
   --surface:    rgba(255,255,255,0.04);
   --surface2:   rgba(255,255,255,0.07);
   --border:     rgba(255,255,255,0.08);
+  --foundation-border: #353541;
   --border-h:   #d4af37;
   --fg:         #e8e4d8;
   --fg2:        #a09880;
@@ -34,6 +35,7 @@
   --surface:    rgba(0,0,0,0.03);
   --surface2:   rgba(0,0,0,0.06);
   --border:     rgba(0,0,0,0.10);
+  --foundation-border: #c5c6c8;
   --fg:         #2a2318;
   --fg2:        #6b5d48;
   --gold:       #8b6914;
@@ -172,6 +174,8 @@ body {
 .action-note .action-equation { display:flex; flex-wrap:wrap; justify-content:center; gap:0.1em 0.35em; margin:1rem 0; color:var(--fg); font-family:Georgia,serif; font-size:1.15rem; }
 .action-equation span { white-space:nowrap; }
 .action-note a { color:var(--gold2); text-underline-offset:0.15em; }
+/* Opaque shared color keeps the two foundation borders visually identical. */
+.creed-grid, .action-note { border-color:var(--foundation-border); }
 
 /* ─── Arc Section ────────────────────────────────────────────────────── */
 .arc-wrap {
@@ -436,6 +440,20 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   margin: 0.2rem 0 0.6rem;
   font-weight: 500;
 }
+
+/* ─── Patents ────────────────────────────────────────────────────────── */
+.patents-wrap { padding:4rem 0 5rem; margin-top:3rem; background:var(--bg2); border-top:1px solid var(--border); }
+.patents-wrap .library-header { margin-bottom:2rem; }
+.patent-list { list-style:none; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.85rem; }
+.patent-list li { min-width:0; }
+.patent-link { display:flex; flex-direction:column; justify-content:space-between; gap:.65rem; height:100%; padding:1.1rem 1.2rem; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); color:var(--fg); text-decoration:none; transition:background .2s,border-color .2s; }
+.patent-link:hover { background:var(--surface2); border-color:var(--gold); }
+.patent-link:focus-visible { outline:2px solid var(--gold); outline-offset:3px; }
+.patent-title { font-size:.95rem; line-height:1.5; }
+.patent-title strong { color:var(--gold); font-weight:600; white-space:nowrap; }
+.patent-meta { color:var(--fg2); font-size:.78rem; }
+@media(max-width:900px) { .patent-list { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:600px) { .patent-list { grid-template-columns:1fr; } }
 
 /* ─── Footer ─────────────────────────────────────────────────────────── */
 footer {
@@ -1036,6 +1054,26 @@ publish a miss, and correct its own books. The door stays open to whoever comes 
 pinned dial at Jupiter, and a conversation measured in less than centuries. <em>Extant physics eyes wide shut; NR/POAMS eyes
 wide open.</em></p>
 </div>
+</section>
+<!-- ── PATENTS PENDING ── -->
+<section class="patents-wrap" id="patents-pending" aria-labelledby="patents-title">
+  <div class="section">
+    <div class="library-header">
+      <h2 id="patents-title">Patents Pending</h2>
+      <p>Current assembled provisionals. As-filed documents will replace these versions after filing.</p>
+    </div>
+    <ul class="patent-list">
+      <li><a class="patent-link" href="./provisionals/PROV-A.pdf" target="_blank" rel="noopener" type="application/pdf"><span class="patent-title"><strong>PROV-A</strong> — Weight Control</span><span class="patent-meta">Assembled PDF · 46 pages</span></a></li>
+      <li><a class="patent-link" href="./provisionals/PROV-B.pdf" target="_blank" rel="noopener" type="application/pdf"><span class="patent-title"><strong>PROV-B</strong> — Transportation &amp; Lift</span><span class="patent-meta">Assembled PDF · 37 pages</span></a></li>
+      <li><a class="patent-link" href="./provisionals/PROV-C.pdf" target="_blank" rel="noopener" type="application/pdf"><span class="patent-title"><strong>PROV-C</strong> — Instruments &amp; Metrology</span><span class="patent-meta">Assembled PDF · 32 pages</span></a></li>
+      <li><a class="patent-link" href="./provisionals/PROV-D.pdf" target="_blank" rel="noopener" type="application/pdf"><span class="patent-title"><strong>PROV-D</strong> — Energy Storage &amp; Infrastructure</span><span class="patent-meta">Assembled PDF · 33 pages</span></a></li>
+      <li><a class="patent-link" href="./provisionals/PROV-E.pdf" target="_blank" rel="noopener" type="application/pdf"><span class="patent-title"><strong>PROV-E</strong> — Media, Arrays &amp; Manufacturing</span><span class="patent-meta">Assembled PDF · 35 pages</span></a></li>
+      <li><a class="patent-link" href="./provisionals/PROV-F.pdf" target="_blank" rel="noopener" type="application/pdf"><span class="patent-title"><strong>PROV-F</strong> — Memory, Power &amp; Signaling</span><span class="patent-meta">Assembled PDF · 35 pages</span></a></li>
+      <li><a class="patent-link" href="./provisionals/PROV-G.pdf" target="_blank" rel="noopener" type="application/pdf"><span class="patent-title"><strong>PROV-G</strong> — Time-Rate Control</span><span class="patent-meta">Assembled PDF · 48 pages</span></a></li>
+      <li><a class="patent-link" href="./provisionals/PROV-H.pdf" target="_blank" rel="noopener" type="application/pdf"><span class="patent-title"><strong>PROV-H</strong> — Phase-Completion Computing</span><span class="patent-meta">Assembled PDF · 33 pages</span></a></li>
+      <li><a class="patent-link" href="./provisionals/PROV-I.pdf" target="_blank" rel="noopener" type="application/pdf"><span class="patent-title"><strong>PROV-I</strong> — Molecular Design &amp; Control</span><span class="patent-meta">Assembled PDF · 31 pages</span></a></li>
+    </ul>
+  </div>
 </section>
 </body>
 </html>
