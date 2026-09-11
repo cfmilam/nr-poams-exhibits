@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Normal Realism and J. W. Dunne's Serialism</title>
+<link rel="icon" href="data:,">
 <script>MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["\\[","\\]"]]},svg:{fontCache:'global'}}</script>
 <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 <style>
@@ -79,6 +80,9 @@
     body { padding-top: 72px !important; }
     #theme-btn{top:54px !important;}
 
+    .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+    .audit-note{border-color:rgba(114,215,255,.42);background:linear-gradient(90deg,rgba(114,215,255,.08),transparent),var(--card)}
+
 </style>
 </head>
 <body>
@@ -99,6 +103,11 @@
 <p class="nr-provenance" style="font-size:0.8em;font-style:italic;opacity:0.72;line-height:1.5;margin:0.5em auto 1em;text-align:center;max-width:820px">This exhibit is an extrapolation of the foundational work of N. Vivian “Viv” Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
 <p class="subtitle">Regression, observer-order, and what POAMS keeps from Dunne's serial universe.</p>
 
+<div class="card audit-note">
+<p class="smallcaps">Mathematics-and-logic audit · 10 September 2026</p>
+<p>This page now separates five standings: <b>historical source claim</b>, <b>POAMS premise</b>, <b>logical consequence</b>, <b>analogy</b>, and <b>open extrapolation</b>. Dunne's regress is faithfully retained as his construction, but an indexed present does not by itself force an infinite hierarchy: that conclusion requires Dunne's additional rule that a now-marker cannot be indexed in the same order it marks. POAMS keeps the observer/instrument condition without adopting that unproved necessity claim.</p>
+</div>
+
 <div class="card warn">
 <p><b>Dunne is related work — philosophy with mathematics — not Normal Realism or POAMS.</b> This exhibit keeps his regression / observer-order insight, corrects the time-as-substance reading, and sets aside the immortality and universal-mind conclusions unless they can be derived from Normal Realism rather than asserted from serialism.</p>
 <p class="note"><em>Nothing Dies</em> (1940) is not yet included; it will be added once a clean copy is available.</p>
@@ -109,12 +118,18 @@
   <div class="card source"><span class="pill keep">BOOK</span><b>An Experiment with Time</b> (1927)<br>Dream / temporal-observation evidence and the first serial-time argument.</div>
   <div class="card source"><span class="pill keep">BOOK</span><b>The Serial Universe</b> (1938)<br>Main technical text: observer regress, time regress, relativity map, uncertainty, action $h$.</div>
   <div class="card source"><span class="pill keep">BOOK</span><b>The New Immortality</b> (1939)<br>Popular compression: two “nows,” attention, time-maps, and the immortality extrapolation.</div>
-  <div class="card source"><span class="pill keep">ARTICLE</span><b>Nature review</b> (1934)<br>Contemporary one-page notice confirming Dunne’s regress was read as mathematical/physical, not merely occult.</div>
+  <div class="card source"><span class="pill keep">ARTICLE</span><b><a href="https://doi.org/10.1038/134729c0" target="_blank" rel="noopener">Nature notice</a></b> (1934)<br>Contemporary one-page notice treating Dunne’s regress as a mathematical/physical proposal; it does not classify away his dream and immortality material.</div>
   <div class="card source"><span class="pill open">PENDING</span><b>Nothing Dies</b> (1940)<br>Not yet included; to be added once a clean copy is available.</div>
 </div>
 
-<h2>2 · Dunne’s regress engine</h2>
-<p>Dunne’s central move is simple and powerful: if we mark one state as <em>now</em>, the mark itself has a past, present, and future. To say where the now-mark is <em>now</em>, we need a wider ordering. Then that wider now-mark needs another ordering. The regress is not added later; it is implicit in treating any state as present.</p>
+<h2>2 · Dunne’s regress rule — and its missing premise</h2>
+<p><b>Historical source claim.</b> Dunne marks one state as <em>now</em>, then treats that now-marker as another changing state. Under his construction, locating the marker's own present requires a wider ordering; treating that wider marker the same way repeats the hierarchy. The interactive below renders that chosen rule.</p>
+<div class="card audit-note">
+<p class="smallcaps">Logical boundary</p>
+<p>The regress is <b>not forced by indexed presentness alone</b>. Let $N(x,o,k)$ mean “$x$ is present relative to observer or instrument $o$ at index $k$.” Both a state $s$ and its record $m$ can be represented as $N(s,o,k)$ and $N(m,o,k)$ in the same indexed ordering. No $k+1$ follows. Dunne's infinite tower therefore needs an additional no-same-order-indexing premise:</p>
+<div class="eqbox">$$\text{a now-marker cannot be indexed in the same order that it marks}. $$</div>
+<p class="note">Dunne argues for that restriction; this exhibit records it as his premise rather than a theorem of indexing or a POAMS requirement.</p>
+</div>
 <div class="card grid">
   <div class="controls">
     <label>Regression depth: <span id="depthVal" class="readout"></span></label>
@@ -124,18 +139,20 @@
     <div id="ladder" class="ladder"></div>
   </div>
   <div>
-    <canvas id="regressCanvas" width="460" height="330"></canvas>
-    <p class="note">Dunne’s L–M–N example: the first-term row is not enough to make M present. The “presentness” of the mark has to be marked in a higher row, and so on.</p>
+    <canvas id="regressCanvas" width="460" height="360"></canvas>
+    <p class="note"><b>What the figure shows:</b> Dunne’s L–M–N hierarchy after accepting his no-same-order-indexing rule. It illustrates the premise's consequence; it does not prove the premise.</p>
   </div>
 </div>
 
 <h2>3 · Normal Realism translation</h2>
-<p>Normal Realism does <em>not</em> need Dunne’s extra time-stuff. It keeps the discipline of the regress and changes the ontology: time is not a container through which a self travels. In POAMS terms, time is accumulated action/angular order — $L=dS/d\theta$ — and a “now” is the local cut an observer/instrument takes through that ordered whole.</p>
-<div class="eqbox">Dunne: $$\text{state} + \text{now-mark} \Rightarrow \text{higher-order now-mark} \Rightarrow \cdots$$<br>NR/POAMS: $$\text{observation} = \text{finite cut through accumulated order, not a primitive present}$$</div>
+<p>Normal Realism does <em>not</em> need Dunne’s extra time-stuff or his infinite hierarchy. It keeps the valid discipline that an observation must retain its observer/instrument condition. <b>POAMS premise:</b> time is the accumulated action/angular order of the one substance, not a container through which a self travels; a “now” is a finite local cut through that ordered whole.</p>
+<div class="eqbox">Dunne, given his added premise: $$\text{state}+\text{now-marker}\Rightarrow\text{higher-order marker}\Rightarrow\cdots$$<br>NR/POAMS: $$\text{observation}=\text{finite observer-indexed cut through accumulated order}. $$</div>
+<p>The macro representation $L=dS/d\theta$ is dimensionally sound because angle is dimensionless, so $[L]=[S]=\mathrm{J\,s}$. It relates angular momentum to action per unit angle. It does <b>not</b>, by itself, prove that ordinary clock-time $[T]$ equals action or angular momentum. The identification of physical time with accumulated angular order is the governing POAMS premise; the discrete ledger is $\Delta S=\hbar\,\Delta n$.</p>
 <div class="card">
+<div class="table-wrap" role="region" aria-label="Dunne to POAMS translation table" tabindex="0">
 <table class="matrix">
 <tr><th>Dunne</th><th>NR/POAMS translation</th><th>Verdict</th></tr>
-<tr><td>Infinite regress of self-conscious observation</td><td>The observer cannot be erased from a description of observation.</td><td><span class="pill keep">KEEP</span></td></tr>
+<tr><td>Infinite regress of self-conscious observation</td><td>Dunne's hierarchy follows after adding his no-same-order-indexing premise. POAMS keeps observer/instrument indexing but does not require an infinite tower.</td><td><span class="pill correct">RECAST</span></td></tr>
 <tr><td>Time 1 / Time 2</td><td>Use as pseudo-time / wider ordering of the observer’s map, not as literal extra substance.</td><td><span class="pill correct">CORRECT</span></td></tr>
 <tr><td>Time order becomes space/configuration order at the next level</td><td>Strong clue: what looked like time at one descriptive level is order in the next.</td><td><span class="pill keep">KEEP</span></td></tr>
 <tr><td>Minkowski imaginary time via axis rotation</td><td>Historically interesting map-making argument; not accepted as an NR/POAMS derivation.</td><td><span class="pill aside">ASIDE</span></td></tr>
@@ -143,6 +160,7 @@
 <tr><td>Immortality / universal mind</td><td>Dunne’s extrapolation; not forced by the geometry. Do not smuggle it into NR/POAMS.</td><td><span class="pill aside">ASIDE</span></td></tr>
 <tr><td>Regression and life</td><td>Pope source now pinned: <em>Theological Discussion</em> — indelible past, god-within, retrospective judgement (see §6).</td><td><span class="pill keep">KEEP*</span></td></tr>
 </table>
+</div>
 </div>
 
 <h2>4 · Physics contact points</h2>
@@ -152,35 +170,35 @@
 </div>
 <div class="card">
 <p class="smallcaps">Nature review, 1934</p>
-<p>The contemporary review explicitly reads Dunne as applying regress to relativity/Minkowski imaginary time and to Heisenberg uncertainty, locating uncertainty in instruments of observation rather than the world observed. That confirms the exhibit’s framing: Dunne belongs in the “related mathematical/philosophical pressure on physics” shelf, not the occult shelf.</p>
+<p>The contemporary notice explicitly treats Dunne's applications to relativity/Minkowski imaginary time and uncertainty in instruments as mathematical and physical subject matter. That supports reviewing those arguments on their own terms; it does not erase or adjudicate the dream, precognition, and immortality claims elsewhere in Dunne's work.</p>
 </div>
 
 <h2>5 · Kept / corrected / aside</h2>
 <div class="card">
 <ul>
-<li><span class="pill keep">KEPT</span><b> The regression discipline:</b> every “now” claim has an observer/instrument condition behind it.</li>
+<li><span class="pill correct">RECAST</span><b> The regression discipline:</b> every “now” claim retains an observer/instrument index; Dunne's infinite tower additionally requires the no-same-order-indexing premise.</li>
 <li><span class="pill keep">KEPT</span><b> The anti-stage instinct:</b> time is not an obvious one-level background; the ordinary present is a constructed cut.</li>
 <li><span class="pill correct">CORRECTED</span><b> The ontology:</b> serial dimensions become levels of description/order, not new metaphysical fluids.</li>
 <li><span class="pill correct">RECAST</span><b> Quantum:</b> observation affects the bookkeeping; it does not license imaginary particles/fields in a void.</li>
 <li><span class="pill aside">ASIDE</span><b> Dream proof and immortality:</b> important to Dunne, but not a foundation for Normal Realism or POAMS.</li>
-<li><span class="pill keep">KEPT*</span><b> Life/regression:</b> the N. Vivian “Viv” Pope source is now pinned (<em>Theological Discussion</em>, §6). The indelible past and retrospective judgement are Viv’s; the soul-persists-in-past-only reading is a marked POAMS extrapolation, not a derivation.</li>
+<li><span class="pill keep">KEPT*</span><b> Life/regression:</b> the N. Vivian “Viv” Pope source is pinned (<em>Theological Discussion</em>, §6). Indelibility, retrospective accessibility, and judgement are distinguished source propositions; the soul-as-history reading remains an open interpretive extrapolation.</li>
 </ul>
 </div>
 
 <h2>6 · N. Vivian “Viv” Pope to Penny Gower — the wall comes down</h2>
 <p>Between 2005 and 2011 N. Vivian “Viv” Pope carried on a long email correspondence on religion with Penny Gower — a practising Christian — with a contribution from Alison Pope, later edited into <em>Theological Discussion</em>. It is the natural bridge from Dunne’s serialism to Normal Realism, because it is exactly where Viv lets the regress touch God, the soul, and judgement — and it is where he names <b>Dunne</b> as an independent discoverer of the same serial-time idea he had reached himself: the dimensional regress “that was conceived independently by J.W. Dunne and myself.”</p>
-<p>Two moves matter here. First, Viv dismantles the <b>God’s-eye view</b> — the same absolute, observer-free vantage POAMS refuses in physics. There is no God’s-eye view and no God’s time; as mere observers “we cannot see the whole picture,” and some things, he is explicit, we simply cannot know. (An NR corollary: there may be quantities — a clean first-principles <em>value</em> of the fine-structure constant, say — that are constitutively not ours to derive, only to measure.) Second, he relocates the divine. Not a “God of empty spaces” floating among the stars, but a <em>logos</em> — the rationality “that has to exist before any project is undertaken,” the Prime Mover — expressed <b>within</b> creation and within us. In his words, if “God and Devil exist anywhere, they have to be within ourselves.” A god within, not without; the power and the glory working <em>through</em> all things, not imposed upon them from outside.</p>
-<p>From this he draws the line that ties straight into the <b>Time-Rope</b>: <em>“What is done is done, stays done and can never be undone.”</em> The past is not gone — it is indelibly wound into the system of things, objectively accessible in retrospect. Viv argues that a purely one-way, perishable time makes nihilism unavoidable (“nothing matters,” and psychopathy becomes the norm), whereas an indelible past leaves logical room for a <b>retrospective</b> — never prospective — Final Judgement: in some real sense we are still “there to receive it.” A world with no judgement beyond this realm is a world ripe for violence and lawlessness. The god he is left with is the one Viv found in Voltaire:</p>
+<p>Two moves matter here. First, Viv dismantles the <b>God’s-eye view</b> — the same absolute, observer-free vantage POAMS refuses in physics. There is no God’s-eye view and no God’s time; as mere observers “we cannot see the whole picture,” and some things, he is explicit, we simply cannot know. A separate NR possibility is that some constants may be constitutively measured rather than first-principles derivable; that possibility does not follow from observer indexing alone. Second, he relocates the divine. Not a “God of empty spaces” floating among the stars, but a <em>logos</em> — the rationality “that has to exist before any project is undertaken,” the Prime Mover — expressed <b>within</b> creation and within us. In his words, if “God and Devil exist anywhere, they have to be within ourselves.” A god within, not without; the power and the glory working <em>through</em> all things, not imposed upon them from outside.</p>
+<p>Viv then couples two propositions that must be kept distinct: <em>“What is done is done, stays done and can never be undone,”</em> and his further claim that the retro-determined past is physically accessible in retrospect. Persistence does not logically entail recoverability; the source asserts both. From there Viv offers a theological and moral argument that an indelible past leaves logical room for a <b>retrospective</b> — never prospective — Final Judgement. His stronger claims about nihilism, psychopathy, and social collapse are source advocacy, not consequences of one-way time: temporal perishability alone supplies no moral or population-behavior premise. The narrower conclusion is possibility, not proof. The god he is left with is the one Viv found in Voltaire:</p>
 <blockquote>“He is present everywhere … but everywhere where there is something, not where there is not. To be present in nothing seems to me a contradiction in terms, an absurdity … I will not set up the throne of God in imaginary spaces.”<br><span class="note">— Voltaire, <em>Selected Works</em> (trans. J. McCabe, 1935), as quoted by N. Vivian “Viv” Pope in <em>The Eye of the Beholder</em>.</span></blockquote>
 <div class="card warn">
-<p class="smallcaps">POAMS extrapolation — marked, not a derivation</p>
-<p>Wind this around the Time-Rope and a disciplined picture of the dead follows. Because what has been cannot be un-happened, the departed persist — their <em>souls</em>, if you will — but only in the time <b>prior</b> to their death, never after; the future is not yet, and there is no travel to or from it (only relativistic time-slides). This is why apparitions, in every culture’s vocabulary of ghosts and revenants, are reported in places and times of the <b>past</b>, never the future. Black holes are metaphysics dressed as physics; the indelible past, the soul-as-history, and judgement are the reverse — ordinary consequences of taking time seriously. Viv himself held the bare survival question open (his mirror-reflected-in-mirror analogy cuts the other way). We therefore mark this as an <b>NR-consistent extension</b>, not a POAMS proof.</p>
+<p class="smallcaps">POAMS extrapolation · hypothesis · open</p>
+<p>One POAMS-consistent interpretive sketch defines a departed person's “soul-as-history” as the indelible record of that person's completed exchanges. Under that definition the record lies in the history prior to death, while the future is not yet. This does <b>not</b> derive a persisting conscious agent, subjective survival, retrospective access, apparition, or judgement. The stronger proposition that apparition reports are past-directed across cultures is an untested empirical claim here: no coded corpus, sampling rule, denominator, or counterexample search is supplied. Viv himself held the bare survival question open, and his mirror analogy cuts both ways. The interpretation therefore remains an <b>NR-consistent possibility</b>, not a POAMS result.</p>
 </div>
 <p class="note">Source: N. Vivian “Viv” Pope &amp; Penny Gower, <em>Theological Discussion</em> (email correspondence, 2005–2011), published at <a href="https://cfmilam.github.io/nr-poams-papers/theological-discussion.html" target="_blank">nr-poams-papers/theological-discussion.html</a>.</p>
 
 <h2>7 · Michael Levin — the Platonic space <span style="font-size:.6em;color:var(--dim)">(related, non-POAMS)</span></h2>
-<p>A modern resonance worth flagging: the developmental biologist <b>Dr. Michael Levin</b> (<a href="https://thoughtforms.life/" target="_blank">thoughtforms.life</a>) argues that living matter navigates a <b>Platonic space</b> of forms — “variable-agency patterns that in-form physics, biology, computer science, and cognitive science.” Mind is not a late accident bolted onto dead mechanism; it is continuous, present in degrees all the way down — cells, tissues, and morphogenetic collectives solving problems in anatomical and physiological space. Forms of life, forms of mind.</p>
-<p>This is Raphael’s <em>School of Athens</em> in one image: Aristotle’s hand pressing <b>down</b> toward the things of this world, Plato’s hand pointing <b>up</b> toward the forms above — two sides of one coin. Normal Realism thins the coin almost to nothing. If the “physical” is, as POAMS holds, nothing more (or less) than <b>time</b> — accumulated angular order — then the boundary between the physical and the formal, the material and the “spiritual,” is razor-thin, if it is a line at all. Levin approaches it from biology and information; POAMS from angular momentum and time; Dunne and Pope from the observer regress. Different doors, one threshold.</p>
+<p>A modern resonance worth flagging: the developmental biologist <b>Dr. Michael Levin</b> (<a href="https://thoughtforms.life/a-short-argument-on-platonic-space-variable-agency-patterns-that-in-form-physics-biology-computer-science-and-cognitive-science/" target="_blank" rel="noopener">thoughtforms.life</a>) proposes a <b>Platonic space</b> of forms — “variable-agency patterns that in-form physics, biology, computer science, and cognitive science.” He presents this as a developing research program spanning patterns of life and mind.</p>
+<p>This is Raphael’s <em>School of Athens</em> in one image: Aristotle’s hand pressing <b>down</b> toward the things of this world, Plato’s hand pointing <b>up</b> toward the forms above. POAMS identifies the physical with accumulated angular order; Levin proposes a structured Platonic space of patterns. That juxtaposition <b>invites comparison</b>, but it does not establish that the physical/formal or material/spiritual boundary is thin or absent. Levin approaches from biology and information; POAMS from angular momentum and time; Dunne and Pope from observer-order. The claimed threshold remains analogy, not entailment.</p>
 <p class="note">Status: independent research program, cited as a resonance, <b>not</b> a POAMS result. Flagged for a future related-works comparison, not asserted as derivation.</p>
 
 <p class="footer">Normal Realism · Pope–Osborne Angular Momentum Synthesis — related-works exhibit.</p>
@@ -209,7 +227,6 @@ function drawRegress(){
     if(d<depth-1){x.strokeStyle=blue; x.beginPath(); x.moveTo(xs[pick],y+20); x.lineTo(xs[pick],y+gap-20); x.stroke(); x.fillStyle=blue; x.fillText('mark the mark',xs[pick]+60,y+gap/2+5)}
     x.fillStyle=dim; x.textAlign='right'; x.fillText('term '+(d+1),78,y+5);
   }
-  x.textAlign='left'; x.fillStyle=fg; x.font='18px Georgia'; x.fillText('The present is not primitive; it is an indexed relation.',26,H-24);
 }
 drawRegress();
 </script>
