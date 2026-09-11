@@ -29,6 +29,7 @@ button{background:var(--gold);color:#111;border:none;border-radius:6px;padding:.
 button.off{background:#333347;color:var(--mut)}
 input[type=range]{accent-color:var(--gold)}
 table{border-collapse:collapse;width:100%;font-size:.9rem;margin:.8rem 0}
+.table-scroll,.canvas-scroll{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
 th,td{border:1px solid var(--edge);padding:.45rem .6rem;text-align:left}
 th{color:var(--gold);font-weight:normal}
 td.c{text-align:center}
@@ -42,6 +43,7 @@ body.light .eqbox{background:#f6f3ea}
 body.light .prov{background:rgba(139,105,20,.06)}
 body.light button{color:#fff}
 body.light button.off{background:#dcd5c2;color:#6b6355}
+@media(max-width:640px){.table-scroll,.canvas-scroll{border:1px solid var(--edge);border-radius:8px;margin:.8rem 0}.table-scroll::before,.canvas-scroll::before{display:block;position:sticky;left:0;padding:.35rem .55rem;color:var(--mut);font-size:.72rem;letter-spacing:.04em}.table-scroll::before{content:"Swipe table horizontally →"}.canvas-scroll::before{content:"Swipe figure horizontally →"}.table-scroll table{min-width:46rem;margin:0}.canvas-scroll canvas{width:620px;max-width:none;border:0;border-top:1px solid var(--edge);border-radius:0}.ctl{align-items:flex-start}.readout{overflow-wrap:anywhere}}
 </style>
 <style id="poams-hub-nav-style">
 #poams-hub-nav{position:fixed;top:0;left:0;right:0;z-index:9999;height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 1rem;background:rgba(13,13,24,0.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,175,55,0.25);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;box-sizing:border-box;}
@@ -81,37 +83,37 @@ Built on the corpus record: the bit as two senses of closure and the winding-num
 <div class="card"><p class="note"><strong>Reading conventions (the labels doctrine).</strong> We use <em>measurement-labels</em> (coherence time, gate fidelity, error rate) and <em>phenomenon-labels</em> (interference, precession, condensation) freely — they name what a bench actually reads. Extant <em>entity-labels</em> — <span class="fant">&ldquo;qubit,&rdquo; &ldquo;superposition,&rdquo; &ldquo;entanglement,&rdquo; &ldquo;collapse,&rdquo; &ldquo;decoherence,&rdquo; &ldquo;Hilbert space&rdquo;</span> — are container-model constructs; on first use each is quoted and <strong>bridged</strong> to its native reading, then handled in its own grammar thereafter.</p></div>
 
 <h2>1 · The decade, honestly</h2>
-<p>Two computing programs ran through the same ten years. One of them refused irreversibility — it froze its state, shielded it, refrigerated it, and spent nearly all of its hardware defending an open phase against the world. The other one <em>committed</em>, billions of times per second per chip: every multiply-accumulate a thermodynamically irreversible, completed operation, cheap and final. The second program trained the large language models and took the decade. The first is still explaining why the breakthrough is close.</p>
-<p>The record, stated at strength on both sides. The gate-model program has produced genuine laboratory triumphs — below-threshold error-corrected logical elements <span class="tag">extant record: Google Willow, Dec 2024</span>, a trapped-ion machine reaching roughly <b>2 physical elements per logical element</b> in its regime <span class="tag">extant record: Quantinuum Helios announcement, Nov 2025</span>, and a factoring-resource estimate that fell from ~20&nbsp;million to under 1&nbsp;million physical elements in a decade of theory <span class="tag">extant record: Gidney 2019→2025</span>. The engineering is heroic and improving. And yet: superconducting platforms still run at 10–15&nbsp;mK under multi-stage shielding; surface-code fault tolerance still budgets on the order of <b>10³–10⁴ physical elements per protected logical element</b> across the useful range <span class="tag">extant record</span>; the advantage demonstrations have been repeatedly matched or spoofed by classical algorithms <span class="tag">extant record: random-circuit &amp; annealing rebuttals</span>; and commercial applications at scale remain, honestly counted, at zero.</p>
-<p>Meanwhile classical training compute scaled by roughly four orders of magnitude and simply took every workload that was supposed to wait for the quantum machines <span class="tag">extant estimate: epoch-scaling analyses</span>. The native reading of this asymmetry is the whole exhibit: <b>the winning program computed <em>with</em> completions; the losing program pays everything it has to forbid them.</b></p>
+<p>Two computing programs pursued different operating regimes through the same decade. Gate-model hardware protects coherent phase over the finite depth required by an algorithm; conventional accelerators repeatedly commit irreversible operations. Their resource ledgers are not directly interchangeable, but the contrast motivates this exhibit’s proposal: use bounded phase evolution where useful, then schedule explicit completion instead of treating every completion as failure.</p>
+<p>The record, stated at strength on both sides. Gate-model programs have produced genuine laboratory results: below-threshold error-corrected logical elements <span class="tag">extant record: Google Willow, Dec 2024</span>, low-overhead logical encoding in a declared trapped-ion regime <span class="tag">company/preprint record: Quantinuum Helios, Nov 2025</span>, and sharply reduced theoretical factoring-resource estimates <span class="tag">extant estimates: Gidney 2019→2025</span>. Superconducting platforms nevertheless require millikelvin operation and protected logical circuits can require large physical overheads whose exact value depends on hardware error, code, distance, algorithm, and target failure probability. Several advantage claims have also prompted stronger classical baselines. This exhibit treats those facts as a resource-accounting question, not as a universal verdict on every quantum platform or workload.</p>
+<p>Meanwhile, large conventional accelerators scaled rapidly for machine-learning workloads <span class="tag">sourced estimate: epoch-scaling analyses</span>. The POAMS engineering question is narrower: can a processor combine bounded phase operations with scheduled, auditable completions at a useful error, energy, and throughput point?</p>
 
 <h3>Fig. 1 — the clamp tax, interactive</h3>
 <div class="card">
-<canvas id="taxCanvas" height="460"></canvas>
+<div class="canvas-scroll" role="region" aria-label="Horizontally scrollable interactive figure" tabindex="0"><canvas id="taxCanvas" height="460"></canvas></div>
 <div class="ctl">
   <label>error-suppression factor per code step (Λ)</label>
   <input type="range" id="lamSlider" min="1.1" max="4" step="0.05" value="2">
   <span class="readout" id="lamRead"></span>
 </div>
 <div class="ctl"><span class="readout" id="taxRead"></span></div>
-<p class="note">The extant surface-code arithmetic, drawn honestly <span class="tag">extant scaling class</span>: logical error falls as $p_L \sim \Lambda^{-(d+1)/2}$ per code distance $d$, and each logical element costs $\approx 2d^2$ physical elements. Slide Λ (Willow-class hardware sits near 2). The curve is the price of holding one protected state open — the tax rises without bound as the demanded protection deepens. The machine is, by budget, a refrigerator for an open phase. And the form is no longer merely quoted: it is <b>derived natively</b> in this program — a union bound over stray-closure clusters forces exponential suppression at linear distance and quadratic-class element cost (the smallest surviving cluster dominates). Their arithmetic is our theorem now <span class="tag">derived 2026-08-30; values remain the extant record</span>.</p>
+<p class="note">Conditional scaling illustration <span class="tag">extant scaling class; normalized model</span>: $p_L=A\Lambda^{-(d+1)/2}$ and $q\approx2d^2$. The interactive sets the unknown prefactor $A=1$ and rounds $d$ to the next odd integer, so its readout is not an engineering estimate for a particular machine. A POAMS cluster interpretation can reproduce this scaling class if a logical fault requires at least $(d+1)/2$ stray closures and $A$ absorbs the admissible cluster count; that condition is a model premise, not a native theorem. Actual overhead depends on circuit, decoder, geometry, physical error, and target failure probability.</p>
 </div>
 
 <h2>2 · The ontological audit</h2>
 <p>Take the four load-bearing entity-labels one at a time and ask what the bench actually has.</p>
 
-<div class="card"><p><b>&ldquo;Superposition&rdquo; → one turning's phase.</b> A <span class="fant">&ldquo;qubit in superposition&rdquo;</span> is, on the bench, a single coherent oscillatory excitation with a definite, continuous, single-valued <em>phase</em> — one thing turning, read in a chosen basis. The Bloch sphere is the projection geometry of one circulation's phase; nothing is &ldquo;in two states at once.&rdquo; What the extant grammar calls preparing a superposition is setting a phase; what it calls single-qubit gates are phase rotations. The bench never leaves the phase domain.</p></div>
+<div class="card"><p><b>&ldquo;Superposition&rdquo; → a controlled state with a phase coordinate.</b> A bench implementation exposes operational coordinates such as relative phase and population/amplitude (or Bloch-sphere polar and azimuthal coordinates). This exhibit maps the phase coordinate to one POAMS turning. General preparation and single-seat control can change both coordinates; phase rotation is one operation class, not the whole control grammar. No foreign entity is adopted by making that operational distinction.</p></div>
 
 <div class="card"><p><b>&ldquo;Entanglement&rdquo; → co-signing.</b> A <span class="fant">&ldquo;maximally entangled pair&rdquo;</span> is one shared quantity of angular momentum booked across two seats — a <em>co-signed exchange</em>, in the corpus's standing grammar <span class="tag">The Polyverse; POAMS &amp; Memory</span>. The closure is definite in <em>magnitude</em> — one whole ℏ, durable by whole-quantum bookkeeping — while its <em>axis</em> is not pre-set: the axis posts at readout, against whichever analyzer the seat chooses. That refinement is load-bearing — a pre-set axis read locally is precisely the model the Bell record falsifies (the derivation closes this section). The extant program’s entangled superpositions are <em>open</em> bookings that any stray completion re-writes; the co-signature is a completed one. The resource is real; the fragility is the grammar's, not the resource's.</p></div>
 
 <div class="card"><p><b>&ldquo;Measurement/collapse&rdquo; → completion.</b> Readout is a whole-quantum closure: an exchange completes, posts, and is final. The extant program treats this as a catastrophe to postpone; the mystery (&ldquo;why does observation destroy the computation?&rdquo;) is manufactured by the ontology. Natively there is nothing to explain — completion is the ledger's one primitive act, and a processor should <em>use</em> it.</p></div>
 
-<div class="card"><p><b>&ldquo;Decoherence&rdquo; → untracked completions.</b> The environment does not &ldquo;collapse the wavefunction&rdquo;; it keeps <em>completing exchanges</em> with the machine — every stray closure posts to the books and re-writes the phase story. Decoherence time is simply the mean time to the first untracked completion. Isolation engineering is an attempt to forbid the substance its one native act.</p></div>
+<div class="card"><p><b>&ldquo;Decoherence&rdquo; → a POAMS untracked-completion model.</b> The simplest native model treats environmental disturbance as untracked completions that rewrite the phase ledger; an independent first-event process then gives a characteristic waiting time. That is a model to test against the measured decay law. Distributed rates, correlated closures, reversible dephasing, and control imperfections require richer ledgers. The exhibit does not identify every measured coherence time with one microscopic event by definition.</p></div>
 
-<div class="card gold"><p><b>The headline: THE CLAMP.</b> Assemble the audit and the extant program's core requirement reads: <em>hold phase accumulation open, manipulable, and un-completed across a spread system, indefinitely, while forbidding every exchange with the world from closing.</em> The corpus has a standing ruling about that object, entered in the cosmology campaign and load-bearing there <span class="tag">The Polyverse §7</span>: <b>nature contains no clamp</b>. Nothing holds phase still; nothing keeps an accumulation open against the substance's own grammar. The dilution refrigerators, the shielding stack, the 10³–10⁴:1 correction overhead — that is not incidental engineering friction. It is the grammar collecting its tax on a forbidden object, and the tax grows with the volume of phase held open. The same blade that cut the extant cosmology's frozen-oscillator comb <span class="tag">The Polyverse §10</span> cuts here.</p></div>
+<div class="card gold"><p><b>The headline: THE CLAMP.</b> A gate-model computation must protect coherent phase over the finite space-time volume and depth of its circuit. The corpus has a standing POAMS premise <span class="tag">The Polyverse §7</span>: <b>nature contains no perfect clamp</b>; uncontrolled completion cannot be made identically impossible. Refrigeration, shielding, decoding, and redundancy are operational responses to that finite-depth requirement. Their overhead is compatible with the POAMS diagnosis, but it does not by itself prove the diagnosis or establish one universal overhead ratio.</p></div>
 
 <h3>The &ldquo;Hilbert space&rdquo; census</h3>
-<p>The exponential promise — <span class="fant">&ldquo;n qubits explore 2ⁿ states at once&rdquo;</span> — counts the possible <em>joint bookings</em> of n phases and their co-signatures. That is a census of describable outcomes, not an inventory of physical resources; the container grammar mistakes its own bookkeeping for hardware. What is physically present is <b>n phases and their co-signing relations</b> — a rich, real resource, linear in n, plus the combinatorics of how closures can land. Algorithms that win do so by <em>interference arithmetic on phases</em> — period-finding is winding arithmetic; amplitude amplification is phase geometry — never by touching 2ⁿ of anything.</p>
+<p>The $2^n$ joint-outcome census is not itself a count of hardware components. In this exhibit the physical inventory is $n$ local phase seats plus an explicitly engineered coupling graph and its controls; the relation count follows that hardware graph and need not be linear in $n$. The POAMS proposal must therefore be judged by measured circuit resources and validated operations, not by equating a descriptive state-space dimension with either literal parallel objects or free hardware.</p>
 
 <h3>Why small machines work anyway (honesty)</h3>
 <p>None of this says the laboratory record is fake. Interference algorithms are real phase arithmetic, and in the regime where the clamp approximately holds — small n, short depth, heroic isolation — the machines <em>are</em> phase engines, and they compute. The native claim is narrower and sharper: the resource was never the exponential state space; the ontology misdirects the hardware budget toward protecting a fiction; and the one application class that is native for free is completion-grammar emulation — what the extant program calls quantum simulation, which is its one commercially honest near-term lane <span class="tag">extant record</span>.</p>
@@ -126,18 +128,20 @@ prediction is therefore restored at prophetic grade: under the stated low-therma
 four preregistered analyzer settings should give $E(a,b)=-\cos(a-b)$ and
 $|S_{\rm CHSH}|\rightarrow2\sqrt2$. The phase-sum variance and uniform single-seat distributions remain commissioning
 controls, not substitutes for the discriminator. Every trial—including loss and no-commit events—must remain in the
-raw table without fair-sampling deletion. A clean result at or below 2 under the registered validity envelope falsifies
-this co-signing species; reaching the target would support the architecture but would not turn the displayed cosine
+raw table without fair-sampling deletion. Before unblinding, register numerical thresholds for pair-production fidelity,
+single-seat visibility, thermal occupation, setting independence, timing assignment, and detection/loss accounting.
+Only if every validity threshold passes does an upper 95% confidence bound $|S_{\rm CHSH}|\le2$ falsify this
+co-signing species. Reaching the target would support the architecture but would not turn the displayed cosine
 into a prior derivation.</p></div>
 
 <h2>3 · What the hardware really has</h2>
 <p>Strip the census of fictions and the inventory left on the bench is exactly three things, all native, all real:</p>
-<table>
+<div class="table-scroll" role="region" aria-label="Horizontally scrollable data table" tabindex="0"><table>
 <tr><th>resource</th><th>native reading</th><th>extant label</th><th>character</th></tr>
 <tr><td>PHASE</td><td>the continuous angular state of a turning — fast, cheap, combinable by interference</td><td class="c"><span class="fant">&ldquo;superposition&rdquo;</span></td><td>perishable (any completion posts it)</td></tr>
 <tr><td>CO-SIGNING</td><td>one shared circulation across two or more seats — a deterministic correlated resource</td><td class="c"><span class="fant">&ldquo;entanglement&rdquo;</span></td><td>durable once closed (a completed relation)</td></tr>
 <tr><td>COMPLETION</td><td>the whole-quantum closure: read, post, final</td><td class="c"><span class="fant">&ldquo;measurement&rdquo;</span></td><td>irreversible — the commit primitive</td></tr>
-</table>
+</table></div>
 <p>And one proposed state variable: the <b>winding number</b>, an integer count held in an explicit store. Present phase modulo $2\pi$ cannot reveal past turns. A buildable first species therefore uses a wrap detector plus an electronic up/down counter; residue-bank species use finite phase channels plus CRT recombination; a medium that itself retains a topological winding is a prophetic species whose barriers and phase-slip rate must be measured.</p>
 
 <h2>4 · The constructive doctrine: compute <em>with</em> the grammar</h2>
@@ -151,33 +155,33 @@ into a prior derivation.</p></div>
 
 <h3>Fig. 2 — evolve → close → post, interactive</h3>
 <div class="card">
-<canvas id="commitCanvas" height="520"></canvas>
+<div class="canvas-scroll" role="region" aria-label="Horizontally scrollable interactive figure" tabindex="0"><canvas id="commitCanvas" height="520"></canvas></div>
 <div class="ctl">
   <label>environmental drift rate</label><input type="range" id="driftSlider" min="0.02" max="0.9" step="0.01" value="0.18">
   <label>commit period</label><input type="range" id="periodSlider" min="0.4" max="6" step="0.1" value="2">
   <button id="pauseBtn">Pause</button>
 </div>
 <div class="ctl"><span class="readout" id="commitRead"></span></div>
-<p class="note">Two lanes, one drifting world. <b>Top — the clamp:</b> the extant program holds phase open; drift accumulates as a random walk and the error only ever grows — when it wanders past half a turn the logical state is gone. <b>Bottom — the commit:</b> the same drift, but on a schedule the phase is closed to the nearest whole turn and posted; sub-turn drift is discarded at every commit. Push the drift up or stretch the period and watch the failure mode change character: the clamp fails <em>continuously</em>; the commit fails <em>discretely</em> (a whole-turn miscount, visible and countable). Error quantized, not accumulated.</p>
+<p class="note">Pedagogical Brownian-drift comparison, not a fair benchmark against a corrected quantum device. <b>Top:</b> an uncorrected open phase reaches a declared first-passage failure at half a turn. <b>Bottom:</b> scheduled rounding removes sub-turn residual but posts every whole-turn miscount into a persistent integer error ledger. Commit changes the error class; it does not erase logical error. The displayed net ledger can accumulate, cancel by sign, or grow.</p>
 </div>
 
 <h2>5 · The substrate: magnonic / YIG</h2>
-<p>The doctrine wants a medium with fast phase, cheap interference, parametric pair creation, and room-temperature coherence. The corpus already lives in one. Spin-wave (magnon) excitations in yttrium iron garnet carry phase at 1–100&nbsp;GHz in micrometer-scale structures; interferometer and majority-gate logic are demonstrated in the extant record <span class="tag">extant record: YIG spin-wave logic, 2005→</span>; damping is the lowest of any known magnetic medium; and the whole platform runs without a refrigerator.</p>
-<h3>The room-temperature condensate: coherence without the clamp</h3>
-<p>Under parametric pumping, a YIG film's magnon population condenses into a single macroscopic coherent state at room temperature <span class="tag">extant record: room-T magnon condensation, 2006→</span>. Read natively, that object is remarkable in exactly the way this page needs: a <b>macroscopic co-signed circulation</b> — one collective closure, one shared phase across the population. Its coherence is not defended by isolation; it is <em>constitutive</em>, the way a completed braid's is. Coherence without the clamp. The extant program pays a dilution refrigerator for what this object does at 300&nbsp;K — because the one is holding a state open and the other <em>is a closure</em>. Candidate roles: collective phase register; many-to-one interference bus; co-signing reservoir.</p>
-<p><b>Collective scaling is open.</b> If a fixed total disturbance rate $R_{env}$ produces independent phase kicks of size $1/N$, a toy model gives diffusion proportional to $R_{env}/N^2$. But if disturbances arrive independently per constituent, the total rate itself grows with $N$ and the scaling weakens to $N$-class before correlations, damping, and pump heating are included. No universal $N^2$ law is derived here. <b>Falsifiable:</b> vary condensate population while independently holding bath temperature and measured disturbance spectrum fixed; fit the exponent with uncertainty and report null or adverse scaling at equal strength.</p>
+<p>The doctrine wants a medium with controllable phase, interference, nonlinear coupling, and room-temperature operation. Yttrium iron garnet supports spin-wave excitations across microwave bands and has among the lowest damping found in practical magnetic media; interferometer and logic functions are demonstrated in the extant record <span class="tag">extant record: YIG spin-wave logic</span>. Device-scale performance still depends on geometry, bias, mode, temperature, drive, and readout.</p>
+<h3>The room-temperature condensate: a driven coherent bus, not yet a register</h3>
+<p>Under parametric pumping, a YIG film can form a macroscopically phase-coherent magnon population at room temperature <span class="tag">extant record: pumped room-T magnon condensation</span>. That makes it a candidate phase/interference bus in this architecture. Pump-maintained coherence is not evidence of a durable completed register. A register claim requires a pump-off retained state with measured lifetime, write fidelity, read fidelity, erase/reversal operation, phase-slip statistics, and a closed energy/angular-momentum receipt. This is the same distinction ratified in the Brilliant Vortex programme: long-lived motion is not automatically held-in winding.</p>
+<p><b>Collective scaling is open.</b> If a fixed measured total disturbance rate $R_{env}$ produces independent phase kicks of size $1/N$, a toy model gives diffusion proportional to $R_{env}/N^2$. If disturbances instead arrive per constituent, total rate grows with $N$ and the scaling weakens before correlations, damping, and pump heating are included. No universal $N^2$ law is derived. <b>Falsifiable:</b> vary population while holding the independently measured total disturbance rate—not merely bath temperature or nominal spectrum—fixed; fit the exponent with uncertainty and report null or adverse scaling at equal strength.</p>
 <p class="note">Patent discipline: this page states architecture and reads the published field record; device geometries, drive parameters, and bench specifics are deliberately absent.</p>
 
 <h2>6 · The application ladder (near → far, each graded)</h2>
-<table>
+<div class="table-scroll" role="region" aria-label="Horizontally scrollable data table" tabindex="0"><table>
 <tr><th>#</th><th>application class</th><th>native mechanism</th><th>grade</th></tr>
 <tr><td class="c">1</td><td>Ising/optimization solving</td><td>injection-locked oscillator arrays with co-signing couplings and commit readout</td><td>NEAR — extant oscillator-Ising record exists; the native addition is the commit discipline and winding readout</td></tr>
 <tr><td class="c">2</td><td>reservoir / inference computing</td><td>magnon interference reservoirs, committed outputs</td><td>NEAR — extant demonstrations exist; native grammar organizes them</td></tr>
-<tr><td class="c">3</td><td>completion-grammar emulation</td><td>the machine natively instantiates exchange, closure, and co-signing — simulation of completion physics is not simulation</td><td>NATIVE-FREE — the one class the extant program also honestly leads with</td></tr>
-<tr><td class="c">4</td><td>interference linear algebra</td><td>phase-domain combining with scheduled commits as nonlinearity/readout</td><td>MID — competes with photonic meshes; differentiator is durable quantized state</td></tr>
+<tr><td class="c">3</td><td>completion-grammar emulation</td><td>the machine is designed to instantiate exchange, closure, and co-signing</td><td>NATIVE TEST TARGET — value and fidelity remain benchmark questions</td></tr>
+<tr><td class="c">4</td><td>interference linear algebra</td><td>phase-domain combining with scheduled commits as nonlinearity/readout</td><td>MID — a durable quantized state is only a proposed differentiator until register gates pass</td></tr>
 <tr><td class="c">5</td><td>period-finding / order-finding</td><td>winding ALU + bounded interference + commit readout</td><td>BOUNDED CLAIM (§7): the disclosed stepping engine is classical-complexity class; no asymptotic speedup asserted; value rides the open throughput/energy benchmark</td></tr>
 <tr><td class="c">6</td><td>general phase co-processor</td><td>the full completion-scheduled architecture</td><td>ARCHITECTURAL — a room-temperature phase co-processor proposition, not a complexity claim (§7)</td></tr>
-</table>
+</table></div>
 <div class="card"><p class="note"><b>Benchmark honesty, in our own voice.</b> The analog-optimizer field has a record of speedup claims matched by classical algorithms on fair benchmarks <span class="tag">extant record: annealing &amp; CIM rebuttals, 2014→2025</span>. We claim no Ising speedup. Rung 1's value, if any, is architectural (room-temperature phase hardware with commit discipline), not complexity-theoretic. The ladder's honest floor is rungs 1–3; everything above it waits on the crux.</p></div>
 
 <h2>7 · The crux, stated falsifiably</h2>
@@ -187,46 +191,47 @@ into a prior derivation.</p></div>
 <p>The one serious extant attempt at interference factoring — Gauss-sum factoring, demonstrated in NMR, cold atoms, and shaped-pulse optics <span class="tag">extant record, 2007–2012</span> — was killed by its own community's analysis: suppressing false (&ldquo;ghost&rdquo;) factor resonances requires the number of interfering terms to grow as a power of the target integer — <b>exponential in the digit count</b> <span class="tag">extant record: &Scaron;tefa&nacute;&aacute;k et al. 2007</span>. Elegant interference, no scaling. That analysis is the standard this page's bet must beat, and we name it rather than hide it.</p>
 <h3>Fig. 3 — the winding ALU, interactive</h3>
 <div class="card">
-<canvas id="aluCanvas" height="440"></canvas>
+<div class="canvas-scroll" role="region" aria-label="Horizontally scrollable interactive figure" tabindex="0"><canvas id="aluCanvas" height="440"></canvas></div>
 <div class="ctl">
   <label>modulus N</label><input type="range" id="modSlider" min="5" max="16" step="1" value="12">
   <label>A</label><input type="range" id="aSlider" min="0" max="11" step="1" value="7">
   <label>B</label><input type="range" id="bSlider" min="0" max="11" step="1" value="9">
   <button id="addBtn">add &amp; commit</button>
+  <button id="resetBtn" class="off">reset registers</button>
 </div>
 <div class="ctl"><span class="readout" id="aluRead"></span></div>
 <p class="note">Pedagogical modulus-N state machine. The display advances a residue; an explicit boundary rule implements $N-1\rightarrow0$. Positional mode emits carry at that boundary; modular mode discards overflow. The JavaScript computes the expected transition—it does not demonstrate a physical winding medium, commit fidelity, or native modular arithmetic.</p>
 </div>
 <h3>The bounded claim: architecture, not a complexity theorem</h3>
-<p>The architecture keeps persistent values in explicit integer stores and uses continuous phase only inside bounded stages. That design does not establish classical simulability, nor does it establish a quantum advantage. The period-finding embodiment described here steps through modular powers and is therefore offered as a <b>classical-complexity-class analog co-processor</b>, with no Shor-class speedup asserted. Its multiplication path is explicit doubling plus conditional modular addition, or host-supplied modular powers. Any value must be demonstrated as constant-factor throughput, density, or energy per validated operation against a fair digital baseline. If those benchmarks fail, period finding loses its status as a distinguished application while the register, commit controller, and correlation-source test program remain independently assessable.</p>
+<p>The architecture keeps persistent values in explicit integer stores and uses continuous phase only inside bounded stages. That design establishes neither classical simulability nor quantum advantage. The disclosed period-finding embodiment steps sequentially through modular powers. Its work is $O(r\,\mathrm{poly}(d))$ for order $r$ and $d$ input digits; because $r$ can approach $N\sim10^d$, its worst case is exponential in $d$. This classifies this embodiment only—it is not an impossibility theorem for every completion architecture. Any value must be demonstrated as throughput, density, or energy per validated operation against a fair digital baseline.</p>
 
 <h3>Fig. 4 — the two walls (drawn honestly)</h3>
 <div class="card">
-<canvas id="wallCanvas" height="380"></canvas>
-<p class="note">Resource scaling versus problem size, log scale. The Gauss-sum interference line is the extant record's own verdict on unstructured analog factoring — exponential, dead. The extant gate-model line pays its cost in a different currency (protected open state — the clamp tax of Fig.&nbsp;1). The winding-architecture line is drawn <b>dashed</b> because it was never a complexity claim — and §7 now derives that it cannot become one: the commit discipline that gives the machine its error law is exactly what forbids super-classical period-finding within it. The line’s honest meaning is architectural (throughput, energy per operation), not asymptotic.</p>
+<div class="canvas-scroll" role="region" aria-label="Horizontally scrollable interactive figure" tabindex="0"><canvas id="wallCanvas" height="380"></canvas></div>
+<p class="note">Scaling-class guides, not hardware forecasts. Gauss-sum suppression uses $M\sim N^{1/4}$ terms, hence $\log_{10}M\sim d/4$. The disclosed sequential order finder uses $O(r\,\mathrm{poly}(d))$ validated steps and can approach $\log_{10}W\sim d$ in the worst case. The gate-model curve is a polynomial asymptotic guide only, not a qubit-count estimate. No favorable polynomial winding curve is assumed or claimed.</p>
 </div>
 
 <h2>8 · Standing on the record</h2>
 <p class="note">Every load-bearing citation below was resolved against its source in a verification sweep before publication (2026-08-30); entries marked <em>supporting</em> or <em>sourced estimate</em> are secondary and labeled as such.</p>
 <p class="note" style="font-size:.83rem">
-Google Quantum AI, &ldquo;Quantum error correction below the surface code threshold,&rdquo; <em>Nature</em> <b>638</b>, 920 (2025); public announcement 2024-12-09 (Willow: &Lambda; &asymp; 2.14, 105 qubits). &middot;
+Google Quantum AI, <a href="https://doi.org/10.1038/s41586-024-08449-y">&ldquo;Quantum error correction below the surface code threshold,&rdquo;</a> <em>Nature</em> <b>638</b>, 920 (2025); public announcement 2024-12-09 (Willow: &Lambda; &asymp; 2.14, 105 qubits). &middot;
 Quantinuum, Helios logical-qubit announcement (Nov 2025; company record, arXiv:2511.05465). &middot;
-C. Gidney &amp; M. Eker&aring;, &ldquo;How to factor 2048 bit RSA integers in 8 hours using 20 million noisy qubits,&rdquo; <em>Quantum</em> <b>5</b>, 433 (2021); C. Gidney, arXiv:2505.15917 (2025) — the sub-million revision. &middot;
-J. Preskill, &ldquo;Quantum Computing in the NISQ era and beyond,&rdquo; <em>Quantum</em> <b>2</b>, 79 (2018). &middot;
-T. F. R&oslash;nnow et al., &ldquo;Defining and detecting quantum speedup,&rdquo; <em>Science</em> <b>345</b>, 420 (2014). &middot;
+C. Gidney &amp; M. Eker&aring;, <a href="https://doi.org/10.22331/q-2021-04-15-433">&ldquo;How to factor 2048 bit RSA integers in 8 hours using 20 million noisy qubits,&rdquo;</a> <em>Quantum</em> <b>5</b>, 433 (2021); C. Gidney, arXiv:2505.15917 (2025) — the sub-million revision. &middot;
+J. Preskill, <a href="https://doi.org/10.22331/q-2018-08-06-79">&ldquo;Quantum Computing in the NISQ era and beyond,&rdquo;</a> <em>Quantum</em> <b>2</b>, 79 (2018). &middot;
+T. F. R&oslash;nnow et al., <a href="https://doi.org/10.1126/science.1252319">&ldquo;Defining and detecting quantum speedup,&rdquo;</a> <em>Science</em> <b>345</b>, 420 (2014). &middot;
 A. D. King et al., <em>Science</em> <b>388</b>, 199 (2025) — the annealing beyond-classical claim; J. Tindall et al., &ldquo;Dynamics of disordered quantum systems with two- and three-dimensional tensor networks,&rdquo; arXiv:2503.05693 (2025) — the classical tensor-network response. &middot;
 D. Bluvstein et al., &ldquo;Logical quantum processor based on reconfigurable atom arrays,&rdquo; <em>Nature</em> <b>626</b>, 58 (2024; online Dec 2023). &middot;
 M. Mehring et al., <em>Phys. Rev. Lett.</em> <b>98</b>, 120502 (2007); M. Gilowski et al., <em>PRL</em> <b>100</b>, 030201 (2008); D. Bigourd et al., <em>PRL</em> <b>100</b>, 030202 (2008) — Gauss-sum factoring demonstrations (NMR, atom interferometer, shaped pulses). &middot;
-M. &Scaron;tefa&nacute;&aacute;k et al., &ldquo;Factorization with Gauss sums: scaling properties of ghost factors,&rdquo; <em>New J. Phys.</em> <b>9</b>, 370 (2007) — the ghost-factor scaling analysis. &middot;
-S. O. Demokritov et al., &ldquo;Bose&ndash;Einstein condensation of quasi-equilibrium magnons at room temperature under pumping,&rdquo; <em>Nature</em> <b>443</b>, 430 (2006). &middot;
-A. V. Chumak et al., &ldquo;Magnon spintronics,&rdquo; <em>Nature Physics</em> <b>11</b>, 453 (2015). &middot;
+M. &Scaron;tefa&nacute;&aacute;k et al., <a href="https://doi.org/10.1088/1367-2630/9/10/370">&ldquo;Factorization with Gauss sums: scaling properties of ghost factors,&rdquo;</a> <em>New J. Phys.</em> <b>9</b>, 370 (2007) — the ghost-factor scaling analysis. &middot;
+S. O. Demokritov et al., <a href="https://doi.org/10.1038/nature05117">&ldquo;Bose&ndash;Einstein condensation of quasi-equilibrium magnons at room temperature under pumping,&rdquo;</a> <em>Nature</em> <b>443</b>, 430 (2006). &middot;
+A. V. Chumak et al., <a href="https://doi.org/10.1038/nphys3347">&ldquo;Magnon spintronics,&rdquo;</a> <em>Nature Physics</em> <b>11</b>, 453 (2015). &middot;
 T. Schneider et al., &ldquo;Realization of spin-wave logic gates,&rdquo; <em>Appl. Phys. Lett.</em> <b>92</b>, 022505 (2008); spin-wave interferometer lineage from 2005 (<em>supporting</em>: Kostylev et al., APL <b>87</b>, 153501). &middot;
 IEEE &ldquo;Roadmap on Spin-Wave Computing,&rdquo; <em>IEEE Trans. Magn.</em> <b>58</b> (2022) (<em>supporting</em>). &middot;
 Classical training-compute scaling 2015&ndash;2025 (<em>sourced estimate</em>: epoch-scaling analyses). &middot;
-B. Hensen et al., “Loophole-free violation of a Bell inequality using entangled electron spins separated by 1.3 km,” <em>Nature</em> <b>526</b>, 682 (2015); arXiv:1508.05949. Companion loophole-free tests: M. Giustina et al., <em>PRL</em> <b>115</b>, 250401 (2015); L. K. Shalm et al., <em>PRL</em> <b>115</b>, 250402 (2015) (<em>supporting</em>). · Dilution-refrigeration operating points, platform coherence figures, and surface-code overhead class: the extant engineering record as surveyed 2026-08-30 (<em>supporting</em>).
+B. Hensen et al., <a href="https://doi.org/10.1038/nature15759">“Loophole-free violation of a Bell inequality using entangled electron spins separated by 1.3 km,”</a> <em>Nature</em> <b>526</b>, 682 (2015); arXiv:1508.05949. Companion loophole-free tests: M. Giustina et al., <em>PRL</em> <b>115</b>, 250401 (2015); L. K. Shalm et al., <em>PRL</em> <b>115</b>, 250402 (2015) (<em>supporting</em>). · Dilution-refrigeration operating points, platform coherence figures, and surface-code overhead class: the extant engineering record as surveyed 2026-08-30 (<em>supporting</em>).
 </p>
 
-<div class="card"><p class="note"><strong>Presented from the corpus record:</strong> the bit as two senses of closure and the winding register (POAMS &amp; Memory); co-signed exchange as one shared angular momentum and the no-clamp ruling (The Polyverse); the hand-off transaction (2005). <strong>Imported measured values, tagged:</strong> platform temperatures, overhead ratios, logical-qubit demonstrations, coherence figures, magnonic and condensate demonstrations, Gauss-sum experiments and their scaling critique, classical-rebuttal record, compute-scaling record — all extant, all tagged in place. <strong>Editorial (ours):</strong> the clamp diagnosis; the four bridges; the census-of-fictions reading; the completion-scheduled architecture, winding ALU, co-signing gate, condensate register, and commit doctrine; the application ladder's grades; the crux framing; the interactives (pedagogical). <strong>Not claimed:</strong> any Shor-class factoring result (&sect;7 now derives its impossibility within this architecture); any Ising speedup; any deviation from the measured device physics of the extant record, which this reading reproduces; any bench result not in the published record.</p></div>
+<div class="card"><p class="note"><strong>Presented from the corpus record:</strong> the bit as two senses of closure and the winding register (Memory); co-signed exchange and the no-perfect-clamp premise (The Polyverse); the hand-off transaction (2005). <strong>Imported records, tagged:</strong> operating temperatures, error-correction demonstrations, coherence measurements, magnonic demonstrations, Gauss-sum experiments, and scaling critiques. <strong>Editorial/hypothetical:</strong> the clamp diagnosis, POAMS bridges, completion-scheduled architecture, winding ALU, co-signing test species, application grades, and pedagogical interactives. <strong>Not claimed:</strong> Shor-class factoring, Ising speedup, a durable magnon register, universal classical simulability, or any bench result absent from the cited record.</p></div>
 
 <div class="nav"><a href="./poams-memory.html">&larr; POAMS &amp; Memory</a><a href="./index.html">Hub</a><a href="./the-polyverse.html">The Polyverse &rarr;</a></div>
 </main>
@@ -242,21 +247,23 @@ const txc=document.getElementById('taxCanvas'),txx=txc.getContext('2d');
 const lamS=document.getElementById('lamSlider'),lamR=document.getElementById('lamRead'),taxR=document.getElementById('taxRead');
 function drawTax(){
   const P=pal();const W=txc.width=txc.clientWidth*2,H=txc.height=920;txx.save();txx.scale(2,2);
-  const w=W/2,h=460;txx.clearRect(0,0,w,h);
+  const w=W/2,h=460;txx.clearRect(0,0,w,h);const narrow=w<600;
   const L=+lamS.value;
-  const mL=58,mR=20,mT=30,mB=46,pw=w-mL-mR,ph=h-mT-mB;
+  const mL=narrow?44:58,mR=narrow?10:20,mT=30,mB=46,pw=w-mL-mR,ph=h-mT-mB;
   // axes: x = demanded logical error exponent 3..15, y = physical per logical (log 1..6)
   txx.strokeStyle=P.edge;txx.lineWidth=1;txx.strokeRect(mL,mT,pw,ph);
-  txx.fillStyle=P.mut;txx.font='11px Georgia';
-  for(let e=3;e<=15;e+=3){const x=mL+pw*(e-3)/12;txx.fillText('10\u207b'+(e<10?String.fromCharCode(0x2070+e):'\u00b9'+String.fromCharCode(0x2070+e-10)),x-10,h-mB+16);txx.strokeStyle=P.edge;txx.globalAlpha=.35;txx.beginPath();txx.moveTo(x,mT);txx.lineTo(x,mT+ph);txx.stroke();txx.globalAlpha=1;}
+  txx.fillStyle=P.mut;txx.font=(narrow?'11px':'11px')+' Georgia';
+  const supers={'0':'\u2070','1':'\u00b9','2':'\u00b2','3':'\u00b3','4':'\u2074','5':'\u2075','6':'\u2076','7':'\u2077','8':'\u2078','9':'\u2079'};
+  const sup=n=>String(n).split('').map(x=>supers[x]).join('');
+  for(let e=3;e<=15;e+=3){const x=mL+pw*(e-3)/12;txx.fillText('10\u207b'+sup(e),x-10,h-mB+16);txx.strokeStyle=P.edge;txx.globalAlpha=.35;txx.beginPath();txx.moveTo(x,mT);txx.lineTo(x,mT+ph);txx.stroke();txx.globalAlpha=1;}
   for(let g=1;g<=6;g++){const y=mT+ph*(1-(g-1)/5);txx.fillText('10'+(g<2?'\u00b9':g==2?'\u00b2':g==3?'\u00b3':g==4?'\u2074':g==5?'\u2075':'\u2076'),mL-26,y+4);txx.strokeStyle=P.edge;txx.globalAlpha=.35;txx.beginPath();txx.moveTo(mL,y);txx.lineTo(mL+pw,y);txx.stroke();txx.globalAlpha=1;}
-  txx.fillText('demanded logical error rate \u2192 deeper protection \u2192',mL+pw/2-120,h-8);
-  txx.save();txx.translate(12,mT+ph/2+70);txx.rotate(-Math.PI/2);txx.fillText('physical elements per logical element',0,0);txx.restore();
-  // the 1000-2000:1 extant band
-  const yb1=mT+ph*(1-(Math.log10(1000)-1)/5),yb2=mT+ph*(1-(Math.log10(2000)-1)/5);
+  txx.fillText(narrow?'target logical error \u2192':'demanded logical error rate \u2192 deeper protection \u2192',narrow?mL+pw/2-45:mL+pw/2-120,h-8);
+  txx.save();txx.translate(narrow?10:12,mT+ph/2+(narrow?38:70));txx.rotate(-Math.PI/2);txx.fillText(narrow?'log hardware count':'physical elements per logical element',0,0);txx.restore();
+  // broad illustrative overhead band; actual values are platform- and task-specific
+  const yb1=mT+ph*(1-(Math.log10(1000)-1)/5),yb2=mT+ph*(1-(Math.log10(10000)-1)/5);
   txx.fillStyle=P.gold;txx.globalAlpha=.12;txx.fillRect(mL,yb2,pw,yb1-yb2);txx.globalAlpha=1;
-  txx.fillStyle=P.gold;txx.font='10px Menlo';txx.fillText('extant surface-code budget class (10\u00b3\u20132\u00d710\u00b3 : 1)',mL+8,yb2-4);
-  // curve: for target exponent e, d = smallest odd d with ((d+1)/2)*log10(L) >= e-? use pL = L^-((d+1)/2) => d = 2e/log10(L)... honest: solve (d+1)/2 * log10(L) = e
+  txx.fillStyle=P.gold;txx.font=(narrow?'11px':'10px')+' Menlo';txx.fillText(narrow?'10\u00b3\u201310\u2074 guide':'illustrative 10\u00b3\u201310\u2074 overhead band',mL+8,yb2-4);
+  // normalized model: A=1 in pL=A*L^-((d+1)/2); round to next odd d
   txx.strokeStyle=P.red;txx.lineWidth=2.5;txx.beginPath();let first=true;let d12=0,q12=0;
   for(let e=3;e<=15;e+=0.25){
     let d=Math.ceil(2*e/Math.log10(L)-1); if(d%2==0)d+=1; if(d<3)d=3;
@@ -269,7 +276,7 @@ function drawTax(){
   // readouts
   let d=Math.ceil(2*12/Math.log10(L)-1); if(d%2==0)d+=1; if(d<3)d=3; const q=2*d*d;
   lamR.textContent='\u039b = '+L.toFixed(2)+(Math.abs(L-2)<.06?'  (Willow-class)':'');
-  taxR.textContent='to hold one logical element at 10\u207b\u00b9\u00b2: code distance d = '+d+'  \u2192  \u2248 '+q.toLocaleString()+' physical per logical';
+  taxR.textContent='normalized A=1 model at 10\u207b\u00b9\u00b2: d = '+d+'  \u2192  q \u2248 '+q.toLocaleString()+' (not a device estimate)';
   txx.restore();
 }
 lamS.oninput=drawTax; drawTax();
@@ -278,12 +285,12 @@ lamS.oninput=drawTax; drawTax();
 const cmc=document.getElementById('commitCanvas'),cmx=cmc.getContext('2d');
 const dS=document.getElementById('driftSlider'),pS=document.getElementById('periodSlider'),pB=document.getElementById('pauseBtn'),cR=document.getElementById('commitRead');
 let running=true,lastT=performance.now();
-let eP=0,eC=0,failT=-1,tGlob=0,commitT=0,nCommit=0,nGood=0,nMiss=0,flashG=0,flashR=0;
+let eP=0,eC=0,failT=-1,tGlob=0,commitT=0,nCommit=0,nGood=0,nMiss=0,ledgerErr=0,flashG=0,flashR=0;
 let histP=[],histC=[];
 function gauss(){let s=0;for(let i=0;i<6;i++)s+=Math.random()-0.5;return s/1.732;}
 function drawCommit(){
   const P=pal();const W=cmc.width=cmc.clientWidth*2;cmc.height=1040;cmx.save();cmx.scale(2,2);
-  const w=W/2,h=520;cmx.clearRect(0,0,w,h);
+  const w=W/2,h=520;cmx.clearRect(0,0,w,h);const narrow=w<600;
   const now=performance.now(),dt=Math.min((now-lastT)/1000,0.05);lastT=now;
   const drift=+dS.value,T=+pS.value;
   if(running){
@@ -295,7 +302,8 @@ function drawCommit(){
     if(failT<0&&Math.abs(eP)>Math.PI)failT=tGlob;
     if(commitT>=T){
       commitT=0;nCommit++;
-      if(Math.abs(eC)<Math.PI){nGood++;flashG=1;}else{nMiss++;flashR=1;}
+      const miss=Math.round(eC/(2*Math.PI));
+      if(miss===0){nGood++;flashG=1;}else{nMiss++;ledgerErr+=miss;flashR=1;}
       eC=0;
     }
     histP.push(failT<0?Math.abs(eP):Math.PI);if(histP.length>240)histP.shift();
@@ -303,13 +311,13 @@ function drawCommit(){
   }
   // ---- top lane: the clamp ----
   const laneH=210,y1=30,y2=290;
-  cmx.fillStyle=P.mut;cmx.font='12px Georgia';
-  cmx.fillText('THE CLAMP \u2014 hold the phase open; drift accumulates',20,y1-8);
-  cmx.fillText('THE COMMIT \u2014 same drift; close on schedule; post whole turns',20,y2-8);
+  cmx.fillStyle=P.mut;cmx.font=(narrow?'11px':'12px')+' Georgia';
+  cmx.fillText(narrow?'OPEN PHASE \u2014 uncorrected drift':'THE CLAMP \u2014 hold the phase open; drift accumulates',20,y1-8);
+  cmx.fillText(narrow?'SCHEDULED COMMIT \u2014 integer ledger':'THE COMMIT \u2014 same drift; close on schedule; post whole turns',20,y2-8);
   [ [y1,histP,failT>=0], [y2,histC,false] ].forEach(function(lane,li){
     const y0=lane[0],hist=lane[1],dead=lane[2];
     // dial
-    const cx=80,cy=y0+laneH/2+6,r=64;
+    const cx=narrow?48:80,cy=y0+laneH/2+6,r=narrow?36:64;
     cmx.strokeStyle=P.edge;cmx.lineWidth=2;cmx.beginPath();cmx.arc(cx,cy,r,0,2*Math.PI);cmx.stroke();
     // half-turn tolerance arc (commit lane only)
     if(li==1){cmx.strokeStyle=P.green;cmx.globalAlpha=.35;cmx.lineWidth=8;cmx.beginPath();cmx.arc(cx,cy,r-5,-Math.PI/2-Math.PI*0.98,-Math.PI/2+Math.PI*0.98);cmx.stroke();cmx.globalAlpha=1;}
@@ -317,27 +325,27 @@ function drawCommit(){
     const ang=-Math.PI/2+e;
     cmx.strokeStyle=dead?P.red:(li==0?P.blue:P.gold);cmx.lineWidth=4;
     cmx.beginPath();cmx.moveTo(cx,cy);cmx.lineTo(cx+r*0.85*Math.cos(ang),cy+r*0.85*Math.sin(ang));cmx.stroke();
-    cmx.fillStyle=P.mut;cmx.font='10px Menlo';cmx.fillText('drift from true phase',cx-52,cy+r+18);
+    cmx.fillStyle=P.mut;cmx.font=(narrow?'11px':'10px')+' Menlo';cmx.fillText(narrow?'phase drift':'drift from true phase',narrow?cx-24:cx-52,cy+r+18);
     // strip chart
-    const sx0=190,sw=w-220,sy0=y0+18,sh=laneH-48;
+    const sx0=narrow?98:190,sw=w-sx0-(narrow?10:30),sy0=y0+18,sh=laneH-48;
     cmx.strokeStyle=P.edge;cmx.strokeRect(sx0,sy0,sw,sh);
     // pi line
     const yPi=sy0+4;
     cmx.strokeStyle=P.red;cmx.globalAlpha=.5;cmx.setLineDash([4,4]);cmx.beginPath();cmx.moveTo(sx0,yPi);cmx.lineTo(sx0+sw,yPi);cmx.stroke();cmx.setLineDash([]);cmx.globalAlpha=1;
-    cmx.fillStyle=P.red;cmx.font='10px Menlo';cmx.fillText('half-turn bound (\u03c0)',sx0+sw-120,yPi+12);
+    cmx.fillStyle=P.red;cmx.font=(narrow?'11px':'10px')+' Menlo';cmx.fillText(narrow?'\u03c0 bound':'half-turn bound (\u03c0)',sx0+sw-(narrow?42:120),yPi+12);
     cmx.strokeStyle=(li==0?P.blue:P.gold);cmx.lineWidth=1.8;cmx.beginPath();
     hist.forEach(function(v,i){
       const x=sx0+sw*i/240,y=sy0+sh-Math.min(v/Math.PI,1)*(sh-4);
       if(i==0)cmx.moveTo(x,y);else cmx.lineTo(x,y);
     });
     cmx.stroke();
-    if(li==0&&dead){cmx.fillStyle=P.red;cmx.font='13px Georgia';cmx.fillText('LOGICAL STATE LOST at t = '+failT.toFixed(1)+' s \u2014 the clamp failed continuously',sx0+20,sy0+sh/2);}
+    if(li==0&&dead){cmx.fillStyle=P.red;cmx.font=(narrow?'11px':'13px')+' Georgia';cmx.fillText(narrow?'OPEN PHASE LOST':'LOGICAL STATE LOST at t = '+failT.toFixed(1)+' s \u2014 the clamp failed continuously',sx0+(narrow?8:20),sy0+sh/2);}
     if(li==1){
-      if(flashG>0){cmx.fillStyle=P.green;cmx.globalAlpha=flashG;cmx.font='12px Menlo';cmx.fillText('\u2713 committed \u2014 drift discarded, whole turn posted',sx0+20,sy0+sh-10);cmx.globalAlpha=1;}
-      if(flashR>0){cmx.fillStyle=P.red;cmx.globalAlpha=flashR;cmx.font='12px Menlo';cmx.fillText('\u2717 miscount \u2014 one whole-turn error, discrete \u0026 counted',sx0+230,sy0+sh-10);cmx.globalAlpha=1;}
+      if(flashG>0){cmx.fillStyle=P.green;cmx.globalAlpha=flashG;cmx.font=(narrow?'11px':'12px')+' Menlo';cmx.fillText(narrow?'\u2713 exact commit':'\u2713 committed \u2014 drift discarded, whole turn posted',sx0+(narrow?8:20),sy0+sh-10);cmx.globalAlpha=1;}
+      if(flashR>0){cmx.fillStyle=P.red;cmx.globalAlpha=flashR;cmx.font=(narrow?'11px':'12px')+' Menlo';cmx.fillText(narrow?'\u2717 ledger miscount':'\u2717 miscount posted to persistent integer ledger',sx0+(narrow?8:210),sy0+sh-10);cmx.globalAlpha=1;}
     }
   });
-  cR.textContent='clamp: '+(failT<0?('holding, |drift| = '+Math.abs(eP).toFixed(2)+' rad'):('FAILED at '+failT.toFixed(1)+' s'))+'   \u00b7   commit: '+nCommit+' commits, '+nGood+' exact, '+nMiss+' whole-turn miscounts';
+  cR.textContent='uncorrected open-phase baseline: '+(failT<0?('holding, |drift| = '+Math.abs(eP).toFixed(2)+' rad'):('FAILED at '+failT.toFixed(1)+' s'))+'   \u00b7   commit: '+nCommit+' commits, '+nMiss+' miscounts, net logical ledger error '+ledgerErr;
   cmx.restore();requestAnimationFrame(drawCommit);
 }
 pB.onclick=function(){running=!running;pB.textContent=running?'Pause':'Run';pB.classList.toggle('off',!running);if(running)lastT=performance.now();};
@@ -345,21 +353,21 @@ drawCommit();
 
 // ---------- Fig 3: the winding ALU ----------
 const alc=document.getElementById('aluCanvas'),alx=alc.getContext('2d');
-const mS=document.getElementById('modSlider'),aS=document.getElementById('aSlider'),bS=document.getElementById('bSlider'),addB=document.getElementById('addBtn'),aR=document.getElementById('aluRead');
-let REG=0,CARRY=0,animQ=0,animPh=0,pendingCarry=0;
+const mS=document.getElementById('modSlider'),aS=document.getElementById('aSlider'),bS=document.getElementById('bSlider'),addB=document.getElementById('addBtn'),resetB=document.getElementById('resetBtn'),aR=document.getElementById('aluRead');
+let REG=0,CARRY=0,animQ=0,animPh=0,opStartREG=0,opStartCarry=0;
 function syncSliders(){const N=+mS.value;aS.max=N-1;bS.max=N-1;if(+aS.value>N-1)aS.value=N-1;if(+bS.value>N-1)bS.value=N-1;}
-mS.oninput=function(){syncSliders();REG=REG%(+mS.value);drawAlu();};
+mS.oninput=function(){syncSliders();REG=0;CARRY=0;drawAlu();aR.textContent='modulus changed; registers reset';};
 function drawAlu(){
-  const P=pal();const W=alc.width=alc.clientWidth*2;alc.height=880;alx.save();alx.scale(2,2);
-  const w=W/2,h=440;alx.clearRect(0,0,w,h);
+  const P=pal();const W=alc.width=alc.clientWidth*2;const w=W/2,narrow=w<600,h=narrow?520:440;alc.height=h*2;alx.save();alx.scale(2,2);
+  alx.clearRect(0,0,w,h);
   const N=+mS.value;
-  const cx=w/2-90,cy=h/2+10,r=140;
+  const cx=narrow?w/2:w/2-90,cy=narrow?155:h/2+10,r=narrow?Math.min(108,w/2-30):140;
   // dial ticks
   alx.strokeStyle=P.edge;alx.lineWidth=2;alx.beginPath();alx.arc(cx,cy,r,0,2*Math.PI);alx.stroke();
   for(let k=0;k<N;k++){
     const a=-Math.PI/2+2*Math.PI*k/N;
     alx.strokeStyle=P.edge;alx.beginPath();alx.moveTo(cx+(r-8)*Math.cos(a),cy+(r-8)*Math.sin(a));alx.lineTo(cx+r*Math.cos(a),cy+r*Math.sin(a));alx.stroke();
-    alx.fillStyle=P.mut;alx.font='11px Menlo';alx.fillText(String(k),cx+(r+14)*Math.cos(a)-4,cy+(r+14)*Math.sin(a)+4);
+    alx.fillStyle=P.mut;alx.font=(narrow?'11px':'11px')+' Menlo';alx.fillText(String(k),cx+(r+14)*Math.cos(a)-4,cy+(r+14)*Math.sin(a)+4);
   }
   // carry gate marker at top
   alx.fillStyle=P.red;alx.font='10px Menlo';alx.fillText('carry gate',cx-26,cy-r-22);
@@ -369,16 +377,16 @@ function drawAlu(){
   alx.strokeStyle=P.gold;alx.lineWidth=5;alx.beginPath();alx.moveTo(cx,cy);alx.lineTo(cx+(r-22)*Math.cos(na),cy+(r-22)*Math.sin(na));alx.stroke();
   alx.fillStyle=P.ink;alx.font='22px Menlo';alx.fillText(String(REG),cx-8,cy+8);
   // higher register box
-  const bx=w-200,by=cy-70;
+  const bx=narrow?(w-150)/2:w-200,by=narrow?350:cy-70;
   alx.strokeStyle=P.edge;alx.lineWidth=2;alx.strokeRect(bx,by,150,140);
-  alx.fillStyle=P.mut;alx.font='12px Georgia';alx.fillText('higher register',bx+20,by-10);
+  alx.fillStyle=P.mut;alx.font=(narrow?'11px':'12px')+' Georgia';alx.fillText('higher register',bx+20,by-10);
   alx.fillStyle=P.green;alx.font='34px Menlo';alx.fillText(String(CARRY),bx+62,by+80);
   alx.fillStyle=P.mut;alx.font='10px Menlo';alx.fillText('whole-turn carries',bx+20,by+120);
   alx.restore();
 }
 function stepAnim(){
   if(animQ<=0){animPh=0;drawAlu();
-    aR.textContent='register = '+REG+' (mod '+mS.value+')   \u00b7   higher register = '+CARRY+' carries   \u00b7   (A+B) committed exactly \u2014 geometry did the mod';
+    aR.textContent='R: '+opStartREG+' + '+aS.value+' + '+bS.value+' \u2192 '+REG+' (mod '+mS.value+')   \u00b7   carry: '+opStartCarry+' \u2192 '+CARRY+'; JavaScript state-machine result';
     return;}
   animPh+=0.12;
   if(animPh>=1){animPh=0;animQ--;REG++;
@@ -386,7 +394,8 @@ function stepAnim(){
   }
   drawAlu();requestAnimationFrame(stepAnim);
 }
-addB.onclick=function(){if(animQ>0)return;animQ=(+aS.value)+(+bS.value);aR.textContent='adding '+aS.value+' + '+bS.value+' \u2026 advancing phase';stepAnim();};
+addB.onclick=function(){if(animQ>0)return;opStartREG=REG;opStartCarry=CARRY;animQ=(+aS.value)+(+bS.value);aR.textContent='accumulating R + '+aS.value+' + '+bS.value+' \u2026';stepAnim();};
+resetB.onclick=function(){if(animQ>0)return;REG=0;CARRY=0;opStartREG=0;opStartCarry=0;drawAlu();aR.textContent='registers reset to zero';};
 syncSliders();drawAlu();
 aR.textContent='set A and B, then add \u0026 commit \u2014 watch the wrap post a carry';
 
@@ -397,27 +406,27 @@ function drawWall(){
   const w=W/2,h=380;wlx.clearRect(0,0,w,h);
   const mL=64,mR=24,mT=26,mB=44,pw=w-mL-mR,ph=h-mT-mB;
   wlx.strokeStyle=P.edge;wlx.strokeRect(mL,mT,pw,ph);
-  wlx.fillStyle=P.mut;wlx.font='11px Georgia';
-  wlx.fillText('problem size (digits of N) \u2192',mL+pw/2-70,h-10);
-  wlx.save();wlx.translate(14,mT+ph/2+60);wlx.rotate(-Math.PI/2);wlx.fillText('resources (log scale)',0,0);wlx.restore();
+  const narrow=w<600;wlx.fillStyle=P.mut;wlx.font=(narrow?'11px':'11px')+' Georgia';
+  wlx.fillText(narrow?'input digits \u2192':'problem size (digits of N) \u2192',narrow?mL+pw/2-32:mL+pw/2-70,h-10);
+  wlx.save();wlx.translate(14,mT+ph/2+(narrow?35:60));wlx.rotate(-Math.PI/2);wlx.fillText(narrow?'log\u2081\u2080 work':'resources (log scale)',0,0);wlx.restore();
   const D=600;
   function X(d){return mL+pw*d/D;}
-  function Y(lg){return mT+ph*(1-Math.min(lg/40,1));}
-  // Gauss-sum: log10 R = d/4 * log10(10)= d/4 (digits base10) -> steep
+  function Y(lg){return mT+ph*(1-Math.min(lg/160,1));}
+  // Gauss-sum guide: M~N^(1/4), so log10 M~d/4
   wlx.strokeStyle=P.red;wlx.lineWidth=2.5;wlx.beginPath();
-  for(let d=5;d<=170;d+=2){const y=Y(d/4);if(d==5)wlx.moveTo(X(d),y);else wlx.lineTo(X(d),y);}
+  for(let d=5;d<=D;d+=5){const y=Y(d/4);if(d===5)wlx.moveTo(X(d),y);else wlx.lineTo(X(d),y);}
   wlx.stroke();
-  wlx.fillStyle=P.red;wlx.font='11px Menlo';wlx.fillText('Gauss-sum interference: exponential (ghost-factor wall) \u2014 dead',X(30),Y(170/4)+2);
-  // extant gate-model: polynomial elements, clamp-tax currency
+  wlx.fillStyle=P.red;wlx.font=(narrow?'11px':'11px')+' Menlo';wlx.fillText(narrow?'Gauss: d/4':'Gauss sum: log\u2081\u2080 work \u2248 d/4',narrow?X(250):X(250),Y(250/4)-8);
+  // polynomial asymptotic guide only; not a device estimate
   wlx.strokeStyle=P.blue;wlx.lineWidth=2.5;wlx.beginPath();
-  for(let d=5;d<=D;d+=5){const lg=3*Math.log10(d)+1.5;const y=Y(lg);if(d==5)wlx.moveTo(X(d),y);else wlx.lineTo(X(d),y);}
+  for(let d=5;d<=D;d+=5){const lg=3*Math.log10(d)+1.5;const y=Y(lg);if(d===5)wlx.moveTo(X(d),y);else wlx.lineTo(X(d),y);}
   wlx.stroke();
-  wlx.fillStyle=P.blue;wlx.font='11px Menlo';wlx.fillText('extant gate model: polynomial count \u2014 paid in clamp tax (Fig. 1)',X(210),Y(3*Math.log10(430)+1.5)-8);
-  // winding architecture: dashed, open
+  wlx.fillStyle=P.blue;wlx.font=(narrow?'11px':'11px')+' Menlo';wlx.fillText(narrow?'polynomial guide':'gate-model polynomial guide (not hardware count)',narrow?X(260):X(210),Y(3*Math.log10(430)+1.5)-8);
+  // disclosed sequential order finder: O(r poly(d)), worst-case r~N~10^d
   wlx.strokeStyle=P.gold;wlx.lineWidth=2.5;wlx.setLineDash([7,6]);wlx.beginPath();
-  for(let d=5;d<=D;d+=5){const lg=2*Math.log10(d)+0.8;const y=Y(lg);if(d==5)wlx.moveTo(X(d),y);else wlx.lineTo(X(d),y);}
+  for(let d=5;d<=150;d+=2){const lg=d+2*Math.log10(d);const y=Y(lg);if(d===5)wlx.moveTo(X(d),y);else wlx.lineTo(X(d),y);}
   wlx.stroke();wlx.setLineDash([]);
-  wlx.fillStyle=P.gold;wlx.font='13px Menlo';wlx.font='12px Menlo';wlx.fillText('winding architecture: settled \u2014 classical class;',X(90),Y(2*Math.log10(560)+0.8)+24);wlx.fillText('the edge is architectural',X(90),Y(2*Math.log10(560)+0.8)+40);
+  wlx.fillStyle=P.gold;wlx.font=(narrow?'11px':'11px')+' Menlo';wlx.fillText(narrow?'sequential: ~10^d poly(d)':'sequential order finder: worst-case ~ 10^d poly(d)',X(35),Y(120)+20);
   wlx.restore();
 }
 drawWall();
