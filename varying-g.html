@@ -4,6 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>POAMS: Varying G - The Unity of Forces</title>
+    <script>
+        // Configure MathJax before its asynchronous loader; startup typesets the page.
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            chtml: {
+                scale: 1.1
+            }
+        };
+    </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
         :root {
@@ -214,38 +226,63 @@
             overflow: hidden;
         }
 
-        .derivation-steps {
-            margin-bottom: 30px;
+        .standard-exhibit .section.derivation-paper h2,
+        .standard-exhibit .section.derivation-paper h3 {
+            color: var(--reader-fg);
         }
 
-        .step {
-            background: var(--primary-bg);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            margin-bottom: 15px;
-            overflow: hidden;
-            transition: all 0.3s ease;
+        .standard-exhibit .derivation-paper .derivation-step {
+            margin-top: 1.75rem;
         }
 
-        .step-header {
-            padding: 15px 20px;
-            background: var(--accent-blue);
-            color: var(--primary-bg);
-            cursor: pointer;
-            font-weight: 600;
-            user-select: none;
+        .standard-exhibit .section.derivation-paper h3 {
+            margin: 0 0 .65rem;
+            font-size: 1rem;
         }
 
-        .step-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            padding: 0 20px;
+        .standard-exhibit .section.derivation-paper .equation,
+        .standard-exhibit .section.derivation-paper .math-explanation {
+            margin: .85rem 0;
+            padding: 0;
+            border: 0;
+            border-radius: 0;
+            background: none;
+            box-shadow: none;
         }
 
-        .step.active .step-content {
-            max-height: 500px;
-            padding: 20px;
+        .standard-exhibit .section.summary-paper {
+            background: #000;
+            color: #fff;
+            border-color: #333;
+        }
+
+        .standard-exhibit .section.summary-paper :is(h2, h3, p, li, strong, .equation) {
+            color: #fff;
+        }
+
+        .standard-exhibit .section.summary-paper h2 {
+            border: 0;
+            padding-bottom: 0;
+        }
+
+        .standard-exhibit .section.summary-paper h3 {
+            margin: 1rem 0 .5rem;
+        }
+
+        .standard-exhibit .section.summary-paper ul {
+            padding-left: 1.2rem;
+            line-height: 1.65;
+        }
+
+        .standard-exhibit .section.summary-paper li + li {
+            margin-top: .5rem;
+        }
+
+        .standard-exhibit .section.summary-paper .equation {
+            margin: .85rem 0;
+            padding: 0;
+            border: 0;
+            background: none;
         }
 
         .equation {
@@ -586,58 +623,46 @@
             </div>
         </div>
 
-        <div class="section">
-            <h2>📐 Mathematical Derivation</h2>
-            <p>Click each step to reveal the complete mathematical derivation from basic orbital mechanics to the varying G* formula.</p>
+        <div class="section derivation-paper" id="mathematical-derivation">
+            <h2>Mathematical Derivation</h2>
+            <p>The derivation proceeds from basic orbital mechanics to the varying G* formula.</p>
             
-            <div class="derivation-steps">
-                <div class="step">
-                    <div class="step-header">Step 1: Basic Orbital Angular Momentum</div>
-                    <div class="step-content">
+                <div class="derivation-step">
+                    <h3>1. Basic Orbital Angular Momentum</h3>
                         <div class="equation">$$L = mvr$$</div>
                         <p>For any orbiting system, angular momentum equals mass times velocity times radius.</p>
-                    </div>
                 </div>
 
-                <div class="step">
-                    <div class="step-header">Step 2: Gravitational Orbital Condition</div>
-                    <div class="step-content">
+                <div class="derivation-step">
+                    <h3>2. Gravitational Orbital Condition</h3>
                         <div class="equation">$$\frac{mv^2}{r} = \frac{GmM}{r^2}$$</div>
                         <div class="equation">$$v^2 = \frac{GM}{r}$$</div>
                         <p>Centripetal force equals gravitational force for stable circular orbits.</p>
-                    </div>
                 </div>
 
-                <div class="step">
-                    <div class="step-header">Step 3: Angular Momentum in Terms of G</div>
-                    <div class="step-content">
+                <div class="derivation-step">
+                    <h3>3. Angular Momentum in Terms of G</h3>
                         <div class="equation">$$L = mvr = m\sqrt{\frac{GM}{r}} \cdot r = m\sqrt{GMr}$$</div>
                         <div class="equation">$$L^2 = m^2GMr$$</div>
                         <div class="equation">$$r = \frac{L^2}{m^2GM}$$</div>
                         <p>Expressing orbit radius in terms of angular momentum and the gravitational parameter GM.</p>
-                    </div>
                 </div>
 
-                <div class="step">
-                    <div class="step-header">Step 4: The POAMS Insight</div>
-                    <div class="step-content">
+                <div class="derivation-step">
+                    <h3>4. The POAMS Insight</h3>
                         <div class="equation">$$L_{total} = \hbar = L_{orbital} + L_{spin}$$</div>
                         <p>In quantum systems, total angular momentum is conserved at ℏ (reduced Planck constant). When we add spin energy, the orbital component must adjust to maintain this total.</p>
-                    </div>
                 </div>
 
-                <div class="step">
-                    <div class="step-header">Step 5: Spin Energy Effects</div>
-                    <div class="step-content">
+                <div class="derivation-step">
+                    <h3>5. Spin Energy Effects</h3>
                         <div class="equation">$$K_{spin} = 2.18 \times 10^{-18} \text{ J (spin energy of the pattern QM calls the electron)}$$</div>
                         <div class="equation">$$v_{orbital} = \sqrt{v^2 - \frac{2K_{spin}}{m}}$$</div>
                         <p>Spin kinetic energy affects the orbital velocity. The system must maintain energy and angular momentum conservation simultaneously.</p>
-                    </div>
                 </div>
 
-                <div class="step">
-                    <div class="step-header">Step 6: Variable G* Derivation</div>
-                    <div class="step-content">
+                <div class="derivation-step">
+                    <h3>6. Variable G* Derivation</h3>
                         <div class="equation">$$G^* = \frac{\hbar v}{mM}$$</div>
                         <p>From Einstein's Lost Legacy Appendix 5: G becomes a function of orbital velocity, which depends on spin contribution.</p>
                         <div class="math-explanation">
@@ -646,25 +671,20 @@
                             <strong>With full spin:</strong><br>
                             v = 2.19×10⁶ m/s → G* = 1.514×10²⁹ (atomic scale)
                         </div>
-                    </div>
                 </div>
 
-                <div class="step">
-                    <div class="step-header">Step 7: The Bohr Radius Emerges</div>
-                    <div class="step-content">
+                <div class="derivation-step">
+                    <h3>7. The Bohr Radius Emerges</h3>
                         <div class="equation">$$r = \frac{\hbar^2}{mG^*M} = \frac{\hbar^2}{\hbar v M} = \frac{\hbar}{vM}$$</div>
                         <div class="equation">$$r = \frac{1.054 \times 10^{-34}}{2.19 \times 10^6 \times 1.673 \times 10^{-27}} = 5.29 \times 10^{-11} \text{ m}$$</div>
                         <p><strong>This is exactly the Bohr radius!</strong> No fitting parameters, no assumptions about "electromagnetic forces" - just angular momentum conservation with spin.</p>
-                    </div>
                 </div>
-            </div>
         </div>
 
-        <div class="section">
-            <h2>🎯 Summary: The Grand Unification</h2>
-            <div class="key-insight" style="text-align: left;">
-                <h3 style="margin-bottom: 15px;">What POAMS Reveals:</h3>
-                <ul style="list-style-position: inside; line-height: 2;">
+        <div class="section summary-paper" id="summary">
+            <h2>Summary: The Grand Unification</h2>
+                <h3>What POAMS Reveals:</h3>
+                <ul>
                     <li><strong>One Force:</strong> Gravity and electromagnetism are the same angular momentum mechanism</li>
                     <li><strong>Variable G:</strong> The "gravitational constant" varies with spin contributions from 10⁻¹¹ to 10²⁹</li>
                     <li><strong>No Charge:</strong> Electric charge is replaced by spin kinetic energy in joules</li>
@@ -672,30 +692,16 @@
                     <li><strong>Neutron Mechanism:</strong> Anti-aligned spin cancels angular momentum → particle merger</li>
                     <li><strong>Bohr Radius:</strong> Emerges naturally from spin-modified orbital mechanics</li>
                 </ul>
-            </div>
             
-            <div class="math-explanation">
                 <h3>The Core Equation:</h3>
                 <div class="equation">
                     $$G^* = \frac{\hbar v_{orbital}(spin)}{m_{electron} \cdot m_{proton}}$$
                 </div>
                 <p>This single equation, with spin-dependent orbital velocity, generates both gravitational and "electromagnetic" phenomena. Nature uses one mechanism - angular momentum conservation - across all scales.</p>
-            </div>
         </div>
     </div>
 
     <script>
-        // MathJax configuration
-        window.MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']]
-            },
-            chtml: {
-                scale: 1.1
-            }
-        };
-
         // Physical constants
         const constants = {
             hbar: 1.054571817e-34,  // J⋅s
@@ -971,14 +977,6 @@
         document.getElementById('gSlider').addEventListener('input', updateValues);
         document.getElementById('spinAngle').addEventListener('input', updateNeutronDemo);
 
-        // Accordion functionality
-        document.querySelectorAll('.step-header').forEach(header => {
-            header.addEventListener('click', () => {
-                const step = header.parentElement;
-                step.classList.toggle('active');
-            });
-        });
-
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             updateValues();
@@ -991,10 +989,6 @@
             animateOrbit('planetCanvas', rPlanet, vPlanet / 1e30, 'Planetary', '#5bc8f5');
             animateOrbit('atomCanvas', rAtom, vAtom / 1e3, 'Atomic', '#d4af37');
             
-            // Trigger MathJax rendering
-            if (window.MathJax) {
-                MathJax.typesetPromise();
-            }
         });
 
         // Cleanup animations on page unload
