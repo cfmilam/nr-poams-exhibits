@@ -2,6 +2,7 @@
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="data:,">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Navigation Engine — Operational POAMS</title>
 <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},svg:{fontCache:'global'}}</script>
@@ -42,6 +43,18 @@ canvas{background:#0f1830;border:1px solid var(--border);border-radius:10px;disp
 .keepdrop li{margin:.5rem 0;list-style:none}
 .note{color:var(--dim);font-size:.85rem}
 button.run{background:var(--gold);color:var(--bg);border:none;border-radius:8px;padding:.5rem 1.1rem;font-size:.95rem;cursor:pointer;font-weight:700;margin-top:.6rem}
+
+#poams-hub-nav{padding-right:3.5rem}
+.panel{grid-template-columns:minmax(0,1fr) minmax(0,340px)}
+.panel>div,.controls{min-width:0}
+.readout{font-size:.85rem;overflow-wrap:anywhere;margin-top:.7rem}
+.readout>div{display:flex;justify-content:space-between;gap:.7rem;padding:.2rem 0;border-bottom:1px solid var(--border)}
+.readout .k{min-width:0;max-width:58%}.readout .v{text-align:right;min-width:0}
+.sources{padding-left:1.4rem}.sources li,.keepdrop li{margin:.7rem 0}
+canvas{width:100%;height:auto;aspect-ratio:1;max-width:340px}
+.gauge-fill{width:0}
+button:disabled{opacity:.45;cursor:not-allowed}
+@media(max-width:760px){.panel{grid-template-columns:minmax(0,1fr)}.phn-hide-sm{display:none}main{padding:1rem}.card{padding:1rem}.theme-toggle{width:32px;height:32px;top:.5rem}h1{font-size:1.7rem}}
 </style>
 </head>
 <body>
@@ -55,243 +68,278 @@ button.run{background:var(--gold);color:var(--bg);border:none;border-radius:8px;
   </div>
   <a href="./resonance-network.html" title="The Resonance Network"><span class="phn-hide-sm">The Resonance Network</span> →</a>
 </div>
-<button class="theme-toggle" onclick="toggleTheme()">☀️</button>
+<button class="theme-toggle" aria-label="Toggle colour theme" onclick="toggleTheme()">☀️</button>
 
 <main>
 <h1>The Navigation Engine</h1>
 <p class="nr-provenance" style="font-size:0.8em;font-style:italic;opacity:0.72;line-height:1.5;margin:0.5em 0 1em;text-align:center">This exhibit is an extrapolation of the foundational work of N. Vivian “Viv” Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
-<p class="subtitle">Operational POAMS orbital mechanics — the useful core distilled from Max Franks's <em>Mathematical Extrapolation of the Synthesis</em></p>
+
+<p class="subtitle">Normal Realism / POAMS — a conditional orbital calculator, with source and model boundaries</p>
 
 <div class="card">
-<p>In POAMS there is no gravitational <em>force</em>. A free body rides its <b>natural (force‑free) orbit</b>; "weight" is only the bill for holding it <em>off</em> that orbit, and every orbital quantity is angular‑momentum keeping its books. Max Franks — an aeronautical engineer — pushed that idea toward something an engineer can actually fly: <b>equations of motion built from observed angular momentum instead of Newton's&nbsp;$G$.</b></p>
-<p>This exhibit pulls out the parts of that work that are genuinely operational and POAMS‑clean, and turns them into a working tool. The parts that lean on constructs POAMS sets out to dissolve — or that contradict the Liturgy — are named and left aside at the bottom, not carried forward.</p>
+<p>In POAMS there is no gravitational <em>force</em> pulling across a void. A free circulation rides its <b>natural, force-free orbit</b>; weight is the constraint bill for holding it off that orbit. The mathematics below is a chart of that angular-momentum ledger, not a second substance.</p>
+<p><b>What this engine computes:</b> an isolated, planar inverse-square pair orbit. Panel A sets its size and timing from three example inputs; Panel C integrates the same equation and checks its numerical closure. Panel B separately evaluates a proposed intrinsic-spin coupling ratio. It is not a measured weight output or an additional term in Panel C.</p>
+<p class="note">The source is the supplied QMC Exhibit III manuscript by <b>Max Franks and Anthony Osborne</b>. Its useful apsis algebra is retained; its proposed velocity-dependent Lagrangian is not the equation this solver integrates. <a href="#sources">Source and derivation receipts</a> distinguish those claims.</p>
 </div>
 
 <h2>A · Orbit From Observables</h2>
-<p>Franks' first practical result: an orbit is fully fixed by <b>locally measured</b> speeds and radii — <em>without</em> knowing the central mass or&nbsp;$G$. Conservation of angular momentum gives the far speed, and the <b>natural velocity</b> is simply the mean of the apoapsis and periapsis speeds:</p>
-<div class="eqbox">$$r_a v_a = r_p v_p \qquad v_0=\tfrac12\,(v_a+v_p)\qquad r_0=\frac{2\,r_a r_p}{r_a+r_p}\qquad \beta=\frac{a}{b^2}=\frac1{r_0}$$</div>
+<p><b>Within the isolated inverse-square family</b>, apoapsis radius and speed plus periapsis radius determine the ellipse's size, eccentricity and period. They do not determine its orientation, epoch, or the two partners' barycentric shares. The sliders are example inputs, not newly acquired measurements. Changing them generally changes the inferred ledger invariant.</p>
+<div class="eqbox">$$h=r_a v_a=r_p v_p,\qquad v_0=\frac{v_a+v_p}{2},\qquad r_0=\frac{2r_a r_p}{r_a+r_p}=\frac{b^2}{a},\qquad \beta=\frac1{r_0},\qquad \mu=h v_0=\frac{h^2}{r_0}.$$</div>
+<p class="note">Here $h$ is specific orbital angular momentum, <em>not</em> Planck's constant. The radial law is additional content: its POAMS warrant is the <a href="https://github.com/cfmilam/nr-poams-engineering/blob/gh-pages/nbody/NCENTRE-CLOSURE-DERIVATION.md">ratified P1–P5 pair derivation</a>, not conservation alone. <b>Record-unit bridge:</b> radii and clock intervals are displayed in metres and seconds; $\mu$ is often written $GM$ in conventional records, but neither $G$ nor a central mass is an input here.</p>
 <div class="card panel">
   <div class="controls">
-    <label>Apoapsis radius $r_a$: <span class="val" id="ra_v"></span> ×10⁶ m</label>
+    <label for="ra">Apoapsis radius $r_a$: <span class="val" id="ra_v"></span> ×10⁶ m</label>
     <input type="range" id="ra" min="6.6" max="60" step="0.1" value="12">
-    <label>Apoapsis speed $v_a$: <span class="val" id="va_v"></span> km/s</label>
+    <label for="va">Apoapsis speed $v_a$: <span class="val" id="va_v"></span> km/s</label>
     <input type="range" id="va" min="1" max="9" step="0.05" value="5.2">
-    <label>Periapsis radius $r_p$: <span class="val" id="rp_v"></span> ×10⁶ m</label>
+    <label for="rp">Periapsis radius $r_p$: <span class="val" id="rp_v"></span> ×10⁶ m</label>
     <input type="range" id="rp" min="6.6" max="60" step="0.1" value="6.9">
-    <div class="readout" id="outA" style="margin-top:1rem"></div>
-    <p class="note">Everything on the right is derived from the three sliders alone — no $M$, no $G$. $\mu=h\,v_0$ is the <em>measured orbital invariant</em> (numerically equal to $GM$, but obtained from observation, not postulated as a force).</p>
+    <p class="note">Require $r_a\ge r_p$. Equal radii give a circle. The speed belongs to the named apoapsis; reversed radii are rejected, not silently exchanged.</p>
+    <div class="readout" id="outA" aria-live="polite"></div>
   </div>
-  <canvas id="orbitCanvas" width="340" height="340"></canvas>
+  <div><canvas id="orbitCanvas" width="340" height="340" role="img" aria-label="Conditional ellipse with apoapsis, periapsis and the right-hand focus"></canvas><p class="note">Dashed segment: natural radius $r_0$ at the focus. Axes are an illustrative orientation.</p></div>
 </div>
 
-<h2>B · Spin and the Weight Sign</h2>
-<p>Add a second rotation — <b>spin</b> — and its kinetic energy enters the force bookkeeping as a ratio $K_s/K_n$ tilted by the angle $\theta$ between the spin and orbital axes. Aligned spin stiffens the natural orbit (heavier); opposed spin loosens it (lighter), reaching a <b>force‑free, weightless</b> state when the two match:</p>
-<div class="eqbox">$$F=\frac{L\,v_n}{r^2}\sqrt{1+\frac{K_s}{K_n}\cos\theta}\qquad\Rightarrow\qquad F\to 0 \ \text{ when spin opposes orbit, } \ \tfrac{K_s}{K_n}\cos\theta\to-1$$</div>
+<h2>B · Intrinsic Spin and the Coupling Sign</h2>
+<p>Franks and Osborne propose a ratio for the <b>intrinsic-spin</b> channel. If $F_0=L v_n/r^2$ is their nonzero baseline coupling scale and $k=K_s/K_n$ the spin/orbital rate-energy ratio, then:</p>
+<div class="eqbox">$$q\equiv\frac{F}{F_0}=\sqrt{1+k\cos\theta},\qquad 0\le k\le1,\quad 0\le\theta\le\pi.$$</div>
+<p>The native sign claim is preserved: co-sense intrinsic twist increases coupling and, in the corresponding held-body comparison, points toward heavier; opposed twist points toward lighter. <b>This ratio alone does not calculate the holding constraint or a balance reading.</b> A freely orbiting body is already weightless in POAMS even when $q\ne0$. The algebraic zero at $k=1,\theta=\pi$ is a zero of this proposed coupling factor.</p>
 <div class="card panel">
   <div class="controls">
-    <label>Spin / orbital energy $K_s/K_n$: <span class="val" id="ks_v"></span></label>
+    <label for="ks">Spin / orbital rate-energy ratio $k$: <span class="val" id="ks_v"></span></label>
     <input type="range" id="ks" min="0" max="1" step="0.01" value="0.35">
-    <label>Spin–orbit angle $\theta$: <span class="val" id="th_v"></span>°</label>
+    <label for="th">Spin–orbit angle $\theta$: <span class="val" id="th_v"></span>°</label>
     <input type="range" id="th" min="0" max="180" step="1" value="35">
-    <div class="readout" id="outB" style="margin-top:1rem"></div>
-    <div class="gauge"><div class="gauge-fill" id="wgauge"></div></div>
-    <p class="note">This is the POAMS variable‑$G$ / weight‑sign channel made operational: co‑sense spin → heavier, anti‑sense → lighter, equal‑and‑opposed → weightless. It is exactly the effect the <a href="./varying-g.html">YIG weight‑change experiment</a> is built to read off by the <em>sign</em> of its result.</p>
+    <div class="readout" id="outB" aria-live="polite"></div>
+    <div class="gauge" role="meter" aria-label="Normalized coupling factor" aria-valuemin="0" aria-valuemax="1.414214"><div class="gauge-fill" id="wgauge"></div></div>
+    <p class="note">Gauge: 0 to $\sqrt2$. Arrows show directions only, not angular-momentum magnitudes. No spin arrow is drawn at $k=0$.</p>
   </div>
-  <canvas id="spinCanvas" width="340" height="340"></canvas>
+  <canvas id="spinCanvas" width="340" height="340" role="img" aria-label="Illustrative orbital and intrinsic-spin axis directions"></canvas>
 </div>
+<p class="note">This panel preserves a testable hypothesis; it does not establish an apparatus response. Intrinsic twist and driven orbital writhe are distinct POAMS channels and can have opposite signs. A driven YIG test must identify that partition and measure its support response; this slider supplies neither a drive-to-spin calibration nor a completed experiment. See the channel distinction in <a href="./the-poams-brilliant-vortex-atom.html">The Brilliant Vortex Atom</a>.</p>
 
-<h2>C · The G‑free Equations of Motion</h2>
-<p>The pay‑off: a Lagrangian in which the central body's mass and $G$ never appear — only the measured geometric invariant $\beta=1/r_0$ and the coordinates. This is the propagator a navigation system actually integrates.</p>
-<div class="eqbox">$$\mathcal L=\tfrac{m}{2}\!\left(\dot r^2+r^2\dot\theta^2\sin^2\!\phi+r^2\dot\phi^2\right)+m\beta\!\left(r\dot r^2+r^3\dot\theta^2\sin^2\!\phi+r^3\dot\phi^2\right)$$</div>
-<p>Take the planar case ($\phi=\tfrac\pi2$) and propagate a body from apoapsis using only the invariant $\mu=h\,v_0$ read off in Panel&nbsp;A. The trajectory it draws <em>is</em> the ellipse — the observable‑built engine flies the orbit:</p>
+<h2>C · The Matching Pair Equations</h2>
+<p>Here is the mathematical chart actually used. With constant $\mu$ from Panel A, the per-unit-ledger expression and its Euler–Lagrange equation are:</p>
+<div class="eqbox">$$\mathscr L=\frac12(\dot r^2+r^2\dot\theta^2)+\frac{\mu}{r},\qquad
+\frac{d}{dt}(r^2\dot\theta)=0,\qquad
+\ddot r-r\dot\theta^2=-\frac{\mu}{r^2}
+\quad\Longleftrightarrow\quad
+\ddot{\mathbf r}=-\mu\frac{\mathbf r}{r^3}.$$</div>
+<p>The coordinates describe one relative separation in the point-centre pair model. From $u=1/r$ follows $u''+u=\mu/h^2$ (prime denotes polar-angle differentiation), so the bound solution is the Panel A ellipse. The reference ellipse is only an overlay: the moving curve below is computed by <b>velocity-Verlet</b>, not traced from that overlay.</p>
 <div class="card panel">
   <div class="controls">
-    <p class="readout" id="outC"></p>
-    <button class="run" id="runBtn">▶ Propagate from apoapsis</button>
-    <p class="note">Velocity‑Verlet integration of $\ddot{\vec r}=-\mu\,\hat r/r^2$ with $\mu=h\,v_0$ from Panel A. No gravitational‑force postulate is used — $\mu$ is the invariant the orbit itself hands you. Change Panel A and re‑propagate.</p>
+    <p class="readout" id="outC" aria-live="polite"></p>
+    <button class="run" id="runBtn">▶ Compute and play one orbit</button>
+    <label for="progress">Playback position <span class="val" id="progress_v">0%</span></label>
+    <input type="range" id="progress" min="0" max="1000" step="1" value="0" disabled>
+    <div class="readout" id="quality"></div>
+    <p class="note">One period $T=2\pi\sqrt{a^3/\mu}$, shown over 10 seconds of playback. Input changes clear the old run. Pause or scrub without changing the calculation.</p>
   </div>
-  <canvas id="propCanvas" width="340" height="340"></canvas>
+  <div><canvas id="propCanvas" width="340" height="340" role="img" aria-label="Numerically integrated orbit compared with the analytic reference ellipse"></canvas><p class="note">Gold: computed path. Faint outline: reference. Blue: relative-coordinate origin. Green: computed position.</p></div>
 </div>
+<p class="note">The fixed step is halved until the sampled coarse/fine separation and final closure are each ≤$10^{-4}a$, and the maximum relative first-integral error is ≤$10^{-4}$. The first integral is $\varepsilon=v^2/2-\mu/r$. Central kicks and vector drifts preserve specific angular momentum apart from roundoff; they do <em>not</em> make energy or phase error vanish. A failing run is withheld. These are numerical checks of the declared model, not a bound on navigation error against the sky.</p>
 
-<h2>What was kept — and what was left aside</h2>
+<h2>What the source establishes</h2>
 <div class="card keepdrop">
-<p style="margin-top:0"><b>Preserved</b> (operational, POAMS‑clean):</p>
 <ul>
-<li><span class="tag keep">KEPT</span> Orbit from observables — $v_0=\tfrac12(v_a+v_p)$, natural radius $r_0$, invariant $\mu=h v_0$ — a real navigation hook.</li>
-<li><span class="tag keep">KEPT</span> Spin as an energy ratio $K_s/K_n$ setting the weight sign — the variable‑$G$ mechanism, testable by the YIG experiment.</li>
-<li><span class="tag keep">KEPT</span> The $G$‑free Lagrangian and equations of motion as the navigation propagator.</li>
+<li><span class="tag keep">DERIVED</span> The apsis relations and $\mu=h v_0$ are consistent within the isolated pair law. They provide a useful measurement parameterization, not a radial-law proof from angular conservation alone.</li>
+<li><span class="tag keep">PROPOSED</span> The source's intrinsic-spin ratio is evaluated in B, with its sign preserved and its support-weight bridge named. It is separate from the spinless propagator in C.</li>
+<li><span class="tag drop">DISTINCT</span> QMC Exhibit III §7 and Appendix A introduce a velocity-dependent expression as future work. In the planar form printed by this exhibit's earlier version, $\mathscr L_\beta=\tfrac12(1+2\beta r)(\dot r^2+r^2\dot\theta^2)$ conserves $(1+2\beta r)r^2\dot\theta$, not $h$, and gives outward radial acceleration $\beta v_a^2/(1+2\beta r_a)$ at an apsis. It therefore cannot be credited as the source of the inward equation in C. The pair chart above is the implemented model.</li>
+<li><span class="tag drop">UNITS</span> The manuscript's rest-energy Eqs. 59–60 contain inconsistent powers and dimensions. That is a specific algebraic problem, not a rejection of $E=mc^2$: the page's own $E=h_{\rm P}\nu$ and $m=h_{\rm P}\nu/c^2$ imply that identity. Here $h_{\rm P}$ denotes Planck's action constant; $c^2$ is the ledger unit-conversion factor with dimensions length²/time², without requiring a carrier in transit.</li>
+<li><span class="tag keep">SCOPE</span> The Coulomb re-expression takes $\alpha$ as input and is not an independent derivation of its value. The manuscript discusses relative angular momentum and additional channel interpretations; those proposals are outside this implemented pair solver, not dismissed merely for differing from another ontology.</li>
 </ul>
-<p><b>Set aside</b> (would dilute or contradict the synthesis):</p>
-<ul>
-<li><span class="tag drop">ASIDE</span> The rest‑energy section — it inserts $E=mc^2$ and treats $c$ as a <em>velocity</em>, directly contradicting Exhibit I's central point that $c$ is a pure constant, not a speed. Dimensionally inconsistent as written. (The POAMS definition needs no velocity anywhere: energy <em>is</em> turn rate, $E=h\nu$, and mass is trapped rate, $m=h\nu/c^2$, with $c^2$ the ledger exchange rate — see <a href="./mass-as-trapped-rate.html">Mass as Trapped Rate</a>.)</li>
-<li><span class="tag drop">ASIDE</span> The Coulomb re‑derivation — it is the Bohr model re‑expressed, inserting $\alpha$ and $c$ to land a number it already assumed. No new prediction.</li>
-<li><span class="tag drop">ASIDE</span> "Relative angular momentum" left undefined — it quietly mixes <em>spin</em> with <em>relative orbital</em> angular momentum (the orbit‑vs‑spin conflation POAMS specifically warns against).</li>
-<li><span class="tag drop">ASIDE</span> The strong/weak "nuclear force" reading of a sign change — asserted, not derived.</li>
-</ul>
-<p class="note">$\mu=h v_0$ is honest bookkeeping, not a derivation of gravity: it equals $GM$ and is <em>obtained by measurement</em>. The value of Franks' work is that it makes POAMS <b>compute</b> — the philosophy becomes a propagator you can fly.</p>
-</div>
-<h2>Scope — one orbit, not the <em>n</em>‑body solar system</h2>
-<div class="card">
-<p style="margin-top:0">A limitation worth stating plainly: Max's derivation resolves and propagates a <b>single, localized orbit</b>. The whole engine is built from one set of <em>local</em> observables — the speeds and radii at apoapsis and periapsis — which fix one geometric invariant, $\beta=1/r_0$, and one orbital invariant, $\mu=h v_0$. That $\mu$ is numerically the Newtonian $GM$ of that one body, but obtained strictly from observation, with no invisible <em>in vacuo</em> fields or forces. That is exactly its strength <em>and</em> its boundary.</p>
-<p>Because the equations of motion ride on invariants read off a <b>specific orbit's extremes</b>, the material does <b>not</b> address:</p>
-<ul>
-<li><span class="tag drop">OPEN</span> <b>Multi‑body / <em>n</em>‑body dynamics</b> — how a computer running these equations would compute simultaneous interactions among several attracting bodies at once.</li>
-<li><span class="tag drop">OPEN</span> <b>Transitions between spheres of influence</b> — how $\beta$ and $\mu$ would be re‑measured and re‑established when a craft hands off from one body's neighbourhood to another's.</li>
-<li><span class="tag drop">OPEN</span> <b>Complex environments with multiple barycentres</b> — navigating the real solar system, where no single two‑body invariant holds across the whole trajectory.</li>
-</ul>
-<p class="note">None of this refutes the POAMS core — a single force‑free orbit really is fixed by its own observables. But the leap from one clean invariant to a full <em>n</em>‑body propagator is the same age‑old, analytically intractable problem that Newtonian mechanics also cannot close in closed form; POAMS re‑books the accounting in angular momentum, it does not dissolve the many‑body difficulty. Recasting the single‑orbit invariants into a piecewise, patched‑conic or fully numerical <em>n</em>‑body scheme is left as open work. Section D below takes up exactly this boundary — separating what dissolves (the framing), what restates (the ledger), and what stands (the arithmetic of divergence).</p>
 </div>
 
 <section id="dissolve">
-<h2>D · The Two-Body "Problem," Dissolved — and What That Buys for <em>n</em></h2>
-
-<p>Newton himself refused the picture his mathematics was read as endorsing: that one body may act upon another at a distance through a vacuum, without the mediation of anything else, “is to me so great an absurdity that I believe no man who has in philosophical matters a competent faculty of thinking can ever fall into it” (letter to Bentley, 1693). The standard escape was to add machinery — a field to mediate the pull, then a particle (the graviton) to carry the field — each patch inheriting the void it was invented to fill. POAMS takes the other exit: <b>there is no pull to mediate.</b></p>
-
+<h2>D · From the Pair to the n-Centre Ledger</h2>
+<p><b>The mediation problem dissolves within the POAMS picture.</b> Two centres are organized circulations of one substance, not bodies sending a pull across empty space. Natural orbits and two-ended, immediate inter-resonance remain the governing interpretation. The observer's distance/time map is not a parcel in transit. Newton's <a href="https://newtonproject.ox.ac.uk/view/texts/normalized/THEM00258">1693 letter to Bentley</a> rejected innate attraction but left its agent open; that historical argument is not itself a derivation of POAMS.</p>
+<p><b>The remaining mathematics is real.</b> A pair's separation ellipse does not locate both partners until its barycentric partition is supplied. Tides, precession, resonance capture, and exchanges among further centres need their own booked terms. The historical argument and the one-substance interpretation do not substitute for those calculations.</p>
 <div class="card">
-<p style="margin-top:0"><b>The two-body problem is a scheinproblem</b> — a problem of the picture, not of nature. There are no two bodies (there are two organized circulations of the one substance) and no attracting (nothing crosses a gap). What remains is real, and it is <em>one thing</em>: a single coupled angular-momentum ledger with two centres, each riding the natural radius the joint books assign — Panel A's $r_0$, written for both partners about the common barycentre. Kepler's ellipses survive untouched, as <b>conservation identities of the one ledger</b>, not the choreography of mutual pulls.</p>
-<p>And the instantaneity that scandalized Newton is kept, not cured — relocated from force to bookkeeping. Nothing <em>travels</em> instantly, because nothing travels at all: in Normal Realism the elementary transfer is “an immediate (non-mediated), instantaneous and distance-less” quantum of action passed “by direct inter-resonance” between atoms, with “no sensibly describable 'in between'” (Osborne &amp; Pope, <em>Light-Speed, Gravitation and Quantum Instantaneity</em>, 2007). The coupling of two circulations is an <b>instantaneous harmonic inter-resonance</b> — the standing consistency of one system's books, with no gap to cross except on the observer's map. What is <em>not</em> schein: the exchange dynamics. Tides, resonance capture, precession are genuine transfers of winding between the two centres — the perihelion member of the $\pi:3\pi:6\pi$ anholonomy ladder lives exactly there.</p>
+<h3>The point-centre construction is no longer an open derivation</h3>
+<p>The <a href="https://github.com/cfmilam/nr-poams-engineering/blob/gh-pages/nbody/NCENTRE-CLOSURE-DERIVATION.md">ratified 2026-09-09 n-centre record</a> derives, on its explicit P1–P5 premises, the joint orbital chart:</p>
+<div class="eqbox">$$\mathscr L_N=\frac12\sum_i w_i|\dot{\mathbf q}_i|^2+
+\Gamma\sum_{i&lt;j}\frac{w_iw_j}{r_{ij}},\qquad w_i>0,\quad\sum_i w_i=1.$$</div>
+<p>The measured shares $w_i$ and scale $\Gamma$ give centre strengths $\gamma_i=\Gamma w_i$ and pair invariants $\mu_{ij}=\gamma_i+\gamma_j$. Reciprocal central pair kicks conserve $\sum_iw_i\dot{\mathbf q}_i$ and $\sum_iw_i\mathbf q_i\times\dot{\mathbf q}_i$, apart from arithmetic roundoff. That symmetry and update structure—not symplecticity alone—establish the discrete conservation result.</p>
+<p><b>Panel C implements only the isolated pair specialization.</b> The full point-centre derivation and the general resonance-channel algorithm are available in the linked record, but this page is not a multi-centre flight planner. Finite-size, oblateness, tides, intrinsic-spin and anholonomy corrections remain named additions; measurement calibration, initial conditions and validation bound any operational use.</p>
 </div>
-
-<p><b>Then the <em>n</em>-body scandal, read honestly.</b> For $n\ge 3$ there is no closed-form general solution, and the reason was proved, not conjectured: Bruns (1887) and Poincaré (1890s) showed the system's only algebraic/analytic integrals are the ten classical ones — energy, the three components of total momentum, the three of total angular momentum, and the centre-of-mass pair. For 140 years that theorem was read as defeat. Restate it in momenta and it inverts into the founding claim of this exhibit series: <b>the exactly conserved content of an $n$-body system is its momenta — nothing else.</b> The theorem does not say nature's books fail; it says the <em>continuum map's</em> demand — analytic trajectories, in closed form, for all time — was never going to be honoured, while the momentum ledger never once slips. Bruns' theorem is not the obituary of celestial mechanics; it is the inventory of what is real.</p>
-
-<div class="card keepdrop">
-<p style="margin-top:0"><b>Restating all such problems in momenta — what it delivers, and what it honestly cannot:</b></p>
-<ul>
-<li><span class="tag keep">DISSOLVED</span> <b>The mediation problem.</b> No force crosses a void at any $n$; there is one ledger with $n$ centres. Gravitons, fields <em>in vacuo</em> and action-at-a-distance paradoxes go with the pull they were invented to save.</li>
-<li><span class="tag keep">RESTATED</span> <b>Solvability itself.</b> The two-body case is “solvable” precisely because variables exist in which the momenta sit still — the classical action–angle variables, where the momenta are constants and the angles advance at fixed rates $\omega$. Solving <em>was always</em> finding the momentum description; POAMS says those variables are the ontology, not a computational trick.</li>
-<li><span class="tag keep">RESTATED</span> <b>Structure over trajectories.</b> For $n\ge3$ the working description is the <b>resonance network</b>: circulations couple where their rates lock in low-order harmonic ratios, and stay effectively separate where the ratios are incommensurate. The 4:2:1 lock of Io–Europa–Ganymede, Pluto protected inside Neptune's 3:2, the Kirkwood gaps swept clean at 3:1 and 5:2 — these are instantaneous harmonic inter-resonances at planetary scale, the same frequency-matched exchange that runs spectral lines at atomic scale. Modern dynamics already computes this way — KAM persistence for sufficiently irrational ratios, chaos where resonance channels overlap — without owning the ontology. POAMS' addition: the frequency-ratio description is not a technique but the territory — rates of angular change exchanging quanta of winding through matched channels.</li>
-<li><span class="tag keep">KEPT</span> <b>The operational engine scales.</b> Max's Lagrangian dissolved $G$ and $M$ into one measured invariant for one orbit; the same move generalizes — one measured circulation invariant $\mu_i$ per centre, no $G$, no masses anywhere, and the summed ledger propagated by exactly the discrete stepping Panel C already runs. A symplectic integrator <em>is</em> momentum bookkeeping: it conserves total momentum and angular momentum by construction, turn by turn — integrate, don't differentiate. What the continuum map dismisses as “merely numerical” is, on the discreteum reading, the honest form of the dynamics.</li>
-<li><span class="tag drop">OPEN</span> <b>The general POAMS <em>n</em>-body Lagrangian</b> — pairwise measured invariants plus explicit resonance-channel accounting, replacing patched two-body conics — is real, unfinished work: Max's line continued, not completed.</li>
-<li><span class="tag drop">STANDS</span> <b>Sensitive dependence.</b> In any variables, neighbouring ledgers diverge exponentially (solar-system Lyapunov time ≈ 5 Myr — Laskar), and the discreteum denies the fantasy of infinitely precise initial books. Dissolution removes the scandal, not the arithmetic: long-horizon <em>trajectories</em> degrade into statistics, while the momenta — the only things the theorems ever certified — stay exact forever.</li>
-</ul>
-<p class="note"><strong>Status (2026-08-10, same day):</strong> the open work below began landing within hours — the pair
-invariant flown against real skies with no $G$ and no masses (Pluto–Charon 0.01%; Jupiter 0.004%), the channel
-criterion derived with nothing fitted, and the Galilean lock shown to be irreducibly three-body in channel
-accounting. The program is now its own exhibit: <a href="./resonance-network.html">The Resonance Network</a>.</p>
-<p class="note">So the “intractable” two- and $n$-body problem splits three ways. The framing — bodies pulling across a void — dissolves. The solvable core was always the momentum ledger, and restating it there is not a workaround: it is what Bruns' theorem says reality conserves. What stands, sensitivity, is a fact about diverging maps, not a debt the territory owes. The problem was intractable as “solve the continuum in closed form”; it is tractable — and daily practiced — as “keep the momentum books and name the resonance channels.”</p>
+<h3>What the mathematical theorems do—and do not—say</h3>
+<p>Bruns' theorem restricts additional algebraic first integrals under its stated assumptions; Poincaré's nonintegrability results impose their own analytic and perturbative conditions. They are not a theorem that all conserved content is “momenta and nothing else,” nor a veto on every representation or special solution. The classical scalar inventory is <b>1 energy + 3 linear momentum + 3 angular momentum + 3 centre-of-mass integration constants = 10</b>. POAMS's one-substance identification is its governing premise, not a consequence of that count.</p>
+<p>Action–angle variables organize integrable cases. In suitable near-integrable systems, KAM persistence requires quantitative nonresonance, nondegeneracy and smallness hypotheses; irrational ratios alone are insufficient. Resonances may store a population or clear it, depending on the actual channel dynamics. Chaotic regions can exhibit exponential sensitivity; not every neighboring trajectory does. The often-quoted roughly five-million-year Lyapunov scale is a result for a specified numerical solar-system model, not a universal POAMS timescale.</p>
+<div class="card">
+<p style="margin-top:0"><b>Current network evidence:</b> the <a href="./resonance-network.html">Resonance Network</a> exposes the pair and connected-channel receipts. Its updated Galilean test has <b>three of four first-order angles librating</b>, alongside bounded three-centre closure. The real evidentiary object is the connected resonant domain, not a single “only open” scalar channel. The exact point-centre book, controlled channel approximations and finite observational records each keep their own scope.</p>
+<p class="note">Thus the framing changes without erasing the work: no mediator is required by POAMS; conditional pair dynamics compute; the all-centre orbital book is derived on named premises; and long-horizon accuracy still requires bounded approximations and adequate data.</p>
 </div>
 </section>
 
-<p class="note" style="text-align:center;margin-top:2rem">Distilled from <em>An Extrapolation of the Mathematics Related to An Angular Momentum Synthesis of 'Gravitational' and 'Electrostatic' Forces</em> — Max Franks (QMC Exhibit III, 2019). Operational recasting, POAMS reality‑checked.</p>
+<h2 id="sources">Sources and Calculation Scope</h2>
+<ol class="sources">
+<li><b>Max Franks and Anthony Osborne</b>, <em>An Extrapolation of the Mathematics Related to An Angular Momentum Synthesis of “Gravitational” and “Electrostatic” Forces</em>, supplied QMC Exhibit III manuscript: apsis algebra Eqs. 17–21, p. 7; spin proposal Eqs. 45–55, pp. 12–13; future work and rest-energy expressions, §7 p. 15; proposed Lagrangian, Appendix A Eq. 62, p. 17. These locators refer to the supplied 20-page version; it is not represented as a validated navigation implementation.</li>
+<li><a href="https://github.com/cfmilam/nr-poams-engineering/blob/gh-pages/nbody/NCENTRE-CLOSURE-DERIVATION.md">The n-Centre Closure Derivation</a>, ratified 2026-09-09: premises §1, radial law §3, all-centre chart and reciprocal stepping §4, controlled channel scope and updated Galilean evidence §5.</li>
+<li><b>N. V. Pope and A. D. Osborne</b>, <em>Light-Speed, Gravitation and Quantum Instantaneity</em> (2007): the immediate two-ended interpretation. See the source route in <a href="./the-receiver-keys-the-exchange.html">The Receiver Keys the Exchange</a>.</li>
+<li><a href="https://archive.ymsc.tsinghua.edu.cn/pacm_paperurl/20170108202943351490867">H. Bruns, “Über die Integrale des Vielkörper-Problems,”</a> <em>Acta Mathematica</em> 11 (1887), 25–96. <b>H. Poincaré</b>, <em>Les méthodes nouvelles de la mécanique céleste</em>, Vol. I (1892), ch. V, “Non-existence des intégrales uniformes”: restricted mathematical nonintegrability results, not ontology tests.</li>
+<li><a href="https://doi.org/10.1038/338237a0">J. Laskar, “A numerical experiment on the chaotic behaviour of the Solar System,”</a> <em>Nature</em> 338 (1989), 237–238: source of the quoted numerical Lyapunov scale.</li>
+</ol>
 </main>
 
 <script>
-function toggleTheme(){const h=document.documentElement;const l=h.getAttribute('data-theme')==='light';h.setAttribute('data-theme',l?'dark':'light');document.querySelector('.theme-toggle').textContent=l?'☀️':'🌙';drawOrbit();drawSpin();}
+
 const $=id=>document.getElementById(id);
+const TAU=2*Math.PI, ORBIT_TOL=1e-4, PLAY_SECONDS=10;
+let A=null, orbitRun=null, playback=0, running=false, anim=null, lastFrame=null;
 function gc(v){return getComputedStyle(document.documentElement).getPropertyValue(v).trim();}
-
-// ---------- Panel A ----------
-let A={};
+function toggleTheme(){
+  const light=document.documentElement.dataset.theme!=='light';
+  document.documentElement.dataset.theme=light?'light':'dark';
+  document.querySelector('.theme-toggle').textContent=light?'🌙':'☀️';
+  localStorage.setItem('navigation-engine-theme',light?'light':'dark');
+  drawAll();
+}
+function row(label,value){return '<div><span class="k">'+label+'</span><span class="v">'+value+'</span></div>';}
+function orbitalData(ra,va,rp){
+  if(![ra,va,rp].every(Number.isFinite)||ra<6.6e6||ra>60e6||rp<6.6e6||rp>60e6||va<1000||va>9000)
+    throw Error('Use finite inputs within the displayed ranges.');
+  if(ra<rp)throw Error('Apoapsis must be at least periapsis: rₐ ≥ rₚ. No orbit is displayed for reversed radii.');
+  const vp=ra*va/rp,v0=(va+vp)/2,r0=2*ra*rp/(ra+rp),a=(ra+rp)/2,b=Math.sqrt(ra*rp),h=ra*va,mu=h*v0;
+  return {ra,va,rp,vp,v0,r0,a,b,h,mu,beta:1/r0,e:(ra-rp)/(ra+rp),T:TAU*Math.sqrt(a*a*a/mu)};
+}
+function stopPlayback(){if(anim!==null)cancelAnimationFrame(anim);anim=null;running=false;lastFrame=null;}
 function computeA(){
-  const ra=+$('ra').value*1e6, va=+$('va').value*1e3, rp=+$('rp').value*1e6;
-  const vp=ra*va/rp;                     // AM conservation
-  const v0=0.5*(va+vp);                  // natural velocity
-  const r0=2*ra*rp/(ra+rp);             // natural radius (harmonic mean)
-  const a=0.5*(ra+rp), b=Math.sqrt(ra*rp), beta=a/(b*b);
-  const h=ra*va;                         // specific angular momentum
-  const mu=h*v0;                         // measured invariant (=GM)
-  A={ra,va,rp,vp,v0,r0,a,b,beta,h,mu};
-  $('ra_v').textContent=(+$('ra').value).toFixed(1);
-  $('va_v').textContent=(+$('va').value).toFixed(2);
-  $('rp_v').textContent=(+$('rp').value).toFixed(1);
-  $('outA').innerHTML=
-    `<div><span class="k">periapsis speed $v_p$</span><span class="v">${(vp/1e3).toFixed(2)} km/s</span></div>`+
-    `<div><span class="k">natural velocity $v_0$</span><span class="v">${(v0/1e3).toFixed(2)} km/s</span></div>`+
-    `<div><span class="k">natural radius $r_0$</span><span class="v">${(r0/1e6).toFixed(2)} ×10⁶ m</span></div>`+
-    `<div><span class="k">specific AM $h$</span><span class="v">${(h/1e9).toFixed(2)} ×10⁹</span></div>`+
-    `<div><span class="k">$\\beta=1/r_0$</span><span class="v">${(beta*1e6).toFixed(3)} ×10⁻⁶</span></div>`+
-    `<div><span class="k">invariant $\\mu=h v_0$</span><span class="v">${(mu/1e14).toFixed(3)} ×10¹⁴</span></div>`;
-  if(window.MathJax&&MathJax.typesetPromise)MathJax.typesetPromise([$('outA')]);
-  $('outC').innerHTML=`Propagating with the Panel A invariant &nbsp;<span class="v" style="color:var(--gold)">μ = ${(A.mu/1e14).toFixed(3)}×10¹⁴ m³s⁻²</span>, launched at apoapsis (r=${(ra/1e6).toFixed(1)}×10⁶ m, v=${(va/1e3).toFixed(2)} km/s).`;
-  drawOrbit();
+  stopPlayback();orbitRun=null;playback=0;$('quality').textContent='';$('progress').value=0;$('progress').disabled=true;$('progress_v').textContent='0%';
+  ['ra','rp'].forEach(id=>$(id+'_v').textContent=(+$(id).value).toFixed(1));$('va_v').textContent=(+$('va').value).toFixed(2);
+  try{A=orbitalData(+$('ra').value*1e6,+$('va').value*1e3,+$('rp').value*1e6);}
+  catch(e){A=null;$('outA').textContent=e.message;$('outC').textContent='Correct Panel A before propagating.';$('runBtn').disabled=true;drawAll();return;}
+  $('outA').innerHTML=row('periapsis speed vₚ',(A.vp/1e3).toFixed(3)+' km/s')+
+    row('natural velocity v₀',(A.v0/1e3).toFixed(3)+' km/s')+
+    row('natural radius r₀',(A.r0/1e6).toFixed(3)+' ×10⁶ m')+
+    row('specific AM h',(A.h/1e9).toFixed(4)+' ×10⁹ m²/s')+
+    row('β = 1/r₀',(A.beta*1e6).toFixed(5)+' ×10⁻⁶ m⁻¹')+
+    row('invariant μ = h v₀',(A.mu/1e14).toFixed(5)+' ×10¹⁴ m³/s²')+
+    row('eccentricity e',A.e.toFixed(5))+row('period T',(A.T/3600).toFixed(4)+' h');
+  $('outC').textContent='Ready: μ = '+A.mu.toExponential(6)+' m³/s²; one period = '+A.T.toFixed(3)+' s.';
+  $('runBtn').disabled=false;$('runBtn').textContent='▶ Compute and play one orbit';drawAll();
 }
-function drawOrbit(){
-  const c=$('orbitCanvas'),x=c.getContext('2d'),W=c.width,H=c.height;x.clearRect(0,0,W,H);
-  const a=A.a,b=A.b,cx=W/2,cy=H/2,pad=28;const sc=Math.min((W/2-pad)/a,(H/2-pad)/b);
-  const foc=Math.sqrt(Math.max(a*a-b*b,0));
-  // natural-radius circle
-  x.strokeStyle=gc('--dim');x.setLineDash([4,4]);x.beginPath();x.arc(cx+foc*sc,cy,A.r0*sc,0,7);x.stroke();x.setLineDash([]);
-  // ellipse (focus at center of attraction)
-  x.strokeStyle=gc('--gold');x.lineWidth=2;x.beginPath();x.ellipse(cx,cy,a*sc,b*sc,0,0,7);x.stroke();
-  // central body at focus
-  x.fillStyle=gc('--blue');x.beginPath();x.arc(cx+foc*sc,cy,5,0,7);x.fill();
-  // apo (left) / peri (right)
-  x.fillStyle=gc('--gold');
-  x.beginPath();x.arc(cx-a*sc,cy,4,0,7);x.fill();
-  x.beginPath();x.arc(cx+a*sc,cy,4,0,7);x.fill();
-  x.fillStyle=gc('--fg');x.font='11px Georgia';x.fillText('apo',cx-a*sc+2,cy-9);x.textAlign='right';x.fillText('peri',cx+a*sc-2,cy-9);x.textAlign='left';
-  x.fillStyle=gc('--dim');x.fillText('r₀',cx+foc*sc+4,cy+14);
+function spinData(k,degrees){
+  if(!Number.isFinite(k)||!Number.isFinite(degrees)||k<0||k>1||degrees<0||degrees>180)throw Error('Spin inputs outside range.');
+  // Equivalent to 1+k cos θ, but stable close to the opposed endpoint.
+  const factor=k===1&&degrees===180?0:Math.sqrt((1-k)+2*k*Math.cos(degrees*Math.PI/360)**2);
+  const sign=k===0||degrees===90?0:degrees<90?1:-1;
+  return {k,degrees,factor,change:(factor-1)*100,state:factor===0?'zero coupling (model endpoint)':sign===0?'baseline coupling':sign>0?'increased coupling':'reduced coupling'};
 }
-
-// ---------- Panel B ----------
 function computeB(){
-  const ks=+$('ks').value, th=+$('th').value*Math.PI/180;
-  const inside=1+ks*Math.cos(th);
-  const factor=inside>0?Math.sqrt(inside):0;
-  $('ks_v').textContent=ks.toFixed(2);$('th_v').textContent=Math.round(th*180/Math.PI);
-  const dW=(factor-1)*100;
-  const state=factor<0.02?'weightless (force‑free)':dW>0.5?'heavier (co‑sense)':dW<-0.5?'lighter (anti‑sense)':'≈ natural';
-  $('outB').innerHTML=
-    `<div><span class="k">force factor $\\sqrt{1+\\frac{K_s}{K_n}\\cos\\theta}$</span><span class="v">${factor.toFixed(3)}</span></div>`+
-    `<div><span class="k">weight change</span><span class="v" style="color:${dW>0?'var(--bad)':'var(--good)'}">${dW>0?'+':''}${dW.toFixed(1)}%</span></div>`+
-    `<div><span class="k">state</span><span class="v">${state}</span></div>`;
-  if(window.MathJax&&MathJax.typesetPromise)MathJax.typesetPromise([$('outB')]);
-  const g=$('wgauge');const pct=Math.max(2,Math.min(100,factor/1.5*100));
-  g.style.width=pct+'%';g.style.background=dW>0.5?'linear-gradient(90deg,#d4af37,#ff8585)':dW<-0.5?'linear-gradient(90deg,#5bc8f5,#66d996)':'linear-gradient(90deg,#5bc8f5,#d4af37)';
-  drawSpin(ks,th);
+  const s=spinData(+$('ks').value,+$('th').value);
+  $('ks_v').textContent=s.k.toFixed(2);$('th_v').textContent=s.degrees.toFixed(0);
+  $('outB').innerHTML=row('coupling ratio q',s.factor.toFixed(6))+row('relative coupling change',(s.change>0?'+':'')+s.change.toFixed(3)+'%')+row('model state',s.state);
+  $('wgauge').style.width=(s.factor/Math.SQRT2*100)+'%';
+  document.querySelector('.gauge').setAttribute('aria-valuenow',s.factor.toFixed(6));drawSpin();
 }
-function drawSpin(ks,th){
-  ks=ks??+$('ks').value; th=th??(+$('th').value*Math.PI/180);
-  const c=$('spinCanvas'),x=c.getContext('2d'),W=c.width,H=c.height,cx=W/2,cy=H/2;x.clearRect(0,0,W,H);
-  // orbital plane ring
-  x.strokeStyle=gc('--gold');x.lineWidth=2;x.beginPath();x.ellipse(cx,cy,110,42,0,0,7);x.stroke();
-  // orbital axis (up)
-  x.strokeStyle=gc('--blue');x.lineWidth=3;arrow(x,cx,cy,cx,cy-95);
-  x.fillStyle=gc('--blue');x.font='12px Georgia';x.textAlign='right';x.fillText('orbit L',cx-8,cy-88);x.textAlign='left';
-  // spin axis tilted by theta, length ~ sqrt(ks)
-  const len=60+60*Math.sqrt(ks);
-  const sx=cx+len*Math.sin(th), sy=cy-len*Math.cos(th);
-  x.strokeStyle=gc('--gold');x.lineWidth=3;arrow(x,cx,cy,sx,sy);
-  x.fillStyle=gc('--gold');x.fillText('spin (θ)',sx+6,sy-2);
-  x.fillStyle=gc('--dim');x.font='11px Georgia';x.fillText('body',cx-14,cy+58);
-  x.fillStyle=gc('--blue');x.beginPath();x.arc(cx,cy,7,0,7);x.fill();
+function surface(id){
+  const c=$(id),w=c.clientWidth;if(w<=0)return null;
+  const dpr=window.devicePixelRatio||1,n=Math.round(w*dpr);
+  if(c.width!==n||c.height!==n){c.width=n;c.height=n;}
+  const ctx=c.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,w);
+  return {ctx,w};
 }
-function arrow(x,x1,y1,x2,y2){x.beginPath();x.moveTo(x1,y1);x.lineTo(x2,y2);x.stroke();const a=Math.atan2(y2-y1,x2-x1);x.beginPath();x.moveTo(x2,y2);x.lineTo(x2-9*Math.cos(a-0.4),y2-9*Math.sin(a-0.4));x.lineTo(x2-9*Math.cos(a+0.4),y2-9*Math.sin(a+0.4));x.closePath();x.fill?x.fill():0;x.stroke();}
-
-// ---------- Panel C : propagate ----------
-let anim=null;
-function propagate(){
-  if(anim)cancelAnimationFrame(anim);
-  const c=$('propCanvas'),x=c.getContext('2d'),W=c.width,H=c.height;
-  const mu=A.mu; let px=-A.ra, py=0, vx=0, vy=A.va;   // launch at apoapsis (left), velocity up
-  const a=A.a,b=A.b,foc=Math.sqrt(Math.max(a*a-b*b,0));
-  const pad=28,sc=Math.min((W/2-pad)/a,(H/2-pad)/b),cx=W/2-foc*sc,cy=H/2; // focus centered
-  const dt=6, steps=4; const pts=[];
-  x.clearRect(0,0,W,H);
-  function acc(rx,ry){const r=Math.hypot(rx,ry);const f=-mu/(r*r*r);return [f*rx,f*ry];}
-  let n=0,maxN=2600;
-  function step(){
-    for(let s=0;s<steps;s++){
-      let [ax,ay]=acc(px,py);
-      vx+=ax*dt/2; vy+=ay*dt/2; px+=vx*dt; py+=vy*dt;
-      let [ax2,ay2]=acc(px,py); vx+=ax2*dt/2; vy+=ay2*dt/2; n++;
-      pts.push([cx+px*sc,cy+py*sc]);
-    }
-    x.clearRect(0,0,W,H);
-    // reference ellipse (faint)
-    x.strokeStyle=gc('--border');x.lineWidth=1;x.beginPath();x.ellipse(W/2,cy,a*sc,b*sc,0,0,7);x.stroke();
-    x.fillStyle=gc('--blue');x.beginPath();x.arc(cx,cy,5,0,7);x.fill(); // central body at focus
-    x.strokeStyle=gc('--gold');x.lineWidth=2;x.beginPath();pts.forEach((p,i)=>i?x.lineTo(p[0],p[1]):x.moveTo(p[0],p[1]));x.stroke();
-    const last=pts[pts.length-1];x.fillStyle=gc('--good');x.beginPath();x.arc(last[0],last[1],4,0,7);x.fill();
-    if(n<maxN)anim=requestAnimationFrame(step);
+function projection(a,w){
+  const scale=(w/2-24)/a.a,focus=w/2+a.e*a.a*scale;
+  return {scale,focus,cy:w/2,point:(x,y)=>[focus+x*scale,w/2-y*scale]};
+}
+function reference(ctx,w,a){
+  const p=projection(a,w);ctx.strokeStyle=gc('--border');ctx.lineWidth=1.4;ctx.beginPath();ctx.ellipse(w/2,w/2,a.a*p.scale,a.b*p.scale,0,0,TAU);ctx.stroke();
+  ctx.fillStyle=gc('--blue');ctx.beginPath();ctx.arc(p.focus,p.cy,4,0,TAU);ctx.fill();return p;
+}
+function emptyCanvas(ctx,w,message){ctx.fillStyle=gc('--dim');ctx.font='12px Georgia';ctx.textAlign='center';ctx.fillText(message,w/2,w/2);ctx.textAlign='left';}
+function drawOrbit(){
+  const s=surface('orbitCanvas');if(!s)return;const {ctx,w}=s;
+  if(!A){emptyCanvas(ctx,w,'Awaiting valid orbit inputs');return;}
+  const p=reference(ctx,w,A);ctx.strokeStyle=gc('--gold');ctx.lineWidth=2;ctx.beginPath();ctx.ellipse(w/2,w/2,A.a*p.scale,A.b*p.scale,0,0,TAU);ctx.stroke();
+  ctx.strokeStyle=gc('--dim');ctx.setLineDash([4,4]);ctx.beginPath();ctx.moveTo(p.focus,p.cy);ctx.lineTo(p.focus,p.cy+A.r0*p.scale);ctx.stroke();ctx.setLineDash([]);
+  ctx.fillStyle=gc('--fg');ctx.font='11px Georgia';ctx.fillText(A.e===0?'circle':'apo',24,w/2-10);ctx.textAlign='right';ctx.fillText(A.e===0?'':'peri',w-24,w/2-10);ctx.textAlign='left';
+  ctx.fillText('r₀',Math.min(w-22,p.focus+6),p.cy+Math.min(20,A.r0*p.scale));
+}
+function arrow(ctx,x1,y1,x2,y2,color){
+  ctx.strokeStyle=color;ctx.fillStyle=color;ctx.lineWidth=2.5;
+  ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();const a=Math.atan2(y2-y1,x2-x1);
+  ctx.beginPath();ctx.moveTo(x2,y2);ctx.lineTo(x2-8*Math.cos(a-.4),y2-8*Math.sin(a-.4));ctx.lineTo(x2-8*Math.cos(a+.4),y2-8*Math.sin(a+.4));ctx.closePath();ctx.fill();
+}
+function drawSpin(){
+  const s=surface('spinCanvas');if(!s)return;const {ctx,w}=s,c=w/2,rad=.28*w,k=+$('ks').value,th=+$('th').value*Math.PI/180;
+  ctx.strokeStyle=gc('--gold');ctx.beginPath();ctx.ellipse(c,c,.32*w,.12*w,0,0,TAU);ctx.stroke();
+  arrow(ctx,c,c,c,c-rad,gc('--blue'));
+  if(k>0)arrow(ctx,c,c,c+rad*Math.sin(th),c-rad*Math.cos(th),gc('--gold'));
+  ctx.fillStyle=gc('--blue');ctx.beginPath();ctx.arc(c,c,5,0,TAU);ctx.fill();
+  ctx.font='12px Georgia';ctx.textAlign='center';ctx.fillText('Orbital axis ↑',c,20);ctx.fillStyle=gc('--gold');ctx.fillText(k>0?'Spin axis: θ = '+$('th').value+'°':'No intrinsic-spin contribution',c,w-22);ctx.textAlign='left';
+}
+// Dimensionless integration: distance/a, time/sqrt(a³/μ). No ellipse points enter the update.
+function integrateOrbit(e,n){
+  let x=-(1+e),y=0,vx=0,vy=Math.sqrt((1-e)/(1+e));
+  const dt=TAU/n,h0=x*vy,points=[[x,y]],states=[[x,y,vx,vy]];
+  let energyError=0,angularError=0;
+  for(let i=0;i<n;i++){
+    let r=Math.hypot(x,y),f=-1/(r*r*r);vx+=f*x*dt/2;vy+=f*y*dt/2;x+=vx*dt;y+=vy*dt;
+    r=Math.hypot(x,y);f=-1/(r*r*r);vx+=f*x*dt/2;vy+=f*y*dt/2;
+    energyError=Math.max(energyError,Math.abs((vx*vx+vy*vy)/2-1/r+.5)/.5);
+    angularError=Math.max(angularError,Math.abs((x*vy-y*vx)/h0-1));
+    points.push([x,y]);states.push([x,y,vx,vy]);
   }
-  step();
+  return {n,points,states,energyError,angularError,closure:Math.hypot(x+1+e,y)};
 }
-
+function validatedOrbit(a){
+  let coarse=integrateOrbit(a.e,512);
+  for(let n=1024;n<=65536;n*=2){
+    const fine=integrateOrbit(a.e,n);let delta=0;
+    for(let i=0;i<coarse.points.length;i++)delta=Math.max(delta,Math.hypot(fine.points[2*i][0]-coarse.points[i][0],fine.points[2*i][1]-coarse.points[i][1]));
+    fine.delta=delta;
+    if([delta,fine.closure,fine.energyError].every(v=>Number.isFinite(v)&&v<=ORBIT_TOL)&&fine.angularError<=1e-10)return {...fine,a:{...a}};
+    coarse=fine;
+  }
+  throw Error('Numerical checks did not pass at the step limit. No computed orbit released.');
+}
+function drawPropagation(){
+  const s=surface('propCanvas');if(!s)return;const {ctx,w}=s;
+  if(!A){emptyCanvas(ctx,w,'Awaiting valid orbit inputs');return;}
+  const a=orbitRun?orbitRun.a:A,p=reference(ctx,w,a);
+  if(!orbitRun){const v=p.point(-a.ra,0);ctx.fillStyle=gc('--good');ctx.beginPath();ctx.arc(v[0],v[1],4,0,TAU);ctx.fill();return;}
+  const count=Math.min(orbitRun.n,Math.floor(playback*orbitRun.n));
+  ctx.strokeStyle=gc('--gold');ctx.lineWidth=2;ctx.beginPath();
+  for(let i=0;i<=count;i++){const v=p.point(orbitRun.points[i][0]*a.a,orbitRun.points[i][1]*a.a);if(i===0)ctx.moveTo(...v);else ctx.lineTo(...v);}ctx.stroke();
+  const v=p.point(orbitRun.points[count][0]*a.a,orbitRun.points[count][1]*a.a);ctx.fillStyle=gc('--good');ctx.beginPath();ctx.arc(v[0],v[1],4,0,TAU);ctx.fill();
+}
+function drawAll(){drawOrbit();drawSpin();drawPropagation();}
+function showPlayback(){
+  $('progress').value=Math.round(playback*1000);$('progress_v').textContent=(100*playback).toFixed(1)+'%';
+  if(orbitRun)$('outC').textContent=(running?'Playing':playback===1?'One period complete':'Paused')+': t = '+(playback*orbitRun.a.T).toFixed(3)+' / '+orbitRun.a.T.toFixed(3)+' s. μ = '+orbitRun.a.mu.toExponential(6)+' m³/s².';
+  $('runBtn').textContent=running?'❚❚ Pause':orbitRun?(playback===1?'↻ Replay one orbit':'▶ Resume'):'▶ Compute and play one orbit';drawPropagation();
+}
+function advancePlayback(seconds){
+  if(!orbitRun)return;
+  playback=Math.min(1,playback+Math.max(0,seconds)/PLAY_SECONDS);
+  if(playback>=1)stopPlayback();showPlayback();
+}
+function frame(stamp){
+  anim=null;if(!running)return;
+  if(lastFrame!==null)advancePlayback((stamp-lastFrame)/1000);
+  lastFrame=running?stamp:null;
+  if(running)anim=requestAnimationFrame(frame);
+}
+function propagate(){
+  if(!A)return;if(running){stopPlayback();showPlayback();return;}
+  if(!orbitRun){
+    try{orbitRun=validatedOrbit(A);}
+    catch(e){$('outC').textContent=e.message;return;}
+    $('quality').innerHTML=row('fixed steps / period',String(orbitRun.n))+row('coarse/fine distance ÷ a',orbitRun.delta.toExponential(3))+row('closure distance ÷ a',orbitRun.closure.toExponential(3))+row('max relative ε error',orbitRun.energyError.toExponential(3))+row('max relative h error',orbitRun.angularError.toExponential(3));
+    $('progress').disabled=false;
+  }
+  if(playback>=1)playback=0;running=true;lastFrame=null;showPlayback();anim=requestAnimationFrame(frame);
+}
 ['ra','va','rp'].forEach(id=>$(id).addEventListener('input',computeA));
 ['ks','th'].forEach(id=>$(id).addEventListener('input',computeB));
 $('runBtn').addEventListener('click',propagate);
+$('progress').addEventListener('input',()=>{stopPlayback();playback=+$('progress').value/1000;showPlayback();});
+const savedTheme=localStorage.getItem('navigation-engine-theme');if(savedTheme==='light'){document.documentElement.dataset.theme='light';document.querySelector('.theme-toggle').textContent='🌙';}
+window.addEventListener('resize',drawAll);
+if(window.ResizeObserver){const observer=new ResizeObserver(drawAll);['orbitCanvas','spinCanvas','propCanvas'].forEach(id=>observer.observe($(id)));}
 computeA();computeB();
+
 </script>
 
 <footer style="max-width:900px;margin:36px auto 24px;padding:14px 16px 0;border-top:1px solid rgba(212,175,55,.35);text-align:center;font-size:12.5px;line-height:1.7;opacity:.82;">
