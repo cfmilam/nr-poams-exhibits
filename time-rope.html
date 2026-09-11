@@ -89,6 +89,11 @@
       padding: 14px 18px; margin-top: 1.4em; font-size: 14.5px;
     }
     .grounding h3 { color: var(--gold); margin: 0 0 6px; font-size: 1em; }
+    .audit-note {
+      background: var(--panel2); border: 1px solid var(--line); border-radius: 10px;
+      padding: 12px 16px; margin: 1rem 0; font-size: 14px; color: var(--muted);
+    }
+    .audit-note strong { color: var(--ink); }
     blockquote {
       border-left: 3px solid var(--gold-dim); margin: 1em 0; padding: 4px 18px;
       color: var(--muted); font-style: italic;
@@ -197,13 +202,14 @@
     <p class="subtitle">Space in the light — Pope&rsquo;s Figs.&nbsp;1&ndash;2 from <em>Einstein&rsquo;s Lost Legacy</em>, Ch.&nbsp;7, made live</p>
     <p class="intro-text">
       The observer&rsquo;s frame is <strong>polar</strong>: azimuth, elevation, range &mdash; and time, which is
-      <em>range divided by c</em>. Nothing travels. Every datum arrives as a quantum registration &mdash; one unit
-      of <em>h</em> &mdash; and <em>c</em> is the rate at which the whole spherical frame
+      <em>range divided by c</em>. Nothing travels. Every datum is posted only when a two-ended quantum
+      transaction completes &mdash; one full-turn action <em>h</em> &mdash; and <em>c</em> is the rate at which the whole spherical frame
       <em>contracts temporally</em> toward its pole, where the radial strands (the world-lines of objects) are,
       in Pope&rsquo;s words, <em>&ldquo;so to speak, woven into a rope.&rdquo;</em>
       The upper region below is the observer&rsquo;s frame seen in plan (elevation suppressed);
       the lower region is the rope: the observer&rsquo;s banked history, one coloured strand per object,
-      one bead per quantum registration.
+      one bead per completed quantum registration. Dashed full-frame contours are countdown coordinates,
+      not material fronts or transactions in flight.
     </p>
   </div>
 
@@ -221,18 +227,22 @@
       <button id="unitBtn" title="c converts the same radial dimension between metres and seconds">seconds</button>
     </label>
     <div class="sep"></div>
-    <button id="unweaveBtn" title="Try to reverse the weave">↺ try to unweave</button>
+    <button id="unweaveBtn" title="Audit the declared append-only update rule">↺ audit inverse rule</button>
   </div>
   <div class="readout">
     <span>observer now&nbsp; T = <b id="rT">0.0</b> s</span>
-    <span>B&rsquo;s own beads per strand-length&nbsp; (γ = <b id="rGamma">1.00</b>)</span>
+    <span>B bead-spacing multiplier&nbsp; γ = <b id="rGamma">1.00</b></span>
+    <span>B normalized bead density&nbsp; 1/γ = <b id="rDensity">1.00</b></span>
+    <span>pending endpoint relations&nbsp; <b id="rPending">0</b></span>
     <span id="rNote">drag any object to move it in the frame</span>
   </div>
   <p class="hint">
-    Each object emits registrations in its <em>own</em> time; the frame delivers them radially at one
-    light-second of range per second of observer time. Watch strand <b style="color:#6fc276">B</b> when you give
-    it speed: its beads arrive <em>spaced further apart along the rope</em> &mdash; time dilation, read directly
-    off the lay of a strand. The rope below the pole never rewinds.
+    Each object opens a candidate registration on a tick of its <em>own</em> clock. The display schedules the
+    endpoint completion at <em>T</em><sub>complete</sub> = <em>T</em><sub>tick</sub> + <em>r/c</em>; before that instant,
+    the dashed link and contracting contour are observer-side bookkeeping only. No bead occupies the gap.
+    The page imports <em>d&tau;/dT</em> = 1/γ and visualizes its consequence: strand
+    <b style="color:#6fc276">B</b>&rsquo;s completed beads become γ times farther apart and 1/γ as dense.
+    The rope does not independently derive γ. Its completed ledger never rewinds under the declared update rule.
   </p>
 
   <h2>What &ldquo;light is everything&rdquo; commits us to</h2>
@@ -240,17 +250,19 @@
     <div class="card">
       <h3>1 · Everything known is light</h3>
       Every datum any observer has about any object &mdash; position, mass, motion, existence &mdash; arrives as
-      quantum transactions in integer units of <em>h</em>. There is no second channel. Rulers and clocks are
+      completed quantum transactions in integer full-turn units of <em>h</em>. There is no second channel. Rulers and clocks are
       organized ways of receiving these transactions. The world an observer <em>possesses</em> is, without
       remainder, projected out of light.
     </div>
     <div class="card">
       <h3>2 · Everything that exists is light in one of two states</h3>
-      The <em>transaction</em>: the photum &mdash; one quantum of action passing between two atoms,
-      proper-time instantaneous, no traveller. And the <em>bank</em>: the atom, a quantum accumulator &mdash;
+      The <em>transaction</em>: the photum &mdash; one completed quantum-action relation between two atoms,
+      proper-time instantaneous, no traveller or intermediate payload. And the <em>bank</em>: the atom, a quantum accumulator &mdash;
       in Pope&rsquo;s words <em>&ldquo;an embodiment, or static form of light-energy.&rdquo;</em>
-      The Balmer&ndash;Rydberg derivation makes it literal: <em>m*</em> = <em>hR/c</em> = 2.425&times;10<sup>&minus;35</sup>&nbsp;kg
-      is the exchange currency &mdash; the most an atom can shed or absorb per interaction.
+      The Balmer&ndash;Rydberg derivation makes it literal: <em>m</em><sub>R</sub> = <em>hR</em><sub>H</sub>/<em>c</em>
+      = 2.4241&times;10<sup>&minus;35</sup>&nbsp;kg is Pope&rsquo;s measured hydrogen Rydberg spectral-scale mass.
+      It supplies a normalization for that ledger;
+      the equality alone does not establish a universal maximum exchange per atomic interaction.
       Matter is banked light; light is matter transacting.
     </div>
     <div class="card">
@@ -264,7 +276,9 @@
 
   <h2>The inexorability of time</h2>
   <p>
-    Press <em>&ldquo;try to unweave&rdquo;</em> above. It refuses &mdash; and that refusal is the physics.
+    Press <em>&ldquo;audit inverse rule&rdquo;</em> above. It reports what this model actually establishes:
+    its completed-registration count is append-only, so the implemented update has no inverse branch.
+    A disabled inverse is not itself a derivation of physical irreversibility.
     Each strand of the rope is the history of some object as viewed by the observer at the
     <em>interactive now</em> of the frame (the pole). What is woven cannot be unwoven:
   </p>
@@ -275,18 +289,32 @@
     <br>&mdash; <em>Einstein&rsquo;s Lost Legacy</em>, Ch.&nbsp;7 §7.2
   </blockquote>
   <p>
-    Irreversibility here is built into the geometry of observation itself &mdash; no thermodynamic postulate,
-    no statistical arrow bolted on afterwards. History is <em>banked</em>, strand by strand, registration by
-    registration; the free ends out in the frame are the only part still in play.
+    Pope proposes that irreversibility is built into the geometry of observation itself &mdash; no thermodynamic
+    postulate or statistical arrow added afterwards. This interactive implements that proposal as the declared
+    ledger rule <em>C</em><sub>k+1</sub> = <em>C</em><sub>k</sub> + &Delta;<em>C</em><sub>k</sub>,
+    &Delta;<em>C</em><sub>k</sub> &ge; 0, where <em>C</em> counts completed co-signed registrations.
+    It illustrates the consequence; it does not prove that no physical inverse exists. A stronger result would
+    require a POAMS invariant showing that any proposed inverse creates an unmatched debit or credit.
   </p>
+
+  <div class="audit-note">
+    <strong>What the main figure computes.</strong> Source ticks are generated in each object&rsquo;s clock using the
+    imported operational relation <em>d&tau;/dT</em> = 1/γ. A tick at recorded range <em>r</em> is posted at the pole
+    after the observer interval <em>r/c</em>. Before completion the page draws only a fixed endpoint relation and a
+    contracting full-frame countdown contour. At completion both endpoints flash and one bead is appended to the
+    rope. The figure therefore tests its own timing and bookkeeping; it does not depict a payload crossing space.
+  </div>
 
   <h2>“Light is everything, ultimately everything is Time”</h2>
   <p>
     The two slogans of this corpus are one statement. The second clause &mdash;
     <strong>ultimately everything is Time</strong> &mdash; is the one substance
-    from <em>inside</em>: the substance is its own angular change, rotational time, accumulated in
-    whole &hbar; turns (&Delta;<em>S</em> = &hbar;&Delta;<em>n</em>). Its smooth form <em>L</em> = <em>dS/d&theta;</em>
-    is only the macro-scale ramp we draw through that integer staircase &mdash; not a continuum underneath it.
+    from <em>inside</em>: the substance is its own angular change, rotational time. Keep the normalization explicit:
+    <em>L</em> = <em>dS/d&theta;</em>; for a unit winding with <em>L</em> = &hbar;, integration through one full
+    2&pi; cycle gives &oint;<em>L&nbsp;d&theta;</em> = 2&pi;&hbar; = <em>h</em>. If <em>n</em> counts completed full windings,
+    the action ledger is &Delta;<em>S</em> = <em>h</em>&Delta;<em>n</em>. Thus &hbar; is the reduced action/angular-momentum
+    scale per radian, while <em>h</em> is the action of one completed full turn; they are not two prices for the same turn.
+    The smooth derivative is only the macro-scale ramp drawn through that integer staircase &mdash; not a continuum underneath it.
     The first clause &mdash; <strong>light is everything</strong> &mdash; is the same substance at its
     <em>interface</em>: how circulations register and transact between closures &mdash; a closed winding
     (&oint;<em>d&phi;</em> = 2&pi;<em>n</em>) is an atom; a re-closure between two standing modes is a photum.
@@ -301,8 +329,9 @@
 
   <div class="grounding">
     <h3>Why this passes the touchstone</h3>
-    <em>h</em> is itself an angular-momentum unit (action per cycle; &#8463; = <em>h</em>/2&pi;), so every photum
-    is a one-unit ledger transaction of the one substance. The slogan cashes out with nothing left over:
+    Action and angular momentum share dimensions but play distinct ledger roles. A unit winding carries
+    <em>L</em> = &hbar; and accumulates one full-turn action <em>h</em> around 2&pi;; every photum is booked here as
+    one completed full-turn transaction of that one substance. The slogan cashes out with nothing left over:
     <strong>light = the ledger&rsquo;s transactions; matter = the ledger&rsquo;s balances; space = the relational
     structure of the ledger; time = the rate of writing.</strong> No photon-in-flight, no field, no void &mdash;
     no new entity smuggled in.
@@ -355,7 +384,8 @@
   window.addEventListener('resize', fit);
 
   /* ---------- model ---------- */
-  // ranges in light-seconds; 1 s of observer time moves a registration 1 light-s inward.
+  // Ranges are in light-seconds. Candidate source ticks are scheduled for
+  // endpoint completion after r/c; no transaction object occupies the gap.
   var SCALE = 26;            // px per light-second in the frame
   var BEAD_EVERY = 1.35;     // proper seconds per registration
   var ROPE_PX_PER_S = 13;    // rope growth: px of lay per observer second
@@ -369,8 +399,9 @@
   objs.forEach(function (o, i) {
     o.tau = 0;              // proper time
     o.nextBead = BEAD_EVERY * (0.35 + 0.18 * i); // stagger starts
-    o.transit = [];         // beads travelling inward: {rEmit, thEmit, tEmit}
+    o.pending = [];         // endpoint relations: {rEmit, thEmit, tTick, tComplete}
     o.arrived = [];         // observer-times of arrival at the pole
+    o.flashes = [];         // recent two-ended completion flashes
     o.phase = i * Math.PI / 2;
   });
 
@@ -401,19 +432,26 @@
       // proper time runs slow by 1/gamma
       var gamma = 1 / Math.sqrt(1 - o.v * o.v);
       o.tau += dt / gamma;
-      // emit registrations on the object's own ticks
+      // Open candidate endpoint relations on the object's own ticks.
       while (o.tau >= o.nextBead) {
+        var overshootTau = o.tau - o.nextBead;
+        var observerLag = overshootTau * gamma;
+        var tTick = T - observerLag;
+        var thTick = o.th - (o.v > 0 ? (o.v / o.r) * observerLag : 0);
         o.nextBead += BEAD_EVERY;
-        o.transit.push({ rEmit: o.r, thEmit: o.th, tEmit: T });
+        o.pending.push({ rEmit: o.r, thEmit: thTick, tTick: tTick, tComplete: tTick + o.r });
       }
-      // radial delivery at c: 1 light-s of range per observer second
-      for (var i = o.transit.length - 1; i >= 0; i--) {
-        var b = o.transit[i];
-        if (b.rEmit - (T - b.tEmit) <= 0) {
-          o.arrived.push(T);
-          o.transit.splice(i, 1);
+      // Post only completed two-ended relations. Nothing is advanced through
+      // intermediate radii; tComplete is an observer-side scheduling record.
+      for (var i = o.pending.length - 1; i >= 0; i--) {
+        var b = o.pending[i];
+        if (T >= b.tComplete) {
+          o.arrived.push(b.tComplete);
+          o.flashes.push({ rEmit: b.rEmit, thEmit: b.thEmit, tComplete: b.tComplete });
+          o.pending.splice(i, 1);
         }
       }
+      o.flashes = o.flashes.filter(function (f) { return T - f.tComplete < 0.75; });
       if (o.arrived.length > 420) { o.arrived.splice(0, o.arrived.length - 420); }
     });
   }
@@ -458,7 +496,7 @@
     ctx.fillStyle = P.muted;
     ctx.font = 'italic 12px -apple-system, sans-serif';
     ctx.fillText('the observer\u2019s polar frame \u2014 range \u00f7 c = time', 14, 20);
-    ctx.fillText('registrations are delivered radially at c (the frame\u2019s temporal contraction)', 14, 36);
+    ctx.fillText('full-frame countdown contours contract; no payload occupies the gap', 14, 36);
 
     /* --- strands: object -> pole (guide lines) --- */
     objs.forEach(function (o) {
@@ -471,16 +509,44 @@
       ctx.stroke();
     });
 
-    /* --- beads in transit --- */
+    /* --- pending completion contours (whole-frame bookkeeping, not travellers) --- */
     objs.forEach(function (o) {
-      o.transit.forEach(function (b) {
-        var r = b.rEmit - (T - b.tEmit);
-        if (r < 0) r = 0;
-        var p = frameXY(b.thEmit, r, g);
-        ctx.fillStyle = o.color;
+      o.pending.forEach(function (b) {
+        var remaining = Math.max(0, b.tComplete - T);
+        var opacity = 0.12 + 0.16 * (1 - remaining / Math.max(0.001, b.rEmit));
+        ctx.save();
+        ctx.globalAlpha = opacity;
+        ctx.strokeStyle = o.color;
+        ctx.lineWidth = 1;
+        ctx.setLineDash([4, 5]);
         ctx.beginPath();
-        ctx.arc(p[0], p[1], 3, 0, Math.PI * 2);
-        ctx.fill();
+        ctx.ellipse(g.cx, g.cy, remaining * SCALE, remaining * SCALE * 0.72, 0, 0, Math.PI * 2);
+        ctx.stroke();
+        var endpoint = frameXY(b.thEmit, b.rEmit, g);
+        ctx.setLineDash([]);
+        ctx.beginPath();
+        ctx.arc(endpoint[0], endpoint[1], 3.5, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.restore();
+      });
+    });
+
+    /* --- completed relations flash at both endpoints --- */
+    objs.forEach(function (o) {
+      o.flashes.forEach(function (f) {
+        var age = T - f.tComplete;
+        var alpha = Math.max(0, 1 - age / 0.75);
+        var endpoint = frameXY(f.thEmit, f.rEmit, g);
+        ctx.save();
+        ctx.globalAlpha = alpha;
+        ctx.strokeStyle = o.color;
+        ctx.lineWidth = 2;
+        [endpoint, [g.cx, g.cy]].forEach(function (p) {
+          ctx.beginPath();
+          ctx.arc(p[0], p[1], 7 + age * 15, 0, Math.PI * 2);
+          ctx.stroke();
+        });
+        ctx.restore();
       });
     });
 
@@ -570,6 +636,8 @@
     document.getElementById('rT').textContent = T.toFixed(1);
     var gB = 1 / Math.sqrt(1 - objs[1].v * objs[1].v);
     document.getElementById('rGamma').textContent = gB.toFixed(2);
+    document.getElementById('rDensity').textContent = (1 / gB).toFixed(2);
+    document.getElementById('rPending').textContent = objs.reduce(function (n, o) { return n + o.pending.length; }, 0);
   }
 
   /* ---------- loop ---------- */
@@ -603,7 +671,8 @@
   });
   document.getElementById('unweaveBtn').addEventListener('click', function () {
     unweaving = 0.9;
-    toast('Woven is woven — nothing unhappens. “Whatever has happened cannot be caused to unhappen.” (Ch. 7)');
+    var completed = objs.reduce(function (n, o) { return n + o.arrived.length; }, 0);
+    toast('Ledger audit: C = ' + completed + '; this model defines ΔC ≥ 0 and supplies no inverse. Illustration of the premise — not proof of physical irreversibility.');
   });
 
   var toastTimer = null;
