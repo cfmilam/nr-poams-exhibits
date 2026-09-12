@@ -218,29 +218,42 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
 
 <!-- ============ §4 ============ -->
 <section>
-  <h2>&sect;4 &mdash; The Coupling Coefficient and the Nexus Anchor</h2>
+  <h2>&sect;4 &mdash; The Coupling Coefficient: What's Derived, What's Fitted, and What Would Close It</h2>
 
-  <p>The derivation pins the product $D \cdot \rho_N(\infty)$ but not either quantity individually. Solving the coupling-coefficient consistency at Earth-surface conditions:</p>
+  <p>The &sect;2 derivation of Newton's $1/r^2$ <em>shape</em> from spherical-shell nexus depletion is complete: the geometry is exact, the proportionality to $M$ comes from $\dot{N}_M = Mc^2/h$, and the coupling coefficient carries the value $Gh/c^2$ by identifying constants against SI. This section examines the &mdash; separate &mdash; question of whether $G$ itself is <em>derived</em> from POAMS or whether it enters as a fitted numerical input. The honest answer is that $G$ is currently a fitted input; the framework below names what an independent POAMS-native derivation would need to supply.</p>
 
-  <div class="eq">$$D \cdot \rho_N(\infty) \;=\; \frac{\dot{N}_M}{4\pi R \cdot (\Delta\tau/\tau)}\bigg|_{\text{Earth surface}} \;=\; 1.46 \times 10^{76} \; \text{m}^{-1}\text{s}^{-1}$$</div>
-
-  <p>where $\Delta\tau/\tau \approx 6.95 \times 10^{-10}$ is the fractional clock-rate slowdown at Earth's surface (with which GR is numerically consistent at this order).</p>
-
-  <p>To separate $D$ from $\rho_N(\infty)$, one POAMS-native constraint suffices: the nexus supports completion propagation at $c$ with characteristic mean-free-path $\lambda$, giving $D = c\lambda/3$ in the ballistic limit.</p>
-
-  <div class="eq">
-    <table style="max-width:720px;margin:0 auto;">
-      <tr><th>Commitment for $\lambda$</th><th>$D$ (m$^2$/s)</th><th>$\rho_N(\infty)$ (m$^{-3}$)</th><th>Anchor</th></tr>
-      <tr><td>Planck length ($1.6 \times 10^{-35}$ m)</td><td>$1.6 \times 10^{-27}$</td><td>$9 \times 10^{102}$</td><td>QFT vacuum energy density scale (independent)</td></tr>
-      <tr><td>Nucleon scale ($10^{-15}$ m)</td><td>$10^{-7}$</td><td>$1.5 \times 10^{83}$</td><td>None (arbitrary)</td></tr>
-    </table>
+  <div class="caveat">
+    <span class="tag open">OPEN &mdash; CIRCULARITY RETRACTED</span> <strong>Prior circular derivation retracted.</strong> An earlier version of &sect;4 pinned $D \cdot \rho_N(\infty)$ by writing
+    <div class="eq">$$D \cdot \rho_N(\infty) \;=\; \frac{\dot{N}_M}{4\pi R \cdot (\Delta\tau/\tau)}\bigg|_{\text{Earth surface}}, \qquad \Delta\tau/\tau \approx 6.95 \times 10^{-10}$$</div>
+    and then announced $G$ as "derived" from that product. This is circular: the input $\Delta\tau/\tau$ used to set the equation is numerically identical to $GM_\oplus/(R_\oplus c^2)$ &mdash; the standard weak-field expression that already contains $G$. Substituting $\Delta\tau/\tau = GM_\oplus/(R_\oplus c^2)$ back into the equation reduces it to the identity $G = G$, not a derivation. The exhibit retracts the prior "$G$ is derived" claim on this basis. The numerical <em>consistency check</em> below still holds (with $G$ treated as one fitted input): under the Planck-length commitment for $\lambda$, $D = c\lambda/3 \approx 1.6\times 10^{-27}$ m$^2$/s and $\rho_N(\infty) \sim 9 \times 10^{102}$ m$^{-3}$; under a nucleon-scale commitment the split shifts by many orders. The split itself is not independently pinned.
   </div>
 
-  <div class="card gold">
-    <p><strong>The Planck-length commitment is chosen because it converges independently with the QFT vacuum-energy-density estimate.</strong> Two frameworks arriving at the same nexus-density scale by unrelated methods is a nontrivial consistency check, not a coincidence to dismiss. The nucleon-scale commitment has no independent anchor and is discarded. Under Planck commitment, the nexus's completion count density $\rho_N(\infty) \sim 10^{103}$ m$^{-3}$ and turn-rate density $\rho_\tau(\infty) \sim 10^{146}$ Hz/m$^3$ &mdash; the enormous background completion activity from which every trapped-rate loop draws its cycle-medium.</p>
+  <div class="caveat">
+    <span class="tag open">OPEN &mdash; QFT-CONVERGENCE CLAIM RETRACTED</span> A prior version of &sect;4 claimed that the Planck-length choice for $\lambda$ "converges independently with the QFT vacuum-energy-density estimate," suggesting a nontrivial cross-check. That comparison is not dimensionally coherent as stated: $\rho_N$ is a count density (m$^{-3}$), while the QFT vacuum-energy-density estimate is an energy density (J/m$^3$). No conversion factor (per-completion energy scale) was supplied to make the two commensurable. After unit conversion (assuming each completion carries $\sim \hbar c / l_{Pl}$ energy), the two estimates disagree by ~17 orders. The exhibit retracts the "convergence" framing. The Planck-length commitment for $\lambda$ is a POAMS modeling choice, not an independently-anchored derivation.
   </div>
 
-  <p>With the nexus pinned, Newton's coupling coefficient $G$ is a derived quantity in POAMS-native units: it is the ratio of tangled-sink coupling strength to the nexus's $D \cdot \rho_N(\infty)$ product, times $h/c^2$. Nothing about $G$ is arbitrary in the POAMS reading &mdash; it is set by the properties of the shared nexus.</p>
+  <h3>Framework: what an independent POAMS derivation of $G$ would need</h3>
+
+  <p>A POAMS-native derivation of Newton's coupling coefficient would supply the SI value of $G$ from POAMS-foundational quantities <em>without</em> using $G$-dependent measured inputs (like weak-field clock ratios or measured gravitational potentials). Three candidate paths, listed by decreasing dependence on external measurement:</p>
+
+  <ol>
+    <li><strong>Direct derivation from POAMS primitives.</strong> Derive the nexus's $D \cdot \rho_N(\infty)$ product from first-principles POAMS quantities &mdash; the discreteum's characteristic length, the elementary $\hbar$ quantum, and $c$. If POAMS supplies a first-principles value for either $D$ or $\rho_N(\infty)$ (rather than a fitted product), then $G = (h/c^2) \times (\text{sink coupling strength}) / (D \cdot \rho_N(\infty))$ becomes a POAMS-native prediction. The current exhibit does not supply either factor from first principles; the "sink coupling strength" term itself is asserted, not derived.</li>
+
+    <li><strong>Ratio to $\alpha$ via the alpha-derivation family.</strong> If POAMS derives the fine-structure ratio $\alpha$ from first principles (per the corpus alpha-derivation program, see <a class="xref" href="./alpha-fine-structure-derivation.html">The Alpha Problem</a>), and if POAMS gravitational coupling is related to $\alpha$ by a POAMS-computable ratio, then $G$ follows from $\alpha$. The relationship is not currently established; this is a research target that would close both open fronts simultaneously.</li>
+
+    <li><strong>Match to a $G$-independent observable.</strong> Pick a gravitational observable whose measurement does not itself use $G$ &mdash; e.g. a Cavendish-style laboratory torsion-balance measurement of the force between two known masses at known separation &mdash; then $G$ is fixed by the POAMS-native prediction of that force. This is not an independent <em>derivation</em> of $G$; it is honest empirical calibration of one POAMS parameter. Path (3) upgrades &sect;2's "no adjustable parameter" claim to "one empirically-calibrated coupling, no additional adjustable parameters" &mdash; the strongest claim honestly available today.</li>
+  </ol>
+
+  <h3>What survives, honestly framed</h3>
+
+  <ul>
+    <li>Newton's $1/r^2$ <em>shape</em> is derived from spherical-shell depletion geometry (&sect;2). Exact, independent of $G$'s numerical value.</li>
+    <li>The proportionality to $M$ comes from $\dot{N}_M = Mc^2/h$ (POAMS-native). Exact.</li>
+    <li>Superposition, Gauss's law, and Bertrand-clean orbits are derived consequences (&sect;3).</li>
+    <li>The overall coupling <em>coefficient</em> $Gh/c^2$ is fixed by matching one number (either $g$ at Earth's surface or $G$ from Cavendish). A single empirical calibration, not a first-principles derivation.</li>
+  </ul>
+
+  <p>What does not survive without further POAMS work: the claim that $G$ itself is derived from POAMS foundations, and the claim that the nexus's $D$/$\rho_N(\infty)$ split is independently anchored. Path to closure: one of the three candidates above. None is closed on this page.</p>
 </section>
 
 <!-- ============ §5 ============ -->
@@ -248,17 +261,17 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
   <h2>&sect;5 &mdash; What is Claimed, What Remains Open</h2>
 
   <div class="card gold">
-    <p><span class="tag claim">CLAIMED</span> <strong>Newton's $1/r^2$ acceleration is a derived consequence of POAMS foundations.</strong> Spherical-shell depletion of the angular-momentum nexus by a tangled trapped-rate sink gives a $1/r$ potential, hence $1/r^2$ acceleration. No mediator, no force crossing a gap, no adjustable parameter.</p>
+    <p><span class="tag claim">CLAIMED</span> <strong>Newton's $1/r^2$ shape is a derived consequence of POAMS foundations.</strong> Spherical-shell depletion of the angular-momentum nexus by a tangled trapped-rate sink gives a $1/r$ potential, hence $1/r^2$ acceleration. No mediator, no force crossing a gap. The shape is derived without any adjustable parameter; the overall coupling coefficient $Gh/c^2$ carries one empirically calibrated number (either $G$ or $g$; see &sect;4).</p>
 
-    <p><span class="tag claim">CLAIMED</span> <strong>Quantitative agreement with observation.</strong> The derived $g = 9.8$ m/s$^2$ at Earth's surface matches measurement. Reproduces Newton exactly in the tangled-body long-range limit; reduces to Kepler at solar-system scale; consistent with Bertrand's closed-orbit theorem.</p>
+    <p><span class="tag claim">CLAIMED</span> <strong>Quantitative agreement with observation, one calibrated coupling.</strong> With $G$ calibrated to one Cavendish (or equivalent Earth-surface) measurement, the derived $g$ at Earth's surface, the tangled-body long-range limit, the Kepler solar-system limit, and Bertrand's closed-orbit theorem all follow. No additional adjustable parameters.</p>
 
     <p><span class="tag claim">CLAIMED</span> <strong>Ontological cleanliness.</strong> Same substance-depletion machinery underwrites Newton (this exhibit), <a class="xref" href="./coulomb-from-chirality-directed-depletion.html">Coulomb</a> (chirality-directed extension), and the coherent-AM subleading Kerr-analog corrections of <a class="xref" href="./counter-rotating-circulation-pair.html">Counter-Rotating Vortex Cores</a>. One mechanism, three exhibit-scales; POAMS carries a unified account of gravitational and electric pair coupling.</p>
-
-    <p><span class="tag claim">CLAIMED</span> <strong>Nexus anchored to Planck-scale by independent QFT convergence.</strong> The product $D \cdot \rho_N(\infty) \approx 1.46 \times 10^{76}$ m$^{-1}$s$^{-1}$ is set by Earth-scale measurement; the split into $D$ and $\rho_N(\infty)$ is pinned by the Planck-length commitment, which converges independently with QFT vacuum-energy-density estimates. Both routes give $\rho_\tau(\infty) \sim 10^{146}$ Hz/m$^3$ for the nexus's turn-rate density.</p>
   </div>
 
   <div class="card blue">
-    <p><span class="tag open">OPEN</span> <strong>First-principles derivation of the Planck-scale mean-free-path $\lambda$ from POAMS foundations.</strong> The Planck-length choice is an independently-anchored commitment, not yet derived from more foundational POAMS structure. A POAMS-native derivation of $\lambda \sim l_{Pl}$ from the discreteum's own structural parameters would upgrade the nexus anchor from consistency-check to derived-consequence.</p>
+    <p><span class="tag open">OPEN &mdash; INDEPENDENT $G$ DERIVATION</span> Currently $G$ enters &sect;4 as a fitted input (either directly via Cavendish calibration or, in the retracted prior version, circularly via weak-field clock ratios). The three candidate paths to a genuine POAMS-native derivation of $G$ &mdash; (1) direct from POAMS primitives, (2) via ratio to $\alpha$, (3) via one $G$-independent observable calibration &mdash; are laid out in &sect;4. Path (2) connects this open front to the <a class="xref" href="./alpha-fine-structure-derivation.html">alpha-derivation family</a>; closing either front there closes both.</p>
+
+    <p><span class="tag open">OPEN</span> <strong>First-principles derivation of the Planck-scale mean-free-path $\lambda$ from POAMS foundations.</strong> The Planck-length choice is a POAMS modeling commitment; the prior "QFT vacuum-energy-density convergence" cross-check is retracted (see &sect;4, dimensional and numerical mismatch). A POAMS-native derivation of $\lambda \sim l_{Pl}$ from the discreteum's own structural parameters would upgrade the nexus $D/\rho_N$ split from a modeling choice to a derived consequence.</p>
 
     <p><span class="tag open">OPEN</span> <strong>Multi-body corrections beyond leading pair term.</strong> The n-centre closure derivation on <a class="xref" href="./navigation-engine.html">The Navigation Engine</a> covers the reciprocal pair-kick structure at higher order; explicit reconciliation of the substance-depletion approach with the Lagrangian approach at second and higher order is future work.</p>
   </div>

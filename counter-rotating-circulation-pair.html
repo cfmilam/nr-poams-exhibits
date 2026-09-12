@@ -380,6 +380,42 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
     <p><strong>What &sect;5 establishes.</strong> A frame-independent, orientation-selectable, POAMS-native pair-invariant coupling between a body's intrinsic pumped $\vec{L}_{coh}$ and its own natural-orbit $\vec{L}_{orb}^{nat}$. The qualitative sign structure follows from the &sect;2 coefficient and the Varying G phenomenology; the closed-form magnitude at current pumping levels sits ~30 orders below torsion-balance sensitivity absent an amplifier. Engineering embodiments (counter-wound superconducting coil pair oriented anti-parallel to $\vec{L}_{orb}^{nat}$ at the device's latitude; alternative embodiments in any medium supporting macroscopic coherent-AM) are matters of apparatus design; their observability rests on the open amplification question above, not on additional theoretical commitment.</p>
   </div>
 
+  <h3 id="sec-5b">&sect;5B &mdash; Framework proposal: discrete center-of-mass reorganization events</h3>
+
+  <p>The continuous scaling above puts $\Delta g/g$ ~30 orders below torsion-balance sensitivity for laboratory-achievable pumped-AM. This subsection sketches a POAMS-native <em>alternative</em> observability path via discrete center-of-mass reorganization events &mdash; analogous to &sect;4's discrete C&#259;lug&#259;reanu integer-crossing regime, applied at the whole-body scale rather than to internal-spin dynamics. This is a <strong>research framework</strong>, not a CLAIMED result; the three derivation gaps at the end name exactly what has to close before the framework can be tested empirically.</p>
+
+  <div class="card">
+    <p><strong>Framework.</strong> As pumped $L_{coh}$ is driven at frequency $\omega_{\text{drive}}$, the body's whole coherent-AM state passes through discrete topological thresholds &mdash; fluxon reorganizations in a superconductor, vortex-line reconnections in a superfluid, or the analogous discrete topological transition in the pumping medium. At each threshold crossing, an $N_{local}$-amplified discrete event occurs (per &sect;4's mechanism, now transferred from internal-spin to whole-body scope), releasing energy</p>
+    <div class="eq">$$E_{\text{event}} \;\sim\; N_{local} \cdot \hbar\omega_{\text{drive}}.$$</div>
+    <p>The observable is a <em>time-varying</em> force at the event rate, not a steady weight offset. Under directional recoil (event energy released as coherent momentum in a preferred direction rather than isotropic heat), the time-averaged force is</p>
+    <div class="eq">$$F_{\text{recoil}} \;\sim\; R_{\text{event}} \cdot f \cdot \frac{E_{\text{event}}}{c}, \qquad R_{\text{event}} \;=\; \omega_{\text{drive}} \cdot n_{\text{threshold}},$$</div>
+    <p>where $R_{\text{event}}$ is the event rate (pumping frequency times per-cycle threshold-crossing density $n_{\text{threshold}}$) and $f \in [0,1]$ is the fraction of event energy released as directional momentum.</p>
+  </div>
+
+  <p><strong>Numerical estimate under specific assumptions.</strong> For a driven superconducting apparatus with $\omega_{\text{drive}} = 10^{10}$ Hz, $N_{local} = 10^{20}$ (fluxon-scale collective mode, per &sect;4), and $E_{\text{event}} = N_{local}\,\hbar\omega_{\text{drive}} \sim 10^{-4}$ J per event:</p>
+
+  <table>
+    <tr><th>Event rate $R_{\text{event}}$</th><th>Directional fraction $f$</th><th>Predicted $F_{\text{recoil}}$</th><th>vs. torsion sensitivity ($\sim 10^{-8}$ N)</th></tr>
+    <tr><td>$10^{3}$ Hz (moderate)</td><td>$0.5$</td><td>$\sim 1.7\times 10^{-13}$ N</td><td>~5 orders below</td></tr>
+    <tr><td>$10^{6}$ Hz (high)</td><td>$0.5$</td><td>$\sim 1.7\times 10^{-10}$ N</td><td>~2 orders below</td></tr>
+    <tr><td>$10^{9}$ Hz (extreme)</td><td>$0.5$</td><td>$\sim 1.7\times 10^{-7}$ N</td><td>~1 order <em>above</em></td></tr>
+  </table>
+
+  <p>Unlike the continuous scaling, the discrete framework has parameter regimes where the signal reaches or exceeds torsion sensitivity. The predicted signal is a <em>time-varying force at the event rate</em>, distinguishable from a steady weight offset by frequency-domain filtering, and distinguishable from thermal noise by phase-locking to $\omega_{\text{drive}} \cdot n_{\text{threshold}}$.</p>
+
+  <div class="caveat">
+    <span class="tag open">OPEN &mdash; RESEARCH FRAMEWORK (three derivation gaps)</span>
+    <ol>
+      <li><strong>Threshold trigger.</strong> A POAMS-native derivation of <em>when</em> whole-body C&#259;lug&#259;reanu reorganizations trigger &mdash; at each fluxon reconnection, at fluxon-count integer crossings, at some other topological threshold. The C&#259;lug&#259;reanu invariant that governs whole-body reorganization has to be identified from the body's total coherent-AM state, not just by analogy to internal-spin dynamics. &sect;4's non-perturbative-regime OPEN is the natural home for this derivation.</li>
+      <li><strong>$N_{local}$ scaling law at whole-body scale.</strong> &sect;4 uses $N_{local} \sim 10^6$&ndash;$10^{20}$ for internal reorganizations. Whether the same $N_{local}$ applies at whole-body scale &mdash; or whether coherent participation across the body gives a different (possibly larger, possibly saturating) scaling &mdash; is not established. The event-energy estimates above assume the &sect;4 $N_{local}$; the derivation gap is whether that transfer is legitimate.</li>
+      <li><strong>Directional-fraction $f$ from POAMS.</strong> The recoil-conversion fraction $f$ is treated here as a phenomenological parameter. A first-principles derivation would fix $f$ from the geometry of the coherent-domain reorganization and the medium's radiation-coupling structure. Values $f \ll 1$ (mostly isotropic heat) push the whole framework back below sensitivity; values $f \sim 1$ deliver the observable regime tabulated above.</li>
+    </ol>
+  </div>
+
+  <div class="card blue">
+    <p><strong>What the framework changes about &sect;5's overall status.</strong> The continuous scaling remains as derived and remains ~30 orders below sensitivity &mdash; unchanged. The discrete framework, <em>if</em> the three gaps close, provides an <em>alternative</em> observability path with a distinct predicted signature: discrete force impulses at the pumping-rate frequency rather than a steady weight offset. Experimental test would be pumping-rate-locked force detection on a driven superconducting apparatus. Framework upgrade to CLAIMED requires closing the three gaps above; until then, this section names the research target, not the delivery.</p>
+  </div>
+
   <h2>&sect;6 &mdash; What is Claimed, What Remains Open</h2>
 
   <div class="card gold">
