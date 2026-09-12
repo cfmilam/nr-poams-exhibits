@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POAMS: Coulomb from Chirality-Directed Depletion</title>
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['\\(','\\)'], ['$','$']], displayMath: [['\\[','\\]'], ['$$','$$']] },
+    svg: { fontCache: 'global' }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+:root{
+  --bg:#0d0d18; --card:#1c1c30; --text:#e8e8f0; --muted:#9a9ab0;
+  --gold:#d4af37; --blue:#5bc8f5; --green:#66bb6a; --red:#ef5350; --edge:#2c2c46;
+}
+[data-theme="light"], body.light{
+  --bg:#faf8f2; --card:#ffffff; --text:#26211a; --muted:#6b6355;
+  --gold:#8b6914; --blue:#176e94; --green:#2e7d32; --red:#b03030; --edge:#d9d2bf;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  line-height:1.65; transition:background .3s,color .3s;
+  padding-top:72px !important;
+}
+header{padding:26px 22px 18px; border-bottom:1px solid var(--edge); text-align:center;}
+header h1{margin:0; font-size:26px; color:var(--gold); font-weight:650; line-height:1.3;}
+header .sub{margin:8px auto 0; font-size:14px; color:var(--muted); max-width:820px;}
+main{max-width:900px; margin:0 auto; padding:10px 20px 60px;}
+section{margin-top:38px;}
+h2{
+  font-size:19px; color:var(--gold); font-weight:650;
+  margin:0 0 14px; border-bottom:1px solid var(--edge); padding-bottom:8px;
+}
+h3{font-size:15px; color:var(--blue); font-weight:650; margin:22px 0 8px;}
+p{margin:12px 0; font-size:14.5px;}
+em{color:var(--gold); font-style:normal; font-weight:600;}
+b, strong{color:var(--blue); font-weight:650;}
+ul, ol{margin:10px 0; padding-left:22px;}
+li{margin:7px 0; font-size:14.5px;}
+.card{background:var(--card); border:1px solid var(--edge); border-radius:10px; padding:16px 20px; margin:18px 0;}
+.card.gold{border-color:rgba(212,175,55,.45); background:rgba(212,175,55,.06);}
+.card.blue{border-color:rgba(91,200,245,.35); background:rgba(91,200,245,.05);}
+.card.red{border-color:rgba(239,83,80,.4); background:rgba(239,83,80,.05);}
+.card.compare{border-color:rgba(154,154,176,.35); background:rgba(154,154,176,.04);}
+.eq{margin:16px 0; text-align:center; font-size:15px;}
+.caveat{font-size:13px; color:var(--muted); font-style:italic; margin:8px 0;}
+.tag{display:inline-block; font-size:11px; letter-spacing:.06em; padding:1px 8px; border-radius:10px; margin-right:6px; vertical-align:middle;}
+.tag.draft{background:rgba(239,83,80,.15); color:var(--red);}
+.tag.open{background:rgba(91,200,245,.15); color:var(--blue);}
+.tag.claim{background:rgba(102,187,106,.15); color:var(--green);}
+.tag.assume{background:rgba(212,175,55,.15); color:var(--gold);}
+.tag.compare{background:rgba(154,154,176,.15); color:var(--muted);}
+.draft-banner{
+  max-width:820px; margin:16px auto 4px; padding:12px 16px;
+  border:1px solid rgba(239,83,80,.5); border-left:3px solid var(--red);
+  border-radius:8px; background:rgba(239,83,80,.06);
+  font-size:13.5px; text-align:left;
+}
+table{width:100%; border-collapse:collapse; font-size:13.5px; margin:10px 0;}
+th, td{padding:8px 10px; text-align:left; border-bottom:1px solid var(--edge); vertical-align:top;}
+th{color:var(--gold); font-weight:650;}
+td.c{text-align:center;}
+footer{
+  border-top:1px solid var(--edge); margin-top:50px; padding:18px 22px;
+  text-align:center; font-size:12.5px; color:var(--muted);
+}
+footer a{color:var(--blue); text-decoration:none;}
+footer a:hover{text-decoration:underline;}
+a.xref{color:var(--blue); text-decoration:none; border-bottom:1px dotted var(--blue);}
+a.xref:hover{border-bottom-style:solid;}
+.theme-toggle{
+  position:fixed; top:54px; right:12px; z-index:1000;
+  background:var(--gold); color:var(--bg); border:none;
+  width:40px; height:40px; border-radius:8px; padding:0; cursor:pointer;
+  font-size:1.15rem; display:flex; align-items:center; justify-content:center;
+}
+[data-theme="light"] .theme-toggle, body.light .theme-toggle{background:#8b6914; color:#faf8f2;}
+#poams-hub-nav{
+  position:fixed; top:0; left:0; right:0; z-index:9999; height:44px;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 1rem; background:rgba(13,13,24,0.92);
+  backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(212,175,55,0.25);
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  font-size:13px; box-sizing:border-box;
+}
+#poams-hub-nav a{
+  color:#d4af37; text-decoration:none; display:inline-flex; align-items:center;
+  gap:5px; padding:5px 10px; border-radius:6px; transition:background .2s;
+  white-space:nowrap; font-weight:500;
+}
+#poams-hub-nav a:hover{background:rgba(212,175,55,0.12);}
+#poams-hub-nav .phn-center{display:flex; flex-direction:column; align-items:center; line-height:1.2;}
+#poams-hub-nav .phn-title{font-weight:600; color:#e8e8f0; font-size:12px;}
+#poams-hub-nav .phn-pos{font-size:10px; color:rgba(212,175,55,0.6); letter-spacing:.05em;}
+[data-theme="light"] #poams-hub-nav, body.light #poams-hub-nav{background:rgba(250,248,242,0.95); border-bottom-color:rgba(139,105,20,0.25);}
+[data-theme="light"] #poams-hub-nav a, body.light #poams-hub-nav a{color:#8b6914;}
+body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
+[data-theme="light"] #poams-hub-nav .phn-title, body.light #poams-hub-nav .phn-title{color:#2a2318;}
+@media (max-width:640px){.phn-hide-sm{display:none;}}
+</style>
+</head>
+<body>
+
+<div id="poams-hub-nav">
+  <a href="./navigation-engine.html" title="The Navigation Engine">← <span class="phn-hide-sm">The Navigation Engine</span></a>
+  <div class="phn-center">
+    <a href="./index.html" style="flex-direction:column;gap:2px;padding:4px 12px;">
+      <span class="phn-title">Return to Hub</span>
+      <span class="phn-pos">NR · POAMS · EXHIBIT SERIES</span>
+    </a>
+  </div>
+  <a href="./alpha-fine-structure-derivation.html" title="The Alpha Problem"><span class="phn-hide-sm">The Alpha Problem</span> →</a>
+</div>
+
+<button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle light/dark theme">🌙</button>
+
+<header>
+  <h1>Coulomb from Chirality-Directed Depletion</h1>
+  <p class="nr-provenance" style="font-size:0.8em;font-style:italic;opacity:0.72;line-height:1.5;margin:0.5em 0 1em;text-align:center">This exhibit is an extrapolation of the foundational work of N. Vivian &ldquo;Viv&rdquo; Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
+  <div class="sub">Deriving the Structural Form of the Electric Pair Potential from POAMS Foundations</div>
+  <div class="draft-banner">
+    <span class="tag draft">DRAFT</span>
+    <strong>Pending review and publication authorization.</strong> Derives Coulomb's $1/r$ potential and its sign-sensitivity to charge product from the same POAMS substrate-depletion mechanism that gives Newton's $1/r$ potential from mass. Extends the ledger from tangled trapped-rate to chirality-directed depletion. Structural form is claimed; the numerical scale (and thereby the fine-structure ratio $\alpha$) requires derivation of one specific ratio which remains open, unified with the alpha-derivation family.
+  </div>
+</header>
+
+<main>
+
+<!-- ============ §1 ============ -->
+<section>
+  <h2>&sect;1 &mdash; Grounding: What POAMS Already Holds</h2>
+
+  <p>Every claim in this exhibit rests on commitments already ratified in the POAMS foundation. Nothing here re-derives them; the reader is pointed at the exhibits that carry the load.</p>
+
+  <p><strong>One substance: angular momentum.</strong> The one stuff is circulation, and everything perceived as world is that circulation reading itself &mdash; the <em>angular-momentum nexus</em> (per <a class="xref" href="./index.html">GROUNDING</a> &sect;1). There is no aether, no background container in which the nexus sits; the nexus is the reality.</p>
+
+  <p><strong>Discreteum, integer turns.</strong> Angular momentum comes in whole $\hbar$ closures ($Lk = \pm 1$ for elementary closures, integer for composites).</p>
+
+  <p><strong>Newton's law from substance-depletion.</strong> The Counter-Rotating exhibit's preamble (per its &sect;1 grounding) and the ratified n-centre closure derivation in <a class="xref" href="./navigation-engine.html">The Navigation Engine</a> establish that Newton's inverse-square law emerges from a trapped-rate sink depleting the local availability of completion routing in the surrounding nexus. For a mass $M$ with trapped-rate sink $\dot{N}_M = Mc^2/h$:</p>
+
+  <div class="eq">$$\rho_N(r) = \rho_N(\infty) - \frac{\dot{N}_M}{4\pi D r}, \qquad g(r) = \frac{GM}{r^2}$$</div>
+
+  <p>where $D$ is the nexus's completion-propagation coefficient and $\rho_N(\infty)$ is its far-field completion count density.</p>
+
+  <p><strong>Charge is the sign of intrinsic spin.</strong> Per <a class="xref" href="./index.html">GROUNDING</a> &sect;3: charge is not a substance, it is the phase-sense of a closure ($\oint d\phi = \pm 2\pi n$). Coulombs cash out as the kinetic energy of spin in joules. Elementary charge in POAMS terms is the elementary closure's chirality sign: $s \in \{+1, -1\}$.</p>
+
+  <div class="card blue">
+    <p style="margin:0"><strong>What is new in this exhibit.</strong> The Navigation Engine's derivation handles tangled trapped-rate sinks (mass). It does not yet handle chirality-directed sinks (charge). This exhibit extends the substrate-depletion mechanism from mass to charge, and derives Coulomb's $1/r$ potential form together with its sign-sensitivity to chirality product. What emerges naturally: the same mechanism, applied to a different kind of sink, produces the same $1/r$ structure with a chirality-signed coefficient &mdash; Coulomb from POAMS foundations, structurally.</p>
+  </div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section>
+  <h2>&sect;2 &mdash; The Derivation</h2>
+
+  <p>An elementary closure carrying spin-sign $s$ has a chirality-directed contribution to the nexus that is distinct from its tangled trapped-rate contribution. Where the tangled contribution depletes ambient completions isotropically (no preferred direction, since the underlying $Lk = \pm 1$ orientations of its constituent loops average to zero), the chirality-directed contribution depletes with a sign carried by $s$.</p>
+
+  <h3>Chirality-directed sink</h3>
+
+  <p>For an elementary closure with chirality $s$, define a chirality-directed sink rate $\dot{N}_Q$ &mdash; the rate at which chirality-directed completions leave the closure, carrying its phase-sense signature into the surrounding nexus. Unlike $\dot{N}_M$ (magnitude, sign-agnostic), $\dot{N}_Q$ has a sign attached (the closure's chirality).</p>
+
+  <p>By the same spherical-shell geometry that yields Newton's $1/r$ &mdash; the completion-count depletion at radius $r$ from a spherically-symmetric sink is set by the sink rate divided by the flux passage area $4\pi r^2$, integrated over the propagation coefficient &mdash; the depletion pattern from a chirality-directed sink is:</p>
+
+  <div class="eq">$$\Delta\rho_N^{(Q)}(r) \;=\; -\frac{s \cdot \dot{N}_Q}{4\pi D r}$$</div>
+
+  <p>The sign of the depletion is carried by $s$. A positive-chirality closure depletes chirality-directed availability radially outward with one sign; a negative-chirality closure depletes with the opposite sign.</p>
+
+  <h3>Two-closure coupling</h3>
+
+  <p>A second elementary closure with chirality $s_2$ sitting at radius $r$ from the first source experiences the depletion pattern above. Its own completions preferentially route where the depletion-availability matches its chirality &mdash; that is, its route-preference direction depends on the product $s_1 \cdot s_2$:</p>
+
+  <ul>
+    <li>$s_1 \cdot s_2 = +1$ (like chiralities): the depletion pattern from source 1 is unfavourable to source 2's completions in the shared direction; source 2's natural-orbit shifts outward &mdash; the two closures' natural configuration has them further apart (extant label: <span class="fant">&ldquo;repulsion&rdquo;</span>).</li>
+    <li>$s_1 \cdot s_2 = -1$ (opposite chiralities): the depletion pattern from source 1 is favourable to source 2's completions in the shared direction; source 2's natural-orbit shifts inward &mdash; the two closures' natural configuration has them closer together (extant label: <span class="fant">&ldquo;attraction&rdquo;</span>).</li>
+  </ul>
+
+  <h3>Coulomb's potential form</h3>
+
+  <p>Working the coupling to the same order as the Newton derivation, the potential energy of the two-closure pair is:</p>
+
+  <div class="eq">$$\boxed{\;V_{Coulomb}(r) \;=\; \frac{k_Q \cdot s_1 s_2 \cdot \dot{N}_{Q,1} \dot{N}_{Q,2}}{r}\;}$$</div>
+
+  <p>where $k_Q$ is a coefficient with dimensions such that $V$ has units of energy. Substituting $s_1 s_2 = \pm 1$ and the empirical identification $\dot{N}_{Q,i} \propto |q_i|$ (charge magnitude), this reproduces the empirical Coulomb form:</p>
+
+  <div class="eq">$$V_{Coulomb}(r) \;=\; \frac{1}{4\pi\epsilon_0} \cdot \frac{q_1 q_2}{r}$$</div>
+
+  <p>with sign carried by the product of the individual charge signs.</p>
+
+  <div class="card gold">
+    <p><strong>Coulomb's law form emerges from POAMS substance-depletion by the same mechanism that produces Newton's law &mdash; with chirality-directed depletion in place of tangled depletion.</strong> The $1/r$ potential is the geometry of spherically-symmetric depletion in the nexus, and it is what mass and charge share. The sign-sensitivity is what distinguishes charge from mass: chirality-directed depletion carries the closure's phase-sense outward, so the pair-coupling reads their chirality product. Like charges route away from each other; unlike charges route toward each other. Newton's law is the sign-agnostic case; Coulomb's law is the sign-sensitive one; both are the same substrate-depletion physics.</p>
+  </div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section>
+  <h2>&sect;3 &mdash; Cross-checks Against Known Behaviour</h2>
+
+  <h3>Reproduces the sign of Coulomb's phenomenology across every pair</h3>
+  <p>Two positive elementary charges: $s_1 s_2 = +1$ &rarr; natural configuration further apart (classical: &ldquo;repel&rdquo;). Two negative: $s_1 s_2 = +1$ &rarr; further apart. One positive, one negative: $s_1 s_2 = -1$ &rarr; natural configuration closer (classical: &ldquo;attract&rdquo;). Matches classical Coulomb behaviour across every pair without exception.</p>
+
+  <h3>Reproduces the $1/r^2$ force law from the derived $1/r$ potential</h3>
+  <p>$F = -\nabla V = k_Q \cdot s_1 s_2 \cdot \dot{N}_{Q,1} \dot{N}_{Q,2} / r^2$. Inverse-square force falls out of the derived potential, as expected. Same $1/r^2$ shape as Newton; same origin (spherical-shell depletion geometry).</p>
+
+  <h3>Two-endedness, not signal propagation</h3>
+  <p>The pair coupling is a proper-time exchange between two closures reading each other's contribution to the nexus (per <a class="xref" href="./the-receiver-keys-the-exchange.html">The Receiver Keys the Exchange</a>). There is no photon, no field carrier, no signal, no container across which anything propagates &mdash; each closure keeps its own book, and the observer's apparent $r/c$ delay under specific measurement configurations is optical projection of the two-endedness onto their space-projection, not something travelling. The depletion pattern is a bookkeeping fact readable from either endpoint's own local ledger.</p>
+
+  <h3>Superposition</h3>
+  <p>For an assembly of many charged closures, each contributes its own chirality-directed depletion to the shared nexus. The pattern experienced by a test closure at some point is the sum of individual contributions (since depletion is additive for small perturbations of $\rho_N$). This reproduces the superposition principle of electrostatics without additional POAMS commitment.</p>
+</section>
+
+<!-- ============ §4 ============ -->
+<section>
+  <h2>&sect;4 &mdash; The Scale Gap: What Would Give $\alpha$</h2>
+
+  <p>The structural derivation above delivers Coulomb's $1/r$ potential form. The coupling coefficient $k_Q \cdot \dot{N}_Q^2 / (4\pi D \rho_N(\infty))$ &mdash; extant $1/(4\pi\epsilon_0)$ &mdash; is not yet fixed in POAMS-native units. Fixing it requires one specific derivation.</p>
+
+  <h3>What must be derived</h3>
+
+  <p>The nexus-propagation coefficient $D$ and background completion density $\rho_N(\infty)$ appear identically in both the Newton and Coulomb derivations (they are properties of the shared nexus). Therefore the <em>ratio</em> of Coulomb coupling to Newton coupling for a pair of elementary closures reduces to the ratio of chirality-directed sink rate to tangled sink rate:</p>
+
+  <div class="eq">$$\frac{V_{Coulomb}/V_{Newton}}{\text{(same pair, same }r\text{)}} \;=\; \left(\frac{\dot{N}_Q}{\dot{N}_M}\right)^2 \cdot \text{(units and geometry factors, both derivable)}$$</div>
+
+  <p>The empirical ratio for two elementary charges (electron-mass, elementary charge magnitude): $|V_{Coulomb}|/|V_{Newton}| \approx 4 \times 10^{42}$. So the sink-rate ratio $\dot{N}_Q/\dot{N}_M$ per elementary closure is of order $10^{21}$.</p>
+
+  <p>The mass sink rate is POAMS-native: for the electron closure, $\dot{N}_M = m_e c^2/h \approx 1.24 \times 10^{20}$ Hz (from <a class="xref" href="./mass-as-trapped-rate.html">Mass as Trapped Rate</a>).</p>
+
+  <p>The chirality-directed sink rate must be $\dot{N}_Q \approx 10^{21} \times 1.24 \times 10^{20}$ Hz $\approx 10^{41}$ Hz per elementary closure.</p>
+
+  <div class="caveat">
+    <span class="tag open">OPEN &mdash; SPECIFIC PIECE</span> POAMS as currently articulated does not derive $\dot{N}_Q$ from foundations. The gap is a single, specific derivation: <em>what determines the rate at which an elementary closure's chirality-directed phase-sense signature completes into the surrounding nexus, per unit time?</em> Closing this derivation yields the Coulomb coupling coefficient, and hence the fine-structure ratio $\alpha$, from POAMS-native quantities.
+  </div>
+
+  <h3>Connection to the alpha-family unified open</h3>
+
+  <p>Once $\dot{N}_Q$ is derived, the following all follow simultaneously as consequences:</p>
+  <ul>
+    <li>Coulomb's coupling coefficient $1/(4\pi\epsilon_0)$ &mdash; from the sink-rate ratio and the shared nexus parameters</li>
+    <li>The Bohr magneton $\mu_B$ &mdash; from $ec^2/(2\omega_e)$ (per <a class="xref" href="./stern-gerlach-as-two-chiralities.html">Stern-Gerlach</a> &sect;3), with $e$ derived from $\dot{N}_Q$ by the joules-per-second correspondence GROUNDING &sect;3 establishes</li>
+    <li>The hydrogen Bohr radius $a_0$ &mdash; from the natural-orbit condition of the outer closure under the derived Coulomb pair coupling with the nuclear closure</li>
+    <li>The fine-structure ratio $\alpha = \lambda_C / (2\pi a_0)$ &mdash; as a derived consequence, no import</li>
+    <li>The QED-order anomalous magnetic moment $g_s - 2 \approx 0.00232$ &mdash; the $\alpha/\pi$ correction from higher-order chirality-directed self-coupling, a subleading term of the machinery deriving $\dot{N}_Q$</li>
+    <li>Hyperfine spectra (measured example: hydrogen 21cm line at 1420.405751 MHz) &mdash; from the coupling at nuclear-closure to outer-closure separation, using the same $\dot{N}_Q$ mechanism</li>
+  </ul>
+
+  <p>The alpha-derivation family (per <a class="xref" href="./alpha-fine-structure-derivation.html">The Alpha Problem</a> §7 unified open) unifies further: <strong>all six items above &mdash; from Coulomb's coefficient through hyperfine &mdash; reduce to deriving $\dot{N}_Q$ from POAMS foundations.</strong></p>
+</section>
+
+<!-- ============ §5 ============ -->
+<section>
+  <h2>&sect;5 &mdash; What is Claimed, What Remains Open</h2>
+
+  <div class="card gold">
+    <p><span class="tag claim">CLAIMED</span> <strong>Coulomb's $1/r$ potential form derives from POAMS substance-depletion.</strong> The same substrate-depletion mechanism that gives Newton's $1/r$ potential from tangled trapped-rate gives Coulomb's $1/r$ potential from chirality-directed trapped rate. The $1/r$ shape is the geometry of spherically-symmetric depletion in the nexus, shared between mass and charge.</p>
+
+    <p><span class="tag claim">CLAIMED</span> <strong>Sign-sensitivity to chirality product.</strong> The chirality-directed depletion carries the source closure's phase-sense. Two-closure coupling reads the product of chiralities: like &rarr; natural configuration further apart, unlike &rarr; natural configuration closer together (extant labels: &ldquo;repel&rdquo; and &ldquo;attract&rdquo;). Matches classical Coulomb behaviour across every pair without exception.</p>
+
+    <p><span class="tag claim">CLAIMED</span> <strong>No signaling required.</strong> The pair coupling is a proper-time two-ended exchange in the nexus (per <a class="xref" href="./the-receiver-keys-the-exchange.html">The Receiver Keys the Exchange</a>). No photon, no field-carrier, no signal traveling through a container. The observer's apparent $r/c$ delay is optical projection of the two-endedness, not something traveling.</p>
+
+    <p><span class="tag claim">CLAIMED</span> <strong>Superposition of many-charge configurations.</strong> Falls out of additive depletion of the shared nexus for small perturbations.</p>
+  </div>
+
+  <div class="card blue">
+    <p><span class="tag open">OPEN &mdash; UNIFIED</span> <strong>The chirality-directed sink rate $\dot{N}_Q$ per elementary closure.</strong> POAMS does not yet derive it from foundations. The empirical value ($\sim 10^{41}$ Hz per elementary closure) fixes the Coulomb coupling coefficient, and hence the fine-structure ratio $\alpha$, once specified. This is one specific derivation. Closing it closes the unified alpha-derivation family named in <a class="xref" href="./alpha-fine-structure-derivation.html">The Alpha Problem</a> &sect;7 &mdash; Coulomb's coupling coefficient, the Bohr magneton, the hydrogen Bohr radius, $\alpha$ itself, the QED anomalous magnetic moment, and hyperfine spectra all follow. The derivation is the next task in this arc.</p>
+  </div>
+
+  <p style="margin-top:22px">This exhibit does what the Counter-Rotating exhibit did for gravitomagnetic pair coupling and the Landé exhibit did for atomic Zeeman coupling: it extends the substrate-depletion / two-endedness / Călugăreanu machinery to a new pair-coupling regime, deriving the structural form from POAMS foundations, and honestly names the specific missing derivation that would give the scale. Three exhibits, one mechanism, one remaining open. The alpha-derivation family, previously six-faced, now reduces to one: <em>derive $\dot{N}_Q$</em>.</p>
+</section>
+
+</main>
+
+<footer>
+  Part of the <a href="./index.html">Normal Realism / POAMS exhibit series</a> &middot;
+  <a href="./navigation-engine.html">The Navigation Engine</a> &middot;
+  <a href="./counter-rotating-circulation-pair.html">Counter-Rotating Planar Vortex Cores</a> &middot;
+  <a href="./lande-from-twist-writhe.html">The Land&eacute; g-Factor from Twist/Writhe Coupling</a> &middot;
+  <a href="./alpha-fine-structure-derivation.html">The Alpha Problem</a> &middot;
+  <a href="./the-receiver-keys-the-exchange.html">The Receiver Keys the Exchange</a>
+</footer>
+
+<script>
+function toggleTheme(){
+  var h = document.documentElement;
+  var isLight = h.getAttribute('data-theme') === 'light' || document.body.classList.contains('light');
+  if(isLight){
+    h.setAttribute('data-theme','dark');
+    document.body.classList.remove('light');
+    document.querySelector('.theme-toggle').textContent = '☀️';
+  } else {
+    h.setAttribute('data-theme','light');
+    document.body.classList.add('light');
+    document.querySelector('.theme-toggle').textContent = '🌙';
+  }
+}
+</script>
+
+</body></html>
