@@ -236,8 +236,8 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
       <td>Flux quantization plus superconducting pinning; compression via mutual inductance control</td>
     </tr>
     <tr>
-      <td>Spin-polarized ensemble in a shear field</td>
-      <td>Nuclear or electronic spin alignment across a lattice</td>
+      <td>Aligned outer-census ensemble in a shear configuration</td>
+      <td>Nuclear-closure or outer-census-closure coherent-AM alignment across a lattice (extant: nuclear or electronic spin polarization)</td>
       <td>Field-gradient geometry produces the topological compression indirectly</td>
     </tr>
   </table>
@@ -276,6 +276,23 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
     <li><strong>High event rate.</strong> If each drive-parameter sweep across a threshold triggers many events (e.g. because the compression is dynamic and re-crosses the threshold at $\omega_{drive}$ rate), cumulative signature over a run duration could be observable.</li>
     <li><strong>Multi-quantum reorganization.</strong> If a compressed coherent ensemble undergoes a cascade at threshold (one initial event triggering many sympathetic reorganizations across the ensemble), the effective jump per drive sweep is $N \cdot \hbar\omega_{drive}$ rather than a single quantum.</li>
   </ul>
+
+  <h3>Coherent-domain amplification &mdash; the $N_{local}$ sharpening</h3>
+
+  <p>For a truly phase-coherent ensemble the reorganization is not per-closure but per-coherent-domain. When the drive crosses an integer-$Lk$ threshold, the whole coherent domain reorganizes simultaneously, and the single-event energy scales with the domain's closure count $N_{local}$:</p>
+
+  <div class="eq">$$\Delta E_{event} \;=\; N_{local} \cdot \hbar\,\omega_{drive}$$</div>
+
+  <p>For laboratory-realistic apparatus the range of $N_{local}$ spans many orders:</p>
+  <ul>
+    <li>Fluxon-scale local reorganization in a bulk superconductor: $N_{local} \sim 10^6$ &rarr; $\Delta E \sim 10^{-18}$ J per event. Below torsion-balance sensitivity ($10^{-12}$ J) but within reach of sensitive calorimetry.</li>
+    <li>Persistent-current-ring collective mode: $N_{local} \sim 10^{14}$ &rarr; $\Delta E \sim 10^{-10}$ J per event. Observable by torsion balance and by direct electrical detection.</li>
+    <li>Full-condensate reorganization in a coupled superconducting-coil pair: $N_{local} \sim 10^{20}$ &rarr; $\Delta E \sim 10^{-4}$ J per event. Macroscopically observable.</li>
+  </ul>
+
+  <div class="card gold">
+    <p><strong>Sharpened experimental signature.</strong> As the drive parameter is swept continuously, the observable is not a smooth response but a <em>stair-step</em>: energy released in discrete quantized jumps at specific drive values corresponding to C&#259;lug&#259;reanu integer-$Lk$ boundaries. Between crossings, response is smooth and Kerr-perturbative. At each crossing, a discrete $N_{local}\hbar\omega_{drive}$ event fires. The stair-step signature is distinctive from any perturbative-Kerr expectation; if observed, it confirms the non-perturbative mechanism and its $N_{local}$ pins the coherent-domain size at the transition.</p>
+  </div>
 
   <div class="caveat">
     <span class="tag open">OPEN</span> The single-event mechanism is derived and predicts jumps at Călugăreanu integer crossings with magnitude $\hbar\omega_{drive}$ per event. Whether laboratory-realistic apparatus accumulates enough events for torsion-balance detection, or whether cascade dynamics amplify the effect at threshold, remains open. Both are POAMS-native questions with predictable answers; neither is answered here.
