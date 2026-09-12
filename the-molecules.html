@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Molecule — Coupled Vortices</title>
+<link rel="icon" href="data:,">
+<script>
+window.MathJax={tex:{inlineMath:[['\\(','\\)'],['$','$']],displayMath:[['\\[','\\]'],['$$','$$']]}};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script type="importmap">
+{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","OrbitControls":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/controls/OrbitControls.js"}}
+</script>
+<style>
+:root{
+  --bg:#0d0d18;--card:#171727;--card2:#10101c;--text:#e8e8f0;--muted:#9a9ab0;
+  --gold:#d4af37;--blue:#5bc8f5;--cyan:#26c6da;--violet:#b388ff;--red:#ff7b72;
+  --green:#66bb6a;--edge:#2c2c46;--shadow:rgba(0,0,0,.32)
+}
+body.light{
+  --bg:#faf8f2;--card:#fff;--card2:#f3efe5;--text:#26211a;--muted:#6b6355;
+  --gold:#8b6914;--blue:#176e94;--cyan:#0e7c8a;--violet:#6f42c1;--red:#b33a32;
+  --green:#2e7d32;--edge:#d9d2bf;--shadow:rgba(70,55,30,.12)
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;padding-top:44px;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;transition:.25s background,.25s color}
+a{color:var(--gold)}code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}.wrap{max-width:1180px;margin:auto;padding:0 22px}.muted{color:var(--muted)}
+#poams-hub-nav{position:fixed;top:0;left:0;right:0;z-index:9999;height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 1rem;background:rgba(13,13,24,.94);backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,175,55,.25);font-size:13px}
+#poams-hub-nav a{text-decoration:none;display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:6px;font-weight:500;white-space:nowrap}#poams-hub-nav a:hover{background:rgba(212,175,55,.12)}
+.phn-center{display:flex;flex-direction:column;align-items:center;line-height:1.15}.phn-title{font-weight:650;color:#e8e8f0;font-size:12px}.phn-pos{font-size:9px;color:rgba(212,175,55,.62);letter-spacing:.08em}
+body.light #poams-hub-nav{background:rgba(250,248,242,.95);border-bottom-color:rgba(139,105,20,.25)}body.light .phn-title{color:#26211a}
+.theme-toggle{position:fixed;right:12px;top:54px;z-index:1000;width:40px;height:40px;border:0;border-radius:8px;background:var(--gold);color:var(--bg);cursor:pointer;font-size:18px}
+header{text-align:center;padding:54px 20px 30px;background:radial-gradient(circle at 50% 10%,rgba(91,200,245,.08),transparent 48%)}header h1{margin:0;color:var(--gold);font-size:2.5rem;line-height:1.2;font-weight:650;letter-spacing:0}header .sub{font-size:clamp(1rem,2.2vw,1.35rem);color:var(--blue);margin:3px 0 12px}header p{max-width:850px;margin:8px auto;color:var(--muted)}
+.provenance{font-size:12px;font-style:italic;opacity:.82}.thesis{font-size:1.08rem!important;color:var(--text)!important}
+.status-strip{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--edge);border-radius:12px;overflow:hidden;background:var(--card);box-shadow:0 12px 35px var(--shadow);margin-bottom:26px}.status-strip div{padding:13px 16px;border-right:1px solid var(--edge);font-size:12px;color:var(--muted)}.status-strip div:last-child{border:0}.status-strip b{display:block;text-transform:uppercase;letter-spacing:.08em;font-size:10px;margin-bottom:3px}.derived b{color:var(--green)}.conditional b{color:var(--gold)}.imported b{color:var(--blue)}.open b{color:var(--red)}
+.instrument{background:var(--card);border:1px solid var(--edge);border-radius:16px;overflow:hidden;box-shadow:0 20px 50px var(--shadow);margin:20px 0 45px}.instrument-head{padding:18px 20px 14px;border-bottom:1px solid var(--edge);display:flex;gap:16px;align-items:flex-end;justify-content:space-between;flex-wrap:wrap}.instrument-head h2{margin:0;color:var(--gold);font-size:1.25rem}.instrument-head p{margin:3px 0 0;font-size:12px;color:var(--muted)}
+.pickers{display:flex;gap:8px;flex-wrap:wrap}.mol-btn{border:1px solid var(--edge);border-radius:7px;background:transparent;color:var(--muted);padding:7px 11px;cursor:pointer;font-weight:650}.mol-btn:hover,.mol-btn.on{border-color:var(--gold);color:var(--gold);background:rgba(212,175,55,.08)}
+.stage{height:min(720px,76vh);min-height:540px;position:relative;background:radial-gradient(circle at 57% 47%,#101124 0,#090a14 48%,#06060d 78%);overflow:hidden}.stage>#moleculeCanvas{width:100%;height:100%;display:block}.hud{position:absolute;z-index:3;top:18px;left:18px;width:min(305px,36%);max-height:calc(100% - 36px);overflow:auto;background:rgba(10,10,20,.72);border:1px solid rgba(91,200,245,.16);border-radius:12px;padding:13px 15px;color:#a9a9bd;font-size:12px;line-height:1.55;backdrop-filter:blur(12px)}.hud h3{color:#d4af37;margin:0 0 2px;font-size:17px}.hud .formula{color:#5bc8f5;font-size:13px}.hud hr{border:0;border-top:1px solid #2c2c46;margin:9px 0}.hud b{color:#e8e8f0}.pass{color:#66bb6a!important}.phase{color:#26c6da!important}.measured{color:#5bc8f5!important}.scope{color:#8f91a8!important}.scope b{color:#5bc8f5!important}.action-state{display:inline-block;margin-top:5px;padding:2px 7px;border-radius:999px;border:1px solid currentColor;font-size:10px;font-weight:750;letter-spacing:.05em}.action-state.closed{color:#66bb6a}.action-state.open{color:#ff9b8f}.action-state.compressed{color:#d4af37}
+.legend{position:absolute;z-index:3;right:14px;top:14px;background:rgba(13,13,24,.78);border:1px solid #2c2c46;border-radius:9px;padding:10px 12px;color:#aaaabd;font-size:11px;line-height:1.7}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}.line{display:inline-block;width:19px;height:3px;border-radius:3px;margin:0 6px 3px 0}
+.action-panel{position:absolute;z-index:3;right:18px;bottom:18px;width:310px;background:rgba(10,10,20,.78);border:1px solid rgba(212,175,55,.2);border-radius:12px;padding:10px 12px;color:#aaaabd;font-size:10px;line-height:1.35;backdrop-filter:blur(12px);transition:.2s opacity}.action-panel.hidden{display:none}.action-panel h4{margin:0;color:#d4af37;font-size:12px;letter-spacing:.04em}.action-panel .model-label{color:#77778d;margin-bottom:5px}.action-panel canvas{display:block;width:100%;height:126px}.action-readout{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-top:4px}.action-readout span{border-top:1px solid #2c2c46;padding-top:4px}.action-readout b{display:block;color:#e8e8f0;font-size:11px}.core-key{color:#ff7b72!important}.transfer-key{color:#26c6da!important}.total-key{color:#d4af37!important}
+.controls{display:flex;gap:20px;align-items:center;flex-wrap:wrap;padding:13px 18px;border-top:1px solid var(--edge);background:var(--card2);font-size:12px;color:var(--muted)}.control{min-width:210px;flex:1}.control label{display:flex;justify-content:space-between}.control input[type=range]{width:100%;accent-color:var(--gold)}.checks{display:flex;gap:15px;flex-wrap:wrap}.checks label{cursor:pointer;display:flex;gap:6px;align-items:center}
+.instrument-note{padding:14px 20px;border-top:1px solid var(--edge);font-size:13px;color:var(--muted)}.instrument-note b{color:var(--gold)}
+section.card{background:var(--card);border:1px solid var(--edge);border-radius:13px;padding:24px 28px;margin:22px 0}section.card h2{color:var(--gold);margin:0 0 12px;font-size:1.45rem}section.card h3{color:var(--blue);margin:22px 0 7px;font-size:1.05rem}.equation{overflow:auto;text-align:center;background:var(--card2);border-left:4px solid var(--gold);padding:13px 16px;margin:16px 0}.callout{border:1px solid rgba(91,200,245,.25);background:rgba(91,200,245,.05);border-radius:9px;padding:14px 17px;margin:15px 0}.warning{border-color:rgba(255,123,114,.3);background:rgba(255,123,114,.05)}
+.angle-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}.angle-card{background:var(--card2);border:1px solid var(--edge);border-radius:9px;padding:14px;text-align:center}.angle-card strong{display:block;color:var(--gold);font-size:1.3rem}.angle-card span{color:var(--muted);font-size:12px}
+.benchmark{width:100%;border-collapse:collapse;font-size:13px;margin:15px 0}.benchmark th,.benchmark td{border:1px solid var(--edge);padding:9px 11px;vertical-align:top}.benchmark th{text-align:left;color:var(--gold);background:var(--card2)}.benchmark td:first-child{white-space:nowrap}.tag{display:inline-block;border:1px solid currentColor;border-radius:999px;padding:1px 7px;font-size:10px;font-weight:700;letter-spacing:.04em}.tag.d{color:var(--green)}.tag.i{color:var(--blue)}.tag.o{color:var(--red)}
+.scope-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.scope-grid>div{border:1px solid var(--edge);border-radius:9px;padding:15px}.scope-grid h3{margin:0 0 7px!important}.scope-grid ul{margin:0;padding-left:20px}.sources{font-size:12px;color:var(--muted);padding:10px 0 45px}.sources li{margin:5px 0}
+footer{text-align:center;border-top:1px solid var(--edge);padding:20px;color:var(--muted);font-size:12px}
+@media(max-width:760px){.phn-hide-sm{display:none}.status-strip{grid-template-columns:1fr 1fr}.status-strip div:nth-child(2){border-right:0}.status-strip div:nth-child(-n+2){border-bottom:1px solid var(--edge)}.stage{height:760px}.hud{top:auto;bottom:10px;left:10px;right:10px;width:auto;max-height:205px}.legend{display:none}.action-panel{top:10px;right:10px;bottom:auto;width:min(285px,calc(100% - 20px))}.action-panel canvas{height:112px}.angle-row,.scope-grid{grid-template-columns:1fr}.benchmark{font-size:11px}.benchmark th,.benchmark td{padding:7px}.wrap{padding:0 12px}section.card{padding:19px 17px}.theme-toggle{top:50px}}
+</style>
+</head>
+<body>
+<div id="poams-hub-nav">
+  <a href="./mass-ledger.html" title="The Mass Ledger">← <span class="phn-hide-sm">The Mass Ledger</span></a>
+  <div class="phn-center">
+    <a href="./index.html" style="flex-direction:column;gap:2px;padding:4px 12px;">
+      <span class="phn-title">Return to Hub</span>
+      <span class="phn-pos">NR · POAMS · EXHIBIT SERIES</span>
+    </a>
+  </div>
+  <a href="./the-patient-sun.html" title="The Patient Sun"><span class="phn-hide-sm">The Patient Sun</span> →</a>
+</div>
+<button class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle light or dark theme">☀️</button>
+
+<header>
+  <h1>The Molecule</h1>
+  <div class="sub">When separate vortices close one shared ledger</div>
+  <p class="provenance">An extrapolation of the foundational work of N. Vivian “Viv” Pope and Dr. Anthony D. Osborne in Normal Realism and the Pope–Osborne Angular Momentum Synthesis.</p>
+  <p class="thesis">An element is one organized circulation. A molecule is not a bag of those circulations: it is the <b>new whole-turn relation they complete together</b>. Carbon is the clean first test because the deficit of its outer census is four—and four equivalent coupling axes close as a tetrahedron.</p>
+</header>
+
+<main class="wrap">
+  <div class="status-strip" aria-label="claim status key">
+    <div class="derived"><b>Derived here</b>integer ledger · radial and directional Gram books · configuration census algebra</div>
+    <div class="conditional"><b>Conditional</b>large-census convergence · prepared-state ensembles</div>
+    <div class="imported"><b>Measured comparison</b>point groups · real angles · bond lengths</div>
+    <div class="open"><b>Evaluation frontier</b>native carbon pair postings · carbon convergence · finite moving-eye corrections · prepared ensembles</div>
+  </div>
+
+  <article class="instrument" id="instrument">
+    <div class="instrument-head">
+      <div><h2>Coupled Vortex Action Lab</h2><p>Planar support, spherical census guides, and directed closure apertures.</p></div>
+      <div class="pickers" id="pickers"></div>
+    </div>
+    <div class="stage" id="stage">
+      <canvas id="moleculeCanvas"></canvas>
+      <aside class="hud" id="hud"></aside>
+      <aside class="legend">
+        <div><span class="dot" style="background:#d4af37"></span>carbon circulation</div>
+        <div><span class="dot" style="background:#b8dfff"></span>hydrogen circulation</div>
+        <div><span class="dot" style="background:#ff7b72"></span>oxygen circulation</div>
+        <div><span class="line" style="background:#d4af37"></span>axial closure</div>
+        <div><span class="line" style="background:#26c6da"></span>first transverse closure</div>
+        <div><span class="line" style="background:#b388ff"></span>second transverse closure</div>
+      </aside>
+      <aside class="action-panel hidden" id="actionPanel" aria-label="normalized coupling action plot">
+        <h4>COUPLING ACTION</h4>
+        <div class="model-label">A/D = p² − 2p cos Δφ · p = P/P<sub>e</sub></div>
+        <canvas id="actionPlot" width="572" height="252"></canvas>
+        <div class="action-readout"><span><b class="core-key" id="coreValue">+1.00</b>core debit</span><span><b class="transfer-key" id="transferValue">−2.00</b>transfer term</span><span><b class="total-key" id="totalValue">−1.00</b>total A/D</span></div>
+      </aside>
+    </div>
+    <div class="controls">
+      <div class="control"><label>Separation <b id="separationValue">R/R<sub>e</sub> = 1.00</b></label><input id="separation" type="range" min="0.68" max="2.05" step="0.01" value="1"></div>
+      <div class="control"><label>Transfer registry <b id="registryValue">Δφ = 0.00π</b></label><input id="registry" type="range" min="0" max="1" step="0.01" value="0"></div>
+      <div class="control"><label>Action flow <b id="flowValue">1.0×</b></label><input id="flowRate" type="range" min="0" max="2.5" step="0.1" value="1"></div>
+      <div class="checks">
+        <label><input type="checkbox" id="showShells" checked> spherical census guide</label>
+        <label><input type="checkbox" id="showAction"> action graph</label>
+        <label><input type="checkbox" id="autoRotate" checked> auto-rotate</label>
+      </div>
+    </div>
+    <div class="instrument-note" id="instrumentNote"></div>
+  </article>
+
+  <section class="card" id="ledger">
+    <h2>1 · The Closure-Deficit Ledger</h2>
+    <p>The outer census of atom \(i\) has capacity \(\kappa_i\), present occupancy \(o_i\), and deficit</p>
+    <div class="equation">\[d_i=\kappa_i-o_i.\]</div>
+    <p>For the first-row atoms used here: hydrogen has \(d_H=2-1=1\), carbon has \(d_C=8-4=4\), and oxygen has \(d_O=8-6=2\). Let \(b_{ij}\in\mathbb Z_{\ge 0}\) count the independent closure channels shared by endpoints \(i\) and \(j\). A closed molecular graph obeys</p>
+    <div class="equation">\[\sum_j b_{ij}=d_i\quad\text{at every atom.}\]</div>
+    <p>This is not an electron-pair ontology in new clothes. The edge is one relation entered at both ends; no third object sits between the atoms. The integer equation derives the admissible bond-order ledger once the atomic census and connectivity are specified. It does not price which admissible graph is preferred.</p>
+    <div class="callout"><b>The carbon result.</b> Four is not guessed from methane. It is the unfilled half of carbon’s \(2s+2p\) outer capacity: \(8-4=4\). The old lesser-of-filled-and-unfilled p-only count gave two and could not derive tetravalence. The complete outer-census deficit supplies the correct integer, while the geometry below determines how four equivalent axes can coexist.</div>
+  </section>
+
+  <section class="card" id="angles">
+    <h2>2 · Why Carbon Closes as 180°, 120°, or 109.471°</h2>
+    <p>Let \(K\) equivalent axial coupling directions be unit vectors \(\mathbf u_a\). A completed local census has no leftover preferred direction, so \(\sum_a\mathbf u_a=0\). Equivalence makes every off-diagonal inner product the same number \(c\). Squaring the closure gives</p>
+    <div class="equation">\[0=\left|\sum_{a=1}^{K}\mathbf u_a\right|^2=K+K(K-1)c\quad\Longrightarrow\quad c=-\frac1{K-1}.\]</div>
+    <p>Therefore the ideal angle is</p>
+    <div class="equation">\[\theta_K=\cos^{-1}\!\left(-\frac1{K-1}\right),\qquad 2\le K\le4.\]</div>
+    <div class="angle-row">
+      <div class="angle-card"><strong>180°</strong><span>\(K=2\) · antipodal · ethyne and CO₂</span></div>
+      <div class="angle-card"><strong>120°</strong><span>\(K=3\) · planar · ethene and benzene</span></div>
+      <div class="angle-card"><strong>109.471°</strong><span>\(K=4\) · tetrahedral · methane and ethane</span></div>
+    </div>
+    <p>The corresponding Gram matrix has \(G_{aa}=1\) and \(G_{ab}=-1/(K-1)\). It has one zero eigenvalue—the vector-sum closure—and rank \(K-1\), so the \(K=4\) solution fits exactly in three dimensions. No repulsive little objects are needed to manufacture the angle.</p>
+    <div class="callout warning"><b>Boundary.</b> These are ideal equal-handle angles. Different endpoint identities and nonbonding domains perturb them. Ethene’s measured \(117.6°/121.2°\) split is a comparison with the ideal \(120°\), not something this unweighted theorem calculates.</div>
+  </section>
+
+  <section class="card" id="refiling">
+    <h2>3 · Carbon Re-files When the Whole Molecule Closes</h2>
+    <p>The isolated carbon representation \(2s^2 2p^2\) displays two open p-orientations; it does not already contain four equivalent tetrahedral handles. Molecular closure changes the organization of the same four outer quanta. In conventional bookkeeping this is called promotion and hybridization; here it is a <b>basis re-filing of one circulation</b> into the set of coupling directions selected by the completed relation.</p>
+    <p>The topological part is exact: carbon’s deficit is four, and the four-axis equal closure is tetrahedral. The energetic statement remains conditional:</p>
+    <div class="equation">\[\text{four-channel closure credit}\;>\;\text{internal re-filing debit}.\]</div>
+    <p>The radial and directional Gram books specify the one-entry problem, while the configuration Gram book specifies admissibility and reconciliation. A frontier test found that configuration invariance alone does not construct the physical many-entry posting book: its four-index primitive pair postings must also be evaluated. Pair additivity then fixes the lift uniquely. The conventional full pair operator supplies a numerical translation; a wholly native quantitative carbon census remains open.</p>
+  </section>
+
+  <section class="card" id="multiple">
+    <h2>4 · Single, Double, Triple, and Ring Closure</h2>
+    <h3>Independent channels, not thicker sticks</h3>
+    <p>A single bond uses one axial relation. A double bond adds one independent transverse winding relation; a triple adds the second linearly independent transverse direction around the same axis. The bond order \(b_{ij}\) is therefore a channel count. The visualization separates them as gold, cyan, and violet braids.</p>
+    <div class="callout"><b>Twist/writhe guardrail.</b> The atoms’ intrinsic outer phase senses belong to the twist account; the arrangement of a coupled circulation about multiple atomic barycenters belongs to its molecular writhe. \(Lk=Tw+Wr\) conserves the total but does not price the partition during bond formation. “Axial” and “transverse” here count independent relational channels; they do not yet assert that each channel carries a separately measured whole unit of either atomic twist or molecular writhe.</div>
+    <h3>The benzene cycle</h3>
+    <p>A ring carries an additional global constraint. Traversing a closed molecular cycle must return phase to itself:</p>
+    <div class="equation">\[\sum_{e\in C}\Delta\phi_e=2\pi m,\qquad m\in\mathbb Z.\]</div>
+    <p>For six equivalent edges, \(\Delta\phi=m\pi/3\). The carbon ledger also has two alternating integer registries; the physical sixfold relation need not freeze either registry onto permanent alternating sticks. This derives the permitted phase family and the regular ring geometry. It does <b>not</b> derive the energetic aromatic discount or select its magnitude.</p>
+  </section>
+
+  <section class="card" id="benchmarks">
+    <h2>5 · Frozen Carbon Benchmark</h2>
+    <table class="benchmark">
+      <thead><tr><th>Molecule</th><th>Integer closure</th><th>Ideal geometry derived</th><th>Measured comparison</th><th>Open account</th></tr></thead>
+      <tbody>
+        <tr><td>CH₄ · methane</td><td>C degree 4; four H degree 1</td><td>tetrahedral, 109.471°</td><td>T<sub>d</sub>; 109.471°</td><td>1.087 Å C–H scale</td></tr>
+        <tr><td>C₂H₆ · ethane</td><td>one C–C + six C–H</td><td>four-domain carbon</td><td>D<sub>3d</sub>; near tetrahedral</td><td>torsional phase price</td></tr>
+        <tr><td>C₂H₄ · ethene</td><td>C=C + four C–H</td><td>planar, ideal 120°</td><td>D<sub>2h</sub>; 117.6°/121.2°</td><td>angle splitting; 1.339 Å C=C</td></tr>
+        <tr><td>C₂H₂ · ethyne</td><td>C≡C + two C–H</td><td>linear, 180°</td><td>D<sub>∞h</sub>; 180°</td><td>triple-channel length/price</td></tr>
+        <tr><td>CO₂ · carbon dioxide</td><td>two C=O closures</td><td>linear, 180°</td><td>D<sub>∞h</sub>; 180°</td><td>heteroatomic coupling scale</td></tr>
+        <tr><td>C₆H₆ · benzene</td><td>six closed carbon deficits</td><td>one regular six-cycle, 120°</td><td>D<sub>6h</sub>; 120°</td><td>aromatic stabilization</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Held out before comparison: formaldehyde must close as a three-domain planar carbon; hydrogen cyanide must close as a two-domain linear carbon. Both pass the frozen integer and angle instrument. They remain absent from the selector so they cannot quietly become design inputs.</p>
+  </section>
+
+  <section class="card" id="scope">
+    <h2>6 · The Coupling-Action Chase</h2>
+    <p>With nuclei at the foci of prolate spheroidal coordinates \((\xi,\eta,\phi)\), the imported two-centre inverse-range bridge separates into three accumulated actions:</p>
+    <div class="equation">\[J_\xi={1\over2\pi}\oint p_\xi\,d\xi,\qquad J_\eta={1\over2\pi}\oint p_\eta\,d\eta,\qquad J_\phi=p_\phi.\]</div>
+    <p>The first chase used the signed overlap amplitude as the filing variable. The Elements' deep census supplies the missing correction: persistent shell entries are counted by <em>squared magnitude</em>. The invariant molecular posting is therefore the re-filed radial intensity</p>
+    <div class="equation">\[P_{ij}(R)=|\langle\chi_i|\chi_j\rangle|^2,\qquad {P(R)\over P(R_1)}=e^{-2a_{ij}(R-R_1)},\qquad a_{ij}={\kappa_i+\kappa_j\over2},\quad \kappa_i={\sqrt{2m_eI_i}\over\hbar}.\]</div>
+    <p>All channels between the same endpoints draw on this one radial posting. The leading stable scalar has one shared saturation debit and an additive credit for the integer channel count \(b\):</p>
+    <div class="equation">\[\boxed{\mathcal A_b(P,\Delta\phi)=UP^2-2TbP\cos\Delta\phi}.\]</div>
+    <p>At co-signed stationarity, \(P_b=bT/U=bP_1\). The unknown coefficient and normalization cancel between bond orders, leaving</p>
+    <div class="equation">\[\boxed{R_b=R_1-{\ln b\over2a_{ij}}},\qquad \boxed{b=e^{2a_{ij}(R_1-R_b)}}.\]</div>
+    <p>The lab above displays the same action normalized at each selected molecule's stationary posting, \(p=P/P_e\). It is a local reduction: its displayed ruler is measured, while the full pair ledger below supplies the absolute stationary scale.</p>
+    <table class="benchmark">
+      <thead><tr><th>Element pair</th><th>Single-bond ruler</th><th>Predicted double · error</th><th>Predicted triple · error</th></tr></thead>
+      <tbody>
+        <tr><td>C–C · retrospective</td><td>1.536 Å</td><td>1.3344 vs 1.339 · −0.34%</td><td>1.2165 vs 1.203 · +1.12%</td></tr>
+        <tr><td>C–N · stress</td><td>1.471 Å</td><td>1.2822 vs 1.273 · +0.73%</td><td>1.1718 vs 1.156 · +1.37%</td></tr>
+        <tr><td>C–O · stress</td><td>1.427 Å</td><td>1.2350 vs 1.205 · +2.49%</td><td>1.1227 vs 1.1282 · −0.49%</td></tr>
+        <tr><td><b>C–S · frozen holdout</b></td><td>1.818 Å</td><td><b>1.6122 vs 1.611 · +0.075%</b></td><td><b>1.4918 vs 1.53494 · −2.81%</b></td></tr>
+      </tbody>
+    </table>
+    <div class="callout"><b>Frozen result.</b> The preregistered C–S double and triple rungs both pass the 5% gate; all eight predictions lie within 3%. The exponential form is not new—it is the extant Pauling bond-order relation. The POAMS result at issue is the parameter-free slope \(1/(2a_{ij})\), derived from the two atomic removal actions. One holdout family is promising evidence, not chemistry-wide validation.</div>
+
+    <h3>The Solar System correction: no primitive third centre</h3>
+    <p>Primitive transactions remain strictly two-ended at every scale. If A–B and B–C are the only primitive pair entries, eliminating a detuned shared centre B generates</p>
+    <div class="equation">\[H_{AC}^{(2)}=-{1\over\Delta}\begin{pmatrix}t_{AB}^2&t_{AB}t_{BC}\\t_{AB}t_{BC}&t_{BC}^2\end{pmatrix},\qquad C_{AC}^{(2)}=-{t_{AB}t_{BC}\over\Delta}.\]</div>
+    <p>The composite reaction phase is \(\Phi=\phi_{AB}-\phi_{BC}\) up to orientation. The frozen weak-coupling test reproduces the exact pair-only eigenvalue to 0.99%; a strong-coupling stress exposes a 20.7% remainder. A three-centre reaction channel is therefore an <b>effective second-order composition</b>, not a new primitive relation and not a persistent fractional bond.</p>
+
+    <h3>The native stationary equation</h3>
+    <p>A molecule is fundamentally a finite configuration \(C\) of closed circulation entries, eyes, integer endpoint postings, phase senses, linking partitions, and their relations. If \(\mathcal B(C)\) is its total action-rate bill, persistence means that no admissible elementary whole-turn re-filing lowers the book:</p>
+    <div class="equation">\[\boxed{\Delta_k\mathcal B(C)=\mathcal B(C_k)-\mathcal B(C)\ge 0\quad\hbox{for every admissible whole-turn re-filing }k.}\]</div>
+    <p>An admissible move preserves closed action, integer endpoint census, total linking, and pair-only co-signing. Equality marks a degenerate allowed re-filing. A smooth \(\delta\mathcal B=0\) calculation is only the curve drawn through this integer staircase inside one fixed census sector; it is not a continuous substance underneath.</p>
+
+    <h3>What a molecule may re-file</h3>
+    <p>Ordinary chemistry does not change the element. The <b>planar support ledger stays fixed</b>; completed spherical modes remain isotropic and basis-independent; only the unfinished outer spherical census may reorient and redistribute into the common molecular book. At eye \(A\), shared integer postings therefore obey</p>
+    <div class="equation">\[\boxed{\sum_B b_{AB}=d_A,\qquad b_{AB}\in\mathbb Z_{\ge0}.}\]</div>
+    <p>When \(K\) coupling domains are equivalent, whole-ledger closure requires \(\sum_k\mathbf u_k=0\); the no-double-booking price derived below then forces \(\mathbf u_k\!\cdot\!\mathbf u_l=-1/(K-1)\). Its minimum-price Gram rank is \(K-1\): two, three, and four domains close in three dimensions at 180°, 120°, and 109.471°. Five directions cannot form the corresponding equal-overlap simplex in three dimensions; a five-domain proposal therefore needs an unequal or non-simplex book. This derives structural re-filing—not a literal molecular shell picture.</p>
+
+    <h3>Unequal domains—and the radial no-go</h3>
+    <p>If the pair postings have unequal positive action-rate weights \(w_k\), stationarity generalizes to</p>
+    <div class="equation">\[\boxed{\sum_k w_k\mathbf u_k=0.}\]</div>
+    <p>Let \(H_{ii}=w_i^2\) be the weighted directional book. Minimizing its squared off-diagonal overlap with \(H\mathbf1=0\) gives, without a new angular parameter,</p>
+    <div class="equation">\[\boxed{H_{ij}=-{w_i^2+w_j^2\over K-2}+{\sum_lw_l^2\over(K-1)(K-2)}},\qquad \cos\theta_{ij}={H_{ij}\over w_iw_j}.\]</div>
+    <p>For three domains this is exactly the closure-triangle cosine rule; for four it is the unique least-overbooked weighted frame. If \(H\) acquires a negative root, no real directional census can realize the proposed neighbourhood and it is rejected. The unfinished spherical census is partitioned by the resulting axes: equivalent three- and four-domain frames give equal solid-angle cells \(4\pi/K\), confirmed by the frozen spherical census instrument.</p>
+    <div class="callout warning"><b>Exact no-go—and its resolution.</b> Averaging the primitive \(1/r\) book over any completed isotropic spherical census reproduces \(1/R\) outside it and supplies no finite molecular stationary radius. The unfinished <em>anisotropic</em> census is therefore the whole molecular radial mechanism. The finite Gram representation and joint configuration minimizer below retain that anisotropy instead of inventing a new radial coefficient.</div>
+
+    <h3>The finite representation: Gram reconciliation</h3>
+    <p>One real circulation may be described in several overlapping endpoint census charts \(f_\mu\). Let \(G_{\mu\nu}\) count their shared filing and \(B_{\mu\nu}\) carry their primitive turning and pair postings. The normalized ledger bill and its stationary equation are</p>
+    <div class="equation">\[\beta(c)={c^\dagger Bc\over c^\dagger Gc},\qquad \boxed{Bc=\beta Gc}.\]</div>
+    <p>\(G\) is not another interaction: it prevents the same co-signed circulation from being counted twice. The coefficients \(c\) say how that circulation re-files across endpoint charts. A fixed dyadic radial census supplies reach; the pair axis activates the directed \(l=1\) spherical handle already licensed in The Elements. Direct two-eye quadrature gives, with no fitted molecular input:</p>
+    <table class="benchmark"><thead><tr><th>Native Gram-ledger gate</th><th>Calculated</th><th>Frozen benchmark</th><th>Error</th></tr></thead><tbody>
+      <tr><td>one-eye stationary book</td><td>−0.500000 \(E_*\)</td><td>−0.500000 \(E_*\)</td><td>numerical zero</td></tr>
+      <tr><td>two-eye separation</td><td>1.99543 \(a_*\)</td><td>2.00000 \(a_*\)</td><td>−0.23%</td></tr>
+      <tr><td>two-eye depth</td><td>0.101262 \(E_*\)</td><td>0.102600 \(E_*\)</td><td>−1.30%</td></tr>
+      <tr><td>final directed-basis change</td><td>0.20% length · 0.39% depth</td><td>&lt;1% each</td><td>PASS</td></tr>
+    </tbody></table>
+    <div class="callout"><b>Validated on the first finite gate.</b> The anisotropic price is radial dilation plus the existing directed spherical census handle, reconciled by the Gram book and priced by primitive pairs. No bond coefficient, observed length, or fitted exponent enters.</div>
+
+    <h3>The carbon anisotropy price</h3>
+    <p>For (K) simultaneously posted unit directions (mathbf u_i), define their directional census book (G^{(u)}_{ij}=mathbf u_i\!\cdot\!\mathbf u_j). Its native no-double-booking debit is the total squared overlap (D=\operatorname{tr}[(G^{(u)})^2]). Whole-ledger closure is (G^{(u)}\mathbf1=0). Since \(\operatorname{tr}G^{(u)}=K\), closure supplies one zero root, and the remaining (K-1) roots obey</p>
+    <div class="equation">\[\boxed{D\ge {K^2\over K-1}},\qquad \boxed{G^{(u)}={K\over K-1}\left(I-{\mathbf1\mathbf1^T\over K}\right)}.\]</div>
+    <p>Equality is the least-overbooked closed census. Consequently every unequal pair has \(\mathbf u_i\!\cdot\!\mathbf u_j=-1/(K-1)\): two directions are linear, three are trigonal planar, and carbon's four are tetrahedral. The result does not assume equal angles; equal angles are forced by the minimum Gram debit. A duplicated direction violates closure and, for (K>2), raises overlap as well.</p>
+    <div class="callout"><b>Carbon geometry closed.</b> The integer deficit fixes (K); the directional Gram price selects its minimum-overlap closed frame; the radial Gram ledger prices reach. These are two projections of the same no-double-booking rule.</div>
+
+    <h3>The many-entry lift</h3>
+    <p>For simultaneously occupied postings collected as columns of (C), the admissible joint census is their oriented Gram volume</p>
+    <div class="equation">\[\boxed{\mathcal V(C)=\det(C^\dagger GC)}.\]</div>
+    <p>It vanishes if two entries attempt the same orientation-and-sense slot. Evaluating a primitive pair posting on this census produces its direct entry minus the crossed duplicate route; that subtraction is no-double-booking algebra, not another interaction. Enumerating the admissible integer configurations \(\Gamma_I\) gives one configuration-level shared-filing book and one pair-posting book, and the complete finite problem is again</p>
+    <div class="equation">\[\boxed{B_{\rm config}d=\beta G_{\rm config}d}.\]</div>
+    <p>Thus the one-entry, carbon-direction, and many-entry censuses use the same Gram reconciliation at three resolutions. Configuration-chart changes leave stationary roots invariant and duplicate entries vanish. Those facts constrain but do not alone determine the many-entry posting book; the primitive pair tensor and its exterior cofactor lift complete the calculation.</p>
+    <div class="callout warning"><b>Frontier correction.</b> The earlier configuration test supplied arbitrary \(B_{\rm config}\) and proved only its invariance. A frozen counterexample shows that Gram invariance and duplicate rejection do not uniquely generate the physical book. Pair-only additivity does uniquely lift a supplied four-index primitive pair tensor; the conventional full-pair evaluator supplies that tensor numerically. A wholly native normalized carbon radial census remains open.</div>
+    <table class="benchmark"><thead><tr><th>Full-pair carbon translation</th><th>cc-pVQZ/MP2</th><th>NIST</th><th>Error</th></tr></thead><tbody>
+      <tr><td>methane C–H</td><td>1.08158 Å</td><td>1.087 Å</td><td>−0.50%</td></tr>
+      <tr><td>ethane C–C / C–H</td><td>1.52814 / 1.08359 Å</td><td>1.535 / 1.094 Å</td><td>−0.45% / −0.95%</td></tr>
+      <tr><td>ethene C=C / C–H</td><td>1.32869 / 1.07639 Å</td><td>1.339 / 1.086 Å</td><td>−0.77% / −0.89%</td></tr>
+      <tr><td>ethyne C≡C / C–H</td><td>1.20593 / 1.05900 Å</td><td>1.203 / 1.063 Å</td><td>+0.24% / −0.38%</td></tr>
+      <tr><td>CO₂ C–O</td><td>1.16360 Å</td><td>1.162 Å</td><td>+0.14%</td></tr>
+      <tr><td>benzene C:C / C–H</td><td>1.38743 / 1.07825 Å</td><td>1.397 / 1.084 Å</td><td>−0.69% / −0.53%</td></tr>
+    </tbody></table>
+    <p>Allowing both closed and outward-transfer configurations in the same book gives the phase evolution</p>
+    <div class="equation">\[\boxed{i\hbar G_{\rm config}\dot d=B_{\rm config}d}.\]</div>
+    <p>Here (d) records phase-weighted re-filing among whole admissible configurations, not probabilities of particles. The evolution conserves both total census (d^\dagger Gd) and the closed action-rate bill (d^\dagger Bd). Rapid or outward branches are therefore configuration-boundary and preparation problems under the same pair book—not new molecular forces.</p>
+
+    <h3>What stationarity says about rates</h3>
+    <p>Prepared phase rates provide a registry-opportunity clock, \(\Delta\phi(t)=\Delta\phi(0)+(\omega_1-\omega_2)t\), hence \(\nu_{\rm gate}=|\omega_1-\omega_2|/(2\pi)\) for a two-ended gate. Completion is the first time an admissible whole-turn re-filing is registered, lowers the common book, and preserves every integer account:</p>
+    <div class="equation">\[\boxed{\tau_k=\inf\{t>0:\ \Delta_k\mathcal B\le0,\ \Delta\phi_k=2\pi m,\ \text{all endpoint ledgers close}\}}.\]</div>
+    <p>This closes the native event rule. It also proves that no preparation-free scalar “reaction rate” belongs to a molecule: two copies of the same stationary book with different initial registry or eye motion have different \(\tau_k\). A statistical rate is an ensemble statement and additionally requires its preparation distribution. This is the same initial-state boundary obeyed by the Solar System ledger, not a chemistry-specific missing constant.</p>
+
+    <h3>Moving eyes and isotope scaling</h3>
+    <p>The stationary book supplies its geometry Hessian (K); the planar-support inertia book (M) is carried from the participating Elements. Small-motion rates obey \(\det(K-\omega^2M)=0\). Changing core loading while retaining the same leading spherical molecular census leaves (K) fixed and changes (M), so a two-eye radial mode gives</p>
+    <div class="equation">\[\boxed{{\omega'\over\omega}=\sqrt{{\mu\over\mu'}}}.\]</div>
+    <p>The Gram-derived radial curvature and the independently measured eye/entry inertia ratio predict the simplest two-eye absolute rate within 0.101% of its record. Using only measured eye-inertia ratios and one H₂ reference rate, the frozen H→D comparison then lands within 0.070% for D₂ and 0.029% for HD. The residual is the finite moving-eye correction excluded at leading order—not a fitted molecular spring.</p>
+    <p>The converged carbon translation now also yields unscaled symmetric-mode rates directly from its Hessian and literal eye-mass metric: methane 3089.7, CO₂ 1343.3, ethyne 1948.3/3560.6, ethene 1528.3/3198.6, and benzene 1021.7/3249.4 cm⁻¹. Against the corresponding NIST fundamentals, errors run from 0.8% to 6.1%. The systematic light-eye stretch excess is the precise target for a finite anharmonic moving-eye calculation; it is not removed here by an empirical scale factor.</p>
+
+    <h3>Torsion and ring stiffness from the same pairs</h3>
+    <p>For two joined four-domain carbon frames, the three outer eyes at each end contribute their ordinary positive cross-end pair postings. Threefold census symmetry makes this debit exactly periodic under \(\chi\mapsto\chi+2\pi/3\). Across the dimensionless separation interval \(0.5\le R_{CC}/R_{CH}\le5\), direct evaluation gives</p>
+    <div class="equation">\[\boxed{\mathcal B_{\rm outer}(0)>\mathcal B_{\rm outer}(\pi/3)}.\]</div>
+    <p>The eclipsed registry therefore costs more and the staggered registry is selected without an autonomous torsion term. The converged full-pair translation gives a relaxed ethane barrier of 3.1496 kcal/mol, +7.57% from the NIST review value 2.928 kcal/mol. Thus sign, exact threefold period, and the frozen 10% magnitude gate pass without a fitted torsion coefficient.</p>
+    <p>For an \(N\)-cycle with common transfer price \(T\), \(\mathcal B_{\rm ring}=-2T\sum_j\cos(\phi_{j+1}-\phi_j)\). At winding \(m\), its exact phase-curvature roots are</p>
+    <div class="equation">\[\boxed{\lambda_q=8T\cos(2\pi m/N)\sin^2(\pi q/N)}.\]</div>
+    <p>The zero root is a common phase shift, not an instability. For the six-cycle, \(m=0\) and \(m=\pm1\) are locally stable; \(m=\pm2\) is unstable. Ring phase stiffness is therefore a pair-ledger result, while its absolute rate awaits the assembled \(T\) and moving-eye inertia.</p>
+
+    <h3>The absolute solution: do not average before coupling</h3>
+    <p>The failed absolute shortcuts all compressed the atom to one radial number before forming the molecule. Retain every discrete mobile circulation entry and every primitive pair posting first. In POAMS-native bookkeeping, let \(m_*\) be the entry's inertial coefficient and \(\kappa\) the signed two-ended range coefficient. The complete book is</p>
+    <div class="equation">\[\boxed{\mathcal L_{\rm pair}=\sum_a{\mathbf p_a^2\over2m_*}-\sum_{aA}{Z_A\kappa\over r_{aA}}+\sum_{a&lt;b}{\kappa\over r_{ab}}+\sum_{A&lt;B}{Z_AZ_B\kappa\over R_{AB}}}.\]</div>
+    <p>This is one substance organizing pairwise—not particles exchanging a field. The indices are ledger addresses for mobile circulation entries and eyes; every \(1/r\) term is one co-signed, two-ended posting. Only for comparison does the conventional chart rename \(m_*\mapsto m_e\), \(\kappa\mapsto e^2\), and represent the stationary ledger by an antisymmetric eigenproblem. The native absolute ruler and action-rate scale were already present in the Elements range book:</p>
+    <div class="equation">\[\boxed{a_*={\hbar^2\over m_*\kappa}},\qquad \boxed{\Omega_*={\kappa\over\hbar a_*}={m_*\kappa^2\over\hbar^3}},\qquad E_*=\hbar\Omega_*.\]</div>
+    <p>Solving the lowest branch \(E_0(\{R_A\})\) gives geometry from \(\partial_RE_0=0\), well depth from an energy difference, and the vibrational Hessian from \(\partial_R^2E_0\). The local \(U,T,P\) above are outputs of this book, not new molecular constants.</p>
+    <table class="benchmark">
+      <thead><tr><th>Frozen absolute test</th><th>Calculated</th><th>Benchmark</th><th>Error</th></tr></thead>
+      <tbody>
+        <tr><td>H₂⁺ length · one-entry HF/QZ</td><td>1.05714 Å</td><td>1.058354 Å</td><td>−0.12%</td></tr>
+        <tr><td>H₂⁺ depth · \(E/E_*\)</td><td>0.10258</td><td>0.10260</td><td>−0.02%</td></tr>
+        <tr><td>H₂ length · FCI/QZ</td><td>0.74200 Å</td><td>0.74144 Å</td><td>+0.08%</td></tr>
+        <tr><td>H₂ depth · \(E/E_*\)</td><td>0.17397</td><td>0.17445</td><td>−0.27%</td></tr>
+        <tr><td>CO length · uncorrelated control</td><td>1.10446 Å</td><td>1.12820 Å</td><td>−2.10%</td></tr>
+        <tr><td>CS length · uncorrelated control</td><td>1.51554 Å</td><td>1.534941 Å</td><td>−1.26%</td></tr>
+      </tbody>
+    </table>
+
+    <div id="native-refiling-completeness">
+    <h3>Native re-filing completeness: the fixed-eye null survives</h3>
+    <p>The occupied census and the directions against which stationarity must be tested are not the same set. Starting only from the occupied chart <i>C</i>, the admissible directions are generated by the primitive one-entry action <i>B</i> and reconciled by the shared Gram book <i>G</i>:</p>
+    <div class="equation">\[\boxed{K_q=\operatorname{span}\{C,(G^{-1}B)C,\ldots,(G^{-1}B)^qC\}}.\]</div>
+    <p>The first universal rung with two successive fixed-eye convergence intervals is <i>q</i> = 2. It leaves hydrogen at one scalar channel—its occupied entry is already an action eigen-entry—and generates the C/O sequence <span class="mono">(2s,1p) → (4s,2p) → (6s,3p)</span>. No empty channel, molecular scale, or observed radius selects the ladder.</p>
+    <table class="benchmark">
+      <thead><tr><th>Frozen native test</th><th>Result</th><th>Gate</th></tr></thead>
+      <tbody>
+        <tr><td>H/C/O occupied recovery</td><td>largest defect 2.665 × 10<sup>−15</sup></td><td>PASS</td></tr>
+        <tr><td>chart/root/tensor invariance</td><td>largest defect 6.020 × 10<sup>−13</sup></td><td>PASS</td></tr>
+        <tr><td>two-interval rate / moment / tensor drift</td><td>0.000000% / 0.000001% / 0.000000%</td><td>PASS</td></tr>
+        <tr><td>methane C–H</td><td>1.16168085 Å · +6.8704%</td><td>FAIL</td></tr>
+        <tr><td>CO₂ C–O</td><td>1.18263029 Å · +1.7754%</td><td>PASS</td></tr>
+      </tbody>
+    </table>
+    <div class="callout"><b>Adjudication: PARTIAL.</b> The Gram-block action closure passes native completeness Gates 1–5, but frozen Gate 6 requires both molecular holdouts and methane misses the 5% bound. Ethyne, the larger molecules, and finite moving-eye corrections therefore remain blocked. The earlier manually enlarged post-comparison books remain excluded.</div>
+    </div>
+
+    <h3>A reaction barrier from pairs alone</h3>
+    <p>The same unmodified ledger was applied to \(H_A+H_BH_C\rightarrow H_AH_B+H_C\). The named conventional solver finds the collinear symmetric saddle at \(1.760035\,a_*\), only +0.173% from the \(1.757\,a_*\) benchmark, and its dimensionless barrier \(\Delta E/E_*=0.01544\) is +0.836% from the measured record. The symmetric curvature is positive; the old-bond/new-bond curvature is negative. The effective third centre has appeared without a primitive three-centre term.</p>
+    <div class="callout"><b>Adjudication: VALIDATED.</b> The three missing objects were artifacts of demanding an autonomous scalar bond functional. The fundamental molecular object is the full unaveraged pair ledger. Its spherical many-entry limit is the Elements census; its point-centre limit is the Solar System book; its finite nonspherical discrete solution is chemistry. Reaction <em>rates</em> still require nuclear propagation, prepared states, and any nonadiabatic or radiative channels—a barrier is not a rate.</div>
+  </section>
+
+  <section class="card" id="scope-boundary">
+    <h2>7 · What Has—and Has Not—Been Derived</h2>
+    <div class="scope-grid">
+      <div><h3 style="color:var(--green)">Closed or identified here</h3><ul><li>native discrete stationary and event conditions</li><li>invariant planar support / re-fileable outer-census split</li><li>H/C/N/O outer-census deficits</li><li>integer bond-order degree equation</li><li>directional Gram price and carbon's tetrahedral frame</li><li>equivalent and unequal-domain geometry map</li><li>absolute radial and angular pair-ledger curvatures</li><li>shared-shell normal form and relative bond lengths</li><li>absolute pair-ledger ruler and energy scale</li><li>pair-generated reaction saddle and barrier</li><li>torsional sign/period and ring phase stiffness</li></ul></div>
+      <div><h3 style="color:var(--red)">Evaluation boundary still open</h3><ul><li>native molecular closure beyond the methane null</li><li>finite anharmonic moving-eye feedback</li><li>prepared-state distributions for a named experiment</li><li>numerical outward-transfer channel evaluations</li></ul></div>
+    </div>
+    <p style="margin-bottom:0"><b>The former three opens are one operator.</b> The molecular shell measure, multi-channel coherence, absolute scale, and third-centre composition are now identified as projections of the same pair-only ledger found in The Elements and The Solar System. No autonomous “bond substance” is required.</p>
+  </section>
+
+  <section class="card" id="instrumentation">
+    <h2>8 · Reproducible Instrument</h2>
+    <p>The geometry arithmetic is independently implemented in <a href="./scripts/molecular_closure.py"><span class="mono">molecular_closure.py</span></a>. The native stationary and re-filing gates are in <a href="./scripts/molecular_native_stationarity.py"><span class="mono">molecular_native_stationarity.py</span></a>; unequal domains, spherical partitions, and the radial no-go are in <a href="./scripts/molecular_boundary.py"><span class="mono">molecular_boundary.py</span></a>. The radial anisotropic solver is <a href="./scripts/molecular_gram_ledger.py"><span class="mono">molecular_gram_ledger.py</span></a>; the simultaneous directional census theorem is checked by <a href="./scripts/molecular_carbon_census.py"><span class="mono">molecular_carbon_census.py</span></a>; its radial and angular Hessians are evaluated by <a href="./scripts/molecular_angular_price.py"><span class="mono">molecular_angular_price.py</span></a>. Configuration identities, their non-uniqueness counterexample, and the primitive-pair lift are checked by <a href="./scripts/molecular_configuration_gram.py"><span class="mono">molecular_configuration_gram.py</span></a>, <a href="./scripts/molecular_configuration_lift_no_go.py"><span class="mono">molecular_configuration_lift_no_go.py</span></a>, and <a href="./scripts/molecular_pair_lift.py"><span class="mono">molecular_pair_lift.py</span></a>. The recorded carbon convergence, symmetric-mode, torsion, and ring gates are checked by <a href="./scripts/molecular_carbon_frontier.py"><span class="mono">molecular_carbon_frontier.py</span></a>. Torsion and cycle-phase gates are in <a href="./scripts/molecular_torsion_ring.py"><span class="mono">molecular_torsion_ring.py</span></a>; moving-eye ratios are in <a href="./scripts/molecular_moving_eye.py"><span class="mono">molecular_moving_eye.py</span></a>. The null trails remain in <a href="./scripts/molecular_coupling_audit.py"><span class="mono">molecular_coupling_audit.py</span></a> and <a href="./scripts/molecular_opens_audit.py"><span class="mono">molecular_opens_audit.py</span></a>. The relative law is run in <a href="./scripts/molecular_cross_scale_audit.py"><span class="mono">molecular_cross_scale_audit.py</span></a>; the absolute equilibrium and reaction comparison gates are in <a href="./scripts/molecular_absolute_ledger.py"><span class="mono">molecular_absolute_ledger.py</span></a>.</p>
+    <p>The deterministic Gram-block ladder and its frozen molecular holdout are <a href="./scripts/molecular_refiling_completeness.py"><span class="mono">molecular_refiling_completeness.py</span></a> and <a href="./scripts/molecular_native_holdout.py"><span class="mono">molecular_native_holdout.py</span></a>.</p>
+    <div class="equation mono">python3 scripts/molecular_refiling_completeness.py<br>python3 scripts/molecular_native_holdout.py --molecule holdouts</div>
+    <div class="equation mono">python3 scripts/molecular_closure.py --include-held-out<br>python3 scripts/molecular_native_stationarity.py<br>python3 scripts/molecular_boundary.py<br>python3 scripts/molecular_gram_ledger.py<br>python3 scripts/molecular_carbon_census.py<br>python3 scripts/molecular_angular_price.py<br>python3 scripts/molecular_configuration_gram.py<br>python3 scripts/molecular_torsion_ring.py<br>python3 scripts/molecular_moving_eye.py<br>python3 scripts/molecular_cross_scale_audit.py<br>python3 scripts/molecular_absolute_ledger.py --mode equilibrium<br>python3 scripts/molecular_absolute_ledger.py --mode reaction</div>
+    <p style="margin-bottom:0">The absolute audit used PySCF 2.14.0 as a named numerical bridge. No observed molecular geometry, well depth, or reaction barrier entered its optimizers; all comparison gates were frozen first.</p>
+  </section>
+
+  <div class="sources">
+    <b>Sources and measured comparisons</b>
+    <ul>
+      <li>NIST CCCBDB, <a href="https://cccbdb.nist.gov/expgeom2x.asp?casno=74828&amp;charge=0">methane experimental geometry</a>: T<sub>d</sub>, C–H 1.087 Å, H–C–H 109.471°.</li>
+      <li>NIST CCCBDB, <a href="https://cccbdb.nist.gov/expgeom2x.asp?casno=74851&amp;charge=0">ethylene experimental geometry</a>: D<sub>2h</sub>, C=C 1.339 Å, H–C–H 117.6°, H–C–C 121.2°.</li>
+      <li>NIST CCCBDB, <a href="https://cccbdb.nist.gov/expgeom2x.asp?casno=74862&amp;charge=0">acetylene experimental geometry</a>: D<sub>∞h</sub>, C≡C 1.203 Å, H–C–C 180°.</li>
+      <li>A. Lehtola, <a href="https://www.sciencedirect.com/science/article/pii/S0010465522002338">fully numerical Hartree–Fock and density-functional calculations for diatomic molecules</a>: explicit prolate-spheroidal two-centre separation; M. Liberman, <a href="https://arxiv.org/abs/1402.3816">two Coulomb centres in quantum mechanics</a>.</li>
+      <li>NIST CCCBDB, <a href="https://cccbdb.nist.gov/listangleexp3x.asp?bi=25&amp;descript=aHCC&amp;mi=14">carbon angle comparison</a>: ethane 110.9°, ethene 121.2°, acetylene 180.0°.</li>
+      <li>NIST CCCBDB, <a href="https://cccbdb.nist.gov/listangleexp3x.asp?bi=19&amp;descript=aHCC&amp;mi=57">benzene angle comparison</a>: 120.0°.</li>
+      <li>NIST CCCBDB, <a href="https://cccbdb.nist.gov/exp2x.asp?casno=3889756&amp;charge=0">CF experimental record</a> and <a href="https://cccbdb.nist.gov/exp2x.asp?casno=2944050&amp;charge=0">CS experimental record</a>: equilibrium geometry, \(B_e\), \(\omega_e\), zero-point energy, and 0 K formation enthalpy.</li>
+      <li>NIST CCCBDB, <a href="https://cccbdb.nist.gov/expdiatomicsx.asp">experimental diatomic rates</a>: H₂ 4401.213, D₂ 3115.5, and HD 3813.15 in the database's reciprocal-length convention, used only for the moving-eye ratio audit.</li>
+      <li>NIST CCCBDB, <a href="https://cccbdb.nist.gov/exp2x.asp?casno=12326851">CP</a>, <a href="https://cccbdb.nist.gov/exp2x.asp?casno=409212&amp;charge=0">SiC</a>, and <a href="https://cccbdb.nist.gov/exp2x.asp?casno=3889767&amp;charge=0">CCl</a> experimental records.</li>
+      <li>NIST CCCBDB bond-order ladders: <a href="https://cccbdb.nist.gov/expgeom2x.asp?casno=74895&amp;charge=0">methylamine C–N</a>, <a href="https://cccbdb.nist.gov/expgeom2x.asp?casno=2053294&amp;charge=0">methanimine C=N</a>, <a href="https://cccbdb.nist.gov/expgeom2x.asp?casno=74908">HCN C≡N</a>; <a href="https://cccbdb.nist.gov/expgeom2x.asp?casno=67561&amp;charge=0">methanol C–O</a>, <a href="https://cccbdb.nist.gov/expgeom2x.asp?casno=50000&amp;charge=0">formaldehyde C=O</a>, <a href="https://cccbdb.nist.gov/exp2x.asp?casno=630080&amp;charge=0">CO</a>; and the frozen C–S holdout <a href="https://cccbdb.nist.gov/expgeom2x.asp?casno=74931&amp;charge=0">methanethiol C–S</a>, <a href="https://cccbdb.nist.gov/expgeom2x.asp?casno=865361&amp;charge=0">thioformaldehyde C=S</a>, <a href="https://cccbdb.nist.gov/exp2x.asp?casno=2944050&amp;charge=0">CS</a>.</li>
+      <li>I. Mayer, <a href="https://www.sciencedirect.com/science/article/pii/S0166128099004492">bond-order/bond-length correlation study</a>: the extant Pauling form \(b=\exp[(R_1-R_b)/B]\), named here as prior art rather than rediscovered novelty.</li>
+      <li>D. Ferenc and E. Mátyus, <a href="https://www.sciencedirect.com/science/article/pii/S0009261422004018">benchmark potential-energy curve for collinear H₃</a>; J. B. Anderson, <a href="https://pubmed.ncbi.nlm.nih.gov/17777031/">quantum Monte Carlo H + H₂ barrier</a>: 1.757 \(a_0\), 9.61±0.01 kcal/mol.</li>
+      <li><a href="https://pyscf.org/quickstart.html">PySCF official quickstart and method documentation</a>: the conventional electronic-structure implementation used only as the numerical representation of the registered pair operator.</li>
+      <li>NIST ASD, <a href="https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html">critically evaluated ionization energies</a>; NIST CCCBDB, <a href="https://cccbdb.nist.gov/hf0k.asp">0 K formation-enthalpy list</a>.</li>
+    </ul>
+  </div>
+</main>
+
+<footer>
+  <a href="./poams-periodic-table.html">The Elements</a> · <a href="./atom-as-phase.html">The Atom as Organized Phase</a> · <a href="./aufbau-as-closure.html">Aufbau as Closure</a><br>
+  One substance · whole turns · every relation entered at both ends
+</footer>
+
+<script>
+(function(){
+  const button=document.getElementById('themeToggle');
+  function apply(light){document.body.classList.toggle('light',light);button.textContent=light?'🌙':'☀️'}
+  try{apply(localStorage.getItem('poams-theme')==='light')}catch(e){apply(false)}
+  button.addEventListener('click',()=>{const light=!document.body.classList.contains('light');apply(light);try{localStorage.setItem('poams-theme',light?'light':'dark')}catch(e){}});
+})();
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+import {OrbitControls} from 'OrbitControls';
+
+const tetra=[[1,1,1],[1,-1,-1],[-1,1,-1],[-1,-1,1]].map(v=>v.map(x=>x/Math.sqrt(3)*2.45));
+const MOLS={
+ methane:{name:'Methane',formula:'CH₄',point:'T<sub>d</sub>',atoms:[['C',[0,0,0]],...tetra.map(p=>['H',p])],bonds:[[0,1,1],[0,2,1],[0,3,1],[0,4,1]],degrees:'4 · 1 · 1 · 1 · 1',k:4,ideal:'109.471°',measured:'109.471°',cycles:0,modes:9,note:'Four equal carbon axes close with pairwise dot product −1/3. The measured methane angle lands on the exact tetrahedral result. This display uses its measured 1.087 Å ruler; Section 6 gives the absolute pair-ledger route.'},
+ ethane:{name:'Ethane',formula:'C₂H₆',point:'D<sub>3d</sub>',atoms:[['C',[-1.25,0,0]],['C',[1.25,0,0]],['H',[-2.1,1.2,1.2]],['H',[-2.1,-1.55,.3]],['H',[-2.1,.35,-1.55]],['H',[2.1,-1.2,-1.2]],['H',[2.1,1.55,-.3]],['H',[2.1,-.35,1.55]]],bonds:[[0,1,1],[0,2,1],[0,3,1],[0,4,1],[1,5,1],[1,6,1],[1,7,1]],degrees:'4 · 4 · six H×1',k:4,ideal:'109.471°',measured:'108.0° / 110.9°',cycles:0,modes:18,note:'Each carbon closes four axial domains. Threefold census symmetry fixes the torsional period; the primitive cross-end pair debit selects the displayed staggered registry. The converged full-pair translation gives a relaxed 3.1496 kcal/mol barrier.'},
+ ethene:{name:'Ethene',formula:'C₂H₄',point:'D<sub>2h</sub>',atoms:[['C',[-1.2,0,0]],['C',[1.2,0,0]],['H',[-2.2,1.5,0]],['H',[-2.2,-1.5,0]],['H',[2.2,1.5,0]],['H',[2.2,-1.5,0]]],bonds:[[0,1,2],[0,2,1],[0,3,1],[1,4,1],[1,5,1]],degrees:'4 · 4 · four H×1',k:3,ideal:'120°',measured:'117.6° / 121.2°',cycles:0,modes:12,note:'Three axial domains close in a plane; one transverse carbon–carbon channel locks the plane. Unequal C and H endpoints split the ideal angle in the measured geometry.'},
+ ethyne:{name:'Ethyne',formula:'C₂H₂',point:'D<sub>∞h</sub>',atoms:[['H',[-3.1,0,0]],['C',[-1.15,0,0]],['C',[1.15,0,0]],['H',[3.1,0,0]]],bonds:[[0,1,1],[1,2,3],[2,3,1]],degrees:'1 · 4 · 4 · 1',k:2,ideal:'180°',measured:'180°',cycles:0,modes:7,note:'Two axial domains are antipodal. Two transverse closures accompany the carbon–carbon axis, giving three independent channels without inventing a thicker connector.'},
+ co2:{name:'Carbon dioxide',formula:'CO₂',point:'D<sub>∞h</sub>',atoms:[['O',[-2.25,0,0]],['C',[0,0,0]],['O',[2.25,0,0]]],bonds:[[0,1,2],[1,2,2]],degrees:'2 · 4 · 2',k:2,ideal:'180°',measured:'180°',cycles:0,modes:4,note:'Carbon’s four-unit deficit closes as two double relations. Two equivalent neighbor axes are forced antipodal. Its quantitative full-ledger calculation remains to be run here.'},
+ benzene:{name:'Benzene',formula:'C₆H₆',point:'D<sub>6h</sub>',atoms:(()=>{const a=[];for(let i=0;i<6;i++){const q=i*Math.PI/3;a.push(['C',[2.15*Math.cos(q),2.15*Math.sin(q),0]])}for(let i=0;i<6;i++){const q=i*Math.PI/3;a.push(['H',[3.35*Math.cos(q),3.35*Math.sin(q),0]])}return a})(),bonds:(()=>{const b=[];for(let i=0;i<6;i++){b.push([i,(i+1)%6,1]);b.push([i,i+6,1])}return b})(),ring:true,degrees:'six C×4 · six H×1',k:3,ideal:'120°',measured:'120°',cycles:1,modes:30,note:'Each carbon has three planar axes. The cyan ring is one global phase account satisfying ΣΔφ=2πm; alternating integer edge registries are bookkeeping projections, not frozen sticks.'}
+};
+
+const colors={C:0xd4af37,H:0xb8dfff,O:0xff7b72};
+const channelColors=[0xd4af37,0x26c6da,0xb388ff];
+const canvas=document.getElementById('moleculeCanvas');
+const stage=document.getElementById('stage');
+const scene=new THREE.Scene();scene.background=new THREE.Color(0x080811);scene.fog=new THREE.FogExp2(0x080811,.032);
+const camera=new THREE.PerspectiveCamera(42,1,.1,100);camera.position.set(6,3.8,7);
+const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:false});renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.15;
+const controls=new OrbitControls(camera,canvas);controls.enableDamping=true;controls.dampingFactor=.06;controls.minDistance=4;controls.maxDistance=18;
+scene.add(new THREE.AmbientLight(0xffffff,.65));const key=new THREE.DirectionalLight(0xcad9ff,2.2);key.position.set(5,7,8);scene.add(key);const rim=new THREE.PointLight(0x5bc8f5,18,18);rim.position.set(-5,-2,5);scene.add(rim);
+const starGeo=new THREE.BufferGeometry(),starData=[];for(let i=0;i<180;i++){const r=9+Math.random()*18,q=Math.random()*Math.PI*2,z=(Math.random()-.5)*18;starData.push(r*Math.cos(q),r*Math.sin(q),z)}starGeo.setAttribute('position',new THREE.Float32BufferAttribute(starData,3));scene.add(new THREE.Points(starGeo,new THREE.PointsMaterial({color:0x737391,size:.022,transparent:true,opacity:.18})));
+const molecularGroup=new THREE.Group();scene.add(molecularGroup);let atomGroups=[],shellMaterials=[],channelMaterials=[],pulseRecords=[],phaseRecords=[],dynamicGroup=null,current='methane';
+const actionSlope=2.2;
+
+function disposeGroup(group){group.traverse(o=>{if(o.geometry)o.geometry.dispose();if(o.material){if(Array.isArray(o.material))o.material.forEach(m=>m.dispose());else o.material.dispose()}});while(group.children.length)group.remove(group.children[0])}
+function vec(a){return new THREE.Vector3(a[0],a[1],a[2])}
+function reachFor(symbol){return symbol==='H'?.58:symbol==='O'?.78:.86}
+function circlePoints(radius,plane){
+  const points=[];for(let i=0;i<96;i++){const q=i/96*Math.PI*2,c=radius*Math.cos(q),s=radius*Math.sin(q);points.push(plane===0?new THREE.Vector3(c,s,0):plane===1?new THREE.Vector3(c,0,s):new THREE.Vector3(0,c,s))}return points
+}
+function addActionReachShell(group,symbol,reach){
+  // Three orthogonal great circles: the same restrained guide-cage grammar as The Elements.
+  const mat=new THREE.LineBasicMaterial({color:symbol==='H'?0xb9d8ef:0xaebbe6,transparent:true,opacity:symbol==='H'?.42:.58,blending:THREE.AdditiveBlending,depthWrite:false});
+  shellMaterials.push(mat);for(let plane=0;plane<3;plane++){const guide=new THREE.LineLoop(new THREE.BufferGeometry().setFromPoints(circlePoints(reach,plane)),mat);guide.userData.actionShell=true;group.add(guide)}
+}
+function addPhaseStreamline(group,color,radius,axis,w,sense,phaseOffset){
+  // Deliberately indicative: one closed circulation locus and moving phase markers.
+  // Molecular re-filing has not licensed a literal atomic shell decomposition.
+  const normal=axis.clone().normalize(),helper=Math.abs(normal.y)<.9?new THREE.Vector3(0,1,0):new THREE.Vector3(1,0,0);
+  const e1=new THREE.Vector3().crossVectors(normal,helper).normalize(),e2=new THREE.Vector3().crossVectors(normal,e1).normalize();
+  const locus=[];for(let i=0;i<=96;i++){const q=i/96*Math.PI*2;locus.push(e1.clone().multiplyScalar(radius*Math.cos(q)).addScaledVector(e2,radius*Math.sin(q)))}
+  const spineMat=new THREE.LineBasicMaterial({color,transparent:true,opacity:.48,blending:THREE.AdditiveBlending,depthWrite:false});
+  group.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(locus),spineMat));
+  const count=3,pos=new Float32Array(count*3),geo=new THREE.BufferGeometry();geo.setAttribute('position',new THREE.BufferAttribute(pos,3));
+  const mat=new THREE.PointsMaterial({color,size:.052,transparent:true,opacity:.96,blending:THREE.AdditiveBlending,depthWrite:false,sizeAttenuation:true});
+  group.add(new THREE.Points(geo,mat));phaseRecords.push({geo,pos,count,e1,e2,radius,sense,phaseOffset});
+}
+function atomVisual(symbol,position,index){
+  const group=new THREE.Group();group.position.copy(position);group.userData={base:position.clone(),index};
+  const radius=symbol==='H'?.25:.38;
+  // Planar support exists only when A-Z is nonzero; H-1 has no such core booking.
+  if(symbol!=='H'){
+    const coreMat=new THREE.MeshBasicMaterial({color:0xf0c94c,transparent:true,opacity:.76,blending:THREE.AdditiveBlending,depthWrite:false});
+    const core=new THREE.Mesh(new THREE.TorusGeometry(radius*.48,.018,8,88),coreMat);core.rotation.x=Math.PI/2;core.userData.spin=1.6;group.add(core);
+  }
+  const reach=reachFor(symbol);addActionReachShell(group,symbol,reach);
+  const glow=new THREE.PointLight(colors[symbol],symbol==='H'?1.2:2.5,2.8);group.add(glow);molecularGroup.add(group);return group
+}
+function basisFor(axis){const helper=Math.abs(axis.z)<.8?new THREE.Vector3(0,0,1):new THREE.Vector3(0,1,0);const u=new THREE.Vector3().crossVectors(axis,helper).normalize();const v=new THREE.Vector3().crossVectors(axis,u).normalize();return [u,v]}
+function addDomainCap(group,axis,symbol){
+  const dir=axis.clone().normalize(),[u,v]=basisFor(dir),reach=reachFor(symbol),alpha=.31,center=dir.clone().multiplyScalar(reach*Math.cos(alpha)),rad=reach*Math.sin(alpha),points=[];
+  for(let i=0;i<72;i++){const q=i/72*Math.PI*2;points.push(center.clone().addScaledVector(u,rad*Math.cos(q)).addScaledVector(v,rad*Math.sin(q)))}
+  const mat=new THREE.LineBasicMaterial({color:colors[symbol],transparent:true,opacity:.48,blending:THREE.AdditiveBlending,depthWrite:false});
+  group.add(new THREE.LineLoop(new THREE.BufferGeometry().setFromPoints(points),mat));
+  const pole=new THREE.Mesh(new THREE.SphereGeometry(.026,8,7),new THREE.MeshBasicMaterial({color:colors[symbol],transparent:true,opacity:.82,blending:THREE.AdditiveBlending,depthWrite:false}));pole.position.copy(dir.multiplyScalar(reach));group.add(pole);
+}
+function addChannel(p0,p1,channel,total,reach0=0,reach1=0){
+  const axis=new THREE.Vector3().subVectors(p1,p0),dir=axis.clone().normalize(),start=p0,end=p1,[u,v]=basisFor(dir),points=[];
+  const offset=total===1?.045:(channel-(total-1)/2)*.17;
+  for(let s=0;s<=64;s++){
+    const t=s/64,p=start.clone().lerp(end,t),envelope=Math.sin(Math.PI*t),turns=channel===0?.42:1.55;
+    const phase=2*Math.PI*turns*t+channel*2.12;
+    p.addScaledVector(u,offset*envelope*Math.cos(phase));p.addScaledVector(v,offset*envelope*Math.sin(phase));
+    points.push(p)
+  }
+  const curve=new THREE.CatmullRomCurve3(points),mat=new THREE.MeshBasicMaterial({color:channelColors[channel],transparent:true,opacity:.82,blending:THREE.AdditiveBlending,depthWrite:false});
+  mat.userData={channel,phase:channel*.9};channelMaterials.push(mat);dynamicGroup.add(new THREE.Mesh(new THREE.TubeGeometry(curve,96,.026,8,false),mat));
+  const glowMat=new THREE.MeshBasicMaterial({color:channelColors[channel],transparent:true,opacity:.09,blending:THREE.AdditiveBlending,depthWrite:false});channelMaterials.push(glowMat);dynamicGroup.add(new THREE.Mesh(new THREE.TubeGeometry(curve,96,.072,8,false),glowMat));
+  for(let i=0;i<4;i++){const pulse=new THREE.Mesh(new THREE.SphereGeometry(.045,10,8),new THREE.MeshBasicMaterial({color:channelColors[channel],transparent:true,opacity:.95,blending:THREE.AdditiveBlending,depthWrite:false}));dynamicGroup.add(pulse);pulseRecords.push({mesh:pulse,curve,offset:i/4+channel*.07,direction:i%2?1:-1})}
+}
+function addRing(mol,separation){
+  if(!mol.ring)return;const points=[];for(let i=0;i<=120;i++){const q=i/120*Math.PI*2;points.push(new THREE.Vector3(2.15*Math.cos(q),2.15*Math.sin(q),.23*Math.sin(q*3)))}
+  points.forEach(p=>p.multiplyScalar(separation));const curve=new THREE.CatmullRomCurve3(points,true),mat=new THREE.MeshBasicMaterial({color:0x26c6da,transparent:true,opacity:.68,blending:THREE.AdditiveBlending,depthWrite:false});mat.userData={channel:1,phase:.4};channelMaterials.push(mat);dynamicGroup.add(new THREE.Mesh(new THREE.TubeGeometry(curve,150,.035,8,true),mat));for(let i=0;i<9;i++){const pulse=new THREE.Mesh(new THREE.SphereGeometry(.04,8,7),new THREE.MeshBasicMaterial({color:0x26c6da,blending:THREE.AdditiveBlending}));dynamicGroup.add(pulse);pulseRecords.push({mesh:pulse,curve,offset:i/9,direction:1})}
+}
+function rebuildChannels(){
+  if(dynamicGroup){disposeGroup(dynamicGroup);molecularGroup.remove(dynamicGroup)}dynamicGroup=new THREE.Group();molecularGroup.add(dynamicGroup);channelMaterials=[];pulseRecords=[];const mol=MOLS[current],separation=+document.getElementById('separation').value,positions=mol.atoms.map(a=>vec(a[1]).multiplyScalar(separation));
+  atomGroups.forEach((g,i)=>g.position.copy(positions[i]));mol.bonds.forEach(b=>{const s0=mol.atoms[b[0]][0],s1=mol.atoms[b[1]][0];for(let c=0;c<b[2];c++)addChannel(positions[b[0]],positions[b[1]],c,b[2],reachFor(s0),reachFor(s1))});addRing(mol,separation);updateAction();
+}
+function build(keyName){
+  current=keyName;disposeGroup(molecularGroup);atomGroups=[];shellMaterials=[];channelMaterials=[];pulseRecords=[];phaseRecords=[];dynamicGroup=null;const mol=MOLS[current];
+  const positions=mol.atoms.map(a=>vec(a[1]));positions.forEach((p,i)=>atomGroups.push(atomVisual(mol.atoms[i][0],p,i)));
+  mol.bonds.forEach(([i,j])=>{addDomainCap(atomGroups[i],positions[j].clone().sub(positions[i]),mol.atoms[i][0]);addDomainCap(atomGroups[j],positions[i].clone().sub(positions[j]),mol.atoms[j][0])});
+  molecularGroup.scale.setScalar(mol.ring?.72:1.04);rebuildChannels();document.querySelectorAll('.mol-btn').forEach(b=>b.classList.toggle('on',b.dataset.key===current));
+}
+function actionAt(r,registry){const p=Math.exp(-actionSlope*(r-1)),c=Math.cos(Math.PI*registry);return{p,c,core:p*p,transfer:-2*p*c,total:p*p-2*p*c}}
+function actionState(r,registry){const c=Math.cos(Math.PI*registry);if(c<=.05)return['PHASE-OPEN','open'];const req=1-Math.log(c)/actionSlope;if(r<req-.08)return['CORE-COMPRESSED','compressed'];if(Math.abs(r-req)<=.08)return['STATIONARY CLOSURE','closed'];return['TRANSFER-SEEKING','open']}
+function drawActionPlot(r,registry){
+  const plot=document.getElementById('actionPlot'),ctx=plot.getContext('2d'),w=plot.width,h=plot.height,L=38,R=12,T=9,B=27,x0=.68,x1=2.05,y0=-1.35,y1=8.4,X=x=>L+(x-x0)/(x1-x0)*(w-L-R),Y=y=>T+(y1-y)/(y1-y0)*(h-T-B);ctx.clearRect(0,0,w,h);ctx.font='18px ui-monospace, monospace';ctx.fillStyle='#77778d';ctx.strokeStyle='#292941';ctx.lineWidth=1;
+  [0,1,2,4,6,8].forEach(y=>{ctx.beginPath();ctx.moveTo(L,Y(y));ctx.lineTo(w-R,Y(y));ctx.stroke();ctx.fillText(String(y),5,Y(y)+5)});[.75,1,1.5,2].forEach(x=>{ctx.beginPath();ctx.moveTo(X(x),T);ctx.lineTo(X(x),h-B);ctx.stroke();ctx.fillText(x.toFixed(x===1?2:1),X(x)-13,h-5)});ctx.fillText('R/Re',w-62,h-5);
+  function curve(color,dash,fn,width){ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=width;ctx.setLineDash(dash);for(let i=0;i<=180;i++){const q=x0+(x1-x0)*i/180,y=Math.max(y0,Math.min(y1,fn(actionAt(q,registry))));if(i)ctx.lineTo(X(q),Y(y));else ctx.moveTo(X(q),Y(y))}ctx.stroke()}
+  curve('#ff7b72',[8,6],a=>a.core,2);curve('#26c6da',[8,6],a=>a.transfer,2);curve('#d4af37',[],a=>a.total,4);ctx.setLineDash([]);const now=actionAt(r,registry);ctx.strokeStyle='#e8e8f0';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(X(r),T);ctx.lineTo(X(r),h-B);ctx.stroke();ctx.fillStyle='#e8e8f0';ctx.beginPath();ctx.arc(X(r),Y(Math.max(y0,Math.min(y1,now.total))),6,0,Math.PI*2);ctx.fill();
+}
+function updateAction(){
+  const r=+document.getElementById('separation').value,registry=+document.getElementById('registry').value,a=actionAt(r,registry),[state,stateClass]=actionState(r,registry),coherence=Math.max(.04,(a.c+1)/2)*Math.exp(-.45*Math.abs(r-1));
+  document.getElementById('separationValue').innerHTML='R/R<sub>e</sub> = '+r.toFixed(2);document.getElementById('registryValue').textContent='Δφ = '+registry.toFixed(2)+'π';document.getElementById('coreValue').textContent='+'+a.core.toFixed(2);document.getElementById('transferValue').textContent=(a.transfer<0?'−':'+')+Math.abs(a.transfer).toFixed(2);document.getElementById('totalValue').textContent=(a.total<0?'−':'+')+Math.abs(a.total).toFixed(2);
+  channelMaterials.forEach((m,i)=>{m.opacity=(i%2?.08:.18)+(i%2?.12:.72)*coherence});shellMaterials.forEach(m=>{m.opacity=document.getElementById('showShells').checked?(.46+.20*Math.min(1,a.core/2)):0});drawActionPlot(r,registry);updateHud(state,stateClass,a);
+}
+function updateHud(state,stateClass,a){
+  const m=MOLS[current],dmin=m.k*m.k/(m.k-1);document.getElementById('hud').innerHTML=`<h3>${m.name}</h3><div class="formula">${m.formula} · ${m.point}</div><span class="action-state ${stateClass}">${state}</span><hr><div><b>Required/observed degrees</b><br><span class="mono">${m.degrees}</span> <b class="pass">PASS</b></div><div><b>Carbon axial domains</b> K = ${m.k}</div><div><b>Minimum Gram debit</b> <span class="pass">D = ${dmin.toFixed(3)}</span></div><div><b>Ideal / measured angle</b> <span class="pass">${m.ideal}</span> / <span class="measured">${m.measured}</span></div><div><b>Radial filing intensity</b> <span class="phase">P/P<sub>e</sub> = ${a.p.toFixed(3)}</span></div><div><b>Transfer registry</b> cos Δφ = ${a.c.toFixed(3)}</div>${m.ring?'<div><b>Ring condition</b> <span class="phase">ΣΔφ = 2πm</span></div>':''}<div><b>Graph cycles / modes</b> ${m.cycles} / ${m.modes}</div><hr><div class="scope"><b>Visual boundary:</b> planar support loops, sparse spherical census cages, and directional apertures indicate the surviving anatomy; they do not claim a literal solved intensity field. Shared paths and closure geometry carry the derived content. Measured R<sub>e</sub> sets this display ruler.</div>`;
+  document.getElementById('instrumentNote').innerHTML='<b>'+m.formula+'.</b> '+m.note;
+}
+
+const pickers=document.getElementById('pickers');Object.entries(MOLS).forEach(([keyName,m])=>{const b=document.createElement('button');b.className='mol-btn';b.dataset.key=keyName;b.innerHTML=m.formula;b.title=m.name;b.addEventListener('click',()=>build(keyName));pickers.appendChild(b)});
+document.getElementById('separation').addEventListener('input',rebuildChannels);
+document.getElementById('registry').addEventListener('input',updateAction);
+document.getElementById('flowRate').addEventListener('input',e=>{document.getElementById('flowValue').textContent=(+e.target.value).toFixed(1)+'×'});
+document.getElementById('showShells').addEventListener('change',updateAction);
+document.getElementById('showAction').addEventListener('change',e=>document.getElementById('actionPanel').classList.toggle('hidden',!e.target.checked));
+
+function resize(){const w=stage.clientWidth,h=stage.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix()}window.addEventListener('resize',resize);resize();build('methane');
+const clock=new THREE.Clock();function animate(){requestAnimationFrame(animate);clock.getDelta();const t=clock.elapsedTime,rate=+document.getElementById('flowRate').value,registry=+document.getElementById('registry').value;
+  atomGroups.forEach(g=>g.children.forEach(o=>{if(o.userData.spin)o.rotation.z+=.008*rate*o.userData.spin}));
+  phaseRecords.forEach(r=>{for(let i=0;i<r.count;i++){const q=r.sense*t*1.35*rate+r.phaseOffset+i/r.count*Math.PI*2,o=i*3,c=Math.cos(q),s=Math.sin(q);r.pos[o]=r.radius*(c*r.e1.x+s*r.e2.x);r.pos[o+1]=r.radius*(c*r.e1.y+s*r.e2.y);r.pos[o+2]=r.radius*(c*r.e1.z+s*r.e2.z)}r.geo.attributes.position.needsUpdate=true});
+  pulseRecords.forEach((p,i)=>{const q=((p.offset+p.direction*t*.105*rate*(1-.35*registry))%1+1)%1;p.mesh.position.copy(p.curve.getPointAt(q));p.mesh.scale.setScalar(.7+.45*Math.sin((t*3+i)*rate)**2);p.mesh.material.opacity=.25+.7*Math.max(.05,(Math.cos(Math.PI*registry)+1)/2)});controls.autoRotate=document.getElementById('autoRotate').checked;controls.autoRotateSpeed=.55;controls.update();renderer.render(scene,camera)}animate();
+</script>
+</body>
+</html>
