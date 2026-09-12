@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POAMS: Stern-Gerlach as Two Chiralities</title>
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['\\(','\\)'], ['$','$']], displayMath: [['\\[','\\]'], ['$$','$$']] },
+    svg: { fontCache: 'global' }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+:root{
+  --bg:#0d0d18; --card:#1c1c30; --text:#e8e8f0; --muted:#9a9ab0;
+  --gold:#d4af37; --blue:#5bc8f5; --green:#66bb6a; --red:#ef5350; --edge:#2c2c46;
+}
+[data-theme="light"], body.light{
+  --bg:#faf8f2; --card:#ffffff; --text:#26211a; --muted:#6b6355;
+  --gold:#8b6914; --blue:#176e94; --green:#2e7d32; --red:#b03030; --edge:#d9d2bf;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  line-height:1.65; transition:background .3s,color .3s;
+  padding-top:72px !important;
+}
+header{padding:26px 22px 18px; border-bottom:1px solid var(--edge); text-align:center;}
+header h1{margin:0; font-size:26px; color:var(--gold); font-weight:650; line-height:1.3;}
+header .sub{margin:8px auto 0; font-size:14px; color:var(--muted); max-width:820px;}
+main{max-width:900px; margin:0 auto; padding:10px 20px 60px;}
+section{margin-top:38px;}
+h2{
+  font-size:19px; color:var(--gold); font-weight:650;
+  margin:0 0 14px; border-bottom:1px solid var(--edge); padding-bottom:8px;
+}
+h3{font-size:15px; color:var(--blue); font-weight:650; margin:22px 0 8px;}
+p{margin:12px 0; font-size:14.5px;}
+em{color:var(--gold); font-style:normal; font-weight:600;}
+b, strong{color:var(--blue); font-weight:650;}
+ul, ol{margin:10px 0; padding-left:22px;}
+li{margin:7px 0; font-size:14.5px;}
+.card{background:var(--card); border:1px solid var(--edge); border-radius:10px; padding:16px 20px; margin:18px 0;}
+.card.gold{border-color:rgba(212,175,55,.45); background:rgba(212,175,55,.06);}
+.card.blue{border-color:rgba(91,200,245,.35); background:rgba(91,200,245,.05);}
+.card.red{border-color:rgba(239,83,80,.4); background:rgba(239,83,80,.05);}
+.card.dashed{border-style:dashed; background:rgba(91,200,245,.04);}
+.eq{margin:16px 0; text-align:center; font-size:15px;}
+.caveat{font-size:13px; color:var(--muted); font-style:italic; margin:8px 0;}
+.tag{display:inline-block; font-size:11px; letter-spacing:.06em; padding:1px 8px; border-radius:10px; margin-right:6px; vertical-align:middle;}
+.tag.draft{background:rgba(239,83,80,.15); color:var(--red);}
+.tag.open{background:rgba(91,200,245,.15); color:var(--blue);}
+.tag.claim{background:rgba(102,187,106,.15); color:var(--green);}
+.tag.assume{background:rgba(212,175,55,.15); color:var(--gold);}
+.tag.compare{background:rgba(154,154,176,.15); color:var(--muted);}
+.draft-banner{
+  max-width:820px; margin:16px auto 4px; padding:12px 16px;
+  border:1px solid rgba(239,83,80,.5); border-left:3px solid var(--red);
+  border-radius:8px; background:rgba(239,83,80,.06);
+  font-size:13.5px; text-align:left;
+}
+table{width:100%; border-collapse:collapse; font-size:13.5px; margin:10px 0;}
+th, td{padding:8px 10px; text-align:left; border-bottom:1px solid var(--edge); vertical-align:top;}
+th{color:var(--gold); font-weight:650;}
+footer{
+  border-top:1px solid var(--edge); margin-top:50px; padding:18px 22px;
+  text-align:center; font-size:12.5px; color:var(--muted);
+}
+footer a{color:var(--blue); text-decoration:none;}
+footer a:hover{text-decoration:underline;}
+a.xref{color:var(--blue); text-decoration:none; border-bottom:1px dotted var(--blue);}
+a.xref:hover{border-bottom-style:solid;}
+.theme-toggle{
+  position:fixed; top:54px; right:12px; z-index:1000;
+  background:var(--gold); color:var(--bg); border:none;
+  width:40px; height:40px; border-radius:8px; padding:0; cursor:pointer;
+  font-size:1.15rem; display:flex; align-items:center; justify-content:center;
+}
+[data-theme="light"] .theme-toggle, body.light .theme-toggle{background:#8b6914; color:#faf8f2;}
+#poams-hub-nav{
+  position:fixed; top:0; left:0; right:0; z-index:9999; height:44px;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 1rem; background:rgba(13,13,24,0.92);
+  backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(212,175,55,0.25);
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  font-size:13px; box-sizing:border-box;
+}
+#poams-hub-nav a{
+  color:#d4af37; text-decoration:none; display:inline-flex; align-items:center;
+  gap:5px; padding:5px 10px; border-radius:6px; transition:background .2s;
+  white-space:nowrap; font-weight:500;
+}
+#poams-hub-nav a:hover{background:rgba(212,175,55,0.12);}
+#poams-hub-nav .phn-center{display:flex; flex-direction:column; align-items:center; line-height:1.2;}
+#poams-hub-nav .phn-title{font-weight:600; color:#e8e8f0; font-size:12px;}
+#poams-hub-nav .phn-pos{font-size:10px; color:rgba(212,175,55,0.6); letter-spacing:.05em;}
+[data-theme="light"] #poams-hub-nav, body.light #poams-hub-nav{background:rgba(250,248,242,0.95); border-bottom-color:rgba(139,105,20,0.25);}
+[data-theme="light"] #poams-hub-nav a, body.light #poams-hub-nav a{color:#8b6914;}
+body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
+[data-theme="light"] #poams-hub-nav .phn-title, body.light #poams-hub-nav .phn-title{color:#2a2318;}
+@media (max-width:640px){.phn-hide-sm{display:none;}}
+</style>
+</head>
+<body>
+
+<div id="poams-hub-nav">
+  <a href="./atom-as-phase.html" title="The Atom as Organized Phase">← <span class="phn-hide-sm">The Atom as Organized Phase</span></a>
+  <div class="phn-center">
+    <a href="./index.html" style="flex-direction:column;gap:2px;padding:4px 12px;">
+      <span class="phn-title">Return to Hub</span>
+      <span class="phn-pos">NR · POAMS · EXHIBIT SERIES</span>
+    </a>
+  </div>
+  <a href="./counter-rotating-circulation-pair.html" title="Counter-Rotating Planar Vortex Cores"><span class="phn-hide-sm">Counter-Rotating Vortex Cores</span> →</a>
+</div>
+
+<button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle light/dark theme">🌙</button>
+
+<header>
+  <h1>Stern-Gerlach as Two Chiralities</h1>
+  <p class="nr-provenance" style="font-size:0.8em;font-style:italic;opacity:0.72;line-height:1.5;margin:0.5em 0 1em;text-align:center">This exhibit is an extrapolation of the foundational work of N. Vivian &ldquo;Viv&rdquo; Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
+  <div class="sub">The 1922 Two-Spot Deflection Read from Elementary Closure Topology</div>
+  </header>
+
+<main>
+
+<!-- ============ §1 ============ -->
+<section>
+  <h2>&sect;1 &mdash; What Was Measured</h2>
+
+  <p>In 1922 Otto Stern and Walther Gerlach sprayed a beam of silver atoms through an inhomogeneous magnetic field and photographed the deflection pattern on a detector plate. The classical prediction was a smooth line: silver's magnetic moment can take any orientation in the beam, so its projection along the field gradient should give a continuous distribution of deflections.</p>
+
+  <p>The plate showed two discrete spots. Not a smooth line, not three spots, not a distribution &mdash; two.</p>
+
+  <p>The result stood as the first direct measurement of quantized angular momentum in atoms and remains the most-cited experimental anchor for atomic-scale angular-momentum quantization. Its interpretation has since been folded into the standard quantum-mechanical postulate of intrinsic electron spin. This exhibit reads the same measurement through POAMS ontology, arriving at the same numerics from a different (and, we argue, cleaner) starting point.</p>
+</section>
+
+<!-- ============ §2 ============ -->
+<section>
+  <h2>&sect;2 &mdash; The Extant Reading (Cross-Ontology Comparison)</h2>
+
+  <div class="card compare" style="border-color:rgba(154,154,176,.35); background:rgba(154,154,176,.04);">
+    <span class="tag compare">CROSS-ONTOLOGY</span>
+    <p style="margin-top:6px">The paragraphs below use extant quantum-mechanical vocabulary <em>only</em> for comparative purposes. Nothing in the POAMS derivation that follows depends on any of these terms.</p>
+  </div>
+
+  <p>In standard QM the two-spot result is explained by postulating that the silver atom's outer unpaired electron carries an <em>intrinsic spin</em> of one-half in units of $\hbar$. The associated magnetic moment is</p>
+  <div class="eq">$$\mu_z = g_s \, m_s \, \mu_B, \qquad m_s = \pm\tfrac{1}{2}, \qquad g_s \approx 2$$</div>
+  <p>giving two discrete projections of magnitude $\mu_B$ (one Bohr magneton) along the field axis. The two spots correspond to $m_s = +\tfrac{1}{2}$ and $m_s = -\tfrac{1}{2}$.</p>
+
+  <p>The QM story requires spin to be introduced as a <em>new metaphysical degree of freedom</em> not derivable from the position and momentum operators of the theory. The Stern-Gerlach measurement is then evidence that this degree of freedom is <em>quantized</em>: only two projections, not a continuum.</p>
+
+  <p>POAMS gives the two-spot result without postulating a new degree of freedom. The two projections drop out of the topology of a single closure.</p>
+</section>
+
+<!-- ============ §3 ============ -->
+<section>
+  <h2>&sect;3 &mdash; The POAMS Reading</h2>
+
+  <p>In POAMS the silver atom is one organized circulation with $A = 108$ quanta of angular momentum, filed as spherical pattern ($Z = 47$) plus planar core twist ($A - Z = 61$). See <a class="xref" href="./atom-as-phase.html">The Atom as Organized Phase</a> and <a class="xref" href="./mass-as-trapped-rate.html">Mass as Trapped Rate</a> for the full construction.</p>
+
+  <p>Silver's outer census has capacity $\kappa = 2$ and present occupancy $o = 1$, giving deficit $d = 1$ &mdash; <strong>one incomplete outer closure</strong> in the atom's organized-phase pattern.</p>
+
+  <h3>The elementary closure and its two admissible chiralities</h3>
+
+  <p>An incomplete outer closure is a single elementary loop carrying stored angular momentum $L = \hbar$ (per GROUNDING &sect;1: the elementary event is one closed cycle with $\oint L\, d\theta = 2\pi\hbar = h$). By C&#259;lug&#259;reanu's theorem, a closed ribbon in three-space admits a signed integer linking number $Lk = Tw + Wr$. For an <em>elementary</em> closure &mdash; one that has not yet completed additional windings &mdash; the accessible linking values are exactly:</p>
+
+  <div class="eq">$$Lk \in \{+1, -1\}$$</div>
+
+  <p>These are the two admissible chiralities. Not a postulate &mdash; a geometric fact about a closed loop in three-space. A closed loop has exactly two orientations relative to any chosen axis; there is no third option because there is no continuous deformation from one orientation to the other without cutting the loop.</p>
+
+  <div class="card gold">
+    <strong>The two-spot result is topological, not new-postulate.</strong> The two admissible chiralities of the atom's single incomplete outer closure are the source of the two projections. Nothing else is required: not intrinsic spin as a new quantum number, not a two-valued spinor as a distinct algebraic object. The closure has two orientations because a closed loop in three-space has two orientations.
+  </div>
+
+  <h3>Coupling to the field gradient</h3>
+
+  <p>The inhomogeneous magnetic field imposes a preferred axis in the substrate. The atom's incomplete outer closure couples to this axis by projecting its $L$ onto it. The projection has two admissible values, $+\hbar$ or $-\hbar$, corresponding to the two chiralities.</p>
+
+  <p>Force on the atom:</p>
+  <div class="eq">$$F_z = \mu_z \frac{dB}{dz}, \qquad \mu_z = \pm\, \mu_B$$</div>
+
+  <p>where $\mu_B$ appears in POAMS as the geometric coupling coefficient between one elementary coherent-AM closure and the electromagnetic sector of the ledger.</p>
+
+  <div class="caveat">
+    <span class="tag open">OPEN</span> A first-principles POAMS derivation of the numerical value of $\mu_B$ from foundational closure parameters (elementary turn rate, phase-sense magnitude, geometric projection coefficient) belongs to the microscopic fine-structure front, currently open in POAMS per <a class="xref" href="./alpha-program-2026-archive.html">the retired 2026 alpha-program archive</a>. For this exhibit's numerics the value is imported from measurement; the two-spot pattern itself does not depend on this open question.
+  </div>
+</section>
+
+<!-- ============ §4 ============ -->
+<section>
+  <h2>&sect;4 &mdash; Quantitative Prediction</h2>
+
+  <p>For the historical apparatus geometry (Stern &amp; Gerlach 1922 and successor confirmations by Frisch &amp; Segr&egrave;):</p>
+
+  <table>
+    <tr><th>Parameter</th><th>Value</th></tr>
+    <tr><td>Silver atom mass</td><td>$1.79 \times 10^{-25}$ kg (108 amu)</td></tr>
+    <tr><td>Coupling coefficient $\mu_B$</td><td>$9.27 \times 10^{-24}$ J/T (imported empirical value)</td></tr>
+    <tr><td>Field gradient $dB/dz$</td><td>$\sim 10^3$ T/m (apparatus-specific)</td></tr>
+    <tr><td>Field length</td><td>$3.5 \times 10^{-2}$ m</td></tr>
+    <tr><td>Post-field drift length</td><td>$0.10$ m</td></tr>
+    <tr><td>Beam velocity (thermal)</td><td>$\sim 500$ m/s</td></tr>
+  </table>
+
+  <p>Force on each chirality: $F = \mu_B \cdot (dB/dz) = 9.27 \times 10^{-21}$ N.<br>
+  Acceleration: $a = F/m = 5.18 \times 10^{4}$ m/s$^2$.<br>
+  Transit time through field: $\tau = 7 \times 10^{-5}$ s.<br>
+  In-field deflection: $y_1 = \tfrac{1}{2} a \tau^2 = 1.3 \times 10^{-4}$ m.<br>
+  Post-field drift deflection: $y_2 = a \tau \cdot (t_{drift}) = 1.5 \times 10^{-3}$ m.<br>
+  Total deflection from beam axis: $\sim 1.6$ mm; spot separation: $\sim 3.2$ mm.</p>
+
+  <p>Historical observation: spot separations of order millimeters, consistent with the above within apparatus-geometry factors.</p>
+
+  <div class="card gold">
+    <strong>Identical numerics to standard QM.</strong> Both frameworks use the same magnetic-moment coupling coefficient (the empirical Bohr magneton) and the same classical trajectory calculation. The numerical prediction for silver Stern-Gerlach is the same. The difference is <em>ontology</em>: POAMS derives the two-spot result from the geometric fact that a closed elementary loop has two chiralities, without postulating a new metaphysical degree of freedom.
+  </div>
+</section>
+
+<!-- ============ §5 ============ -->
+<section>
+  <h2>&sect;5 &mdash; The Land&eacute; Extension</h2>
+
+  <p>The silver Stern-Gerlach reframe does not discriminate against extant QM: both frameworks give the same numerics for silver because both use the same empirical $\mu_B$ and silver's outer census has one closure with a $g$-factor near 2 in either treatment.</p>
+
+  <p>The natural generalization to atoms with mixed orbital and spin composition &mdash; whose Zeeman patterns extant QM captures via the Land&eacute; formula &mdash; is what shows POAMS's derivational reach. Silver is the simple anchor; the Land&eacute; formula is where POAMS earns something the extant framework only postulates.</p>
+
+  <div class="card gold">
+    <p><strong>The full derivation is a separate exhibit:</strong> <a class="xref" href="./lande-from-twist-writhe.html">The Land&eacute; g-Factor from Twist/Writhe Coupling</a>. In brief: identifying twist with intrinsic spin and writhe with orbital motion (per <a class="xref" href="./index.html">GROUNDING</a> &sect;2), and applying the same two-endedness principle that gives $\alpha = -2$ in the Counter-Rotating exhibit, POAMS derives $g_L = 1$ from writhe geometry (externally referenced, single-ended) and $g_S = 2$ from twist geometry (self-referential, two-ended). C&#259;lug&#259;reanu projection then reproduces Land&eacute;'s formula exactly across the periodic table with no adjustable parameters.</p>
+
+    <p>The silver two-spot pattern is the $L = 0$, $S = \tfrac{1}{2}$ limiting case of that derivation, where Land&eacute; reduces to $g_J = 2$ trivially.</p>
+  </div>
+
+  <div class="caveat">
+    <span class="tag open">OPEN</span> Extending to the QED-order anomalous magnetic moment ($g_s - 2 \approx 0.00232$) requires deriving higher-order twist/writhe couplings, connecting to the retired 2026 alpha-program archive. Hyperfine structure (nuclear-electronic C&#259;lug&#259;reanu coupling) is a separate open front.
+  </div>
+</section>
+
+<!-- ============ §6 ============ -->
+<section>
+  <h2>&sect;6 &mdash; What is Claimed, What Remains Open</h2>
+
+  <div class="card gold">
+    <p><span class="tag claim">CLAIMED</span> <strong>The two-spot pattern in silver Stern-Gerlach is topological.</strong> Silver's one incomplete outer closure carries $L = \hbar$ and admits exactly two C&#259;lug&#259;reanu chiralities ($Lk = \pm 1$), each producing one deflection spot. No new metaphysical degree of freedom is required.</p>
+
+    <p><span class="tag claim">CLAIMED</span> <strong>Quantitative agreement with historical measurement.</strong> Same coupling coefficient (empirical $\mu_B$, same in POAMS and QM) yields identical deflection numerics for the standard apparatus geometry.</p>
+
+    <p><span class="tag claim">CLAIMED</span> <strong>Ontological cleanliness.</strong> The historical experiment is now readable POAMS-native, without electron-ontology imports and without postulating spin as a new degree of freedom.</p>
+  </div>
+
+  <div class="card blue">
+    <p><span class="tag open">OPEN</span> <strong>Derivation of $\mu_B$ from POAMS foundations.</strong> Belongs to the microscopic fine-structure front (retired alpha-program archive). Independent of the two-spot pattern derivation above; affects only the numerical value of the coupling coefficient.</p>
+
+    <p><span class="tag claim">CLAIMED</span> <strong>The Land&eacute; extension.</strong> In <a class="xref" href="./lande-from-twist-writhe.html">The Land&eacute; g-Factor from Twist/Writhe Coupling</a>, POAMS derives $g_L = 1$, $g_S = 2$, and the full Land&eacute; formula from twist/writhe geometry plus two-endedness. Silver is the trivial $L = 0$ case; the full derivation covers every atomic state in the periodic table.</p>
+
+    <p><span class="tag open">OPEN</span> <strong>Higher-order corrections.</strong> QED-scale anomalous magnetic moment ($g_s - 2$) and hyperfine structure connect to the retired alpha-program archive and require separate derivational work.</p>
+  </div>
+
+  <p style="margin-top:22px">The reframe stands on its own for silver: a clean POAMS-native reading of the historical experiment. The Land&eacute; extension generalizes it to arbitrary atomic composition, converting an extant <em>postulate</em> into a POAMS <em>derivation</em>.</p>
+</section>
+
+</main>
+
+<footer>
+  Part of the <a href="./index.html">Normal Realism / POAMS exhibit series</a> &middot;
+  <a href="./atom-as-phase.html">The Atom as Organized Phase</a> &middot;
+  <a href="./mass-as-trapped-rate.html">Mass as Trapped Rate</a> &middot;
+  <a href="./aufbau-as-closure.html">Aufbau as Closure</a> &middot;
+  <a href="./counter-rotating-circulation-pair.html">Counter-Rotating Planar Vortex Cores</a>
+</footer>
+
+<script>
+function toggleTheme(){
+  var h = document.documentElement;
+  var isLight = h.getAttribute('data-theme') === 'light' || document.body.classList.contains('light');
+  if(isLight){
+    h.setAttribute('data-theme','dark');
+    document.body.classList.remove('light');
+    document.querySelector('.theme-toggle').textContent = '☀️';
+  } else {
+    h.setAttribute('data-theme','light');
+    document.body.classList.add('light');
+    document.querySelector('.theme-toggle').textContent = '🌙';
+  }
+}
+</script>
+
+</body>
+</html>
