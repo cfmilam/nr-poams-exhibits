@@ -179,10 +179,10 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
 
   <p>Every writhe element is <em>externally referenced</em>: it describes the relationship between the closure and the substance around it. The reference points of the coiling are outside the closure itself. There is no self-reference; no element of writhe involves the closure reading itself.</p>
 
-  <p>In ledger terms, an externally-referenced element is a normal single-ended geometric fact. It participates in exchanges with its surround, and each of those exchanges is counted once (no double-counting).</p>
+  <p>In ledger terms, an externally-referenced element is a normal single-ended geometric fact. It participates in exchanges with its surround, and each of those exchanges is counted once (no double-counting). This is <a class="xref" href="./the-receiver-keys-the-exchange.html#sec-pair-lagrangian">Receiver Keys &sect;7</a> Case 1 (decomposable coupling): each endpoint records only its own coordinate's piece, the ledger sum recovers the standard $\sum_{i<j}V$ halving convention, and the geometric coefficient is unity.</p>
 
   <div class="card gold">
-    <p><strong>Writhe coupling coefficient: $c_W = 1$.</strong> No factor-of-two premium; writhe is single-ended geometric information about the closure's embedding.</p>
+    <p><strong>Writhe coupling coefficient: $c_W = 1$.</strong> No factor-of-two premium; writhe is single-ended geometric information about the closure's embedding &mdash; &sect;7 Case 1 applies.</p>
   </div>
 
   <p>This matches the extant $g_L = 1$ for orbital angular momentum &mdash; the &ldquo;classical current loop&rdquo; picture, in POAMS ontology, is exactly the writhe-of-a-closed-circulation picture: how the centerline coils in space, single-ended, no self-reference.</p>
@@ -194,10 +194,10 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
 
   <p>Twist is the closure spinning on itself. Unlike writhe, twist is defined <em>internally</em> to the closure: it describes how the ribbon's own material rotates around its own centerline. Both endpoints of any twist element are on the same closure.</p>
 
-  <p>By the POAMS two-endedness principle (see <a class="xref" href="./the-receiver-keys-the-exchange.html">The Receiver Keys the Exchange</a> and <a class="xref" href="./index.html">GROUNDING</a> &sect;3 self-corollary): every exchange is co-signed at both endpoints, and each endpoint carries the book. For an externally-referenced quantity (writhe), the two endpoints are at different loci and the standard sum-over-pairs convention correctly halves to avoid double-counting. For a <em>self-referential</em> quantity (twist), both endpoints are at the <em>same locus</em> &mdash; both books are kept at the same closure &mdash; and the halving convention does not apply. Twist coupling is genuinely two-ended at a single closure, and the geometric coupling coefficient picks up a factor of 2 accordingly.</p>
+  <p>By the POAMS two-endedness principle (formalized in <a class="xref" href="./the-receiver-keys-the-exchange.html#sec-pair-lagrangian">Receiver Keys &sect;7</a>): every exchange is co-signed at both endpoints, and each endpoint carries the book. Twist is the limiting case of &sect;7 Case 2 (irreducible pair-invariant) with the two &ldquo;endpoints&rdquo; of the self-reference coincident on a single closure &mdash; the closure's ledger records the full self-invariant, and the coupling to the external magnetic field supplies the co-signed second ledger entry. Under Case 2 the halving convention does not apply and the geometric coupling coefficient picks up a factor of 2.</p>
 
   <div class="card gold">
-    <p><strong>Twist coupling coefficient: $c_T = 2$.</strong> The factor of 2 is the two-endedness bonus at self-referential geometry &mdash; the same principle that gives $\alpha = -2$ in <a class="xref" href="./counter-rotating-circulation-pair.html">Counter-Rotating Vortex Cores</a> &sect;2. One POAMS principle, two independent derivations.</p>
+    <p><strong>Twist coupling coefficient: $c_T = 2$.</strong> The factor of 2 is the two-endedness bonus at self-referential geometry &mdash; <a class="xref" href="./the-receiver-keys-the-exchange.html#sec-pair-lagrangian">&sect;7 Case 2</a> applied to a limiting-case pair-invariant with coincident endpoints. The same principle gives $\alpha = -2$ in <a class="xref" href="./counter-rotating-circulation-pair.html">Counter-Rotating Vortex Cores</a> &sect;2. One POAMS principle, two independent applications.</p>
   </div>
 
   <p>This matches the extant $g_S = 2$ for intrinsic spin. What extant introduces as an empirical fit (Uhlenbeck-Goudsmit 1925) or an unexplained Dirac-equation artifact, POAMS derives from the self-referential geometry of twist plus the ratified two-endedness principle.</p>
@@ -214,7 +214,13 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
   <p>With the two coupling coefficients derived, the atom's coherent-AM projection along the imposed axis reads (with $\mu_B$ imported empirically per <a class="xref" href="./stern-gerlach-as-two-chiralities.html">Stern-Gerlach</a> &sect;3):</p>
   <div class="eq">$$\mu_z = c_W \cdot Wr_z + c_T \cdot Tw_z = 1 \cdot Wr_z + 2 \cdot Tw_z$$</div>
 
-  <p>For a state characterized by definite total linking $J$ (identifying $Lk_{total} \leftrightarrow J$ across the extant/POAMS conversion), the individual $Wr$ and $Tw$ components have average projections onto the total-$Lk$ direction. C&#259;lug&#259;reanu geometry gives these projections directly from the identity $Wr \cdot Lk = (Lk^2 + Wr^2 - Tw^2)/2$ (and similarly for $Tw$):</p>
+  <p>For a state characterized by definite total linking $J$ (identifying $Lk_{total} \leftrightarrow J$ across the extant/POAMS conversion), the individual $Wr$ and $Tw$ components have average projections onto the total-$Lk$ direction. The algebraic identity $Wr \cdot Lk = (Lk^2 + Wr^2 - Tw^2)/2$ (and similarly for $Tw$) holds by direct expansion of the scalar sum $Lk = Tw + Wr$.</p>
+
+  <div class="caveat">
+    <span class="tag open">POAMS PREMISE</span> <strong>Operator quantization of topological invariants.</strong> The projection formulas below use Casimir-eigenvalue combinations $J(J+1)$, $L(L+1)$, $S(S+1)$ rather than literal scalar squares $J^2$, $L^2$, $S^2$. That substitution is <em>not</em> a consequence of the plain integer identity $Lk=Tw+Wr$ &mdash; a literal scalar reading of &sect;2 would give $X^2$, not $X(X{+}1)$, and would numerically diverge for cases like H&nbsp;²P₁/₂ ($g=0$ instead of $2/3$). The Casimir structure requires reading $Lk$, $Tw$, $Wr$ as quantized topological operators satisfying SU(2)-like commutation relations at closures &mdash; the same operator algebra that gives $\hat{\vec J}^2$ eigenvalue $J(J+1)\hbar^2$ in the extant treatment. This POAMS quantization of topological invariants is taken as given here; formalizing it explicitly from POAMS foundations is an <strong>OPEN</strong> front (part of the alpha-derivation family named in &sect;7). Absent this premise, the derivation below reduces to a POAMS-notation identification of the standard QM projection-theorem computation.
+  </div>
+
+  <p>Under the POAMS operator quantization above, the projections read:</p>
 
   <div class="eq">$$\langle Wr_z \rangle = m_J \cdot \frac{J(J+1) + L(L+1) - S(S+1)}{2J(J+1)}$$</div>
   <div class="eq">$$\langle Tw_z \rangle = m_J \cdot \frac{J(J+1) + S(S+1) - L(L+1)}{2J(J+1)}$$</div>
@@ -228,7 +234,7 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
   <div class="eq">$$g_J^{POAMS} = \frac{3J(J+1) + S(S+1) - L(L+1)}{2J(J+1)} \;=\; 1 + \frac{J(J+1) + S(S+1) - L(L+1)}{2J(J+1)}$$</div>
 
   <div class="card gold">
-    <p><strong>This is exactly Land&eacute;'s formula.</strong> POAMS reproduces it in closed form from twist/writhe geometry plus the two-endedness principle. No adjustable parameters, no empirical fits. What extant QM postulates ($g_L$, $g_S$) and then combines via the projection theorem, POAMS derives from foundations.</p>
+    <p><strong>This is exactly Land&eacute;'s formula.</strong> POAMS reproduces it in closed form from <em>two</em> foundational premises: (a) the two-endedness axiom (<a class="xref" href="./the-receiver-keys-the-exchange.html#sec-pair-lagrangian">Receiver Keys &sect;7</a> Case&nbsp;1 / Case&nbsp;2) fixing $c_W=1$ and $c_T=2$; and (b) the POAMS operator quantization of topological invariants ($Lk$, $Tw$, $Wr$ as SU(2)-algebra operators, so their squared eigenvalues are Casimirs). Given both premises, no additional adjustable parameter is required. What extant QM postulates ($g_L$, $g_S$) as separate empirical inputs, POAMS reduces to a single POAMS-foundational assumption &mdash; the SU(2)-like operator structure of topological invariants &mdash; alongside the two-endedness axiom. Premise (b) itself is currently taken as given from the POAMS reading of $Lk$/$Tw$/$Wr$; formalizing it is the open front named in &sect;7.</p>
   </div>
 </section>
 
@@ -256,7 +262,7 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
   <p>The pattern extends to every atomic state whose extant g-factor is computable from the Land&eacute; formula. Since POAMS reproduces the formula in closed form, the match is not case-by-case verification but a universal derived identity.</p>
 
   <div class="card blue">
-    <p><strong>Every atomic Zeeman measurement in the historical record is now readable as POAMS-derived.</strong> Not fit, not calibrated &mdash; derived from twist/writhe geometry and the two-endedness principle. Precision-spectroscopy g-factor data across the periodic table now belongs to POAMS's evidence base for the two-endedness principle, not to extant QM's postulate base.</p>
+    <p><strong>Every atomic Zeeman measurement in the historical record is now readable as POAMS-derived</strong> &mdash; under the two premises named in &sect;5 (the two-endedness axiom of Receiver Keys &sect;7, fully derived; and the POAMS operator quantization of topological invariants, currently taken as given). Precision-spectroscopy g-factor data across the periodic table becomes evidence for the two-endedness principle plus the operator-quantization premise, jointly, rather than for the extant separate empirical inputs $g_L$, $g_S$.</p>
   </div>
 </section>
 
@@ -269,9 +275,11 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
 
     <p><span class="tag claim">CLAIMED</span> <strong>Derivation of $c_T = 2$ (twist/spin coupling).</strong> Twist is self-referential; two-ended at a single closure; two-endedness principle applies; coupling coefficient picks up factor 2. Same POAMS principle that gives $\alpha = -2$ in Counter-Rotating Vortex Cores.</p>
 
-    <p><span class="tag claim">CLAIMED</span> <strong>Derivation of Land&eacute;'s formula.</strong> C&#259;lug&#259;reanu projection of Twist and Writhe onto the total-linking direction, combined with the two derived coupling coefficients, reproduces the Land&eacute; formula in closed form for every atomic state.</p>
+    <p><span class="tag claim">CLAIMED</span> <strong>Land&eacute;'s formula reproduced in closed form.</strong> C&#259;lug&#259;reanu projection of Twist and Writhe onto the total-linking direction, combined with the two derived coupling coefficients ($c_W=1$, $c_T=2$) and the POAMS operator quantization of $Lk$/$Tw$/$Wr$ (see &sect;5 caveat), reproduces the Land&eacute; formula in closed form for every atomic state. The two-endedness axiom is fully derived (via Receiver Keys &sect;7); the operator-quantization premise is currently taken as given from the POAMS reading of topological invariants and is not formalized further here.</p>
 
-    <p><span class="tag claim">CLAIMED</span> <strong>Universal verification.</strong> POAMS g-factor equals extant Land&eacute; g-factor for every combination of $L$, $S$, $J$. Historical Zeeman spectroscopy data is now readable as POAMS-derived.</p>
+    <p><span class="tag claim">CLAIMED</span> <strong>Universal arithmetic verification.</strong> POAMS $g_J$ (under the two premises above) equals the extant Land&eacute; $g_J$ for every combination of $L$, $S$, $J$ &mdash; verified for the eleven representative rows in &sect;6 and extending by identical algebra to every additional atomic state whose extant $g_J$ is Land&eacute;-computable. Historical Zeeman spectroscopy data becomes readable as POAMS-native under the two premises named.</p>
+
+    <p><span class="tag open">OPEN &mdash; PREMISE (b)</span> <strong>POAMS operator quantization of topological invariants.</strong> The derivation above imports Casimir-eigenvalue structure ($J(J+1)$, etc.) that does not follow from the plain integer identity $Lk=Tw+Wr$ alone. The exhibit currently takes as given that $Lk$, $Tw$, $Wr$ are quantized topological operators with SU(2)-like commutation relations; formalizing that quantization from POAMS foundations is the outstanding derivation gap, connected to the alpha-derivation family below.</p>
   </div>
 
   <div class="card blue">
