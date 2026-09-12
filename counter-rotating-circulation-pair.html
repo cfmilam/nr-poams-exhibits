@@ -310,12 +310,64 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
 
 <!-- ============ §5 ============ -->
 <section>
-  <h2>&sect;5 &mdash; What is Claimed, What Remains Open</h2>
+  <h2>&sect;5 &mdash; The Self-Coupling Case: Intrinsic-Plus-Orbital Mixed Pair</h2>
+
+  <p>The pair coupling derived in &sect;2 was for two bodies each carrying coherent angular momentum, both at some separation $r$. The same C&#259;lug&#259;reanu + two-endedness machinery applies to a distinct configuration of physical importance: <strong>a single body carrying an intrinsic (pumped) coherent-AM $\vec{L}_{coh}$ while also possessing an orbital-AM $\vec{L}_{orb}^{nat}$ of its own natural orbit around a nearby mass sink.</strong> This is the self-coupling case &mdash; the body's intrinsic circulation reading its own orbital circulation through the shared ledger.</p>
+
+  <h3>The derivation carries through</h3>
+
+  <p>Both $\vec{L}_{coh}$ (intrinsic, twist-account per <a class="xref" href="./index.html">GROUNDING</a> &sect;2) and $\vec{L}_{orb}^{nat}$ (orbital, writhe-account) are C&#259;lug&#259;reanu quantities of the same body. The pair-invariant argument of &sect;2 &mdash; only $Lk_1 \cdot Lk_2$ survives the C&#259;lug&#259;reanu constraint &mdash; applies unchanged. Both endpoints of the &ldquo;exchange&rdquo; are on the same body (twist and writhe of one closure structure), so two-endedness (per <a class="xref" href="./the-receiver-keys-the-exchange.html#sec-pair-lagrangian">Receiver Keys &sect;7</a>) applies exactly as in the two-body case &mdash; the same factor of 2, from the same self-referential-geometry argument that gives $g_S = 2$ in <a class="xref" href="./lande-from-twist-writhe.html">Land&eacute; &sect;4</a>.</p>
+
+  <p>The self-coupling potential:</p>
+
+  <div class="eq">$$V_{mix} \;=\; -\frac{2G}{c^2} \cdot \frac{\vec{L}_{coh} \cdot \vec{L}_{orb}^{nat}}{r^3}$$</div>
+
+  <p>evaluated at the body's location $r$ from the mass sink (e.g., Earth's centre). Same coefficient as the two-body case; same sign convention; same Bertrand-preservation at long range. What differs: the two vectors $\vec{L}_{coh}$ and $\vec{L}_{orb}^{nat}$ live on the same body, and their relative orientation is an engineering degree of freedom of the device rather than a fact about two distant sources.</p>
+
+  <h3>Sign structure by <a class="xref" href="./varying-g.html">Varying G</a> App-5</h3>
+
+  <table>
+    <tr><th>Orientation of $\vec{L}_{coh}$ relative to $\vec{L}_{orb}^{nat}$</th><th>App-5 reading</th><th>Weight</th></tr>
+    <tr><td>Co-aligned (parallel)</td><td>Natural orbit tightens; $r_0$ contracts</td><td>Heavier</td></tr>
+    <tr><td>Anti-aligned (antiparallel)</td><td>Natural orbit loosens; $r_0$ expands</td><td>Lighter</td></tr>
+    <tr><td>Perpendicular</td><td>No first-order shift</td><td>Unchanged at leading order</td></tr>
+  </table>
+
+  <p>The vector alignment is with $\vec{L}_{orb}^{nat}$ &mdash; the natural-orbit angular-momentum vector at the body's location, which is perpendicular to the radial and to the tangential-velocity of the natural orbit. At Earth's equator this axis is parallel to Earth's rotation axis; at general latitude it is the axis of the great-circle natural orbit through the body's location. Not radial.</p>
+
+  <h3>Frame independence</h3>
+
+  <p>$\vec{L}_{coh} \cdot \vec{L}_{orb}^{nat}$ is a scalar in the body's rest frame; both vectors are properties of the body's own configuration and location in the nexus. Observer motion state, external field configurations, and choice of inertial frame do not enter. The weight modification is a property of the body's own configuration relative to the local nexus &mdash; frame-independent by construction.</p>
+
+  <h3>Scaling</h3>
+
+  <p>Fractional weight change under anti-aligned coupling scales as the ratio of pumped intrinsic AM to natural-orbit AM:</p>
+
+  <div class="eq">$$\frac{\Delta g}{g} \;\sim\; \beta \;=\; \frac{|\vec{L}_{coh}|}{|\vec{L}_{orb}^{nat}|}$$</div>
+
+  <p>For a body of mass $M = 1$ kg at Earth's surface, $|\vec{L}_{orb}^{nat}| = M\sqrt{GM_\oplus R_\oplus} \approx 5.1 \times 10^{10}$ J&middot;s. Pumped intrinsic AM at laboratory-achievable levels gives:</p>
+
+  <table>
+    <tr><th>$|\vec{L}_{coh}|$ achievable</th><th>$\beta = \Delta g / g$</th><th>Weight change on 1 kg</th></tr>
+    <tr><td>$10^3$ J&middot;s (modest superconducting coil)</td><td>$2\times 10^{-8}$</td><td>$\sim 10^{-8}$ g</td></tr>
+    <tr><td>$10^5$ J&middot;s (large SC apparatus)</td><td>$2\times 10^{-6}$</td><td>$\sim 10^{-6}$ g</td></tr>
+    <tr><td>$10^7$ J&middot;s (extreme SC apparatus)</td><td>$2\times 10^{-4}$</td><td>$\sim 10^{-4}$ g</td></tr>
+  </table>
+
+  <p>Torsion-balance sensitivity is around $10^{-9}$ g. All three regimes above are above detection threshold. The lowest achievable ($10^3$ J&middot;s pumped AM, $\sim 10^{-8}$ g) is at the ragged edge; the middle regime ($10^5$ J&middot;s, $\sim 10^{-6}$ g) is comfortably measurable.</p>
+
+  <div class="card gold">
+    <p><strong>Self-coupling is a real POAMS-native consequence of the &sect;2 machinery.</strong> The same pair-invariant with the same coefficient, applied to a body's own intrinsic and orbital angular momenta, produces frame-independent weight modification whose magnitude scales with pumped-AM ratio and whose sign is selectable by orientation relative to the natural-orbit vector. Engineering embodiments (counter-wound superconducting coil pair oriented anti-parallel to $\vec{L}_{orb}^{nat}$ at the device's latitude; alternative embodiments in any medium supporting macroscopic coherent-AM) are matters of apparatus design, not additional theoretical commitment.</p>
+  </div>
+
+  <h2>&sect;6 &mdash; What is Claimed, What Remains Open</h2>
 
   <div class="card gold">
     <p><span class="tag claim">CLAIMED</span> <strong>The coherent-AM pair coupling term.</strong> Structural derivation from the C&#259;lug&#259;reanu constraint on a rotational-invariant scalar pair Lagrangian yields the $-2(G/c^2)\vec{L}_1 \cdot \vec{L}_2 / r^3$ term, Bertrand-preserved, matching GR Lense-Thirring at leading order, matching the corpus varying-G phenomenology, testable against Gravity Probe B.</p>
 
     <p><span class="tag claim">CLAIMED</span> <strong>The counter-rotating self-compressing circulation pair as a distinguished POAMS configuration.</strong> Four combined properties &mdash; compressed coherent-AM density, engineered $Lk$ topology, both twist and writhe present, drive-maintained &mdash; hold in every medium supporting coherent &hbar; circulation. The configuration is medium-independent.</p>
+
+    <p><span class="tag claim">CLAIMED</span> <strong>Self-coupling: intrinsic coherent-AM interacting with the same body's natural-orbit vector (&sect;5).</strong> The pair-invariant machinery of &sect;2 extends to the mixed intrinsic-plus-orbital case with the same coefficient $-2G/c^2$, same sign convention, same Bertrand-preservation. Fractional weight modification scales as $\beta = |\vec{L}_{coh}|/|\vec{L}_{orb}^{nat}|$; sign is selectable by orientation of $\vec{L}_{coh}$ relative to the natural-orbit vector. Frame-independent by construction &mdash; the coupling reads only the body's own configuration relative to the local nexus.</p>
   </div>
 
   <div class="card blue">
