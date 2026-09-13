@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Alpha Problem — An Open Front</title>
+<title>The Fine-Structure Constant — What Survives</title>
 <script>
 window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};
 </script>
@@ -34,17 +34,20 @@ main{max-width:880px;margin:0 auto;padding:22px 22px 64px}
 header{text-align:center;padding:18px 0 28px;border-bottom:1px solid var(--edge)}
 h1{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--gold);font-size:clamp(2rem,5vw,3.15rem);line-height:1.12;margin:0 0 10px}
 .subtitle{color:var(--muted);font-size:1.04rem}
-.status{display:inline-block;margin-top:17px;padding:7px 12px;border:1px solid var(--red);border-radius:999px;color:var(--red);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:.75rem;font-weight:750;letter-spacing:.08em}
+.status{display:inline-block;margin-top:17px;padding:7px 14px;border:1px solid var(--gold);border-radius:999px;color:var(--gold);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:.75rem;font-weight:750;letter-spacing:.08em}
 .prov{margin:22px 0 0;color:var(--muted);font-size:.86rem}
 section{margin-top:38px}
 h2{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--gold);font-size:1.28rem;margin:0 0 13px;padding-bottom:8px;border-bottom:1px solid var(--edge)}
+h3{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--gold);font-size:1.06rem;margin:22px 0 8px}
 p{margin:11px 0}
 .card{background:var(--card);border:1px solid var(--edge);border-radius:10px;padding:17px 19px;margin:16px 0}
 .card.red{border-left:4px solid var(--red)}
 .card.green{border-left:4px solid var(--green)}
 .card.amber{border-left:4px solid var(--amber)}
 .card.blue{border-left:4px solid var(--blue)}
+.card.gold{border-left:4px solid var(--gold)}
 .card b{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--blue)}
+.card.gold b{color:var(--gold)}
 ul,ol{padding-left:24px;margin:10px 0}
 li{margin:8px 0}
 .eq{text-align:center;background:var(--card);border:1px solid var(--edge);border-radius:8px;padding:12px;margin:15px 0;overflow-x:auto}
@@ -53,7 +56,17 @@ th,td{border:1px solid var(--edge);padding:9px 11px;text-align:left;vertical-ali
 th{background:var(--card);color:var(--gold);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
 .grade-open{color:var(--red);font-weight:700}
 .grade-stands{color:var(--green);font-weight:700}
+.grade-regraded{color:var(--amber);font-weight:700}
 .mut{color:var(--muted)}
+.tag{display:inline-block;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:.66rem;font-weight:750;letter-spacing:.06em;padding:2px 7px;border-radius:3px;margin-right:5px;vertical-align:middle}
+.tag-d{background:var(--green);color:#04120a}
+.tag-e{background:var(--muted);color:var(--bg)}
+.tag-r{background:var(--amber);color:#221408}
+.chain{background:var(--card);border:1px solid var(--edge);border-radius:8px;padding:18px 22px;margin:20px 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:.94rem;line-height:1.95}
+.chain b{color:var(--blue)}
+.door{background:#0f0f1e;border:1px solid var(--gold);border-radius:10px;padding:26px 28px;margin:26px 0;box-shadow:0 0 24px rgba(212,175,55,.08)}
+body.light .door{background:#f9f4e4}
+.door h2{border-bottom:1px solid rgba(212,175,55,.35)}
 .links{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:10px;margin-top:15px}
 .links a{display:block;background:var(--card);border:1px solid var(--edge);border-radius:8px;padding:12px 14px;text-decoration:none}
 .links a:hover{border-color:var(--gold)}
@@ -66,391 +79,276 @@ footer{max-width:900px;margin:0 auto 24px;padding:15px 18px 0;border-top:1px sol
   <a href="./index.html">&larr; <span class="phn-hide-sm">Exhibits Hub</span></a>
   <div class="phn-center">
     <a href="./index.html"><span class="phn-title">Return to Hub</span></a>
-    <span class="phn-pos">POAMS GEOMETRIC CONSTANT · COMPUTING PROCEDURE OPEN</span>
+    <span class="phn-pos">DERIVABLY CONTINGENT &middot; TO THE DOOR, WITH DIGNITY</span>
   </div>
   <a href="./alpha-program-2026-archive.html"><span class="phn-hide-sm">Research archive</span> &rarr;</a>
 </div>
 <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle light and dark theme">☀️</button>
 
 <main>
+
 <header>
-  <h1>The Alpha Ratio</h1>
-  <div class="subtitle">A POAMS intrinsic geometric constant, like &pi; is Euclidean</div>
-  <div class="status">POAMS GEOMETRIC CONSTANT &middot; COMPUTING PROCEDURE OPEN</div>
-  <p class="prov">This page replaces the retired exhibit <em>Spectra, Gravitation, and Fine Structure in Normal Realism</em> and, on 2026-09-12, is comprehensively reframed. The reframing (ratified same date) discards the exhibit's inherited extant framing of $\alpha$ as a &ldquo;coupling constant to be derived from mechanism&rdquo; and adopts the POAMS-native position: $\alpha$ is an intrinsic geometric ratio of POAMS closure geometry, in exactly the same sense that $\pi$ is an intrinsic geometric ratio of Euclidean plane geometry. The failed derivation-from-mechanism program remains available as an auditable research record, honestly retitled as an inherited category error.</p>
+  <h1>The Fine-Structure Constant &mdash; What Survives</h1>
+  <div class="subtitle">A unified reading of POAMS's completed and ratified $\alpha$ program &mdash; the equations take us to the door and stop with dignity</div>
+  <div class="status">DERIVABLY CONTINGENT &middot; TO THE DOOR, WITH DIGNITY</div>
+  <p class="prov">This exhibit unifies what survived cold review of the 2026 summer program (<em>Spectra, Gravitation, and Fine Structure in Normal Realism</em>; retired 2026-09-07 with regrades in place, kept as immutable <a href="./alpha-program-2026-archive.html">research archive</a>) together with the POAMS-native identifications ratified 2026-09-12/13 (rate, cone-angle, holographic ontology, Path C). The specific regrades of 2026-09-07 stand; what changed on 2026-09-13 is the acknowledgement that the accompanying "measured input, derivation open" status pill was an undercharge. What actually survives is a stronger and more precise statement: $\alpha$ is <em>derivably contingent</em>. The theory forces its role, its form, and its freedom, all together, and the physical reason for the freedom is derived, not asserted.</p>
 </header>
 
 <section>
-  <h2>The reframing (2026-09-12, ratified)</h2>
+  <h2>Prologue &mdash; The chalk circle</h2>
   <div class="card gold">
-    <p><b>$\alpha$ is a POAMS geometric constant, like $\pi$ is a Euclidean geometric constant.</b></p>
-    <p>In extant physics, $\alpha$ is framed as a &ldquo;coupling constant&rdquo; &mdash; a knob measuring how strongly matter couples to fields. That framing imports the extant ontology of <em>things</em> (matter, fields) interacting <em>through mechanisms</em>. Every past attempt to derive $\alpha$, POAMS's own retired 2026 program included, took this framing as given and asked: <em>what mechanism produces the value $1/137.036$?</em> A century of failure across every framework in physics answers plainly: <b>no mechanism produces it, because the question is malformed.</b></p>
-    <p>Under POAMS's one-substance ontology &mdash; angular momentum organized as coherent closures in a <em>polar</em> (not Euclidean), <em>angular</em> (not linear), momentum-based worldview of non-things in a non-void &mdash; <b>reality itself is a holographic projection by observers who are themselves part of the projection</b>. There is no substrate, no external stage, no things being projected onto: only the projection, self-referentially consistent, of which the observer is a participating part. The world is geometry and its bookkeeping; <em>kinematic</em>, not <em>mechanistic</em>. Everything else is noise.</p>
-    <p>Under this ontology there are no separate things to couple, no mechanisms to invoke. There is just the observer-included projection doing what it does. <b>$\alpha$ is not a ratio the geometry <em>has</em>; it is a self-consistency ratio the observer-included projection <em>IS</em></b> &mdash; an intrinsic ratio characterizing a specific class of closures within the projection, in exactly the same sense that $\pi$ is an intrinsic ratio characterizing circles within Euclidean plane geometry. Not derived from a mechanism, because there is no mechanism to derive from. It is what the ratio IS in this projection.</p>
-    <p><b>$\alpha$ is fundamental in the same category as $c$, $c^2$, or $\pi$.</b> Like them, its value just <em>is</em>. Everything starts with the right philosophy; once that philosophy is in place, the ratio should feel as obvious as $\pi$ feels once circles are understood. Any framing that makes $\alpha$ mysterious &mdash; any framing that treats it as a coupling strength requiring a mechanism &mdash; is philosophy imported from a reality of a different kind.</p>
-    <p>Asking &ldquo;why is $\alpha = 1/137.036$?&rdquo; is malformed in exactly the same way asking &ldquo;why is $\pi = 3.14159$?&rdquo; would be. Nobody demands a mechanism-derivation of $\pi$; nobody should demand one of $\alpha$.</p>
-  </div>
-
-  <p><b>POAMS's role, therefore, splits in two:</b></p>
-  <ol>
-    <li><b>Identify $\alpha$ as intrinsic to POAMS closure geometry</b> &mdash; the POAMS analog of &ldquo;$\pi$ is the ratio of a circle's circumference to its diameter.&rdquo; This is a <em>structural</em> statement about what $\alpha$ is inside POAMS, independent of value.</li>
-    <li><b>Find the mathematical computing procedure</b> &mdash; the POAMS analog of Leibniz's series or the Wallis product for $\pi$ &mdash; that computes $\alpha$ from POAMS's geometric axioms via pure math. No mechanism, no fitting, no knobs, no extant imports.</li>
-  </ol>
-
-  <p><b>The current state of both:</b></p>
-</section>
-
-<section>
-  <h2>Task 1 &mdash; Identification (done, 2026-09-12)</h2>
-  <div class="card gold">
-    <p><b>$\alpha$ is the universal chirality-directed fraction of Planck-frequency activity at any elementary closure.</b></p>
-    <div class="eq" style="text-align:center;font-size:1.05em;margin:14px 0;">$$\dot{N}_Q \;=\; \sqrt{\alpha} \cdot f_{Pl}, \qquad \text{universal across every elementary closure.}$$</div>
-    <p>Derived in Part 3 below. This is the POAMS-native structural identification of $\alpha$ &mdash; the sentence that plays the role &ldquo;$\pi$ is the ratio of a circle's circumference to its diameter&rdquo; plays in Euclidean geometry. It says <em>what</em> $\alpha$ is inside POAMS, referring only to POAMS-native quantities ($\dot{N}_Q$, $f_{Pl}$) that are themselves defined by POAMS closure geometry (Coulomb &sect;3, Newton &sect;4).</p>
-    <p>Verified as universal across three observed extant elementary closures spanning three orders of magnitude in mass-directed sink rate: all give $\dot{N}_Q = 2.522 \times 10^{41}$ Hz. Equivalently: at every elementary closure, one chirality-directed event completes every $2\pi/\sqrt\alpha \approx 73.55$ Planck ticks, over a characteristic length $2\pi\, l_{Pl}/\sqrt\alpha \approx 74\, l_{Pl}$. Three re-expressions of the same one intrinsic geometric ratio.</p>
+    <p><b>The chalk circle metaphor.</b> Physics has always drawn a circle in chalk around what it can compute. Inside the circle: the relations forced by geometry, symmetry, closure &mdash; what survives every check, what stands regardless of measurement. Outside the circle: the initial acts a computation would need as input but cannot produce. Every framework hits this boundary somewhere; every framework treats $\alpha$ as measured input.</p>
+    <p>What POAMS distinctively does is <em>reach</em> the door with dignity. It identifies exactly what $\alpha$ is in three concordant POAMS-native readings. It proves, through the anholonomy chapter that culminates in the $M\to$self limit, that the freedom is not a gap in POAMS but a <em>derived</em> consequence of the source-free limit. It shows through the Order-Unity Theorem that internal geometry alone <em>cannot</em> produce a small $\alpha$. And it holds an absolute firewall against the Wyler-class near-misses that have entrapped every prior attempt.</p>
+    <p>The equations take us to the door. Behind the door is the Prime Mover &mdash; the one thing outside the chalk circle. No one can walk through, because to walk through would require standing where the projection is being made, which is nowhere the projection permits.</p>
   </div>
 </section>
 
 <section>
-  <h2>Task 2 &mdash; Computing procedure (open)</h2>
+  <h2>1. The Reduction &mdash; $\alpha$ is one number</h2>
+  <p>The fine-structure identity ratified across the corpus collapses the whole question to one pure dimensionless ratio. Reading $\alpha$ as the pitch of the atomic elementary closure's own circulation (Pope, <em>Einstein's Lost Legacy</em>, App. 5) &mdash; the inner spin at rate $c$ on scale $r_s$, wrapped by an outer orbital motion at speed $v$ on scale $r_{\text{orb}}$:</p>
+  <div class="eq">$$\alpha=\frac{v}{c}=2\,\frac{r_s}{r_{\text{orb}}}.$$</div>
+  <p>Squaring and inverting:</p>
+  <div class="eq">$$\boxed{\;\alpha=\sqrt{\tfrac{2}{N}}\;},\qquad N\equiv\frac{2}{\alpha^{2}}=37{,}557.7301\ldots$$</div>
+  <div class="card green">
+    <p><span class="tag tag-d">REDUCTION &middot; STANDS</span> Deriving $\alpha$ to twelve digits is <b>exactly</b> the same task as deriving one number $N$. The whole "why $1/137$?" is not a question about fields, charges, or couplings &mdash; it is a question about one dimensionless ratio. This reframing moves the question off the fantasy packaging ($e^2/4\pi\varepsilon_0\hbar c$) and onto a single geometric quantity.</p>
+  </div>
   <div class="card amber">
-    <p><b>What a solution looks like.</b> A POAMS-native mathematical expression &mdash; integral, series, limit, or algebraic identity &mdash; over POAMS closure structure ($\hbar$, $c$, C&#259;lug&#259;reanu integers, SU(2) at closures, whole-turn action cells $(2\pi\hbar)^3$, two-endedness axiom of Receiver Keys &sect;7, Aufbau closure counting) that computes $\sqrt\alpha \approx 0.08542$ to arbitrary precision from POAMS's own geometric axioms.</p>
-    <p>Pure math, no fitting, no knobs, no extant imports. In direct analogy to:</p>
-    <div class="eq" style="text-align:center;font-size:1em;margin:14px 0;">$$\pi \;=\; 4 \sum_{k=0}^{\infty} \frac{(-1)^k}{2k+1}, \qquad \pi \;=\; \int_{-1}^{1} \frac{dx}{\sqrt{1-x^2}}, \qquad \pi \;=\; 2 \prod_{k=1}^{\infty} \frac{4k^2}{4k^2 - 1}.$$</div>
-    <p>Each of these is derivation-from-mechanism-free: it doesn't say &ldquo;here's why $\pi$ has this value.&rdquo; It executes the geometry's own machinery until arbitrary precision comes out. That's what &ldquo;$\pi$ is intrinsic to circle geometry&rdquo; means <em>operationally</em>, and it's the baseline acceptance standard for a POAMS analog for $\alpha$.</p>
-    <p><b>Not required:</b> a mechanism, a physical picture of &ldquo;why&rdquo;, a coupling-strength interpretation. Those are extant-framing artifacts. <b>Required:</b> a mathematical procedure inside POAMS's own geometric axioms that computes the specific value.</p>
-
-    <div class="card">
-      <p><b>The obviousness standard.</b> The computing procedure must be structurally motivated in a way that makes the specific value $\alpha \approx 1/137.036$ <em>obvious once the POAMS observer-included holographic projection is fully understood</em> &mdash; in exactly the same way $\pi$'s specific value is obvious once circles are understood. Not a formula that matches after tuning; not a series that lands at the number by accident; a procedure whose execution is a direct consequence of what the POAMS projection <em>IS</em>. The &ldquo;of course&rdquo; feeling a mathematician has upon seeing $\pi = 4\arctan(1)$ is the standard.</p>
-      <p>$\alpha$ is fundamental &mdash; in the same category as $c$, $c^2$, or $\pi$. Its value just <em>is</em>, and the right philosophy makes it obvious rather than mysterious. Any procedure that produces the number <em>without</em> producing the &ldquo;of course&rdquo; feeling of intrinsic geometric necessity has not satisfied the standard: it is either a Wyler-class match (numerical hit without structural motivation) or a mechanism-derivation smuggled in through a POAMS-shaped disguise. Both fail. The standard is: the specific value $1/137.036$ is what the observer-included projection <em>IS</em> at the elementary-closure level; the procedure exhibits that IS-ness, and the ratio should feel as obvious as $\pi$.</p>
-    </div>
-
-    <p><b>Current status:</b> the identification (Task 1) is done. The computing procedure (Task 2) is open under the obviousness standard above. Parts 3&ndash;7 below preserve the exploration that led to the identification and to this reframing, including the exploration of derivation-from-mechanism attempts that (correctly) failed under the malformed framing.</p>
+    <p><span class="tag tag-r">REGRADED 2026-09-07 &middot; STANDS</span> The 2026 summer program originally read $N$ as an integer winding count. It is not: nearest integer $37{,}558$ misses the measured $\alpha$ by $\approx 2.4\times 10^{4}\,\sigma$ against the CODATA uncertainty. The integer-$N$ reading was falsified at full strength and dropped. What stays: $N$ is a dimensionless ratio &mdash; the pitch of the circulation &mdash; with no whole-turn claim attached. Integer discipline lives at a different scale (C&#259;lug&#259;reanu $Lk=\pm 1$ per elementary closure; see <a href="./lande-from-twist-writhe.html">Land&eacute;</a>).</p>
   </div>
 </section>
 
 <section>
-  <h2>What survives from the retired program</h2>
+  <h2>2. What $\alpha$ IS &mdash; three concordant POAMS-native identifications</h2>
+  <p>Three roads, all POAMS-native, all landing on the same one number. Concordance is what identification-level unification looks like.</p>
+
+  <h3>2a. Pitch identification (archive Route 2)</h3>
+  <div class="card blue">
+    <div class="eq">$$\alpha \;=\; \frac{v_{\text{orb}}}{c} \;=\; 2\,\frac{r_s}{r_{\text{orb}}}\qquad\text{(the atom's internal circulation, in units of }c\text{).}$$</div>
+    <p>The atom is a coherent angular-momentum organisation around an empty barycentre (Pope, <em>Light is Everything</em> 2007 &sect;3.2: <em>&ldquo;no electrically charged components&hellip; the simplest atom is that of hydrogen&hellip; a pair of pure mass particles&hellip; in an automatically balanced angular momentum nexus of basic magnitude</em> $\hbar$&rdquo;). The inner Laplace disk is the vortex's <em>planar quanta</em>; the outer harmonic modes are its <em>spherical quanta</em>. $\alpha$ is the tilt of that composition &mdash; the pitch between the two channels.</p>
+  </div>
+
+  <h3>2b. Cone-angle identification (Part 8, ratified 2026-09-13)</h3>
+  <div class="card blue">
+    <div class="eq">$$\alpha \;=\; \sin\theta_{\text{cone}}\;\Big|_{\text{elementary closure at ground-level position, atomic-nexus barycentre frame}}$$</div>
+    <p>Reading the elementary closure through the <a href="./cone-model.html">Cone Model</a>'s observer's cone (Pope 1986): $\alpha$ is the sine of the cone half-angle at the ground-level position. Numerically, $\theta_{\text{cone}}=\arcsin(\alpha)=0.418^\circ$; equivalently $1/\alpha=1/\sin(0.418^\circ)=137.036$. Aufbau then gives $\sin\theta_n=\alpha/n$ for principal number $n$ (from $r_n\propto n^2$; see <a href="./poams-periodic-table.html">The Elements</a>), so all shell-cone ratios follow from the ground-level anchor.</p>
+  </div>
+
+  <h3>2c. Rate identification (Part 3, ratified 2026-09-12)</h3>
+  <div class="card blue">
+    <div class="eq">$$\dot{N}_Q \;=\; \sqrt{\alpha}\,f_{\text{Pl}} \;=\; 2.522\times 10^{41}\ \text{Hz},\qquad\text{universal across every elementary closure.}$$</div>
+    <p>Every elementary closure carries chirality-directed sink activity at this same universal Planck-scaled rate; verified across three observed extant elementary closures spanning three orders of magnitude in mass-directed sink rate (all agree). Equivalently: at every elementary closure, one chirality-directed event completes every $2\pi/\sqrt\alpha\approx 73.55$ Planck ticks, over a characteristic length $2\pi\,l_{\text{Pl}}/\sqrt\alpha\approx 74\,l_{\text{Pl}}$. Three re-expressions of the same one geometric ratio. See <a href="./coulomb-from-chirality-directed-depletion.html">Coulomb from Chirality-Directed Depletion</a>.</p>
+  </div>
+
+  <div class="card green">
+    <p><span class="tag tag-d">CONCORDANCE</span> Pitch, cone-angle, and rate are three POAMS-native readings of the one dimensionless constant. None uses extant coupling-constant framing; all land on the same measured value. That $\alpha$ admits at least three concordant POAMS-native identifications is the strongest evidence yet that it is an intrinsic corpus quantity &mdash; belonging to POAMS in the same sense $\pi$ belongs to Euclidean plane geometry.</p>
+  </div>
+</section>
+
+<section>
+  <h2>3. The internal lever &mdash; the &ldquo;2&rdquo; is derived</h2>
+  <p>The first thing in the whole construction that breaks scale-invariance is the two-quanta dimensional split: the inner Laplace disk answers to a solid angle of $2\pi$; the outer sphere answers to $4\pi$. That mismatch is the first lever with a fulcrum &mdash; the first inhomogeneity available for the geometry to work against.</p>
+  <div class="card green">
+    <p><span class="tag tag-d">DERIVED &middot; STANDS</span> The mismatch <em>forces</em> the tilt's existence, its finiteness, a critical point, and &mdash; remarkably &mdash; <b>the factor of 2 in $\alpha=2\,r_s/r_{\text{orb}}$ is exactly the planar/solid-angle ratio $2\pi/4\pi$.</b> The &ldquo;2&rdquo; is not a convention; it is the disk seeing half the sphere. No infinity, no totality, and no fitting is needed for this &mdash; it is pure internal geometry.</p>
+  </div>
+
+  <h3>3a. The Order-Unity Theorem &mdash; the internal lever is capped</h3>
+  <div class="card amber">
+    <p><span class="tag tag-r">STRUCTURAL BOUND</span> A closure built from order-unity rational coefficients has order-unity roots: internal geometry alone forces tilts of $\theta\in[45^\circ,90^\circ]$ ($\rho\in[1.1,1.5]$), <em>never</em> the tiny $\alpha\approx 0.0073$. The inhomogeneity that breaks scale-invariance is itself of order $\theta^{2}$ &mdash; it goes <em>soft exactly where $\alpha$ lives</em>. Internal structure can prove there must be a tilt; it cannot make the tilt small.</p>
+  </div>
+
+  <h3>3b. The closure marriage</h3>
+  <p>Internal lever and external winding meet in a single closure relation:</p>
+  <div class="eq">$$C=2+\frac{4\pi}{W},\qquad \frac{4\pi}{W}=\frac{\alpha^{2}}{2},\qquad N=\frac{W}{4\pi}.$$</div>
+  <p>A single closure constant $C$ sits at its critical value $2$ &mdash; forced by internal geometry (the same &ldquo;2&rdquo; that gives the pitch factor). The totality lifts it by the small offset $4\pi/W=\alpha^{2}/2$, which carries the whole smallness of $\alpha$. Consistent to $O(\alpha^{4})$: $\cos\theta=\sqrt{1-\alpha^{2}}=1-4\pi/W+O(\alpha^{4})$ (the two sides differ by $\alpha^{4}/8\approx 3.5\times 10^{-10}$). The problem is now fully localised: everything is forced except $W$ &mdash; equivalently, except $N$.</p>
+</section>
+
+<section>
+  <h2>4. One anholonomy, two levels &mdash; Mercury and $\alpha$</h2>
+  <p>The deepest structural result of the program: the fine-structure ratio and the perihelion advance are <em>the same geometric object</em> at two different levels of the one time-cone. Not analogy &mdash; identity of connection.</p>
+
+  <h3>4a. The time-cone connection</h3>
+  <p>Carry a frame once around a closed loop on the substance's angular-radial time-cone and it comes back rotated &mdash; shifted by a deficit equal to the curvature enclosed:</p>
+  <div class="eq">$$\Theta(L)=\oint_L A=\iint_S F \;=\; \text{(solid-angle / cone deficit enclosed by }L\text{).}$$</div>
+  <p>Mercury's perihelion is this deficit read on a <em>spatial-angle</em> loop (the periapsis direction fails to return, so the ellipse precesses). The $\alpha$-slip is the <em>same</em> deficit read on a <em>phase</em> loop (a Berry holonomy: the vortex's internal circulation fails to return in phase). One connection, two loops.</p>
+
+  <h3>4b. The ladder</h3>
+  <div class="card green">
+    <p><span class="tag tag-d">DERIVED</span> Every rung is the same $(v/c)^2$ anholonomy per turn; the rungs differ only by an integer that the loop's geometry fixes:</p>
+    <div class="eq">$$\text{cap}\;:\;\text{geodetic}\;:\;\text{perihelion}\;=\;\pi\;:\;3\pi\;:\;6\pi\;=\;1\;:\;3\;:\;6.$$</div>
+    <p>The kinematic core shared by all three is <b>Thomas precession</b> &mdash; the $(v/c)^2$ holonomy of composed boosts. The very $\tfrac12$ that Thomas contributes to atomic spin-orbit fine structure <em>is</em> $\alpha$'s cap. The bottom rung (the cap / Berry phase) is source-free; the middle rung ($3\pi$) is de Sitter geodetic precession; the top rung ($6\pi$) is the perihelion advance, which in POAMS follows from Osborne's two-postulate metric (2007, &sect;&sect;8.4&ndash;8.6: the tilt-cone plus the $a=2$ free-orbit geodesic plus Newtonian closure $B=(1-2GM/c^2 r)^{-1}$).</p>
+  </div>
+
+  <h3>4c. The data anchor &mdash; the sourced leg reproduces Mercury</h3>
+  <div class="card green">
+    <p><span class="tag tag-d">DERIVED &middot; DATA-CHECKED</span> <span class="tag tag-e">EXTANT CROSS-CHECK</span> The apsidal deficit per orbit</p>
+    <div class="eq">$$\Delta\varphi=\frac{6\pi\,GM}{c^2\,a\,(1-e^2)}$$</div>
+    <p>evaluated on Mercury's sovereign, independently-measured orbital elements reproduces the classic number to four figures:</p>
+    <div class="eq">$$0.10352''/\text{orbit}\;\times\;415.20\;\text{orbits/century}\;=\;\mathbf{42.981''/\text{century}}$$</div>
+    <p>against the measured $42.98\pm 0.04''$. The bare cap alone (coefficient $\pi$) would give only $7.16''$, a factor-of-six miss. The data therefore <em>selects</em> the full $6\pi$: it is the whole Keplerian loop, not the kinematic core, that Mercury measures. The corpus's reading passes the classic gravity test to four figures.</p>
+  </div>
+
+  <h3>4d. The $M\to$self limit &mdash; the derivation of contingency</h3>
+  <p>Here the unification earns its keep, because it explains the asymmetry as a <em>derivation</em>, not an assertion. Ask what the Sun does for Mercury's loop. It does two jobs at once: it curves the connection (through $GM$), and it fixes the tilt through the orbit condition $v^2=GM/r$ (through an external radius $a$). Both jobs pull the magnitude of the deficit from <em>outside</em> the vortex:</p>
+  <div class="eq">$$\left(\frac{v}{c}\right)^2\;=\;\frac{GM}{c^2 a}\qquad\text{is computable only because both }M\text{ and }a\text{ are external, measured references.}$$</div>
+  <p>Now take the source-free limit properly: let $M\to$ the totality. There is no outside mass to orbit and no external radius $a$ to borrow &mdash; the &ldquo;orbit&rdquo; becomes the ground vortex winding against everything. Both $GM$ and $a$ vanish from the deficit, and the time-cone's scale-invariance takes over: nothing external survives to set the magnitude of the tilt. The deficit relaxes to the bare cap $\pi\alpha^2$, whose size is the free tilt &mdash; the contingent overshoot $N$.</p>
+  <div class="card gold">
+    <p><span class="tag tag-d">DERIVED</span> <b>Mercury's deficit is computable because its loop has a partner &mdash; the Sun; $\alpha$'s deficit is contingent because its only partner is everything.</b> The contingency of $\alpha$ is literally the $M\to$self limit of the perihelion holonomy: delete the external reference and the same anholonomy goes flat. This is a <em>physical</em> derivation of the Flat-Direction verdict, not a restatement of it.</p>
+    <p>And because the rungs genuinely differ &mdash; $\pi$ against $6\pi$ &mdash; there is provably <b>no arithmetic road</b> from $43''/\text{century}$ to the value of $\alpha$. The firewall holds by construction: the reproduced perihelion tests the mechanism, and $\alpha$ stays free, exactly as the scale-invariant limit demands. Gravity's most famous <em>doesn't-quite-close</em> and $\alpha$ are two readings of one geometric phase &mdash; computable when the loop has an outside, free when it doesn't.</p>
+  </div>
+  <div class="card amber">
+    <p><span class="tag tag-r">HONEST BOUND</span> The two levels carry <em>different</em> coefficients &mdash; micro $\pi$, macro $6\pi$ &mdash; and this is not a blemish to be smoothed over. The micro data itself confirms it: observed atomic fine structure is $\pi$-type (the Sommerfeld&ndash;Dirac $k=\sqrt{1-Z^2\alpha^2}$ carries exactly the cap's coefficient), and a $6\pi$ atomic anholonomy would have shown up as a gross mis-splitting excluded by a century of spectroscopy. What is proved is a genuine <em>same-type</em> unification &mdash; one kinematic connection, with Thomas precession as its literal shared core. Why each level sits on the rung it does, rather than another, is left as loop geometry; the claim is deliberately no larger than what the geometry forces.</p>
+  </div>
+</section>
+
+<section>
+  <h2>5. The bootstrap &mdash; the predisposition</h2>
+  <p>The last redoubt against contingency is the origin itself. The governing principle: physical information must be both discrete and stochastic. But pure discrete-stochastic noise is unbiased &mdash; symmetric, zero drift &mdash; so nothing persists, not even in infinite time. A world of pure noise decays to nothing and stays there. Therefore <em>something</em> must lean the dice before the first throw: a primordial predisposition &mdash; a prime mover &mdash; is not a matter of taste but a logical necessity.</p>
+
+  <div class="card green">
+    <p><span class="tag tag-d">PROVEN &middot; STANDS</span> Both models in the 2026 program independently proved the theorem: an unbiased information substrate has zero drift and cannot sustain existence, so a primordial predisposition is undeniable. It must be <em>correlational</em> &mdash; a bias in how neighbouring states agree, not a push in time.</p>
+  </div>
+
+  <p>Three sharp results followed, each verified and each $\alpha$-free:</p>
+
+  <h3>5a. Minimal bias &mdash; half a bit of correlation</h3>
+  <div class="card green">
+    <p><span class="tag tag-d">DERIVED &middot; STANDS</span> The least symmetry-breaking bias is</p>
+    <div class="eq">$$\varepsilon_c=\operatorname{atanh}\!\left(\tfrac{1}{3}\right)=\tfrac{1}{2}\ln 2\ \ \text{per link}\ \approx 0.3466.$$</div>
+    <p>Half a bit of correlation. It is a correlation law, not a time-arrow; the arrow of time falls out afterward by symmetry-breaking, not by fiat.</p>
+  </div>
+
+  <h3>5b. Super-minimality &mdash; the overshoot is $\alpha$</h3>
+  <div class="card green">
+    <p><span class="tag tag-d">DERIVED &middot; STANDS</span> At the bare threshold $\varepsilon=\varepsilon_c$ the coherence number diverges: $N=\infty$, hence $\alpha=0$ &mdash; <em>nothing dressed as something</em>. Real matter requires <b>overshooting</b> the threshold by a definite amount,</p>
+    <div class="eq">$$\Delta\varepsilon\;=\;\tfrac{2}{3}\alpha^{2}\;\approx\;3.55\times 10^{-5},$$</div>
+    <p>and that overshoot <em>is</em> $N$. The world exists precisely to the extent that it exceeded the edge of non-existence. Mathematically, $\alpha$ measures how far the actual universe was placed past the threshold of nothing.</p>
+  </div>
+
+  <h3>5c. The Flat-Direction result</h3>
+  <div class="card amber">
+    <p><span class="tag tag-r">MODEL-CLASS RESULT (regraded 2026-09-07 from theorem)</span> Across every venue tested &mdash; the single vortex, the percolation bootstrap, the collective solve &mdash; the tested model class (tree-like connectivity, degree-1 normalised coherence maps) leaves $N$ free. Consistently reproduced by two independent reasoning models and by the numerics. <em>Within that class</em>, the flatness is proven: geometry forces the threshold, the form $\alpha=\sqrt{2/N}$, the smallness of $\alpha$, the exact $\tfrac12\ln 2$ minimal bias, and the $\tfrac23\alpha^{2}$ super-minimal offset. Exactly one thing is left free: how far past the edge of nothing the world was placed.</p>
+    <p><em>Regrade honesty.</em> The leap from &ldquo;this class&rdquo; to &ldquo;every possible framework&rdquo; rests on two modelling assumptions marked in the archive (tree-like connectivity from intransitivity; $\kappa=1$ from the verify script's own row-normalisation, comment: &ldquo;row-normalize to enforce kappa=1&rdquo;), and is withdrawn as theorem. The negative record across every route the program actually tested stands; the meta-theorem does not. Full audit: <a href="./alpha-program-2026-archive.html#sec15">archive &sect;12&ndash;13</a>.</p>
+  </div>
+</section>
+
+<section>
+  <h2>6. What we're not allowed to do &mdash; the anti-Wyler firewall</h2>
+  <p>In 1969 A. Wyler wrote $\alpha=\big(\tfrac{9}{8\pi^{4}}\big)\big(\tfrac{\pi^{5}}{2^{4}5!}\big)^{1/4}=1/137.03608$ &mdash; a match to the then-measured value to six digits. Improved measurement then <em>moved away</em> from it; against today's twelve-digit $\alpha$ the formula is excluded at roughly $4000\sigma$, and Gilmore (1972) showed its &ldquo;volumes&rdquo; were normalisation artefacts. It is the cautionary archetype: a six-digit coincidence dressed as a derivation.</p>
+  <div class="card red">
+    <p><span class="tag tag-e">DISCIPLINE</span> The firewall of the 2026 program forbids exactly that: no value may be accepted unless it was <em>forced before</em> the target was consulted. Across some two dozen runs the firewall held at every temptation: near-misses at $1/4\pi^{3}$, $2^{34}$ (0.8%!), $p=12$, and a cosmological $\alpha$-drift route were each computed, recognised, and <b>refused</b>. A null was always preferred to an unforced hit.</p>
+    <p>This exhibit inherits and continues that discipline. Sommerfeld's $4\pi^3+\pi^2+\pi=137.0363$ falls in the same class; also refused. Any future POAMS-native candidate expression for $\alpha$ (or $\sqrt\alpha$) must meet the standard: forced by structural argument before the number is consulted, or it does not enter.</p>
+  </div>
+</section>
+
+<section>
+  <h2>7. What would count as walking through the door</h2>
+  <p>The problem is now fully localised. To compute $\alpha$ from POAMS, one specific quantity must be derived from POAMS-native structure alone, without using $\alpha$ or any measured EM quantity as input. Three equivalent statements of the same open target:</p>
+  <ul>
+    <li><b>Pitch anchor.</b> Derive $v_{\text{orb}}/c=\alpha$ for the ground elementary closure from closure-nesting geometry alone. Given the anchor, all shell ratios $v_n/c=\alpha/n$ follow.</li>
+    <li><b>Cone anchor.</b> Derive $\theta_{\text{cone}}=0.418^\circ$ &mdash; the ground-level half-angle in the observer-centred cone &mdash; from POAMS-native closure-coherence stability alone. Given the anchor, $\sin\theta_n=\alpha/n$ across the Aufbau ladder follows.</li>
+    <li><b>Rate anchor.</b> Derive $\dot{N}_Q/f_{\text{Pl}}=\sqrt\alpha\approx 0.08542$ &mdash; the universal fraction of Planck-frequency activity carried by chirality-directed sink at every elementary closure &mdash; from POAMS-native closure structure alone.</li>
+  </ul>
+  <p>All three are the <em>same open</em>. The obviousness standard applies to whichever route is taken: the derivation must make the value obvious once the POAMS projection is fully understood &mdash; a mathematician's &ldquo;of course,&rdquo; the way $\pi=4\arctan(1)$ is obvious once you know what the arctangent is.</p>
+  <div class="card amber">
+    <p><span class="tag tag-r">PATH C (ratified 2026-09-12; corroborated by Pope's own 2007 posture)</span> The corpus's current honest position on scale anchors: $G$ is one calibrated coupling, and $\alpha$'s value is a declared contingent input. POAMS derives the <em>structure</em> of $\alpha_G$ (its scaling with $m^2$, its interpretation as $\sqrt{\alpha_G}=\dot{N}_M/f_{\text{Pl}}$) and predicts every downstream ratio; POAMS does not claim to derive $G$, $M_{\text{Pl}}$, or $\alpha$ from ontology alone. This is Pope's own 2007 posture on the Bohr radius (<em>Light is Everything</em> &sect;3.2: <em>&ldquo;This radius is equivalent to the standard Bohr radius $(r_{\text{Bohr}}=5.292\times 10^{-11}$ m$)$&rdquo;</em> &mdash; treated as empirical anchor, not derived quantity). What has always survived cold review across the corpus.</p>
+  </div>
+</section>
+
+<section>
+  <div class="door">
+    <h2 id="door">8. The Door</h2>
+    <div class="card gold" style="margin-top:6px;">
+      <p><b>What the mathematics licenses.</b> Pushed to its edge, the mathematics of $\alpha$ produces a <em>flat direction</em> &mdash; and a flat direction is the exact formal signature of a choice-point: a place where the laws fall silent and something must be selected. The program can name the choice (the overshoot $N$), measure it ($\alpha=1/137.036$), and derive that it was free (through the $M\to$self limit &sect;4d). What it cannot do &mdash; and what no framework has ever done &mdash; is compute the choice.</p>
+      <p><b>The chalk circle.</b> Every framework in the history of physics has drawn a boundary at this exact point. Bohr's electrodynamics needed $\alpha$ as input. Dirac's spinor needed it. Quantum electrodynamics needs it. The Standard Model needs it. What POAMS distinctively does is <em>reach</em> the boundary and <em>identify</em> it &mdash; three concordant identifications of what $\alpha$ IS (pitch, cone-angle, rate), a physical derivation of <em>why</em> it is free (the $M\to$self limit), and a proof that no arithmetic road can lead through (the Order-Unity Theorem plus the anti-Wyler firewall).</p>
+      <p><b>Behind the door.</b> The one thing outside the chalk circle is the Prime Mover &mdash; the primordial predisposition proven undeniable by the bootstrap (&sect;5). No one can walk through, because to walk through would require standing where the projection is being made, which is nowhere the projection permits. The observer is inside the projection; the projection cannot compute its own initial act.</p>
+      <div class="eq" style="font-size:1.05em;">$$\alpha \;=\; \frac{1}{137.036} \;=\; \text{the measure of how far our universe overshot the edge of non-existence.}$$</div>
+      <p>Non-anthropic: no observer-selection is invoked. Derivably contingent: the freedom is structurally forced, not a gap in the theory. The equations, having done everything equations can do, point at the door and stop.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>9. What survives &mdash; the honest ledger</h2>
   <table>
-    <tr><th>Result</th><th>Current status under the reframing</th></tr>
-    <tr><td>The gross $1/n^2$ spectral ladder</td><td><span class="grade-stands">Stands</span> on its own POAMS derivation front (Balmer&ndash;Rydberg exhibit); does not depend on any &ldquo;derivation of $\alpha$.&rdquo;</td></tr>
-    <tr><td>The Pythagorean time relation used for clock and orbit calculations</td><td><span class="grade-stands">Stands</span> where separately derived. Not part of the identification or the computing procedure for $\alpha$.</td></tr>
-    <tr><td>Ṅ<sub>Q</sub> = √&alpha; · f<sub>Pl</sub> universal</td><td><span class="grade-stands">Stands as identification.</span> This IS the POAMS-native structural identification of $\alpha$ (Part 3, elevated in Task 1 above).</td></tr>
-    <tr><td>$\alpha=\sqrt{2/N}$ with $N$ near 37,558</td><td><span class="grade-open">Retired.</span> Under the reframing, $N$ never was an integer POAMS-native winding count. It was a value-back-computed number. That was the mechanism-derivation program's category error; not a legitimate identification.</td></tr>
-    <tr><td>The 2026 searches for a geometric value</td><td><span class="grade-stands">Useful negative record.</span> Every mechanism-derivation route failed &mdash; correctly, given the framing was malformed. Preserved as evidence of the reframing's necessity.</td></tr>
+    <tr><th>Result</th><th>Status</th><th>Section</th></tr>
+    <tr><td><b>Reduction</b> $\alpha=\sqrt{2/N}$</td><td><span class="grade-stands">STANDS</span></td><td>&sect;1</td></tr>
+    <tr><td>Integer-$N$ reading</td><td><span class="grade-regraded">DROPPED 2026-09-07</span> (falsified at $2.4\!\times\! 10^{4}\sigma$)</td><td>&sect;1</td></tr>
+    <tr><td><b>Pitch identification</b> $\alpha=v_{\text{orb}}/c=2r_s/r_{\text{orb}}$</td><td><span class="grade-stands">STANDS</span></td><td>&sect;2a</td></tr>
+    <tr><td><b>Cone-angle identification</b> $\alpha=\sin\theta_{\text{cone}}$</td><td><span class="grade-stands">RATIFIED 2026-09-13</span></td><td>&sect;2b</td></tr>
+    <tr><td><b>Rate identification</b> $\sqrt\alpha=\dot{N}_Q/f_{\text{Pl}}$</td><td><span class="grade-stands">RATIFIED 2026-09-12</span></td><td>&sect;2c</td></tr>
+    <tr><td>The &ldquo;2&rdquo; is planar/solid-angle $=2\pi/4\pi$</td><td><span class="grade-stands">DERIVED &middot; STANDS</span></td><td>&sect;3</td></tr>
+    <tr><td>Order-Unity Theorem</td><td><span class="grade-stands">STANDS</span></td><td>&sect;3a</td></tr>
+    <tr><td>Closure marriage $C=2+4\pi/W$</td><td><span class="grade-stands">STANDS to $O(\alpha^4)$</span></td><td>&sect;3b</td></tr>
+    <tr><td>Anholonomy ladder $\pi:3\pi:6\pi=1:3:6$</td><td><span class="grade-stands">DERIVED &middot; STANDS</span></td><td>&sect;4b</td></tr>
+    <tr><td>Mercury $42.981''/\text{cy}$</td><td><span class="grade-stands">DATA-CHECKED</span></td><td>&sect;4c</td></tr>
+    <tr><td><b>$M\to$self limit</b> (derivation of contingency)</td><td><span class="grade-stands">DERIVED &middot; STANDS</span></td><td>&sect;4d</td></tr>
+    <tr><td>Cap identity $\Omega_{\text{cap}}=\pi\alpha^2$</td><td><span class="grade-regraded">Regraded to $O(\alpha^4)$ 2026-09-07</span></td><td>&sect;4b</td></tr>
+    <tr><td>Predisposition is undeniable</td><td><span class="grade-stands">PROVEN &middot; STANDS</span></td><td>&sect;5</td></tr>
+    <tr><td>Minimal bias $\varepsilon_c=\tfrac12\ln 2$</td><td><span class="grade-stands">DERIVED &middot; STANDS</span></td><td>&sect;5a</td></tr>
+    <tr><td>Super-minimal overshoot $\Delta\varepsilon=\tfrac23\alpha^2$</td><td><span class="grade-stands">DERIVED &middot; STANDS</span></td><td>&sect;5b</td></tr>
+    <tr><td>Flat-Direction (single vortex, percolation, collective solve)</td><td><span class="grade-regraded">Model-class negative result</span> (regraded 2026-09-07)</td><td>&sect;5c</td></tr>
+    <tr><td>Anti-Wyler firewall record</td><td><span class="grade-stands">DISCIPLINE &middot; STANDS</span></td><td>&sect;6</td></tr>
+    <tr><td>Scalar dilation cannot split (mechanism failure 1)</td><td><span class="grade-stands">Addressed via C&#259;lug&#259;reanu $Lk=\pm 1$</span></td><td><a href="./lande-from-twist-writhe.html">Land&eacute;</a></td></tr>
+    <tr><td>Spin-half circularity (mechanism failure 4)</td><td><span class="grade-stands">Addressed via $Lk=\pm 1$ + units mapping</span></td><td><a href="./lande-from-twist-writhe.html">Land&eacute;</a></td></tr>
+    <tr><td>Ground-level anchor derivation ($\alpha$, $\theta_{\text{cone}}$, $\sqrt\alpha$)</td><td><span class="grade-open">OPEN &middot; behind the door</span></td><td>&sect;7</td></tr>
+    <tr><td>Running-law derivation</td><td><span class="grade-open">OPEN QUESTION</span> (regraded 2026-09-07; no quantitative confrontation)</td><td><a href="./alpha-program-2026-archive.html#sec15">archive &sect;15</a></td></tr>
+    <tr><td>Mass hierarchy $m/M_{\text{Pl}}=4.185\times 10^{-23}$</td><td><span class="grade-open">OPEN &middot; behind the door</span></td><td><a href="./alpha-program-2026-archive.html">archive</a></td></tr>
   </table>
 </section>
 
 <section>
-  <h2>The retired program's failures &mdash; recontextualized</h2>
-  <p>The failures below were the retired 2026 program's attempts to derive $\alpha$ from mechanism &mdash; an attempt shaped entirely by the inherited extant framing. Under the ratified 2026-09-12 reframing, these are not failures of POAMS. They are the inevitable outcome of asking a malformed question. The mechanism-derivation program was seeking something that doesn't exist to be sought; the honest position now is that <em>no mechanism-derivation was ever available, because $\alpha$ is intrinsic geometry, not a coupling to be mechanism-derived.</em></p>
-  <ol>
-    <li><b>A scalar time-dilation factor cannot split a line.</b> A mechanism attempt. Under the reframing, splitting is C&#259;lug&#259;reanu $Lk = \pm 1$ topology (Land&eacute; &sect;4) &mdash; identification-side, not mechanism-side.</li>
-    <li><b>$L=\hbar$ fixes a product, not a unique orbit.</b> A mechanism-derivation gap. Under the reframing, no unique orbit needs to be mechanism-derived: closure geometry IS what it is, and the atomic sphere's ratio to the Compton scale is intrinsic ($a_0/\bar\lambda_C = 1/\alpha$).</li>
-    <li><b>The proposed winding count is not an integer.</b> Correct: $N = 2/\alpha^2 \approx 37{,}558$ is not a POAMS-native integer count, and the mechanism-derivation program required it to be. Under the reframing, $\alpha$ is not required to be a rational fraction of integers &mdash; $\pi$ isn't either.</li>
-    <li><b>The spin-half step was circular.</b> Under the reframing, $S = 1/2$ (extant) corresponds to POAMS $Lk = \pm 1$ via unit-mapping; no mechanism-derivation needed and none available.</li>
-    <li><b>The collective bootstrap did not prove contingency.</b> A mechanism-derivation of $\alpha$ from network connectivity. Malformed under the reframing.</li>
-    <li><b>The proposed running law was never quantitatively confronted.</b> A mechanism-derivation gap. Under the reframing, running is a QED effect at the low-energy fixed point; POAMS's $\alpha$-as-geometric-constant is the fixed-point value. Running is a separate identification target for POAMS, not a mechanism to derive.</li>
-  </ol>
-  <p><b>These are the six &ldquo;failures&rdquo; under mechanism-derivation framing.</b> Under the reframing, all six are re-read as: <em>correctly identifying that mechanism-derivation was the wrong question.</em> The program's honest legacy is the negative record that catalyzed the 2026-09-12 reframing.</p>
+  <h2>10. Summary</h2>
+  <div class="chain">
+    One connection &mdash; the time-cone $\Theta(L)=\oint A$<br><br>
+    + macro loop (spatial-angle, Sun-sourced) &nbsp;$\Rightarrow$&nbsp; Mercury perihelion $6\pi\,GM/c^2 a(1-e^2)$ &nbsp;$=$&nbsp; $42.98''/$century <b>(computed)</b><br>
+    + micro loop (phase, source-free) &nbsp;$\Rightarrow$&nbsp; fine-structure cap $\pi\alpha^2$ &nbsp;$=$&nbsp; $\alpha$ <b>(contingent)</b><br><br>
+    <b>$M\to$self limit:</b> external references vanish &nbsp;$\Rightarrow$&nbsp; scale-invariant flat direction &nbsp;$\Rightarrow$&nbsp; $\alpha$ free by derivation<br><br>
+    $\alpha$ = the measure of how far our universe overshot the edge of non-existence
+  </div>
+  <p>Four results conventional physics treats with four separate instruments &mdash; the Rydberg formula, mass-energy, GR clock rates, and Dirac fine structure &mdash; are here <em>one relation applied at two levels of the one connection</em>. The unification is the result. The value of $\alpha$ is not a computation; it is the initial act. To the door, with dignity.</p>
 </section>
 
 <section>
-  <h2>Update 2026-09-12 &mdash; Sharpening record (Parts 1&ndash;7)</h2>
-  <div class="card blue">
-    <p><b>Reframing preamble (2026-09-12, ratified).</b> Parts 1&ndash;4 below are POAMS-native sharpening work that led to and includes the identification of $\alpha$ as the universal chirality-directed fraction of Planck activity ($\dot{N}_Q = \sqrt\alpha \cdot f_{Pl}$). Parts 5&ndash;7 explored derivation-from-mechanism (the $\alpha_G$/$G$ derivation, the mass hierarchy, and an Aufbau back-door for $\alpha$ itself) under the pre-reframing extant framing that treated $\alpha$ as a coupling constant to be mechanism-derived. Under the reframing, mechanism-derivation of $\alpha$ is a malformed question; Parts 5&ndash;7 are preserved because their sharpening work on the adjacent open fronts &mdash; $\alpha_G$ derivation modulo one calibration (Path C, ratified in Part 5), the mass hierarchy as a shared physics-wide open (Part 6), and the Aufbau geometric-ratio identification $a_0/\bar\lambda_C = 1/\alpha$ (Part 7 Approach 1) &mdash; remains valid and useful. What Parts 5&ndash;7 explicitly do NOT do, under the reframing, is attempt to mechanism-derive $\alpha$ itself; that was the retired program's malformed question. Read Parts 5&ndash;7 as sharpening the ADJACENT open fronts and as identifying the Aufbau geometric ratio ($a_0/\bar\lambda_C = 1/\alpha$) that is itself a candidate identification-form of $\alpha$'s intrinsic geometric role. The exhibit's headline task (Task 2: computing procedure) is not addressed by Parts 5&ndash;7 either; it is the standing open research target above.</p>
-    <p style="margin:12px 0 0">The 2026-09-07 retirement listed structural failures of the old derivation. Walking through them with the ratified 2026-09-12 <a href="./lande-from-twist-writhe.html">Land&eacute; g-Factor from Twist/Writhe Coupling</a> derivation and the <a href="./the-receiver-keys-the-exchange.html#sec-pair-lagrangian">Receiver Keys &sect;7</a> two-endedness formalization in hand: <b>the failures separate cleanly into a <em>mechanism</em> group (all three now addressed) and a <em>scale</em> group (all three remain, unified as one open).</b></p>
-  </div>
-
-  <h3>Mechanism failures &mdash; all closed</h3>
-  <ul>
-    <li><b>Failure 1</b> &mdash; <em>&ldquo;A scalar time-dilation factor cannot split a line.&rdquo;</em> <span class="grade-stands">Addressed.</span> Călugăreanu $Lk = \pm 1$ for the elementary closure supplies the sign-sensitive machinery. Two chiralities of twist relative to a directed writhe give the two branches; the branching is topological, not scalar. See <a href="./lande-from-twist-writhe.html">Land&eacute; &sect;4</a>.</li>
-    <li><b>Failure 3</b> &mdash; <em>&ldquo;The proposed winding count is not an integer.&rdquo;</em> <span class="grade-stands">Dissolved.</span> The old derivation identified $N = 2/\alpha^2 \approx 37{,}558$ with a POAMS winding count and required it be integer. In the current framework the integer discipline is carried by Călugăreanu $Lk = \pm 1$ (per elementary closure), not by any hypothetical count at $\sim 37{,}558$. If $\alpha^2$ admits any POAMS-native expression, that expression is a dimensionless ratio &mdash; not a winding count &mdash; and does not require integer $N$. The specific &ldquo;$N$ must be integer&rdquo; objection no longer binds.</li>
-    <li><b>Failure 4</b> &mdash; <em>&ldquo;The spin-half step was circular.&rdquo;</em> <span class="grade-stands">Addressed.</span> The old exhibit derived spin-half by inserting a factor $1/2$ into a chosen spin radius; the answer was smuggled in. The Land&eacute; derivation has no such step: it uses Călugăreanu $Lk = \pm 1$ for the elementary closure, integer by construction. The extant-side &ldquo;$S = 1/2$&rdquo; corresponds to POAMS-native $Lk = \pm 1$ via the units-mapping between POAMS's fundamental unit ($\hbar$, one whole turn) and extant's fundamental unit ($\hbar/2$, the SU(2) double-cover step). The factor $1/2$ is a units-convention artifact, not an inserted physical factor.</li>
-  </ul>
-
-  <h3>Scale failures &mdash; all remain, unified as one open</h3>
-  <ul>
-    <li><b>Failure 2</b> &mdash; <em>&ldquo;$L=\hbar$ fixes a product, not a unique orbit.&rdquo;</em> <span class="grade-open">Remains.</span> The topological constraint from Călugăreanu produces no independent constraints on orbital rate and radius separately. Producing them requires deriving the elementary-closure coupling scale to the electromagnetic-frequency sector from POAMS foundations.</li>
-    <li><b>Failure 5</b> &mdash; <em>&ldquo;The collective bootstrap did not prove contingency.&rdquo;</em> <span class="grade-open">Remains.</span> The old network model's normalization installed its own answer. Any new bootstrap approach requires forcing the connectivity from POAMS ontology rather than assuming it.</li>
-    <li><b>Failure 6</b> &mdash; <em>&ldquo;The running law was never quantitatively confronted.&rdquo;</em> <span class="grade-open">Remains.</span> Extant measurements show the effective ratio depends on interaction scale. Deriving that scale-dependence from POAMS foundations is unattempted.</li>
-  </ul>
-
-  <div class="card amber">
-    <p><b>The three scale failures reduce to one underlying open.</b> Deriving the numerical value of the coupling that atomic and precision measurements register &mdash; equivalently, whatever POAMS derivation would produce the measured fine-structure ratio &mdash; is a single gap. It appears as Failure 2 (rate-radius product), Failure 5 (bootstrap value), and Failure 6 (scale-dependent behavior) because it manifests differently under different attempted derivations, but each reduces to the same question: <em>from what native POAMS geometry does the measured scale emerge?</em></p>
-
-    <p><b>Narrower framing added 2026-09-12.</b> The <a href="./coulomb-from-chirality-directed-depletion.html">Coulomb from Chirality-Directed Depletion</a> exhibit reduces the whole alpha family to one specific quantity: $\dot{N}_Q$, the chirality-directed sink rate per elementary closure. Systematic exploration of POAMS-native ratio candidates finds that every clean combination (mass-ratios, coherence-length ratios, bandwidth ratios) built from Planck-scale and Compton-scale quantities lands at $\dot{N}_Q/\dot{N}_M \sim 10^{22}$, whereas the empirical target is $\sim 2\times 10^{21}$. <b>The residual factor between Planck-scale-derived prediction and empirical fine-structure ratio is where $\alpha$ actually lives.</b> Not the whole 137, but a specific dimensionless multiplicative correction. This is a narrower and more tractable target than &ldquo;derive $\alpha$ from first principles.&rdquo;</p>
-
-    <p><b>Sharpened framing added 2026-09-12 (Part 2 &mdash; ratified).</b> The &ldquo;factor of ~10&rdquo; is not approximate; it is <em>exactly</em> $1/\sqrt{\alpha}$. Two identifications make this precise:</p>
-    <ol>
-      <li>The POAMS-native &ldquo;$\sim 10^{22}$&rdquo; that clean Planck/Compton combinations land at is exactly $M_{Pl}/m$ (up to $O(1)$ factors) for an elementary closure of mass $m$. For the smallest observed extant elementary closure ($\dot{N}_M \approx 1.24 \times 10^{20}$ Hz), $M_{Pl}/m = 2.389 \times 10^{22}$. The gravitational fine-structure ratio $\alpha_G(m) = Gm^2/(\hbar c)$ satisfies $\alpha_G(m) = (m/M_{Pl})^2$ by definition, so all clean mass/length combinations built from Planck and Compton scales for a given closure reduce to $M_{Pl}/m$ up to $O(1)$ factors.</li>
-      <li>For two elementary closures of mass $m$, the empirical ratio $\dot{N}_Q/\dot{N}_M$ equals exactly $\sqrt{\alpha/\alpha_G(m)} = \sqrt{F_{EM}/F_{grav}}$, following from $F_{EM}/F_{grav} = e^2/(4\pi\epsilon_0 G m^2) = \alpha/\alpha_G(m)$ and the POAMS reading $F \propto \dot N^2$ (per <a href="./coulomb-from-chirality-directed-depletion.html">Coulomb</a> and <a href="./newton-from-tangled-trapped-rate-depletion.html">Newton</a>). The specific value $2.04 \times 10^{21}$ corresponds to the smallest observed extant elementary closure ($\dot{N}_M \approx 1.24 \times 10^{20}$ Hz).</li>
-    </ol>
-    <p>Combining these, the empirical target admits the exact identity</p>
-    <div class="eq" style="text-align:center;font-size:1.05em;margin:16px 0;">$$\dot{N}_Q / \dot{N}_M \;=\; \sqrt{\alpha}\ \cdot\ M_{Pl}/m_e,$$</div>
-    <p>and the &ldquo;residual factor&rdquo; the exhibit named is exactly $1/\sqrt{\alpha} = \sqrt{137.036} \approx 11.706$. This is not a coincidence to be dismissed; it is the sharpened statement of what remains to be derived. Restated in the sharpened form:</p>
-
-    <div class="card amber">
-      <p><b>The scale open, precisely stated.</b> POAMS needs to supply a native expression for $\dot{N}_Q / \dot{N}_M$ as a function of an elementary closure's geometry alone &mdash; without using $\alpha$, $1/\alpha$, or any measured EM quantity as input. Given such an expression, equating it to $\sqrt{\alpha} \cdot M_{Pl}/m$ determines $\alpha$.</p>
-      <p>Equivalently: since all POAMS-native mass/length combinations for an elementary closure reduce to $M_{Pl}/m$ up to $O(1)$ factors, and the empirical $\dot{N}_Q/\dot{N}_M$ requires an additional multiplicative $\sqrt{\alpha}$, the remaining task is to derive that $\sqrt{\alpha}$ factor from POAMS-native structure. It is exactly one dimensionless number, and it is exactly $\sqrt{\alpha} \approx 0.08542$.</p>
-      <p>The three candidates named earlier (coherence-fraction between Planck and Compton scales; Călugăreanu integer count of a specific closure configuration; excess degrees of freedom at the chirality-directed sink) are the concrete research targets. Each is now measured against a specific numerical anchor rather than a rounded &ldquo;factor of ~10&rdquo;: any candidate must yield $\sqrt{\alpha} \approx 0.08542$ within measurement precision.</p>
-    </div>
-
-    <p><b>Sharpened framing added 2026-09-12 (Part 3 &mdash; ratified).</b> Multiplying through the identity $\dot{N}_Q/\dot{N}_M = \sqrt\alpha \cdot M_{Pl}/m$ by $\dot{N}_M = mc^2/h$ eliminates the mass entirely:</p>
-
-    <div class="eq" style="text-align:center;font-size:1.05em;margin:16px 0;">$$\dot{N}_Q \;=\; \sqrt\alpha \cdot f_{Pl}, \qquad f_{Pl} \equiv M_{Pl}c^2/h \approx 2.952 \times 10^{42}\ \text{Hz}.$$</div>
-
-    <p><b>$\dot{N}_Q$ is universal across elementary closures &mdash; independent of the closure's mass-directed sink rate.</b> Verification is algebraic (the closure mass cancels between $\dot{N}_M \propto m$ and $\dot{N}_Q/\dot{N}_M \propto 1/m$) and consistency-checked across three observed extant elementary closures spanning three orders of magnitude in $\dot{N}_M$:</p>
-    <table style="font-size:.92em;margin:8px auto;">
-      <tr><th>$\dot{N}_M$ (Hz)</th><th>$\dot{N}_Q/\dot{N}_M$</th><th>$\dot{N}_Q$ (Hz)</th></tr>
-      <tr><td>$1.236\times10^{20}$</td><td>$2.041\times10^{21}$</td><td>$2.522\times10^{41}$</td></tr>
-      <tr><td>$2.555\times10^{22}$</td><td>$9.871\times10^{18}$</td><td>$2.522\times10^{41}$</td></tr>
-      <tr><td>$2.269\times10^{23}$</td><td>$1.112\times10^{18}$</td><td>$2.522\times10^{41}$</td></tr>
-    </table>
-    <p>Three different mass-directed sink rates, one universal $\dot{N}_Q = 2.522 \times 10^{41}$ Hz $= \sqrt\alpha \cdot f_{Pl}$. Consistent with the empirical fact that Coulomb's law depends on charge but not on mass; the POAMS reading $F_{EM} \propto \dot{N}_Q^2$ correctly reproduces this only if $\dot{N}_Q$ is universal.</p>
-
-    <div class="card amber">
-      <p><b>The scale open, restated once more.</b> Every elementary closure carries chirality-directed sink activity at the universal rate $\dot{N}_Q = \sqrt\alpha \cdot f_{Pl}$. In Planck-time units, one chirality-directed event completes every $2\pi/\sqrt\alpha \approx 73.55$ Planck ticks. The POAMS-native derivation the corpus needs is: <em>why is this specific fraction of Planck-frequency activity carried by chirality-directed sink, and not some other?</em> The number to derive is exactly $\sqrt\alpha \approx 0.08542$, and it is now stated as a universal POAMS dimensionless constant, not as a per-particle residual factor.</p>
-      <p>Equivalent forms of the same open, useful for candidate-mechanism searching:</p>
-      <ul>
-        <li>Fraction of Planck-frequency activity that is chirality-directed: $\sqrt\alpha$.</li>
-        <li>Planck-time count per chirality-directed event: $2\pi/\sqrt\alpha \approx 73.55$.</li>
-        <li>Characteristic length per chirality-directed event: $2\pi l_{Pl}/\sqrt\alpha \approx 74\, l_{Pl}$.</li>
-      </ul>
-      <p>Each is a re-expression of the same one number. Any POAMS-native mechanism that produces any one of them within measurement precision (0.08542, 73.5525, or 74.0 Planck lengths, respectively) closes the whole family.</p>
-    </div>
-
-    <p><b>Sharpened framing added 2026-09-12 (Part 4 &mdash; ratified). Parallel sharpening on the gravitational side.</b></p>
-
-    <p>The same algebraic move applied to $\dot{N}_M$ itself gives a companion identity:</p>
-    <div class="eq" style="text-align:center;font-size:1.05em;margin:16px 0;">$$\sqrt{\alpha_G(m)} \;=\; \dot{N}_M(m)\, /\, f_{Pl}, \qquad \alpha_G(m) \equiv Gm^2/(\hbar c).$$</div>
-
-    <p>Combining with Part 3, both sink rates are fractions of Planck frequency, one universal and one per-closure:</p>
-    <ul>
-      <li>Chirality-directed sink rate: $\dot{N}_Q = \sqrt\alpha \cdot f_{Pl}$ &mdash; universal, same for every elementary closure.</li>
-      <li>Mass-directed sink rate: $\dot{N}_M(m) = \sqrt{\alpha_G(m)} \cdot f_{Pl}$ &mdash; per-closure, varies with $m$. For the smallest observed extant elementary closure, $\sqrt{\alpha_G} \approx 4.19 \times 10^{-23}$.</li>
-    </ul>
-
-    <div class="card amber">
-      <p><b>Why $\alpha_G$ is harder to derive than $\alpha$.</b> POAMS's ratified foundational dimensional constants are $\hbar$ and $c$ only. From these alone, no length or mass can be constructed. Deriving $\sqrt{\alpha_G(m)}$ as a specific value therefore requires POAMS to supply either:</p>
-      <ol>
-        <li>A specific mass as a POAMS-native quantity (derive an elementary closure mass from closure structure), or</li>
-        <li>A specific length as a POAMS-native quantity (derive $l_{Pl}$ from closure structure), or</li>
-        <li>The specific dimensionless ratio $\sqrt{\alpha_G(m)}$ itself for a chosen input mass $m$.</li>
-      </ol>
-      <p>Paths (1) and (2) are the mass/hierarchy problem &mdash; genuinely hard, no path currently visible in POAMS or elsewhere. Path (3) closes Newton's $G$ derivation given one elementary closure mass as input: $G = \hbar c \cdot \alpha_G(m) / m^2$.</p>
-    </div>
-
-    <p><b>Sharpened OPEN for $\alpha_G$.</b> POAMS needs a POAMS-native expression for $\dot{N}_M(m)/f_{Pl} = \sqrt{\alpha_G(m)}$. This is a dimensionless number (like $\sqrt\alpha$), but its value is per-closure (unlike $\sqrt\alpha$). Any POAMS derivation must produce that specific number for a given elementary closure without treating its mass as a free parameter &mdash; strictly harder than deriving $\sqrt\alpha$, because it also requires POAMS to derive the closure mass (or an equivalent length scale).</p>
-
-    <p><b>Honest verdict.</b> Task 1's parallel sharpening lands cleanly: both $\alpha$ and $\alpha_G$ have the form $\sqrt{X} = \dot{N}/f_{Pl}$, one universal ($\sqrt\alpha \approx 0.0854$) and one per-closure ($\sqrt{\alpha_G} \approx 4.19 \times 10^{-23}$ for the smallest observed). But the OPEN for $\alpha_G$ is dimensionally under-constrained by POAMS's current foundational set ($\hbar$, $c$ only), whereas the OPEN for $\alpha$ is dimensionally well-posed within POAMS closure structure. The parallel sharpening is done; the underlying research problem for $\alpha_G$ is strictly harder than for $\alpha$.</p>
-
-    <h3>Sharpened framing added 2026-09-12 (Part 5 &mdash; ratified). Candidate derivation paths for $\alpha_G$, evaluated.</h3>
-
-    <p>Part 4 identified $\sqrt{\alpha_G(m)} = m/M_{Pl}$ as dimensionally under-constrained by POAMS's current foundational set. Closing the derivation requires adding structural content not currently ratified. Four concrete candidate paths, evaluated for what actually closes when the algebra is pushed through:</p>
-
-    <div class="card">
-      <p><b>Path A &mdash; Ratify nexus mean-free-path $\lambda = l_{Pl}$ as a POAMS foundation.</b> Newton &sect;4 currently treats this as a modeling choice. Ratifying it would add one dimensional constant to POAMS's foundational set. <b>Verdict: circular.</b> $l_{Pl}$ is <em>defined</em> as $\sqrt{\hbar G/c^3}$. Under Path A, $G = c^3 l_{Pl}^2/\hbar$ falls out algebraically &mdash; but only because ratifying $l_{Pl}$ at its specific value $1.616 \times 10^{-35}$ m is equivalent to declaring $G$ by fiat. To break the circularity, POAMS would need an <em>independent</em> argument for the specific numerical value of $l_{Pl}$ (i.e., an argument that doesn't reference $G$). No such argument is currently visible in the corpus. Path A doesn't work as a first-principles derivation; it converts &ldquo;G is measured&rdquo; into &ldquo;$l_{Pl}$ is measured&rdquo; without adding physical content.</p>
-    </div>
-
-    <div class="card">
-      <p><b>Path B &mdash; Derive closure characteristic masses from Aufbau-style POAMS closure counting.</b> POAMS has Aufbau closure-counting machinery for atomic shells. Extending this to derive the mass hierarchy of elementary closures &mdash; including the smallest observed extant elementary closure &mdash; would produce specific closure masses from POAMS closure structure. <b>Verdict: aspirational but well-shaped as a research program.</b> Aligns with POAMS's existing derivation program (Aufbau, valley of stability, mass ledger). But even a fully-developed Path B produces only <em>dimensionless</em> mass ratios among closures; converting them to Planck units requires an absolute-scale anchor, which brings back the Path A problem. Substantial multi-year research required.</p>
-    </div>
-
-    <div class="card">
-      <p><b>Path C &mdash; Empirical calibration of one closure mass.</b> Newton &sect;4 Path 3. Accept the smallest observed extant elementary closure's mass (equivalently, its mass-directed sink rate $\dot{N}_M \approx 1.24 \times 10^{20}$ Hz) as one POAMS-native measured input, alongside $\hbar$ and $c$. <b>Verdict: this is the honest closable path today.</b> Under Path C, POAMS's foundational set becomes $\{\hbar, c, \dot{N}_M^{\text{ref}}\}$ (or equivalently $\{\hbar, c, m_e\}$). $G$ falls out from $G = \hbar c \alpha_G(m^{\text{ref}})/(m^{\text{ref}})^2$ modulo one calibration. POAMS then <em>predicts</em> $\alpha_G$ for all other closures given their masses. What survives as CLAIMED: POAMS derives the <em>structure</em> of $\alpha_G$ (its scaling with $m^2$, its interpretation as $\sqrt{\alpha_G} = \dot{N}_M/f_{Pl}$) and predicts every downstream gravitational-coupling ratio; POAMS does not claim to derive $G$ or $M_{Pl}$ from ontology alone. This is more honest than the retracted &ldquo;$G$ is derived&rdquo; language and aligns with the standard theory-of-measurement practice.</p>
-    </div>
-
-    <div class="card">
-      <p><b>Path D &mdash; Novel POAMS insight (currently no path visible).</b> Derive a POAMS-intrinsic length or mass from closure geometry via reasoning not currently in the corpus. Would be genuinely first-principles. Requires substantive theoretical work; no candidate mechanism currently identifiable. Not scoped here.</p>
-    </div>
-
-    <div class="card amber">
-      <p><b>The residual structural finding.</b> Even the best-case path (Path C) does not derive $G$ from POAMS foundations &mdash; it accepts one dimensional POAMS input from measurement. The result is honest and operationally useful, but the ambition &ldquo;POAMS derives $G$ from ontology alone&rdquo; is not achievable without either Path A (which requires an independent argument for $l_{Pl}$'s specific value &mdash; not currently available) or Path D (novel insight &mdash; also not available). This is a genuine structural blocker, not a matter of finding a cleverer calculation.</p>
-
-      <p><b>What Task 1 delivered.</b> The four candidate paths above are the complete map: any POAMS derivation of $G$ must go through one of them. Path C is what the exhibit can honestly claim today. Paths A, B, D are research targets with specific closability criteria named. Path A additionally requires a POAMS commitment about the nexus's foundational scale that the corpus has not currently ratified.</p>
-
-      <p><b>Ratified position (2026-09-12 21:00 CDT): Path C adopted.</b> Star Lord ratified Path C as this exhibit's and the corpus's stated position on $G$: POAMS derives the <em>structure</em> of $\alpha_G$ (its scaling with $m^2$, its interpretation as $\sqrt{\alpha_G} = \dot{N}_M/f_{Pl}$, its unified form across the alpha-family) modulo one empirical calibration. $G$ is one calibrated coupling; POAMS predicts every downstream gravitational-coupling ratio from that calibration. What POAMS does not claim: first-principles derivation of $G$ or $M_{Pl}$ from ontology alone. Newton &sect;4 (rewritten earlier today) is the mechanism-side implementation of Path C. Paths A/B/D remain as long-term research targets; Path A becomes available only if POAMS ratifies the nexus Planck-length commitment with independent justification.</p>
-    </div>
-
-    <h3>Sharpened framing added 2026-09-12 (Part 6). The residual hierarchy problem, worked honestly.</h3>
-
-    <p>Path C leaves one specific research target explicitly OPEN: the <em>mass-hierarchy problem</em>. For the smallest observed extant elementary closure,</p>
-    <div class="eq" style="text-align:center;font-size:1.05em;margin:16px 0;">$$m / M_{Pl} \;=\; \sqrt{\alpha_G(m)} \;=\; 4.185 \times 10^{-23} \quad \text{(CODATA-precision)}.$$</div>
-    <p>In log-10 terms this is $10^{-22.378}$; in nats, $-51.53$. Unsolved in every framework &mdash; extant physics calls it the Planck-scale hierarchy problem or (in the Higgs-mass version) the electroweak hierarchy problem. This subsection tries four POAMS-native mechanism families and documents which close.</p>
-
-    <div class="card">
-      <p><b>H1 &mdash; Fractal / geometric cascade.</b> Elementary closures nest across multiple scales, each nesting contributing a fixed mass-ratio factor $k$. For $m/M_{Pl} = k^N$ to give $10^{-22.38}$:</p>
-      <table style="font-size:.9em;margin:8px auto;">
-        <tr><th>$k$</th><th>$N$ required</th><th>Clean?</th></tr>
-        <tr><td>$1/2$</td><td>$74.3$</td><td>no</td></tr>
-        <tr><td>$1/3$</td><td>$47.0$</td><td>no</td></tr>
-        <tr><td>$1/\pi$</td><td>$46.2$</td><td>no</td></tr>
-        <tr><td>$1/e$</td><td>$51.5$</td><td>no</td></tr>
-        <tr><td>$1/2\pi$</td><td>$28.1$</td><td>no</td></tr>
-        <tr><td>$\alpha$</td><td>$10.47$</td><td>no</td></tr>
-      </table>
-      <p>None are clean small integers and none match any POAMS-natural $k$. <b>Verdict: no closure.</b></p>
-    </div>
-
-    <div class="card">
-      <p><b>H2 &mdash; Aufbau-style closure counting for elementary closures.</b> POAMS's Aufbau machinery derives atomic shell capacities (2, 8, 18, 32, ...). If a similar counting rule applies at the elementary-particle level, the smallest elementary closure's mass might follow from a specific closure count. But Aufbau counts saturate at ~92-118 total (periodic table); nothing near $10^{22}$. <b>Verdict: no direct extension visible.</b> Aufbau counts the wrong regime.</p>
-    </div>
-
-    <div class="card">
-      <p><b>H3 &mdash; Coherence-loss cascade.</b> If POAMS's chirality-directed sink activity requires coherence across multiple length scales, and each scale costs a specific fractional loss factor, the total cascade could be very small. For a $10^{-22.4}$ suppression across 22 orders, need loss factor $10^{-1}$ per order &mdash; not derivable from POAMS structure. For a $-51.5$ nat cost across 51 nats, need loss factor $1/e$ per nat &mdash; also not derivable. Any specific choice is fitting. <b>Verdict: not closable without additional POAMS commitment.</b></p>
-    </div>
-
-    <div class="card">
-      <p><b>H4 &mdash; Ratio to $\alpha$.</b> If POAMS derives $\alpha$ (still OPEN) and a POAMS-native relation exists between $m/M_{Pl}$ and $\alpha$, the hierarchy would follow. $(m/M_{Pl}) = \alpha^n$ gives $n = 10.47$ (not integer). Yukawa-like decomposition $m/M_{Pl} = y \cdot v/M_{Pl}$ (extant form) requires deriving both $y \sim 10^{-6}$ and $v/M_{Pl} \sim 10^{-17}$ &mdash; two hierarchies replacing one, not simpler. <b>Verdict: no simpler formulation, closes the same open at higher structural cost.</b></p>
-    </div>
-
-    <div class="card amber">
-      <p><b>Numerical near-hits (Wyler-class warning).</b> Some numerological coincidences land close to $4.19 \times 10^{-23}$ but do not constitute derivations:</p>
-      <ul>
-        <li>$1/23! = 3.87 \times 10^{-23}$ (8% off; 23 has no POAMS-derivable significance).</li>
-        <li>$M_{Pl}/m \approx 22 \cdot 22!$ (same 8% off).</li>
-      </ul>
-      <p>Both are numerological near-hits, not derivations. The exhibit's earlier retirement of the 2026 alpha-program archive specifically warns against Wyler-class fitting: any candidate mechanism must produce the specific number from POAMS-native structure without fitting, and must survive the corpus's own attractive-formula tests. Near-hits at the 5-10% level fail those standards.</p>
-    </div>
-
-    <div class="card amber">
-      <p><b>Honest verdict on Part 6.</b> None of H1&ndash;H4 closes. The residual gap is structural: POAMS has no ratified mechanism that produces the specific 22.4-order suppression of the smallest observed elementary closure's mass below Planck scale. Under Path C (ratified above), this is not a defect of the exhibit &mdash; it is the residual research target that Path C explicitly does not claim to close. The hierarchy problem sits as an OPEN research direction with $4.185 \times 10^{-23}$ as the specific numerical anchor and Wyler-class discipline as the acceptance standard.</p>
-      <p><b>Task 3 delivery.</b> Not a derivation. An honest exploration of four POAMS-native mechanism families, all documented, none closing. The hierarchy problem is not a matter of finding a cleverer POAMS combination; it is a genuine deep structural gap shared with every other framework in physics. Under Path C, this exhibit's position is now consistent and honestly labeled; the hierarchy problem remains as an unsolved research target with a specific numerical anchor and a clear standard of proof. Any future closure attempt must produce $4.185 \times 10^{-23}$ (or an equivalent characterization of the smallest observed extant elementary closure's mass) from POAMS-native structure without fitting, and must survive the corpus's Wyler-class tests.</p>
-    </div>
-
-    <h3>Sharpened framing added 2026-09-12 (Part 7). Aufbau back-door attempt for $\alpha$ itself.</h3>
-
-    <p>Ratified extension of the derivation attempt (Star Lord, 2026-09-12 21:32 CDT): under POAMS's sphere-of-momentums framing, $\alpha$ is a pure geometric ratio. In POAMS's $\hbar$-natural units:</p>
-    <div class="eq" style="text-align:center;font-size:1.05em;margin:16px 0;">$$\alpha \;=\; \bar\lambda_C\, /\, a_0, \qquad a_0/\bar\lambda_C \;=\; 137.036,$$</div>
-    <p>where $\bar\lambda_C = \hbar/(m_e c)$ is the reduced Compton wavelength (POAMS-natural) and $a_0$ is the smallest stable atomic sphere's coherence radius. Deriving $a_0/\bar\lambda_C$ from POAMS closure-hierarchy stability alone &mdash; without importing the Coulomb coupling coefficient that carries $\alpha$ &mdash; would derive $\alpha$ through the geometric back door.</p>
-
-    <p><b>What the corpus does and doesn't do.</b> <a href="./aufbau-as-closure.html">Aufbau as Closure</a> derives (i) shell structure &mdash; capacities $2(2l+1)$ from angular-momentum eigen-counting on a sphere, (ii) Madelung ordering &mdash; 19/19 subshells at zero adjustable parameters from closure-stacking bookkeeping, (iii) census density &mdash; one persistent mode per whole-turn action cell $(2\pi\hbar)^3 \times$ derived $\pm$ sense doubling, giving the Thomas-Fermi form. It explicitly imports (a) the $1/r$ range law &mdash; its POAMS-derived <em>shape</em> comes from spherical-shell depletion (Coulomb &sect;3), but its <em>coefficient</em> carries $\alpha$, and (b) the atomic scale via $b = 0.88534\, a_0\, Z^{-1/3}$ as an algebraic identity, with $a_0$ entering as an external scale. The Aufbau derivation therefore uses $\alpha$ as input through the Coulomb range coefficient; extending it to derive $a_0$ requires a POAMS coherence-radius condition that does <em>not</em> invoke Coulomb.</p>
-
-    <p><b>Three POAMS-native candidate mechanisms attempted:</b></p>
-
-    <div class="card">
-      <p><b>Approach 1 &mdash; Coherence-cycle condition.</b> The atomic sphere's period equals a POAMS-native multiple of the elementary closure's Compton period. Direct calculation: the Bohr atomic period is exactly $T_{\text{atom}} = \tau_C/\alpha^2 = 18{,}779\,\tau_C$. This is the <em>cleanest possible restatement of the target</em>: POAMS would derive $\alpha$ if it derived a coherence condition forcing exactly $1/\alpha^2$ Compton periods per atomic cycle from closure structure alone. <b>Verdict:</b> the reformulation is precise (an exact integer-like factor $1/\alpha^2$), but POAMS has no ratified mechanism for the specific factor $1/\alpha^2$. Restating the open, not closing it.</p>
-    </div>
-
-    <div class="card">
-      <p><b>Approach 2 &mdash; Chirality-cycle condition.</b> The number of universal chirality-directed events per atomic cycle satisfies $T_{\text{atom}} \cdot \dot{N}_Q = (1/\alpha^2) \cdot \sqrt\alpha \cdot M_{Pl}/m = 3.83 \times 10^{25}$ for the smallest observed extant elementary closure. <b>Verdict:</b> not closable in isolation. This approach <em>entangles both open problems</em> ($\alpha$ and $m/M_{Pl}$) rather than solving one; the ratio depends on both hierarchies simultaneously. Not a productive attack angle unless a POAMS-native integer count of $\sim 3.83 \times 10^{25}$ emerges from closure geometry &mdash; and none does.</p>
-    </div>
-
-    <div class="card">
-      <p><b>Approach 3 &mdash; Nested closure geometry.</b> Aufbau shell-count sums $\sum_{n=1}^{n_{\max}} 2n^2$ give running totals 2, 10, 28, 60, 110, 182, 280, ... None lands on 137 or 21.807 at any shell boundary. The one near-hit is $(L+1)^2 = 137 \Rightarrow L+1 = 11.706 = 1/\sqrt\alpha$ &mdash; but this is trivially circular: $1/\alpha = (1/\sqrt\alpha)^2$ says nothing about $\alpha$. <b>Verdict:</b> no closure-count structure the corpus currently has produces the ratio $a_0/\bar\lambda_C = 137.036$.</p>
-    </div>
-
-    <div class="card amber">
-      <p><b>Wyler-class warning &mdash; explicit rejection.</b> During Part 7 exploration, a purely-numerical hit landed at 0.001% precision:</p>
-      <div class="eq" style="text-align:center;">$$4\pi^3 + \pi^2 + \pi \;=\; 137.0363 \;\;\; \text{vs} \;\;\; 1/\alpha = 137.0360$$</div>
-      <p>This is the <a href="https://en.wikipedia.org/wiki/Fine-structure_constant#Numerological_explanations_and_multiverse_theory">Sommerfeld coincidence</a>, historically noticed and historically rejected. It is <b>exactly</b> the trap the retirement of the 2026 alpha program was designed to prevent: an attractive formula that lands to spectacular precision without POAMS structural derivation. The $\pi^3$ term has no natural closure-geometry meaning I can identify; the $\pi^2$ term likewise; the sum is arithmetically suggestive but structurally arbitrary. <b>This exhibit does not adopt it.</b> Named here explicitly so no future work reaches for it by inertia. Passing the Wyler test requires a POAMS structural derivation of the specific $\pi$-powers in that combination, not a match at any precision.</p>
-    </div>
-
-    <div class="card amber">
-      <p><b>Honest verdict on Part 7.</b> The back-door reframing is correct and precise &mdash; $\alpha$ IS $\bar\lambda_C/a_0$ under POAMS $\hbar$-natural units, and it IS a pure geometric ratio POAMS should in principle derive from closure-hierarchy stability. But the current corpus does not contain the specific structural constraint that fixes the atomic sphere's coherence radius in Compton units. Approach 1 gives the cleanest restatement (atomic period = $1/\alpha^2$ Compton periods) but no derived mechanism. Approach 2 entangles both hierarchies. Approach 3's Aufbau counts don't land. The Sommerfeld numerology lands but fails Wyler standards.</p>
-      <p><b>The specific missing piece, named.</b> POAMS needs a coherence-radius condition for atomic spheres that (a) does not invoke the Coulomb $1/r$ coefficient (which carries $\alpha$), (b) does not rely on Aufbau shell-count sums (which don't hit 137), and (c) uses closure-nesting structure &mdash; SU(2) at closures (premise (b)), C&#259;lug&#259;reanu invariants, two-endedness (Receiver Keys &sect;7), whole-turn action cells $(2\pi\hbar)^3$ &mdash; to fix the atomic sphere's coherence radius from purely geometric requirements. That specific derivation is not in the current corpus. Approach 1 names the target it must land on: $T_{\text{atom}}/\tau_C = 1/\alpha^2$, from closure structure alone.</p>
-      <p><b>Where this leaves the exhibit.</b> Under Path C (ratified in Part 5) the exhibit's position on $\alpha$ is honest: POAMS derives $\alpha$'s <em>structure</em> and <em>role</em> (universal chirality-directed fraction of Planck frequency, per Part 3) but not its specific value. The mass hierarchy remains OPEN (Part 6). And the specific closure-coherence radius condition remains OPEN (Part 7). Each open front now has a precise numerical anchor and a specific POAMS-shaped question. The century-old resistance of $\alpha$ to first-principles derivation across every framework in physics (SM, string theory, QED, POAMS) is honest company; none has produced the number without importing it. Any future POAMS derivation must land the closure-coherence condition of Approach 1 or find a structural mechanism the three attempted approaches did not surface.</p>
-    </div>
-
-    <h3>Sharpened framing added 2026-09-13 (Part 8 &mdash; ratified). Identification via observer-centered cone geometry.</h3>
-
-    <p>Star Lord pointed at the <a href="./cone-model.html">Cone Model</a> exhibit (Pope 1986; editorial addition on the Observer's Sphere) as the POAMS-native geometric structure for observation. Reading it, together with <a href="./the-poams-brilliant-vortex-atom.html#light-is-everything">Vortex Atom &sect;10a &ldquo;Light is Everything&rdquo;</a>, Pope's 2007 <em>Light is Everything</em>, Osborne &amp; Pope's <em>The Nature of Time</em> (2026), and the <a href="./poams-periodic-table.html">The Elements</a> vortex-atom derivations, the exhibit now has a second POAMS-native identification of $\alpha$ &mdash; angular, complementing Part 3's rate-based one.</p>
-
-    <p><b>The cone-model reading.</b> Under the observer-centered cone geometry, the observer sits at the peak of a cone whose cross-sections are the concentric spheres of the observer's polar frame (azimuth, elevation, range, time). For a closure at recession rate $v$, the cone half-angle satisfies</p>
-    <div class="eq" style="text-align:center;font-size:1.05em;margin:14px 0;">$$\sin\theta_{\text{cone}} \;=\; v/c.$$</div>
-    <p>Observation is a chirality-directed transaction between the observer's own closure and one at a specific angular position on the observer's cone &mdash; proper-time instantaneous, phase-locked, POAMS-structural. (Not extant &ldquo;a photon travels from A to B&rdquo;: no light in space, space in the light.)</p>
-
-    <p><b>POAMS atom &mdash; no nucleus, barycentre-centered.</b> Pope is explicit (<em>Light is Everything</em>, 2007, &sect;3.2): the POAMS atom has <em>no</em> electrically charged components answering to the traditional 'electron' and 'proton'. Hydrogen is a pair of pure-mass particles co-orbiting a common <b>barycentre</b> in an angular-momentum nexus of basic magnitude $\hbar$. The barycentre itself is empty (<a href="./poams-periodic-table.html">The Elements</a>: &ldquo;The Eye: an empty barycentre where forces cancel. No dense nucleus exists here.&rdquo;). The atom's inner region is a Laplace-flattened <em>planar disk</em> of accumulated angular momentum (planar quanta); the outer region is <em>spherical harmonic modes</em> (spherical quanta) at nested characteristic radii. Two geometries, one substance.</p>
-
-    <div class="card gold">
-      <p><b>$\alpha$ is the sine of the cone half-angle at the elementary closure's characteristic position in the smallest stable atomic organization.</b></p>
-      <div class="eq" style="text-align:center;font-size:1.05em;margin:14px 0;">$$\alpha \;=\; \sin\theta_{\text{cone}} \;\Big|_{\text{elementary closure at ground-level position, atomic-nexus barycentre frame}}$$</div>
-      <p>Numerically: $\alpha = 0.00730$, so $\theta_{\text{cone}} = \arcsin(\alpha) = 0.418^\circ$. Equivalently, $1/\alpha = 137.036 = 1/\sin(0.418^\circ)$. The elementary closure sits at exactly this cone half-angle from the atomic-nexus barycentre. That is what $\alpha$ IS geometrically in the observer-centered cone.</p>
-      <p>This is a genuine second POAMS-native identification, complementing Part 3. Both are structural, both refer only to POAMS-native geometric quantities, and neither uses extant coupling-constant framing:</p>
-      <ul>
-        <li><b>Part 3 (rate-based):</b> $\sqrt\alpha = \dot N_Q / f_{Pl}$ &mdash; the universal chirality-directed fraction of Planck-frequency activity at any elementary closure.</li>
-        <li><b>Part 8 (angular, cone-geometry):</b> $\alpha = \sin\theta_{\text{cone}}$ &mdash; the sine of the cone half-angle at the elementary closure's characteristic position in the smallest stable atomic organization, from the barycentre.</li>
-      </ul>
-      <p>Together they characterize $\alpha$ from two different POAMS-native structural angles. The cone-geometry one is the more geometrically intuitive: it identifies $\alpha$ with a specific angle in the observer-centered cone rather than with a fraction of ambient activity.</p>
-    </div>
-
-    <div class="card amber">
-      <p><b>Sharpened Task 2 target under Part 8.</b> The observer-centered cone identification does not by itself compute $\alpha$; it identifies WHAT $\alpha$ IS (a specific cone angle). To compute the specific value, POAMS needs a native derivation of the elementary closure's characteristic radial position in the smallest stable atomic organization, expressed as a cone half-angle from closure-coherence stability, without using $\alpha$ as input. Formally:</p>
-      <div class="eq" style="text-align:center;font-size:.98em;margin:14px 0;">Derive the cone half-angle $\theta_{\text{cone}} = \arcsin(\alpha) = 0.418^\circ$ from POAMS-native closure-nesting geometry alone.</div>
-      <p>Aufbau naturally derives the RATIO of shell radii and cone angles: <a href="./poams-periodic-table.html">The Elements</a> shows that at mode $n$, $L = n\hbar$ plus centripetal balance forces the equilibrium radius to scale as $r_n \propto n^2$ (pure geometry, no equations of motion). Consequently $\sin\theta_n = v_n/c = \alpha/n$ for principal number $n$. What POAMS Aufbau does not derive is the ANCHOR: why the $n=1$ ground level lands at cone half-angle $0.418^\circ$ rather than some other angle. Given the anchor, all the ratios follow. Deriving the anchor from POAMS-native closure-coherence stability is the standing Task 2 open, now stated in the sharpest structural form the corpus can offer: <b>which POAMS-native cone half-angle admits a coherent-stability solution for the smallest stable atomic organization?</b></p>
-      <p><b>Confirmed as empirical in Pope's own writing.</b> <em>Light is Everything</em> (2007) &sect;3.2 states: &ldquo;$r$ is the so-called 'ground-level' radius of the lowest energy state. This radius is equivalent to the standard Bohr radius ($r_{\text{Bohr}} = 5.292\times 10^{-11}$ m).&rdquo; Pope treats the ground-level radius as an <em>empirical anchor</em> in POAMS, not a POAMS-derived quantity. This confirms Path C from independent source-text authority: what we ratified as Path C on 2026-09-12 is Pope's own posture on this scale from 2007. Cross-checked in <a href="./poams-periodic-table.html">The Elements</a>: &ldquo;fine-structure value and signed mechanism remain a separate open problem.&rdquo;</p>
-      <p>The obviousness standard from Task 2 above applies unchanged: the derivation must make $\theta_{\text{cone}} = 0.418^\circ$ obvious once the POAMS observer-centered cone geometry is fully understood &mdash; a procedure whose execution is a direct consequence of what the POAMS projection IS.</p>
-    </div>
-
-    <p><b>What the sharpening does not do.</b> It does not lower the difficulty of deriving either $\sqrt{\alpha}$ or $\sqrt{\alpha_G}$: any candidate mechanism must produce those specific numbers from POAMS-native structure without tautologically re-inserting an equivalent measured input, and without fitting. The record from the retired 2026 program shows how easily an attractive formula lands near 137 (or equivalently, gives $\sqrt{\alpha}$ near 0.085) without being a derivation (Wyler class). Any future closure attempt must survive the same standards.</p>
-
-    <p><b>Cross-link to Newton.</b> The <a href="./newton-from-tangled-trapped-rate-depletion.html">Newton from Tangled-Trapped-Rate Depletion</a> exhibit's &sect;4 (rewritten 2026-09-12) names deriving $G$ as one of three candidate paths that could close the alpha-family. The identification above sharpens that dependency: since $\alpha_G(m) = (m/M_{Pl})^2$, if POAMS derives $\alpha$ (from the sharpened open above) and also derives $\alpha_G(m)$ for a chosen input closure mass (equivalently, derives $M_{Pl}$ or $l_{Pl}$ from POAMS foundations rather than as $\sqrt{\hbar c/G}$), then $G = \hbar c \cdot \alpha_G(m) / m^2$ follows. Two POAMS-native derivations &mdash; $\alpha$ and $\alpha_G(m)$ &mdash; close $G$ jointly.</p>
-    <p>The same open surfaces in other exhibits:</p>
-    <ul>
-      <li>The QED-order magnetic-moment correction $g_s - 2 \approx 0.00232$ (measured to 12 significant figures) &mdash; <a href="./lande-from-twist-writhe.html">Land&eacute; &sect;7</a>.</li>
-      <li>The measured hydrogen 21cm line at 1420.405751 MHz and adjacent hyperfine spectra &mdash; <a href="./lande-from-twist-writhe.html">Land&eacute; &sect;7</a>.</li>
-      <li>The numerical value of the elementary-closure coupling coefficient extant labels $\mu_B$ &mdash; <a href="./stern-gerlach-as-two-chiralities.html">Stern-Gerlach &sect;3</a>.</li>
-    </ul>
-    <p>Closing this exhibit closes them all simultaneously.</p>
-  </div>
-
-  <h3>The separation the old exhibit did not make</h3>
-  <p>The retired program conflated <em>identification</em> with <em>mechanism-derivation</em>. It treated $\alpha$ as if a mechanism-derivation must exist and its numerical value must fall out of one. When mechanism-derivations failed at the numerical value, the whole program was retired. Under the ratified 2026-09-12 reframing, the two questions are orthogonal and only <em>one</em> of them was ever POAMS's to answer:</p>
-  <ul>
-    <li><b>Identification &mdash; POAMS-native, done.</b> $\alpha$ is the universal chirality-directed fraction of Planck-frequency activity at every elementary closure ($\dot{N}_Q = \sqrt\alpha \cdot f_{Pl}$). The identification is what POAMS is uniquely positioned to make, and it landed 2026-09-12. Sign-sensitive splitting via C&#259;lug&#259;reanu $Lk = \pm 1$ (Land&eacute; &sect;4), integer discipline properly located at $Lk = \pm 1$ (not at any bookkeeping-derived $N$), and spin-half as units-convention artifact are all parts of the identification.</li>
-    <li><b>Mechanism-derivation of the numerical value &mdash; malformed question.</b> Under the reframing, there is no mechanism to derive from, and no mechanism-derivation was ever available. $\alpha$ is intrinsic geometric ratio, not coupling-strength. The category error is inherited from extant framing.</li>
-    <li><b>Mathematical computing procedure &mdash; POAMS-native, open.</b> The remaining research target is a POAMS-native mathematical expression (integral, series, limit) over closure structure that computes $\alpha$ from POAMS axioms &mdash; the analog of Leibniz's series for $\pi$. Not the retired mechanism-program; a different kind of target with a different acceptance standard.</li>
-  </ul>
-
-  <p class="mut">The status pill above (<b>POAMS GEOMETRIC CONSTANT &middot; COMPUTING PROCEDURE OPEN</b>) reflects this separation exactly. Identification is done. Mechanism-derivation was never available. Computing procedure is open.</p>
-</section>
-
-<section>
-  <h2>What would count as a solution</h2>
-  <div class="card amber">
-    <p><b>A future solution is a mathematical computing procedure, not a mechanism.</b> Under the reframing, POAMS does not seek a mechanism &mdash; there is none to seek. It seeks the POAMS-native mathematical expression that computes $\alpha$ from POAMS geometric axioms, in exactly the same sense that Leibniz's series or the Wallis product computes $\pi$ from Euclidean geometric axioms.</p>
-  </div>
-  <ol>
-    <li><b>Pure math over POAMS-native quantities.</b> The expression may reference $\hbar$, $c$, C&#259;lug&#259;reanu integers, SU(2) representation data at closures (premise (b) of Land&eacute; &sect;5A), whole-turn action cells $(2\pi\hbar)^3$, two-endedness (Receiver Keys &sect;7), Aufbau closure counting, and any operational combinations derivable from these. It may not reference $\alpha$, $1/\alpha$, $e$, $\epsilon_0$, or any measured EM quantity.</li>
-    <li><b>Executable to arbitrary precision.</b> The expression must be one from which $\alpha$ can be numerically computed to any desired digit count by pure mathematical evaluation. No fitting, no knobs, no numerical tuning. If someone can execute the expression in a symbolic-algebra system and get $\alpha$ to twelve digits, it qualifies.</li>
-    <li><b>Structurally motivated.</b> The expression must be identifiable as an intrinsic ratio of POAMS closure geometry &mdash; not an attractive-formula fit that happens to land near $1/137.036$. It must play the role that &ldquo;circumference/diameter&rdquo; plays for $\pi$: it must <em>be</em> the geometric ratio, not <em>match</em> it.</li>
-    <li><b>Wyler-class rejection stands.</b> Numerological formulas that land near $1/137.036$ (e.g., $4\pi^3 + \pi^2 + \pi = 137.036$ to 0.001% precision) fail this standard because they cannot be identified as intrinsic ratios of POAMS closure geometry. Precision at high digit count is <em>necessary</em>; structural derivation is <em>sufficient</em>. Both required.</li>
-  </ol>
-  <p>Until such an expression is found, the value $1/137.036$ is measured empirically to CODATA precision, in exactly the same sense $\pi = 3.14159\ldots$ has been computed/measured for millennia. POAMS's identification (Task 1) is done; the computing procedure (Task 2) is the standing open research target.</p>
-</section>
-
-<section>
-  <h2>Where the surviving work now lives</h2>
+  <h2>References and companion exhibits</h2>
   <div class="links">
-    <a href="./balmer-rydberg-poams.html"><b>Spectral Lines</b><br><span class="mut">The gross Balmer–Rydberg ladder.</span></a>
-    <a href="./orbital-time-dilation.html"><b>Orbital Time Dilation</b><br><span class="mut">The clock and orbit relation.</span></a>
-    <a href="./perihelion-precession.html"><b>Perihelion Precession</b><br><span class="mut">The macroscopic anholonomy front.</span></a>
-    <a href="./poams-periodic-table.html#alpha-problem"><b>The Elements — Alpha Problem</b><br><span class="mut">The current corpus ledger.</span></a>
-    <a href="./alpha-program-2026-archive.html"><b>Archived 2026 Program</b><br><span class="mut">The full failed attempt, preserved with its adjudication in place.</span></a>
-    <a href="https://cfmilam.github.io/nr-poams-engineering/proofs/DERIVATION-LEDGER.md"><b>Derivation Ledger</b><br><span class="mut">Proof trail, model transcripts, nulls, and corrections.</span></a>
+    <a href="./alpha-program-2026-archive.html">The 2026 Alpha Derivation Program (archive)</a>
+    <a href="./balmer-rydberg-poams.html">Spectral Lines &mdash; Balmer&ndash;Rydberg from POAMS</a>
+    <a href="./cone-model.html">The Cone Model &mdash; observer's cone geometry</a>
+    <a href="./orbital-time-dilation.html">Orbital Time Dilation</a>
+    <a href="./the-poams-brilliant-vortex-atom.html">The POAMS Brilliant Vortex Atom</a>
+    <a href="./poams-periodic-table.html">The Elements &mdash; vortex-atom structure</a>
+    <a href="./lande-from-twist-writhe.html">Land&eacute; from Twist&ndash;Writhe (C&#259;lug&#259;reanu $Lk$)</a>
+    <a href="./coulomb-from-chirality-directed-depletion.html">Coulomb from Chirality-Directed Depletion</a>
+    <a href="./newton-from-tangled-trapped-rate-depletion.html">Newton from Tangled-Trapped Rate Depletion</a>
+    <a href="./counter-rotating-circulation-pair.html">Counter-Rotating Circulation Pair</a>
+    <a href="./the-receiver-keys-the-exchange.html">The Receiver Keys the Exchange</a>
+    <a href="https://cfmilam.github.io/nr-poams-engineering/proofs/DERIVATION-LEDGER.md">Engineering Derivation Ledger</a>
   </div>
+  <p class="mut" style="margin-top:22px;font-size:.86rem;">This exhibit is an extrapolation of the foundational work of N. Vivian &ldquo;Viv&rdquo; Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism and the Pope&ndash;Osborne Angular Momentum Synthesis. Primary sources: Pope, <em>Einstein's Lost Legacy</em>, Apps. 1&ndash;5; Pope, <em>Light is Everything</em> (2007); Osborne, <em>Orbital Time Dilation</em>; Pope &amp; Osborne, <em>Light-Speed, Gravitation and Quantum Instantaneity</em> (2007); Osborne &amp; Pope, <em>The Nature of Time</em> (2026). Program provenance: the retired 2026 summer program is preserved unabridged with regrades in place at the <a href="./alpha-program-2026-archive.html">research archive</a>; every numerical result quoted here was verified independently in Python; no run fitted $\alpha$, $1/137$, or the Rydberg constant.</p>
 </section>
+
 </main>
 
 <footer>
-  Normal Realism / POAMS · Current grade: alpha measured, mechanism and value open ·
-  <a href="./index.html">Exhibits Hub</a> ·
-  <a href="./alpha-program-2026-archive.html">Historical record</a>
+  An extrapolation of the foundational work of N. Vivian &ldquo;Viv&rdquo; Pope &amp; Dr. Anthony D. Osborne, PhD &mdash; the philosophy of Normal Realism and the Pope&ndash;Osborne Angular Momentum Synthesis.<br>
+  Part of the <a href="./index.html">Normal Realism / POAMS exhibit series</a> &middot;
+  <a href="./balmer-rydberg-poams.html">Spectral Lines</a> &middot;
+  <a href="./cone-model.html">Cone Model</a> &middot;
+  <a href="./orbital-time-dilation.html">Orbital Time Dilation</a> &middot;
+  <a href="./poams-periodic-table.html">The Elements</a> &middot;
+  <a href="./alpha-program-2026-archive.html">Research archive</a>
 </footer>
 
 <script>
 function toggleTheme(){
   document.body.classList.toggle('light');
-  const light=document.body.classList.contains('light');
-  document.querySelector('.theme-toggle').textContent=light?'🌙':'☀️';
+  var light=document.body.classList.contains('light');
+  var t=document.querySelector('.theme-toggle');
+  if(t) t.textContent=light?'🌙':'☀️';
   try{localStorage.setItem('poams-theme',light?'light':'dark')}catch(e){}
 }
-try{
-  if(localStorage.getItem('poams-theme')==='light'){
-    document.body.classList.add('light');
-    document.querySelector('.theme-toggle').textContent='🌙';
-  }
-}catch(e){}
+try{if(localStorage.getItem('poams-theme')==='light'){document.body.classList.add('light');var t=document.querySelector('.theme-toggle');if(t) t.textContent='🌙';}}catch(e){}
 </script>
+
 </body>
 </html>
