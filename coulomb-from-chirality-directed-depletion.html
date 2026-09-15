@@ -204,12 +204,12 @@ details{margin:16px 0;padding:13px 15px;border:1px solid var(--edge);border-radi
   <div class="table-wrap" tabindex="0" aria-label="Gross atomic outputs with measured mass calibrations">
     <table><thead><tr><th>Calculated quantity</th><th>Light-mass limit</th><th>Finite two-ended pair</th></tr></thead><tbody>
       <tr><td>Fundamental relative radius</td><td>$5.2917721055\times10^{-11}$ m</td><td>$5.2946540946\times10^{-11}$ m</td></tr>
-      <tr><td>Gross binding magnitude</td><td>13.6056931228 eV</td><td>13.5982872641 eV</td></tr>
+      <tr><td>Gross binding-rate equivalent, $B/h$</td><td><strong>3.2898419602 PHz</strong><br><small>$2.1798723611\times10^{-18}$ J<br>13.6056931228 eV</small></td><td><strong>3.2880512315 PHz</strong><br><small>$2.1786858117\times10^{-18}$ J<br>13.5982872641 eV</small></td></tr>
       <tr><td>Binding mass-equivalent, $|E_1|/c^2$</td><td>$2.4254351047\times10^{-35}$ kg</td><td>$2.4241148905\times10^{-35}$ kg</td></tr>
       <tr><td>Fundamental circular period</td><td>$1.5198298461\times10^{-16}$ s</td><td>$1.5206575713\times10^{-16}$ s</td></tr>
     </tbody></table>
   </div>
-  <p class="caveat">Mass inputs: $m_{\rm light}=9.1093837139\times10^{-31}$ kg and $m_{\rm heavy}=1.67262192595\times10^{-27}$ kg, corresponding to the conventional electron/proton mass calibrations. The first column takes $\mu=m_{\rm light}$; the second retains both. The eV conversion is an SI reporting convention. These are gross, nonrelativistic values, not precision ionization or fine/hyperfine predictions.</p>
+  <p class="caveat">Mass inputs: $m_{\rm light}=9.1093837139\times10^{-31}$ kg and $m_{\rm heavy}=1.67262192595\times10^{-27}$ kg, corresponding to the conventional electron/proton mass calibrations. The first column takes $\mu=m_{\rm light}$; the second retains both. Binding is stated first as its frequency equivalent, $B/h$ (1 PHz = 10¹⁵ Hz), with joules and eV as conversions; this is not the model's circulation frequency. These are gross, nonrelativistic values, not precision ionization or fine/hyperfine predictions.</p>
   <p>The light-mass spectral coefficient is $R_\infty=\mu c\alpha^2/(2h)$, approximately $1.0973731568\times10^7\ \mathrm{m^{-1}}$, with limit frequency $3.2898419602\times10^{15}$ Hz. Those reconstruct the familiar gross reference scales without inserting $R_\infty$ separately. Last-digit offsets from independently rounded CODATA entries are covered by the input rounding; they are not new physical discrepancies.</p>
   <h3>One measured ratio ties the results together</h3>
   <p>Define the reference length $\ell_\mu=\hbar/(\mu c)$ and reference cycle $\tau_\mu=h/(\mu c^2)$. Then</p>
@@ -342,5 +342,5 @@ function toggleTheme(){
 }
 </script>
 
-<script src="./scripts/coulomb_calibrated.js"></script>
+<script src="./scripts/coulomb_calibrated.js?v=f9b1ae9ddc41"></script>
 </body></html>
