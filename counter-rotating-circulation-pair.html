@@ -60,7 +60,11 @@ summary:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-
 .budget-results div{border:1px solid var(--edge);border-radius:8px;padding:12px;font-size:12px;color:var(--muted);}
 .budget-results strong{display:block;margin-top:5px;font-size:15px;font-variant-numeric:tabular-nums;}
 section{scroll-margin-top:70px;}
-#sec-material{scroll-margin-top:110px;}
+#sec-material,#sec-phase-support{scroll-margin-top:110px;}
+#phase-cycle-plot{display:block;width:100%;height:auto;color:var(--muted);margin:14px 0;}
+.cycle-options{display:flex;flex-wrap:wrap;gap:16px;margin:12px 0;font-size:13px;}
+#phase-cycle-plot text{font-size:13px;}
+@media(max-width:620px){#phase-cycle-plot text{font-size:21px;}}
 @media(max-width:620px){.table-wrap table{min-width:510px;}main{padding-left:14px;padding-right:14px;}.card{padding:14px;}header h1{font-size:23px;}}
 .caveat{font-size:13px; color:var(--muted); font-style:italic; margin:8px 0;}
 .tag{display:inline-block; font-size:11px; letter-spacing:.06em; padding:1px 8px; border-radius:10px; margin-right:6px; vertical-align:middle;}
@@ -146,6 +150,7 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
     <p>A collective rearrangement can make a larger, more readily resolved event. It does not, by that fact alone, make a larger sustained weight change. Three separate questions have to be answered: <strong>what changes, how much circulation participates, and where the balancing momentum is registered.</strong></p>
     <p>The September 2026 inquiry closes the automatic-amplification shortcut: an integer linking change does not set an energy quantum; phase agreement does not make every closure change; and internal reorganization does not give the whole apparatus an unbalanced impulse. A measurable directional exchange remains possible <em>conditionally</em>, with a specified transition, energy supply and external counterpart. That is not yet a prediction of weight modification.</p>
     <p><strong>The next step has now been calculated.</strong> A finite angular-exchange model supplies an explicit re-filing, its energy book and a named external co-signer. It gives a reciprocal directional reaction, but not the proposed fast topological burst. The carried coupling makes the exchange very slow. See <a class="xref" href="#sec-exchange">the concrete transition</a> and <a class="xref" href="#sec-counterpart">its external counterpart</a>.</p>
+    <p><strong>The material-to-mechanical connection is now explicit.</strong> A weak-link switch changes a ring's local circulation according to its independently calibrated rotational response. Matched counter-wound rings change equally and oppositely. Their switch-and-reset cycle gives a calculable reciprocal support contribution, not an automatic change of the Earth-orbital constraint. See <a class="xref" href="#sec-phase-support">phase, angular momentum and the complete support ledger</a>.</p>
     <p class="caveat">The calculation below stays inside the Normal Realism / POAMS ledger. It neither reopens the fine-structure-constant program nor supplies a new apparatus-independent impossibility theorem. <a class="xref" href="#sec-5b">Jump to the momentum and power budget</a>.</p>
   </div>
 </section>
@@ -505,7 +510,7 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
   <p>If the only external coupling retained is instead &sect;5C's $G$-scaled angular book, a fast material switch merely changes its actual angular entries:</p>
   <div class="eq">$$\Delta F_{D,z}=\frac{6GJ_C}{c^2}
       \left(\frac{\Delta J_A}{r_{AC}^4}+\frac{\Delta J_B}{r_{BC}^4}\right).$$</div>
-  <p>This expression assumes collinear signed angular entries and a receiver held above both cores. The material's map from $q_i$ to the physical $J_i$ remains necessary: a phase coordinate is not automatically a body's angular momentum. The factor $G/c^2$ does not disappear because switching is fast. Balanced opposite changes cancel at equal receiver distances and are further suppressed for a distant receiver. Stronger material drive/receiver coupling would be a different, explicitly characterized exchange channel, not an enhancement silently attached to this one.</p>
+  <p>This expression assumes collinear signed angular entries and a receiver held above both cores. The material's map from $q_i$ to the physical $J_i$ is supplied for a calibrated case in <a class="xref" href="#sec-phase-support">&sect;5E</a>: a phase coordinate is not automatically a body's angular momentum. The factor $G/c^2$ does not disappear because switching is fast. Balanced opposite changes cancel at equal receiver distances and are further suppressed for a distant receiver. Stronger material drive/receiver coupling would be a different, explicitly characterized exchange channel, not an enhancement silently attached to this one.</p>
 
   <h3>What cannot be selected by the current POAMS premises</h3>
   <p>There is a direct non-uniqueness test. Multiply $K$ and $E_b$ together by any positive factor: the integer branches, $b$, and switching biases stay the same, while every released energy changes by that factor. Change $\gamma$ independently and the reset time changes. Change the receiver's position dependence and the load changes, or vanishes. Higher joining harmonics can change the threshold itself without violating $2\pi$ closure. The existing premises do not select among these cases.</p>
@@ -514,6 +519,123 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
     <p>A biased weak link can release energy stored by its drive when a small perturbation tips it across a threshold. That is a possible powered readout, not proof that the perturbation's own force has grown. Noise and stability determine whether it can resolve a small input. No weight-modification claim follows from the switch-and-reset calculation alone.</p>
   </div>
   <p class="caveat">Executable derivation: <a class="xref" href="./scripts/vortex_material_transition.py">vortex_material_transition.py</a> (Python + NumPy): finite constrained minimization, both pair stability modes, forward/reverse branches, independent full-cycle work integral, dissipative evolution with timestep convergence, reciprocal position derivatives and scale non-uniqueness. Material cross-checks, not POAMS premises: <a class="xref" href="https://arxiv.org/abs/1601.02643">Petković et al., deterministic phase slips (2016)</a>; <a class="xref" href="https://doi.org/10.1103/PhysRevResearch.2.023165">Guarcello et al., weak-link hysteresis models (2020)</a>; <a class="xref" href="https://arxiv.org/abs/1703.08184">Polshyn et al., mechanically detected ring transitions (2018)</a>. Their material phenomenology motivates this conditional case; their conventional ontology is not imported as a POAMS derivation. None reports the weight-modification effect sought here.</p>
+</section>
+
+<section id="sec-phase-support">
+  <h2>&sect;5E — From a phase switch to a support reading</h2>
+  <div class="card gold">
+    <p><strong>Three different quantities, now connected without identifying them.</strong> A joining-phase change is not itself an angular-momentum quantum. Local angular momentum is not itself an increment of orbital angular momentum about Earth. And a reciprocal load from a separate drive is not, by itself, a changed natural-orbit constraint.</p>
+    <p>Fix two identical, thin, planar circular rings of radius $a$, with centers at $z_D-d/2$ and $z_D+d/2$, and a common upward axis. Each has one weak joining segment; their controls and circulation states are opposite. The centerlines, mount and cross-section framing remain fixed in the chosen model. We continue &sect;5D's material law and explicitly supply the additional rotational calibration. No microscopic spin re-filing is assumed. A real device that also changes its spin census or deforms its circulation needs those additional state variables.</p>
+  </div>
+
+  <h3>1. The missing conversion is a response to actual rotation</h3>
+  <p>Angular momentum is the quantity conjugate to a physical rotation, not to an arbitrary phase label. If $\Omega_i$ is a small mechanical rotation probe about ring $i$'s axis, the rotating-frame energy changes by $-\Omega_i J_i$. Suppose independent calibration shows that, to first order, this probe shifts the ring's bias by $\sigma_i\Omega_i$ while leaving the stiffness and joining cost unchanged. Then, with $\mathbf x=\mathbf q-\mathbf u$,</p>
+  <div class="eq">$$\mathcal B_{\mathrm{rot}}=\mathcal B(\mathbf q,\mathbf u+\boldsymbol\sigma\boldsymbol\Omega),
+    \qquad J_i=-\left.\frac{\partial\mathcal B_{\mathrm{rot}}}{\partial\Omega_i}\right|_0
+    =\sigma_i[\mathbf K\mathbf x]_i.$$</div>
+  <p>Here $\boldsymbol\sigma$ is diagonal and $\sigma_i$ has units of seconds. Thus $J_i$ has units of J&middot;s. By contrast, $\partial\mathcal B/\partial q_i$ has units of energy: calling it angular momentum would be a dimensional error. Other rotation-dependent material terms would add their own contributions; the bias-shift law is a stated constitutive case, not something integer closure determines.</p>
+  <p>For matched rings, $\sigma_A=\sigma_B=\sigma$ and $\mathbf x=(q-u,-q+u)$, so the complete endpoint map is</p>
+  <div class="eq">$$J_A=\sigma K_-(q-u),\quad J_B=-J_A,
+    \qquad \Delta J_A=\sigma K_-\Delta q,\quad \Delta J_B=-\Delta J_A.$$</div>
+  <p>The last two expressions connect the relaxed endpoints of a switch at fixed drive bias. During a quasistatic ramp the full differential is $dJ_A=\sigma K_-(dq-du)$; omitting the $du$ term would omit the drive's share of the angular budget. A finite-time weak-link interruption can require additional transient circulation and mounting variables; this endpoint map does not calculate them. The calibration already includes the participating circulation. There is no additional whole-domain multiplier.</p>
+
+  <details>
+    <summary>How circuit and rotation measurements can supply this calibration</summary>
+    <p>For this particular flux-biased weak-link realization, use the conventional instrument labels $\boldsymbol\Phi_{\mathrm{ext}}=s_0\mathbf u$ and $\boldsymbol{\mathcal L}=s_0^2\mathbf K^{-1}$. The phase-to-flux unit $s_0$ and the complete positive inductance matrix are calibrated inputs. Positive current is oriented about the common upward axis. The same fixed-source effective energy gives</p>
+    <div class="eq">$$\mathbf I=-\frac{\partial\mathcal B}{\partial\boldsymbol\Phi_{\mathrm{ext}}}
+       =\frac{\mathbf K(\mathbf q-\mathbf u)}{s_0},\qquad
+       \mu_i=A I_i,\quad A=\pi a^2.$$</div>
+    <p>If an independently established, signed orbital gyromagnetic conversion is $\mu_i=\gamma_{\mathrm{orb}}J_i$, then $\sigma=A/(\gamma_{\mathrm{orb}}s_0)$. A current or moment measurement alone does not determine $J$ unless that conversion is known. The correspondence assumes the measured response is the transport circulation, with other spin, screening and mounting responses removed. In an inhomogeneous ring the spatial current distribution and rotational response must replace the single-area approximation.</p>
+    <p>Current, flux, inductance and magnetic moment here are laboratory calibration labels. They do not add an aether, a field-bearing void or an elementary charge-thing to the POAMS derivation. Nor does restating this familiar constitutive model make its coefficients POAMS predictions. No derivation of $\alpha$ is attempted. A change of winding-sector label is not a universal mechanical $\hbar$ jump.</p>
+  </details>
+
+  <h3>2. A dimensioned before-and-after example</h3>
+  <p><strong>Illustrative inputs, not a measured apparatus:</strong> $a=5$ mm, $d=1$ mm, $b=2$, $\zeta=1/2$, opposed-mode inductance $\mathcal L_-=30$ nH, $s_0=3.29106\times10^{-16}$ Wb and signed $\gamma_{\mathrm{orb}}=-8.7941\times10^{10}$ (A&middot;m$^2$)/(J&middot;s). These give $K_-=3.61036\times10^{-24}$ J and $\sigma=-2.71371$ s. The negative gyromagnetic sign is part of this stated calibration; reversing a coordinate label alone cannot reverse a physical result.</p>
+  <div class="table-wrap"><table>
+    <tr><th>Forward switch at $u=3.826445910$</th><th>Before</th><th>After</th></tr>
+    <tr><td>Joining phase $q_A$</td><td>$2.094395102$</td><td>$5.387598243$</td></tr>
+    <tr><td>Ring A current</td><td>$-19.0$ nA</td><td>$+17.1$ nA</td></tr>
+    <tr><td>Ring A local angular momentum</td><td>$+1.697\times10^{-23}$ J&middot;s</td><td>$-1.530\times10^{-23}$ J&middot;s</td></tr>
+    <tr><td>Ring B local angular momentum</td><td>$-1.697\times10^{-23}$ J&middot;s</td><td>$+1.530\times10^{-23}$ J&middot;s</td></tr>
+    <tr><td>Total local angular momentum of the pair</td><td>$0$</td><td>$0$</td></tr>
+  </table></div>
+  <p>Thus $\Delta J_A=-3.2265\times10^{-23}$ J&middot;s and $\Delta J_B=-\Delta J_A$. The magnitude is about $3.06\times10^{11}\hbar$, even though the well index advances by one: the phase-sector label is not a count of the device's mechanical angular impulse. The pair releases $1.82794\times10^{-23}$ J, and the complete quasistatic reset cycle costs $3.65588\times10^{-23}$ J. These numbers follow from the supplied calibration, not from a target force. They establish neither deterministic operation at a specified temperature nor a switching time.</p>
+
+  <h3>3. Which angular momentum changed?</h3>
+  <p>For a finite set of circulating entries about a ring center, $\mathbf J_{\mathrm{ring}}=\sum_a\boldsymbol\rho_a\times\mathbf p_a$ can be nonzero while $\sum_a\mathbf p_a=0$. This is <strong>local orbital circulation</strong>. It is not the intrinsic rotation of each constituent about its own axis.</p>
+  <p>A planar circle has geometric writhe $Wr=0$: in the writhe integral, the cross product of two tangents is perpendicular to the plane while their separation lies in the plane, so their scalar product vanishes. Choose a constant normal framing and its ribbon twist is also zero. Changing the amount or sense of circulation on that same fixed curve changes $J_{\mathrm{ring}}$ without changing either geometric invariant. These are the ring's explicitly named centerline and framing, not a claim that every microscopic circulation has zero linking. The joining phase $q$ has not supplied a microscopic ribbon frame.</p>
+  <div class="eq">$$\mathbf J_{\mathrm{about\ Earth}}
+    =\mathbf R_D\times\mathbf P_D
+      +\mathbf J_{\mathrm{local\ orbital}}+\mathbf S_{\mathrm{intrinsic}}.$$</div>
+  <p>At fixed device center and translational momentum, its Earth-orbital term $\mathbf R_D\times\mathbf P_D$ has not changed. Our chosen transport branch also leaves the intrinsic spin census fixed. Consequently <strong>we may not put $\Delta J_{\mathrm{ring}}$ straight into either the Earth-orbital numerator or the intrinsic-spin varying-$G$ term.</strong> A real exchange between those organizations needs its own derived coupling and reciprocal angular entry. Calling every orbital circulation “writhe” does not identify its reference orbit.</p>
+  <p>Each ring's angular change is balanced in the other ring, mounting body, drive or external receiver. If one ring exchanges only with its local mount, that mount receives angular impulse $-\Delta J_i$. An axial torque may move an individual support sensor; it is not automatically a change in the summed vertical force. The ideal matched pair has no net angular increment to store after either switch.</p>
+
+  <h3>4. One complete support ledger, with the control convention fixed</h3>
+  <p>Let $N$ denote the upward support force needed to hold the device center fixed, and let $\mathcal C_E$ be its Earth-relative constraint energy in a specified orbital chart. Include the material, independently supported drive/receiver and their appropriate fixed-control source work in one effective book:</p>
+  <div class="eq">$$\mathcal B_{\mathrm{tot}}=\mathcal C_E(z,\text{state})
+      +\mathcal B_{\mathrm{mat}}(\mathbf q,\mathbf u(z,t)) +V_C(\mathbf q,z),
+      \qquad N=\left.\partial_z\mathcal B_{\mathrm{tot}}\right|_{\mathbf q,\ \mathrm{controls}}.$$</div>
+  <p>This is the fixed-center reaction; acceleration, elastic ringing and the instrument's transfer function require additional terms. On an actually stationary coupled branch, the envelope theorem permits this same partial derivative. Differentiating only a stored-energy fragment while leaving the drive source out gives the wrong force convention.</p>
+  <p>For the separate phase-bias receiver, constant stiffness and $\mathbf u_z=(k,-k)$ give</p>
+  <div class="eq">$$F_{D,z}^{\mathrm{drive}}=2K_-k(q-u),\quad F_{C,z}^{\mathrm{drive}}=-F_{D,z}^{\mathrm{drive}},
+      \qquad \Delta N_{\mathrm{drive}}=-2K_-k\Delta q.$$</div>
+  <p>For the illustrative ring, $\Delta N_{\mathrm{drive}}=-(2.37793\times10^{-23}\ \mathrm J)\,k$, with $k$ in m$^{-1}$. Positive $k$ gives an upward force increment on the device and a reduced required support force. This is a <strong>signed, dimensioned response per independently measured phase-position gradient</strong>, not a derived value of that gradient. If $k=0$, it vanishes. If the source and its reaction are both on the same balance, their internal contribution to the summed load cancels; any off-balance leads or counterpart remain external entries.</p>
+  <details>
+    <summary>The weak $G$ receiver — and a derivative that must not be omitted</summary>
+    <p>For a separate fixed axial circulation $J_C$ above both rings, keep the carried kernel $V_C=-(2GJ_C/c^2)\sum_i J_i/r_i^3$. If the bias has no positional dependence and the angular state is held fixed during the positional derivative,</p>
+    <div class="eq">$$\Delta F_{D,z}^{G}=\frac{6GJ_C}{c^2}\Delta J_A
+      \left[\frac1{(R+d/2)^4}-\frac1{(R-d/2)^4}\right],\qquad
+      \Delta N_G=-\Delta F_{D,z}^{G}.$$</div>
+    <p>In the example, $R=0.1$ m and an assumed $J_C=1$ J&middot;s give $\Delta F_{D,z}^{G}=+5.75\times10^{-47}$ N. The receiver gets the opposite reaction. The assumed external circulation is not a demonstrated device. For $R\gg d$, the bracket is $-4d/R^5+O(d^3/R^7)$: balance introduces further cancellation, not amplification.</p>
+    <p>If the same displacement also changes the phase bias, $J_i(\mathbf q,\mathbf u(z))$ is not fixed even at fixed $\mathbf q$. The complete partial derivative instead includes</p>
+    <div class="eq">$$F_{D,z}^{G}=\frac{2GJ_C}{c^2}\sum_i
+      \left[\frac{3J_i}{r_i^4}+\frac{\partial_z J_i}{r_i^3}\right],\qquad
+      \partial_z J_i=-\sigma_i[\mathbf K\mathbf u_z]_i.$$</div>
+    <p>The drive contribution must be included too, and the stationary phases must solve the full coupled book if back-reaction is retained. Our verification checks this derivative both at fixed phase and along a re-equilibrated branch. The simple example above deliberately sets $\mathbf u_z=0$ for this separate $G$ channel; it does not silently add forces computed under incompatible controls.</p>
+  </details>
+
+  <h3>5. Switch, dwell, reverse drive, reset</h3>
+  <p>Take &sect;5D's quasistatic lower-branch ramp from $u_\downarrow$ to $u_\uparrow$, forward switch, upper-branch return ramp, and reverse switch. With equal ramp durations and reflection-matched controls, $x=q-u$ on the second half is the negative of its value on the first. For a fixed phase-position gradient $k$,</p>
+  <div class="eq">$$\oint dJ_A=\oint dJ_B=0,\qquad
+      \int_0^T F_{D,z}^{\mathrm{drive}}dt=0,\qquad
+      W_{\mathrm{cycle}}=Q_\uparrow+Q_\downarrow&gt;0.$$</div>
+  <p>The first result includes the ramps as well as the two jumps. The force cancellation uses the stated temporal symmetry; merely returning to the same state does <strong>not</strong> imply zero impulse when there is an external counterpart. Adding a dwell $T_h$ at the upper landing gives an extra $I_D=2K_-k(q_+-u_\uparrow)T_h$, with $I_C=-I_D$. Fixed supports balance those impulses. It is a reciprocal sustained interaction during the dwell, not stored thrust or an automatic weight change. A finite-time cycle or a back-reacting receiver must use its actual state history.</p>
+
+  <div class="card blue" id="phase-cycle-calculator">
+    <h3 style="margin-top:0">Follow both rings through one cycle</h3>
+    <p class="caveat">The illustrative $b=2$ quasistatic branches; ramp duration $T_r$ is an external control, not a predicted switching time. The plot shows local angular momentum, not displacement or a travelling wave.</p>
+    <div class="budget-controls">
+      <label for="phase-dwell">Extra upper-branch dwell, $T_h/T_r$
+        <output id="phase-dwell-value" for="phase-dwell">0.00</output>
+        <input id="phase-dwell" type="range" min="0" max="2" step="0.05" value="0">
+      </label>
+    </div>
+    <div class="cycle-options"><label><input id="phase-source-onboard" type="checkbox"> Receiver also on the same balance</label></div>
+    <svg id="phase-cycle-plot" viewBox="0 0 700 250" role="img" aria-label="Equal and opposite ring angular momenta through switch and reset"></svg>
+    <div class="budget-results" aria-live="polite">
+      <div>Net angular change after complete cycle<strong id="phase-return">0 J&middot;s</strong></div>
+      <div>Device impulse / ($kT_r$), in joules<strong id="phase-impulse">0</strong></div>
+      <div>Summed balance-reaction impulse / ($kT_r$)<strong id="phase-balance">0</strong></div>
+      <div>Drive work per cycle, illustrative calibration<strong>3.656 &times; 10<sup>&minus;23</sup> J</strong></div>
+    </div>
+    <p class="caveat">Ring A: blue. Ring B: gold. The phase-position gradient $k$ is not supplied by the slider. At $k=0$ this load channel is absent. With an off-balance receiver, its opposite impulse is outside the displayed balance; putting it on the balance cancels the internal contribution.</p>
+  </div>
+
+  <p><strong>Thermal reset matters too.</strong> Heat released into a bath that remains on the balance has not left the device; an internal conversion does not instantly subtract $Q/c^2$ from its mass. Repeated powered cycles without cooling retain energy and can change ordinary mass/thermal loads. A genuinely closed apparatus-state cycle returns the thermal and control states as well as the phase state, with the cooling receiver included. That energy budget must not be mistaken for the proposed angular channel.</p>
+
+  <h3>6. The remaining weight relation is now precisely located</h3>
+  <p>In a simple fixed-angular-momentum radial chart, $\mathcal C_E=-\mathcal G M_E m/r+L_E^2/(2mr^2)$ gives</p>
+  <div class="eq">$$N_E=\frac{\mathcal G M_E m}{r^2}-\frac{L_E^2}{mr^3},\qquad
+      r_{\mathrm{natural}}=\frac{L_E^2}{\mathcal G M_E m^2}.$$</div>
+  <p>This states the POAMS constraint bill in that chart; it is not permission to substitute a local ring circulation for $L_E$. With $m$, $L_E$ and the intrinsic-spin-dependent $\mathcal G$ unchanged in our chosen branch, this contribution is unchanged. Other support kinematics need their own chart. A different prediction needs the actual mixed relation $\mathcal C_E(r,\mathbf q,\mathbf S,L_E)$ and its radial derivative, or an explicitly derived exchange that changes $L_E$ or the intrinsic spin organization. Neither the phase calibration nor $Lk=Tw+Wr$ supplies that relation.</p>
+  <details>
+    <summary>Why a local switching calculation cannot determine the missing radial derivative</summary>
+    <p>At the operating radius $r_0$, a term $A(r-r_0)\sum_i(1-\cos q_i)$ vanishes along with all its phase derivatives. Thus it changes none of the local switching energies, branches or the independent rotation calibration there, yet it changes the radial derivative by $A\sum_i(1-\cos q_i)$. Positive, zero or negative $A$ all leave that local data unchanged. This is a non-uniqueness witness, <strong>not an adopted force law</strong>. It shows exactly which information a new Earth-coupling derivation must provide; it is not a claim that such a derivation is impossible.</p>
+  </details>
+  <div class="card gold">
+    <p><strong>Result.</strong> The phase-to-local-AM map, its signs and units, the matched-pair cancellation, and the complete reciprocal support cycle are calculable with named calibration inputs. This closes that conditional mechanical connection. It does not manufacture a twist-to-orbit transfer or a new weight law. For the fixed planar, matched construction, no such transfer is produced by the model; the weak external kernel remains weak.</p>
+  </div>
+  <p class="caveat">Executable calculation: <a class="xref" href="./scripts/vortex_phase_support.py">vortex_phase_support.py</a>, using the neighboring <a class="xref" href="./scripts/vortex_material_transition.py">material-transition script</a> (Python + NumPy). Checks include independent rotation/position derivatives, complete ramp and reset integrals, source-on-balance cancellation, finite planar circulation, coupled-branch back-reaction and the unselected radial derivative. Material cross-checks only: <a class="xref" href="https://arxiv.org/abs/1112.6144">Chudnovsky, Garanin &amp; O’Keeffe, angular-momentum conservation in a flux loop</a>; <a class="xref" href="https://thesis.caltech.edu/3652/">Hunt, torque measurements and the distinction between phase winding and mechanical circulation</a>; the weak-link constitutive references in &sect;5D. None establishes anomalous weight modification.</p>
 </section>
 
 <!-- ============ §6 ============ -->
@@ -529,13 +651,15 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
     <tr><td>Can an explicit angular transition be calculated?</td><td><span class="tag claim">DERIVED IN MODEL</span>Yes. &sect;4A supplies the finite exchange matrix, spectrum and time bound. This is not a topological reconnection or a released energy pulse.</td></tr>
     <tr><td>Can its external directional counterpart be specified?</td><td><span class="tag claim">DERIVED IN MODEL</span>Yes. &sect;5C adds a named third circulation and calculates reciprocal reactions from the same book, without an assigned directional fraction.</td></tr>
     <tr><td>Can a material switch and reset be worked out?</td><td><span class="tag assume">CONSTITUTIVE MODEL</span>Yes. &sect;5D supplies both from an explicit weak-link energy and relaxation law, checks pair stability, and derives the reciprocal load formula. Actual material coefficients and receiver coupling are not forced by the present POAMS premises.</td></tr>
+    <tr><td>Can phase be converted into local mechanical AM?</td><td><span class="tag assume">CALIBRATED DERIVATION</span>Yes. &sect;5E gives $J_i=\sigma_i[\mathbf K(\mathbf q-\mathbf u)]_i$ for a specified rotational response. Opposed matched changes cancel; a phase-sector jump is not a universal $\hbar$ impulse.</td></tr>
+    <tr><td>Does a phase reset leave a net support impulse?</td><td><span class="tag claim">DERIVED IN MODEL</span>The complete symmetric reciprocal cycle cancels it. Unequal dwell can give an externally balanced impulse; the source-on-balance contribution cancels. Neither is automatically a new weight law.</td></tr>
     <tr><td>Can there be measurable collective exchange?</td><td><span class="tag open">CONDITIONAL</span>Yes, if actual transitions, supplied power, directional counterparts and readout bandwidth satisfy the stated budget. No apparatus prediction is delivered here.</td></tr>
     <tr><td>Has weight modification been derived from those events?</td><td><span class="tag open">OPEN</span>No. A derived natural-orbit/support-reaction law is a separate requirement; a recoil budget does not replace it.</td></tr>
   </table></div>
 
   <div class="card gold">
     <p><strong>The “unless,” in plain language.</strong> Not “unless enough turns do it together.” Rather: <em>unless a specified collective change can post a measurable directional entry against a specified external counterpart, with the full energy and momentum books balanced.</em> The work has narrowed the claim, not ruled out that experiment. A derived alteration of the natural-orbit constraint would be a distinct route with its own calculation.</p>
-    <p><strong>The next physical step.</strong> Supply the actual material book, either from a deeper finite-circulation derivation or independent characterization: its stiffness and joining law, relaxation, phase-to-angular-momentum map and external coupling. &sect;5D now calculates a switch-and-reset cycle conditional on such entries, and shows why the current premises do not uniquely select them. A domain-size sweep cannot substitute for those constitutive relations.</p>
+    <p><strong>The remaining physical input.</strong> &sect;5D supplies the material switch/reset and &sect;5E supplies the calibrated phase-to-local-AM connection and complete reciprocal support cycle. An apparatus needs its actual stiffness, joining law, relaxation and rotational/receiver calibrations, not the illustrative values. A new weight prediction additionally needs the mixed Earth-constraint relation, including which local angular organization changes its radial derivative. Neither a phase jump nor a domain-size sweep supplies that relation.</p>
   </div>
   <p>The proposed conducting, superconducting, fluid and lattice embodiments remain research candidates. Nothing here claims they have achieved a weight change. The scope is the amplification inference, not a general verdict on the wider Normal Realism / POAMS program.</p>
   <p class="caveat">Calculation record: <a class="xref" href="./scripts/vortex_amplification_audit.py">vortex_amplification_audit.py</a> — finite counterexamples, sum identities, frequency conventions, corrected tables and readout example. Earlier proposal preserved in <a class="xref" href="https://github.com/cfmilam/nr-poams-exhibits/blob/11f6818/counter-rotating-circulation-pair.html">the pre-inquiry version</a>. Updated 2026-09-14.</p>
@@ -607,6 +731,59 @@ try{
     eta.setAttribute('aria-valuetext',direction.toFixed(2));
   }
   [power,count,eta].forEach(function(input){input.addEventListener('input',update);});
+  update();
+})();
+(function(){
+  var dwell=document.getElementById('phase-dwell');
+  var onboard=document.getElementById('phase-source-onboard');
+  var plot=document.getElementById('phase-cycle-plot');
+  var qc=Math.acos(-0.5), up=qc+2*Math.sin(qc), down=2*Math.PI-up;
+  var Km=3.610358167287375e-24;
+  function lower(u){
+    var a=-qc,b=qc;
+    for(var i=0;i<64;i++){
+      var m=(a+b)/2;
+      if(m-u+2*Math.sin(m)>0)b=m;else a=m;
+    }
+    return (a+b)/2;
+  }
+  var qp=2*Math.PI-lower(down), xland=qp-up;
+  function format(x){return x===0?'0 J':x.toExponential(3)+' J';}
+  function update(){
+    var extra=Number(dwell.value), end=2+extra, points=[];
+    for(var i=0;i<=100;i++){
+      var t=i/100, u=down+(up-down)*t;
+      points.push([t,lower(u)-u]);
+    }
+    points.push([1,xland],[1+extra,xland]);
+    for(var j=0;j<=100;j++){
+      var t2=j/100, u2=up-(up-down)*t2;
+      points.push([1+extra+t2,2*Math.PI-lower(2*Math.PI-u2)-u2]);
+    }
+    points.push([end,lower(down)-down]);
+    function px(t){return 52+618*t/end;}
+    function py(x){return 115-42*x;}
+    function path(sign){return points.map(function(p,i){return (i?'L':'M')+px(p[0]).toFixed(2)+','+py(sign*p[1]).toFixed(2);}).join(' ');}
+    plot.innerHTML='<title>Matched local angular momenta return after one switch/reset cycle</title>'+
+      '<text x="52" y="17" fill="currentColor" font-size="12">Local AM / (|σ| K−)</text>'+
+      '<path d="M52 28V204H670 M52 115H670" fill="none" stroke="currentColor" opacity=".45"/>'+
+      [-2,0,2].map(function(n){return '<text x="42" y="'+(py(n)+4)+'" text-anchor="end" fill="currentColor" font-size="12">'+n+'</text>';}).join('')+
+      '<path d="'+path(-1)+'" fill="none" stroke="var(--blue)" stroke-width="2.5"/>'+
+      '<path d="'+path(1)+'" fill="none" stroke="var(--gold)" stroke-width="2.5"/>'+
+      '<text x="52" y="222" fill="currentColor" font-size="12">0</text>'+
+      '<text x="'+px(1)+'" y="239" text-anchor="middle" fill="currentColor" font-size="12">Switch</text>'+
+      '<text x="670" y="222" text-anchor="end" fill="currentColor" font-size="12">'+end.toFixed(2)+' · reset</text>'+
+      '<text x="360" y="222" text-anchor="middle" fill="currentColor" font-size="12">Time / ramp duration</text>';
+    var impulse=2*Km*xland*extra;
+    document.getElementById('phase-dwell-value').textContent=extra.toFixed(2);
+    dwell.setAttribute('aria-valuetext',extra.toFixed(2)+' ramp durations');
+    document.getElementById('phase-impulse').textContent=format(impulse);
+    document.getElementById('phase-balance').textContent=format(onboard.checked?0:-impulse);
+    plot.dataset.xLanding=String(xland);
+    plot.dataset.impulseCoefficient=String(impulse);
+  }
+  dwell.addEventListener('input',update);
+  onboard.addEventListener('change',update);
   update();
 })();
 </script>
