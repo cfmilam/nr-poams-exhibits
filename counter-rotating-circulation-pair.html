@@ -60,7 +60,10 @@ summary:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-
 .budget-results div{border:1px solid var(--edge);border-radius:8px;padding:12px;font-size:12px;color:var(--muted);}
 .budget-results strong{display:block;margin-top:5px;font-size:15px;font-variant-numeric:tabular-nums;}
 section{scroll-margin-top:70px;}
-#sec-material,#sec-phase-support,#sec-earth-constraint,#sec-finite-size,#sec-interaction-law,#sec-three-plate,#powered-operation{scroll-margin-top:110px;}
+#sec-material,#sec-phase-support,#sec-earth-constraint,#sec-finite-size,#sec-interaction-law,#sec-three-plate,#sec-middle-material,#middle-demo-title,#powered-operation{scroll-margin-top:110px;}
+#middle-phase-plot{display:block;width:100%;height:auto;color:var(--muted);margin:14px 0;}
+#middle-phase-plot text{font-size:17px;}
+@media(max-width:620px){#middle-phase-plot text{font-size:25px;}}
 #three-plate-picture{display:block;width:100%;height:auto;margin:12px 0;color:var(--muted);}
 #three-plate-picture text{font-size:15px;}
 @media(max-width:620px){#three-plate-picture text{font-size:21px;}}
@@ -1037,6 +1040,110 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
   <p class="caveat">Reproducible calculation: <a class="xref" href="./scripts/vortex_three_plate.py">vortex_three_plate.py</a>. Checks include real-cycle versus phasor force/AM, input/loss balance, anisotropy reaction torque, translation invariance and gyro tilt relaxation. Added 2026-09-15. Earlier source and finite-size calculations are unchanged.</p>
 </section>
 
+<!-- ============ §5J ============ -->
+<section id="sec-middle-material" aria-labelledby="middle-material-title">
+  <h2 id="middle-material-title">&sect;5J — What makes the middle plate directional?</h2>
+  <div class="card gold">
+    <p><strong>Bias alone is not a mixing rule.</strong> If the material, electrodes, mounting and applied bias preserve rotational symmetry about the plate normal, a linear response cannot mix the two opposite first-order circular modes. Bias can tune their frequencies or distinguish their senses without mixing them. A directional material, a patterned connection or an unequal mounting can supply the missing distinction.</p>
+    <p>This section replaces &sect;5I's adjustable middle-plate anisotropy with a <strong>specified silicon flexure geometry and an explicit terminal-capacitance model</strong>. It predicts an internal mounting signal in SI units, conditional on the declared inputs. It is not a first-principles NR–POAMS material law, an observed effect, or a completed design for the user's rotors.</p>
+  </div>
+
+  <h3>1. The symmetry test</h3>
+  <p>Use the circular displacement basis $\mathbf e_\pm=(1,\pm i)/\sqrt2$ and a small-signal response $\mathbf a=\boldsymbol\chi(\omega)\mathbf f$. If the complete biased structure obeys $R_\theta\boldsymbol\chi=\boldsymbol\chi R_\theta$, its circular-basis matrix cannot connect states with distinct rotational phases:</p>
+  <div class="eq">$$\chi_{+-}=\mathbf e_+^\dagger\boldsymbol\chi\mathbf e_-=0
+  \qquad\text{when }e^{2i\theta}\ne1.$$</div>
+  <p>Continuous axial symmetry is sufficient; preserved threefold or fourfold symmetry also excludes mixing of this particular $m=\pm1$ pair. A gyrotropic response of the form $a\mathbf1+b\left(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\right)$ can give different responses to the two senses but remains diagonal in this basis. <strong>Splitting is not mixing.</strong> For other angular harmonics, use their actual angular-index difference; this is not a prohibition on all plate modes or nonlinear, time-dependent bias effects.</p>
+  <p>A uniform normal bias does not break an already preserved axial symmetry. It also does not restore symmetry to a crystal, domain pattern, mounting or electrode layout that already lacks it. For unequal orthogonal responses,</p>
+  <div class="eq">$$\boldsymbol\chi=\operatorname{diag}(\chi_x,\chi_y),\qquad
+  \boxed{\chi_{+-}=\frac{\chi_x-\chi_y}{2}}.$$</div>
+  <p>Turning those principal axes through $\psi$ multiplies this conversion entry by $e^{-2i\psi}$. The material and its mounting take the corresponding angular reaction. No disappearing angular momentum or multiplication by the signal frequency is assumed.</p>
+
+  <h3>2. One material, one mounting, one connection geometry</h3>
+  <p>Choose a conducting silicon sheet, constrained axially but allowed small planar translations by an ideal nested $x/y$ guide. Two clamped-guided silicon beams support each direction. The beam axes are orthogonal $\langle100\rangle$ directions; their lengths differ slightly. Stationary segmented electrodes attached to the upper and lower rotor <em>supports</em> face patterned overlap regions of the middle sheet. The maintained spinning disks remain a separate subsystem. This choice does not assume that their shaft rotation drives the sheet's mode.</p>
+  <div class="table-wrap"><table>
+    <tr><th>Input</th><th>Specified example</th><th>What is supplied</th></tr>
+    <tr><td>Silicon sheet</td><td>1 mm square, 20 &micro;m thick</td><td>Rigid-sheet participating mass; coating and guide inertia neglected.</td></tr>
+    <tr><td>Material</td><td>$E=130$ GPa, $\rho=2329.1$ kg/m&sup3;</td><td>Nominal material data, not derived constants.</td></tr>
+    <tr><td>Two beams per axis</td><td>Width 4 &micro;m; lengths 500 and 510 &micro;m; thickness 20 &micro;m</td><td>Ideal guided bending; no cross-axis stiffness or residual stress.</td></tr>
+    <tr><td>Two electrode faces</td><td>10 &micro;m gaps; four differential segments on each face; overlap scale 100 &micro;m</td><td>Separate electrode arrangement, not an assumed rotor-terminal connection.</td></tr>
+    <tr><td>Reference capacitance</td><td>10 fF per segment at the reference gap</td><td>Assumed independent calibration target, <strong>not a measurement</strong>; local overlap/gap approximation below.</td></tr>
+    <tr><td>Terminals and loss</td><td>Middle sheet at circuit reference; 10 V DC bias; 0.1 V peak AC; $Q=200$</td><td>Chosen operating and damping inputs, not apparatus data.</td></tr>
+  </table></div>
+  <p>For one guided beam the cubic deflection is $w(s)=q(3s^2-2s^3)$, $0\le s\le1$. Its bending energy gives stiffness $12EI/L^3$; summing the two beams, with $I=tw^3/12$, gives</p>
+  <div class="eq">$$k_\alpha=\frac{2Etw^3}{L_\alpha^3},\qquad
+  m=\rho s_{\rm plate}^2t,\qquad
+  \chi_\alpha(\omega)=\frac{1}{k_\alpha-m\omega^2-i\gamma_\alpha\omega},
+  \quad\gamma_\alpha=\frac{\sqrt{mk_\alpha}}{Q}.$$</div>
+  <p>The resulting stiffnesses are about 2.66 and 2.51 N/m, and the ideal frequencies are <strong>1.203 and 1.168 kHz</strong>. These are actual planar sheet modes in the model, not GHz/THz motion or intrinsic spin. The total omitted beam mass is about 0.81% of the sheet mass; real guide/coating masses and boundary conditions require their own corrections. Nominal silicon stiffness: <a class="xref" href="https://journals.iucr.org/s/issues/2014/03/00/ve5027/index.html">Zhang et al., IUCr (2014)</a>; density: <a class="xref" href="https://www.nist.gov/system/files/documents/2017/05/09/NISTIR_6969_20140926_20150624Rev.pdf">NISTIR 6969</a>; guided-beam calculation: <a class="xref" href="https://borgoltz.aoe.vt.edu/aoe3054/manual/expt6/text.html">Virginia Tech's beam experiment</a>.</p>
+
+  <h3>3. From generator volts to a material trajectory</h3>
+  <p>On face $p=T,B$, each direction $\alpha=x,y$ has opposite overlap segments labelled $\sigma=\pm1$. Define their local terminal capacitance and voltage by</p>
+  <div class="eq">$$C_{p\alpha\sigma}(\mathbf q,g_p)
+  =C_p(g_p)\left(1+\frac{\sigma q_\alpha}{\ell}\right),\quad
+  C_p(g_p)=C_*\frac{g_*}{g_p},\quad
+  V_{p\alpha\sigma}(t)=V_b+\sigma v_{p\alpha}(t).$$</div>
+  <p>One overlap increases as its opposite decreases; the other coordinate is kept within the pad's overlap margin. This is an ideal small-displacement, negligible-fringing and negligible-cross-capacitance model, not a solved capacitance map of a manufactured plate. A measured full terminal-capacitance matrix can replace it. The middle sheet is voltage-referenced, <strong>not an isolated plate carrying fixed charge</strong>.</p>
+  <p>Including the voltage supplies gives the force-generating electrical cost $-\tfrac12\sum C V^2$. Its coordinate derivative—not a derivative of re-solved steady-state stored energy—gives the planar force from face $p$:</p>
+  <div class="eq">$$\mathbf f_p(t)=\frac{2C_pV_b}{\ell}\,\mathbf v_p(t).$$</div>
+  <p>Uniform DC on every segment cancels the planar forces in this layout; it does not mix the modes. The AC signals impose two components in quadrature, not merely two opposite scalar voltages. With the common convention $e^{-i\omega t}$, specify</p>
+  <div class="eq">$$\mathbf u_T=v_0(1,i),\qquad
+  \mathbf u_B=bv_0e^{i\phi}(1,-i),\qquad
+  \mathbf a=\boldsymbol\chi\sum_{p=T,B}\frac{2C_pV_b}{\ell}\mathbf u_p.$$</div>
+  <p>Here $\mathbf v_p(t)=\operatorname{Re}(\mathbf u_pe^{-i\omega t})$ and $\mathbf q(t)=\operatorname{Re}(\mathbf ae^{-i\omega t})$. The material orbit is now computed from volts, dimensions, capacitance and mechanical response. It carries $J_z=m\omega\operatorname{Im}(a_x^*a_y)$ about the guide centre; a line trajectory carries zero. The fixed-voltage source-work convention is an engineering comparison: <a class="xref" href="https://ocw.mit.edu/courses/res-6-001-electromagnetic-fields-and-energy-spring-2008/0f814aee1c72517df7d7e7e96b7365e1_11.pdf">MIT, Energy, Power Flow, and Forces</a>. It is not a new ontological premise.</p>
+
+  <h3>4. The signed axial load</h3>
+  <p>Let $A_T,A_B$ denote the positive attraction magnitudes across each gap. At fixed coordinates and voltages, then averaged over the cycle, the same terminal model gives</p>
+  <div class="eq">$$A_p=\frac{C_p}{g_p}\left[
+  2V_b^2+\frac{|\mathbf u_p|^2}{2}
+  +\frac{V_b}{\ell}\operatorname{Re}(\mathbf a\cdot\mathbf u_p^*)\right].$$</div>
+  <div class="eq">$$F_T=-A_T,\qquad F_C=A_T-A_B,\qquad F_B=A_B,
+  \qquad\boxed{F_T+F_C+F_B=0}.$$</div>
+  <p>Positive $z$ points from the bottom electrode toward the top. The middle clamp takes $-F_C$. For equal gaps and equal opposing AC amplitudes, the static and direct AC attractions cancel at the centre, leaving the explicit phase-dependent result</p>
+  <div class="eq">$$\boxed{F_C(\phi)=
+  -\frac{4C_*^2V_b^2v_0^2}{g_*\ell^2}
+  \operatorname{Im}(\chi_x-\chi_y)\sin\phi.}$$</div>
+  <p>This particular differential axial observable needs <strong>both directional response and its dissipative quadrature</strong>. Anisotropy can mix circular responses even off resonance, but in the lossless off-resonant limit this equal-drive axial phase term is zero. Unequal drive amplitudes also create a direct pressure difference, which is not evidence of converted circulation.</p>
+
+  <div class="card blue" aria-labelledby="middle-demo-title">
+    <h3 id="middle-demo-title" style="margin-top:0">Geometry-derived response — specified inputs, not a measured specimen</h3>
+    <p>Change the second beam length to make the axes equal or unequal. Sweep frequency across the two resonances, then reverse phase. The graph shows the <strong>middle plate's internal axial force</strong>, not apparatus thrust. All remaining inputs are the values in the table.</p>
+    <div class="budget-controls">
+      <label>Signal frequency (Hz)<output id="middle-frequency-value"></output><input id="middle-frequency" type="range" min="1100" max="1280" step="0.001" value="1203.227"></label>
+      <label>Second-axis beam length (&micro;m)<output id="middle-length-value"></output><input id="middle-length" type="range" min="490" max="515" step="0.1" value="510"></label>
+      <label>Lower / upper AC amplitude<output id="middle-ratio-value"></output><input id="middle-ratio" type="range" min="0" max="1.5" step="0.01" value="1"></label>
+      <label>Relative AC phase<output id="middle-phase-value"></output><input id="middle-phase" type="range" min="0" max="360" step="1" value="90"></label>
+    </div>
+    <svg id="middle-phase-plot" viewBox="0 0 760 290" role="img" aria-labelledby="middle-plot-title middle-plot-desc">
+      <title id="middle-plot-title">Middle-plate axial force against relative drive phase</title>
+      <desc id="middle-plot-desc">Force in piconewtons for the declared silicon and electrode example. The outer reactions always balance the centre force.</desc>
+      <path d="M85 45V235H710" stroke="var(--edge)" fill="none" stroke-width="2"/>
+      <line id="middle-zero-line" x1="85" x2="710" stroke="var(--edge)" stroke-dasharray="6 6"/>
+      <path id="middle-force-curve" fill="none" stroke="var(--gold)" stroke-width="3"/>
+      <circle id="middle-phase-point" r="6" fill="var(--blue)"/>
+      <g fill="currentColor"><text x="85" y="275">0°</text><text x="365" y="275">180°</text><text x="650" y="275">360°</text><text id="middle-scale-label" x="85" y="26"></text></g>
+    </svg>
+    <div class="budget-results" aria-live="polite">
+      <div>Middle-plate force<strong id="middle-force-value"></strong></div>
+      <div>Sum of all internal axial forces<strong id="middle-total-value"></strong></div>
+      <div>Material circulation about guide centre<strong id="middle-am-value"></strong></div>
+      <div>Supplied mechanical-mode power<strong id="middle-power-value"></strong></div>
+    </div>
+    <p id="middle-response-note" class="caveat"></p>
+    <p class="caveat">0.1 V peak signals, 10 V DC, assumed 10 fF segment capacitance and $Q=200$. Axial loads are incremental above the DC baseline; that baseline is 0.200 &micro;N on each face, in opposite directions. The plot uses an automatically labelled force scale. Uniform-temperature material coefficients and linear response are assumed.</p>
+    <noscript><p>At 1203.227 Hz and phase 90°, the model gives approximately −0.298 pN on the middle plate. Phase 270° gives +0.298 pN. Equal 500 &micro;m beam lengths remove this phase signal. The three internal forces sum to zero.</p></noscript>
+  </div>
+
+  <h3>5. What the numbers establish—and what they do not</h3>
+  <p>At the first ideal resonance, equal drive amplitudes and $\phi=90^\circ$, the example gives <strong>$F_C\approx-0.298$ pN</strong>; changing to $270^\circ$ gives $+0.298$ pN. At $90^\circ$ the incremental top/middle/bottom forces are approximately $(-9.838,-0.298,+10.136)$ pN. The opposite electrode reactions are substantially larger than the differential middle reading. This is a calculated sign reversal in a declared material/electrode model, not a measured signal or a sensitivity claim.</p>
+  <p>The sheet's planar excursion is tens of nanometres, with $J_z\approx1.37\times10^{-20}$ J&middot;s in the first example. Its mechanical-mode input is about $2.29\times10^{-14}$ W. Evaluating every terminal's $V\,d(CV)/dt$ over the cycle reproduces the mechanical loss; reactive energy returns to the sources and DC voltage alone is not a steady power input. Guide anisotropy and damping take the balancing angular reactions. Heat remains on the apparatus until a specified thermal exchange removes it.</p>
+  <p><strong>Complete-apparatus support.</strong> With the electrodes, sources and guide on the same chassis, and no extra external exchange, this internal interaction contributes zero additional static axial resultant. A force on the middle clamp is not a reduction of the complete support load. This is not a theorem about all Earth-relative interactions; it is the exact sum for the specified one. The distinct source route in <a class="xref" href="#sec-interaction-law">&sect;5H</a> still needs its material-to-kinetic-energy and multi-circulation action.</p>
+  <div class="card gold">
+    <p><strong>The new result.</strong> We can identify what makes phase control effective, replace a free mixing coefficient with physical dimensions, and derive a signed local load from an explicit electrical connection. <strong>A uniformly biased, rotationally symmetric plate does not supply that mixing by itself.</strong></p>
+    <p>The real apparatus still needs its measured mode shape, complete capacitance map and loss, and a demonstrated connection between the maintained rotor circulation and the driven material mode. Raising this example's dial to GHz or THz would leave its validity range. None of these local calculations establishes an additional Earth-relative weight term.</p>
+  </div>
+  <p class="caveat">Reproducible calculation: <a class="xref" href="./scripts/vortex_middle_plate.py">vortex_middle_plate.py</a>. Independent checks cover beam energy, circular-basis symmetry, real terminal charge/current and power, signed gap derivatives, source/mount reactions and phase reversal. Added 2026-09-15; previous examples and their conditional scope remain intact.</p>
+</section>
+
 <!-- ============ §6 ============ -->
 <section id="sec-status">
   <h2>&sect;6 — What is settled, and the remaining “unless”</h2>
@@ -1056,6 +1163,7 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
     <tr><td>Does finite core separation supply an amplifier?</td><td><span class="tag assume">FINITE-SIZE CALCULATION</span>&sect;5G gives two subdivision-consistent extensions. Both leave the horizontal coaxial pair null; one gives a tilted residual suppressed by $d/r$, while the other cancels every matched pair. A point-invisible tensor term proves these are not universal finite-body results. The physical spatial law remains unselected.</td></tr>
     <tr><td>Does the source itself supply a spin–orbit law?</td><td><span class="tag assume">SOURCE POSTULATE</span>Yes. &sect;5H derives its fourth-root orbital/support response. It is a kinetic-energy composition, not the later inverse-cube kernel. Applying it separately to opposed rotors leaves a second-order term; combining their directional energies first can cancel it. Material identification and composite action remain unselected.</td></tr>
     <tr><td>What does a signal-driven middle plate add?</td><td><span class="tag assume">DRIVEN MODEL</span><a class="xref" href="#sec-three-plate">&sect;5I</a> calculates its local modal response and mounting force. A specified directional stiffness can enable phase dependence; internal axial forces still sum to zero. The gyro comparison separates rapid orientation selection from total weight change.</td></tr>
+    <tr><td>Can its directional response be specified rather than adjusted?</td><td><span class="tag assume">GEOMETRY AND TERMINALS</span><a class="xref" href="#sec-middle-material">&sect;5J</a> derives the symmetry restriction and a silicon flexure/segmented-electrode example. At its declared inputs, phase reversal gives &plusmn;0.298 pN on the middle plate, with balanced outer reactions. Reference capacitance and loss remain nominal inputs; no GHz/THz or weight-change prediction follows.</td></tr>
     <tr><td>Can there be measurable collective exchange?</td><td><span class="tag open">CONDITIONAL</span>Yes, if actual transitions, supplied power, directional counterparts and readout bandwidth satisfy the stated budget. No apparatus prediction is delivered here.</td></tr>
     <tr><td>Has weight modification been derived from those events?</td><td><span class="tag open">NOT ESTABLISHED</span>The specified matched geometry gives no leading effect under &sect;5F and remains null in &sect;5G's two tested extensions. Conditional finite-size terms have been calculated, but the material-to-Earth law selecting one has not been derived; a recoil budget does not supply it.</td></tr>
   </table></div>
@@ -1332,6 +1440,79 @@ try{
     picture.dataset.momentum=JSON.stringify(result.momentum);
     picture.dataset.total=String(total);
     controls.forEach((e,i)=>e.setAttribute('aria-valuetext',[w.toFixed(3)+' reference frequency',ratio.toFixed(2)+' amplitude ratio',degrees+' degrees',anis.toFixed(2)+' directional stiffness'][i]));
+  }
+  controls.forEach(e=>e.addEventListener('input',update));
+  update();
+})();
+</script>
+
+<script>
+/* §5J: fixed-voltage overlap electrodes and geometry-derived silicon response.
+   These are declared model inputs, not measured apparatus parameters. */
+(function(){
+  'use strict';
+  const el=id=>document.getElementById(id);
+  const ids=['middle-frequency','middle-length','middle-ratio','middle-phase'];
+  const controls=ids.map(el),plot=el('middle-phase-plot');
+  if(!plot)return;
+  const m=2329.1*1e-6*20e-6,C=10e-15,g=10e-6,V=10,ell=100e-6,v=.1;
+  const gain=2*C*V/ell;
+  const mul=(a,b)=>[a[0]*b[0]-a[1]*b[1],a[0]*b[1]+a[1]*b[0]];
+  const square=a=>a[0]*a[0]+a[1]*a[1];
+  function calculate(f,ly,b,phase){
+    const w=2*Math.PI*f;
+    const k=[500e-6,ly*1e-6].map(L=>2*130e9*20e-6*Math.pow(4e-6,3)/Math.pow(L,3));
+    const gamma=k.map(kj=>Math.sqrt(m*kj)/200);
+    const chi=k.map((kj,j)=>{
+      const real=kj-m*w*w,imag=gamma[j]*w,den=real*real+imag*imag;
+      return [real/den,imag/den];
+    });
+    const x=[b*v*Math.cos(phase),b*v*Math.sin(phase)];
+    const u=[[[v,0],[0,v]],[x,[x[1],-x[0]]]];
+    const a=[0,1].map(j=>mul(chi[j],[
+      gain*(u[0][j][0]+u[1][j][0]),gain*(u[0][j][1]+u[1][j][1])]));
+    const inc=u.map(up=>C/g*(.5*(square(up[0])+square(up[1]))
+      +V/ell*up.reduce((sum,uj,j)=>sum+uj[0]*a[j][0]+uj[1]*a[j][1],0)));
+    const powers=u.map(up=>.5*gain*w*up.reduce((sum,uj,j)=>sum+uj[0]*a[j][1]-uj[1]*a[j][0],0));
+    const momentum=m*w*(a[0][0]*a[1][1]-a[0][1]*a[1][0]);
+    const dissipation=.5*w*w*gamma.reduce((sum,gj,j)=>sum+gj*square(a[j]),0);
+    const kinetic=.25*m*w*w*(square(a[0])+square(a[1]));
+    const elastic=.25*k.reduce((sum,kj,j)=>sum+kj*square(a[j]),0);
+    return {frequency:f,axial_increment:[-inc[0],inc[0]-inc[1],inc[1]],
+      amplitude_real:a.map(z=>z[0]),amplitude_imag:a.map(z=>z[1]),
+      momentum,powers,dissipation,kinetic,elastic,
+      resonances:k.map(kj=>Math.sqrt(kj/m)/(2*Math.PI))};
+  }
+  function update(){
+    const [f,ly,b,degrees]=controls.map(e=>Number(e.value));
+    const result=calculate(f,ly,b,degrees*Math.PI/180);
+    const values=Array.from({length:181},(_,i)=>calculate(f,ly,b,i*Math.PI/90).axial_increment[1]*1e12);
+    const extent=Math.max(.001,1.15*Math.max(...values.map(Math.abs)));
+    const y=force=>140-force/extent*85;
+    el('middle-force-curve').setAttribute('d',values.map((force,i)=>(i?'L':'M')+(85+625*i/180).toFixed(2)+','+y(force).toFixed(2)).join(' '));
+    el('middle-zero-line').setAttribute('y1','140');el('middle-zero-line').setAttribute('y2','140');
+    el('middle-phase-point').setAttribute('cx',String(85+625*degrees/360));
+    el('middle-phase-point').setAttribute('cy',String(y(result.axial_increment[1]*1e12)));
+    el('middle-scale-label').textContent='Scale: ±'+extent.toPrecision(3)+' pN';
+    el('middle-frequency-value').textContent=f.toFixed(3)+' Hz';
+    el('middle-length-value').textContent=ly.toFixed(1)+' µm';
+    el('middle-ratio-value').textContent=b.toFixed(2);
+    el('middle-phase-value').textContent=degrees.toFixed(0)+'°';
+    const force=result.axial_increment[1]*1e12;
+    el('middle-force-value').textContent=(Math.abs(force)<1e-9?'0.000':(force>0?'+':'')+force.toFixed(3))+' pN';
+    el('middle-total-value').textContent='0 N — balanced internally';
+    el('middle-am-value').textContent=Math.abs(result.momentum)<1e-32?'0 J·s':result.momentum.toExponential(3)+' J·s';
+    el('middle-power-value').textContent=result.dissipation.toExponential(3)+' W';
+    const motion=result.amplitude_real.map((r,j)=>Math.hypot(r,result.amplitude_imag[j])*1e9);
+    el('middle-response-note').textContent=
+      (Math.abs(ly-500)<1e-9?'Equal axes: no circular-mode mixing; these averaged loads are phase-independent. ':
+      'Unequal guide lengths mix the circular responses. ')+
+      'Ideal x/y resonances: '+result.resonances.map(n=>n.toFixed(1)).join(' / ')+
+      ' Hz. Calculated x/y excursions: '+motion.map(n=>n.toFixed(2)).join(' / ')+
+      ' nm. This is a local clamp signal, not a whole-apparatus weight change.';
+    plot.dataset.result=JSON.stringify(result);
+    controls.forEach((e,i)=>e.setAttribute('aria-valuetext',[
+      f.toFixed(3)+' hertz',ly.toFixed(1)+' micrometres',b.toFixed(2)+' amplitude ratio',degrees+' degrees'][i]));
   }
   controls.forEach(e=>e.addEventListener('input',update));
   update();
