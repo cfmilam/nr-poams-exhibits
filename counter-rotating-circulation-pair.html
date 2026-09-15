@@ -47,7 +47,20 @@ li{margin:7px 0; font-size:14.5px;}
 .card.blue{border-color:rgba(91,200,245,.35); background:rgba(91,200,245,.05);}
 .card.red{border-color:rgba(239,83,80,.4); background:rgba(239,83,80,.05);}
 .card.dashed{border-style:dashed; background:rgba(91,200,245,.04);}
-.eq{margin:16px 0; text-align:center; font-size:15px;}
+.eq{margin:16px 0; text-align:center; font-size:15px; overflow-x:auto; padding:3px 0;}
+.table-wrap{overflow-x:auto; margin:12px 0;}
+details{background:var(--card);border:1px solid var(--edge);border-radius:8px;padding:12px 16px;margin:16px 0;}
+summary{cursor:pointer;color:var(--blue);font-size:14px;font-weight:600;}
+summary:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:4px;}
+.budget-controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px;margin:20px 0;}
+.budget-controls label{font-size:13px;color:var(--muted);}
+.budget-controls output{display:block;color:var(--text);font-weight:650;font-variant-numeric:tabular-nums;}
+.budget-controls input{display:block;width:100%;margin:12px 0 0;accent-color:var(--gold);}
+.budget-results{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;}
+.budget-results div{border:1px solid var(--edge);border-radius:8px;padding:12px;font-size:12px;color:var(--muted);}
+.budget-results strong{display:block;margin-top:5px;font-size:15px;font-variant-numeric:tabular-nums;}
+section{scroll-margin-top:70px;}
+@media(max-width:620px){.table-wrap table{min-width:510px;}main{padding-left:14px;padding-right:14px;}.card{padding:14px;}header h1{font-size:23px;}}
 .caveat{font-size:13px; color:var(--muted); font-style:italic; margin:8px 0;}
 .tag{display:inline-block; font-size:11px; letter-spacing:.06em; padding:1px 8px; border-radius:10px; margin-right:6px; vertical-align:middle;}
 .tag.draft{background:rgba(239,83,80,.15); color:var(--red);}
@@ -121,318 +134,235 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
 <header>
   <h1>Counter-Rotating Vortex Cores</h1>
   <p class="nr-provenance" style="font-size:0.8em;font-style:italic;opacity:0.72;line-height:1.5;margin:0.5em 0 1em;text-align:center">This exhibit is an extrapolation of the foundational work of N. Vivian &ldquo;Viv&rdquo; Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
-  <div class="sub">Călugăreanu Topology and the Ledger&rsquo;s Non-Perturbative Regime</div>
+  <div class="sub">Coherent circulation, collective transitions and the directional-response budget</div>
   </header>
 
 <main>
 
-<!-- ============ §1 ============ -->
-<section>
-  <h2>&sect;1 &mdash; Grounding: What POAMS Already Holds</h2>
-
-  <p>This exhibit rests on four ratified commitments in the POAMS foundation. Nothing here re-derives them; the reader is pointed at the exhibits that carry the load.</p>
-
-  <p><strong>One substance: angular momentum.</strong> There is one stuff, and it is circulation &mdash; <em>L = dS/d&theta;</em>. Everything is time in the strict sense: the substance <em>is</em> its own rate of angular change. Not a thing sitting in a container; the turning itself.</p>
-
-  <p><strong>Discreteum, not continuum.</strong> Angular momentum comes only in whole &hbar; turns. A fractional turn is not a smaller thing but no thing, because it does not close and cannot persist. The apparent smoothness of macroscopic dynamics is the far-field appearance of many integer turns read together.</p>
-
-  <p><strong>Everything is time; energy is rate.</strong> <em>E = L&omega;</em> follows from the chain rule on the two ledger identities <em>L = dS/d&theta;</em> and <em>E = dS/dt</em> (see <a class="xref" href="./mass-as-trapped-rate.html">Mass as Trapped Rate</a>). Mass is not a primitive property of stuff; it is the ledger's name for trapped rate: <em>m = &hbar;&Omega;/c<sup>2</sup></em>, where &Omega; is the total turning rate of the closed loops constituting the body.</p>
-
-  <p><strong>Gravity is bookkeeping.</strong> The <a class="xref" href="./navigation-engine.html">Navigation Engine</a> carries the ratified 2026-09-09 n-centre closure derivation: the joint orbital chart falls out of a Lagrangian with reciprocal pair coupling, no mediator required, no force crossing a gap. A free body rides its natural orbit weightless; weight is the constraint bill for standing off that orbit.</p>
-
-  <p><strong>C&#259;lug&#259;reanu applies to every closed circulation.</strong> Any closed ribbon in three-space carries a total linking number that decomposes as</p>
-  <div class="eq">$$Lk = Tw + Wr$$</div>
-  <p>where <em>Tw</em> (twist) is how the ribbon rotates around its own centerline and <em>Wr</em> (writhe) is how the centerline itself coils in space. Both integer, individually convertible into each other under smooth deformation, but their sum invariant. This is the geometric fact that constrains the coherent-angular-momentum contribution to the ledger derived below.</p>
-
-  <div class="card blue">
-    <p style="margin:0"><strong>What is new in this exhibit.</strong> The n-centre closure handles trapped-rate mass through the shares <em>w<sub>i</sub></em> of the ratified Lagrangian. It does not yet handle net coherent angular momentum <em>L&#8407;<sub>i</sub></em> that a rotating configuration, a persistent supercurrent, or a spin-polarized ensemble carries beyond its mass share. This exhibit derives the additional Lagrangian term for that coherent contribution, applies it to a specific configuration &mdash; the counter-rotating self-compressing circulation pair &mdash; and names two theoretical questions the derivation opens.</p>
+<section id="amplification-result" aria-labelledby="amplification-title">
+  <div class="card gold">
+    <h2 id="amplification-title">The amplification question — where it lands</h2>
+    <p>A collective rearrangement can make a larger, more readily resolved event. It does not, by that fact alone, make a larger sustained weight change. Three separate questions have to be answered: <strong>what changes, how much circulation participates, and where the balancing momentum is registered.</strong></p>
+    <p>The September 2026 inquiry closes the automatic-amplification shortcut: an integer linking change does not set an energy quantum; phase agreement does not make every closure change; and internal reorganization does not give the whole apparatus an unbalanced impulse. A measurable directional exchange remains possible <em>conditionally</em>, with a specified transition, energy supply and external counterpart. That is not yet a prediction of weight modification.</p>
+    <p class="caveat">The calculation below stays inside the Normal Realism / POAMS ledger. It neither reopens the fine-structure-constant program nor supplies a new apparatus-independent impossibility theorem. <a class="xref" href="#sec-5b">Jump to the momentum and power budget</a>.</p>
   </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="sec-grounding">
+  <h2>&sect;1 — Grounding: what the calculation uses</h2>
+  <p><strong>One substance: angular momentum.</strong> Circulation is the happening, not an object moving through a container. The angular-momentum Nexus is the whole relation; there is no aether, empty-space medium, or travelling intermediary. A localized change is a reorganization within that Nexus, not a disturbance launched into a second substance.</p>
+  <p><strong>Discrete closures; energy as rate.</strong> The corpus reads a completed elementary closure as one $\hbar$ entry. For a mode with angular rate $\omega$, its energy entry is $\hbar\omega=h\nu$, where $\omega=2\pi\nu$. Throughout this page, $\nu$ is cycles per second (Hz), $\omega$ is radians per second, and $R$ is the number of actual events per second. These are not interchangeable counts.</p>
+  <p><strong>Weight is the constraint bill.</strong> A free body follows its natural orbit. A support records the constraint needed to hold it off that orbit. A changed support reading, a recoil impulse and an internal torque are different observables; one is not proof of another. See <a class="xref" href="./mass-as-trapped-rate.html">Mass as Trapped Rate</a> and <a class="xref" href="./navigation-engine.html">The Navigation Engine</a>.</p>
+  <p><strong>The topology has to name its circulation.</strong> For a specified closed, non-self-intersecting framed ribbon,</p>
+  <div class="eq">$$Lk=Tw+Wr,\qquad Lk\in\mathbb Z.$$</div>
+  <p>$Lk$ links the ribbon's two edges. Twist and writhe are geometric contributions; they are <strong>not generally integers separately</strong>. Their smooth-chart variation does not introduce fractional elementary closures. The integer invariant survives deformations that preserve the ribbon's embedding and closure. A topology-changing event must leave those conditions, or exchange the relevant winding through a boundary. This is the mathematical content of <a class="xref" href="https://arxiv.org/abs/math-ph/0503012">Călugăreanu's theorem (Dennis &amp; Hannay)</a>, not a transition-energy law.</p>
+  <p>Keep three books distinct: the self-linking of a framed circulation, the mutual linking of two different centerlines, and the phase-winding count of a physical circulation. A proposed device must identify which one changes and how it maps to the counted angular momentum. They cannot all be called “the body's $Lk$” without that bridge.</p>
 </section>
 
 <!-- ============ §2 ============ -->
-<section>
-  <h2>&sect;2 &mdash; The Coherent-AM Column in the Ledger</h2>
+<section id="sec-pair-model">
+  <h2>&sect;2 — The coherent-AM pair model carried into this inquiry</h2>
+  <p>The earlier work proposed the following pair energy for two coherent angular-momentum organizations at relational separation $r_{12}$:</p>
+  <div class="eq">$$V_{\mathrm{coh}}(1,2)=-\frac{2G}{c^2}\frac{\vec L_1\cdot\vec L_2}{r_{12}^{3}}.$$</div>
+  <p>Its intended reading is the coherent column alongside the tangled trapped-rate column of <a class="xref" href="./newton-from-tangled-trapped-rate-depletion.html">Newton</a>. The coefficient uses the pair-entry convention discussed in <a class="xref" href="./the-receiver-keys-the-exchange.html#sec-pair-lagrangian">Receiver Keys &sect;7</a>. For this investigation it is a <strong>carried model</strong>: the continuous estimates are conditional on this kernel. The event and conservation results below do not require its coefficient to have been uniquely derived.</p>
 
-  <p>Take two bodies, each with its own trapped-rate mass share <em>w<sub>i</sub></em> (already in the n-centre Lagrangian) and its own net coherent angular momentum <em>L&#8407;<sub>i</sub></em> (to be added). We seek the pair coupling term $\mathscr{L}_{coh}(1,2)$ that describes how the coherent contributions read each other's phase.</p>
-
-  <h3>The invariant available to the ledger</h3>
-
-  <p>Rotational invariance restricts the pair term to scalars built from $\vec{L}_1$, $\vec{L}_2$, $\vec{r}_{12}$, and constants. The C&#259;lug&#259;reanu constraint restricts further: the ledger reads only $Lk_i$, not its individual $Tw$ and $Wr$ pieces (they interconvert freely). So the pair coupling has to depend on $Lk_1 \cdot Lk_2$, not on the individual components.</p>
-
-  <p>Expanding the invariant $Lk_1 \cdot Lk_2 = (Tw_1 + Wr_1)(Tw_2 + Wr_2)$ gives four bilinear channels:</p>
-  <div class="eq">$$Tw_1 Tw_2 \;+\; Wr_1 Wr_2 \;+\; Tw_1 Wr_2 \;+\; Wr_1 Tw_2$$</div>
-
-  <h3>C&#259;lug&#259;reanu invariance collapses the four channels to one</h3>
-
-  <p>Twist and writhe interconvert freely under smooth deformation while $Lk = Tw + Wr$ is preserved. The ledger therefore <em>cannot distinguish</em> how much of $\vec{L}_i$ is $Tw$ versus $Wr$: that partition is a gauge choice, not a physical fact. The Molecule exhibit's twist/writhe guardrail names the same constraint: <em>&ldquo;$Lk = Tw + Wr$ conserves the total but does not price the partition&rdquo;</em> (see <a class="xref" href="./the-molecules.html">The Molecule</a> &sect;3).</p>
-
-  <p>What the pair Lagrangian sees, then, is not four independent bilinear channels but a single scalar invariant $Lk_1 \cdot Lk_2$. The four-channel algebraic expansion is bookkeeping; the physical coupling is one term with one coefficient.</p>
-
-  <h3>The factor 2 from POAMS two-endedness</h3>
-
-  <p>The specific coefficient derives from POAMS-native two-ended exchange. Per the corpus (<a class="xref" href="./the-receiver-keys-the-exchange.html">The Receiver Keys the Exchange</a>; GROUNDING &sect;3 self-corollary): every exchange is co-signed at both endpoints. The pair-coupling term is not an interaction happening in some abstract middle between two bodies &mdash; it is a book kept at each endpoint of the exchange.</p>
-
-  <p>The standard sum-over-pairs convention $\sum_{i<j}$ divides by 2 to avoid double-counting a coupling that is one shared object between two things. In POAMS the coupling is not one shared object; it is two co-signed entries, one in each endpoint's ledger. Per the pair-Lagrangian formalization in <a class="xref" href="./the-receiver-keys-the-exchange.html#sec-pair-lagrangian">Receiver Keys &sect;7</a>, Case 2 (irreducible pair-invariant), a coupling like $Lk_1 \cdot Lk_2$ cannot be decomposed into a single-body property one endpoint sources and the other feels &mdash; there is no meaning to &ldquo;half a linking number.&rdquo; Each endpoint's ledger records the full pair-invariant, and the total Lagrangian for this class is</p>
-  <div class="eq">$$\mathscr L^{\text{pair-inv}} \;=\; \sum_{i\neq j} V^{POAMS}(i,j) \;=\; 2\sum_{i<j} V^{POAMS}(i,j).$$</div>
-  <p>The classical halving does not apply, and the specific coefficient in the pair-coupling result is $\alpha=-2$.</p>
-
-  <h3>From the scalar $Lk_1\cdot Lk_2$ to the vector $\vec L_1\cdot\vec L_2$</h3>
-
-  <p>The C&#259;lug&#259;reanu argument above establishes that the pair coupling's scalar magnitude tracks the topological product $Lk_1 \cdot Lk_2$ (a product of signed integers). The boxed pair-Lagrangian below uses the vector dot product $\vec L_1 \cdot \vec L_2$; the bridge is one geometric identification, stated explicitly here rather than assumed:</p>
-
-  <div class="eq">$$\vec L_i \;\equiv\; \hbar\, Lk_i\, \hat n_i,$$</div>
-
-  <p>where $\hat n_i$ is the closure's winding axis (right-hand rule at the closure). Under this identification:</p>
-
-  <div class="eq">$$\vec L_1 \cdot \vec L_2 \;=\; \hbar^2\, Lk_1\, Lk_2\, \cos\theta,$$</div>
-
-  <p>where $\theta$ is the angle between the two winding axes. Parallel/antiparallel windings ($\theta=0$ or $\pi$) recover $\pm\hbar^2 Lk_1 Lk_2$ &mdash; the signed scalar product the C&#259;lug&#259;reanu argument prices. Perpendicular windings ($\theta = \pi/2$) yield vanishing first-order coupling, recovering the sign structure the &sect;5 table records. The vector form is the rotational-scalar generalization of the scalar $Lk$-product to arbitrary relative orientation, not a substitution.</p>
-
-  <p>Combined with the dimensional scale $G/c^2$ and the sign convention (co-aligned $\vec{L}$ tighten natural orbits, matching <a class="xref" href="./varying-g.html">Varying G</a> App-5 co-spin-heavier), the pair-coupling result is:</p>
-  <div class="eq">$$\boxed{\;V_{coh}(1,2) \;=\; -\frac{2G}{c^2} \cdot \frac{\vec{L}_1 \cdot \vec{L}_2}{r_{12}^3}\;}$$</div>
-
-  <div class="caveat">
-    <span class="tag claim">CLAIMED</span> The two-endedness &rarr; factor-of-2 argument is formalized in <a class="xref" href="./the-receiver-keys-the-exchange.html#sec-pair-lagrangian">The Receiver Keys the Exchange &sect;7</a>: the halving convention does not apply to irreducibly pair-invariant couplings, of which $Lk_1 \cdot Lk_2$ is the canonical example. On that basis $\alpha = -2$ is derived, no fitted parameter, from two-endedness plus C&#259;lug&#259;reanu invariance.
+  <h3>What topology does — and does not — fix</h3>
+  <p>The algebraic identity</p>
+  <div class="eq">$$Lk_1Lk_2=(Tw_1+Wr_1)(Tw_2+Wr_2)$$</div>
+  <p>does not make the physical twist/writhe partition a gauge freedom. Conserving the sum does not fix the cost of changing its parts. This is already the <a class="xref" href="./the-molecules.html">Molecule</a> guardrail: the linking identity conserves the total but does not price the partition. Treating all such rearrangements as energetically identical would remove precisely the state-cost information a threshold calculation needs.</p>
+  <p>The earlier bridge $\vec L_i=\hbar Lk_i\hat n_i$ also requires a specified physical framing and a chosen winding axis. Under that identification, $\vec L_1\cdot\vec L_2=\hbar^2Lk_1Lk_2\cos\theta$ follows. It is not a general theorem equating every geometric linking number with a body's net AM. Even rotational invariance alone permits another scalar, $(\vec L_1\cdot\hat r)(\vec L_2\cdot\hat r)$; it does not select the displayed kernel by itself.</p>
+  <div class="card blue">
+    <p><strong>Scope of the carried kernel.</strong> Its $1/r^3$ contribution is subleading to a $1/r$ mass-pair term at sufficiently large separation for fixed coefficients. Subleading does not mean exact Kepler closure: an added term can produce precession. No new claim of an exact Kerr, Lense–Thirring or Gravity Probe B match is made by this amplification calculation; those comparisons require their full angular and operational maps.</p>
   </div>
 
-  <h3>What this cashes out to</h3>
-
-  <div class="card gold">
-    <p><strong>Bertrand-preserved at long range.</strong> The $1/r^3$ falloff is subleading to the $1/r$ mass-mass pair term at solar-system scales. Closed Keplerian orbits survive; the correction produces perihelion precession &mdash; which is what General Relativity already gets right for Mercury (see <a class="xref" href="./perihelion-precession.html">Perihelion Precession</a>).</p>
-
-    <p><strong>Reproduces GR gravitomagnetism at leading order.</strong> The form matches Kerr / Lense-Thirring frame-dragging with coefficient $\alpha = -2$. GR derives this from linearized metric perturbations of Einstein's equations. POAMS derives it from the C&#259;lug&#259;reanu constraint on a pair Lagrangian. Two ontologies converging on the same coefficient by unrelated routes.</p>
-
-    <p><strong>Testable against Gravity Probe B.</strong> The 2011 measurement of Earth's frame-dragging matched Lense-Thirring to about 19% precision. POAMS's derived coefficient sits inside that tolerance. Any independent tightening of the measurement is a direct test of $\alpha$; a significant deviation is a POAMS falsifier or refinement, either way informative.</p>
-
-    <p><strong>Reproduces the corpus varying-G phenomenology.</strong> Co-aligned $\vec{L}$ tightens the natural orbit (heavier); anti-aligned loosens it (lighter). The channel-set sign convention on <a class="xref" href="./varying-g.html">Varying G</a> and the twist/writhe count here agree.</p>
-  </div>
+  <h3>No second multiplication by the same coherent domain</h3>
+  <p>For a body whose coherent AM is already $\vec L_{\mathrm{coh}}=\sum_i\vec\ell_i$, the mixed dot product is exactly</p>
+  <div class="eq">$$\vec L_{\mathrm{coh}}\cdot\vec L_{\mathrm{orb}}
+  =\sum_i\vec\ell_i\cdot\vec L_{\mathrm{orb}}.$$</div>
+  <p>The participating contributions have already been counted. Multiplying this macroscopic expression by their number again is double counting, not collective enhancement. Alignment can change the vector sum; a new interaction term can change the model. Neither is supplied by attaching an additional $N_{\mathrm{local}}$ to the same sum.</p>
 </section>
 
 <!-- ============ §3 ============ -->
-<section>
-  <h2>&sect;3 &mdash; The Configuration: Counter-Rotating Self-Compressing Pair</h2>
+<section id="sec-configuration">
+  <h2>&sect;3 — The configuration: a driven counter-rotating pair</h2>
+  <p>Two opposed coherent circulations, coaxially arranged and controllably driven, remain a useful proposed apparatus. Their separation, drive phase, confinement and orientation can be varied independently. The geometry is a candidate for studying collective reorganization; it is not by itself a guarantee of self-compression, nonzero linking, or directional weight change.</p>
 
-  <p>The derived pair term applies to any two coherent-AM sources. Certain configurations engineer the term more efficiently than others. One configuration is geometrically distinguished: <strong>two coherent circulations, counter-oriented, coaxially stacked, capable of self-compression.</strong></p>
+  <h3>Stacking is not linking</h3>
+  <p>Two disjoint circular centerlines in parallel planes have mutual linking zero, regardless of their circulation senses. Changing their separation or mutual inductance without a crossing does not change that integer. Each circulation can still have its own framing and phase winding. To propose a linking transition, name the actual curves, the rejoining or boundary event, and the invariant before and after it.</p>
 
-  <h3>Why this geometry is special</h3>
+  <h3>Compression has its own bill</h3>
+  <p>At fixed AM vectors, the carried pair kernel gives the signed radial constraint contribution</p>
+  <div class="eq">$$F_r=-\partial_r V_{\mathrm{coh}}
+  =-\frac{6G}{c^2}\frac{\vec L_1\cdot\vec L_2}{r^4}.$$</div>
+  <p>For opposed vectors this points toward increasing separation. The displayed kernel therefore does <strong>not</strong> supply the proposed pair's self-compression. Any confinement or compression has to be supplied and accounted for by the actual driven configuration. This is a check of the page's own sign, not an imported force-field explanation.</p>
 
-  <p>Four properties combine only in this configuration:</p>
-
-  <ol>
-    <li><strong>Maximal compressed coherent-AM density.</strong> Two opposed circulations arranged coaxially collide at their shared plane. In fluid media the collision is between induced axial flows through each ring&rsquo;s central hole; in field-topology media the collision is between opposed magnetic dipoles. In both cases the central region compresses: mass migrates radially outward while circulation concentrates axially. The coherent-AM density in the compressed volume can exceed what either ring alone can sustain.</li>
-
-    <li><strong>Non-trivial C&#259;lug&#259;reanu linking.</strong> Two centerlines stacked with opposite poloidal senses produce a specific total $Lk$ that is not accessible with a single ring, a co-oriented pair, or a separated pair. The topology is engineered: driving the compression drives $Lk$ across integer boundaries.</li>
-
-    <li><strong>Combined twist and writhe.</strong> Each ring's poloidal rotation contributes $Tw$; the coaxial stacking with opposite sense contributes mutual $Wr$. The pair coupling in &sect;2 reads both simultaneously, unlike geometries that carry only one component.</li>
-
-    <li><strong>Driven, not merely observed.</strong> The circulation is continuously energized against relaxation. In POAMS terms the ledger reads a structure whose alignment is externally maintained. The coherent-AM density can be held above what the medium's own trapped-rate would sustain in isolation.</li>
-  </ol>
-
-  <h3>Medium-independence</h3>
-
-  <p>The configuration is defined by its topology and drive condition, not by its medium. Several physical realizations produce the same POAMS structure:</p>
-
-  <table>
-    <tr><th style="width:22%">Medium</th><th>Circulation carrier</th><th>Self-compression mechanism</th></tr>
-    <tr>
-      <td>Ionized fluid (plasma)</td>
-      <td>Mass-transport of charged carriers under EM forcing; poloidal circulation in a toroidal geometry</td>
-      <td>Axial-flow collision between opposed vortex rings; radial pressure at the shear plane</td>
-    </tr>
-    <tr>
-      <td>Counter-wound current coils</td>
-      <td>Coherent &hbar; ledger in the coil geometry (the coil is not a stage across which anything travels; the closed circuit organizes the coherent circulation once the exchange is complete)</td>
-      <td>Magnetic-field topology: opposed fields on the coaxial line lock into a compressed configuration</td>
-    </tr>
-    <tr>
-      <td>Superconducting coil pair</td>
-      <td>Supercurrent phase-locked by the condensate order parameter; long coherence length across the coil geometry</td>
-      <td>Flux quantization plus superconducting pinning; compression via mutual inductance control</td>
-    </tr>
-    <tr>
-      <td>Aligned outer-census ensemble in a shear configuration</td>
-      <td>Nuclear-closure or outer-census-closure coherent-AM alignment across a lattice (extant: nuclear or electronic spin polarization)</td>
-      <td>Field-gradient geometry produces the topological compression indirectly</td>
-    </tr>
-  </table>
-
-  <div class="card blue">
-    <p style="margin:0"><strong>Ontology hold.</strong> In none of these realizations does anything travel across a stage. There is no scout signal running out to check whether the geometry is complete. Where the extant model reads propagating carriers and finite-time signal delays, POAMS reads a proper-time exchange that completes when the geometry is closed, with the observer's apparent length/$c$ settling being the optical projection of that exchange onto their space-projection. See the <a class="xref" href="./the-receiver-keys-the-exchange.html">Receiver Keys the Exchange</a> for the two-ended reading. What is common across all four realizations above is exactly the same POAMS object: coherent &hbar; circulation organized by the geometry once the exchange completes.</p>
-  </div>
+  <div class="table-wrap"><table>
+    <tr><th>Proposed realization</th><th>Circulation to identify</th><th>Transition evidence needed</th></tr>
+    <tr><td>Driven fluid vortex pair</td><td>Tracked centerlines and a physical framing</td><td>Pre/post reconnection geometry; changed winding and action-rate entries</td></tr>
+    <tr><td>Counter-wound conducting or superconducting loops</td><td>Closed-circuit phase winding, distinguished from the wire centerlines</td><td>A physical winding-change event; changing inductance alone is not one</td></tr>
+    <tr><td>Aligned lattice ensemble</td><td>The phase and AM axes of the organized closures</td><td>Which entries reorient or change rate, rather than an assumed whole-body ribbon</td></tr>
+  </table></div>
+  <p>The common language is coherent circulation. The allowed reorganization, recovery time and participating set still belong to a particular realization. No signal running through a medium is introduced by requiring those observed facts.</p>
 </section>
 
 <!-- ============ §4 ============ -->
-<section>
-  <h2>&sect;4 &mdash; The Non-Perturbative Regime &mdash; Open Question</h2>
+<section id="sec-threshold">
+  <h2>&sect;4 — Threshold and domain: the finite transition ledger</h2>
 
-  <p>The pair coupling derived in &sect;2 is perturbative. Applied to any laboratory-realistic configuration, its magnitude at meter scales is small compared with the mass-mass pair term &mdash; consistent with the fact that Kerr / Lense-Thirring frame-dragging is a subtle effect at everyday distances.</p>
+  <h3>1. An integer is a state label, not a trigger</h3>
+  <p>A preserved $Lk$ does not creep through non-integer values until it “hits” the next integer. It remains the same integer throughout an admissible deformation. A genuine rejoining event can connect different topological sectors, but the linking identity supplies neither the drive value at which that happens nor a rule that every drive cycle must contain such an event.</p>
+  <p>Write $C$ for a finite configuration of circulation entries and $u$ for the imposed drive setting. Let $\mathcal B(C;u)$ be its action-rate cost in energy units, and let $\mathcal A(C;u)$ list the allowed re-filings. In the quasistatic, cost-minimizing case, local stability requires</p>
+  <div class="eq">$$\mathcal B(C';u)-\mathcal B(C;u)\geq0
+  \quad\text{for each }C'\in\mathcal A(C;u).$$</div>
+  <p>A lower-cost state alone does not guarantee immediate switching: an actual route, any barrier, and the driven state history must also be specified. This is the same finite-re-filing logic used in the Molecule, applied here as a research specification. The present Vortex Cores corpus supplies no complete $\mathcal B$, allowed-transition graph or drive/reset rule for the proposed apparatus.</p>
 
-  <h3>The fluid-dynamics analogy (instructive scaffolding)</h3>
+  <details>
+    <summary>A short proof that topology cannot select the drive threshold</summary>
+    <p>Consider integer-labelled states with costs $\mathcal B_k(u)=A(k-u/u_0)^2$, where $A&gt;0$ and $u_0&gt;0$. Adjacent costs cross at $u=(k+\tfrac12)u_0$. Every member of this family has the same integer labels, yet changing $u_0$ changes the crossing and changing $A$ changes its energy scale. A barrier can change the actual switching point further. These are counterexamples to uniqueness from integer labels alone, <strong>not fitted candidate laws for the device</strong>. A POAMS-specific cost and transition rule is what could select one member or exclude the entire family.</p>
+  </details>
 
-  <p>Counter-rotating vortex rings in a fluid undergo <em>reconnection</em> under compression: two vortex lines that come sufficiently close can locally exchange partners and rejoin, changing the total mutual linking number by an integer. This is a well-studied phenomenon in classical hydrodynamics and plasma physics.</p>
+  <h3>2. Price the change of rate, not the name of the topology</h3>
+  <p>For counted modes whose energies add as $\mathcal B_{\mathrm{modes}}=\hbar\sum_i n_i\omega_i$, the exact finite change is</p>
+  <div class="eq">$$\Delta\mathcal B_{\mathrm{modes}}
+  =\hbar\sum_i\left[\omega_i\Delta n_i+(n_i+\Delta n_i)\Delta\omega_i\right].$$</div>
+  <p>Any additional organization or pair term must be included once in the full cost. Released energy also depends on the work done by the drive during the transition. The special value $\hbar\omega_d=h\nu_d$ follows only when an actual single counted mode-step changes at that fixed rate, with the other terms accounted for. A change in a geometric linking integer does not establish those conditions or even require a nonzero change in the net AM vector.</p>
+  <p>The earlier assertion “every integer-$Lk$ crossing releases one $\hbar\omega_d$” is replaced by this conditional rate ledger. Quantized organization remains; a universal transition energy has not been derived.</p>
 
-  <p>Applied by analogy to a driven counter-rotating pair held stacked-not-merged: full merger is forbidden by the drive (would collapse $Lk_1 + Lk_2 \to 0$), but <em>edge reconnection</em> at the shear plane can change the mutual linking by $\pm 1$ without merging the rings. Each such reconnection is a discrete topology change: the system's Călugăreanu $Lk$ jumps by an integer at a specific drive threshold.</p>
-
-  <h3>The ledger-native description</h3>
-
-  <p>Beyond the analogy, POAMS gives the mechanism directly. The ledger reads only integer $Lk$: a fractional turn is not a smaller turn but no turn (per <a class="xref" href="./index.html">GROUNDING</a> &sect;1, discreteum). Between integer values, no valid closed-loop configuration exists. When a drive parameter carries the system across an integer boundary, the ledger must reorganize discretely &mdash; one whole additional $\hbar$-turn is either completed or un-completed in a single event.</p>
-
-  <p>By $E = L\omega$ (from <a class="xref" href="./mass-as-trapped-rate.html">Mass as Trapped Rate</a>), the energy signature of one such event is:</p>
-  <div class="eq">$$\Delta E_{Lk\text{-jump}} \;=\; \hbar \,\omega_{drive}$$</div>
-  <p>where $\omega_{drive}$ is the characteristic turn-rate of the driven configuration at the transition. This is the POAMS-native prediction: <strong>a single Călugăreanu integer-crossing event releases (or absorbs) one $\hbar\omega_{drive}$ quantum</strong>, discretely, at a well-defined drive threshold. Not a smooth response, not a perturbative shift &mdash; a discrete jump in the ledger's book.</p>
-
-  <h3>Numerical scale, and where the observability bar sits</h3>
-
-  <p>For a laboratory drive at $\omega_{drive} \sim$ GHz ($10^{10}$ Hz), a single event releases $\hbar\omega_{drive} \sim 10^{-24}$ J. Torsion balances are sensitive at approximately $10^{-12}$ J-scale accumulated over an integration window. A single event is undetectable by torsion balance; cumulative signatures require of order $10^{12}$ events per measurement window.</p>
-
-  <p>Two paths to observability:</p>
-  <ul>
-    <li><strong>High event rate.</strong> If each drive-parameter sweep across a threshold triggers many events (e.g. because the compression is dynamic and re-crosses the threshold at $\omega_{drive}$ rate), cumulative signature over a run duration could be observable.</li>
-    <li><strong>Multi-quantum reorganization.</strong> If a compressed coherent ensemble undergoes a cascade at threshold (one initial event triggering many sympathetic reorganizations across the ensemble), the effective jump per drive sweep is $N \cdot \hbar\omega_{drive}$ rather than a single quantum.</li>
-  </ul>
-
-  <h3>Coherent-domain amplification &mdash; the $N_{local}$ sharpening</h3>
-
-  <p>For a truly phase-coherent ensemble the reorganization is not per-closure but per-coherent-domain. When the drive crosses an integer-$Lk$ threshold, the whole coherent domain reorganizes simultaneously, and the single-event energy scales with the domain's closure count $N_{local}$:</p>
-
-  <div class="eq">$$\Delta E_{event} \;=\; N_{local} \cdot \hbar\,\omega_{drive}$$</div>
-
-  <p>For laboratory-realistic apparatus the range of $N_{local}$ spans many orders:</p>
-  <ul>
-    <li>Fluxon-scale local reorganization in a bulk superconductor: $N_{local} \sim 10^6$ &rarr; $\Delta E \sim 10^{-18}$ J per event. Below torsion-balance sensitivity ($10^{-12}$ J) but within reach of sensitive calorimetry.</li>
-    <li>Persistent-current-ring collective mode: $N_{local} \sim 10^{14}$ &rarr; $\Delta E \sim 10^{-10}$ J per event. Observable by torsion balance and by direct electrical detection.</li>
-    <li>Full-condensate reorganization in a coupled superconducting-coil pair: $N_{local} \sim 10^{20}$ &rarr; $\Delta E \sim 10^{-4}$ J per event. Macroscopically observable.</li>
-  </ul>
-
+  <h3>3. Phase agreement is not the number of changing entries</h3>
+  <p>A domain can be phase-aligned while only one entry changes, many entries change, or equal-and-opposite re-filings cancel in a particular observable. Define the active set from the actual transition:</p>
+  <div class="eq">$$\mathcal P=\{i:\text{entry }i\text{ changes in }C\to C'\},
+  \qquad N_{\mathrm{act}}=|\mathcal P|.$$</div>
+  <p>The former $N_{\mathrm{local}}\hbar\omega_d$ estimate is recovered only if all $N_{\mathrm{act}}$ participating entries release the same one-step energy at the same rate, and no other cost changes. Then $E_{\mathrm{event}}=N_{\mathrm{act}}h\nu_d$. <strong>Coherence can organize a collective event; it does not establish that counting rule.</strong> The former $10^6$–$10^{20}$ domain assignments were examples, not derived populations of the proposed devices.</p>
   <div class="card gold">
-    <p><strong>Sharpened experimental signature.</strong> As the drive parameter is swept continuously, the observable is not a smooth response but a <em>stair-step</em>: energy released in discrete quantized jumps at specific drive values corresponding to C&#259;lug&#259;reanu integer-$Lk$ boundaries. Between crossings, response is smooth and Kerr-perturbative. At each crossing, a discrete $N_{local}\hbar\omega_{drive}$ event fires. The stair-step signature is distinctive from any perturbative-Kerr expectation; if observed, it confirms the non-perturbative mechanism and its $N_{local}$ pins the coherent-domain size at the transition.</p>
+    <p><strong>A closure target, not three independent knobs.</strong> Supply one explicit driven transition: its before/after circulation census, permitted re-filing, action-rate cost and recovery path. That record determines which entries participate and the event energy. It must also name the external co-signer before it can predict a whole-apparatus impulse. None of these quantities may be chosen to hit a force target.</p>
   </div>
-
-  <div class="caveat">
-    <span class="tag open">OPEN</span> The single-event mechanism is derived and predicts jumps at Călugăreanu integer crossings with magnitude $\hbar\omega_{drive}$ per event. Whether laboratory-realistic apparatus accumulates enough events for torsion-balance detection, or whether cascade dynamics amplify the effect at threshold, remains open. Both are POAMS-native questions with predictable answers; neither is answered here.
-  </div>
-
-  <h3>A modern experimental test</h3>
-
-  <p>Two counter-wound superconducting coils, coaxially mounted stacked-not-merged, with controllable mutual inductance driving the pair's effective $Lk$ across integer values under a GHz-scale AC drive. Two complementary instrumentation channels:</p>
-  <ul>
-    <li><strong>Microwave-frequency calorimetry</strong> at the shear plane, looking for $\hbar\omega_{drive}$-scale energy exchange coincident with drive-parameter passage through integer-$Lk$ thresholds. Tests the single-event mechanism directly.</li>
-    <li><strong>Torsion-balance instrumentation</strong> above the assembly, integrating over long runs, looking for cumulative or cascade-amplified signatures. Tests the multi-event / cascade hypothesis.</li>
-  </ul>
-  <p>A positive signal at either channel with the predicted threshold structure confirms the non-perturbative mechanism. A null at both, given adequate instrumentation floors, bounds the amplification factor and forces POAMS to reduce to perturbative $\alpha = -2$ gravitomagnetism at all accessible scales.</p>
 </section>
 
 <!-- ============ §5 ============ -->
-<section>
-  <h2>&sect;5 &mdash; The Self-Coupling Case: Intrinsic-Plus-Orbital Mixed Pair</h2>
+<section id="sec-continuous">
+  <h2>&sect;5 — Continuous intrinsic-plus-orbital coupling</h2>
+  <p>The previous proposal extends the two-body kernel to a body's intrinsic coherent AM and its own orbital AM relative to a specified partner:</p>
+  <div class="eq">$$V_{\mathrm{mix}}=-\frac{2G}{c^2}
+  \frac{\vec L_{\mathrm{coh}}\cdot\vec L_{\mathrm{orb}}}{r^3}.$$</div>
+  <p>This is an additional mixed-coupling assumption, not a consequence of relabelling twist and writhe as two independent bodies. In the inherited intrinsic-spin channel, parallel alignment corresponds to the heavier sign and antiparallel to the lighter sign; a writhe deposit is a different channel. A rotational scalar is invariant under a common rotation of the axes, not proof of independence from every observer or orbital choice. Position alone does not pick a unique natural-orbit plane.</p>
 
-  <p>The pair coupling derived in &sect;2 was for two bodies each carrying coherent angular momentum, both at some separation $r$. The same C&#259;lug&#259;reanu + two-endedness machinery applies to a distinct configuration of physical importance: <strong>a single body carrying an intrinsic (pumped) coherent-AM $\vec{L}_{coh}$ while also possessing an orbital-AM $\vec{L}_{orb}^{nat}$ of its own natural orbit around a nearby mass sink.</strong> This is the self-coupling case &mdash; the body's intrinsic circulation reading its own orbital circulation through the shared ledger.</p>
-
-  <h3>The derivation carries through</h3>
-
-  <p>Both $\vec{L}_{coh}$ (intrinsic, twist-account per <a class="xref" href="./index.html">GROUNDING</a> &sect;2) and $\vec{L}_{orb}^{nat}$ (orbital, writhe-account) are C&#259;lug&#259;reanu quantities of the same body. The pair-invariant argument of &sect;2 &mdash; only $Lk_1 \cdot Lk_2$ survives the C&#259;lug&#259;reanu constraint &mdash; applies unchanged. Both endpoints of the &ldquo;exchange&rdquo; are on the same body (twist and writhe of one closure structure), so two-endedness (per <a class="xref" href="./the-receiver-keys-the-exchange.html#sec-pair-lagrangian">Receiver Keys &sect;7</a>) applies exactly as in the two-body case &mdash; the same factor of 2, from the same self-referential-geometry argument that gives $g_S = 2$ in <a class="xref" href="./lande-from-twist-writhe.html">Land&eacute; &sect;4</a>.</p>
-
-  <p>The self-coupling potential:</p>
-
-  <div class="eq">$$V_{mix} \;=\; -\frac{2G}{c^2} \cdot \frac{\vec{L}_{coh} \cdot \vec{L}_{orb}^{nat}}{r^3}$$</div>
-
-  <p>evaluated at the body's location $r$ from the mass sink (e.g., Earth's centre). Same coefficient as the two-body case; same sign convention; same Bertrand-preservation at long range. What differs: the two vectors $\vec{L}_{coh}$ and $\vec{L}_{orb}^{nat}$ live on the same body, and their relative orientation is an engineering degree of freedom of the device rather than a fact about two distant sources.</p>
-
-  <h3>Sign structure by <a class="xref" href="./varying-g.html">Varying G</a> App-5</h3>
-
-  <table>
-    <tr><th>Orientation of $\vec{L}_{coh}$ relative to $\vec{L}_{orb}^{nat}$</th><th>App-5 reading</th><th>Weight</th></tr>
-    <tr><td>Co-aligned (parallel)</td><td>Natural orbit tightens; $r_0$ contracts</td><td>Heavier</td></tr>
-    <tr><td>Anti-aligned (antiparallel)</td><td>Natural orbit loosens; $r_0$ expands</td><td>Lighter</td></tr>
-    <tr><td>Perpendicular</td><td>No first-order shift</td><td>Unchanged at leading order</td></tr>
-  </table>
-
-  <p>The vector alignment is with $\vec{L}_{orb}^{nat}$ &mdash; the natural-orbit angular-momentum vector at the body's location, which is perpendicular to the radial and to the tangential-velocity of the natural orbit. At Earth's equator this axis is parallel to Earth's rotation axis; at general latitude it is the axis of the great-circle natural orbit through the body's location. Not radial.</p>
-
-  <h3>Frame independence</h3>
-
-  <p>$\vec{L}_{coh} \cdot \vec{L}_{orb}^{nat}$ is a scalar in the body's rest frame; both vectors are properties of the body's own configuration and location in the nexus. Observer motion state, external field configurations, and choice of inertial frame do not enter. The weight modification is a property of the body's own configuration relative to the local nexus &mdash; frame-independent by construction.</p>
-
-  <h3>Scaling and observability</h3>
-
-  <p>Fractional weight change is the fractional shift in gravitational acceleration produced by the additional $V_{mix}$ potential. The effective gravitational acceleration is $g_{eff} = -\partial_r V_{total}/M$, so $\Delta g = -\partial_r V_{mix}/M$. Taking $\partial_r(1/r^3) = -3/r^4$ and dividing by the standard $g = GM_\oplus/R_\oplus^2$:</p>
-
-  <div class="eq">$$\frac{\Delta g}{g} \;=\; \frac{6\, |\vec L_{coh}\!\cdot\!\vec L_{orb}^{nat}|}{c^2\, R_\oplus^{\,2}\, M\, M_\oplus} \;=\; \beta \cdot \frac{6\, G M}{c^2\, R_\oplus}, \qquad \beta \equiv \frac{|\vec L_{coh}|}{|\vec L_{orb}^{nat}|}$$</div>
-
-  <p>For $M = 1$ kg at Earth's surface, $|\vec L_{orb}^{nat}| = M\sqrt{GM_\oplus R_\oplus} \approx 5.04\times10^{10}$ J&middot;s, and the compounding factor is $6GM/(c^2R_\oplus) \approx 7\times10^{-34}$. Both matter: $\beta$ scales with achievable pumped-AM, and the compounding factor sets the magnitude ceiling from the local gravitational-potential well.</p>
-
-  <p>Numerical estimates at laboratory-achievable pumped-AM levels ($M = 1$ kg, $r = R_\oplus$):</p>
-
-  <table>
-    <tr><th>$|\vec{L}_{coh}|$ achievable</th><th>$\beta$</th><th>$\Delta g/g$</th><th>Weight change on 1 kg</th></tr>
-    <tr><td>$10^3$ J&middot;s (modest superconducting coil)</td><td>$2\times 10^{-8}$</td><td>$\sim 1.4\times 10^{-41}$</td><td>$\sim 1.4\times 10^{-38}$ g</td></tr>
-    <tr><td>$10^5$ J&middot;s (large SC apparatus)</td><td>$2\times 10^{-6}$</td><td>$\sim 1.4\times 10^{-39}$</td><td>$\sim 1.4\times 10^{-36}$ g</td></tr>
-    <tr><td>$10^7$ J&middot;s (extreme SC apparatus)</td><td>$2\times 10^{-4}$</td><td>$\sim 1.4\times 10^{-37}$</td><td>$\sim 1.4\times 10^{-34}$ g</td></tr>
-  </table>
-
-  <p>Torsion-balance sensitivity is around $10^{-9}$ g. <strong>None of the tabulated regimes reach detection threshold under the continuous-coupling scaling</strong>; the magnitude gap is 25&ndash;30 orders. The qualitative mechanism (frame-independent, orientation-selectable weight modification through the self-coupled pair-invariant) is a real POAMS-native consequence of the &sect;2 machinery, but observability of the &sect;5 continuous effect requires an amplification path this section does not supply.</p>
-
-  <div class="caveat">
-    <span class="tag open">OPEN &mdash; AMPLIFICATION</span> <strong>Continuous-effect observability.</strong> The &sect;4 discrete regime achieves observable event energies through coherent-domain amplification ($N_{local}$ sharpening; $10^6$&ndash;$10^{20}$ per macroscopic reorganization). Whether an analogous mechanism boosts the &sect;5 continuous self-coupling into laboratory range &mdash; or whether the continuous effect is intrinsically sub-threshold at present pumping levels &mdash; is not established here. Bare pumped-AM scaling puts the effect ~30 orders below torsion-balance sensitivity; identifying (or ruling out) a continuous $N_{local}$-style amplifier is the open front for this section.
+  <h3>The inherited scale, with its derivative convention stated</h3>
+  <p>Hold the two AM vectors fixed when differentiating with respect to $r$, and then evaluate on a circular reference orbit, $L_{\mathrm{orb}}=M\sqrt{GM_\oplus R_\oplus}$. For parallel or antiparallel axes the magnitude is</p>
+  <div class="eq">$$\frac{|\Delta g|}{g}
+  =\frac{6|\vec L_{\mathrm{coh}}\cdot\vec L_{\mathrm{orb}}|}
+  {c^2R_\oplus^2MM_\oplus}
+  =\beta\frac{6GM}{c^2R_\oplus},
+  \qquad\beta=\frac{L_{\mathrm{coh}}}{L_{\mathrm{orb}}}.$$</div>
+  <p>For other orientations include $|\cos\theta|$. Here the remaining $M$ is the <strong>device mass</strong>, not Earth's mass. For $M=1$ kg, $L_{\mathrm{orb}}=5.04\times10^{10}$ J·s and $6GM/(c^2R_\oplus)=6.99\times10^{-34}$. Substituting the varying circular-orbit expression before differentiating instead changes the coefficient from 6 to 5; it does not remove the suppression. The actual constrained path would have to be selected by a completed device model.</p>
+  <div class="table-wrap"><table>
+    <tr><th>Assumed $L_{\mathrm{coh}}$ (J·s)</th><th>$|\Delta g|/g$</th><th>Mass-equivalent change on 1 kg</th></tr>
+    <tr><td>$10^3$</td><td>$1.39\times10^{-41}$</td><td>$1.39\times10^{-38}$ g</td></tr>
+    <tr><td>$10^5$</td><td>$1.39\times10^{-39}$</td><td>$1.39\times10^{-36}$ g</td></tr>
+    <tr><td>$10^7$</td><td>$1.39\times10^{-37}$</td><td>$1.39\times10^{-34}$ g</td></tr>
+  </table></div>
+  <p>These are assumed AM values, <strong>not demonstrated superconducting-coil capabilities</strong>. Against the earlier illustrative $10^{-9}$ g mass-equivalent target, the deficits are about 25–29 orders of magnitude. Actual sensitivity is instrument- and bandwidth-dependent. The result applies to this carried kernel and these inputs, not to every possible POAMS coupling.</p>
+  <div class="card blue">
+    <p><strong>The continuous shortcut is closed within this model.</strong> Its macroscopic $L_{\mathrm{coh}}$ already sums the coherent entries. Adding their count again cannot cure the deficit. A larger measured AM, a genuinely different derived coupling or a derived change of the natural-orbit constraint would be new physical input; an unexplained multiplier is not.</p>
   </div>
+</section>
+
+<section id="sec-5b">
+  <h2>&sect;5B — Whole-apparatus impulse: the counterpart and power budget</h2>
+
+  <h3>Internal reorganization versus external exchange</h3>
+  <p>Include the complete test assembly in the device ledger. An exchange wholly inside that boundary has cancelling endpoint momentum entries. For an event that changes the device's net momentum, the balancing entry is external:</p>
+  <div class="eq">$$\Delta\vec p_{\mathrm{device}}+
+  \sum_b\Delta\vec p_{\mathrm{counterpart},b}=0.$$</div>
+  <p>The counterpart might be a support, the drive apparatus, another body, or a specified exchange with the wider Nexus. Naming it is not adding a medium or a traveller. <strong>“The Nexus” is not a numerical momentum law:</strong> its receiving circulation and the signed entry still have to be derived or measured. A balanced, isolated internal cycle supplies no net device impulse. A cycle exchanging momentum externally is a different, open ledger.</p>
+  <p>If the entire driven configuration and its environment are symmetric under reversal of the measurement axis, the corresponding mean directional impulse is zero. Opposite circulation senses alone do not establish an axial imbalance. An asymmetric drive or external partner can break that symmetry; its effect is then part of the calculation, not a freely assigned fraction.</p>
+
+  <h3>The particular one-way exchange channel proposed earlier</h3>
+  <p><a class="xref" href="./mass-as-trapped-rate.html">Mass as Trapped Rate</a> uses the one-way transaction bill $p=E/c$. Conditional on that channel, let $E_b\geq0$ be the energy transferred to external counterpart $b$, and $\hat n_b$ its momentum direction in the observer's chart. For the measured axis $\hat z$,</p>
+  <div class="eq">$$I_z=-\frac1c\sum_bE_b\,\hat n_b\cdot\hat z
+  =\eta\frac{E_{\mathrm{out}}}{c},
+  \qquad |\eta|\leq1.$$</div>
+  <p>$\eta$ is the signed directional imbalance of the <em>outgoing exchange</em>, not simply the fraction of energy that is “not heat.” Equal opposite exchanges give $\eta=0$ even when the entire domain acts together. Here $c$ converts energy and momentum units; the calculation does not introduce travelling light.</p>
+  <p>Over a recorded interval $T$, sum the actual event impulses. For repeated equal events with mean rate $R$ and fixed $\eta$,</p>
+  <div class="eq">$$\overline F_z=\frac1T\sum_e I_{z,e}
+  =R\eta\frac{E_{\mathrm{event}}}{c}
+  =\eta\frac{P_{\mathrm{out}}}{c}.$$</div>
+  <p>The force here is this channel's contribution. Incoming drive momentum, supports and other exchanges must be added before calling it a net measured force. Mechanical transfer to a support, massive-counterpart exchange and a changed natural-orbit constraint need their own laws: <strong>$P/c$ is not a universal upper bound on all forces or all POAMS weight effects.</strong></p>
+
+  <h3>Collectivity at fixed power and directionality</h3>
+  <p>Even granting the favorable equal-gap assumption,</p>
+  <div class="eq">$$E_{\mathrm{event}}=q\,h\nu_d,\qquad
+  R=\frac{P_{\mathrm{out}}}{q\,h\nu_d}
+  \quad\Longrightarrow\quad
+  \overline F_z=\eta\frac{P_{\mathrm{out}}}{c}.$$</div>
+  <p>$q$ counts actual released equal-gap steps; it is not automatically the domain population. Increasing $q$ at fixed exchanged power and $\eta$ increases each impulse and decreases its repetition rate in inverse proportion. It can improve a detector's ability to resolve an event, but cannot supply an extra factor in the mean momentum budget. Coherence could also change the actual directionality $\eta$; that would be a separately derived change in the angular distribution, not an additional domain multiplier.</p>
+  <p>The finite energy book must also close:</p>
+  <div class="eq">$$E_{\mathrm{out},T}+E_{\mathrm{other},T}
+  =W_{\mathrm{in},T}+\mathcal B_{\mathrm{start}}-\mathcal B_{\mathrm{end}}.$$</div>
+  <p>All external energy inputs belong in $W_{\mathrm{in},T}$, and all other outputs in $E_{\mathrm{other},T}$. A transient can spend stored rate-energy. Repeated sustained operation must restore it: for a cycle returning to the same state, outward power in this channel cannot exceed total supplied power. Coherence is organization of that book, not an extra energy entry.</p>
+
+  <div class="card" id="budget-calculator" aria-labelledby="budget-title">
+    <h3 id="budget-title">Explore the conditional budget</h3>
+    <p>Assume a 10 GHz equal-gap channel. Change the energy grouped into each event: its rate changes, while the mean force stays fixed at a given exchanged power and directional imbalance. These controls illustrate an identity; they do not predict a domain size or attainable event rate.</p>
+    <div class="budget-controls">
+      <label for="budget-power">Outgoing exchange power: <output id="budget-power-label" for="budget-power">6 W</output>
+        <input id="budget-power" type="range" min="-3" max="3" step="any" value="0.7781512504">
+      </label>
+      <label for="budget-count">Equal-gap steps per event: <output id="budget-count-label" for="budget-count">10²⁰</output>
+        <input id="budget-count" type="range" min="0" max="20" step="1" value="20">
+      </label>
+      <label for="budget-eta">Signed directional imbalance: <output id="budget-eta-label" for="budget-eta">0.50</output>
+        <input id="budget-eta" type="range" min="-1" max="1" step="0.01" value="0.5">
+      </label>
+    </div>
+    <div class="budget-results" aria-live="polite" aria-atomic="true">
+      <div>Event energy<strong id="budget-energy">0.663 mJ</strong></div>
+      <div>Required event rate<strong id="budget-rate">9.06 × 10³ /s</strong></div>
+      <div>Signed event impulse<strong id="budget-impulse">1.11 × 10⁻¹² N·s</strong></div>
+      <div>Mean channel force<strong id="budget-force">1.00 × 10⁻⁸ N</strong></div>
+    </div>
+    <p class="caveat">A symmetric exchange ($\eta=0$) has zero mean directional force, whatever the event size. Calculated rates may be unattainable; no transition or recovery-time model is implied.</p>
+  </div>
+
+  <h3>Corrected numerical scale</h3>
+  <p>At $\nu_d=10^{10}$ Hz (10 GHz), one fixed-rate step is $h\nu_d=6.6261\times10^{-24}$ J. Under the <em>assumed</em> $q=10^{20}$ equal-gap steps, $E_{\mathrm{event}}=6.6261\times10^{-4}$ J. With $\eta=0.5$:</p>
+  <div class="table-wrap"><table>
+    <tr><th>Assumed event rate</th><th>Required $P_{\mathrm{out}}$</th><th>Conditional channel force</th></tr>
+    <tr><td>$10^3$ /s</td><td>$0.663$ W</td><td>$1.11\times10^{-9}$ N</td></tr>
+    <tr><td>$10^6$ /s</td><td>$663$ W</td><td>$1.11\times10^{-6}$ N</td></tr>
+    <tr><td>$10^9$ /s</td><td>$663$ kW</td><td>$1.11\times10^{-3}$ N</td></tr>
+  </table></div>
+  <p>The high-rate row requires hundreds of kilowatts in this outward channel; it is not evidence that a laboratory assembly supplies that power or event rate. Independently of grouping, a $10^{-8}$ N channel force at $\eta=0.5$ requires about <strong>6 W of outward exchange power</strong>. A $10^{-9}$ gram mass-equivalent signal corresponds instead to $9.80665\times10^{-12}$ N at standard $g$, and would require about 5.88 mW under the same directional assumption. These are different reference levels, not universal instrument floors.</p>
+  <details>
+    <summary>What changed from the September 12 table</summary>
+    <p>The old table's own rounded $E_{\mathrm{event}}=10^{-4}$ J gives forces $1.67\times10^{-10}$, $1.67\times10^{-7}$ and $1.67\times10^{-4}$ N at its three rates — approximately 1,000 times its printed values. Separately, it labelled $\omega_d=10^{10}$ “Hz” while multiplying by $\hbar$. Choosing 10 GHz consistently means $h\nu_d$, a further factor of $2\pi$ compared with $\hbar$ times $10^{10}$ rad/s. The corrected table separates those two repairs and exposes the previously omitted power bill.</p>
+  </details>
+
+  <h3>What an instrument could distinguish</h3>
+  <p>Energy, force and impulse cannot be compared to one generic torsion-balance “sensitivity.” The mechanical transfer function, bandwidth, geometry and integration time matter. A slow balance does not resolve each GHz event: it may register a mean or a deliberately slow envelope within its calibrated band. Phase-locking is useful but does not exclude heating, vibration or ordinary drive-coupled forces that follow the same modulation.</p>
+  <p>The concrete test is a predeclared before/after circulation change, independently counted event energy and recovery, a signed impulse at a specified counterpart, and a calibrated balance channel. Reversing the relevant asymmetry and accounting for drive/support exchange distinguishes that channel from a claimed change in the natural-orbit constraint. A burst alone is not such a distinction.</p>
+</section>
+
+<!-- ============ §6 ============ -->
+<section id="sec-status">
+  <h2>&sect;6 — What is settled, and the remaining “unless”</h2>
+  <div class="table-wrap"><table>
+    <tr><th>Question</th><th>Result of this inquiry</th></tr>
+    <tr><td>Does integer linking set the trigger?</td><td><span class="tag claim">SETTLED LIMIT</span>No. A physical transition graph and driven action-rate cost are missing; the integer alone fixes neither.</td></tr>
+    <tr><td>Does phase coherence supply $N_{\mathrm{local}}$?</td><td><span class="tag claim">SETTLED LIMIT</span>No. Count entries in the actual transition. Equal-step, whole-domain participation is a conditional case.</td></tr>
+    <tr><td>Can an extra domain multiplier rescue the continuous kernel?</td><td><span class="tag claim">CLOSED IN MODEL</span>No. The macroscopic AM already contains that sum. The carried estimates remain sub-threshold.</td></tr>
+    <tr><td>Can a purely internal cycle supply net device impulse?</td><td><span class="tag claim">SETTLED LIMIT</span>No. The opposite endpoint entries cancel. A directional device response requires an external momentum entry.</td></tr>
+    <tr><td>Can larger events increase mean one-way recoil at fixed power and directionality?</td><td><span class="tag claim">CLOSED IN CHANNEL</span>No. $\overline F_z=\eta P_{\mathrm{out}}/c$; grouping changes event size and rate.</td></tr>
+    <tr><td>Can there be measurable collective exchange?</td><td><span class="tag open">CONDITIONAL</span>Yes, if actual transitions, supplied power, directional counterparts and readout bandwidth satisfy the stated budget. No apparatus prediction is delivered here.</td></tr>
+    <tr><td>Has weight modification been derived from those events?</td><td><span class="tag open">OPEN</span>No. A derived natural-orbit/support-reaction law is a separate requirement; a recoil budget does not replace it.</td></tr>
+  </table></div>
 
   <div class="card gold">
-    <p><strong>What &sect;5 establishes.</strong> A frame-independent, orientation-selectable, POAMS-native pair-invariant coupling between a body's intrinsic pumped $\vec{L}_{coh}$ and its own natural-orbit $\vec{L}_{orb}^{nat}$. The qualitative sign structure follows from the &sect;2 coefficient and the Varying G phenomenology; the closed-form magnitude at current pumping levels sits ~30 orders below torsion-balance sensitivity absent an amplifier. Engineering embodiments (counter-wound superconducting coil pair oriented anti-parallel to $\vec{L}_{orb}^{nat}$ at the device's latitude; alternative embodiments in any medium supporting macroscopic coherent-AM) are matters of apparatus design; their observability rests on the open amplification question above, not on additional theoretical commitment.</p>
+    <p><strong>The “unless,” in plain language.</strong> Not “unless enough turns do it together.” Rather: <em>unless a specified collective change can post a measurable directional entry against a specified external counterpart, with the full energy and momentum books balanced.</em> The work has narrowed the claim, not ruled out that experiment. A derived alteration of the natural-orbit constraint would be a distinct route with its own calculation.</p>
+    <p><strong>The next admissible step.</strong> Choose one actual driven circulation and supply its finite transition law: before/after organization, trigger and reset, changed rate-energy, and the counterpart's signed momentum. That is one physical record to compute or measure, not three numbers to adjust. Without it, another sweep of domain sizes and event rates would only redraw the same conditional table.</p>
   </div>
-
-  <h3 id="sec-5b">&sect;5B &mdash; Framework proposal: discrete center-of-mass reorganization events</h3>
-
-  <p>The continuous scaling above puts $\Delta g/g$ ~30 orders below torsion-balance sensitivity for laboratory-achievable pumped-AM. This subsection sketches a POAMS-native <em>alternative</em> observability path via discrete center-of-mass reorganization events &mdash; analogous to &sect;4's discrete C&#259;lug&#259;reanu integer-crossing regime, applied at the whole-body scale rather than to internal-spin dynamics. This is a <strong>research framework</strong>, not a CLAIMED result; the three derivation gaps at the end name exactly what has to close before the framework can be tested empirically.</p>
-
-  <div class="card">
-    <p><strong>Framework.</strong> As pumped $L_{coh}$ is driven at frequency $\omega_{\text{drive}}$, the body's whole coherent-AM state passes through discrete topological thresholds &mdash; fluxon reorganizations in a superconductor, vortex-line reconnections in a superfluid, or the analogous discrete topological transition in the pumping medium. At each threshold crossing, an $N_{local}$-amplified discrete event occurs (per &sect;4's mechanism, now transferred from internal-spin to whole-body scope), releasing energy</p>
-    <div class="eq">$$E_{\text{event}} \;\sim\; N_{local} \cdot \hbar\omega_{\text{drive}}.$$</div>
-    <p>The observable is a <em>time-varying</em> force at the event rate, not a steady weight offset. Under directional recoil (event energy released as coherent momentum in a preferred direction rather than isotropic heat), the time-averaged force is</p>
-    <div class="eq">$$F_{\text{recoil}} \;\sim\; R_{\text{event}} \cdot f \cdot \frac{E_{\text{event}}}{c}, \qquad R_{\text{event}} \;=\; \omega_{\text{drive}} \cdot n_{\text{threshold}},$$</div>
-    <p>where $R_{\text{event}}$ is the event rate (pumping frequency times per-cycle threshold-crossing density $n_{\text{threshold}}$) and $f \in [0,1]$ is the fraction of event energy released as directional momentum.</p>
-  </div>
-
-  <p><strong>Numerical estimate under specific assumptions.</strong> For a driven superconducting apparatus with $\omega_{\text{drive}} = 10^{10}$ Hz, $N_{local} = 10^{20}$ (fluxon-scale collective mode, per &sect;4), and $E_{\text{event}} = N_{local}\,\hbar\omega_{\text{drive}} \sim 10^{-4}$ J per event:</p>
-
-  <table>
-    <tr><th>Event rate $R_{\text{event}}$</th><th>Directional fraction $f$</th><th>Predicted $F_{\text{recoil}}$</th><th>vs. torsion sensitivity ($\sim 10^{-8}$ N)</th></tr>
-    <tr><td>$10^{3}$ Hz (moderate)</td><td>$0.5$</td><td>$\sim 1.7\times 10^{-13}$ N</td><td>~5 orders below</td></tr>
-    <tr><td>$10^{6}$ Hz (high)</td><td>$0.5$</td><td>$\sim 1.7\times 10^{-10}$ N</td><td>~2 orders below</td></tr>
-    <tr><td>$10^{9}$ Hz (extreme)</td><td>$0.5$</td><td>$\sim 1.7\times 10^{-7}$ N</td><td>~1 order <em>above</em></td></tr>
-  </table>
-
-  <p>Unlike the continuous scaling, the discrete framework has parameter regimes where the signal reaches or exceeds torsion sensitivity. The predicted signal is a <em>time-varying force at the event rate</em>, distinguishable from a steady weight offset by frequency-domain filtering, and distinguishable from thermal noise by phase-locking to $\omega_{\text{drive}} \cdot n_{\text{threshold}}$.</p>
-
-  <div class="caveat">
-    <span class="tag open">OPEN &mdash; RESEARCH FRAMEWORK (three derivation gaps)</span>
-    <ol>
-      <li><strong>Threshold trigger.</strong> A POAMS-native derivation of <em>when</em> whole-body C&#259;lug&#259;reanu reorganizations trigger &mdash; at each fluxon reconnection, at fluxon-count integer crossings, at some other topological threshold. The C&#259;lug&#259;reanu invariant that governs whole-body reorganization has to be identified from the body's total coherent-AM state, not just by analogy to internal-spin dynamics. &sect;4's non-perturbative-regime OPEN is the natural home for this derivation.</li>
-      <li><strong>$N_{local}$ scaling law at whole-body scale.</strong> &sect;4 uses $N_{local} \sim 10^6$&ndash;$10^{20}$ for internal reorganizations. Whether the same $N_{local}$ applies at whole-body scale &mdash; or whether coherent participation across the body gives a different (possibly larger, possibly saturating) scaling &mdash; is not established. The event-energy estimates above assume the &sect;4 $N_{local}$; the derivation gap is whether that transfer is legitimate.</li>
-      <li><strong>Directional-fraction $f$ from POAMS.</strong> The recoil-conversion fraction $f$ is treated here as a phenomenological parameter. A first-principles derivation would fix $f$ from the geometry of the coherent-domain reorganization and the medium's radiation-coupling structure. Values $f \ll 1$ (mostly isotropic heat) push the whole framework back below sensitivity; values $f \sim 1$ deliver the observable regime tabulated above.</li>
-    </ol>
-  </div>
-
-  <div class="card blue">
-    <p><strong>What the framework changes about &sect;5's overall status.</strong> The continuous scaling remains as derived and remains ~30 orders below sensitivity &mdash; unchanged. The discrete framework, <em>if</em> the three gaps close, provides an <em>alternative</em> observability path with a distinct predicted signature: discrete force impulses at the pumping-rate frequency rather than a steady weight offset. Experimental test would be pumping-rate-locked force detection on a driven superconducting apparatus. Framework upgrade to CLAIMED requires closing the three gaps above; until then, this section names the research target, not the delivery.</p>
-  </div>
-
-  <h2>&sect;6 &mdash; What is Claimed, What Remains Open</h2>
-
-  <div class="card gold">
-    <p><span class="tag claim">CLAIMED</span> <strong>The coherent-AM pair coupling term.</strong> Structural derivation from the C&#259;lug&#259;reanu constraint on a rotational-invariant scalar pair Lagrangian yields the $-2(G/c^2)\vec{L}_1 \cdot \vec{L}_2 / r^3$ term, Bertrand-preserved, matching GR Lense-Thirring at leading order, matching the corpus varying-G phenomenology, testable against Gravity Probe B.</p>
-
-    <p><span class="tag claim">CLAIMED</span> <strong>The counter-rotating self-compressing circulation pair as a distinguished POAMS configuration.</strong> Four combined properties &mdash; compressed coherent-AM density, engineered $Lk$ topology, both twist and writhe present, drive-maintained &mdash; hold in every medium supporting coherent &hbar; circulation. The configuration is medium-independent.</p>
-
-    <p><span class="tag claim">CLAIMED</span> <strong>Self-coupling: intrinsic coherent-AM interacting with the same body's natural-orbit vector (&sect;5, qualitative).</strong> The pair-invariant machinery of &sect;2 extends to the mixed intrinsic-plus-orbital case with the same coefficient $-2G/c^2$, same sign convention, same Bertrand-preservation. Sign is selectable by orientation of $\vec{L}_{coh}$ relative to the natural-orbit vector; the coupling is frame-independent by construction. <em>Magnitude at present pumping levels is ~30 orders below torsion-balance sensitivity</em> (see &sect;5 table); observability requires a continuous $N_{local}$-style amplifier that this exhibit does not supply &mdash; flagged OPEN.</p>
-  </div>
-
-  <div class="card blue">
-    <p><span class="tag claim">CLAIMED</span> <strong>The two-endedness &rarr; factor-of-2 argument (&sect;2).</strong> Formalized in <a class="xref" href="./the-receiver-keys-the-exchange.html#sec-pair-lagrangian">The Receiver Keys the Exchange &sect;7</a>: pair-invariant couplings escape the standard halving convention, and $\alpha = -2$ derives from two-endedness plus C&#259;lug&#259;reanu invariance without fitted parameters.</p>
-
-    <p><span class="tag open">OPEN</span> <strong>The observability path for Călugăreanu integer-crossing events (&sect;4).</strong> The single-event mechanism is derived ($\Delta E = \hbar\omega_{drive}$ per event). Whether cumulative or cascade amplification brings it into torsion-balance range, or whether microwave calorimetry is the natural single-event detector, is the second follow-up. The apparatus for both paths is described.</p>
-  </div>
-
-  <p style="margin-top:22px">This exhibit does not depend on any specific historical experiment for its content. Configurations approximating the geometry above have been attempted in several eras and jurisdictions under a range of interpretive frameworks. Their reports, positive and negative, are not evidence in this exhibit's argument. The claim is theoretical: POAMS predicts this pair-coupling term and identifies this configuration as the geometry that engineers its non-perturbative test. The experimental settlement is future work.</p>
+  <p>The proposed conducting, superconducting, fluid and lattice embodiments remain research candidates. Nothing here claims they have achieved a weight change. The scope is the amplification inference, not a general verdict on the wider Normal Realism / POAMS program.</p>
+  <p class="caveat">Calculation record: <a class="xref" href="./scripts/vortex_amplification_audit.py">vortex_amplification_audit.py</a> — finite counterexamples, sum identities, frequency conventions, corrected tables and readout example. Earlier proposal preserved in <a class="xref" href="https://github.com/cfmilam/nr-poams-exhibits/blob/11f6818/counter-rotating-circulation-pair.html">the pre-inquiry version</a>. Updated 2026-09-14.</p>
 </section>
 
 </main>
@@ -458,7 +388,51 @@ function toggleTheme(){
     document.body.classList.add('light');
     document.querySelector('.theme-toggle').textContent = '🌙';
   }
+  try{localStorage.setItem('poams-theme',isLight?'dark':'light');}catch(e){}
 }
+try{
+  var savedTheme=localStorage.getItem('poams-theme');
+  if(savedTheme==='dark'){
+    document.documentElement.setAttribute('data-theme','dark');
+    document.querySelector('.theme-toggle').textContent='☀️';
+  }
+}catch(e){}
+(function(){
+  var power=document.getElementById('budget-power');
+  var count=document.getElementById('budget-count');
+  var eta=document.getElementById('budget-eta');
+  var superscript={'-':'⁻','0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹'};
+  function exponent(n){return String(n).split('').map(function(c){return superscript[c]||c;}).join('');}
+  function scientific(x){
+    if(x===0)return '0';
+    var parts=x.toExponential(2).split('e');
+    return parts[0]+' × 10'+exponent(Number(parts[1]));
+  }
+  function set(id,value){document.getElementById(id).textContent=value;}
+  function update(){
+    var P=Math.pow(10,Number(power.value));
+    var q=Math.pow(10,Number(count.value));
+    var direction=Number(eta.value);
+    var E=q*6.62607015e-34*1e10;
+    var R=P/E;
+    var I=direction*E/299792458;
+    var F=direction*P/299792458;
+    var powerText=P.toPrecision(3)+' W';
+    var countText='10'+exponent(Number(count.value));
+    set('budget-power-label',powerText);
+    set('budget-count-label',countText);
+    set('budget-eta-label',direction.toFixed(2));
+    set('budget-energy',scientific(E)+' J');
+    set('budget-rate',scientific(R)+' /s');
+    set('budget-impulse',scientific(I)+' N·s');
+    set('budget-force',scientific(F)+' N');
+    power.setAttribute('aria-valuetext',powerText);
+    count.setAttribute('aria-valuetext',countText+' equal-gap steps per event');
+    eta.setAttribute('aria-valuetext',direction.toFixed(2));
+  }
+  [power,count,eta].forEach(function(input){input.addEventListener('input',update);});
+  update();
+})();
 </script>
 
 </body>
