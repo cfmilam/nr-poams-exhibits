@@ -104,6 +104,7 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
 [data-theme="light"] #poams-hub-nav .phn-title, body.light #poams-hub-nav .phn-title{color:#2a2318;}
 @media (max-width:640px){.phn-hide-sm{display:none;}}
 </style>
+<link rel="stylesheet" href="./styles/calibrated-carryover.css">
 </head>
 <body>
 
@@ -147,7 +148,7 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
     <li>Spin: $g_S \approx 2$ &mdash; introduced by Uhlenbeck and Goudsmit (1925) as the empirically-required factor to reproduce anomalous Zeeman splittings, later &ldquo;explained&rdquo; by the Dirac equation as an unavoidable consequence of relativistic electron structure</li>
   </ul>
 
-  <p>These two coefficients are postulates of the extant framework: $g_L = 1$ is asserted by analogy to classical current loops, and $g_S = 2$ is imported either as an empirical fit or as a Dirac-equation artifact. Land&eacute;'s formula is then a corollary once the two coefficients are in place. POAMS derives both coefficients from foundations, and Land&eacute;'s formula follows.</p>
+  <p>For the present comparison the leading coefficients are stated inputs to the angular projection. A derivation of their physical normalization is distinct from the Landé recoupling identity. The current POAMS account no longer claims that merely duplicating endpoint records derives both coefficients.</p>
 </section>
 
 <!-- ============ §2 ============ -->
@@ -194,17 +195,15 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
 
   <p>Twist is the closure spinning on itself. Unlike writhe, twist is defined <em>internally</em> to the closure: it describes how the ribbon's own material rotates around its own centerline. Both endpoints of any twist element are on the same closure.</p>
 
-  <p>By the POAMS two-endedness principle (formalized in <a class="xref" href="./the-receiver-keys-the-exchange.html#sec-pair-lagrangian">Receiver Keys &sect;7</a>): every exchange is co-signed at both endpoints, and each endpoint carries the book. Twist is the limiting case of &sect;7 Case 2 (irreducible pair-invariant) with the two &ldquo;endpoints&rdquo; of the self-reference coincident on a single closure &mdash; the closure's ledger records the full self-invariant, and the coupling to the external magnetic field supplies the co-signed second ledger entry. Under Case 2 the halving convention does not apply and the geometric coupling coefficient picks up a factor of 2.</p>
+  <p>The earlier argument assigned the full joint invariant to each endpoint and added both records. That does not determine a physical energy normalization: recording one event twice need not create two energies. <a class="xref" href="./the-receiver-keys-the-exchange.html#sec-pair-lagrangian">Receiver Keys §7</a> now states this distinction. The leading value used below is explicit; its independent physical justification is not obtained from duplicate counting.</p>
 
   <div class="card gold">
-    <p><strong>Twist coupling coefficient: $c_T = 2$.</strong> The factor of 2 is the two-endedness bonus at self-referential geometry &mdash; <a class="xref" href="./the-receiver-keys-the-exchange.html#sec-pair-lagrangian">&sect;7 Case 2</a> applied to a limiting-case pair-invariant with coincident endpoints. The same principle gives $\alpha = -2$ in <a class="xref" href="./counter-rotating-circulation-pair.html">Counter-Rotating Vortex Cores</a> &sect;2. One POAMS principle, two independent applications.</p>
+    <p><strong>Twist coupling coefficient used here: $c_T=2$.</strong> This leading assignment gives the familiar Landé combination when paired with $c_W=1$. The earlier claim that two-ended records alone derive its normalization does not survive the <a class="xref" href="./the-receiver-keys-the-exchange.html#sec-pair-lagrangian">pair-accounting correction</a>: one physical exchange recorded twice is not automatically twice its energy.</p>
   </div>
 
-  <p>This matches the extant $g_S = 2$ for intrinsic spin. What extant introduces as an empirical fit (Uhlenbeck-Goudsmit 1925) or an unexplained Dirac-equation artifact, POAMS derives from the self-referential geometry of twist plus the ratified two-endedness principle.</p>
+  <p>This reproduces the leading $g_S=2$ value under that assignment. The angular-combination algebra remains usable; deriving the spin-response normalization from a complete physical action is a separate task, not settled by accepting measured α.</p>
 
-  <div class="caveat">
-    <span class="tag open">OPEN</span> The <em>anomalous</em> magnetic moment $g_s - 2 \approx 0.00232$ (measured to twelve significant figures via electron-anomaly experiments) is a QED higher-order effect at $\alpha^2$-scale and requires deriving twist/writhe couplings beyond leading order. This connects to <a class="xref" href="./alpha-program-2026-archive.html">the retired 2026 alpha-program archive</a>; the derivation is an open front, not attempted here.
-  </div>
+  <div class="caveat"><span class="tag open">OPEN</span> The anomalous magnetic response requires a signed higher-order state law and quantitative comparison with observation. Accepting measured α supplies an input to that work; it does not calculate the anomaly. No order or magnitude is inferred here merely from a scalar time-dilation correction.</div>
 </section>
 
 <!-- ============ §5 ============ -->
@@ -252,7 +251,7 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
   <p>and analogously $\langle \hat{Tw}_z \rangle = m_J \cdot [J(J{+}1) + S(S{+}1) - L(L{+}1)] / [2J(J{+}1)]$. These are the projection formulas used in the derivation immediately following, now grounded in POAMS one-substance rather than assumed.</p>
 
   <div class="card gold">
-    <p><strong>Premise (b) is derived, not assumed.</strong> The operator quantization of topological invariants at closures follows from <a class="xref" href="./index.html">GROUNDING</a> &sect;1 (one-substance quantized angular momentum in 3D with normal rotational covariance) via standard SU(2) representation theory (Wigner classification, Casimir eigenvalues, projection theorem). Nothing is added beyond ratified POAMS foundations plus standard mathematics. The Land&eacute; derivation below now rests on the two-endedness axiom (<a class="xref" href="./the-receiver-keys-the-exchange.html#sec-pair-lagrangian">Receiver Keys &sect;7</a>) and one-substance (GROUNDING &sect;1) alone &mdash; no separate operator-quantization premise required.</p>
+    <p><strong>Separate the angular algebra from the response law.</strong> Section 5A states the corpus's use of SU(2) angular-operator structure. Even granting that identification, it does not fix how strongly the intrinsic and orbital contributions couple to the measuring apparatus. The leading response coefficients used below remain explicit additional assignments.</p>
   </div>
 
   <p>Under the SU(2) operator quantization derived above, the projections read:</p>
@@ -269,7 +268,7 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
   <div class="eq">$$g_J^{POAMS} = \frac{3J(J+1) + S(S+1) - L(L+1)}{2J(J+1)} \;=\; 1 + \frac{J(J+1) + S(S+1) - L(L+1)}{2J(J+1)}$$</div>
 
   <div class="card gold">
-    <p><strong>This is exactly Land&eacute;'s formula.</strong> POAMS reproduces it in closed form from <em>two</em> derived POAMS results: (a) the two-endedness axiom (<a class="xref" href="./the-receiver-keys-the-exchange.html#sec-pair-lagrangian">Receiver Keys &sect;7</a> Case&nbsp;1 / Case&nbsp;2) fixing $c_W = 1$ and $c_T = 2$; and (b) the operator quantization of $Lk$, $Tw$, $Wr$ derived above in &sect;5A from GROUNDING &sect;1 plus standard SU(2) representation theory. Both premises are POAMS-native and derived; neither is a free parameter or an empirical fit. What extant QM postulates ($g_L$, $g_S$) as separate empirical inputs, POAMS reduces to <em>zero</em> additional postulates beyond one-substance and two-endedness. "No adjustable parameters, no empirical fits" now holds without qualification.</p>
+    <p><strong>This is the leading Landé formula under the stated assignments.</strong> The angular projection uses $c_W=1$ and $c_T=2$. Its algebraic agreement is not an independent derivation of those response coefficients, and the former “no additional postulates” inference from two-endedness is not retained.</p>
   </div>
 </section>
 
@@ -297,20 +296,28 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
   <p>The pattern extends to every atomic state whose extant g-factor is computable from the Land&eacute; formula. Since POAMS reproduces the formula in closed form, the match is not case-by-case verification but a universal derived identity.</p>
 
   <div class="card blue">
-    <p><strong>Every atomic Zeeman measurement in the historical record is now readable as POAMS-derived</strong> from one-substance (GROUNDING &sect;1) plus two-endedness (<a class="xref" href="./the-receiver-keys-the-exchange.html#sec-pair-lagrangian">Receiver Keys &sect;7</a>) &mdash; both derived, neither postulated. Precision-spectroscopy g-factor data across the periodic table becomes evidence for those two POAMS foundations directly, rather than for the extant separate empirical inputs $g_L$, $g_S$.</p>
+    <p><strong>The comparison has a defined domain.</strong> The rows verify the leading Landé arithmetic for states described by this coupling scheme. They do not demonstrate every Zeeman component or higher-order magnetic correction across the periodic table. Those require a state law and comparison with the relevant measurements.</p>
   </div>
 </section>
+
+<aside class="calibrated-carryover" id="calibrated-carryover" aria-labelledby="calibrated-carryover-title">
+  <p class="carryover-label">MEASURED-α APPLICATION · 15 SEPTEMBER 2026</p>
+  <h3 id="calibrated-carryover-title">Measured α: calibration and magnetic response are separate tasks</h3>
+  <p><strong>Available now.</strong> Accepting α supplies the common elementary interaction scale. It does not independently select a spin-coupling coefficient or turn the Landé angular-combination formula into a calculation of every anomaly and hyperfine interval.</p>
+  <p><strong>Future work.</strong> Derive the signed higher-order spin and state-dependent interactions with α held at its measured value; compare component patterns and magnitudes with spectroscopy. In particular, the earlier two-endedness-to-double-energy argument is an additional normalization assumption, not a consequence of merely recording one exchange at both ends.</p>
+  <p class="carryover-link"><a href="./coulomb-from-chirality-directed-depletion.html#carryover-magnetic">Coulomb §7: result and future-work map</a> · <a href="./alpha-fine-structure-derivation.html">Measured Alpha</a></p>
+</aside>
 
 <!-- ============ §7 ============ -->
 <section>
   <h2>&sect;7 &mdash; What is Claimed, What Remains Open</h2>
 
   <div class="card gold">
-    <p><span class="tag claim">CLAIMED</span> <strong>Derivation of $c_W = 1$ (writhe/orbital coupling).</strong> Writhe is externally referenced; single-ended geometry; standard exchange counting applies; coupling coefficient is unity.</p>
+    <p><span class="tag claim">CONDITIONAL ANGULAR COMBINATION</span> With $c_W=1$ and $c_T=2$ supplied, the displayed combination gives the leading Landé formula. The geometric recoupling and the independent physical justification of those response coefficients are different claims; the latter is not established by the counting identity alone.</p>
 
-    <p><span class="tag claim">CLAIMED</span> <strong>Derivation of $c_T = 2$ (twist/spin coupling).</strong> Twist is self-referential; two-ended at a single closure; two-endedness principle applies; coupling coefficient picks up factor 2. Same POAMS principle that gives $\alpha = -2$ in Counter-Rotating Vortex Cores.</p>
+    <p><span class="tag open">RESPONSE NORMALIZATION OPEN</span> The intrinsic coefficient $c_T=2$ is the leading value used in this calculation. A complete physical action, not duplicate endpoint records, is needed to justify its normalization independently.</p>
 
-    <p><span class="tag claim">CLAIMED</span> <strong>Land&eacute;'s formula reproduced in closed form, no free parameters.</strong> C&#259;lug&#259;reanu projection of Twist and Writhe onto the total-linking direction, combined with the two derived coupling coefficients ($c_W = 1$, $c_T = 2$) from Receiver Keys &sect;7 and the SU(2) operator structure of topological invariants derived in &sect;5A, reproduces the Land&eacute; formula in closed form for every atomic state. Both underlying premises are POAMS-derived: the two-endedness axiom from &sect;7, the operator quantization from GROUNDING &sect;1 plus Wigner classification.</p>
+    <p><span class="tag claim">CONDITIONAL RESULT</span> With the leading response coefficients stated and the angular-operator structure used in §5A, the projection algebra reproduces the Landé formula for states in its domain. This does not establish every higher-order magnetic response or every state outside that coupling regime.</p>
 
     <p><span class="tag claim">CLAIMED</span> <strong>Universal arithmetic verification.</strong> POAMS $g_J$ equals the extant Land&eacute; $g_J$ for every combination of $L$, $S$, $J$ &mdash; verified for the eleven representative rows in &sect;6 and extending by identical algebra to every additional atomic state whose extant $g_J$ is Land&eacute;-computable. Historical Zeeman spectroscopy data is now readable as POAMS-native directly.</p>
 
@@ -318,14 +325,14 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
   </div>
 
   <div class="card blue">
-    <p><span class="tag claim">CLAIMED</span> <strong>Formalization of the two-endedness &rarr; factor-of-2 argument in the pair-Lagrangian framework.</strong> Now formalized in <a class="xref" href="./the-receiver-keys-the-exchange.html#sec-pair-lagrangian">The Receiver Keys the Exchange &sect;7</a>: the standard sum-over-pairs halving convention does not apply to irreducibly pair-invariant couplings. This closes the remaining rigor gap for both this exhibit and <a class="xref" href="./counter-rotating-circulation-pair.html">Counter-Rotating Vortex Cores</a> &sect;2 simultaneously.</p>
+    <p><span class="tag open">PAIR-COUNTING CORRECTION</span> <a class="xref" href="./the-receiver-keys-the-exchange.html#sec-pair-lagrangian">Receiver Keys §7</a> distinguishes the exact ordered/unordered-pair identity from a physical energy normalization. The earlier assertion that this identity closed the spin and inverse-cube response coefficients is withdrawn.</p>
 
-    <p><span class="tag open">OPEN &mdash; UNIFIED</span> <strong>The alpha-derivation family.</strong> Three previously separate open fronts &mdash; QED-order anomalous magnetic moment ($g_s - 2 \approx 0.00232$), hyperfine spectra (measured example: hydrogen 21cm line at 1420.405751 MHz), and the numerical value of the coupling coefficient known extant as the Bohr magneton &mdash; all reduce to one underlying gap: deriving the scale of the coherent-AM coupling from POAMS foundations, equivalently the numerical value of the fine-structure ratio $\alpha$. Working through the three above yields the meta-insight that they are three faces of one open, not three independent fronts. The natural home is <a class="xref" href="./alpha-fine-structure-derivation.html">The Alpha Problem</a>; closing that closes all three simultaneously.</p>
+    <p><span class="tag open">SEPARATE STATE-RESPONSE WORK</span> Measured α is an accepted elementary calibration, not a common missing derivation that automatically supplies magnetic anomalies, hyperfine intervals and all magneton coefficients. Dimensional magnetic units require their declared mass and electrical calibration; the signed state-dependent factors require additional relations and comparison with observation.</p>
 
-    <p><span class="tag open">OPEN &mdash; MEASURED ANCHOR</span> <strong>Hyperfine structure.</strong> Measured anchor: hydrogen 21cm line at 1420.405751 MHz. What POAMS has: the pair-invariant coupling form for coherent-AM ($L_1 \cdot L_2 / r^3$) and its factor-of-2 coefficient from two-endedness. What POAMS does not yet have: derivation of the effective coupling scale at atomic separations, which in extant treatment involves multiple orders of $\alpha$ (hyperfine scales roughly as $\alpha^4 m_e c^2$). Reproducing measured hyperfine spectra from POAMS foundations requires closing the alpha-family open above; the pair-invariant form is a component of that derivation, not by itself sufficient.</p>
+    <p><span class="tag open">STATE LAW AND DATA</span> <strong>Hyperfine structure.</strong> The observed 21 cm interval is a comparison target, not an output of accepting α. Derive the appropriate signed state-dependent interaction and its normalization, then compare intervals and components. The inverse-cube trial and endpoint-counting argument do not yet supply that law.</p>
   </div>
 
-  <p style="margin-top:22px">Two exhibits &mdash; Counter-Rotating Vortex Cores and this Land&eacute; derivation &mdash; now depend on the same POAMS principle (two-endedness of exchange, self-referential geometry picks up factor 2) for their two independent factor-of-2 results ($\alpha = -2$ in gravitomagnetic coupling; $g_S = 2$ in Zeeman coupling). That both are derived from one principle rather than fit independently is the theoretical consistency this arc offers to any experimental collaborator.</p>
+  <p style="margin-top:22px">The Landé and Vortex inquiries share a need for a justified joint response law, not an independently established factor-of-two theorem. Their existing conditional calculations remain available; the observed magnetic response and any proposed apparatus response must each be assessed on its own evidence.</p>
 </section>
 
 </main>

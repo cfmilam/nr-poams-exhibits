@@ -1,0 +1,7 @@
+/* Scoped integration notes; typography and colors follow the destination exhibit. */
+.calibrated-carryover{box-sizing:border-box;width:100%;min-width:0;margin:24px 0;padding:18px 20px;border:1px solid currentColor;border-left:4px solid var(--accent-gold,var(--gold,#b68b30));border-radius:8px;scroll-margin-top:76px;overflow-wrap:anywhere;font-size:.94rem;line-height:1.65}
+.calibrated-carryover .carryover-label{font-family:system-ui,sans-serif;font-size:.7rem;letter-spacing:.09em;opacity:.8;margin:0 0 8px}
+.calibrated-carryover h3{font-family:system-ui,sans-serif;font-size:1.06rem;line-height:1.4;margin:0 0 12px;color:inherit}
+.calibrated-carryover p{margin:0 0 12px}.calibrated-carryover .carryover-link{margin:0;font-size:.85rem}
+.calibrated-carryover a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:480px){.calibrated-carryover{padding:14px;font-size:.9rem}}

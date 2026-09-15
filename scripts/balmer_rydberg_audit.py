@@ -12,7 +12,9 @@ HBAR = H / (2 * math.pi)
 M_E = 9.109_383_7139e-31
 M_P = 1.672_621_925_95e-27
 G = 6.674_30e-11
-R_H = 10_967_758.340
+ALPHA = 0.0072973525643
+MU = M_E * M_P / (M_E + M_P)
+R_H = MU * C * ALPHA**2 / (2 * H)
 NU_R = C * R_H
 E_R = H * NU_R
 
@@ -50,14 +52,18 @@ for transition, expected in checks.items():
 
 # Pope's scale mass is distinct from the electron mass.
 m_r = H * NU_R / C**2
-assert abs(m_r - 2.42411489047825e-35) < 1e-49
+assert math.isclose(m_r, MU * ALPHA**2 / 2, rel_tol=4e-15)
 assert M_E / m_r > 37_000
 
 # Both displayed radius formulae evaluate to lengths and the printed values.
 r_g = HBAR**2 / (G * M_E**2 * M_P)
 r_spin = HBAR / math.sqrt(2 * M_E * E_R)
 assert abs(r_g / 1.2005239279830703e29 - 1) < 1e-12
-assert abs(r_spin / 5.293212903942841e-11 - 1) < 1e-12
+assert math.isclose(r_spin, HBAR / (C * ALPHA * math.sqrt(M_E * MU)), rel_tol=4e-15)
+# The source light-end scaffold and the reciprocal relative radius are not identical.
+r_pair = HBAR / (MU * C * ALPHA)
+assert r_pair > r_spin
+assert math.isclose(r_pair / r_spin, math.sqrt(M_E / MU), rel_tol=4e-15)
 
 source = Path(__file__).resolve().parents[1] / "balmer-rydberg-poams.html"
 html = source.read_text()
@@ -67,6 +73,8 @@ required = [
     "seriesSelect.addEventListener('change', syncSeriesControls)",
     "The inverse-square <em>shape</em> follows from those premises",
     "Both equations now have dimensions of length",
+    "const RYDBERG_H = CALIBRATED_PAIR.Rydberg",
+    "POAMSCoulomb.calculate('pair', 1, 2, 3)",
 ]
 for needle in required:
     assert needle in html, needle
@@ -77,6 +85,7 @@ for forbidden in [
     "G^* m_e M_p}{\\hbar^2",
     "\\hbar^2}{m_e E_{spin}",
     "Math.random()",
+    "const RYDBERG_H = 10967758",
 ]:
     assert forbidden not in html, forbidden
 

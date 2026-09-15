@@ -306,6 +306,7 @@
     body { padding-top: 72px !important; }
 
     </style>
+<link rel="stylesheet" href="./styles/calibrated-carryover.css">
 </head>
 <body class="light">
 <div id="poams-hub-nav">
@@ -483,8 +484,7 @@
         <div class="equation">$$\tau=\sqrt{1-\frac{3GM}{rc^2}}\;T.$$</div>
         <p>This is the cited circular-orbit source relation, not the result of inserting circular speed into the preceding velocity-only equation. Its real-clock domain here is $r&gt;3GM/c^2$. Section 8 distinguishes the two relations.</p>
 
-        <p><strong>4. Spectral Formula:</strong>
-        The <a href="./balmer-rydberg-poams.html">POAMS spectral derivation</a> uses the time ratio, integer closure and Pope's energy-booking premise. With empirical hydrogen normalization $\nu_R=cR_H$, excitation terms measured from the ground term and their differences are:</p>
+        <p><strong>4. Spectral Formula:</strong> The <a href="./balmer-rydberg-poams.html">source time-ratio derivation</a> uses integer closure and Pope's energy-booking premise. In the present calibrated pair application, \(\nu_R=\mu c^2\alpha^2/(2h)\), with measured α and two mass calibrations supplied. Excitation terms and their differences are:</p>
         <div class="equation">$$\nu_n^{\rm exc}=\nu_R(1-n^{-2}),\qquad \nu_{n\to N}=\nu_R(N^{-2}-n^{-2}),\quad n&gt;N\ge1.$$</div>
         <p>$n,N$ are integer state indices, not fitted coefficients. The term pattern is conditional mathematics; the measured $R_H$ fixes its scale. This is the gross line formula, not a derived fine-structure or running-constant result.</p>
 
@@ -714,7 +714,7 @@
         <p><strong>Energy Comparison:</strong></p>
         <ul>
             <li><strong>Abandoned trial orbital energy</strong>: $K_G\approx4.23537\times10^{-97}$ J</li>
-            <li><strong>Imported hydrogen scale</strong>: $R_H=10\,967\,758.340\;\mathrm{m^{-1}}$, $\nu_R=cR_H\approx3.288051$ PHz; $K_R=h\nu_R\approx2.178686\times10^{-18}$ J</li>
+            <li><strong>Calibrated hydrogen scale:</strong> \(R_\mu=\mu c\alpha^2/(2h)\simeq10\,967\,758.340\;\mathrm{m^{-1}}\), \(\nu_R=cR_\mu\simeq3.288051\) PHz; \(K_R=h\nu_R\simeq2.178686\times10^{-18}\) J. This uses the leading pair model and declared measured inputs.</li>
             <li><strong>Scale-to-trial energy ratio:</strong> <span data-audit="hydrogen-ratio">5.14402e78</span>, or about <strong>78.71 orders of magnitude</strong></li>
             <li>In the reconstructed final state $m_e v_s^2/2=K_R$: the final orbital energy is not the abandoned trial's $10^{-97}$ J</li>
         </ul>
@@ -726,7 +726,7 @@
             <li>The identification does not turn coulombs into joules. An energy/rate record and a charge-count record require a separately dimensioned operational map if compared numerically.</li>
         </ul>
 
-        <p><strong>Conditional reconstruction:</strong> use the declared $R_H$, $m_e=9.1093837139\times10^{-31}$ kg, $M_p=1.67262192595\times10^{-27}$ kg, exact SI $h=6.62607015\times10^{-34}$ J s and $c=299\,792\,458$ m/s:</p>
+        <p><strong>Conditional reconstruction:</strong> use the calculated $R_\mu$ from measured α and the two masses, $m_e=9.1093837139\times10^{-31}$ kg, $M_p=1.67262192595\times10^{-27}$ kg, exact SI $h=6.62607015\times10^{-34}$ J s and $c=299\,792\,458$ m/s:</p>
         <div class="equation">$$v_s=\sqrt{2K_R/m_e},\qquad r_s=\frac{\hbar}{m_e v_s},\qquad \mathfrak g_s=\frac{r_s v_s^2}{M_p}.$$</div>
         <ul>
             <li><strong>Effective orbital speed:</strong> 2.187096 × 10⁶ m/s</li>
@@ -735,7 +735,7 @@
         </ul>
 
         <blockquote>
-            <p><strong>What survives:</strong> the same circular algebra admits the atomic scale within the POAMS energy identification. This does not independently predict the inserted Rydberg scale, the numerical value of $\alpha$, or a signed fine-structure doublet. Those distinctions are maintained in <a href="./balmer-rydberg-poams.html">Balmer–Rydberg</a> and <a href="./alpha-fine-structure-derivation.html">The Alpha Problem</a>.</p>
+            <p><strong>What survives:</strong> the source's light-end rotational scaffold reconstructs an atomic-scale radius from the supplied energy. The current calibrated pair model obtains that gross energy from measured α and masses; its fully reciprocal relative radius is a different quantity (about 5.294654×10⁻¹¹ m). Neither step independently determines α or a signed fine-structure doublet. See <a href="./balmer-rydberg-poams.html#calibrated-carryover">Spectral Lines</a> and <a href="./alpha-fine-structure-derivation.html">Measured Alpha</a>.</p>
         </blockquote>
 
         <h1 id="maxwells-equations">13. Maxwell's Equations — An Interpretive Dispute</h1>
@@ -988,14 +988,21 @@
         <p><strong>6. Logical Coherence</strong>
         Definitions, source premises and derivations can be checked within the same native ledger. Coherence is maintained by repairing a failed inference, not by treating all claims in an overview as one indivisible proof.</p>
 
-        <h1 id="weaknesses">22. Open Work Within the Framework</h1>
+        <aside class="calibrated-carryover" id="calibrated-carryover" aria-labelledby="calibrated-carryover-title">
+  <p class="carryover-label">MEASURED-α APPLICATION · 15 SEPTEMBER 2026</p>
+  <h3 id="calibrated-carryover-title">Measured-anchor application and a concrete metrology task</h3>
+  <p><strong>Available now.</strong> The calibrated circular pair model turns measured α and the two mass calibrations into gross radii, binding energies and spectral rates. The source time-ratio argument supplies the ladder structure; the added pair-energy model and its inputs supply this scale.</p>
+  <p><strong>Future work.</strong> Develop the four-preparation measurement: one quarter of E<sub>++</sub> + E<sub>−−</sub> − E<sub>+−</sub> − E<sub>−+</sub> isolates a pair-sense term only when separate preparation contributions are additive and controlled. Specify geometry, switching, source energy and readout; quantify uncancelled preparation effects and compare with independently calibrated local loads.</p>
+  <p class="carryover-link"><a href="./coulomb-from-chirality-directed-depletion.html#carryover-metrology">Coulomb §7: result and future-work map</a> · <a href="./alpha-fine-structure-derivation.html">Measured Alpha</a></p>
+</aside>
+
+<h1 id="weaknesses">22. Open Work Within the Framework</h1>
 
         <p><em>These are native derivation, bookkeeping and observational tasks. The absence of a conventional field, particle or metric mechanism is not used as an adverse criterion.</em></p>
 
         <h2 id="weaknesses-that-remain">Calculations and Records Still Required:</h2>
 
-        <p><strong>1. Microscopic spectral completion</strong>
-        The gross line pattern and its empirical normalization are separated above. The numerical value of $\alpha$, its running and the sign-sensitive fine-structure term remain explicit opens in the current Alpha program. The target is a POAMS derivation and predeclared quantitative tests, not adoption of another theory's machinery.</p>
+        <p><strong>1. Microscopic spectral completion.</strong> The gross spectral scale is now calculated from accepted measured α and the masses in the stated pair model. Further work concerns transition strengths, signed fine/hyperfine corrections and any justified scale dependence. Derive those state laws and compare predictions with independent records; a first-principles numerical origin for α is not a prerequisite.</p>
 
         <p><strong>2. Device-specific completion and response</strong>
         A proposed apparatus needs its own prepared-state census, response map, boundary conditions and error budget. The already-derived point-centre n-body book is not a universal microscopic or engineering transfer function.</p>

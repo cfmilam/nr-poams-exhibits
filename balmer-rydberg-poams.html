@@ -38,7 +38,7 @@
         }
 
         [data-theme="light"] {
-            --bg-dark: #ffffff;
+            --bg-dark: #faf8f2;
             --bg-darker: #f3f4f6;
             --accent-gold: #b8860b;
             --accent-blue: #0277bd;
@@ -466,6 +466,7 @@
 <style id="poams-btn-normalize">
 .theme-toggle,#theme-btn{position:fixed !important;top:54px;right:12px;z-index:1200;width:40px;height:40px;padding:0;border:none;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;line-height:1;cursor:pointer;background:var(--accent-gold,var(--accent,var(--gold,#8b6914)));color:var(--bg,var(--bg-dark,var(--bg-primary,#ffffff)));box-shadow:0 2px 8px rgba(0,0,0,.18);}
 </style>
+<link rel="stylesheet" href="./styles/calibrated-carryover.css">
 </head>
 <body>
 <div id="poams-hub-nav">
@@ -502,11 +503,11 @@
                 <p><strong>Premises and normalization.</strong> Pope's Appendix 3 adopts the Pythagorean time ratio and the whole-number closure rule t<sub>R</sub>/t = n for the ground-referenced ladder. It then books the associated mode deficit as e = m<sub>R</sub>v². These are POAMS premises, stated rather than hidden. They give</p>
                 $$\frac{v_n^2}{c^2}=1-\frac{1}{n^2},\qquad
                   \nu_n=\frac{e_n}{h}=\nu_R\left(1-\frac{1}{n^2}\right).$$
-                <p>The inverse-square <em>shape</em> follows from those premises. Its scale does not: this page imports the hydrogen Rydberg rate ν<sub>R</sub> = cR<sub>H</sub> = 3.288051 PHz. Equivalently, Pope's scale mass is m<sub>R</sub> = hν<sub>R</sub>/c² = 2.4241×10⁻³⁵ kg; it is not the electron mass used in the separate radius scaffold.</p>
+                <p>The inverse-square <em>shape</em> follows from those premises. The calibrated application now supplies its scale from measured α and two independently calibrated masses: ν<sub>R</sub> = μα²c²/(2h), with μ the reduced mass. This uses the explicitly stated circular pair-energy model in <a href="./coulomb-from-chirality-directed-depletion.html#calibrated-world">Coulomb</a>, in addition to the source time-ratio argument. The Rydberg coefficient is calculated here, not supplied as a second independent input.</p>
                 <p><strong>Spectral lines.</strong> A re-closure from upper mode n to lower mode N is the difference of two ground-referenced terms:</p>
                 $$\nu_{n\to N}=\nu_n-\nu_N
                 =cR_H\left(\frac{1}{N^2}-\frac{1}{n^2}\right),\qquad n>N.$$
-                <p>N = 1, 2, 3 gives the Lyman, Balmer, and Paschen series. The interactives below calculate vacuum gross-line values from this equation and the imported R<sub>H</sub>; they do not claim to derive the empirical scale, resolved components, or intensities.</p>
+                <p>N = 1, 2, 3 gives the Lyman, Balmer, and Paschen series. The interactives calculate gross vacuum lines from the equation and the calibrated R<sub>μ</sub>. Measured α remains an input; line intensities and resolved components are not calculated by this gross model.</p>
             </div>
         </div>
 
@@ -585,8 +586,8 @@
         <div class="section">
             <h2>3. "Charge" → Spin Collapse Visualization</h2>
             <div class="explanation">
-                <p>This panel checks one <strong>scale comparison</strong> inside the source's point-mass scaffold. With L = ℏ, the reference-G radius is about 1.20×10²⁹ m. Booking the imported Rydberg energy E<sub>R</sub> = hν<sub>R</sub> in the same rotational relation gives 5.29×10⁻¹¹ m.</p>
-                <p><em>Scope:</em> this is dimensionally valid scale arithmetic, not an independent derivation of E<sub>R</sub>, r₀, atomic structure, or the POAMS charge identification. The energy scale is the same imported Rydberg datum used above. The animation uses a logarithmic label and a linear screen-radius encoding so both endpoints remain visible.</p>
+                <p>This panel checks one <strong>scale comparison</strong> inside the source's point-mass scaffold. With L = ℏ, the reference-G radius is about 1.20×10²⁹ m. Booking the calibrated gross binding E<sub>R</sub> = μα²c²/2 in the source's light-end rotational relation gives about 5.2932×10⁻¹¹ m. That scaffold radius is distinct from the reciprocal pair's relative radius, 5.294654×10⁻¹¹ m.</p>
+                <p><em>Scope:</em> this panel checks the source's light-end scaffold, not a new independent atomic model. Its energy is now calculated from measured α and the reduced mass as described above. The scaffold radius and the reciprocal relative radius remain distinct. The animation uses a logarithmic label and a linear screen-radius encoding so both endpoints remain visible.</p>
             </div>
             
             <div class="controls">
@@ -665,7 +666,7 @@
             </div>
             
             <div class="explanation">
-                <p>The shared algebra is a POAMS unification proposal. This panel demonstrates the common ratio; it does not by itself derive every microscopic coupling or the empirical Rydberg scale.</p>
+                <p>The shared algebra is a POAMS unification proposal. This panel demonstrates the common ratio; it does not by itself derive every microscopic coupling or the numerical origin of measured α.</p>
             </div>
         </div>
 
@@ -723,19 +724,19 @@
                 $$e_n=m_Rc^2\left(1-\frac{1}{n^2}\right),\qquad
                   \nu_n=\frac{e_n}{h}=\nu_R\left(1-\frac{1}{n^2}\right),$$
                 $$\nu_R\equiv\frac{m_Rc^2}{h}=cR_H.$$
-                <p>The factor m<sub>R</sub> is Pope's spectral scale mass, not m<sub>e</sub>. On this page ν<sub>R</sub> is normalized to the imported hydrogen value.</p>
+                <p>The factor m<sub>R</sub> is Pope's spectral scale mass, not the light-end inertial mass. The calibrated application gives m<sub>R</sub> = μα²/2 and ν<sub>R</sub> = μα²c²/(2h). R<sub>H</sub> below denotes R<sub>μ</sub> evaluated with the light–heavy mass pair.</p>
             </div>
 
             <div class="formula-box">
                 <h3>Step 4: Subtract two terms</h3>
                 $$\nu_{n\to N}=\nu_n-\nu_N
                 =cR_H\left(\frac{1}{N^2}-\frac{1}{n^2}\right),\qquad n>N.$$
-                <p>The subtraction is exact. Thus POAMS derives the inverse-square ladder from its stated ratio and energy-booking premises; spectroscopy supplies the dimensional scale R<sub>H</sub>.</p>
+                <p>The subtraction is exact. Thus POAMS derives the inverse-square ladder from its stated ratio and energy-booking premises; measured α and the two masses supply the dimensional scale through the stated pair-energy model.</p>
             </div>
 
             <div class="explanation">
                 <p><strong>What has been earned:</strong> given the POAMS whole-number time ratio and e = m<sub>R</sub>v² bookkeeping, the inverse-square term pattern and its line-difference formula follow. The live panels calculate their outputs from that formula.</p>
-                <p><strong>What remains open:</strong> this exhibit does not independently derive R<sub>H</sub>, line intensities, resolved fine structure, or the native coupling between angular harmonic l and phase sense. Current ledger: <a href="./poams-periodic-table.html#alpha-problem">the Alpha Problem</a>.</p>
+                <p><strong>What remains application work:</strong> with measured α accepted, derive transition strengths, selection rules and signed fine/hyperfine corrections from specified circulation-state relations, then compare with independent spectral records. A numerical origin for α is not required for those calculations. The <a href="./alpha-fine-structure-derivation.html">measured-Alpha account</a> separates calibrated gross results from these further tasks.</p>
             </div>
         </div>
 
@@ -749,28 +750,34 @@
                     <li><strong>Charge is not a second substance in POAMS</strong>; phase sense carries sign and organized circulation carries the binding ledger.</li>
                     <li><strong>Completed turns are discrete</strong>; T = h/E is the period implied when one whole turn carries action h.</li>
                     <li><strong>The inverse-square ladder follows</strong> from the stated integer time ratio and Pope energy-booking premise.</li>
-                    <li><strong>The dimensional Rydberg scale is imported</strong>; the page does not claim to derive its numerical value.</li>
+                    <li><strong>The dimensional Rydberg scale is calculated</strong> from accepted measured α and the two masses in the stated circular pair model; it is not a second independently fitted input.</li>
                     <li><strong>Spectral lines are term differences</strong>, calculated rather than hard-coded in both interactives.</li>
                     <li><strong>The shared Pythagorean ratio is a unification proposal</strong>, not a completed derivation of every atomic detail.</li>
                 </ul>
 
-                <p>The result is a POAMS-native derivation with an explicit premise boundary: the algebraic ladder is earned inside the framework; normalization and unresolved spectral structure remain empirical or open.</p>
+                <p>The result separates the source's algebraic ladder from its calibrated application: measured α and mass inputs set the gross scale through the specified pair-energy model. Resolved spectral structure requires additional state laws. Neither computation precision nor shared calibration makes these an independent test of every premise.</p>
             </div>
         </div>
 
         <div class="section">
-            <h2>9. Sources and numerical conventions</h2>
+            <aside class="calibrated-carryover" id="calibrated-carryover" aria-labelledby="calibrated-carryover-title">
+<p class="carryover-label">MEASURED-α APPLICATION · 15 SEPTEMBER 2026</p><h3 id="calibrated-carryover-title">One calibration, computed spectra</h3>
+<p><strong>Available now.</strong> The line explorer uses the same measured α and mass calibrations as Coulomb. Its Rydberg coefficient is calculated from those inputs; no separate spectral constant is used to set the output. This is a leading-model reconstruction, not independent evidence for every microscopic premise.</p>
+<p><strong>Future derivations.</strong> Derive the state-specific transition strengths and signed fine/hyperfine corrections; compare the predicted components with independent spectroscopy. Keep wavelength medium, isotope masses and uncertainty conventions explicit.</p>
+<p><a href="./coulomb-from-chirality-directed-depletion.html#carryover-spectra">Coulomb §7: spectral work</a> · <a href="./alpha-fine-structure-derivation.html">Measured Alpha</a></p></aside>
+<h2>9. Sources and numerical conventions</h2>
             <div class="explanation">
                 <ul style="margin-left:20px">
                     <li>N. Vivian Pope, Anthony D. Osborne, and A. F. Osborne, <em>Einstein's Lost Legacy</em> (Dorset, 2015), Appendix 3, pp. 179–180 — source of the POAMS time-ratio derivation and scale-mass definition.</li>
                     <li><a href="https://physics.nist.gov/cgi-bin/cuu/Value?ryd">NIST/CODATA, Rydberg constant</a> — external numerical reference.</li>
                     <li><a href="https://physics.nist.gov/PhysRefData/Handbook/Tables/hydrogentable2.htm">NIST Atomic Spectra Database, hydrogen strong lines</a> — operational comparison record.</li>
                 </ul>
-                <p>Calculations use exact c and h, CODATA R<sub>∞</sub> reduced by the electron–proton mass ratio to R<sub>H</sub> = 10,967,758.340 m⁻¹. Wavelengths shown by the interactives are gross vacuum values; observed components and air wavelengths differ slightly.</p>
+                <p>Calculations use exact c and h, measured α = 0.0072973525643 and the two CODATA mass calibrations shared with <a href="./scripts/coulomb_calibrated_inputs.json">Coulomb's declared inputs</a>. They calculate R<sub>μ</sub> = μα²c/(2h), approximately 10,967,758.340 m⁻¹ for the light–heavy pair. The output is a gross vacuum wavelength; resolved components and air wavelengths differ. The many computed digits are not additional experimental precision.</p>
             </div>
         </div>
     </div>
 
+    <script src="./scripts/coulomb_calibrated.js"></script>
     <script>
         // Global variables
         let animationId;
@@ -781,18 +788,19 @@
         let coneCanvas, coneCtx;
         let time = 0;
 
-        // Exact SI constants plus an explicitly imported hydrogen Rydberg scale.
-        const BOHR_RADIUS = 0.529321; // Å; empirical display/scaffold value
-        const PLANCK_CONSTANT = 6.62607015e-34; // J·s, exact
+        // Shared measured-alpha calibration; Rydberg is an output, not an extra input.
+        const CALIBRATED_PAIR = POAMSCoulomb.calculate('pair', 1, 2, 3);
+        const PLANCK_CONSTANT = POAMSCoulomb.constants.h;
         const HBAR = PLANCK_CONSTANT / (2 * Math.PI);
-        const ELECTRON_MASS = 9.1093837139e-31; // kg
-        const PROTON_MASS = 1.67262192595e-27; // kg
-        const GRAVITATIONAL_CONSTANT = 6.67430e-11; // m³ kg⁻¹ s⁻²
-        const SPEED_OF_LIGHT = 299792458; // m/s, exact
-        const RYDBERG_H = 10967758.340; // m⁻¹, hydrogen reduced-mass value
-        const RYDBERG_RATE = SPEED_OF_LIGHT * RYDBERG_H; // Hz
-        const RYDBERG_ENERGY = PLANCK_CONSTANT * RYDBERG_RATE; // J
-        const ELECTRON_VOLT = 1.602176634e-19; // J, exact
+        const ELECTRON_MASS = POAMSCoulomb.constants.lightMass;
+        const PROTON_MASS = POAMSCoulomb.constants.heavyMass;
+        const GRAVITATIONAL_CONSTANT = 6.67430e-11; // independently measured G; scaffold only
+        const SPEED_OF_LIGHT = POAMSCoulomb.constants.c;
+        const RYDBERG_H = CALIBRATED_PAIR.Rydberg;
+        const RYDBERG_RATE = SPEED_OF_LIGHT * RYDBERG_H;
+        const RYDBERG_ENERGY = CALIBRATED_PAIR.binding1;
+        const ELECTRON_VOLT = POAMSCoulomb.constants.eV;
+        const BOHR_RADIUS = CALIBRATED_PAIR.radius1 * 1e10; // Å; relative pair scale
 
         const seriesConfig = {
             lyman:  { N: 1, label: 'Lyman',  prefix: 'L' },
@@ -1276,7 +1284,7 @@
         }
 
         function updateAtomInfo() {
-            const radius = (BOHR_RADIUS * currentN).toFixed(3);
+            const radius = (BOHR_RADIUS * currentN * currentN).toFixed(3);
             const angularMomentum = (currentN * HBAR * 1e34).toFixed(3);
             const energy = (-RYDBERG_RATE / (currentN * currentN) / 1e15).toFixed(3);
 

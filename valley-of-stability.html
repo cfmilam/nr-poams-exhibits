@@ -82,6 +82,7 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
 @media (max-width:640px){.phn-hide-sm{display:none;}}
 body{padding-top:72px !important;}
 </style>
+<link rel="stylesheet" href="./styles/calibrated-carryover.css">
 </head>
 <body>
 
@@ -169,7 +170,7 @@ body{padding-top:72px !important;}
   a_c = \frac{3}{5}\cdot\frac{k}{r_0} = \frac{3}{5}\cdot\frac{348.2\ \text{EHz·fm}}{1.2\ \text{fm}}
   = 174.1\ \text{EHz} \quad (\text{record: } 0.72\ \text{MeV}), \]</div>
   <p>The \(3/5\) follows within a uniform-sphere model and \(Z(Z-1)\) is the no-self-pair count;
-  \(k = 348.2\) EHz·fm (record 1.44 MeV·fm) the strain quantum measured outside the curve (\(= \alpha\hbar c\):
+  \(k = 348.2\) EHz·fm (record 1.44 MeV·fm) the strain quantum measured outside the curve (rate coefficient \(k=\alpha c/(2\pi)\), energy coefficient \(K_Q=hk=\alpha\hbar c\):
   \(\alpha\) enters only as a measured input), \(r_0 = 1.2\) fm the named size import. The 174.1 EHz value is
   exact only inside this uniform-sphere approximation with the displayed rounded inputs; it is not an exact
   physical coefficient. The
@@ -425,7 +426,15 @@ body{padding-top:72px !important;}
 
 <!-- ============ 8. SCOPE ============ -->
 <section>
-  <h2>8 · Scope &amp; Status</h2>
+  <aside class="calibrated-carryover" id="calibrated-carryover" aria-labelledby="calibrated-carryover-title">
+  <p class="carryover-label">MEASURED-α APPLICATION · 15 SEPTEMBER 2026</p>
+  <h3 id="calibrated-carryover-title">A calibrated elementary coefficient does not fix a finite-cluster model</h3>
+  <p><strong>Available now.</strong> The long-range energy coefficient is K<sub>Q</sub> = αℏc. In this page’s rate bookkeeping the corresponding coefficient is K<sub>Q</sub>/h = αc/(2π), not K<sub>Q</sub> itself. Measured α therefore supplies this one unit-consistent input.</p>
+  <p><strong>Future work.</strong> Derive the finite-cluster energy terms, geometry and normalization before predicting a stability surface. The quarantined imbalance/contact assumptions, finite-size calibration and channel-stability tests are not repaired by accepting α. Existing candidate-package outcomes retain their present scope.</p>
+  <p class="carryover-link"><a href="./coulomb-from-chirality-directed-depletion.html#carryover-nuclear">Coulomb §7: result and future-work map</a> · <a href="./alpha-fine-structure-derivation.html">Measured Alpha</a></p>
+</aside>
+
+<h2>8 · Scope &amp; Status</h2>
   <div class="card red">
     <p style="margin:4px 0 10px;"><b>Cited (prior art):</b> the parabola-minimization arithmetic of the isobar
     chart is Weizsäcker 1935 / Bethe–Bacher 1936 and every textbook since; the
