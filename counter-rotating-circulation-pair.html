@@ -60,7 +60,7 @@ summary:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-
 .budget-results div{border:1px solid var(--edge);border-radius:8px;padding:12px;font-size:12px;color:var(--muted);}
 .budget-results strong{display:block;margin-top:5px;font-size:15px;font-variant-numeric:tabular-nums;}
 section{scroll-margin-top:70px;}
-#sec-material,#sec-phase-support,#sec-earth-constraint,#sec-finite-size,#sec-interaction-law{scroll-margin-top:110px;}
+#sec-material,#sec-phase-support,#sec-earth-constraint,#sec-finite-size,#sec-interaction-law,#powered-operation{scroll-margin-top:110px;}
 #source-composition-plot{display:block;width:100%;height:auto;color:var(--muted);margin:14px 0;}
 #source-composition-plot text{font-size:14px;}
 @media(max-width:620px){#source-composition-plot text{font-size:20px;}}
@@ -202,6 +202,19 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
 <section id="sec-configuration">
   <h2>&sect;3 — The configuration: a driven counter-rotating pair</h2>
   <p>Two opposed coherent circulations, coaxially arranged and controllably driven, remain a useful proposed apparatus. Their separation, drive phase, confinement and orientation can be varied independently. The geometry is a candidate for studying collective reorganization; it is not by itself a guarantee of self-compression, nonzero linking, or directional weight change.</p>
+
+  <div class="card gold" id="powered-operation">
+    <h3>Powered, held apart, with high voltage applied</h3>
+    <p><strong>The operating condition for this version is maintained counter-rotation at a fixed nonzero separation, with an applied high-voltage supply.</strong> The drives sustain the circulation; the support prevents merger. This is a driven apparatus, not an isolated pair left to run down. The earlier closed-pair and prescribed-cycle calculations retain their stated scope; they do not replace this operating condition.</p>
+    <p>Opposite angular-momentum entries can cancel without erasing either circulation or its positive stored energy. If a permitted merger extinguishes the organized counter-circulations, their energy must be accounted for in the resulting states and exchanges. Cancellation alone establishes neither complete conversion nor release of all energy outside the apparatus. With the gap held and the rotations maintained, any continuing conversion can instead be replenished by the drives.</p>
+    <p>For a mechanical-rotor realization, use signed drive torques and angular rates about one common axis. The source power is</p>
+    <div class="eq">$$P_{\mathrm{rot}}=\tau_1^{\mathrm{drive}}\omega_1+\tau_2^{\mathrm{drive}}\omega_2.$$</div>
+    <p>If an interaction resists both rotations by a torque magnitude $T$, the maintaining drives supply $\tau_1^{\mathrm{drive}}=T$, $\tau_2^{\mathrm{drive}}=-T$ at $\omega_1=\omega$, $\omega_2=-\omega$. Their torques cancel, but their power adds: $P_{\mathrm{rot}}=2T\omega$. This is a conditional power balance, not a derivation of the resisting torque or of a release channel. A current-pattern realization needs its own calibrated terminal-to-circulation map.</p>
+    <p>In terminal measurement units, the electrical input is $P_V=V I_{\mathrm{el}}$, positive into the apparatus. With each source counted once and other power ports explicitly included,</p>
+    <div class="eq">$$\frac{dE_D}{dt}=P_{\mathrm{rot}}+P_V+P_{\mathrm{other,in}}-P_{\mathrm{out}}.$$</div>
+    <p>$E_D$ includes retained thermal, rotational and other stored energy; only transfers crossing the chosen device boundary enter $P_{\mathrm{out}}$. A stationary gap can carry a nonzero holding force while its mechanical power $F_d\dot d$ is zero. High voltage is a control condition, not by itself a continuous power input: the terminal current and energy history matter.</p>
+    <p><strong>The required next relation is the voltage-dependent interaction of the maintained circulations at the fixed gap.</strong> The electrode connections, material response and external counterpart must be specified before calculating its torque or whole-apparatus support load. Neither that interaction nor a new weight effect follows from the power balance alone. The source's nonlinear spin–orbit route in <a class="xref" href="#sec-interaction-law">&sect;5H</a> remains distinct from the earlier inverse-cube model.</p>
+  </div>
 
   <h3>Stacking is not linking</h3>
   <p>Two disjoint circular centerlines in parallel planes have mutual linking zero, regardless of their circulation senses. Changing their separation or mutual inductance without a crossing does not change that integer. Each circulation can still have its own framing and phase winding. To propose a linking transition, name the actual curves, the rejoining or boundary event, and the invariant before and after it.</p>
@@ -918,6 +931,7 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
 
   <h3>The remaining material question is now narrower</h3>
   <p>&sect;5E supplies a calibrated local $J(q)$. It does not identify that current pattern with the source's single rigid rotor or fix its rotational kinetic energy $K_s(q)$. Even for a rotor, $K_s=J^2/(2I)$ requires its physical inertia. The released weak-link energy includes storage and joining contributions; it is not automatically $K_s$. Equal total energy and equal calibrated $J$ can coexist with different kinetic/storage partitions.</p>
+  <p><strong>Maintained rotation and high voltage.</strong> The <a class="xref" href="#powered-operation">powered, fixed-gap version</a> holds the rotations instead of spending their initial energy in a free merger. The source response $h(\epsilon,\cos\theta)$ has no independent voltage argument: if $\epsilon=K_s/K_o$ and $\theta$ remain unchanged, that formula alone gives no voltage-on/off difference. A voltage-induced change of the material state, energy partition or joint interaction must be derived separately, with the sustaining drives and their reactions retained. A steady powered state can exchange energy without losing its stored rotational energy; a symmetric free-decay or reset calculation does not stand in for that state.</p>
   <p>A source-model switching signal would involve <em>before and after energies</em>, not merely the sign of $J$:</p>
   <div class="eq">$$\Delta N_{\rm switch}=m_Dg_0
   [\delta(\epsilon_{\rm after},u)-\delta(\epsilon_{\rm before},u)].$$</div>
