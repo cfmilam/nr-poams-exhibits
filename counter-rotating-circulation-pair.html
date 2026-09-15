@@ -60,7 +60,7 @@ summary:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-
 .budget-results div{border:1px solid var(--edge);border-radius:8px;padding:12px;font-size:12px;color:var(--muted);}
 .budget-results strong{display:block;margin-top:5px;font-size:15px;font-variant-numeric:tabular-nums;}
 section{scroll-margin-top:70px;}
-#sec-material,#sec-phase-support{scroll-margin-top:110px;}
+#sec-material,#sec-phase-support,#sec-earth-constraint{scroll-margin-top:110px;}
 #phase-cycle-plot{display:block;width:100%;height:auto;color:var(--muted);margin:14px 0;}
 .cycle-options{display:flex;flex-wrap:wrap;gap:16px;margin:12px 0;font-size:13px;}
 #phase-cycle-plot text{font-size:13px;}
@@ -311,7 +311,7 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
   {c^2R_\oplus^2MM_\oplus}
   =\beta\frac{6GM}{c^2R_\oplus},
   \qquad\beta=\frac{L_{\mathrm{coh}}}{L_{\mathrm{orb}}}.$$</div>
-  <p>For other orientations include $|\cos\theta|$. Here the remaining $M$ is the <strong>device mass</strong>, not Earth's mass. For $M=1$ kg, $L_{\mathrm{orb}}=5.04\times10^{10}$ J·s and $6GM/(c^2R_\oplus)=6.99\times10^{-34}$. Substituting the varying circular-orbit expression before differentiating instead changes the coefficient from 6 to 5; it does not remove the suppression. The actual constrained path would have to be selected by a completed device model.</p>
+  <p>For other orientations include $|\cos\theta|$. Here the remaining $M$ is the <strong>device mass</strong>, not Earth's mass. For $M=1$ kg, $L_{\mathrm{orb}}=5.04\times10^{10}$ J·s and $6GM/(c^2R_\oplus)=6.99\times10^{-34}$. These are fixed-action reference estimates, not the held-on-Earth calculation. Differentiating along a family of circular reference orbits produces a coefficient 5, but that derivative is not a support force under either fixed action or fixed rotation rate. <a class="xref" href="#sec-earth-constraint">&sect;5F</a> now supplies an explicit fixed-Earth-rate Hamiltonian completion, including the work of the rotation constraint.</p>
   <div class="table-wrap"><table>
     <tr><th>Assumed $L_{\mathrm{coh}}$ (J·s)</th><th>$|\Delta g|/g$</th><th>Mass-equivalent change on 1 kg</th></tr>
     <tr><td>$10^3$</td><td>$1.39\times10^{-41}$</td><td>$1.39\times10^{-38}$ g</td></tr>
@@ -623,11 +623,12 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
 
   <p><strong>Thermal reset matters too.</strong> Heat released into a bath that remains on the balance has not left the device; an internal conversion does not instantly subtract $Q/c^2$ from its mass. Repeated powered cycles without cooling retain energy and can change ordinary mass/thermal loads. A genuinely closed apparatus-state cycle returns the thermal and control states as well as the phase state, with the cooling receiver included. That energy budget must not be mistaken for the proposed angular channel.</p>
 
-  <h3>6. The remaining weight relation is now precisely located</h3>
+  <h3>6. Locating the Earth relation — continued in &sect;5F</h3>
   <p>In a simple fixed-angular-momentum radial chart, $\mathcal C_E=-\mathcal G M_E m/r+L_E^2/(2mr^2)$ gives</p>
   <div class="eq">$$N_E=\frac{\mathcal G M_E m}{r^2}-\frac{L_E^2}{mr^3},\qquad
       r_{\mathrm{natural}}=\frac{L_E^2}{\mathcal G M_E m^2}.$$</div>
   <p>This states the POAMS constraint bill in that chart; it is not permission to substitute a local ring circulation for $L_E$. With $m$, $L_E$ and the intrinsic-spin-dependent $\mathcal G$ unchanged in our chosen branch, this contribution is unchanged. Other support kinematics need their own chart. A different prediction needs the actual mixed relation $\mathcal C_E(r,\mathbf q,\mathbf S,L_E)$ and its radial derivative, or an explicitly derived exchange that changes $L_E$ or the intrinsic spin organization. Neither the phase calibration nor $Lk=Tw+Wr$ supplies that relation.</p>
+  <p><strong>Continuation.</strong> The unchanged contribution above is the unmixed radial book, not a proof that all interaction terms vanish. The following section completes the <em>carried</em> mixed interaction for fixed Earth rotation. A mixed energy can affect support without a literal transfer of local circulation into the body's orbital motion; the physical coupling must still be specified.</p>
   <details>
     <summary>Why a local switching calculation cannot determine the missing radial derivative</summary>
     <p>At the operating radius $r_0$, a term $A(r-r_0)\sum_i(1-\cos q_i)$ vanishes along with all its phase derivatives. Thus it changes none of the local switching energies, branches or the independent rotation calibration there, yet it changes the radial derivative by $A\sum_i(1-\cos q_i)$. Positive, zero or negative $A$ all leave that local data unchanged. This is a non-uniqueness witness, <strong>not an adopted force law</strong>. It shows exactly which information a new Earth-coupling derivation must provide; it is not a claim that such a derivation is impossible.</p>
@@ -636,6 +637,86 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
     <p><strong>Result.</strong> The phase-to-local-AM map, its signs and units, the matched-pair cancellation, and the complete reciprocal support cycle are calculable with named calibration inputs. This closes that conditional mechanical connection. It does not manufacture a twist-to-orbit transfer or a new weight law. For the fixed planar, matched construction, no such transfer is produced by the model; the weak external kernel remains weak.</p>
   </div>
   <p class="caveat">Executable calculation: <a class="xref" href="./scripts/vortex_phase_support.py">vortex_phase_support.py</a>, using the neighboring <a class="xref" href="./scripts/vortex_material_transition.py">material-transition script</a> (Python + NumPy). Checks include independent rotation/position derivatives, complete ramp and reset integrals, source-on-balance cancellation, finite planar circulation, coupled-branch back-reaction and the unselected radial derivative. Material cross-checks only: <a class="xref" href="https://arxiv.org/abs/1112.6144">Chudnovsky, Garanin &amp; O’Keeffe, angular-momentum conservation in a flux loop</a>; <a class="xref" href="https://thesis.caltech.edu/3652/">Hunt, torque measurements and the distinction between phase winding and mechanical circulation</a>; the weak-link constitutive references in &sect;5D. None establishes anomalous weight modification.</p>
+</section>
+
+<section id="sec-earth-constraint">
+  <h2>&sect;5F — The Earth-relative constraint, worked through</h2>
+  <div class="card gold">
+    <p><strong>The conditional relation is now explicit.</strong> The mixed angular-momentum energy already proposed in &sect;5 can be completed into a held-on-Earth support calculation. It does not require identifying local circulation with orbital momentum. But the mixed interaction, and its application to local ring circulation, remain physical assumptions: the calculation below derives their consequences, not their necessity from closure.</p>
+    <p>For the fixed, horizontal, counter-wound rings of &sect;5E, this leading mixed load change is <strong>zero</strong>. The local axes are perpendicular to the actual Earth-relative orbital angular momentum; independently, the matched ring changes sum to zero. Those are specific results for this construction and this channel, not an impossibility theorem for every POAMS device.</p>
+  </div>
+
+  <h3>1. Name the Earth orbit and the participating circulation</h3>
+  <p>Use a spherical Earth reference and one rigid device of total retained mass $M$, at radius $r$ and geographic latitude $\lambda$. Its mount maintains Earth's angular rate $\Omega_E$; latitude and orientation are held fixed during a radial displacement. Let $\hat z_E$ be Earth's rotation axis and $\hat n$ local north. Write $s=\cos\lambda$. The actual co-rotating orbit has, to zeroth order in the added coupling,</p>
+  <div class="eq">$$\vec L_{\mathrm{kin}}=M\Omega_Er^2
+    [\hat z_E-(\hat z_E\cdot\hat r)\hat r]
+    =M\Omega_Er^2s\,\hat n.$$</div>
+  <p>This is not the freely orbiting reference $M\sqrt{GM_Er}$. It is also not generally parallel to Earth's rotation axis. A horizontal ring has its angular-momentum vector along $\hat r$, so its dot product with this orbital vector vanishes at every latitude.</p>
+  <p>Let $\vec J_\star$ denote the <em>total internal angular momentum to which the mixed ansatz is assumed to apply</em>, including any changing mount or onboard drive contribution. If that ansatz applies only to microscopic intrinsic spin, our spin-unchanged branch gives $\Delta\vec J_\star=0$ immediately. The more permissive body-level extension counts the calibrated local ring circulation from &sect;5E. Work that extension through explicitly:</p>
+  <div class="eq">$$\vec J_\star(\mathbf q)=
+    \sum_i\sigma_i[\mathbf K(\mathbf q-\mathbf u)]_i\hat n_i
+      +\vec J_{\mathrm{mount/drive}},\qquad
+    \Xi=\vec J_\star\cdot[\hat z_E-(\hat z_E\cdot\hat r)\hat r]
+      =sJ_n.$$</div>
+  <p>$J_n=\vec J_\star\cdot\hat n$. This is an identification within the candidate interaction, not a claim that a current reversal changed the microscopic spin census or the ribbon's writhe. The rotation calibration is already included; another coherent-domain multiplier would count it twice.</p>
+
+  <h3>2. Complete the mixed energy before differentiating it</h3>
+  <p>Define $a_G=2G/c^2$, $\mu_E=GM_E$, and let $p$ be the canonical action conjugate to the device's azimuth about Earth. At a nonpolar latitude the orbital inertia is $I=M r^2s^2$. One explicit first-order Hamiltonian completion of &sect;5 is</p>
+  <div class="eq">$$\mathcal H_E(r,p;\mathbf q)=
+    \frac{p^2}{2Mr^2s^2}-\frac{\mu_EM}{r}
+       -\frac{a_GJ_n(\mathbf q)p}{s r^3}.$$</div>
+  <p>At zero coupling, the full orbital AM is $(p/s)\hat n$, so the last term is exactly the carried dot-product energy. At nonzero coupling, $p$ must not silently be identified with the mechanical $Mr^2s^2\Omega_E$:</p>
+  <div class="eq">$$\Omega_E=\frac{\partial\mathcal H_E}{\partial p}
+     =\frac pI-\frac{a_GJ_n}{s r^3},\qquad
+    p_\star=I\left(\Omega_E+\frac{a_GJ_n}{s r^3}\right).$$</div>
+  <p>The Earth-locked mount maintains a rate, not a fixed orbital action. Its rotational work is included by using $\mathcal H_E-\Omega_Ep$ and eliminating $p$ at this stationary value. For the stipulated Hamiltonian the result is</p>
+  <div class="eq">$$\mathcal C_{E,\Omega}=
+      -\frac{\mu_EM}{r}
+      -\frac12Mr^2s^2\left(\Omega_E+\frac{a_GJ_n}{s r^3}\right)^2
+      =-\frac{\mu_EM}{r}-\frac12Mr^2s^2\Omega_E^2
+       -\frac{a_GM\Omega_E\Xi(\mathbf q)}{r}
+       +O(a_G^2).$$</div>
+  <p>This Legendre transform is a change of constraint bookkeeping, not a new substance or a spacetime model. The displayed completion is exact algebra for the stipulated Hamiltonian; its square does not establish the unknown second-order physics of a first-order ansatz. Keep the prediction at the carried order. The local rotating-material book from &sect;5E remains separate; its $-\boldsymbol\Omega_E\cdot\vec J$ response must be included once, not added a second time as another radial force.</p>
+
+  <h3>3. The signed holding load</h3>
+  <p>At fixed instantaneous phase and independent controls, upward support is the radial derivative of the complete control-inclusive book. Thus the Earth part is</p>
+  <div class="eq">$$N_E=\frac{\mu_EM}{r^2}-M\Omega_E^2r\cos^2\lambda
+     +a_GM\Omega_E\left(\frac{\Xi}{r^2}
+                          -\frac{\partial_r\Xi}{r}\right)+O(a_G^2).$$</div>
+  <p>Add the material, drive, receiver and thermal terms of &sect;5E. The derivative is a partial one: on a genuinely stationary <em>fully coupled</em> branch, phase-relaxation derivatives cancel by stationarity. If displacement itself changes the phase bias or rotation calibration, however, the explicit $\partial_r\Xi$ term remains. Leaving it out would repeat the receiver-derivative error already addressed there.</p>
+  <p>For a switch at fixed drive bias, with no explicit positional change of bias or calibration during the radial probe, the contribution becomes the direct phase-to-Earth relation:</p>
+  <div class="eq">$$\boxed{\displaystyle
+      \Delta N_{E,\mathrm{mix}}=
+       \frac{2GM\Omega_E}{c^2r^2}\,
+       [\hat z_E-(\hat z_E\cdot\hat r)\hat r]\cdot
+       \left\{\sum_i\sigma_i[\mathbf K\Delta\mathbf q]_i\hat n_i
+                  +\Delta\vec J_{\mathrm{mount/drive}}\right\}.}$$</div>
+  <p>Positive projection gives the heavier sign, negative projection the lighter sign, within this Hamiltonian completion. The Earth-relative counterpart is retained: the mutual term depends on the device–Earth separation, giving opposite positional derivatives at its two ends. The mount and rotation source must also book their angular work. Nothing here is an isolated-device thrust.</p>
+  <details>
+    <summary>Why this is not the earlier factor-6 estimate</summary>
+    <p>At fixed canonical $p$, with $J_n$ independent of $r$, the derivative is $N_p=\mu_EM/r^2-p^2/(Ms^2r^3)+3a_GJ_np/(s r^4)$. Evaluating it at the <em>rate-constrained</em> $p_\star$ changes the centrifugal term too, leaving $a_GM\Omega_E\Xi/r^2$ at first order, not three times that term. Multiplying by $a_G=2G/c^2$ gives coefficient 2 instead of 6. The old free-circle reference also used a different orbital rate. Neither coefficient can be chosen independently of the physical constraint.</p>
+    <p>For comparison, an equatorial <em>free</em> circular branch at fixed action $L$ has $r_0=L^2/(\mu_EM^2)$ and $\Delta r=-3a_GM J_n/L$ to first order. This preserves the carried co-sense inward / opposite-sense outward sign. It does not make a supported apparatus follow that free branch.</p>
+  </details>
+
+  <h3>4. Evaluate the apparatus we actually specified</h3>
+  <div class="table-wrap"><table>
+    <tr><th>Construction or change</th><th>Mixed Earth-load result at carried order</th></tr>
+    <tr><td>Horizontal rings: local AM radial</td><td>$\Xi=0$. There is no dot-product coupling to the co-rotating orbital AM, even for one uncompensated horizontal ring.</td></tr>
+    <tr><td>Matched opposed rings, treated as one compact device</td><td>$\Delta\vec J_A+\Delta\vec J_B=0$. With unchanged mount/drive total, the leading mixed load cancels for every orientation.</td></tr>
+    <tr><td>Uncompensated total AM directed north</td><td>$\Delta N=2GM\Omega_E\cos\lambda\,\Delta J_n/(c^2r^2)$, conditional on the body-level mixed coupling and the stated controls.</td></tr>
+    <tr><td>Coupling restricted to unchanged microscopic spin</td><td>$\Delta\vec J_\star=0$. Relabelling the local current does not open that channel.</td></tr>
+  </table></div>
+  <p>For scale only, take $M=1$ kg, $r=6.371\times10^6$ m and the nominal $\Omega_E=7.292115\times10^{-5}$ rad/s. At the equator the coefficient is $2.6683\times10^{-45}$ N/(J&middot;s). If the entire apparatus had an <em>uncompensated north-directed</em> step equal to one illustrative ring's $-3.2265\times10^{-23}$ J&middot;s, this term would be $-8.6092\times10^{-68}$ N. That deliberately different construction is not the balanced horizontal apparatus: its displayed leading result remains zero. These numbers are computed under assumptions, not measured device performance.</p>
+
+  <h3>5. Finite size, the complete cycle and the limit of the result</h3>
+  <p>A zero leading point-body term is not a computed zero of all finite-size effects. The self-mixed ansatz contains the product $M\vec J$ but gives no source-resolved extension: arbitrarily replacing one body by two equal pieces changes $M\vec J$ into $2(M/2)(\vec J/2)=M\vec J/2$. That is evidence of a missing subdivision rule, not a new force. Consequently we do not manufacture a unique millimetre-separation correction by applying the point-body law once per arbitrarily chosen piece. A finite circulation model must supply that rule and its radial derivative.</p>
+  <p>This is also not the distinct direct coherent-pair interaction with Earth's own rotation. Substituting Earth's spin for the device's orbital AM changes the channel; it would require the receiving Earth circulation and its valid extended-body kernel. A zero of the mixed orbital dot product does not settle that separate term.</p>
+  <p>For matched rings in the present point-body extension, opposite angular states cancel the linear mixed contribution at every modeled point in the switch/reset cycle, so unequal dwell does not rescue it. For an <em>uncompensated</em> residual following &sect;5E's reflection-symmetric complete ramps, the linear signal integrates to zero; unequal dwell can leave a signed reciprocal support impulse. It remains paid, externally balanced interaction, not free amplification. A real transient with unmatched mounting or thermal states needs those states included.</p>
+  <div class="card gold">
+    <p><strong>What has been derived.</strong> A complete conditional phase-to-Earth support relation, with the held-rate constraint, projection, sign, source work and matched-pair null made explicit. The earlier missing derivative is no longer left as a symbol <em>within this chosen completion</em>.</p>
+    <p><strong>What has not been derived.</strong> That closure forces this mixed Hamiltonian to couple to the calibrated ring circulation, or what its source-resolved finite-size replacement is. The local-data non-uniqueness example in &sect;5E still applies to a different proposed Earth interaction. These are specific unselected physical laws; neither a collective count nor a different differentiation convention supplies them. We have completed the carried route, not obtained a parameter-free new weight law.</p>
+  </div>
+  <p class="caveat">Executable calculation: <a class="xref" href="./scripts/vortex_earth_constraint.py">vortex_earth_constraint.py</a> (Python + NumPy, with the neighboring material/phase scripts). Independent checks cover canonical and fixed-rate derivatives, the coupled-branch envelope, geometric projections, calibrated endpoints, counterpart signs, full ramps/reset and subdivision non-uniqueness. Mathematical cross-check: <a class="xref" href="https://www.damtp.cam.ac.uk/user/tong/dynamics/dynhtml/S4.html">Tong, Legendre transforms and Hamiltonian constraints</a>. Rotation-rate input: <a class="xref" href="https://iau-a3.gitlab.io/NSFA/IAU2009_consts.html">IAU nominal mean Earth rotation</a>. These support the mathematics/metrology, not the candidate POAMS interaction. Pope's <a class="xref" href="https://cfmilam.github.io/nr-poams-books/einsteins-lost-legacy.html">ELL, Appendices 4–5</a> supplies the source distinction between spin and orbit; no new local material-to-Earth coefficient is inferred from its atomic calibration.</p>
 </section>
 
 <!-- ============ §6 ============ -->
@@ -653,13 +734,14 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
     <tr><td>Can a material switch and reset be worked out?</td><td><span class="tag assume">CONSTITUTIVE MODEL</span>Yes. &sect;5D supplies both from an explicit weak-link energy and relaxation law, checks pair stability, and derives the reciprocal load formula. Actual material coefficients and receiver coupling are not forced by the present POAMS premises.</td></tr>
     <tr><td>Can phase be converted into local mechanical AM?</td><td><span class="tag assume">CALIBRATED DERIVATION</span>Yes. &sect;5E gives $J_i=\sigma_i[\mathbf K(\mathbf q-\mathbf u)]_i$ for a specified rotational response. Opposed matched changes cancel; a phase-sector jump is not a universal $\hbar$ impulse.</td></tr>
     <tr><td>Does a phase reset leave a net support impulse?</td><td><span class="tag claim">DERIVED IN MODEL</span>The complete symmetric reciprocal cycle cancels it. Unequal dwell can give an externally balanced impulse; the source-on-balance contribution cancels. Neither is automatically a new weight law.</td></tr>
+    <tr><td>Can the carried mixed term be completed into an Earth support law?</td><td><span class="tag assume">CONDITIONAL DERIVATION</span>&sect;5F derives the fixed-Earth-rate constraint and its phase-dependent radial derivative. The matched horizontal construction gives zero leading mixed load. The local-AM identification and finite-size interaction are not forced by closure.</td></tr>
     <tr><td>Can there be measurable collective exchange?</td><td><span class="tag open">CONDITIONAL</span>Yes, if actual transitions, supplied power, directional counterparts and readout bandwidth satisfy the stated budget. No apparatus prediction is delivered here.</td></tr>
-    <tr><td>Has weight modification been derived from those events?</td><td><span class="tag open">OPEN</span>No. A derived natural-orbit/support-reaction law is a separate requirement; a recoil budget does not replace it.</td></tr>
+    <tr><td>Has weight modification been derived from those events?</td><td><span class="tag open">NOT ESTABLISHED</span>The specified matched geometry gives no leading effect under &sect;5F's completed mixed model. A distinct material-to-Earth interaction or source-resolved finite-size term is not derived here; a recoil budget does not supply one.</td></tr>
   </table></div>
 
   <div class="card gold">
     <p><strong>The “unless,” in plain language.</strong> Not “unless enough turns do it together.” Rather: <em>unless a specified collective change can post a measurable directional entry against a specified external counterpart, with the full energy and momentum books balanced.</em> The work has narrowed the claim, not ruled out that experiment. A derived alteration of the natural-orbit constraint would be a distinct route with its own calculation.</p>
-    <p><strong>The remaining physical input.</strong> &sect;5D supplies the material switch/reset and &sect;5E supplies the calibrated phase-to-local-AM connection and complete reciprocal support cycle. An apparatus needs its actual stiffness, joining law, relaxation and rotational/receiver calibrations, not the illustrative values. A new weight prediction additionally needs the mixed Earth-constraint relation, including which local angular organization changes its radial derivative. Neither a phase jump nor a domain-size sweep supplies that relation.</p>
+    <p><strong>The remaining physical input.</strong> &sect;5D supplies the conditional material switch/reset, &sect;5E the calibrated local-AM connection, and &sect;5F the fixed-rate Earth-constraint completion of the carried mixed term. Its leading result for the specified apparatus is zero. An apparatus still needs its actual material and rotational calibrations. A different weight result needs a separately derived material-to-Earth interaction or a source-resolved finite-size extension, not another population multiplier. The absence of that law is not concealed as an uncomputed derivative of the existing one.</p>
   </div>
   <p>The proposed conducting, superconducting, fluid and lattice embodiments remain research candidates. Nothing here claims they have achieved a weight change. The scope is the amplification inference, not a general verdict on the wider Normal Realism / POAMS program.</p>
   <p class="caveat">Calculation record: <a class="xref" href="./scripts/vortex_amplification_audit.py">vortex_amplification_audit.py</a> — finite counterexamples, sum identities, frequency conventions, corrected tables and readout example. Earlier proposal preserved in <a class="xref" href="https://github.com/cfmilam/nr-poams-exhibits/blob/11f6818/counter-rotating-circulation-pair.html">the pre-inquiry version</a>. Updated 2026-09-14.</p>
