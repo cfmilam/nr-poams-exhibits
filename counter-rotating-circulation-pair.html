@@ -60,7 +60,10 @@ summary:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-
 .budget-results div{border:1px solid var(--edge);border-radius:8px;padding:12px;font-size:12px;color:var(--muted);}
 .budget-results strong{display:block;margin-top:5px;font-size:15px;font-variant-numeric:tabular-nums;}
 section{scroll-margin-top:70px;}
-#sec-material,#sec-phase-support,#sec-earth-constraint{scroll-margin-top:110px;}
+#sec-material,#sec-phase-support,#sec-earth-constraint,#sec-finite-size{scroll-margin-top:110px;}
+#finite-geometry-plot{display:block;width:100%;height:auto;color:var(--muted);margin:14px 0;}
+#finite-geometry-plot text{font-size:14px;}
+@media(max-width:620px){#finite-geometry-plot text{font-size:20px;}}
 #phase-cycle-plot{display:block;width:100%;height:auto;color:var(--muted);margin:14px 0;}
 .cycle-options{display:flex;flex-wrap:wrap;gap:16px;margin:12px 0;font-size:13px;}
 #phase-cycle-plot text{font-size:13px;}
@@ -151,6 +154,7 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
     <p>The September 2026 inquiry closes the automatic-amplification shortcut: an integer linking change does not set an energy quantum; phase agreement does not make every closure change; and internal reorganization does not give the whole apparatus an unbalanced impulse. A measurable directional exchange remains possible <em>conditionally</em>, with a specified transition, energy supply and external counterpart. That is not yet a prediction of weight modification.</p>
     <p><strong>The next step has now been calculated.</strong> A finite angular-exchange model supplies an explicit re-filing, its energy book and a named external co-signer. It gives a reciprocal directional reaction, but not the proposed fast topological burst. The carried coupling makes the exchange very slow. See <a class="xref" href="#sec-exchange">the concrete transition</a> and <a class="xref" href="#sec-counterpart">its external counterpart</a>.</p>
     <p><strong>The material-to-mechanical connection is now explicit.</strong> A weak-link switch changes a ring's local circulation according to its independently calibrated rotational response. Matched counter-wound rings change equally and oppositely. Their switch-and-reset cycle gives a calculable reciprocal support contribution, not an automatic change of the Earth-orbital constraint. See <a class="xref" href="#sec-phase-support">phase, angular momentum and the complete support ledger</a>.</p>
+    <p><strong>Finite separation has now been tested.</strong> The carried point-body interaction does not uniquely fix its extended form. Two explicit finite sums agree in the point limit but differ for a separated pair. The horizontal coaxial construction remains null in both; a tilted-pair residual in one is suppressed by core spacing divided by Earth radius. See <a class="xref" href="#sec-finite-size">the finite-size calculation and its selection boundary</a>.</p>
     <p class="caveat">The calculation below stays inside the Normal Realism / POAMS ledger. It neither reopens the fine-structure-constant program nor supplies a new apparatus-independent impossibility theorem. <a class="xref" href="#sec-5b">Jump to the momentum and power budget</a>.</p>
   </div>
 </section>
@@ -709,7 +713,7 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
   <p>For scale only, take $M=1$ kg, $r=6.371\times10^6$ m and the nominal $\Omega_E=7.292115\times10^{-5}$ rad/s. At the equator the coefficient is $2.6683\times10^{-45}$ N/(J&middot;s). If the entire apparatus had an <em>uncompensated north-directed</em> step equal to one illustrative ring's $-3.2265\times10^{-23}$ J&middot;s, this term would be $-8.6092\times10^{-68}$ N. That deliberately different construction is not the balanced horizontal apparatus: its displayed leading result remains zero. These numbers are computed under assumptions, not measured device performance.</p>
 
   <h3>5. Finite size, the complete cycle and the limit of the result</h3>
-  <p>A zero leading point-body term is not a computed zero of all finite-size effects. The self-mixed ansatz contains the product $M\vec J$ but gives no source-resolved extension: arbitrarily replacing one body by two equal pieces changes $M\vec J$ into $2(M/2)(\vec J/2)=M\vec J/2$. That is evidence of a missing subdivision rule, not a new force. Consequently we do not manufacture a unique millimetre-separation correction by applying the point-body law once per arbitrarily chosen piece. A finite circulation model must supply that rule and its radial derivative.</p>
+  <p>A zero leading point-body term is not a computed zero of all finite-size effects. The self-mixed ansatz contains the product $M\vec J$ but gives no source-resolved extension: arbitrarily replacing one body by two equal pieces changes $M\vec J$ into $2(M/2)(\vec J/2)=M\vec J/2$. That is evidence of a missing subdivision rule, not a new force. Consequently we do not manufacture a unique millimetre-separation correction by applying the point-body law once per arbitrarily chosen piece. <a class="xref" href="#sec-finite-size">&sect;5G</a> now constructs subdivision-consistent extensions and evaluates their derivatives; it also shows why that consistency does not select a unique physical law.</p>
   <p>This is also not the distinct direct coherent-pair interaction with Earth's own rotation. Substituting Earth's spin for the device's orbital AM changes the channel; it would require the receiving Earth circulation and its valid extended-body kernel. A zero of the mixed orbital dot product does not settle that separate term.</p>
   <p>For matched rings in the present point-body extension, opposite angular states cancel the linear mixed contribution at every modeled point in the switch/reset cycle, so unequal dwell does not rescue it. For an <em>uncompensated</em> residual following &sect;5E's reflection-symmetric complete ramps, the linear signal integrates to zero; unequal dwell can leave a signed reciprocal support impulse. It remains paid, externally balanced interaction, not free amplification. A real transient with unmatched mounting or thermal states needs those states included.</p>
   <div class="card gold">
@@ -717,6 +721,112 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
     <p><strong>What has not been derived.</strong> That closure forces this mixed Hamiltonian to couple to the calibrated ring circulation, or what its source-resolved finite-size replacement is. The local-data non-uniqueness example in &sect;5E still applies to a different proposed Earth interaction. These are specific unselected physical laws; neither a collective count nor a different differentiation convention supplies them. We have completed the carried route, not obtained a parameter-free new weight law.</p>
   </div>
   <p class="caveat">Executable calculation: <a class="xref" href="./scripts/vortex_earth_constraint.py">vortex_earth_constraint.py</a> (Python + NumPy, with the neighboring material/phase scripts). Independent checks cover canonical and fixed-rate derivatives, the coupled-branch envelope, geometric projections, calibrated endpoints, counterpart signs, full ramps/reset and subdivision non-uniqueness. Mathematical cross-check: <a class="xref" href="https://www.damtp.cam.ac.uk/user/tong/dynamics/dynhtml/S4.html">Tong, Legendre transforms and Hamiltonian constraints</a>. Rotation-rate input: <a class="xref" href="https://iau-a3.gitlab.io/NSFA/IAU2009_consts.html">IAU nominal mean Earth rotation</a>. These support the mathematics/metrology, not the candidate POAMS interaction. Pope's <a class="xref" href="https://cfmilam.github.io/nr-poams-books/einsteins-lost-legacy.html">ELL, Appendices 4–5</a> supplies the source distinction between spin and orbit; no new local material-to-Earth coefficient is inferred from its atomic calibration.</p>
+</section>
+
+<section id="sec-finite-size">
+  <h2>&sect;5G — Does separating the cores rescue the Earth response?</h2>
+  <div class="card gold">
+    <p><strong>Not automatically.</strong> Opposite circulations can have zero total AM and still have a nonzero <em>spatial moment</em>: where each circulation sits can matter. We can derive that distinction without assigning the missing interaction a convenient coefficient. The calculation below gives two explicit continuations of &sect;5F, an exact two-core comparison, and a counterexample to uniqueness. These are conditional models, not a new weight law selected by POAMS.</p>
+  </div>
+
+  <h3>1. Preserve the whole-body limit before computing a correction</h3>
+  <p>Keep the same fixed Earth rate, rigid orientation, unchanged retained mass and position-independent phase calibration. Resolve the apparatus into named closed circulations $\vec J_i$ at Earth-relative positions $\vec x_i$, and mass entries $m_j$ at $\vec y_j$. Include the mounting and onboard drive's participating changes. Write $M=\sum_jm_j$ and $\vec J_{\rm tot}=\sum_i\vec J_i$. Each ring is still represented by its calibrated AM at its center; this is a two-core extension, not a microscopic resolution of the ring material.</p>
+  <div class="eq">$$\vec b(\vec x)=
+    \frac{\hat z_E-(\hat z_E\cdot\hat x)\hat x}{|\vec x|},
+    \qquad \mathcal C_{\rm point}=-a_GM\Omega_E\,\vec J_{\rm tot}\cdot\vec b(\vec R),
+    \qquad a_G=\frac{2G}{c^2}.$$</div>
+  <p>$\vec b$ is a geometric function on the relational chart, not an aether or a field occupying a void. Two different finite sums recover precisely this point limit:</p>
+  <div class="eq">$$\begin{aligned}
+    \mathcal C_1&=-a_G\Omega_E\sum_{i,j}m_j\,\vec J_i\cdot\vec b(\vec x_i)
+       =-a_GM\Omega_E\sum_i\vec J_i\cdot\vec b(\vec x_i),\\
+    \mathcal C_2&=-a_G\Omega_E\sum_{i,j}m_j\,\vec J_i\cdot\vec b(\vec y_j)
+       =-a_G\Omega_E\,\vec J_{\rm tot}\cdot\sum_jm_j\vec b(\vec y_j).
+  \end{aligned}$$</div>
+  <p>The first samples the geometry at the <strong>circulation positions</strong>; the second at the <strong>mass/orbital positions</strong>. They are alternatives, not two contributions to add. Both preserve the result if one entry is divided into co-located pieces with the same total mass or AM. The double sums retain the cross entries that the arbitrary $\sum_i m_i\vec J_i$ replacement discarded. Neither permits multiplying the resulting macroscopic sum by another population count.</p>
+  <p>This fixes a bookkeeping defect, not the physical law. The apparatus boundary and which actual closed circulations couple must still be specified; merging independently operated devices into a new “body” does not authorize new cross interactions. Dividing a closed circulation into open arcs is also not this co-located relabelling: the corresponding origin and orbital terms would have to be supplied.</p>
+  <details>
+    <summary>These are compatible with the same fixed-rate constraint</summary>
+    <p>For either cost write $\mathcal C_k=-\Omega_E\mathcal B_k$. With orbital inertia $I$, a Hamiltonian $\mathcal H=p^2/(2I)-p\mathcal B_k/I+\mathcal V$ gives $p_\star=I\Omega_E+\mathcal B_k$. Then $\mathcal H-\Omega_Ep=\mathcal V-I\Omega_E^2/2-\Omega_E\mathcal B_k+O(a_G^2)$. Thus each finite cost can use the same rate-constrained source-work convention as &sect;5F; their difference is the spatial coupling, not a choice of differentiation convention. Their unknown higher-order completions are not inferred from the square.</p>
+  </details>
+
+  <h3>2. The spatial moment that survives a zero total</h3>
+  <p>Let $\vec x_i=\vec R+\vec\rho_i$, and define the finite first moment $Q_{ab}=\sum_i\rho_{i,a}J_{i,b}$. A Taylor expansion of the <em>chart function</em>, after the discrete entries are summed, gives</p>
+  <div class="eq">$$\mathcal C_1=-a_GM\Omega_E
+    \left[J_{{\rm tot},b}b_b(\vec R)
+       +Q_{ab}\,\partial_a b_b(\vec R)+\cdots\right].$$</div>
+  <p>Repeated Cartesian indices are summed. If $\vec J_{\rm tot}=0$, changing the expansion origin leaves $Q_{ab}$ unchanged. For the matched coaxial pair, with centers $\vec R\pm(d/2)\hat n$ and circulation vectors $\pm J\hat n$,</p>
+  <div class="eq">$$\vec J_{\rm tot}=0,\qquad Q_{ab}=Jd\,n_an_b.$$</div>
+  <p>This moment counts the same circulation once. It is not new angular momentum, new spin, a change in writhe, or an amplification factor. In $\mathcal C_2$ the total AM factors out, so the matched pair cancels exactly at every separation. In $\mathcal C_1$ the two geometry samples can differ:</p>
+  <div class="eq">$$\begin{aligned}
+    \mathcal C_1&=-a_GM\Omega_EJ\,\hat n\cdot
+      \left[\vec b\!\left(\vec R+\frac d2\hat n\right)
+                -\vec b\!\left(\vec R-\frac d2\hat n\right)\right],\\
+    N_1&=-a_GM\Omega_EJ\,\hat n\cdot
+      (\hat r\cdot\nabla_{\!R})
+      \left[\vec b\!\left(\vec R+\frac d2\hat n\right)
+                -\vec b\!\left(\vec R-\frac d2\hat n\right)\right].
+  \end{aligned}$$</div>
+  <p>$N_1$ is the upward holding-load contribution, for a common outward displacement with $d$, $\hat n$ and $J$ held fixed. It is not the force opening the gap between the rings. For $d\ll r=|\vec R|$, the first nonzero term is</p>
+  <div class="eq">$$\begin{aligned}
+    N_1&=\frac{2a_GM\Omega_EJd}{r^3}\,\Gamma
+          +O\!\left(\frac{a_GM\Omega_EJd^3}{r^5}\right),\\
+    \Gamma&=(\hat z_E\cdot\hat r)\,[3(\hat n\cdot\hat r)^2-1]
+          -2(\hat n\cdot\hat r)(\hat z_E\cdot\hat n).
+  \end{aligned}$$</div>
+  <p>For an axis tilted by $\theta$ from local radial toward north, $\Gamma=-\sin\lambda\,\sin^2\theta-\cos\lambda\,\sin2\theta$. Its magnitude is bounded by $2/\sqrt3$. Relative to an uncompensated equatorial point-body load $a_GM\Omega_E|J|/r^2$, the leading residual is therefore at most $(4/\sqrt3)d/r$. Finite spacing adds a small ratio; it does not remove the weak coupling.</p>
+
+  <h3>3. Evaluate the horizontal pair, then a deliberately tilted one</h3>
+  <div class="table-wrap"><table id="finite-result-table">
+    <tr><th>Construction</th><th>Circulation-position extension $\mathcal C_1$</th><th>Orbital-position extension $\mathcal C_2$</th></tr>
+    <tr><td>Matched, horizontal, coaxial rings</td><td>Exactly zero radial contribution: both center rays are parallel to $\hat n$, and each $\hat n\cdot\vec b$ vanishes. This is not merely a first-order-in-spacing cancellation.</td><td>Exactly zero: $\vec J_{\rm tot}=0$.</td></tr>
+    <tr><td>Matched coaxial pair tilted away from radial</td><td>A residual can survive. Its leading size and sign are the $\Gamma d/r$ result above.</td><td>Still zero for a matched total, regardless of tilt or separation.</td></tr>
+    <tr><td>Unmatched mount or drive response</td><td colspan="2">Add its actual circulation and position to the sum. The result is no longer that of the specified matched apparatus.</td></tr>
+  </table></div>
+  <p>Reuse &sect;5E's illustrative step $\Delta J_A=-3.2265\times10^{-23}$ J&middot;s and its opposite, with $M=1$ kg, $d=1$ mm, $r=6.371\times10^6$ m and the same nominal Earth rotation. At the equator with a $45^\circ$ coaxial tilt, $\mathcal C_1$ gives a <strong>conditional step of $+2.70\times10^{-77}$ N</strong>. The exact two-center derivative agrees with the spatial-moment approximation. $\mathcal C_2$ gives zero. The horizontal construction gives zero in both. These are different model consequences on illustrative inputs, not competing measurements of a specimen.</p>
+
+  <div class="card" aria-labelledby="finite-geometry-title">
+    <h3 id="finite-geometry-title" style="margin-top:0">See the geometry — conditional models side by side</h3>
+    <p class="caveat">The plot shows $\Gamma$ for $\mathcal C_1$ and the matched zero of $\mathcal C_2$. No free finite-size coefficient is fitted. The load readout uses the illustrative step above and the leading $d/r$ term.</p>
+    <div class="budget-controls">
+      <label for="finite-tilt">Ring-axis tilt from local radial toward north
+        <output id="finite-tilt-value" for="finite-tilt">0° — horizontal rings</output>
+        <input id="finite-tilt" type="range" min="0" max="180" step="1" value="0">
+      </label>
+      <label for="finite-latitude">Latitude
+        <output id="finite-latitude-value" for="finite-latitude">0°</output>
+        <input id="finite-latitude" type="range" min="-80" max="80" step="1" value="0">
+      </label>
+    </div>
+    <svg id="finite-geometry-plot" viewBox="0 0 720 280" role="img" aria-labelledby="finite-plot-title finite-plot-description">
+      <title id="finite-plot-title">Tilt dependence of the conditional finite-size geometry</title>
+      <desc id="finite-plot-description">The blue curve is the circulation-position model's dimensionless geometry factor. The gold dashed zero line is the orbital-position model. A marker follows the selected tilt.</desc>
+      <g stroke="var(--edge)" fill="none"><path d="M64 32V230H685"/><path d="M64 61H685M64 203H685" stroke-dasharray="3 6"/></g>
+      <path d="M64 132H685" stroke="var(--gold)" stroke-width="2" stroke-dasharray="8 6"/>
+      <g fill="currentColor"><text x="16" y="67">+1</text><text x="28" y="138">0</text><text x="16" y="209">−1</text><text x="57" y="254">0°</text><text x="362" y="254">90°</text><text x="648" y="254">180°</text></g>
+      <path id="finite-curve" fill="none" stroke="var(--blue)" stroke-width="3"/>
+      <line id="finite-cursor" x1="64" y1="32" x2="64" y2="230" stroke="var(--muted)" stroke-dasharray="3 5"/>
+      <circle id="finite-marker" cx="64" cy="132" r="6" fill="var(--blue)" stroke="var(--bg)" stroke-width="2"/>
+    </svg>
+    <div class="budget-results" aria-live="polite">
+      <div>Geometry factor $\Gamma$<strong id="finite-gamma">0</strong></div>
+      <div>$\mathcal C_1$ — conditional load step<strong id="finite-load">0 N</strong></div>
+      <div>$\mathcal C_2$ — matched pair<strong>0 N</strong></div>
+    </div>
+  </div>
+
+  <h3>4. Why even this finite null is not a universal result</h3>
+  <p>Subdivision consistency, rotational symmetry and the point-body limit still leave finite tensor terms unselected. For example, take $\vec R$ to be the actual mass centroid and consider the following <strong>counterexample only, not an adopted interaction</strong>:</p>
+  <div class="eq">$$\delta\mathcal C_\chi=
+      \chi\,\frac{a_GM\Omega_E}{r^2}
+       (\hat z_E\cdot\hat r)\,\operatorname{tr}Q.$$</div>
+  <p>It vanishes when all entries become co-located, survives co-located subdivision, and respects common rotations, spatial parity and simultaneous reversal of all angular rates and momenta. Yet for the horizontal matched pair, $\operatorname{tr}Q=Jd$, so it changes the radial load by</p>
+  <div class="eq">$$\delta N_\chi=-2\chi\,\frac{a_GM\Omega_EJd}{r^3}\sin\lambda.$$</div>
+  <p>No value or sign of $\chi$ is selected, fitted or added to the plotted calculation. The point is logical: a point-invisible spatial moment can change the answer without changing the preceding point-body calculation. Its coefficient must come from a physical joint circulation law, not from dimensional analysis, symmetry alone, or a desired force reading.</p>
+  <p>All these costs use Earth-relative positions, so positional reactions have balancing entries at Earth; the maintained rotation has its source-work entry. In the stated fixed-geometry, linear-in-$J$ models, a reflection-symmetric complete switch/reset cancels a nonzero linear signal's time integral. Unequal dwell can leave an externally balanced impulse, not stored thrust. The horizontal $\mathcal C_1$ null and matched $\mathcal C_2$ null hold pointwise for the modeled path. Position-dependent calibration, unmatched transients, or a different spatial law require their own terms.</p>
+  <div class="card gold">
+    <p><strong>The boundary is now a choice of physical law, not an unfinished derivative.</strong> We have calculated the finite sums, their spatial moments, support derivatives and cycle consequences. Separation alone does not provide the missing amplifier. The present premises do not select the actual joint spatial coupling of the named material circulations to the Earth-relative constraint. The nulls and tiny residual above must not be promoted to a theorem about every finite apparatus, nor may an unselected term be promoted to a prediction.</p>
+  </div>
+  <p class="caveat">Reproduce with <a class="xref" href="./scripts/vortex_finite_size.py">vortex_finite_size.py</a> (Python + NumPy and the neighboring scripts). Checks cover independent cost derivatives, fixed-rate completion, two-ended reaction, rotations, subdivision, point limits, exact versus moment-expanded results, a 65-digit SI difference, the non-uniqueness witness, and complete cycle symmetry. Mathematical reference only: <a class="xref" href="https://www.damtp.cam.ac.uk/user/tong/dynamics/dynhtml/S3.html">Tong, finite rigid-body kinematics and angular-momentum sums</a>; the Hamiltonian reference in &sect;5F. These references do not select either proposed POAMS spatial coupling.</p>
 </section>
 
 <!-- ============ §6 ============ -->
@@ -735,13 +845,14 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
     <tr><td>Can phase be converted into local mechanical AM?</td><td><span class="tag assume">CALIBRATED DERIVATION</span>Yes. &sect;5E gives $J_i=\sigma_i[\mathbf K(\mathbf q-\mathbf u)]_i$ for a specified rotational response. Opposed matched changes cancel; a phase-sector jump is not a universal $\hbar$ impulse.</td></tr>
     <tr><td>Does a phase reset leave a net support impulse?</td><td><span class="tag claim">DERIVED IN MODEL</span>The complete symmetric reciprocal cycle cancels it. Unequal dwell can give an externally balanced impulse; the source-on-balance contribution cancels. Neither is automatically a new weight law.</td></tr>
     <tr><td>Can the carried mixed term be completed into an Earth support law?</td><td><span class="tag assume">CONDITIONAL DERIVATION</span>&sect;5F derives the fixed-Earth-rate constraint and its phase-dependent radial derivative. The matched horizontal construction gives zero leading mixed load. The local-AM identification and finite-size interaction are not forced by closure.</td></tr>
+    <tr><td>Does finite core separation supply an amplifier?</td><td><span class="tag assume">FINITE-SIZE CALCULATION</span>&sect;5G gives two subdivision-consistent extensions. Both leave the horizontal coaxial pair null; one gives a tilted residual suppressed by $d/r$, while the other cancels every matched pair. A point-invisible tensor term proves these are not universal finite-body results. The physical spatial law remains unselected.</td></tr>
     <tr><td>Can there be measurable collective exchange?</td><td><span class="tag open">CONDITIONAL</span>Yes, if actual transitions, supplied power, directional counterparts and readout bandwidth satisfy the stated budget. No apparatus prediction is delivered here.</td></tr>
-    <tr><td>Has weight modification been derived from those events?</td><td><span class="tag open">NOT ESTABLISHED</span>The specified matched geometry gives no leading effect under &sect;5F's completed mixed model. A distinct material-to-Earth interaction or source-resolved finite-size term is not derived here; a recoil budget does not supply one.</td></tr>
+    <tr><td>Has weight modification been derived from those events?</td><td><span class="tag open">NOT ESTABLISHED</span>The specified matched geometry gives no leading effect under &sect;5F and remains null in &sect;5G's two tested extensions. Conditional finite-size terms have been calculated, but the material-to-Earth law selecting one has not been derived; a recoil budget does not supply it.</td></tr>
   </table></div>
 
   <div class="card gold">
     <p><strong>The “unless,” in plain language.</strong> Not “unless enough turns do it together.” Rather: <em>unless a specified collective change can post a measurable directional entry against a specified external counterpart, with the full energy and momentum books balanced.</em> The work has narrowed the claim, not ruled out that experiment. A derived alteration of the natural-orbit constraint would be a distinct route with its own calculation.</p>
-    <p><strong>The remaining physical input.</strong> &sect;5D supplies the conditional material switch/reset, &sect;5E the calibrated local-AM connection, and &sect;5F the fixed-rate Earth-constraint completion of the carried mixed term. Its leading result for the specified apparatus is zero. An apparatus still needs its actual material and rotational calibrations. A different weight result needs a separately derived material-to-Earth interaction or a source-resolved finite-size extension, not another population multiplier. The absence of that law is not concealed as an uncomputed derivative of the existing one.</p>
+    <p><strong>The remaining physical input.</strong> &sect;5D supplies the conditional material switch/reset, &sect;5E the calibrated local-AM connection, &sect;5F the fixed-rate Earth constraint, and &sect;5G explicit finite-size continuations with their selection boundary. An apparatus still needs its actual material and rotational calibrations and a physical joint spatial coupling. A different weight result cannot be obtained by another population multiplier or by silently choosing an otherwise unselected tensor term. The missing law is no longer concealed as an uncomputed derivative.</p>
   </div>
   <p>The proposed conducting, superconducting, fluid and lattice embodiments remain research candidates. Nothing here claims they have achieved a weight change. The scope is the amplification inference, not a general verdict on the wider Normal Realism / POAMS program.</p>
   <p class="caveat">Calculation record: <a class="xref" href="./scripts/vortex_amplification_audit.py">vortex_amplification_audit.py</a> — finite counterexamples, sum identities, frequency conventions, corrected tables and readout example. Earlier proposal preserved in <a class="xref" href="https://github.com/cfmilam/nr-poams-exhibits/blob/11f6818/counter-rotating-circulation-pair.html">the pre-inquiry version</a>. Updated 2026-09-14.</p>
@@ -866,6 +977,46 @@ try{
   }
   dwell.addEventListener('input',update);
   onboard.addEventListener('change',update);
+  update();
+})();
+
+(function(){
+  var tilt=document.getElementById('finite-tilt');
+  var latitude=document.getElementById('finite-latitude');
+  var plot=document.getElementById('finite-geometry-plot');
+  if(!tilt||!latitude||!plot)return;
+  // Same illustrative calibration as the neighboring public Python calculation.
+  // C1 uses the leading small-spacing expression; C2 is exactly zero for the
+  // matched sum. Neither model is selected by the point-body law.
+  var G=6.67430e-11,c=299792458,omega=7.292115e-5,radius=6.371e6,spacing=.001;
+  var deltaJ=-3.226498884770535e-23,mass=1;
+  var scale=4*G*mass*omega*deltaJ*spacing/(c*c*radius*radius*radius);
+  function gamma(theta,lat){
+    var t=theta*Math.PI/180,l=lat*Math.PI/180;
+    var result=-Math.sin(l)*Math.sin(t)*Math.sin(t)-Math.cos(l)*Math.sin(2*t);
+    return Math.abs(result)<1e-14?0:result;
+  }
+  function px(t){return 64+621*t/180;}
+  function py(g){return 132-71*g;}
+  function update(){
+    var angle=Number(tilt.value),lat=Number(latitude.value),g=gamma(angle,lat);
+    var force=scale*g,points=[];
+    for(var t=0;t<=180;t+=2)points.push((t?'L':'M')+px(t).toFixed(2)+','+py(gamma(t,lat)).toFixed(2));
+    document.getElementById('finite-curve').setAttribute('d',points.join(' '));
+    var cursor=document.getElementById('finite-cursor'),marker=document.getElementById('finite-marker');
+    cursor.setAttribute('x1',px(angle));cursor.setAttribute('x2',px(angle));
+    marker.setAttribute('cx',px(angle));marker.setAttribute('cy',py(g));
+    var caption=angle===0||angle===180?' — horizontal rings':angle===90?' — vertical rings':'';
+    document.getElementById('finite-tilt-value').textContent=angle+'°'+caption;
+    document.getElementById('finite-latitude-value').textContent=lat+'°';
+    tilt.setAttribute('aria-valuetext',angle+' degrees from local radial toward north'+caption);
+    latitude.setAttribute('aria-valuetext',lat+' degrees latitude');
+    document.getElementById('finite-gamma').textContent=g===0?'0':g.toFixed(4);
+    document.getElementById('finite-load').textContent=force===0?'0 N':(force>0?'+':'')+force.toExponential(3)+' N';
+    plot.dataset.gamma=String(g);plot.dataset.load=String(force);
+  }
+  tilt.addEventListener('input',update);
+  latitude.addEventListener('input',update);
   update();
 })();
 </script>
