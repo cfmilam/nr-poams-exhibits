@@ -60,6 +60,7 @@ summary:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-
 .budget-results div{border:1px solid var(--edge);border-radius:8px;padding:12px;font-size:12px;color:var(--muted);}
 .budget-results strong{display:block;margin-top:5px;font-size:15px;font-variant-numeric:tabular-nums;}
 section{scroll-margin-top:70px;}
+#sec-material{scroll-margin-top:110px;}
 @media(max-width:620px){.table-wrap table{min-width:510px;}main{padding-left:14px;padding-right:14px;}.card{padding:14px;}header h1{font-size:23px;}}
 .caveat{font-size:13px; color:var(--muted); font-style:italic; margin:8px 0;}
 .tag{display:inline-block; font-size:11px; letter-spacing:.06em; padding:1px 8px; border-radius:10px; margin-right:6px; vertical-align:middle;}
@@ -431,6 +432,90 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
   <p class="caveat">Reproduce with <a class="xref" href="./scripts/vortex_discrete_exchange.py">vortex_discrete_exchange.py</a> (Python + NumPy). The script retains the full finite sectors and checks independent matrix constructions, energy and angular conservation, the time bound, force derivatives, counterpart cancellation and reflected geometry. Mathematical cross-check: <a class="xref" href="https://www.damtp.cam.ac.uk/user/tong/qm/QMNotes.pdf">Cambridge angular-algebra and finite-evolution notes</a>, pp. 17–19; the derivation uses the corpus's circulation ontology, not the notes' particle interpretation.</p>
 </section>
 
+<section id="sec-material">
+  <h2>&sect;5D — A material transition: switching, recovery and reciprocal load</h2>
+  <div class="card gold">
+    <p><strong>A concrete construction, with its boundary stated.</strong> Put a deliberately weak joining segment in each counter-wound superconducting loop. A driven loop can then leave one persistent-circulation branch through that segment and settle onto another. The calculation below supplies a loss-of-stability threshold, the participating phase redistribution, released energy, a reset cycle and a reciprocal load. <strong>It is a conditional effective material model, not a first-principles derivation of superconductivity from POAMS.</strong> The material's stiffness, joining law and relaxation are additional constitutive inputs. None is fitted here to a desired force.</p>
+    <p>Here a <em>phase-slip event</em> means a change between loop-circulation branches through the weak joining segment. It is not the smooth phase-advance rate sometimes called “slip” elsewhere in the corpus; nor is it automatically a change of a spatial ribbon's Călugăreanu linking number or of an elementary closure's spin sign.</p>
+  </div>
+
+  <h3>The finite participation calculation</h3>
+  <p>Use a finite set of actual phase relations along a ring. Let $\delta_a$ be a small mismatch on relation $a$, with a positive material cost $k_a\delta_a^2/2$. The joining coordinate $q$ and imposed relational phase bias $u$ require $\sum_a\delta_a=q-u$. Minimizing that finite sum gives</p>
+  <div class="eq">$$K=\left(\sum_a k_a^{-1}\right)^{-1},\qquad
+    \delta_a=\frac{K}{k_a}(q-u),\qquad
+    \mathcal B_{\mathrm{ring}}=\frac K2(q-u)^2.$$</div>
+  <p>This explicitly names participation: the phase redistribution is weighted by the links' compliances, not by an assumed count of all coherent closures. Once $K$ has been constructed from those entries, multiplying the answer by that count again would duplicate them. The quadratic local cost is the material's small-mismatch approximation, not a consequence of integer closure. These continuous phase coordinates describe the collective organization of the discrete turns; they do not introduce a continuous substance underneath them.</p>
+
+  <h3>A joining law, and the condition for both cores to switch</h3>
+  <p>A reciprocal $2\pi$-periodic joining cost can contain many harmonics. Choose the simplest explicitly specified case, $V(q)=E_b(1-\cos q)$, with $E_b&gt;0$. Retaining only this first harmonic is an assumption about the weak link; periodicity alone does not select it. For two identical rings use the positive stiffness matrix</p>
+  <div class="eq">$$\mathbf K=K\begin{pmatrix}1&amp;\zeta\\\zeta&amp;1\end{pmatrix},\quad |\zeta|&lt;1,
+    \qquad \mathcal B=\frac12(\mathbf q-\mathbf u)^T\mathbf K(\mathbf q-\mathbf u)
+      +E_b\sum_{i=A,B}(1-\cos q_i).$$</div>
+  <p>$\zeta$ is a signed material coupling, not a new universal constant. It has not been derived from the weak $G$-scaled kernel. Opposite controls and identical preparation admit $\mathbf u=(u,-u)$, $\mathbf q=(q,-q)$. Define $K_-=K(1-\zeta)$, $K_+=K(1+\zeta)$ and $b=E_b/K_-$. Then</p>
+  <div class="eq">$$\mathcal B_{\mathrm{opp}}=2K_-\,v(q,u),\qquad
+    v(q,u)=\frac12(q-u)^2+b(1-\cos q).$$</div>
+  <p>The two local stability eigenvalues are $K_-+E_b\cos q$ for opposite phase changes and $K_++E_b\cos q$ for common phase changes. At the opposite-mode threshold, the other eigenvalue is $2K\zeta$. Thus <strong>$\zeta&gt;0$ makes the opposite mode the first local instability</strong>; $\zeta=0$ gives two independent, degenerate switches; $\zeta&lt;0$ allows a common-mode instability first. Phase agreement alone did not prove a collective event. This calculation supplies its local stability condition, under equal rings, opposite drive and the stated material matrix; it is not a proof of synchronization for a mismatched apparatus.</p>
+  <p><strong>A stronger whole-transition condition.</strong> With equal positive damping, let $\delta=(q_A+q_B)/2$ measure departure from opposite motion and $w=(q_A-q_B)/2$. The full two-coordinate equations give $\gamma\dot\delta=-K_+\delta-E_b\cos w\sin\delta$. Since $|\sin\delta|\le|\delta|$, departures contract throughout the motion if</p>
+  <div class="eq">$$K_+&gt;E_b\quad\Longleftrightarrow\quad
+      \zeta&gt;\frac{b-1}{b+1},\qquad
+      |\delta(t)|\le|\delta(0)|e^{-(K_+-E_b)t/\gamma}.$$</div>
+  <p>This is a sufficient, not necessary, condition for the identical opposed-drive model. It makes both cores' participation a calculated stable mode rather than an imposed domain multiplier. It still needs the material to supply that coupling and sufficiently matched controls. Merely having $\zeta&gt;0$ guarantees the first local instability, not contraction throughout the whole switch.</p>
+
+  <h3>Trigger: loss of a local minimum, not an integer crossing alone</h3>
+  <p>The stationary branch and its stability follow from the same cost:</p>
+  <div class="eq">$$q-u+b\sin q=0,\qquad 1+b\cos q&gt;0.$$</div>
+  <p>If $b\le1$, the opposed one-coordinate branch has no hysteretic fold. If $b&gt;1$, increasing the drive along that branch near $q=0$ reaches the fold</p>
+  <div class="eq">$$q_c=\arccos(-1/b),\qquad
+    u_\uparrow=q_c+b\sin q_c,\qquad
+    u_\downarrow=2\pi-u_\uparrow.$$</div>
+  <p>The last expression is the reverse fold for the neighboring branch near $2\pi$. These are deterministic, quasistatic stability limits. Noise can switch earlier; a finite sweep can switch later. At the exact fold, a perfectly prepared noiseless state does not start moving by itself. The geometry supplies the loss of stability, not an arbitrary GHz event rate.</p>
+
+  <h3>Energy and reset: a complete cycle</h3>
+  <p>At fixed bias just beyond the forward fold, overdamped relaxation selects the first stable minimum to its right. In the zero-overdrive limit call this $q_+$, satisfying $q_+-u_\uparrow+b\sin q_+=0$. If no other work is extracted during this held-control relaxation, the heat delivered to the weak link's material thermal receiver is</p>
+  <div class="eq">$$Q_\uparrow=2K_-\,[v(q_c,u_\uparrow)-v(q_+,u_\uparrow)].$$</div>
+  <p>To make the recovery law explicit, assume a positive material phase-relaxation coefficient $\gamma$ (to be independently derived or measured) and write $\gamma\dot q=-K_-\partial_qv$. This is a reduced dissipative law with the mounting lattice/thermal receiver included in the energy account, not a disappearance of energy from the nexus. It gives</p>
+  <div class="eq">$$\frac{d\mathcal B_{\mathrm{opp}}}{dt}
+     =-2\gamma\dot q^2-2K_-(q-u)\dot u,\qquad
+     P_{\mathrm{drive}}=-2K_-(q-u)\dot u.$$</div>
+  <p>Reverse the drive past $u_\downarrow$ and the neighboring branch loses stability in turn. For a closed slow cycle with one forward and one reverse switch, the final state is the initial state and</p>
+  <div class="eq">$$W_{\mathrm{cycle}}=Q_\uparrow+Q_\downarrow.
+    \qquad Q_\downarrow=Q_\uparrow\quad\text{for the symmetric example.}$$</div>
+  <p>Reset is therefore not free. If the drive is left inside the bistable interval, the switched ring stays latched rather than automatically returning. A new event requires a specified recovery/control cycle.</p>
+  <div class="table-wrap"><table>
+    <tr><th>Dimensionless example: $b=2$, $\zeta=1/2$</th><th>Calculated result</th></tr>
+    <tr><td>Forward / reverse phase bias</td><td>$u_\uparrow=3.826445910$, $u_\downarrow=2.456739397$</td></tr>
+    <tr><td>Joining coordinate before / after forward switch</td><td>$q_c=2.094395102$, $q_+=5.387598243$</td></tr>
+    <tr><td>Energy released by the pair, one switch</td><td>$Q_\uparrow=5.063046096\,K_-$</td></tr>
+    <tr><td>Drive work for the complete switch-and-reset cycle</td><td>$W_{\mathrm{cycle}}=10.126092193\,K_-$</td></tr>
+  </table></div>
+  <p>These ratios are an illustrative calculation, not measured material parameters. $K_-$ has units of energy; without its physical value these are not joules. The well index advances by one, while the relaxed endpoint difference $q_+-q_c=3.2932\ldots$ is not exactly $2\pi$: the bulk phase mismatch also relaxes. Neither the energy nor the actual angular-momentum change can be replaced by “one $\hbar$ times the drive frequency.”</p>
+  <details>
+    <summary>Why even the switching time needs a material law</summary>
+    <p>The overdamped clock unit is $\gamma/K_-$. Near the forward fold set $y=q-q_c$, $\epsilon=u-u_\uparrow&gt;0$ and $s=K_-t/\gamma$. To leading order, $dy/ds=\epsilon+\tfrac12\sqrt{b^2-1}\,y^2$. Passage through the full local bottleneck scales as $\pi\sqrt{2/(\sqrt{b^2-1}\,\epsilon)}$ in these units; starting exactly at its center gives half that leading passage time. The divergence as $\epsilon\to0$ is why an exact stability boundary is not a finite event period. Inertial dynamics, noise, heating and delayed recovery require their own material terms. The verification integrates a finite overdrive and independently counts its released heat.</p>
+  </details>
+
+  <h3>The external counterpart must appear in that same cost</h3>
+  <p>Let $R=z_D-z_C$ be the device's position relative to a separate drive/receiver circulation $C$, with both held at stated controls. If the material matrix and imposed phase relations are $\mathbf K(R)$ and $\mathbf u(R,t)$, and the joining cost has no additional explicit $R$ dependence, write $\mathbf x=\mathbf q-\mathbf u$. Its reciprocal interaction contribution is</p>
+  <div class="eq">$$F_D=-\frac12\mathbf x^T\mathbf K'(R)\mathbf x
+       +\mathbf x^T\mathbf K(R)\,\partial_R\mathbf u,
+       \qquad F_C=-F_D.$$</div>
+  <p>The derivatives are taken at fixed instantaneous phase state and the specified external controls. Drive-source and support terms must also be booked; a hidden ideal source cannot be treated as free. For constant $K_-$ and opposite phase bias $u(R)$, the branch-change contribution simplifies to</p>
+  <div class="eq">$$\Delta F_D=2K_-u'(R)(q_+-q_c),\qquad \Delta F_C=-\Delta F_D.$$</div>
+  <p>This derives the response law, <strong>not the missing physical function $u(R)$</strong>. The sign comes from the actual receiver geometry and coupling. If that positional coupling is absent, this contribution vanishes. An energy pulse by itself supplies neither $u'(R)$ nor a direction. An impulse additionally requires the time history, $I_D=\int F_D(t)\,dt$, including reset; the stationary step is not itself an impulse.</p>
+  <p>If the only external coupling retained is instead &sect;5C's $G$-scaled angular book, a fast material switch merely changes its actual angular entries:</p>
+  <div class="eq">$$\Delta F_{D,z}=\frac{6GJ_C}{c^2}
+      \left(\frac{\Delta J_A}{r_{AC}^4}+\frac{\Delta J_B}{r_{BC}^4}\right).$$</div>
+  <p>This expression assumes collinear signed angular entries and a receiver held above both cores. The material's map from $q_i$ to the physical $J_i$ remains necessary: a phase coordinate is not automatically a body's angular momentum. The factor $G/c^2$ does not disappear because switching is fast. Balanced opposite changes cancel at equal receiver distances and are further suppressed for a distant receiver. Stronger material drive/receiver coupling would be a different, explicitly characterized exchange channel, not an enhancement silently attached to this one.</p>
+
+  <h3>What cannot be selected by the current POAMS premises</h3>
+  <p>There is a direct non-uniqueness test. Multiply $K$ and $E_b$ together by any positive factor: the integer branches, $b$, and switching biases stay the same, while every released energy changes by that factor. Change $\gamma$ independently and the reset time changes. Change the receiver's position dependence and the load changes, or vanishes. Higher joining harmonics can change the threshold itself without violating $2\pi$ closure. The existing premises do not select among these cases.</p>
+  <div class="card blue">
+    <p><strong>Result.</strong> We have a worked switch, a conditional collective-instability criterion, a positive energy release, a paid reset cycle and an explicit reciprocal load law. <strong>We do not have an apparatus-specific, parameter-free POAMS derivation of their values.</strong> That requires the actual finite material stiffness/joining book, relaxation, phase-to-angular-momentum map and external coupling. Calling those supplied functions “derived” would put the missing physics into the assumptions.</p>
+    <p>A biased weak link can release energy stored by its drive when a small perturbation tips it across a threshold. That is a possible powered readout, not proof that the perturbation's own force has grown. Noise and stability determine whether it can resolve a small input. No weight-modification claim follows from the switch-and-reset calculation alone.</p>
+  </div>
+  <p class="caveat">Executable derivation: <a class="xref" href="./scripts/vortex_material_transition.py">vortex_material_transition.py</a> (Python + NumPy): finite constrained minimization, both pair stability modes, forward/reverse branches, independent full-cycle work integral, dissipative evolution with timestep convergence, reciprocal position derivatives and scale non-uniqueness. Material cross-checks, not POAMS premises: <a class="xref" href="https://arxiv.org/abs/1601.02643">Petković et al., deterministic phase slips (2016)</a>; <a class="xref" href="https://doi.org/10.1103/PhysRevResearch.2.023165">Guarcello et al., weak-link hysteresis models (2020)</a>; <a class="xref" href="https://arxiv.org/abs/1703.08184">Polshyn et al., mechanically detected ring transitions (2018)</a>. Their material phenomenology motivates this conditional case; their conventional ontology is not imported as a POAMS derivation. None reports the weight-modification effect sought here.</p>
+</section>
+
 <!-- ============ §6 ============ -->
 <section id="sec-status">
   <h2>&sect;6 — What is settled, and the remaining “unless”</h2>
@@ -443,13 +528,14 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
     <tr><td>Can larger events increase mean one-way recoil at fixed power and directionality?</td><td><span class="tag claim">CLOSED IN CHANNEL</span>No. $\overline F_z=\eta P_{\mathrm{out}}/c$; grouping changes event size and rate.</td></tr>
     <tr><td>Can an explicit angular transition be calculated?</td><td><span class="tag claim">DERIVED IN MODEL</span>Yes. &sect;4A supplies the finite exchange matrix, spectrum and time bound. This is not a topological reconnection or a released energy pulse.</td></tr>
     <tr><td>Can its external directional counterpart be specified?</td><td><span class="tag claim">DERIVED IN MODEL</span>Yes. &sect;5C adds a named third circulation and calculates reciprocal reactions from the same book, without an assigned directional fraction.</td></tr>
+    <tr><td>Can a material switch and reset be worked out?</td><td><span class="tag assume">CONSTITUTIVE MODEL</span>Yes. &sect;5D supplies both from an explicit weak-link energy and relaxation law, checks pair stability, and derives the reciprocal load formula. Actual material coefficients and receiver coupling are not forced by the present POAMS premises.</td></tr>
     <tr><td>Can there be measurable collective exchange?</td><td><span class="tag open">CONDITIONAL</span>Yes, if actual transitions, supplied power, directional counterparts and readout bandwidth satisfy the stated budget. No apparatus prediction is delivered here.</td></tr>
     <tr><td>Has weight modification been derived from those events?</td><td><span class="tag open">OPEN</span>No. A derived natural-orbit/support-reaction law is a separate requirement; a recoil budget does not replace it.</td></tr>
   </table></div>
 
   <div class="card gold">
     <p><strong>The “unless,” in plain language.</strong> Not “unless enough turns do it together.” Rather: <em>unless a specified collective change can post a measurable directional entry against a specified external counterpart, with the full energy and momentum books balanced.</em> The work has narrowed the claim, not ruled out that experiment. A derived alteration of the natural-orbit constraint would be a distinct route with its own calculation.</p>
-    <p><strong>The next physical step.</strong> Map an actual driven circulation onto a complete book: its angular sector, projection-dependent internal costs, allowed reconnection or other re-filing, external coupling, registration and reset. The finite example now shows how such a book is calculated; it does not choose those apparatus entries. If stronger material organization drives the event, that term must be included explicitly. A domain-size sweep cannot substitute for it.</p>
+    <p><strong>The next physical step.</strong> Supply the actual material book, either from a deeper finite-circulation derivation or independent characterization: its stiffness and joining law, relaxation, phase-to-angular-momentum map and external coupling. &sect;5D now calculates a switch-and-reset cycle conditional on such entries, and shows why the current premises do not uniquely select them. A domain-size sweep cannot substitute for those constitutive relations.</p>
   </div>
   <p>The proposed conducting, superconducting, fluid and lattice embodiments remain research candidates. Nothing here claims they have achieved a weight change. The scope is the amplification inference, not a general verdict on the wider Normal Realism / POAMS program.</p>
   <p class="caveat">Calculation record: <a class="xref" href="./scripts/vortex_amplification_audit.py">vortex_amplification_audit.py</a> — finite counterexamples, sum identities, frequency conventions, corrected tables and readout example. Earlier proposal preserved in <a class="xref" href="https://github.com/cfmilam/nr-poams-exhibits/blob/11f6818/counter-rotating-circulation-pair.html">the pre-inquiry version</a>. Updated 2026-09-14.</p>
