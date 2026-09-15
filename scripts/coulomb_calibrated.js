@@ -55,7 +55,8 @@
     const q=calculate($('cal-mass').value,Number($('cal-n').value),lower,Number($('cal-upper').value));
     $('cal-n-value').textContent=String(q.n);
     $('cal-radius').textContent=nice(q.radius*1e12)+' pm';
-    $('cal-binding').textContent=nice(q.bindingEV)+' eV';
+    $('cal-binding').textContent=nice(q.binding/constants.h/1e15)+' PHz';
+    $('cal-binding-energy').textContent=nice(q.binding)+' J = '+nice(q.bindingEV)+' eV';
     $('cal-period').textContent=nice(q.period)+' s';
     $('cal-line').textContent=nice(q.wavelength*1e9)+' nm';
     $('cal-transition').textContent=`${q.upper} → ${q.lower}, vacuum; gross model`;

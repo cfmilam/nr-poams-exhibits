@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Elements</title>
+    <link rel="stylesheet" href="./scripts/atomic_ledger.css">
     <script>
         window.MathJax = {
             tex: {
@@ -26,7 +27,7 @@
     <style>
         :root {
             --bg-dark: #0d0d18;
-            --bg-light: #ffffff;
+            --bg-light: #faf8f2;
             --text-dark: #e0e0e0;
             --text-light: #2c3e50;
             --accent-gold: #d4af37;
@@ -718,6 +719,7 @@
             <button class="tab-button active" onclick="showTab('table', this)">POAMS Periodic Table</button>
             <button class="tab-button" onclick="showTab('spiral', this)">Spiral</button>
             <button class="tab-button" onclick="showTab('vortex', this)">Vortex Model</button>
+            <button class="tab-button" onclick="showTab('atomic', this)">Atomic Ledger</button>
             <button class="tab-button" onclick="showTab('explanation', this)">Framework</button>
             <button class="tab-button" onclick="showTab('forces', this)">Force Profile</button>
             <button class="tab-button" onclick="showTab('deep', this)">Deep Structure</button>
@@ -793,14 +795,14 @@
             </p>
             
             <div class="isotope-callout">
-                <h4>Understanding the Dual Nature: Harmonic Mode vs Total ħ</h4>
+                <h4>Understanding the two counts: pattern Z and mass-number label A</h4>
                 <p><strong>Atomic Number (Harmonic Mode):</strong> Determines chemical behavior — the unmediated harmonic resonance pattern of the vortex.</p>
-                <p><strong>Mass Number (Total ħ):</strong> The actual angular momentum content — what conventional physics calls "atomic mass."</p>
+                <p><strong>Mass number A:</strong> The integer isotope label used for this exhibit’s assigned turn count. It is neither a measured mass in kilograms nor the atom’s resultant angular momentum. Compare the counts and calibrated quantities in the <a href="#atomic-ledger">Atomic Ledger</a>.</p>
                 <p><strong>Isotopes:</strong> Same harmonic mode, different ħ totals. Carbon-12 (12ħ) and Carbon-14 (14ħ) both have the 6th harmonic mode pattern but different angular momentum totals.</p>
             </div>
 
             <p style="text-align: center; font-size: 0.95rem; margin: 0 auto 20px; max-width: 800px;">
-                The spiral is the <strong>census channel drawn as a shape</strong>. A step along it adds one <em>spherical pattern</em> quantum — Z grows by one — and the geometry reads nothing else. The <em>planar core</em> twist (A − Z) rides along unseen, carried in tile size alone: add two quanta of core twist to carbon and C-12 becomes C-14 without moving a single degree around the spiral. That is why chemistry closes periodically in Z and never in A — closure is a census event, and the gold seam reads only which orientations have been filled, never how much winding the core carries. The two-channel decomposition behind this split (census vs depth, \( \mathrm{Lk} = \mathrm{Tw} + \mathrm{Wr} \)) is derived in the Vortex Model tab.
+                The spiral is the <strong>pattern count drawn as a shape</strong>. A step adds one pattern entry — Z grows by one. The assigned surplus depth (A − Z) changes the tile size but not its position: C-12 and C-14 share a place on this spiral. This is the exhibit’s representation of the two counts, not a derivation of them from a twist–writhe identity. The <a href="#atomic-ledger">Atomic Ledger</a> separates the count assignment from physical radii, energies and resultant angular momenta.
             </p>
             
             <div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
@@ -896,11 +898,11 @@
 
                 <div id="vortexPartitionNote" style="max-width: 700px; margin: 15px auto 0; padding: 15px 20px; background: rgba(79, 195, 247, 0.05); border: 1px solid rgba(79, 195, 247, 0.20); border-radius: 8px; font-size: 0.85rem; line-height: 1.6;">
                     <p style="margin-bottom: 10px;"><strong style="color: var(--accent-blue);">Why a Sphere and a Disk? — the basis of the partition</strong></p>
-                    <p style="margin-bottom: 10px;">The ledger claims every atom is \( A\hbar \) of turning filed two ways: \( Z\hbar \) as a spherical pattern, \( (A-Z)\hbar \) as a planar core. <strong>On what basis?</strong> A decomposition, not an assertion. A closed circulation can hold angular momentum in exactly two ways: in <em>which distinct closed loops exist</em> — their orientations and senses, the census — or in <em>how much winding a loop already counted carries</em>. Călugăreanu's identity \( Lk = Tw + Wr \) is the loop-level statement of this split: total linking divides exhaustively into loop geometry (writhe) and winding along the loop (twist). There is no third place for a turn to live. The drawing is the decomposition, not a style.</p>
-                    <p style="margin-bottom: 10px;"><strong>Why the depth channel is a disk.</strong> Twist winds along <em>one</em> closed loop, and one loop has one plane — each surplus quantum increments the winding integer in that same plane (count the colour cycles in the core). Coherent alignment is not an added assumption: "same loop" <em>means</em> same plane. Laplace's invariable plane — aligned angular momentum flattening into a disk — is the macroscopic face of the same fact. And the surplus <em>must</em> take this channel: adding winding to a pattern ring would change its crest count, and the crest count is the mode's identity — it would re-file the atom's chemistry. Isotopes are the empirical proof that a pure depth channel exists: C-12, C-13, C-14 — same census, same chemistry, more turning.</p>
-                    <p style="margin-bottom: 10px;"><strong>Why the census channel is a sphere.</strong> Each pattern quantum must occupy a <em>distinct</em> slot — an identical turn in an identical slot is the same turn; that is why the capacities are the eigen-counts \( 2(2l+1) \), not fits. At harmonic \( l \) the distinct orientations are exactly \( 2l+1 \), two phase senses each — and the <em>completed</em> set is exactly isotropic, by the harmonic addition theorem: \[ \sum_{m=-l}^{l} \left|Y_l^m(\theta,\varphi)\right|^2 = \frac{2l+1}{4\pi} = \text{constant}. \] No angular dependence survives closure. <strong>Sphericity is what finished counting looks like</strong> — an exact identity of the complete finite set, not a statistical average over many orientations, and basis-independent: the particular axes drawn above are representatives, and closure does not care which. Unfinished counting breaks isotropy <em>measurably</em>: closed-shell atoms have identically zero electric quadrupole moment, while open-shell atoms and partially filled nuclei are deformed. The broken symmetry of an open census IS valence and magnetism.</p>
+                    <p style="margin-bottom:10px">This visualization assigns \(Z\) pattern entries and \(A-Z\) surplus depth entries to a neutral isotope. It is a proposed count partition, not a measured division of net angular momentum. Twist and writhe distinguish kinds of circulation geometry, but the identity \(Lk=Tw+Wr\) does not identify its terms with \(A\), \(Z\), or \(A-Z\). The <a href="#atomic-ledger">Atomic Ledger</a> tabulates the counts and separates them from the quantities the calibrated pair calculation actually determines.</p>
+                    <p style="margin-bottom:10px"><strong>Why a disk is drawn.</strong> The depth channel is depicted as a coherently aligned planar organization. Planarity is part of this representation: a closed loop need not lie in one plane, so closure alone does not prove it. Isotopes motivate distinguishing a shared pattern count from added depth, but do not by themselves measure a disk's radius, thickness or energy. The core size in this rendering is schematic.</p>
+                    <p style="margin-bottom:10px"><strong>When the pattern is spherical.</strong> For a complete, equally represented angular-harmonic set, the addition theorem gives \[\sum_{m=-l}^{l}|Y_l^m(\theta,\varphi)|^2=\frac{2l+1}{4\pi}.\] The summed angular distribution is exactly isotropic. That geometrical statement does not by itself specify the physical occupation, radial extent, or net angular momentum of an atom. Incomplete sets need not be isotropic; their actual moments require the state and its coupling.</p>
                     <p style="margin-bottom:10px"><strong>The relative radius follows within the calibrated pair model.</strong> With \(L=n\hbar\) and the attractive pair energy \(-K_Q/r\), stationary circular balance gives \(r_n=n^2\hbar^2/(\mu K_Q)\). Angular-momentum quantization alone fixes a product, not a radius. The guide spheres here illustrate radial organization; a many-centre atom also needs its state-dependent energy terms.</p>
-                    <p style="margin-bottom: 0;"><strong>The dichotomy is geometric; the census is dynamical.</strong> The same identity permits exchange between the channels at fixed total; a beta transition changes \(Z\) by one at fixed \(A\), read here as a re-filing between core and pattern. Which partition is favored is a separate energetic question. <a href="./valley-of-stability.html" style="color: var(--accent-gold);"><strong>The Valley</strong></a> shows that a displayed imbalance cost competing with a far-field strain cost produces the familiar smooth bend away from \(Z=A/2\), but the finite-cluster audit has quarantined the inherited imbalance normalization. The calculation is therefore a conditional coefficient-package audit, not a derivation of the real stability valley; it computes neither decay rates nor stability against other channels. At the other end of scale the same two-channel bookkeeping supplies a useful organizing comparison: coherent orbital alignment builds cold disks, while isotropic orientation distributions build spheroids and halos. Exact eigen-completeness at the atom relaxes into statistical isotropy in an ensemble.</p>
+                    <p style="margin-bottom:0"><strong>The count does not select the state.</strong> A change of \(Z\) at fixed \(A\) changes the proposed filing between depth and pattern; this bookkeeping does not calculate a transition or its rate. Which partition is favored requires its energy. <a href="./valley-of-stability.html"><strong>The Valley</strong></a> currently gives a conditional coefficient-package audit, not a derivation of the measured stability valley: its inherited imbalance normalization remains unestablished. The <a href="#atomic-structure-boundary">Atomic Ledger boundary</a> identifies the missing regional rates, dimensions and state-dependent angular-momentum coupling.</p>
                 </div>
 
                 <div id="vortexScalingNote" style="max-width: 700px; margin: 15px auto 0; padding: 15px 20px; background: rgba(201, 168, 76, 0.06); border: 1px solid rgba(201, 168, 76, 0.15); border-radius: 8px; font-size: 0.85rem; line-height: 1.6;">
@@ -923,7 +925,7 @@
                         <h3 id="elementTitle">Hydrogen (harmonic mode 1)</h3>
                         <p id="elementDescription" style="margin-bottom: 12px;">The fundamental unit: one quantum of angular momentum ħ.</p>
                         <div id="vortexConfig" style="font-family: 'Courier New', monospace; font-size: 13px;">
-                            <strong>Harmonic Mode:</strong> 1 | <strong>Total ħ:</strong> 1<br>
+                            <strong>Harmonic Mode:</strong> 1 | <strong>Assigned count A:</strong> 1<br>
                             <strong>Atomic Weight:</strong> 1.008 | <strong>Mass Number:</strong> 1<br>
                             <strong>Common Isotopes:</strong> H-1 (1ħ)
                         </div>
@@ -1118,6 +1120,96 @@
                     <p>This single profile contains what conventional physics calls strong force, weak force, electromagnetic force, and even gravitational effects (when you account for the spin-dependence of the dimensional constant G).</p>
                 </div>
             </div>
+        </div>
+
+        <div id="atomic" class="tab-content">
+          <section id="atomic-ledger" aria-labelledby="atomic-ledger-title">
+            <p class="al-label">Measured α · atomic structure · 15 September 2026</p>
+            <h2 id="atomic-ledger-title">What belongs to the core, the envelope, and the pair?</h2>
+            <p>Start with what can now be calculated: the exhibit’s isotope-count partition, and the complete radius–rate–energy–angular-momentum account of the calibrated elementary pair. They answer different questions. <strong>The two ends of that pair are not automatically the planar core and spherical envelope of a many-entry atom.</strong></p>
+            <p>Measured α fixes the elementary coefficient. The <a href="./coulomb-from-chirality-directed-depletion.html#calibrated-world">Coulomb energy account</a> supplies the stated circular scale model; <a href="./alpha-fine-structure-derivation.html#calculated-world">Alpha</a> summarizes its measured-anchor interpretation.</p>
+
+            <div class="al-panel" id="atomic-counts">
+              <p class="al-label">1 · Count partition — tabulated now</p>
+              <h3>Same element, different depth count</h3>
+              <p>For a neutral isotope, this exhibit assigns \(Z\) pattern entries and \(A-Z\) surplus depth entries. Thus depth:pattern is \((A-Z):Z\). These are <strong>the exhibit’s proposed counts</strong>, not measurements of regional angular momentum or energy. \(A\) is an integer isotope label, not a measured mass in kilograms.</p>
+              <div class="al-controls">
+                <label>Element<select id="al-element"></select></label>
+                <label>Isotope in this exhibit<select id="al-isotope"></select></label>
+              </div>
+              <div aria-live="polite">
+                <output id="al-count-summary"></output>
+                <div class="al-bar" aria-hidden="true"><span id="al-depth-bar"></span><span id="al-pattern-bar"></span></div>
+                <p id="al-count-fractions"></p><p class="al-note">Gold: depth · Blue: pattern. Bar lengths represent counts only.</p>
+                <p id="al-count-note" class="al-note"></p>
+              </div>
+              <details><summary>All 118 representative isotope-count partitions</summary>
+                <p class="al-note">One representative mass-number label per element, inherited from this exhibit. This is not a catalogue of isotope abundance, stability or measured radii. The selector also offers the other isotope labels already in the exhibit.</p>
+                <div class="al-scroll" tabindex="0" aria-label="Representative isotope-count table"><table>
+                  <thead><tr><th>Isotope</th><th>Z</th><th>Depth A−Z</th><th>Pattern Z</th><th>Depth/pattern</th></tr></thead><tbody id="al-all-counts"></tbody>
+                </table></div>
+                <p><a href="./scripts/atomic_count_partitions.csv">Download count table (CSV)</a> · <a href="./scripts/atomic_ledger_results.json">Full calculation and assumptions (JSON)</a></p>
+              </details>
+            </div>
+
+            <div class="al-panel" id="atomic-pair">
+              <p class="al-label">2 · Calibrated circular pair — calculated now</p>
+              <h3>One rate, two participating ends</h3>
+              <p>This is a separate mass calibration, <strong>not a prediction for the isotope selected above</strong>. No fixed object is placed at the barycentre. The inputs are the two measured masses, α, \(h\), and \(c\); the model supplies an attractive pair energy and the circular condition \(L=n\hbar\).</p>
+              <div class="al-equations"><div class="al-equation">\[K=\alpha\hbar c\]</div><div class="al-equation">\[\mu=\frac{m_1m_2}{m_1+m_2}\]</div><div class="al-equation">\[E(r)=\frac{L^2}{2\mu r^2}-\frac{K}{r}\]</div></div>
+              <p>Stationarity at fixed \(L\) gives the relative radius and binding magnitude. The same circular solution determines the common angular rate:</p>
+              <div class="al-equations"><div class="al-equation">\[r=\frac{L^2}{\mu K}\]</div><div class="al-equation">\[B=\frac{\mu K^2}{2L^2}\]</div><div class="al-equation">\[\omega=\frac{L}{\mu r^2}\]</div></div>
+              <div class="al-controls">
+                <label>Endpoint mass account<select id="al-mass"><option value="pair">Finite light/heavy pair</option><option value="equal">Equal light ends (diagnostic)</option></select></label>
+                <label>Circular mode n = <span id="al-n-label">1</span><input id="al-n" type="range" min="1" max="6" step="1" value="1"></label>
+              </div>
+              <div class="al-cards" aria-live="polite">
+                <div class="al-card"><span>Relative radius r</span><output id="al-radius"></output><span>Endpoint separation, not core radius</span></div>
+                <div class="al-card"><span>Binding-rate equivalent B/h</span><output id="al-binding-rate"></output><span id="al-binding-units"></span></div>
+                <div class="al-card"><span>Circulation frequency ω/(2π)</span><output id="al-circulation"></output><span>1 PHz = 10¹⁵ cycles per second</span></div>
+              </div>
+              <p id="al-rate-ratio"></p>
+              <h3>How the two ends share the result</h3>
+              <p>Let \(M=m_1+m_2\), \(q_1=m_2/M\), and \(q_2=m_1/M\). Then \(r_i=q_i r\), \(T_i=q_i B\), and \(L_i=q_i L\). Both angular-momentum vectors point along the same normal in this circular configuration: opposite positions and opposite momenta give parallel cross-products. <strong>These endpoint shares are not the isotope’s depth/pattern shares.</strong></p>
+              <p id="al-endpoint-label" class="al-label"></p>
+              <div class="al-scroll" tabindex="0" aria-label="Endpoint energy and angular-momentum shares"><table>
+                <thead><tr><th>Quantity</th><th>End 1</th><th>End 2</th></tr></thead><tbody>
+                  <tr><td>Fraction of radius, kinetic energy, L</td><td id="al-share1"></td><td id="al-share2"></td></tr>
+                  <tr><td>Radius about the barycentre</td><td id="al-r1"></td><td id="al-r2"></td></tr>
+                  <tr><td>Kinetic-rate equivalent Tᵢ/h</td><td id="al-t1"></td><td id="al-t2"></td></tr>
+                  <tr><td>Orbital angular momentum Lᵢ</td><td id="al-j1"></td><td id="al-j2"></td></tr>
+                  <tr><td>Angular action per circuit ∮pᵢ·dqᵢ</td><td id="al-s1"></td><td id="al-s2"></td></tr>
+                </tbody>
+              </table></div>
+              <p id="al-pair-total"></p>
+              <p>The angular action per circuit is \(2\pi L_i\); its sum is \(nh\). Fractional shares do not assert fractional closed-turn counts. This orbital account does not yet assign intrinsic spin or the measured resultant angular momentum of a complete atom. In particular, the circular scale condition is not an identification of the ground angular eigenstate with \(L=\hbar\).</p>
+              <div class="al-equation">\[T=T_1+T_2=B,\qquad U=-2B,\qquad E=T+U=-B.\]</div>
+              <p id="al-virial" class="al-note"></p>
+              <p><strong>One interaction, counted once.</strong> Each end contributes kinetic energy, but there is one joint pair term. Also \(L\omega=2T\), not \(E\): multiplying the orbital angular momentum by the common angular rate does not give the complete bound energy.</p>
+              <p class="al-note">Frequency-equivalent units lead; joules and eV are conversions of the same energy. Neither \(B/h\) nor the model’s circulation frequency establishes an independently observed internal clock. The elementary reference-length ratio is \(r/[\hbar/(\mu c)]=n^2/\alpha\); that reference length has not been identified as a planar core radius.</p>
+            </div>
+
+            <div class="al-panel" id="atomic-structure-boundary">
+              <p class="al-label">3 · Connecting a many-entry atom — the remaining boundary</p>
+              <h3>Counts do not determine a unique physical partition</h3>
+              <div class="al-scroll" tabindex="0" aria-label="Core and envelope comparison"><table>
+                <thead><tr><th>Comparable</th><th>What is established here</th><th>What still has to be supplied</th></tr></thead><tbody>
+                  <tr><td>Counts</td><td>Depth/pattern = (A−Z)/Z, for the stated assignment.</td><td>A physical derivation of that assignment, distinct from isotope labels.</td></tr>
+                  <tr><td>Geometry</td><td>A complete, equally weighted angular-harmonic set is isotropic.</td><td>Occupied state, alignment and thickness of the proposed planar organization.</td></tr>
+                  <tr><td>Size</td><td>Calibrated elementary-pair radii and their n² progression.</td><td>A many-entry energy law that fixes actual core and envelope dimensions.</td></tr>
+                  <tr><td>Energy and rates</td><td>All pair kinetic terms, one joint term, and both frequency equivalents.</td><td>Regional rates and the inter-region energy in a complete atom.</td></tr>
+                  <tr><td>Resultant angular momentum</td><td>Endpoint orbital vectors add to nℏ in this circular model.</td><td>Orientations, senses, intrinsic terms and their state-dependent coupling in the atom.</td></tr>
+                </tbody>
+              </table></div>
+              <p>There is a precise reason the count ratio alone cannot close the energy account. <em>If</em> each regional entry is assigned an energy \(\hbar\omega_i\), the ratio of regional sums would be</p>
+              <div class="al-equation">\[\frac{E_d}{E_p}=\frac{A-Z}{Z}\frac{\bar\omega_d}{\bar\omega_p}.\]</div>
+              <p>That is a <strong>conditional rate-sum convention</strong>, not the orbital kinetic law used above. The counts supply only the first factor. A full account additionally includes the joint term \(E_{dp}\); it cannot be assigned to both regions as two independent energies. The net angular momentum likewise requires directions: \(\mathbf J=\sum_i\mathbf j_i\). Equal counts can add or cancel. Neither the regional rates nor those directions follow from counting alone.</p>
+              <p>Even an ideal disk/sphere comparison needs actual dimensions: one-face disk area divided by sphere surface area is \(R_d^2/(4R_p^2)\); a volume ratio also needs the disk thickness. A schematic drawing cannot supply those quantities, and comparing a planar turn of \(2\pi\) radians with \(4\pi\) steradians does not derive them.</p>
+              <div class="al-boundary"><p><strong>The bounded result:</strong> count partitions are tabulated, and the calibrated pair’s complete circular account is available for use. A physical core/envelope radius, energy or resultant-angular-momentum ratio for every isotope is not yet calculated. It needs a specified multi-entry state and joint energy, not another choice of α. This is a named future atomic-structure task, not a prerequisite for beginning the next <a href="./the-molecules.html#calibrated-carryover">Molecules calculation</a>.</p></div>
+              <p><a href="./coulomb-from-chirality-directed-depletion.html#carryover-spectra">Future-work entry in Coulomb §7</a> · <a href="./scripts/atomic_ledger.py">Reproduce the atomic ledger and checks</a></p>
+              <p class="al-note">Inputs: <a href="https://physics.nist.gov/cuu/Constants/Table/allascii.txt">NIST 2022 CODATA</a>, as recorded in the shared calibration. Geometry: <a href="https://dlmf.nist.gov/14.30.E9">spherical-harmonic addition theorem</a>. Counts: this exhibit’s inherited isotope labels. Browser results are rounded; independent high-precision arithmetic checks are available in the linked record. Numerical agreement verifies the model’s algebra, not all aspects of the proposed atomic ontology.</p>
+            </div>
+          </section>
         </div>
 
         <!-- Tab 6: Deep Structure -->
@@ -3196,7 +3288,7 @@
             const configEl = document.getElementById('spiralVortexConfig');
             
             if (titleEl) {
-                titleEl.textContent = `${selectedElement.name} (${selectedElement.hbar}ħ total)`;
+                titleEl.textContent = `${selectedElement.name} (A=${selectedElement.hbar}, assigned count)`;
             }
             
             if (descEl) {
@@ -3210,8 +3302,8 @@
                 
                 configEl.innerHTML = `
                     <strong>Harmonic Mode:</strong> ${selectedElement.n} (chemical behavior)<br>
-                    <strong>Total Angular Momentum:</strong> ${selectedElement.hbar}ħ<br>
-                    <strong>Ledger:</strong> ${selectedElement.hbar}ħ = ${selectedElement.n} pattern + ${selectedElement.hbar - selectedElement.n} core twist<br>
+                    <strong>Assigned total count:</strong> ${selectedElement.hbar}<br>
+                    <strong>Count ledger:</strong> ${selectedElement.hbar} = ${selectedElement.n} pattern + ${selectedElement.hbar - selectedElement.n} surplus depth<br>
                     <strong>Position in Cycle:</strong> ${position}/${total}<br>
                     <strong>Common Isotopes:</strong> ${selectedElement.isotopes.join(', ')}
                 `;
@@ -3313,10 +3405,10 @@
                         cell.innerHTML = `
                             <div class="element-number">Mode ${element.n}</div>
                             <div class="element-symbol">${element.symbol}</div>
-                            <div class="element-name">${element.hbar}ħ</div>
+                            <div class="element-name">A=${element.hbar}</div>
                         `;
                         cell.onclick = () => selectElement(element);
-                        cell.title = `${element.name}: ${element.vortexConfig}\nHarmonic Mode: ${element.n} | Total ħ: ${element.hbar}\nAtomic Weight: ${element.atomicWeight}`;
+                        cell.title = `${element.name}: ${element.vortexConfig}\nHarmonic Mode: ${element.n} | Assigned count A: ${element.hbar}\nAtomic Weight: ${element.atomicWeight}`;
                     } else {
                         cell.style.visibility = 'hidden';
                     }
@@ -3525,8 +3617,8 @@
             document.getElementById('elementDescription').textContent = selectedElement.description;
             const coreH = Math.max((selectedElement.massNumber || selectedElement.n) - selectedElement.n, 0);
             document.getElementById('vortexConfig').innerHTML = `
-                <strong>Harmonic Mode:</strong> ${selectedElement.n} | <strong>Total ħ:</strong> ${selectedElement.hbar}<br>
-                <strong>Ledger:</strong> ${selectedElement.massNumber}ħ = ${selectedElement.n}ħ spherical pattern + ${coreH}ħ planar core${coreH > 0 ? ` (Tw = ${coreH})` : ' (none — the bare fundamental)'}<br>
+                <strong>Harmonic Mode:</strong> ${selectedElement.n} | <strong>Assigned count A:</strong> ${selectedElement.hbar}<br>
+                <strong>Count ledger:</strong> ${selectedElement.massNumber} assigned entries = ${selectedElement.n} pattern + ${coreH} surplus depth${coreH > 0 ? '' : ' (zero surplus, not zero intrinsic turning)'}<br>
                 <strong>Atomic Weight:</strong> ${selectedElement.atomicWeight} | <strong>Mass Number:</strong> ${selectedElement.massNumber}<br>
                 <strong>Common Isotopes:</strong> ${selectedElement.isotopes.join(', ')}
             `;
@@ -3853,7 +3945,7 @@
             ctx.stroke();
             
             // Draw labels
-            ctx.fillText('Mass Number A (Total ħ Content)', width / 2 - 100, height - 10);
+            ctx.fillText('Mass Number A (Assigned Count)', width / 2 - 100, height - 10);
             ctx.save();
             ctx.translate(15, height / 2);
             ctx.rotate(-Math.PI / 2);
@@ -4001,6 +4093,10 @@
         });
     </script>
     
+    <script src="./scripts/coulomb_calibrated.js"></script>
+    <script src="./scripts/atomic_ledger.js"></script>
+    <script>POAMSAtomicLedger.mount(elements);</script>
+
     <!-- Three.js 3D Spiral Module -->
     <script type="module">
         import * as THREE from 'three';
