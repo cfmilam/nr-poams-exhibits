@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>POAMS: Coulomb from Chirality-Directed Depletion</title>
+<title>POAMS: Coulomb — Measured Alpha, Atomic Structure and Applications</title>
 <script>
   window.MathJax = {
     tex: { inlineMath: [['\\(','\\)'], ['$','$']], displayMath: [['\\[','\\]'], ['$$','$$']] },
@@ -104,6 +104,24 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
 [data-theme="light"] #poams-hub-nav .phn-title, body.light #poams-hub-nav .phn-title{color:#2a2318;}
 @media (max-width:640px){.phn-hide-sm{display:none;}}
 </style>
+<style id="coulomb-calibrated-style">
+html{scroll-behavior:smooth}section[id],h2[id]{scroll-margin-top:70px}
+.status-line{display:inline-block;margin:15px 0 2px;padding:6px 14px;border:1px solid var(--green);border-radius:24px;color:var(--green);font-size:12px;font-weight:700;letter-spacing:.04em}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}.toc a{border:1px solid var(--edge);border-radius:6px;padding:6px 10px;color:var(--blue);text-decoration:none;font-size:13px}
+.table-wrap{overflow-x:auto;max-width:100%;margin:16px 0}.table-wrap table{min-width:620px}.table-wrap.compact table{min-width:500px}
+.eq{overflow-x:auto;padding:12px 6px}.cal-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;margin:18px 0}
+.cal-controls label{display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--text)}
+.cal-controls select,.cal-controls button{background:var(--bg);color:var(--text);border:1px solid var(--edge);border-radius:6px;min-height:42px;padding:8px;max-width:100%;font:inherit}
+.cal-controls input[type=range]{width:100%;accent-color:var(--gold)}.cal-controls button{cursor:pointer;align-self:end}
+.readout-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.readout{border:1px solid var(--edge);border-radius:8px;padding:14px;background:var(--bg)}
+.readout span{display:block;font-size:12px;color:var(--muted)}.readout output{display:block;font-size:clamp(16px,3vw,22px);color:var(--gold);font-variant-numeric:tabular-nums;margin:6px 0;overflow-wrap:anywhere}
+.plot-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:18px 0}.plot-grid figure{margin:0;min-width:0}.plot-grid svg{display:block;width:100%;height:auto;background:var(--bg);border:1px solid var(--edge);border-radius:8px}.plot-grid figcaption{font-size:12px;color:var(--muted);margin-top:7px}
+.plot-label{fill:var(--text);font:12px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}.plot-bar{fill:var(--blue);opacity:.45}.plot-active{fill:var(--gold)}.plot-line{stroke:var(--blue);stroke-width:2}.plot-active-line{stroke:var(--gold);stroke-width:3}.plot-zero{stroke:var(--muted);stroke-width:1;stroke-dasharray:4 4}.plot-guide{stroke:var(--muted);stroke-width:.7;opacity:.65}
+.pipeline{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0}.pipeline div{padding:14px;border:1px solid var(--edge);border-radius:8px;background:var(--card);font-size:13px}.pipeline b{display:block;margin-bottom:5px}
+details{margin:16px 0;padding:13px 15px;border:1px solid var(--edge);border-radius:8px}summary{cursor:pointer;color:var(--blue);font-weight:600}a{overflow-wrap:anywhere}button:focus-visible,select:focus-visible,input:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+@media(max-width:360px){.readout-grid{grid-template-columns:1fr}}
+@media(max-width:620px){.cal-controls,.plot-grid,.pipeline{grid-template-columns:1fr}.readout{padding:10px}.card{padding:14px}.toc a{font-size:12px}main{padding-left:15px;padding-right:15px}}
+</style>
 </head>
 <body>
 
@@ -115,165 +133,181 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
       <span class="phn-pos">NR · POAMS · EXHIBIT SERIES</span>
     </a>
   </div>
-  <a href="./alpha-fine-structure-derivation.html" title="The Alpha Problem"><span class="phn-hide-sm">The Alpha Problem</span> →</a>
+  <a href="./alpha-fine-structure-derivation.html" title="Measured Alpha"><span class="phn-hide-sm">Measured Alpha</span> →</a>
 </div>
 
 <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle light/dark theme">🌙</button>
 
 <header>
-  <h1>Coulomb from Chirality-Directed Depletion</h1>
+  <h1>Coulomb: From Measured &alpha; to Atomic Structure</h1>
   <p class="nr-provenance" style="font-size:0.8em;font-style:italic;opacity:0.72;line-height:1.5;margin:0.5em 0 1em;text-align:center">This exhibit is an extrapolation of the foundational work of N. Vivian &ldquo;Viv&rdquo; Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
-  <div class="sub">Deriving the Structural Form of the Electric Pair Potential from POAMS Foundations</div>
+  <div class="sub">One calibrated pair strength · calculated atomic scales · engineering consequences</div>
+  <div class="status-line">MEASURED &alpha; ACCEPTED · GROSS SCALES CALCULATED · DEVICE RESPONSE TO BE ESTABLISHED</div>
 </header>
 
 <main>
 
-<!-- ============ prologue: evolutionary arc ============ -->
-<section>
+<section id="measured-anchor">
   <div class="card gold">
-    <p><strong>From seed to mechanism.</strong> The whole substrate-depletion story starts with a single symbolic equation Viv Pope wrote in <em>Einstein's Lost Legacy</em>: $L = mvr = Gm^2/r^2$. On the face of it, it looks like two unrelated laws jammed against each other &mdash; Bohr's angular momentum on the left, Newton's gravity on the right, forced into an equal sign that doesn't even dimensionally balance. But that was the point. Both formulas describe the same relation between mass, distance, and how fast things go around each other; Bohr wrote it for electrons in atoms and Newton wrote it for planets around suns. Pope's move was to notice that if the same relation holds at both scales, maybe &ldquo;gravity&rdquo; isn't a separate force at all &mdash; maybe it's just angular momentum doing what angular momentum does, at scales too big for anyone to think of it as an orbit.</p>
-    <p>This exhibit and its sibling <a class="xref" href="./newton-from-tangled-trapped-rate-depletion.html">Newton</a> are what happens when you take that seed seriously and build out the machinery underneath. First, what mass IS in POAMS terms: not a substance with a property called inertia, but a specific pattern of trapped angular-momentum rate &mdash; $\hbar$ closing on itself in a configuration too tangled to unwind. Second, what a force IS: not a mysterious action-at-a-distance and not a signal transmitted through an intervening medium, but the mutual drawdown of rate that two trapped configurations register within the one <strong>angular-momentum Nexus</strong> they both already belong to. (Mach put it unimprovably: <em>when the subway train jerks forward, it's the fixed stars that knock you down</em>. The Nexus is instantaneous and distanceless &mdash; nothing travels through it. It is not an aether, not a permittivity of empty space, not a bendable spacetime.) Newton's and Coulomb's inverse-square laws both fall out as the geometric envelope of a local depletion gradient inside that Nexus &mdash; the way a mutual rate depletion has to attenuate as it spreads over the surface of a growing sphere. No field, no graviton, no carrier crossing empty space. Just angular momentum keeping its books; sign-blind when the sink is tangled (Newton), sign-sensitive when the sink is chirality-directed (Coulomb).</p>
+    <p><strong>Start with the world as measured.</strong> Normal Realism / POAMS is a phenomenological program: one angular-momentum ontology, quantitative relationships, and observations as the test. We accept $\alpha$ as measured and use the mathematics to calculate what follows. Explaining why its numerical value is what it is is <em>not a prerequisite for doing this physics</em>.</p>
+    <div class="eq">$$\alpha=0.0072973525643,\qquad K_Q=\alpha\hbar c=2.3070775508\times10^{-28}\ \mathrm{J\,m}.$$</div>
+    <p><strong>The demonstration on this page:</strong> a stated reciprocal pair law, its spherical inverse-distance form, and a two-ended circular energy account connect one measured coefficient to gross atomic lengths, binding energies, recurrence ratios and spectral scales. The program aims at an account of the measured world. This page demonstrates these linked atomic relationships, then identifies the material response, many-centre chemistry and apparatus measurements needed to extend that account into useful technologies.</p>
+    <p class="caveat">Input: <a class="xref" href="https://physics.nist.gov/cuu/Constants/Table/allascii.txt">NIST 2022 CODATA</a>, $\alpha=0.0072973525643(11)$. The parentheses give a standard uncertainty of $1.1\times10^{-12}$. $h$ and $c$ set SI units; masses are independent calibration inputs to this calculation. No measured atomic radius or spectral coefficient is used to generate the table below. CODATA's adjusted constants are statistically correlated, so this is not an independent high-precision test of spectroscopy.</p>
+  </div>
+  <nav class="toc" aria-label="On this page">
+    <a href="#premises">What is supplied</a><a href="#spherical-pair">Spherical structure</a><a href="#calibrated-world">Calculated observables</a><a href="#calibrated-calculator">Explore the scales</a><a href="#engineering-use">What we can use</a><a href="#propulsion-status">Propulsion status</a><a href="#provisional-carryover">Other applications</a><a href="#research-status">Research record</a>
+  </nav>
+</section>
+
+<section id="premises">
+  <h2>&sect;1 &mdash; What is supplied, and what is calculated</h2>
+  <p><strong>Ontology.</strong> In the POAMS reading, the participating organizations are angular momentum, not separate bearers placed in a void. The two ends and the observer belong to the same account. A completed exchange is one event with two entries; recording both ends does not automatically double its energy. See <a class="xref" href="./the-receiver-keys-the-exchange.html">The Receiver Keys the Exchange</a>.</p>
+  <p><strong>Mathematical model.</strong> The calculation uses a stationary, linear, isotropic exterior response; reciprocal signed pair booking; and, for the circular atomic scale, an effective two-ended kinetic energy with fixed orbital action $J=n\hbar$. These are the stated conditions of the calculation. A smooth exterior chart represents averaged relations; it is not a claim that the underlying discreteum is a continuous medium.</p>
+  <p><strong>Calibration.</strong> Measured $\alpha$ fixes the elementary pair coefficient. Measured masses fix the absolute atomic scale. Measured $G$ remains a separate input wherever the gravitational comparison is used. No equality between the gravitational and chirality-response normalizations is assumed.</p>
+  <div class="pipeline" aria-label="Calculation sequence">
+    <div><b>1. Measure</b>Supply $\alpha$, the relevant masses, and the unit conversions.</div>
+    <div><b>2. Calculate</b>Use one stated pair-energy account; obtain stationary scales and differences.</div>
+    <div><b>3. Compare and apply</b>Check the observable in its regime; add the material or apparatus response actually needed.</div>
   </div>
 </section>
 
-<!-- ============ §1 ============ -->
-<section>
-  <h2>&sect;1 &mdash; Grounding: What POAMS Already Holds</h2>
-
-  <p>Every claim in this exhibit rests on commitments already ratified in the POAMS foundation. Nothing here re-derives them; the reader is pointed at the exhibits that carry the load.</p>
-
-  <p><strong>One substance: angular momentum.</strong> The one stuff is circulation, and everything perceived as world is that circulation reading itself &mdash; the <em>angular-momentum nexus</em> (per <a class="xref" href="./index.html">GROUNDING</a> &sect;1). There is no aether, no background container in which the nexus sits; the nexus is the reality.</p>
-
-  <p><strong>Discreteum, integer turns.</strong> Angular momentum comes in whole $\hbar$ closures ($Lk = \pm 1$ for elementary closures, integer for composites).</p>
-
-  <p><strong>Newton's law from substance-depletion.</strong> The Counter-Rotating exhibit's preamble (per its &sect;1 grounding) and the ratified n-centre closure derivation in <a class="xref" href="./navigation-engine.html">The Navigation Engine</a> establish that Newton's inverse-square law emerges from a trapped-rate sink depleting the local availability of completion routing in the surrounding nexus. For a mass $M$ with trapped-rate sink $\dot{N}_M = Mc^2/h$:</p>
-
-  <div class="eq">$$\rho_N(r) = \rho_N(\infty) - \frac{\dot{N}_M}{4\pi D r}, \qquad g(r) = \frac{GM}{r^2}$$</div>
-
-  <p>where $D$ is the nexus's completion-propagation coefficient and $\rho_N(\infty)$ is its far-field completion count density.</p>
-
-  <p><strong>Charge is the sign of intrinsic spin.</strong> Per <a class="xref" href="./index.html">GROUNDING</a> &sect;3: charge is not a substance, it is the phase-sense of a closure ($\oint d\phi = \pm 2\pi n$). Coulombs cash out as the kinetic energy of spin in joules. Elementary charge in POAMS terms is the elementary closure's chirality sign: $s \in \{+1, -1\}$.</p>
-
-  <div class="card blue">
-    <p style="margin:0"><strong>What is new in this exhibit.</strong> The Navigation Engine's derivation handles tangled trapped-rate sinks (mass). It does not yet handle chirality-directed sinks (charge). This exhibit extends the substrate-depletion mechanism from mass to charge, and derives Coulomb's $1/r$ potential form together with its sign-sensitivity to chirality product. What emerges naturally: the same mechanism, applied to a different kind of sink, produces the same $1/r$ structure with a chirality-signed coefficient &mdash; Coulomb from POAMS foundations, structurally.</p>
-  </div>
+<section id="spherical-pair">
+  <h2>&sect;2 &mdash; Spherical response and the signed pair law</h2>
+  <h3>Why an inverse distance appears</h3>
+  <p>In a spherically symmetric stationary exterior chart, let $\psi$ denote the signed response and let $D$ be its specified response coefficient. If the integrated radial response $\mathcal J$ is constant outside the source, then</p>
+  <div class="eq">$$-4\pi D r^2\frac{d\psi}{dr}=\mathcal J,\qquad \psi(\infty)=0
+  \quad\Longrightarrow\quad \psi(r)=\frac{\mathcal J}{4\pi D r}.$$</div>
+  <p>This is the spherical area law plus the stated linear response and boundary condition. Geometry fixes the <em>radial dependence under those conditions</em>, not the magnitude or a microscopic exchange law. Nothing in this chart requires a carrier crossing a gap.</p>
+  <h3>One calibrated coefficient, four sense combinations</h3>
+  <p>For the elementary signs $s_1,s_2\in\{-1,+1\}$, the phenomenological identification of the Coulomb channel is</p>
+  <div class="eq">$$U_{12}(r)=s_1s_2\frac{K_Q}{r}
+    =s_1s_2\frac{\alpha\hbar c}{r},\qquad
+    F_r=-\frac{dU_{12}}{dr}=s_1s_2\frac{\alpha\hbar c}{r^2}.$$</div>
+  <p>Here positive $F_r$ means increasing separation. Equal signs give the outward branch; opposite signs give the inward branch. This sign identification is part of the calibrated pair account; spherical shells alone do not force it. &ldquo;Force&rdquo; here is the derivative used to book a constrained displacement, not an additional substance.</p>
+  <p><strong>The spherical resonant shells are not an extra electromagnetic force.</strong> They describe allowed organization of a bound state. The exterior spherical response supplies an inverse-distance form under its assumptions; the resonant/circular conditions select the available states once the pair strength is supplied. These are related parts of the calculation, not interchangeable objects.</p>
+  <details><summary>What the recent joint-network calculation added</summary>
+    <p>A specified quadratic circulation cost in a regular three-dimensional chart produces $K_Q=(\kappa/4\pi)\hbar c$. Supplying measured $\alpha$ therefore fixes that particular cost weight to $\kappa=4\pi\alpha=0.0917012368266\ldots$. The chosen cost, chart and energy interpretation remain model assumptions. This is useful calibration, not a proof that the source commitments uniquely select that network.</p>
+  </details>
 </section>
 
-<!-- ============ §2 ============ -->
-<section>
-  <h2>&sect;2 &mdash; The Derivation</h2>
+<section id="calibrated-world">
+  <h2>&sect;3 &mdash; Derive the gross atomic scales from measured $\alpha$</h2>
+  <p>Both ends participate. Their effective relative inertia is $\mu=m_1m_2/(m_1+m_2)$; neither is installed as a stationary nucleus. In the quadratic circular scale calculation,</p>
+  <div class="eq">$$E_n(r)=\frac{n^2\hbar^2}{2\mu r^2}-\frac{\alpha\hbar c}{r}.$$</div>
+  <p>Setting $dE_n/dr=0$ and substituting the resulting radius back into the energy gives</p>
+  <div class="eq">$$\boxed{r_n=\frac{n^2\hbar}{\mu c\alpha}},\qquad
+    \boxed{E_n=-\frac{\mu c^2\alpha^2}{2n^2}}.$$</div>
+  <p>The same energy differences determine the gross line frequency and its conventional vacuum-wavelength readout:</p>
+  <div class="eq">$$f_{n_2\to n_1}=\frac{\mu c^2\alpha^2}{2h}
+    \left(\frac1{n_1^2}-\frac1{n_2^2}\right),\qquad n_2>n_1,\qquad \lambda_{\rm vac}=\frac cf.$$</div>
+  <p>This is a scale calculation. It is not a literal drawing of the lowest angular state as a small particle orbit. Full angular states, transition selection and resolved line corrections need their own treatment. The $n^2$ radius relation uses the energy law as well as $J=n\hbar$; action quantization alone does not determine it.</p>
+  <div class="table-wrap" tabindex="0" aria-label="Gross atomic outputs with measured mass calibrations">
+    <table><thead><tr><th>Calculated quantity</th><th>Light-mass limit</th><th>Finite two-ended pair</th></tr></thead><tbody>
+      <tr><td>Fundamental relative radius</td><td>$5.2917721055\times10^{-11}$ m</td><td>$5.2946540946\times10^{-11}$ m</td></tr>
+      <tr><td>Gross binding magnitude</td><td>13.6056931228 eV</td><td>13.5982872641 eV</td></tr>
+      <tr><td>Binding mass-equivalent, $|E_1|/c^2$</td><td>$2.4254351047\times10^{-35}$ kg</td><td>$2.4241148905\times10^{-35}$ kg</td></tr>
+      <tr><td>Fundamental circular period</td><td>$1.5198298461\times10^{-16}$ s</td><td>$1.5206575713\times10^{-16}$ s</td></tr>
+    </tbody></table>
+  </div>
+  <p class="caveat">Mass inputs: $m_{\rm light}=9.1093837139\times10^{-31}$ kg and $m_{\rm heavy}=1.67262192595\times10^{-27}$ kg, corresponding to the conventional electron/proton mass calibrations. The first column takes $\mu=m_{\rm light}$; the second retains both. The eV conversion is an SI reporting convention. These are gross, nonrelativistic values, not precision ionization or fine/hyperfine predictions.</p>
+  <p>The light-mass spectral coefficient is $R_\infty=\mu c\alpha^2/(2h)$, approximately $1.0973731568\times10^7\ \mathrm{m^{-1}}$, with limit frequency $3.2898419602\times10^{15}$ Hz. Those reconstruct the familiar gross reference scales without inserting $R_\infty$ separately. Last-digit offsets from independently rounded CODATA entries are covered by the input rounding; they are not new physical discrepancies.</p>
+  <h3>One measured ratio ties the results together</h3>
+  <p>Define the reference length $\ell_\mu=\hbar/(\mu c)$ and reference cycle $\tau_\mu=h/(\mu c^2)$. Then</p>
+  <div class="eq">$$\frac{r_1}{\ell_\mu}=\frac1\alpha=137.0359991776\ldots,\quad
+    \frac{|E_1|}{\mu c^2}=\frac{\alpha^2}{2}=26.6256772238\ldots\ \mathrm{ppm},\quad
+    \frac{T_1}{\tau_\mu}=\frac1{\alpha^2}=18778.8650706\ldots.$$</div>
+  <p><strong>This is the useful cascade:</strong> one calibrated elementary strength, together with the stated energy and action relations, sets linked sizes, energies and rates. These are not six unrelated knobs. Nor does this imply that magnetic anomalies, hyperfine structure, $G$, or the mass hierarchy follow automatically.</p>
+</section>
 
-  <p>An elementary closure carrying spin-sign $s$ has a chirality-directed contribution to the nexus that is distinct from its tangled trapped-rate contribution. Where the tangled contribution depletes ambient completions isotropically (no preferred direction, since the underlying $Lk = \pm 1$ orientations of its constituent loops average to zero), the chirality-directed contribution depletes with a sign carried by $s$.</p>
+<section id="calibrated-calculator">
+  <h2>&sect;4 &mdash; Explore the calculated world</h2>
+  <p>Keep $\alpha$ fixed at its measured value. Change the mass account and radial mode; watch the radius expand as $n^2$ while binding falls as $1/n^2$. Select a transition independently to read its gross wavelength.</p>
+  <div class="card">
+    <div class="cal-controls">
+      <label for="cal-mass">Mass account<select id="cal-mass"><option value="pair">Finite light/heavy pair</option><option value="light">Light-mass limit</option><option value="equal">Equal light-mass ends (diagnostic)</option></select></label>
+      <label for="cal-n"><span>Radial mode n = <span id="cal-n-value">1</span></span><input id="cal-n" type="range" min="1" max="6" step="1" value="1"></label>
+      <label for="cal-lower">Transition: lower mode<select id="cal-lower"><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option></select></label>
+      <label for="cal-upper">Transition: upper mode<select id="cal-upper"><option value="2">2</option><option value="3" selected>3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option></select></label>
+      <button id="cal-reset" type="button">Reset to the finite-pair example</button>
+    </div>
+    <div class="readout-grid" aria-live="polite" aria-atomic="true">
+      <div class="readout"><span>Relative radius</span><output id="cal-radius">52.94654 pm</output></div>
+      <div class="readout"><span>Gross binding magnitude</span><output id="cal-binding">13.59829 eV</output></div>
+      <div class="readout"><span>Model circular period</span><output id="cal-period">1.520658e-16 s</output></div>
+      <div class="readout"><span id="cal-transition">3 → 2, vacuum; gross model</span><output id="cal-line">656.4696 nm</output></div>
+    </div>
+    <div class="plot-grid">
+      <figure><svg id="radius-chart" viewBox="0 0 380 220" role="img" aria-label="Mode radii proportional to n squared"></svg><figcaption>Relative radii; the selected n is gold. These bars are not orbital trajectories.</figcaption></figure>
+      <figure><svg id="energy-chart" viewBox="0 0 380 220" role="img" aria-label="Gross energy levels approaching the zero-binding limit"></svg><figcaption>Energy ladder, $E_n=-|E_1|/n^2$; zero is the separated-state limit.</figcaption></figure>
+    </div>
+    <p id="cal-caption" class="caveat">Finite two-ended mass account.</p><p id="cal-ratios" class="caveat"></p>
+    <noscript><p>The static table in &sect;3 contains the same fundamental calculations. Enable JavaScript to vary the mode and transition. The finite-pair gross 3→2 vacuum wavelength is 656.46960634 nm.</p></noscript>
+  </div>
+  <p class="caveat">The browser displays rounded double-precision values. <a class="xref" href="./scripts/coulomb_calibrated_precision.md">80-significant-digit arithmetic</a> and the <a class="xref" href="./scripts/coulomb_calibrated.py">reproducible Python calculation</a> preserve the detailed back-substitution. Extra computational digits do not increase the accuracy of measured inputs.</p>
+</section>
 
-  <h3>Chirality-directed sink</h3>
+<section id="engineering-use">
+  <h2>&sect;5 &mdash; What can we now use?</h2>
+  <h3>A common scale for calculations</h3>
+  <p>The calibrated $K_Q$ supplies one long-range elementary pair normalization. Gross atomic lengths and energies provide reference units for configuration calculations, spectral comparisons and drive-energy accounts. Molecular work can use that anchor without reopening the origin of $\alpha$; overlap, many-centre terms and short-range behavior must still be specified rather than inferred from a pair coefficient alone.</p>
+  <h3>A way to isolate genuinely joint response</h3>
+  <div class="eq">$$D(r)=\frac{E_{++}+E_{--}-E_{+-}-E_{-+}}4=\frac{K_Q}{r},\qquad
+    \Omega_{\rm con}=\frac{D}{\hbar}=\frac{\alpha c}{r}.$$</div>
+  <p>The four-sense contrast cancels additive contributions belonging to either end alone. It is useful for analysis of measured interaction energies or phases when equivalent preparations and a common reference are available. It does not guarantee that material bias, source or mounting contributions cancel. Over the comparison interval $r/c$, the connected phase coordinate is $\alpha$ radians; this is a reference interval, not a derived transit or completion time.</p>
+  <h3>A practical coupling lead, separate from propulsion</h3>
+  <p>The final high-voltage pass found that a specified electrical geometry can give appreciable local forces and controlled mode coupling. For a voltage-held terminal geometry, the source-inclusive potential is $\mathcal U=-C(d)V^2/2$, so $F_d=V^2 C'(d)/2$. For the illustrative assumptions $C=10$ pF, $d=50$ mm, $C'=-C/d$, and $V=50$ kV, the attraction is <strong>0.25 N</strong> and stored energy is <strong>0.0125 J</strong>. This is not a measured device or a force arising from counter-rotation. The other terminal receives the counterpart.</p>
+  <p>Two established material results provide concrete engineering leads: <a class="xref" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6823415/">Zhou et al. (2019)</a> demonstrated electrically tunable coupling between modes of a silicon ring resonator; <a class="xref" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/aelm.201800663">Yu et al. (2019)</a> demonstrated voltage/strain control of YIG orientation and resonance. These support investigation of <em>specified directional material response and electrical state-setting</em>. They do not demonstrate weight control. A voltage-controlled YIG state is not automatically a suitable low-loss Prov-A medium; its loaded response and damping must be measured.</p>
+</section>
 
-  <p>For an elementary closure with chirality $s$, define a chirality-directed sink rate $\dot{N}_Q$ &mdash; the rate at which chirality-directed completions leave the closure, carrying its phase-sense signature into the surrounding nexus. Unlike $\dot{N}_M$ (magnitude, sign-agnostic), $\dot{N}_Q$ has a sign attached (the closure's chirality).</p>
-
-  <p>By the same spherical-shell geometry that yields Newton's $1/r$ &mdash; the completion-count depletion at radius $r$ from a spherically-symmetric sink is set by the sink rate divided by the flux passage area $4\pi r^2$, integrated over the propagation coefficient &mdash; the depletion pattern from a chirality-directed sink is:</p>
-
-  <div class="eq">$$\Delta\rho_N^{(Q)}(r) \;=\; -\frac{s \cdot \dot{N}_Q}{4\pi D r}$$</div>
-
-  <p>The sign of the depletion is carried by $s$. A positive-chirality closure depletes chirality-directed availability radially outward with one sign; a negative-chirality closure depletes with the opposite sign.</p>
-
-  <h3>Two-closure coupling</h3>
-
-  <p>A second elementary closure with chirality $s_2$ sitting at radius $r$ from the first source experiences the depletion pattern above. Its own completions preferentially route where the depletion-availability matches its chirality &mdash; that is, its route-preference direction depends on the product $s_1 \cdot s_2$:</p>
-
-  <ul>
-    <li>$s_1 \cdot s_2 = +1$ (like chiralities): the depletion pattern from source 1 is unfavourable to source 2's completions in the shared direction; source 2's natural-orbit shifts outward &mdash; the two closures' natural configuration has them further apart (extant label: <span class="fant">&ldquo;repulsion&rdquo;</span>).</li>
-    <li>$s_1 \cdot s_2 = -1$ (opposite chiralities): the depletion pattern from source 1 is favourable to source 2's completions in the shared direction; source 2's natural-orbit shifts inward &mdash; the two closures' natural configuration has them closer together (extant label: <span class="fant">&ldquo;attraction&rdquo;</span>).</li>
-  </ul>
-
-  <h3>Coulomb's potential form</h3>
-
-  <p>Working the coupling to the same order as the Newton derivation, the potential energy of the two-closure pair is:</p>
-
-  <div class="eq">$$\boxed{\;V_{Coulomb}(r) \;=\; \frac{k_Q \cdot s_1 s_2 \cdot \dot{N}_{Q,1} \dot{N}_{Q,2}}{r}\;}$$</div>
-
-  <p>where $k_Q$ is a coefficient with dimensions such that $V$ has units of energy. Substituting $s_1 s_2 = \pm 1$ and the empirical identification $\dot{N}_{Q,i} \propto |q_i|$ (charge magnitude), this reproduces the empirical Coulomb form:</p>
-
-  <div class="eq">$$V_{Coulomb}(r) \;=\; \frac{1}{4\pi\epsilon_0} \cdot \frac{q_1 q_2}{r}$$</div>
-
-  <p>with sign carried by the product of the individual charge signs.</p>
-
+<section id="propulsion-status">
+  <h2>&sect;6 &mdash; The original objective: useful propulsion</h2>
   <div class="card gold">
-    <p><strong>Coulomb's law form emerges from POAMS substance-depletion by the same mechanism that produces Newton's law &mdash; with chirality-directed depletion in place of tangled depletion.</strong> The $1/r$ potential is the geometry of spherically-symmetric depletion in the nexus, and it is what mass and charge share. The sign-sensitivity is what distinguishes charge from mass: chirality-directed depletion carries the closure's phase-sense outward, so the pair-coupling reads their chirality product. Like charges route away from each other; unlike charges route toward each other. Newton's law is the sign-agnostic case; Coulomb's law is the sign-sensitive one; both are the same substrate-depletion physics.</p>
+    <p><strong>Current result:</strong> calibrated elementary interaction scales and useful local-coupling calculations. <strong>Not yet a result:</strong> a demonstrated propulsion advantage, whole-apparatus weight change, or predictive drive-to-support-force relation.</p>
+    <p>Accepting $\alpha$ removes the need to derive its numerical origin before proceeding. It does <em>not</em> identify the actual driven material state or determine how that state participates in an Earth-relative support response. Those are apparatus questions, not another demand to explain why nature chose $1/137$.</p>
   </div>
+  <div class="table-wrap" tabindex="0" aria-label="Propulsion versus local coupling status"><table><thead><tr><th>Question</th><th>What the work establishes</th></tr></thead><tbody>
+    <tr><td>Can a specified drive change a local material mode or mounting load?</td><td>Yes in the stated material/electrode calculations. The Vortex Cores silicon example reverses a roughly 0.298-pN <em>internal</em> plate load with phase; the outer electrodes take balancing reactions.</td></tr>
+    <tr><td>Does accepting $\alpha$ turn that into whole-apparatus thrust?</td><td>No. For translation-invariant internal pair energies, $\mathbf F_{12}+\mathbf F_{21}=0$. Any net body impulse requires the corresponding external momentum exchange to be identified and included.</td></tr>
+    <tr><td>Is the proposed weight-control response ruled out?</td><td>No universal no-go result is claimed. The present calculations also supply no validated nonzero device response.</td></tr>
+    <tr><td>What is the preferred apparatus route?</td><td><a class="xref" href="./provisionals/PROV-A.pdf">Prov-A</a>: a characterized ordered medium with controlled drive and a measured support-response map. Voltage/strain control is a candidate state-setting option, not a proven force gain.</td></tr>
+    <tr><td>What is the rotor/topological-step branch's status?</td><td><a class="xref" href="./counter-rotating-circulation-pair.html#sec-middle-material">Vortex Cores / Prov-J</a> is parked. Integer turning does not by itself establish fixed-size weight steps; inserting $\alpha$ does not change that status.</td></tr>
+  </tbody></table></div>
+  <h3>The next physical quantity to establish</h3>
+  <div class="eq">$$\Delta F_{\rm support}=\mathcal R(\text{measured material state},\ \text{drive},\ \text{geometry},\ \text{environment}).$$</div>
+  <p>$\mathcal R$ may be obtained empirically: an independently reproduced, nonzero response map with its source/mounting reactions and energy budget would support practical control without a new derivation of $\alpha$. At present it may also be zero. For propulsion, measure whole-device momentum change and its external counterpart; for weight control, separate the body's support change from force on its bias source, electrodes and mounts. Neither a local force nor an altered resonance is automatically either result.</p>
+  <p><strong>Device-first, evidence-based progression:</strong> characterize the driven state; establish the complete-apparatus response; then determine load capacity, power, thermal limits, bandwidth and array behavior. The intended product remains a controllable support/transport device. The measurement is how an operating map is earned, not a replacement for that objective. See <a class="xref" href="https://cfmilam.github.io/nr-poams-engineering/yig-levitation-experiment.html">the YIG apparatus program</a> and <a class="xref" href="./provisionals/PROV-B.pdf">Transportation &amp; Lift</a>.</p>
 </section>
 
-<!-- ============ §3 ============ -->
-<section>
-  <h2>&sect;3 &mdash; Cross-checks Against Known Behaviour</h2>
-
-  <h3>Reproduces the sign of Coulomb's phenomenology across every pair</h3>
-  <p>Two positive elementary charges: $s_1 s_2 = +1$ &rarr; natural configuration further apart (classical: &ldquo;repel&rdquo;). Two negative: $s_1 s_2 = +1$ &rarr; further apart. One positive, one negative: $s_1 s_2 = -1$ &rarr; natural configuration closer (classical: &ldquo;attract&rdquo;). Matches classical Coulomb behaviour across every pair without exception.</p>
-
-  <h3>Reproduces the $1/r^2$ force law from the derived $1/r$ potential</h3>
-  <p>$F = -\nabla V = k_Q \cdot s_1 s_2 \cdot \dot{N}_{Q,1} \dot{N}_{Q,2} / r^2$. Inverse-square force falls out of the derived potential, as expected. Same $1/r^2$ shape as Newton; same origin (spherical-shell depletion geometry).</p>
-
-  <h3>Two-endedness, not signal propagation</h3>
-  <p>The pair coupling is a proper-time exchange between two closures reading each other's contribution to the nexus (per <a class="xref" href="./the-receiver-keys-the-exchange.html">The Receiver Keys the Exchange</a>). There is no photon, no field carrier, no signal, no container across which anything propagates &mdash; each closure keeps its own book, and the observer's apparent $r/c$ delay under specific measurement configurations is optical projection of the two-endedness onto their space-projection, not something travelling. The depletion pattern is a bookkeeping fact readable from either endpoint's own local ledger.</p>
-
-  <h3>Superposition</h3>
-  <p>For an assembly of many charged closures, each contributes its own chirality-directed depletion to the shared nexus. The pattern experienced by a test closure at some point is the sum of individual contributions (since depletion is additive for small perturbations of $\rho_N$). This reproduces the superposition principle of electrostatics without additional POAMS commitment.</p>
+<section id="provisional-carryover">
+  <h2>&sect;7 &mdash; What carries into other exhibits and provisionals?</h2>
+  <p>This is a technical-use map, not a claim that the proposed devices have been built or that these results establish their performance. The linked documents retain their own assumptions and prospective embodiments.</p>
+  <div class="table-wrap" tabindex="0" aria-label="Results relevant to other exhibits and provisional families"><table><thead><tr><th>Exhibit / application</th><th>What can be carried forward now</th><th>What this does not establish</th></tr></thead><tbody>
+    <tr><td><a class="xref" href="./the-molecules.html">Molecules</a> · <a class="xref" href="./provisionals/PROV-I.pdf">Prov-I</a></td><td>Common long-range pair coefficient; atomic reference units; energy-difference and duplicate-pair accounting for the configuration ledger.</td><td>Complete many-centre interaction, overlap/exchange, reaction barriers or molecular-control accuracy. Those remain the next calculation and comparison.</td></tr>
+    <tr><td><a class="xref" href="./balmer-rydberg-poams.html">Spectral Lines</a>, <a class="xref" href="./poams-periodic-table.html">Elements</a> · <a class="xref" href="./provisionals/PROV-C.pdf">Prov-C</a>, Prov-I</td><td>Gross radius/binding/spectral scale from one measured anchor; a fixed reference for checking energy and frequency readouts.</td><td>Every configuration, transition strength, selection rule or fine/hyperfine component.</td></tr>
+    <tr><td><a class="xref" href="./counter-rotating-circulation-pair.html#sec-middle-material">Material coupling</a> · <a class="xref" href="./provisionals/PROV-A.pdf">Prov-A</a>, <a class="xref" href="./provisionals/PROV-E.pdf">Prov-E</a></td><td>Directional response and electrode patterning as concrete control variables; voltage/strain state-setting as an experimentally motivated materials lead.</td><td>Whole-body weight control, low-loss performance, unlimited coherent gain or array additivity.</td></tr>
+    <tr><td><a class="xref" href="./angular-momentum-calculator.html">AM Calculator</a>, <a class="xref" href="./navigation-engine.html">Navigation Engine</a> · Prov-A, <a class="xref" href="./provisionals/PROV-B.pdf">Prov-B</a></td><td>Separate intrinsic turning, mutual orbital turning and whole-device momentum; keep source and support reactions in one account.</td><td>A new thrust law, trajectory-control authority or a lift-to-power ratio.</td></tr>
+    <tr><td><a class="xref" href="./poams-analysis.html">POAMS Analysis</a> · Prov-C</td><td>Four-preparation contrast to isolate connected response; known local electrical loads as candidate calibration checks with independently measured geometry.</td><td>Automatic cancellation of preparation artifacts or a calibration traceable solely to a POAMS hypothesis.</td></tr>
+    <tr><td><a class="xref" href="./heat-and-coherence.html">Heat &amp; Coherence</a>, <a class="xref" href="./poams-electricity.html">Electricity</a> · <a class="xref" href="./provisionals/PROV-D.pdf">Prov-D</a></td><td>Consistent stored-energy, work and dissipation accounts. Gross binding supplies a scale; controller restoration and phase change must not be confused with free energy.</td><td>A realizable retained-energy state, usable capacity, round-trip efficiency or an over-unity cycle.</td></tr>
+    <tr><td><a class="xref" href="./the-winding-register.html">Winding Register</a>, <a class="xref" href="./poams-memory.html">Memory</a> · <a class="xref" href="./provisionals/PROV-F.pdf">Prov-F</a></td><td>Separate accumulated phase, completed turns, stored state and the clock reading it. The inferred $10^{41}$-Hz rate is not a device clock.</td><td>Retention time, state count, write energy, readout fidelity or communications performance.</td></tr>
+    <tr><td><a class="xref" href="./computation-as-completion.html">Computation as Completion</a>, <a class="xref" href="./resonance-network.html">Resonance Network</a> · <a class="xref" href="./provisionals/PROV-H.pdf">Prov-H</a></td><td>Use genuinely joint phase response and a common physical reference to assess pair gates and correlations; test the relevant interaction rather than adding independent endpoint phases.</td><td>A microscopic pair-gate Hamiltonian, gate speed/fidelity, durable register or quantum advantage.</td></tr>
+    <tr><td><a class="xref" href="./the-rate-of-time.html">Rate of Time</a> · <a class="xref" href="./provisionals/PROV-G.pdf">Prov-G</a></td><td>Distinguish a changed material resonance from a change shared by independent clocks; use reference comparisons and a measured response map.</td><td>A universal time-rate change or a rate-control gain from $\alpha$ alone.</td></tr>
+    <tr><td><a class="xref" href="./counter-rotating-circulation-pair.html">Vortex Cores</a> · <a class="xref" href="./provisionals/PROV-J.pdf">Prov-J</a></td><td>Preserve the local coupling and source-accounting results.</td><td>Quantized weight steps. This branch remains parked.</td></tr>
+  </tbody></table></div>
+  <p><strong>Priority from this pass:</strong> use the calibrated pair scale in Molecules/Prov-I and the comparison methods in metrology; retain directional material/voltage control for Prov-A/E. Do not promote those supporting results into demonstrated propulsion, storage or clock-control performance.</p>
 </section>
 
-<!-- ============ §4 ============ -->
-<section>
-  <h2>&sect;4 &mdash; The Scale Gap: What Would Give $\alpha$</h2>
-
-  <p>The structural derivation above delivers Coulomb's $1/r$ potential form. The coupling coefficient $k_Q \cdot \dot{N}_Q^2 / (4\pi D \rho_N(\infty))$ &mdash; extant $1/(4\pi\epsilon_0)$ &mdash; is not yet fixed in POAMS-native units. Fixing it requires one specific derivation.</p>
-
-  <h3>What must be derived</h3>
-
-  <p>The nexus-propagation coefficient $D$ and background completion density $\rho_N(\infty)$ appear identically in both the Newton and Coulomb derivations (they are properties of the shared nexus). Therefore the <em>ratio</em> of Coulomb coupling to Newton coupling for a pair of elementary closures reduces to the ratio of chirality-directed sink rate to tangled sink rate:</p>
-
-  <div class="eq">$$\frac{V_{Coulomb}/V_{Newton}}{\text{(same pair, same }r\text{)}} \;=\; \left(\frac{\dot{N}_Q}{\dot{N}_M}\right)^2 \cdot \text{(units and geometry factors, both derivable)}$$</div>
-
-  <p>The empirical ratio for two elementary charges (electron-mass, elementary charge magnitude): $|V_{Coulomb}|/|V_{Newton}| \approx 4 \times 10^{42}$. So the sink-rate ratio $\dot{N}_Q/\dot{N}_M$ per elementary closure is of order $10^{21}$.</p>
-
-  <p>The mass sink rate is POAMS-native: for the electron closure, $\dot{N}_M = m_e c^2/h \approx 1.24 \times 10^{20}$ Hz (from <a class="xref" href="./mass-as-trapped-rate.html">Mass as Trapped Rate</a>).</p>
-
-  <p>The chirality-directed sink rate must be $\dot{N}_Q \approx 10^{21} \times 1.24 \times 10^{20}$ Hz $\approx 10^{41}$ Hz per elementary closure.</p>
-
-  <div class="caveat">
-    <span class="tag open">OPEN &mdash; SPECIFIC PIECE</span> POAMS as currently articulated does not derive $\dot{N}_Q$ from foundations. The gap is a single, specific derivation: <em>what determines the rate at which an elementary closure's chirality-directed phase-sense signature completes into the surrounding nexus, per unit time?</em> Closing this derivation yields the Coulomb coupling coefficient, and hence the fine-structure ratio $\alpha$, from POAMS-native quantities.
-  </div>
-
-  <h3>Connection to the alpha-family unified open</h3>
-
-  <p>Once $\dot{N}_Q$ is derived, the following all follow simultaneously as consequences:</p>
-  <ul>
-    <li>Coulomb's coupling coefficient $1/(4\pi\epsilon_0)$ &mdash; from the sink-rate ratio and the shared nexus parameters</li>
-    <li>The Bohr magneton $\mu_B$ &mdash; from $ec^2/(2\omega_e)$ (per <a class="xref" href="./stern-gerlach-as-two-chiralities.html">Stern-Gerlach</a> &sect;3), with $e$ derived from $\dot{N}_Q$ by the joules-per-second correspondence GROUNDING &sect;3 establishes</li>
-    <li>The hydrogen Bohr radius $a_0$ &mdash; from the natural-orbit condition of the outer closure under the derived Coulomb pair coupling with the nuclear closure</li>
-    <li>The fine-structure ratio $\alpha = \lambda_C / (2\pi a_0)$ &mdash; as a derived consequence, no import</li>
-    <li>The QED-order anomalous magnetic moment $g_s - 2 \approx 0.00232$ &mdash; the $\alpha/\pi$ correction from higher-order chirality-directed self-coupling, a subleading term of the machinery deriving $\dot{N}_Q$</li>
-    <li>Hyperfine spectra (measured example: hydrogen 21cm line at 1420.405751 MHz) &mdash; from the coupling at nuclear-closure to outer-closure separation, using the same $\dot{N}_Q$ mechanism</li>
-  </ul>
-
-  <p>The alpha-derivation family (per <a class="xref" href="./alpha-fine-structure-derivation.html">The Alpha Problem</a> §7 unified open) unifies further: <strong>all six items above &mdash; from Coulomb's coefficient through hyperfine &mdash; reduce to deriving $\dot{N}_Q$ from POAMS foundations.</strong></p>
-</section>
-
-<!-- ============ §5 ============ -->
-<section>
-  <h2>&sect;5 &mdash; What is Claimed, What Remains Open</h2>
-
-  <div class="card gold">
-    <p><span class="tag claim">CLAIMED</span> <strong>Coulomb's $1/r$ potential form derives from POAMS substance-depletion.</strong> The same substrate-depletion mechanism that gives Newton's $1/r$ potential from tangled trapped-rate gives Coulomb's $1/r$ potential from chirality-directed trapped rate. The $1/r$ shape is the geometry of spherically-symmetric depletion in the nexus, shared between mass and charge.</p>
-
-    <p><span class="tag claim">CLAIMED</span> <strong>Sign-sensitivity to chirality product.</strong> The chirality-directed depletion carries the source closure's phase-sense. Two-closure coupling reads the product of chiralities: like &rarr; natural configuration further apart, unlike &rarr; natural configuration closer together (extant labels: &ldquo;repel&rdquo; and &ldquo;attract&rdquo;). Matches classical Coulomb behaviour across every pair without exception.</p>
-
-    <p><span class="tag claim">CLAIMED</span> <strong>No signaling required.</strong> The pair coupling is a proper-time two-ended exchange in the nexus (per <a class="xref" href="./the-receiver-keys-the-exchange.html">The Receiver Keys the Exchange</a>). No photon, no field-carrier, no signal traveling through a container. The observer's apparent $r/c$ delay is optical projection of the two-endedness, not something traveling.</p>
-
-    <p><span class="tag claim">CLAIMED</span> <strong>Superposition of many-charge configurations.</strong> Falls out of additive depletion of the shared nexus for small perturbations.</p>
-  </div>
-
-  <div class="card blue">
-    <p><span class="tag open">OPEN &mdash; UNIFIED</span> <strong>The chirality-directed sink rate $\dot{N}_Q$ per elementary closure.</strong> POAMS does not yet derive it from foundations. The empirical value ($\sim 10^{41}$ Hz per elementary closure) fixes the Coulomb coupling coefficient, and hence the fine-structure ratio $\alpha$, once specified. This is one specific derivation. Closing it closes the unified alpha-derivation family named in <a class="xref" href="./alpha-fine-structure-derivation.html">The Alpha Problem</a> &sect;7 &mdash; Coulomb's coupling coefficient, the Bohr magneton, the hydrogen Bohr radius, $\alpha$ itself, the QED anomalous magnetic moment, and hyperfine spectra all follow. The derivation is the next task in this arc.</p>
-  </div>
-
-  <p style="margin-top:22px">This exhibit does what the Counter-Rotating exhibit did for gravitomagnetic pair coupling and the Landé exhibit did for atomic Zeeman coupling: it extends the substrate-depletion / two-endedness / Călugăreanu machinery to a new pair-coupling regime, deriving the structural form from POAMS foundations, and honestly names the specific missing derivation that would give the scale. Three exhibits, one mechanism, one remaining open. The alpha-derivation family, previously six-faced, now reduces to one: <em>derive $\dot{N}_Q$</em>.</p>
+<section id="research-status">
+  <h2>&sect;8 &mdash; What is settled for use, and what remains research?</h2>
+  <div class="card blue"><p><strong>Accepted for this working account:</strong> measured $\alpha$ is an explicit anchor; the displayed equations calculate the consequences in their stated regimes. Its unexplained numerical origin does not block applications. We have neither derived that value from ontology alone nor proved it fundamentally underivable.</p></div>
+  <details><summary>The old &ldquo;elementary completion rate&rdquo; and six-result claim</summary>
+    <p>The observable fixes the product $K_Q=k_Q\nu_Q^2$, not $\nu_Q$ separately. Writing $\zeta=k_Q/k_M$ gives $\alpha=\zeta(\nu_Q/f_{\rm Pl})^2$. Only after setting $\zeta=1$ does $\nu_Q=\sqrt\alpha f_{\rm Pl}\approx2.522\times10^{41}$ Hz follow. A shared nexus does not prove that normalization. It is not an independently observed clock or a literal count inferred from $\alpha$.</p>
+    <p>The earlier statement that deriving this rate automatically supplies magnetic anomalies and hyperfine spectra is withdrawn. Those require additional spin, state and interaction relations. The measured-anchor cascade above concerns leading pair strength and gross atomic scales with masses supplied.</p>
+  </details>
+  <details><summary>Source-energy and high-precision back-substitution</summary>
+    <p>Pope and Osborne's <a class="xref" href="https://cfmilam.github.io/nr-poams-books/light-speed-gravitation-and-quantum-instantaneity.html#7-6-poams-at-the-quantum-level">atomic example</a> supplies intrinsic turning energy from the spectral scale. Inverting our explicitly assumed reciprocal circular extension to match measured $K_Q$ requires $K_s(n)\simeq\mu c^2\alpha^2/(2n^2)$. It reconstructs that necessary energy input; it does not independently choose it or establish a microscopic sense-dependent pair law.</p>
+    <p>The <a class="xref" href="./scripts/coulomb_calibrated_results.json">structured reverse calculation</a> has 74 numerical outputs and 50 mathematical/input checks, with 80-digit output agreement at 150 and 230 working digits. These verify the algebra and supplied-input consistency, not physical truth of all the tested models. The rejected finite-spectrum sense assignment still has the wrong sign; entering $\alpha$ does not repair it.</p>
+  </details>
+  <p>Revision: measured-anchor application edition, 15 September 2026. The <a class="xref" href="./alpha-fine-structure-derivation.html">Alpha companion</a> states the same working standard. The <a class="xref" href="./alpha-program-2026-archive.html">Archived 2026 Program</a> remains historical; the <a class="xref" href="https://github.com/cfmilam/nr-poams-exhibits/blob/c3f6a31257dc3a3021a7a33c65b318d80176889e/coulomb-from-chirality-directed-depletion.html">previous Coulomb edition</a> remains available in version history. No provisional PDF is amended by this exhibit update.</p>
 </section>
 
 </main>
@@ -283,7 +317,7 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
   <a href="./navigation-engine.html">The Navigation Engine</a> &middot;
   <a href="./counter-rotating-circulation-pair.html">Counter-Rotating Vortex Cores</a> &middot;
   <a href="./lande-from-twist-writhe.html">The Land&eacute; g-Factor from Twist/Writhe Coupling</a> &middot;
-  <a href="./alpha-fine-structure-derivation.html">The Alpha Problem</a> &middot;
+  <a href="./alpha-fine-structure-derivation.html">Measured Alpha</a> &middot;
   <a href="./the-receiver-keys-the-exchange.html">The Receiver Keys the Exchange</a>
 </footer>
 
@@ -303,4 +337,5 @@ function toggleTheme(){
 }
 </script>
 
+<script src="./scripts/coulomb_calibrated.js"></script>
 </body></html>

@@ -1,0 +1,61 @@
+{
+  "purpose": "user-requested measured-alpha reverse calculation, not a forward derivation or numerical search",
+  "source": "https://physics.nist.gov/cuu/Constants/Table/allascii.txt",
+  "source_edition": "2022 CODATA adjustment, NIST table checked 2026-09-15",
+  "source_access": "NIST web reader succeeded; a separate urllib download returned HTTP 403, so no full-table snapshot is claimed",
+  "input_policy": "the printed central alpha is the sole alpha input; the separately rounded inverse is a reference only",
+  "precision_policy": "150 and 230 working Decimal digits, 80 significant output digits; measurement uncertainty retained separately",
+  "model_policy": "distinct conditional branches; not imposed simultaneously as one physical theory",
+  "python": "3.14.3",
+  "script_sha256": "297409c54c2b63324e94890433dc11b6ad9691ada9364530467d49cd2a455811",
+  "inputs": {
+    "alpha": {
+      "value": "0.0072973525643",
+      "standard_uncertainty": "0.0000000000011",
+      "unit": "1",
+      "status": "2022 CODATA measured/adjusted central value"
+    },
+    "c": {
+      "value": "299792458",
+      "standard_uncertainty": "0",
+      "unit": "m s^-1",
+      "status": "exact SI"
+    },
+    "h": {
+      "value": "6.62607015e-34",
+      "standard_uncertainty": "0",
+      "unit": "J s",
+      "status": "exact SI"
+    },
+    "e_SI": {
+      "value": "1.602176634e-19",
+      "standard_uncertainty": "0",
+      "unit": "C; also J per eV",
+      "status": "exact SI translation only; not an elementary ontology premise"
+    },
+    "m_light": {
+      "value": "9.1093837139e-31",
+      "standard_uncertainty": "2.8e-40",
+      "unit": "kg",
+      "status": "measured mass calibration; conventional electron-mass correspondence"
+    },
+    "m_heavy": {
+      "value": "1.67262192595e-27",
+      "standard_uncertainty": "5.2e-37",
+      "unit": "kg",
+      "status": "measured mass calibration; conventional proton-mass correspondence"
+    },
+    "G": {
+      "value": "6.67430e-11",
+      "standard_uncertainty": "1.5e-15",
+      "unit": "m^3 kg^-1 s^-2",
+      "status": "measured input, used only in explicitly gravitational/Planck-conditioned branches"
+    }
+  },
+  "reference_only_not_inputs": {
+    "inverse_alpha": "137.035999177",
+    "Bohr_radius_m": "5.29177210544e-11",
+    "Rydberg_per_m": "10973731.568157",
+    "Hartree_J": "4.3597447222060e-18"
+  }
+}

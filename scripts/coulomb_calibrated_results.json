@@ -1,0 +1,785 @@
+{
+  "provenance": {
+    "purpose": "user-requested measured-alpha reverse calculation, not a forward derivation or numerical search",
+    "source": "https://physics.nist.gov/cuu/Constants/Table/allascii.txt",
+    "source_edition": "2022 CODATA adjustment, NIST table checked 2026-09-15",
+    "source_access": "NIST web reader succeeded; a separate urllib download returned HTTP 403, so no full-table snapshot is claimed",
+    "input_policy": "the printed central alpha is the sole alpha input; the separately rounded inverse is a reference only",
+    "precision_policy": "150 and 230 working Decimal digits, 80 significant output digits; measurement uncertainty retained separately",
+    "model_policy": "distinct conditional branches; not imposed simultaneously as one physical theory",
+    "python": "3.14.3",
+    "script_sha256": "297409c54c2b63324e94890433dc11b6ad9691ada9364530467d49cd2a455811",
+    "inputs": {
+      "alpha": {
+        "value": "0.0072973525643",
+        "standard_uncertainty": "0.0000000000011",
+        "unit": "1",
+        "status": "2022 CODATA measured/adjusted central value"
+      },
+      "c": {
+        "value": "299792458",
+        "standard_uncertainty": "0",
+        "unit": "m s^-1",
+        "status": "exact SI"
+      },
+      "h": {
+        "value": "6.62607015e-34",
+        "standard_uncertainty": "0",
+        "unit": "J s",
+        "status": "exact SI"
+      },
+      "e_SI": {
+        "value": "1.602176634e-19",
+        "standard_uncertainty": "0",
+        "unit": "C; also J per eV",
+        "status": "exact SI translation only; not an elementary ontology premise"
+      },
+      "m_light": {
+        "value": "9.1093837139e-31",
+        "standard_uncertainty": "2.8e-40",
+        "unit": "kg",
+        "status": "measured mass calibration; conventional electron-mass correspondence"
+      },
+      "m_heavy": {
+        "value": "1.67262192595e-27",
+        "standard_uncertainty": "5.2e-37",
+        "unit": "kg",
+        "status": "measured mass calibration; conventional proton-mass correspondence"
+      },
+      "G": {
+        "value": "6.67430e-11",
+        "standard_uncertainty": "1.5e-15",
+        "unit": "m^3 kg^-1 s^-2",
+        "status": "measured input, used only in explicitly gravitational/Planck-conditioned branches"
+      }
+    },
+    "reference_only_not_inputs": {
+      "inverse_alpha": "137.035999177",
+      "Bohr_radius_m": "5.29177210544e-11",
+      "Rydberg_per_m": "10973731.568157",
+      "Hartree_J": "4.3597447222060e-18"
+    }
+  },
+  "values": {
+    "pi": {
+      "value_80_significant_digits": "3.1415926535897932384626433832795028841971693993751058209749445923078164062862090E+0",
+      "display_11_significant_digits": "3.1415926536E+0",
+      "unit": "1",
+      "formula": "Chudnovsky series; independently checked with Machin identity",
+      "status": "mathematical constant, not a fitted parameter"
+    },
+    "hbar": {
+      "value_80_significant_digits": "1.0545718176461563912624280033022807447228263300204131224219234705984359127347391E-34",
+      "display_11_significant_digits": "1.0545718176E-34",
+      "unit": "J s",
+      "formula": "h/(2*pi)",
+      "status": "fixed SI action unit"
+    },
+    "inverse_alpha": {
+      "value_80_significant_digits": "1.3703599917759012640282278707222856388747882770293902873693170944055273237416711E+2",
+      "display_11_significant_digits": "1.3703599918E+2",
+      "unit": "1",
+      "formula": "1/alpha",
+      "status": "algebraic consequence of supplied inputs"
+    },
+    "sqrt_alpha": {
+      "value_80_significant_digits": "8.5424543102670440914496789069289043425338720457907491454713775963941047615678975E-2",
+      "display_11_significant_digits": "8.5424543103E-2",
+      "unit": "1",
+      "formula": "sqrt(alpha)",
+      "status": "algebraic consequence of supplied inputs"
+    },
+    "inverse_sqrt_alpha": {
+      "value_80_significant_digits": "1.1706237618363558845995168147872770503702483478746271852884795660268390030551696E+1",
+      "display_11_significant_digits": "1.1706237618E+1",
+      "unit": "1",
+      "formula": "1/sqrt(alpha)",
+      "status": "algebraic consequence of supplied inputs"
+    },
+    "alpha_squared": {
+      "value_80_significant_digits": "5.3251354447695785634490000000000000000000000000000000000000000000000000000000000E-5",
+      "display_11_significant_digits": "5.3251354448E-5",
+      "unit": "1",
+      "formula": "alpha^2",
+      "status": "algebraic consequence of supplied inputs"
+    },
+    "binding_fraction": {
+      "value_80_significant_digits": "2.6625677223847892817245000000000000000000000000000000000000000000000000000000000E-5",
+      "display_11_significant_digits": "2.6625677224E-5",
+      "unit": "1",
+      "formula": "alpha^2/2",
+      "status": "quadratic circular model: binding/(mu*c^2)"
+    },
+    "orbital_to_Compton_period": {
+      "value_80_significant_digits": "1.8778865070600481799832447088584828003234650799033071563845272362175421769235828E+4",
+      "display_11_significant_digits": "1.8778865071E+4",
+      "unit": "1",
+      "formula": "1/alpha^2",
+      "status": "n=1 circular period divided by h/(mu*c^2); not an event count"
+    },
+    "legacy_N": {
+      "value_80_significant_digits": "3.7557730141200963599664894177169656006469301598066143127690544724350843538471656E+4",
+      "display_11_significant_digits": "3.7557730141E+4",
+      "unit": "1",
+      "formula": "2/alpha^2",
+      "status": "legacy ratio, not a winding integer"
+    },
+    "network_kappa": {
+      "value_80_significant_digits": "9.1701236826638077156008688330924432462501840253325677121101474586911448429385112E-2",
+      "display_11_significant_digits": "9.1701236827E-2",
+      "unit": "1",
+      "formula": "4*pi*alpha",
+      "status": "required weight in the stated network cost; not independently selected"
+    },
+    "inverse_network_kappa": {
+      "value_80_significant_digits": "1.0904978325325186300926589819619849200881212638907912382203669872567129792763447E+1",
+      "display_11_significant_digits": "1.0904978325E+1",
+      "unit": "1",
+      "formula": "1/(4*pi*alpha)",
+      "status": "normalization comparison only"
+    },
+    "K_Q": {
+      "value_80_significant_digits": "2.3070775507679175960689258194295483335407817925764141330161404878103195769130372E-28",
+      "display_11_significant_digits": "2.3070775508E-28",
+      "unit": "J m",
+      "formula": "alpha*hbar*c",
+      "status": "algebraic consequence of supplied inputs"
+    },
+    "pair_energy_at_1_angstrom": {
+      "value_80_significant_digits": "1.4399645468602668412582315936019001594931397511420792153533182083657322747555668E+1",
+      "display_11_significant_digits": "1.4399645469E+1",
+      "unit": "eV",
+      "formula": "K_Q/(1e-10 m)",
+      "status": "magnitude in the leading 1/r pair law; reference separation only"
+    },
+    "pair_force_at_1_angstrom": {
+      "value_80_significant_digits": "2.3070775507679175960689258194295483335407817925764141330161404878103195769130372E-8",
+      "display_11_significant_digits": "2.3070775508E-8",
+      "unit": "N",
+      "formula": "K_Q/(1e-10 m)^2",
+      "status": "magnitude in the leading pair law; reference separation only"
+    },
+    "relative_circular_rate_v": {
+      "value_80_significant_digits": "2.1876912621441000494000000000000000000000000000000000000000000000000000000000000E+6",
+      "display_11_significant_digits": "2.1876912621E+6",
+      "unit": "m s^-1",
+      "formula": "alpha*c",
+      "status": "n=1 quadratic relative-motion chart, not motion of light"
+    },
+    "connected_phase_per_r_over_c": {
+      "value_80_significant_digits": "7.2973525643000000000000000000000000000000000000000000000000000000000000000000000E-3",
+      "display_11_significant_digits": "7.2973525643E-3",
+      "unit": "rad",
+      "formula": "(D/hbar)*(r/c)=alpha",
+      "status": "reference exposure, not a derived completion duration or propagation time"
+    },
+    "connected_phase_degrees": {
+      "value_80_significant_digits": "4.1810750355335867964729843940621875453506735789123619786765425405216192992026522E-1",
+      "display_11_significant_digits": "4.1810750355E-1",
+      "unit": "degree",
+      "formula": "alpha*180/pi",
+      "status": "phase coordinate, distinct from asin(alpha) cone angle"
+    },
+    "full_connected_phase_reference_intervals": {
+      "value_80_significant_digits": "8.6102257658730817818672880461130850289707151497320613594762410657610452006106288E+2",
+      "display_11_significant_digits": "8.6102257659E+2",
+      "unit": "1",
+      "formula": "2*pi/alpha",
+      "status": "stationary phase-rate comparison only; not an integer count of exchanges"
+    },
+    "reference_readout_dark_probability": {
+      "value_80_significant_digits": "1.3312779534804842004314217605728590659954219077531541114407535627804930949007462E-5",
+      "display_11_significant_digits": "1.3312779535E-5",
+      "unit": "1",
+      "formula": "sin^2(alpha/2)",
+      "status": "ideal closed-history readout for c*(I1-I0)=1, st=+1, analysis phase=0; chosen exposure"
+    },
+    "cone_angle": {
+      "value_80_significant_digits": "7.2974173315033574801953005596924823743756816303511844449356030995398578810498480E-3",
+      "display_11_significant_digits": "7.2974173315E-3",
+      "unit": "rad",
+      "formula": "asin(alpha)",
+      "status": "legacy cone identification, not a microscopic selection rule"
+    },
+    "cone_angle_degrees": {
+      "value_80_significant_digits": "4.1811121444076192879758061260529070543546140393351516682991108929455608172111084E-1",
+      "display_11_significant_digits": "4.1811121444E-1",
+      "unit": "degree",
+      "formula": "asin(alpha)*180/pi",
+      "status": "legacy cone identification"
+    },
+    "cone_dilation_minus_one": {
+      "value_80_significant_digits": "2.6626740661070667396287360306628522387933160764470013467670774094957420152886439E-5",
+      "display_11_significant_digits": "2.6626740661E-5",
+      "unit": "1",
+      "formula": "1/sqrt(1-alpha^2)-1",
+      "status": "algebraic consequence of supplied inputs"
+    },
+    "cone_cap_solid_angle": {
+      "value_80_significant_digits": "1.6729629114476261625297697132944652632769373755994484598960332745900583040040805E-4",
+      "display_11_significant_digits": "1.6729629114E-4",
+      "unit": "sr",
+      "formula": "2*pi*(1-sqrt(1-alpha^2))",
+      "status": "algebraic consequence of supplied inputs"
+    },
+    "cone_cap_relative_leading_error": {
+      "value_80_significant_digits": "1.3313193087065483672425699181928676629249824943802839558497072814356623927444318E-5",
+      "display_11_significant_digits": "1.3313193087E-5",
+      "unit": "1",
+      "formula": "cap/(pi*alpha^2)-1",
+      "status": "nonzero correction to the old leading-order equality"
+    },
+    "reduced_mass": {
+      "value_80_significant_digits": "9.1044252889167705893943168481898187020964735397829715813989242122550870607960392E-31",
+      "display_11_significant_digits": "9.1044252889E-31",
+      "unit": "kg",
+      "formula": "m_light*m_heavy/(m_light+m_heavy)",
+      "status": "mass inputs; both ends participate"
+    },
+    "light_limit_Compton_length": {
+      "value_80_significant_digits": "3.8615926743523754766874595593809359846441429261617664191685447285519417217553463E-13",
+      "display_11_significant_digits": "3.8615926744E-13",
+      "unit": "m",
+      "formula": "hbar/(mass*c)",
+      "status": "mass-calibrated reference length"
+    },
+    "light_limit_radius": {
+      "value_80_significant_digits": "5.2917721054674018262542008441642699275770045257394751297319399664132543106806490E-11",
+      "display_11_significant_digits": "5.2917721055E-11",
+      "unit": "m",
+      "formula": "hbar/(mass*c*alpha)",
+      "status": "n=1 quadratic circular model; light_limit uses mass=m_light, two_end uses mass=mu"
+    },
+    "light_limit_binding_J": {
+      "value_80_significant_digits": "2.1798723610794481970184992092421431712253526026502000000000000000000000000000000E-18",
+      "display_11_significant_digits": "2.1798723611E-18",
+      "unit": "J",
+      "formula": "mass*c^2*alpha^2/2",
+      "status": "gross binding; no fine, radiative or finite-structure corrections"
+    },
+    "light_limit_binding_eV": {
+      "value_80_significant_digits": "1.3605693122843584030314220705593832616244187484825097006126978631246222506076069E+1",
+      "display_11_significant_digits": "1.3605693123E+1",
+      "unit": "eV",
+      "formula": "mass*c^2*alpha^2/(2 eV_to_J)",
+      "status": "gross binding only"
+    },
+    "light_limit_binding_mass_equivalent": {
+      "value_80_significant_digits": "2.4254351047447815952024439206620550000000000000000000000000000000000000000000000E-35",
+      "display_11_significant_digits": "2.4254351047E-35",
+      "unit": "kg",
+      "formula": "mass*alpha^2/2",
+      "status": "mass-equivalent of the gross spectral limit; not a new constituent mass"
+    },
+    "light_limit_Rydberg": {
+      "value_80_significant_digits": "1.0973731568038493179836040078483540591268717551986677955711048425890872887906265E+7",
+      "display_11_significant_digits": "1.0973731568E+7",
+      "unit": "m^-1",
+      "formula": "mass*c*alpha^2/(2*h)",
+      "status": "gross spectral coefficient; not an independent calibration input"
+    },
+    "light_limit_limit_frequency": {
+      "value_80_significant_digits": "3.2898419602144541089992824921150935463992221734178289675970303453548556228309777E+15",
+      "display_11_significant_digits": "3.2898419602E+15",
+      "unit": "Hz",
+      "formula": "binding/h",
+      "status": "gross spectral limit"
+    },
+    "light_limit_orbital_period": {
+      "value_80_significant_digits": "1.5198298460738418706683762958987836212689144242487924339857557585473180071071894E-16",
+      "display_11_significant_digits": "1.5198298461E-16",
+      "unit": "s",
+      "formula": "2*pi*hbar/(mass*c^2*alpha^2)",
+      "status": "model recurrence, not an independently observed elementary clock"
+    },
+    "light_limit_gross_3_to_2_vacuum_nm": {
+      "value_80_significant_digits": "6.5611227642658373363182651096766159188370246530156841373560513641327916350798910E+2",
+      "display_11_significant_digits": "6.5611227643E+2",
+      "unit": "nm",
+      "formula": "1/[R*(1/4-1/9)]",
+      "status": "uncorrected gross vacuum line; not an air wavelength or resolved observed component"
+    },
+    "two_end_Compton_length": {
+      "value_80_significant_digits": "3.8636957634528894334767221360826371230863222609123794846480496525397184559606271E-13",
+      "display_11_significant_digits": "3.8636957635E-13",
+      "unit": "m",
+      "formula": "hbar/(mass*c)",
+      "status": "mass-calibrated reference length"
+    },
+    "two_end_radius": {
+      "value_80_significant_digits": "5.2946540946298861196667618655195268801880742657053526688790653756240062278727347E-11",
+      "display_11_significant_digits": "5.2946540946E-11",
+      "unit": "m",
+      "formula": "hbar/(mass*c*alpha)",
+      "status": "n=1 quadratic circular model; light_limit uses mass=m_light, two_end uses mass=mu"
+    },
+    "two_end_binding_J": {
+      "value_80_significant_digits": "2.1786858117019162590149519338368548159833227645559654183474990749851789419598236E-18",
+      "display_11_significant_digits": "2.1786858117E-18",
+      "unit": "J",
+      "formula": "mass*c^2*alpha^2/2",
+      "status": "gross binding; no fine, radiative or finite-structure corrections"
+    },
+    "two_end_binding_eV": {
+      "value_80_significant_digits": "1.3598287264136422669954828050730733700010524336207273750239320210839992452166941E+1",
+      "display_11_significant_digits": "1.3598287264E+1",
+      "unit": "eV",
+      "formula": "mass*c^2*alpha^2/(2 eV_to_J)",
+      "status": "gross binding only"
+    },
+    "two_end_binding_mass_equivalent": {
+      "value_80_significant_digits": "2.4241148905133602983236881115986171102751333223466801913553580823497359570906032E-35",
+      "display_11_significant_digits": "2.4241148905E-35",
+      "unit": "kg",
+      "formula": "mass*alpha^2/2",
+      "status": "mass-equivalent of the gross spectral limit; not a new constituent mass"
+    },
+    "two_end_Rydberg": {
+      "value_80_significant_digits": "1.0967758340158852161776037620149972799340786861183737734897556902227993439326544E+7",
+      "display_11_significant_digits": "1.0967758340E+7",
+      "unit": "m^-1",
+      "formula": "mass*c*alpha^2/(2*h)",
+      "status": "gross spectral coefficient; not an independent calibration input"
+    },
+    "two_end_limit_frequency": {
+      "value_80_significant_digits": "3.2880512315462224000374519636452306741475152727683775251722909619137958295835784E+15",
+      "display_11_significant_digits": "3.2880512315E+15",
+      "unit": "Hz",
+      "formula": "binding/h",
+      "status": "gross spectral limit"
+    },
+    "two_end_orbital_period": {
+      "value_80_significant_digits": "1.5206575712777824330017341511098898347891573856858952395936288426632457461433229E-16",
+      "display_11_significant_digits": "1.5206575713E-16",
+      "unit": "s",
+      "formula": "2*pi*hbar/(mass*c^2*alpha^2)",
+      "status": "model recurrence, not an independently observed elementary clock"
+    },
+    "two_end_gross_3_to_2_vacuum_nm": {
+      "value_80_significant_digits": "6.5646960634033429878548668717023931442014378234122511172391299310966198023186513E+2",
+      "display_11_significant_digits": "6.5646960634E+2",
+      "unit": "nm",
+      "formula": "1/[R*(1/4-1/9)]",
+      "status": "uncorrected gross vacuum line; not an air wavelength or resolved observed component"
+    },
+    "equal_end_exact_radius": {
+      "value_80_significant_digits": "1.0583473762192323518876112452320243723839301582710974432190989696514749354673216E-10",
+      "display_11_significant_digits": "1.0583473762E-10",
+      "unit": "m",
+      "formula": "2*hbar*sqrt(1-alpha^2/4)/(m_light*c*alpha)",
+      "status": "full two-end kinetic chart, equal masses and n=1, inherited 1/r potential"
+    },
+    "equal_end_exact_binding_eV": {
+      "value_80_significant_digits": "6.8028692028720967254012736611740651143890294682668451344654082815884505984656653E+0",
+      "display_11_significant_digits": "6.8028692029E+0",
+      "unit": "eV",
+      "formula": "2*m_light*c^2*[1-sqrt(1-alpha^2/4)]/eV_to_J",
+      "status": "conditional model result, not a fine-structure calculation"
+    },
+    "equal_end_binding_fractional_correction": {
+      "value_80_significant_digits": "3.3282318071243092619962186026877375029333098082016782847031539192449595756300539E-6",
+      "display_11_significant_digits": "3.3282318071E-6",
+      "unit": "1",
+      "formula": "binding_exact/binding_quadratic-1",
+      "status": "nonlinear kinetic correction within this trial model"
+    },
+    "gravitational_pair_dimensionless": {
+      "value_80_significant_digits": "3.2165895109146318363348133709287179648931927714924626624605890511626894009775911E-42",
+      "display_11_significant_digits": "3.2165895109E-42",
+      "unit": "1",
+      "formula": "G*m_light*m_heavy/(hbar*c)",
+      "status": "G and both masses supplied independently of alpha"
+    },
+    "source_Ks_opposite": {
+      "value_80_significant_digits": "2.1786858117019162590149519338368548159833227645559654183474990749851789419598240E-18",
+      "display_11_significant_digits": "2.1786858117E-18",
+      "unit": "J",
+      "formula": "mu*c^2/2 * [sqrt(alpha^4-gamma_g^4*(1-u^2))-gamma_g^2*u]",
+      "status": "conditional reverse circular map C_*=K_Q, n=1; u remains unspecified"
+    },
+    "source_Ks_relative_shift_opposite": {
+      "value_80_significant_digits": "1.9429455248670631213118283129845093777151830630046197100689541670544358578338689E-79",
+      "display_11_significant_digits": "1.9429455249E-79",
+      "unit": "1",
+      "formula": "(required_Ks - mu*c^2*alpha^2/2)/(mu*c^2*alpha^2/2)",
+      "status": "stable small-difference formula; far below physical input precision"
+    },
+    "source_Ks_absolute_shift_opposite": {
+      "value_80_significant_digits": "4.2330678479376031379279832633319048272997487879078450698603432833022701176118677E-97",
+      "display_11_significant_digits": "4.2330678479E-97",
+      "unit": "J",
+      "formula": "base_energy * relative_shift",
+      "status": "mathematical correction, not experimentally resolved"
+    },
+    "source_Ks_perpendicular": {
+      "value_80_significant_digits": "2.1786858117019162590149519338368548159833227645559654183474990749851789419598236E-18",
+      "display_11_significant_digits": "2.1786858117E-18",
+      "unit": "J",
+      "formula": "mu*c^2/2 * [sqrt(alpha^4-gamma_g^4*(1-u^2))-gamma_g^2*u]",
+      "status": "conditional reverse circular map C_*=K_Q, n=1; u remains unspecified"
+    },
+    "source_Ks_relative_shift_perpendicular": {
+      "value_80_significant_digits": "-1.8875186563004736989541850571392287275888722531903129025815027421823556485636952E-158",
+      "display_11_significant_digits": "-1.8875186563E-158",
+      "unit": "1",
+      "formula": "(required_Ks - mu*c^2*alpha^2/2)/(mu*c^2*alpha^2/2)",
+      "status": "stable small-difference formula; far below physical input precision"
+    },
+    "source_Ks_absolute_shift_perpendicular": {
+      "value_80_significant_digits": "-4.1123101158045078345415258558201094563807756001908055661211236390864574460170732E-176",
+      "display_11_significant_digits": "-4.1123101158E-176",
+      "unit": "J",
+      "formula": "base_energy * relative_shift",
+      "status": "mathematical correction, not experimentally resolved"
+    },
+    "source_Ks_aligned": {
+      "value_80_significant_digits": "2.1786858117019162590149519338368548159833227645559654183474990749851789419598232E-18",
+      "display_11_significant_digits": "2.1786858117E-18",
+      "unit": "J",
+      "formula": "mu*c^2/2 * [sqrt(alpha^4-gamma_g^4*(1-u^2))-gamma_g^2*u]",
+      "status": "conditional reverse circular map C_*=K_Q, n=1; u remains unspecified"
+    },
+    "source_Ks_relative_shift_aligned": {
+      "value_80_significant_digits": "-1.9429455248670631213118283129845093777151830630046197100689541670544358578338689E-79",
+      "display_11_significant_digits": "-1.9429455249E-79",
+      "unit": "1",
+      "formula": "(required_Ks - mu*c^2*alpha^2/2)/(mu*c^2*alpha^2/2)",
+      "status": "stable small-difference formula; far below physical input precision"
+    },
+    "source_Ks_absolute_shift_aligned": {
+      "value_80_significant_digits": "-4.2330678479376031379279832633319048272997487879078450698603432833022701176118677E-97",
+      "display_11_significant_digits": "-4.2330678479E-97",
+      "unit": "J",
+      "formula": "base_energy * relative_shift",
+      "status": "mathematical correction, not experimentally resolved"
+    },
+    "Planck_mass": {
+      "value_80_significant_digits": "2.1764343427178982139279149190241470411173913749165146773123128134687551077270348E-8",
+      "display_11_significant_digits": "2.1764343427E-8",
+      "unit": "kg",
+      "formula": "sqrt(hbar*c/G)",
+      "status": "uses measured G; not derived from alpha"
+    },
+    "Planck_frequency": {
+      "value_80_significant_digits": "2.9520991966835316844042440449607740132268257526791444545297815867877759556249623E+42",
+      "display_11_significant_digits": "2.9520991967E+42",
+      "unit": "Hz",
+      "formula": "M_Pl*c^2/h",
+      "status": "uses measured G; cycle frequency, not angular frequency"
+    },
+    "light_mass_over_Planck": {
+      "value_80_significant_digits": "4.1854622191470934565925602304292742773305344287303868092806003273252294077298636E-23",
+      "display_11_significant_digits": "4.1854622191E-23",
+      "unit": "1",
+      "formula": "m_light/M_Pl",
+      "status": "uses measured mass and G, not a result of alpha"
+    },
+    "alpha_G_light": {
+      "value_80_significant_digits": "1.7518093987907712171482191126859670679426084313794860411098105994705800591259680E-45",
+      "display_11_significant_digits": "1.7518093988E-45",
+      "unit": "1",
+      "formula": "G*m_light^2/(hbar*c)",
+      "status": "uses mass and G"
+    },
+    "rate_zeta_0p25": {
+      "value_80_significant_digits": "5.0436345014090227182616549994817550194407066457109694191444661466902034223902972E+41",
+      "display_11_significant_digits": "5.0436345014E+41",
+      "unit": "Hz",
+      "formula": "sqrt(alpha/zeta)*f_Pl",
+      "status": "conditional normalization example; not an independently established completion clock"
+    },
+    "rate_zeta_1": {
+      "value_80_significant_digits": "2.5218172507045113591308274997408775097203533228554847095722330733451017111951486E+41",
+      "display_11_significant_digits": "2.5218172507E+41",
+      "unit": "Hz",
+      "formula": "sqrt(alpha/zeta)*f_Pl",
+      "status": "conditional normalization example; not an independently established completion clock"
+    },
+    "rate_zeta_4": {
+      "value_80_significant_digits": "1.2609086253522556795654137498704387548601766614277423547861165366725508555975743E+41",
+      "display_11_significant_digits": "1.2609086254E+41",
+      "unit": "Hz",
+      "formula": "sqrt(alpha/zeta)*f_Pl",
+      "status": "conditional normalization example; not an independently established completion clock"
+    },
+    "reference_rate_period_in_Planck_times": {
+      "value_80_significant_digits": "7.3552460206054868297318887474146507826671948027585648608151582566339148309810850E+1",
+      "display_11_significant_digits": "7.3552460206E+1",
+      "unit": "1",
+      "formula": "2*pi/sqrt(alpha)",
+      "status": "requires zeta=1; no count or actual period established"
+    },
+    "spectral_magnitude_product_limit": {
+      "value_80_significant_digits": "1.8582555713482607984324375084720833534891882572943831016340189068984974663122899E-2",
+      "display_11_significant_digits": "1.8582555713E-2",
+      "unit": "1",
+      "formula": "8*alpha/pi",
+      "status": "magnitude only of (Omega*a/c)*(r/ell); actual required product is negative in this trial"
+    },
+    "spectral_required_product_N3": {
+      "value_80_significant_digits": "-1.8156060353807088377863036235079020826945726980219128948068058390006267206354178E-2",
+      "display_11_significant_digits": "-1.8156060354E-2",
+      "unit": "1",
+      "formula": "-2*alpha/[N*tan(pi/(4*N))]",
+      "status": "no solution with positive frequency, lengths and c under the original sign assignment"
+    },
+    "spectral_required_product_N10": {
+      "value_80_significant_digits": "-1.8544331142809057184288286037399455345391472199143665884235192338635342618417913E-2",
+      "display_11_significant_digits": "-1.8544331143E-2",
+      "unit": "1",
+      "formula": "-2*alpha/[N*tan(pi/(4*N))]",
+      "status": "no solution with positive frequency, lengths and c under the original sign assignment"
+    },
+    "spectral_required_product_N100": {
+      "value_80_significant_digits": "-1.8582173623424545173608930655670337372624102264415942874230373911616595274025491E-2",
+      "display_11_significant_digits": "-1.8582173623E-2",
+      "unit": "1",
+      "formula": "-2*alpha/[N*tan(pi/(4*N))]",
+      "status": "no solution with positive frequency, lengths and c under the original sign assignment"
+    },
+    "relative_input_alpha_uncertainty": {
+      "value_80_significant_digits": "1.5073959909534913904310506577945142027622671047323293161062488038460800561158382E-10",
+      "display_11_significant_digits": "1.5073959910E-10",
+      "unit": "1",
+      "formula": "u(alpha)/alpha",
+      "status": "measurement precision, irrespective of arithmetic precision"
+    },
+    "inverse_alpha_first_order_uncertainty": {
+      "value_80_significant_digits": "2.0656751577660529979815691797443310803558115878936378720229799598392963946159411E-8",
+      "display_11_significant_digits": "2.0656751578E-8",
+      "unit": "1",
+      "formula": "u(alpha)/alpha^2",
+      "status": "first-order standard uncertainty from alpha alone"
+    },
+    "legacy_N_first_order_uncertainty": {
+      "value_80_significant_digits": "1.1322874368831887729607742832211460129277786320886082239818360202998456595297662E-5",
+      "display_11_significant_digits": "1.1322874369E-5",
+      "unit": "1",
+      "formula": "4*u(alpha)/alpha^3",
+      "status": "first-order standard uncertainty from alpha alone"
+    },
+    "inverse_alpha_printed_reference_difference": {
+      "value_80_significant_digits": "5.9012640282278707222856388747882770293902873693170944055273237416711174923435787E-10",
+      "display_11_significant_digits": "5.9012640282E-10",
+      "unit": "1",
+      "formula": "1/(printed alpha) - separately printed inverse alpha",
+      "status": "small independent-rounding discrepancy; not physical evidence"
+    },
+    "Rydberg_printed_reference_relative_difference": {
+      "value_80_significant_digits": "-1.0799136048473867422455709511296923462348029188220702203946644036200754340756112E-11",
+      "display_11_significant_digits": "-1.0799136048E-11",
+      "unit": "1",
+      "formula": "R_from_printed_mass_and_alpha/R_CODATA-1",
+      "status": "correlated adjustment and finite printed rounding; not an independent precision prediction"
+    },
+    "Rydberg_printed_rounding_allowance": {
+      "value_80_significant_digits": "1.9238008791605360168764550652644425765596578182521634826579165636354669123781647E-11",
+      "display_11_significant_digits": "1.9238008792E-11",
+      "unit": "1",
+      "formula": "half-last-digit relative allowances for mass + 2*alpha + R",
+      "status": "conservative first-order input/output rounding allowance, not statistical uncertainty"
+    }
+  },
+  "checks": [
+    {
+      "name": "Chudnovsky pi versus independent Machin/arctangent pi",
+      "passed": true
+    },
+    {
+      "name": "four-sense contrast cancels one-end energies",
+      "passed": true
+    },
+    {
+      "name": "phase acquired over the reference interval r/c",
+      "passed": true
+    },
+    {
+      "name": "closed-history dark and bright outputs sum to unity",
+      "passed": true
+    },
+    {
+      "name": "network back-substitution restores pair coefficient",
+      "passed": true
+    },
+    {
+      "name": "inverse sine reproduces alpha",
+      "passed": true
+    },
+    {
+      "name": "exact cap versus stable expression",
+      "passed": true
+    },
+    {
+      "name": "cap residual formula",
+      "passed": true
+    },
+    {
+      "name": "light_limit: radius ratio",
+      "passed": true
+    },
+    {
+      "name": "light_limit: stationary circular energy derivative",
+      "passed": true
+    },
+    {
+      "name": "light_limit: total stationary energy",
+      "passed": true
+    },
+    {
+      "name": "light_limit: spectral-energy equivalence",
+      "passed": true
+    },
+    {
+      "name": "light_limit: recurrence/reference-period ratio",
+      "passed": true
+    },
+    {
+      "name": "light_limit: n=2 binding progression",
+      "passed": true
+    },
+    {
+      "name": "light_limit: n=3 binding progression",
+      "passed": true
+    },
+    {
+      "name": "light_limit: n=5 binding progression",
+      "passed": true
+    },
+    {
+      "name": "two_end: radius ratio",
+      "passed": true
+    },
+    {
+      "name": "two_end: stationary circular energy derivative",
+      "passed": true
+    },
+    {
+      "name": "two_end: total stationary energy",
+      "passed": true
+    },
+    {
+      "name": "two_end: spectral-energy equivalence",
+      "passed": true
+    },
+    {
+      "name": "two_end: recurrence/reference-period ratio",
+      "passed": true
+    },
+    {
+      "name": "two_end: n=2 binding progression",
+      "passed": true
+    },
+    {
+      "name": "two_end: n=3 binding progression",
+      "passed": true
+    },
+    {
+      "name": "two_end: n=5 binding progression",
+      "passed": true
+    },
+    {
+      "name": "full equal-end stationarity",
+      "passed": true
+    },
+    {
+      "name": "full equal-end stationary total energy",
+      "passed": true
+    },
+    {
+      "name": "stable exact binding formula",
+      "passed": true
+    },
+    {
+      "name": "equal-end fractional correction",
+      "passed": true
+    },
+    {
+      "name": "source fourth-power reconstruction, u=-1",
+      "passed": true
+    },
+    {
+      "name": "source reverse through original norm, u=-1",
+      "passed": true
+    },
+    {
+      "name": "source fourth-power reconstruction, u=0",
+      "passed": true
+    },
+    {
+      "name": "source reverse through original norm, u=0",
+      "passed": true
+    },
+    {
+      "name": "source fourth-power reconstruction, u=1",
+      "passed": true
+    },
+    {
+      "name": "source reverse through original norm, u=1",
+      "passed": true
+    },
+    {
+      "name": "source u=0 shift is negative and retained, not rounded to zero",
+      "passed": true
+    },
+    {
+      "name": "rate-product invariance zeta=0.25",
+      "passed": true
+    },
+    {
+      "name": "rate-product invariance zeta=1",
+      "passed": true
+    },
+    {
+      "name": "rate-product invariance zeta=4",
+      "passed": true
+    },
+    {
+      "name": "Planck cycle-frequency convention",
+      "passed": true
+    },
+    {
+      "name": "finite spectrum back-substitution N=3",
+      "passed": true
+    },
+    {
+      "name": "finite spectrum requires negative product N=3",
+      "passed": true
+    },
+    {
+      "name": "finite spectrum back-substitution N=10",
+      "passed": true
+    },
+    {
+      "name": "finite spectrum requires negative product N=10",
+      "passed": true
+    },
+    {
+      "name": "finite spectrum back-substitution N=100",
+      "passed": true
+    },
+    {
+      "name": "finite spectrum requires negative product N=100",
+      "passed": true
+    },
+    {
+      "name": "atomic radius agrees with printed NIST value within 1 part in 1e8",
+      "passed": true
+    },
+    {
+      "name": "spectral coefficient agrees within 1 part in 1e8",
+      "passed": true
+    },
+    {
+      "name": "Rydberg small discrepancy is covered by printed decimal rounding",
+      "passed": true
+    },
+    {
+      "name": "legacy N is separated from its nearest integer beyond alpha uncertainty",
+      "passed": true
+    },
+    {
+      "name": "all archived 80-significant-digit outputs identical at 150 and 230 working digits",
+      "passed": true
+    }
+  ]
+}
