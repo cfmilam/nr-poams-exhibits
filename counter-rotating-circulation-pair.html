@@ -60,7 +60,10 @@ summary:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-
 .budget-results div{border:1px solid var(--edge);border-radius:8px;padding:12px;font-size:12px;color:var(--muted);}
 .budget-results strong{display:block;margin-top:5px;font-size:15px;font-variant-numeric:tabular-nums;}
 section{scroll-margin-top:70px;}
-#sec-material,#sec-phase-support,#sec-earth-constraint,#sec-finite-size,#sec-interaction-law,#powered-operation{scroll-margin-top:110px;}
+#sec-material,#sec-phase-support,#sec-earth-constraint,#sec-finite-size,#sec-interaction-law,#sec-three-plate,#powered-operation{scroll-margin-top:110px;}
+#three-plate-picture{display:block;width:100%;height:auto;margin:12px 0;color:var(--muted);}
+#three-plate-picture text{font-size:15px;}
+@media(max-width:620px){#three-plate-picture text{font-size:21px;}}
 #source-composition-plot{display:block;width:100%;height:auto;color:var(--muted);margin:14px 0;}
 #source-composition-plot text{font-size:14px;}
 @media(max-width:620px){#source-composition-plot text{font-size:20px;}}
@@ -942,6 +945,98 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
   <p class="caveat">Reproduce with <a class="xref" href="./scripts/vortex_interaction_law.py">vortex_interaction_law.py</a> (Python + NumPy). Checks reconstruct the source's circular equations, the fourth-root response, paired small-energy expansion, two composition rules, exact AM regrouping, reciprocal tensor reactions and torques, and counting conventions. The original 2007 &sect;6.2.2 itself distinguishes conservation from an equation of motion. No measured target was fitted.</p>
 </section>
 
+<!-- ============ §5I ============ -->
+<section id="sec-three-plate" aria-labelledby="three-plate-title">
+  <h2 id="three-plate-title">&sect;5I — Signal-driven circulation and a middle plate</h2>
+  <div class="card gold">
+    <p><strong>Three different responses.</strong> A drive can reorganize local circulation; an unequal upper/lower interaction can load a middle plate; an apparatus can change its total support load. These are three different observables. This calculation connects the first two in a specified driven model and keeps the third as a separate whole-system accounting question.</p>
+    <p>The proposed configuration retains <a class="xref" href="#powered-operation">powered counter-rotation, fixed outer separation and electrical bias</a>, and adds a signal drive plus an optional stationary or flexibly mounted middle plate. Mechanical rotation may select a fast mode's handedness, but that connection is not assumed here. The signal frequency is not the shaft rotation rate.</p>
+  </div>
+
+  <h3>1. Name the actual mode before multiplying its frequency</h3>
+  <p>For each member $i=T,C,B$, let $\mathbf q_i=(x_i,y_i)$ describe a small planar displacement of participating material with effective mass $\mu_i$. A closed elliptical trajectory carries local orbital angular momentum; a back-and-forth line does not. These are material motions, not entities travelling through an aether. The harmonic description below is an <strong>explicit constitutive example</strong>, not a claim that closure alone supplies its coefficients or that ordinary rotor disks support the required GHz/THz mode.</p>
+  <div class="eq">$$\mathbf q_i(t)=\operatorname{Re}\{\mathbf a_i e^{-i\omega t}\},\qquad
+  \overline J_i=\mu_i\omega\operatorname{Im}(a_{ix}^{*}a_{iy}),\qquad
+  \overline K_i=\frac{\mu_i\omega^2}{4}(|a_{ix}|^2+|a_{iy}|^2).$$</div>
+  <p>For a circular trajectory, $\overline J_i=\pm2\overline K_i/\omega$. In a single undamped circular normal mode, total modal energy instead obeys $E=\omega|J|$. Neither relation says that increasing frequency at fixed supplied power automatically increases angular momentum. Amplitude, loss and the participating mass matter. Shaft energy and angular momentum are separate entries.</p>
+
+  <h3>2. A driven three-member calculation</h3>
+  <p>Write the upper and lower gaps as $g_T=z_T-z_C$ and $g_B=z_C-z_B$. At a fixed bias, take positive local stiffnesses $k_i$ and reciprocal joining stiffnesses $\kappa_T(g_T)$, $\kappa_B(g_B)$:</p>
+  <div class="eq">$$U_{\mathrm{mode}}=\frac12\sum_i k_i|\mathbf q_i|^2
+  +\frac{\kappa_T}{2}|\mathbf q_T-\mathbf q_C|^2
+  +\frac{\kappa_B}{2}|\mathbf q_C-\mathbf q_B|^2.$$</div>
+  <p>A directional middle plate is represented, when selected, by $k_{Cx}=k_C(1+\delta)$ and $k_{Cy}=k_C(1-\delta)$, with $|\delta|&lt;1$. Its mounting takes the corresponding reaction torque. A real DC bias may change these coefficients or add a separate static interaction; it does not supply a universal value for $\delta$ or $\kappa$.</p>
+  <div class="eq">$$\big[\mathbf K_\alpha-\omega^2\mathbf M-i\omega\boldsymbol\Gamma\big]\mathbf a_\alpha
+  =\mathbf f_\alpha,\qquad \alpha=x,y.$$</div>
+  <p>Here $\mathbf M=\operatorname{diag}(\mu_i)$, positive damping $\boldsymbol\Gamma=\operatorname{diag}(\gamma_i)$ describes transfer into the material, and $\mathbf K_\alpha$ is the stiffness matrix of the stated energy. The generator-to-mode forces $\mathbf f$ are physical calibration inputs, <strong>not terminal volts relabelled as force</strong>. For circular end drives we specify $\mathbf f_T=F_0(1,i)$ and $\mathbf f_B=bF_0e^{i\phi}(1,-i)$; the middle mode is not directly driven. Its oscillation is determined by the coupled equations. Real terminal connections and material response must establish whether this excitation can be produced.</p>
+  <p>At fixed gaps, the cycle-averaged power is accounted for exactly:</p>
+  <div class="eq">$$\overline P_{\mathrm{in}}=\frac12\operatorname{Re}\sum_i\mathbf f_i^*\!\cdot(-i\omega\mathbf a_i)
+  =\frac{\omega^2}{2}\sum_i\gamma_i|\mathbf a_i|^2=\overline P_{\mathrm{loss}}.$$</div>
+  <p>Heat here transfers to the rest of the apparatus; it is not assumed to leave the balance. Sustained operation also needs its thermal bookkeeping. This fixed-gap equality excludes axial mechanical work; a moving plate adds that work. Each motor, bias supply and signal port is counted once in the complete energy and reaction budget.</p>
+
+  <h3>3. What the middle plate feels</h3>
+  <p>Differentiate the interaction while holding the instantaneous material coordinates fixed, then average. Define</p>
+  <div class="eq">$$Q_T=\frac{\kappa_T'(g_T)}4|\mathbf a_T-\mathbf a_C|^2,\qquad
+  Q_B=\frac{\kappa_B'(g_B)}4|\mathbf a_C-\mathbf a_B|^2.$$</div>
+  <div class="eq">$$\boxed{\overline F_T=-Q_T,\quad\overline F_C=Q_T-Q_B,\quad\overline F_B=Q_B},
+  \qquad\overline F_T+\overline F_C+\overline F_B=0.$$</div>
+  <p>These are the <strong>mode-induced axial forces</strong>, above any static bias or weight baseline. Their sign depends on the actual gap law, not on the word “resonance.” Differentiating the stored energy after re-solving a lossy driven steady state is not a substitute: the generators change their work as the response changes. The fixed-coordinate derivative keeps those contributions separate.</p>
+  <p><strong>A useful selection rule.</strong> In the isotropic version, opposite circular drives have orthogonal polarizations: $(1,i)^*\!\cdot(1,-i)=0$. Their relative phase therefore drops out of these cycle-averaged loads, even with unequal amplitudes. Changing amplitude can load the middle plate; changing phase alone cannot do so in that model. Specified anisotropy mixes the responses and can make phase matter. Thus the plate's actual directional response is a concrete research target, not an automatic gain from placing it between the disks.</p>
+
+  <div class="card blue" aria-labelledby="three-plate-demo-title">
+    <h3 id="three-plate-demo-title" style="margin-top:0">Explore the conditional mode response</h3>
+    <p>Start with matched opposite drives. Unbalance their amplitudes; then give the middle plate a directional stiffness and vary phase. The loops show the <em>calculated material modes</em>, not the shaft rotations. Their circulation need not retain the handedness of the drive applied to that plate.</p>
+    <div class="budget-controls">
+      <label>Drive frequency / reference frequency<output id="three-frequency-value">1.100</output><input id="three-frequency" type="range" min="0.65" max="1.5" step="0.005" value="1.1"></label>
+      <label>Lower / upper drive amplitude<output id="three-ratio-value">1.00</output><input id="three-ratio" type="range" min="0" max="1.5" step="0.01" value="1"></label>
+      <label>Relative drive phase<output id="three-phase-value">0°</output><input id="three-phase" type="range" min="0" max="360" step="1" value="0"></label>
+      <label>Middle-plate directional stiffness<output id="three-anisotropy-value">0.00</output><input id="three-anisotropy" type="range" min="0" max="0.45" step="0.01" value="0"></label>
+    </div>
+    <svg id="three-plate-picture" viewBox="0 0 820 350" role="img" aria-label="Three planar material modes and their internal axial loads">
+      <title>Three driven material modes; total internal axial force cancels</title>
+      <g fill="none" stroke="var(--edge)" stroke-width="2"><rect x="35" y="28" width="480" height="82" rx="12"/><rect x="35" y="134" width="480" height="82" rx="12"/><rect x="35" y="240" width="480" height="82" rx="12"/></g>
+      <g fill="currentColor"><text x="55" y="58">Upper</text><text x="55" y="164">Middle</text><text x="55" y="270">Lower</text><text x="555" y="58">Mode circulation</text></g>
+      <g fill="none" stroke-width="3"><path id="three-orbit-0" stroke="var(--blue)"/><path id="three-orbit-1" stroke="var(--gold)"/><path id="three-orbit-2" stroke="var(--green)"/></g>
+      <g fill="currentColor"><text id="three-sense-0" x="555" y="87"></text><text id="three-sense-1" x="555" y="192"></text><text id="three-sense-2" x="555" y="299"></text></g>
+    </svg>
+    <div class="budget-results" aria-live="polite">
+      <div>Upper axial force<strong id="three-force-top"></strong></div>
+      <div>Middle axial force<strong id="three-force-center"></strong></div>
+      <div>Lower axial force<strong id="three-force-bottom"></strong></div>
+      <div>Total internal force<strong id="three-force-total"></strong></div>
+    </div>
+    <p id="three-selection-note" class="caveat"></p>
+    <p class="caveat">Normalized example, not newtons or a measured specimen: $\mu_i/m_0=1$, $k_i/k_0=1$, $g_T/\ell=g_B/\ell=1$, $\gamma_i/\sqrt{m_0k_0}=0.08$, $F_0/(k_0\ell)=0.005$, and $\kappa(g)=0.2k_0e^{1-g/\ell}$. Frequency unit $\sqrt{k_0/m_0}$; force unit $k_0\ell$. This illustrative decaying positive joining stiffness sets the plotted signs; no electrostatic attraction law or force magnitude is implied. Loop drawings share an automatically adjusted display scale.</p>
+    <noscript><p>The matched isotropic case has zero middle load. At frequency ratio 1.1 and lower amplitude ratio 0.6, the example gives upper +0.0001161334, middle −0.00000490534 and lower −0.0001112281 in the stated force unit; the sum is zero.</p></noscript>
+  </div>
+
+  <h3>4. Plate displacement and complete-assembly support are separate outputs</h3>
+  <p>If the outer chassis is held fixed and the middle plate has an axial displacement $x$, its baseline-subtracted equation is</p>
+  <div class="eq">$$m_C\ddot x+b_C\dot x+k_C^{\mathrm{mount}}x=\overline F_C(x,t).$$</div>
+  <p>A clamp registers the opposite of $\overline F_C$. A flexible mounting can move; in the slow-response limit, a static equilibrium satisfies $k_C^{\mathrm{mount}}x=\overline F_C(x)$, with positive static restoring stiffness only if $k_C^{\mathrm{mount}}-\partial_x\overline F_C&gt;0$. Finite response delays can also change damping, so that static check alone is not a full dynamical-stability proof.</p>
+  <p>With no additional external force, a held chassis and moving middle plate produce a transient <em>total</em> support increment $\Delta N=m_C\ddot x$. Its mean over a completed periodic cycle is zero. If the chassis is free, it can recoil while the complete assembly's centre stays on the same translational trajectory. Internal torques can redistribute readings among supports without reducing their summed vertical load.</p>
+  <p><strong>Scope of that cancellation.</strong> It follows from this translation-invariant internal interaction, not from a claim that every possible Earth-relative law has been excluded. External feeds, mounts, outgoing momentum and any independently established change of the Earth-relative constraint require their own signed entries. Neither the middle-plate force nor the gyro's alignment supplies that missing radial term.</p>
+
+  <h3>5. Why a slow cage can produce a rapid gyro turn</h3>
+  <p>A local imposed rotation can dominate a gyro's orientation response without matching Earth's mass or changing its weight. To make the distinction concrete, consider a centred symmetric rotor: axial angular momentum $J$ is conserved, the cage imposes an azimuthal rate $\Omega_c$, and the tilt $\theta$ is free with damping $b_\theta$. Reducing the rotor's kinetic energy at fixed $J$ gives</p>
+  <div class="eq">$$I_\perp\ddot\theta+b_\theta\dot\theta
+  =\sin\theta\big(I_\perp\Omega_c^2\cos\theta-J\Omega_c\big).$$</div>
+  <p>For $J\Omega_c&gt;I_\perp\Omega_c^2$, co-alignment is stable and opposition unstable; damping permits settling. Reversing the imposed cage rate reverses the preferred orientation. This <strong>imposed-azimuth model</strong> can reorient the axle while the wheel retains its axial spin. A fully torque-free three-gimbal suspension has different constraints and does not automatically follow this equation. Neither is claimed to diagnose the reported tabletop apparatus without its actual bearing, gimbal and timing data.</p>
+  <p>Illustration, not a fit: a thin disk spinning at 10,000 rpm with imposed cage rate 1 rpm has a small-tilt characteristic time $[J\Omega_c/I_\perp-\Omega_c^2]^{-1/2}\approx0.068$ s. That is <strong>not the full flip time</strong> or instantaneous propagation; an exactly balanced unstable orientation needs a perturbation to depart. One rpm is about 1,436 times Earth's rotational rate, a rate comparison—not a gravity-replacement factor. In this mechanical comparison, the angular response can be fast while the centred rotor's total vertical support stays unchanged. General rotation and torque examples: <a class="xref" href="https://animations.physics.unsw.edu.au/jw/rotation.htm">UNSW's demonstrations</a>.</p>
+  <details>
+    <summary>Where the gyro alignment term enters</summary>
+    <p>With axial angle $\psi$, the rotor kinetic energy is $T=\tfrac12I_\perp(\dot\theta^2+\Omega_c^2\sin^2\theta)+\tfrac12I_\parallel(\dot\psi+\Omega_c\cos\theta)^2$. Keeping its cyclic momentum $J=I_\parallel(\dot\psi+\Omega_c\cos\theta)$ fixed and forming $T-J\dot\psi$ gives the effective tilt potential $V_{\mathrm{tilt}}=-\tfrac12I_\perp\Omega_c^2\sin^2\theta-J\Omega_c\cos\theta$, up to a constant. Its derivative gives the displayed equation. The cage drive maintains $\Omega_c$ and takes the reaction; merely rotating mathematical coordinates would not impose that physical constraint. This is a mechanical comparison, not the POAMS source's separate spin–orbit energy postulate.</p>
+  </details>
+
+  <h3>6. Large electrical impulses and fast internal rotation</h3>
+  <p><strong>The transformer analogy concerns an impulse, not a diagnosed weight change.</strong> Electrical input can be converted into bulk mechanical motion; it is not bounded by picturing only the mass of a small collection of charge carriers. CIGRE documents internal arcs generating pressure surges, tank rupture and part ejection in fluid-filled transformers. Such reactions can launch material while balancing momentum elsewhere. A witnessed launch, without the event record, does not establish which object moved, full polarization, or a changed Earth constraint. <a class="xref" href="https://www.cigre.org/article/GB/news/the_latest_news/future-proofing-transformer-tanks-why-passive-protection-against-internal-arc-should-be-studied">CIGRE's engineering account</a>.</p>
+  <p><strong>The fast-circulation idea has a narrower experimental precedent.</strong> Basini and colleagues drove a particular crystal with circularly polarized terahertz pulses and reported a magnetic response attributed to the rotating material excitation. That supports investigating actual fast material modes, not assuming propulsion or transferring the effect to arbitrary disks. <a class="xref" href="https://www.nature.com/articles/s41586-024-07175-9">Basini et al., Nature (2024)</a>.</p>
+  <div class="card gold">
+    <p><strong>What this pass adds.</strong> A driven response matrix, actual modal angular momentum, a gap-dependent middle-plate load, an exact internal-force sum and a gyro comparison with a finite alignment timescale. The signal can change local organization; directional material response can make its phase useful. What remains to price the real apparatus is the material, its terminal-to-mode coupling and bias dependence, the shaft-to-mode connection, and the joint Earth-relative interaction. Rapid reorientation, a central mounting force and a changed complete-apparatus weight must remain separately measured claims.</p>
+  </div>
+  <p class="caveat">Reproducible calculation: <a class="xref" href="./scripts/vortex_three_plate.py">vortex_three_plate.py</a>. Checks include real-cycle versus phasor force/AM, input/loss balance, anisotropy reaction torque, translation invariance and gyro tilt relaxation. Added 2026-09-15. Earlier source and finite-size calculations are unchanged.</p>
+</section>
+
 <!-- ============ §6 ============ -->
 <section id="sec-status">
   <h2>&sect;6 — What is settled, and the remaining “unless”</h2>
@@ -960,6 +1055,7 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
     <tr><td>Can the carried mixed term be completed into an Earth support law?</td><td><span class="tag assume">CONDITIONAL DERIVATION</span>&sect;5F derives the fixed-Earth-rate constraint and its phase-dependent radial derivative. The matched horizontal construction gives zero leading mixed load. The local-AM identification and finite-size interaction are not forced by closure.</td></tr>
     <tr><td>Does finite core separation supply an amplifier?</td><td><span class="tag assume">FINITE-SIZE CALCULATION</span>&sect;5G gives two subdivision-consistent extensions. Both leave the horizontal coaxial pair null; one gives a tilted residual suppressed by $d/r$, while the other cancels every matched pair. A point-invisible tensor term proves these are not universal finite-body results. The physical spatial law remains unselected.</td></tr>
     <tr><td>Does the source itself supply a spin–orbit law?</td><td><span class="tag assume">SOURCE POSTULATE</span>Yes. &sect;5H derives its fourth-root orbital/support response. It is a kinetic-energy composition, not the later inverse-cube kernel. Applying it separately to opposed rotors leaves a second-order term; combining their directional energies first can cancel it. Material identification and composite action remain unselected.</td></tr>
+    <tr><td>What does a signal-driven middle plate add?</td><td><span class="tag assume">DRIVEN MODEL</span><a class="xref" href="#sec-three-plate">&sect;5I</a> calculates its local modal response and mounting force. A specified directional stiffness can enable phase dependence; internal axial forces still sum to zero. The gyro comparison separates rapid orientation selection from total weight change.</td></tr>
     <tr><td>Can there be measurable collective exchange?</td><td><span class="tag open">CONDITIONAL</span>Yes, if actual transitions, supplied power, directional counterparts and readout bandwidth satisfy the stated budget. No apparatus prediction is delivered here.</td></tr>
     <tr><td>Has weight modification been derived from those events?</td><td><span class="tag open">NOT ESTABLISHED</span>The specified matched geometry gives no leading effect under &sect;5F and remains null in &sect;5G's two tested extensions. Conditional finite-size terms have been calculated, but the material-to-Earth law selecting one has not been derived; a recoil budget does not supply it.</td></tr>
   </table></div>
@@ -1173,6 +1269,71 @@ try{
   }
   energy.addEventListener('input',update);
   angle.addEventListener('input',update);
+  update();
+})();
+</script>
+
+<script>
+(function(){
+  'use strict';
+  const ids=['three-frequency','three-ratio','three-phase','three-anisotropy'];
+  const controls=ids.map(id=>document.getElementById(id));
+  const picture=document.getElementById('three-plate-picture');
+  const add=(a,b)=>[a[0]+b[0],a[1]+b[1]];
+  const sub=(a,b)=>[a[0]-b[0],a[1]-b[1]];
+  const scale=(a,s)=>[a[0]*s,a[1]*s];
+  const mul=(a,b)=>[a[0]*b[0]-a[1]*b[1],a[0]*b[1]+a[1]*b[0]];
+  const div=(a,b)=>{const d=b[0]*b[0]+b[1]*b[1];return[(a[0]*b[0]+a[1]*b[1])/d,(a[1]*b[0]-a[0]*b[1])/d];};
+  const norm=a=>a[0]*a[0]+a[1]*a[1];
+  const phases=[0,106,212];
+  const print=n=>Math.abs(n)<1e-15?'0':(n>0?'+':'')+n.toExponential(5);
+  function response(w,ratio,phase,anis){
+    const d=[1.2-w*w,-.08*w],ft=[.005,0];
+    const fb=[.005*ratio*Math.cos(phase),.005*ratio*Math.sin(phase)];
+    const modes=[[],[],[]];
+    [1,-1].forEach((axisSign,axis)=>{
+      const left=axis===0?ft:mul(ft,[0,1]);
+      const right=axis===0?fb:mul(fb,[0,-1]);
+      const dc=[1.4+axisSign*anis-w*w,-.08*w];
+      const center=div(scale(add(div(left,d),div(right,d)),.2),sub(dc,div([.08,0],d)));
+      modes[0][axis]=div(add(left,scale(center,.2)),d);
+      modes[1][axis]=center;
+      modes[2][axis]=div(add(right,scale(center,.2)),d);
+    });
+    const qT=-.05*(norm(sub(modes[0][0],modes[1][0]))+norm(sub(modes[0][1],modes[1][1])));
+    const qB=-.05*(norm(sub(modes[1][0],modes[2][0]))+norm(sub(modes[1][1],modes[2][1])));
+    return {modes,forces:[-qT,qT-qB,qB],momentum:modes.map(a=>w*(a[0][0]*a[1][1]-a[0][1]*a[1][0]))};
+  }
+  function update(){
+    const [w,ratio,degrees,anis]=controls.map(e=>Number(e.value));
+    const result=response(w,ratio,degrees*Math.PI/180,anis);
+    document.getElementById('three-frequency-value').textContent=w.toFixed(3);
+    document.getElementById('three-ratio-value').textContent=ratio.toFixed(2);
+    document.getElementById('three-phase-value').textContent=degrees+'°';
+    document.getElementById('three-anisotropy-value').textContent=anis.toFixed(2);
+    const maximum=Math.max(1e-10,...result.modes.flat().map(a=>Math.sqrt(norm(a))));
+    result.modes.forEach((a,i)=>{
+      const points=[];
+      for(let n=0;n<=72;n++){
+        const t=2*Math.PI*n/72;
+        const x=320+31*(a[0][0]*Math.cos(t)+a[0][1]*Math.sin(t))/maximum;
+        const y=70+phases[i]-31*(a[1][0]*Math.cos(t)+a[1][1]*Math.sin(t))/maximum;
+        points.push((n===0?'M':'L')+x.toFixed(3)+','+y.toFixed(3));
+      }
+      document.getElementById('three-orbit-'+i).setAttribute('d',points.join(' ')+'Z');
+      const chirality=2*result.momentum[i]/(w*(norm(a[0])+norm(a[1])||1));
+      document.getElementById('three-sense-'+i).textContent=Math.abs(chirality)<1e-8?'linear · no net turning':chirality>0?'+ circulation':'− circulation';
+    });
+    ['top','center','bottom'].forEach((id,i)=>document.getElementById('three-force-'+id).textContent=print(result.forces[i]));
+    const total=result.forces.reduce((a,b)=>a+b,0);
+    document.getElementById('three-force-total').textContent=print(total);
+    document.getElementById('three-selection-note').textContent=anis===0?'Isotropic plate: opposite circular polarizations have no interference term in these averaged loads. Phase alone changes neither their values nor their zero sum.':'Directional middle plate: phase can change the modal mixture and individual loads. The total internal force remains zero.';
+    picture.dataset.forces=JSON.stringify(result.forces);
+    picture.dataset.momentum=JSON.stringify(result.momentum);
+    picture.dataset.total=String(total);
+    controls.forEach((e,i)=>e.setAttribute('aria-valuetext',[w.toFixed(3)+' reference frequency',ratio.toFixed(2)+' amplitude ratio',degrees+' degrees',anis.toFixed(2)+' directional stiffness'][i]));
+  }
+  controls.forEach(e=>e.addEventListener('input',update));
   update();
 })();
 </script>
