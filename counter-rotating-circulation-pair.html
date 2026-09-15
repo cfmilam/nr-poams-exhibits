@@ -60,7 +60,10 @@ summary:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-
 .budget-results div{border:1px solid var(--edge);border-radius:8px;padding:12px;font-size:12px;color:var(--muted);}
 .budget-results strong{display:block;margin-top:5px;font-size:15px;font-variant-numeric:tabular-nums;}
 section{scroll-margin-top:70px;}
-#sec-material,#sec-phase-support,#sec-earth-constraint,#sec-finite-size{scroll-margin-top:110px;}
+#sec-material,#sec-phase-support,#sec-earth-constraint,#sec-finite-size,#sec-interaction-law{scroll-margin-top:110px;}
+#source-composition-plot{display:block;width:100%;height:auto;color:var(--muted);margin:14px 0;}
+#source-composition-plot text{font-size:14px;}
+@media(max-width:620px){#source-composition-plot text{font-size:20px;}}
 #finite-geometry-plot{display:block;width:100%;height:auto;color:var(--muted);margin:14px 0;}
 #finite-geometry-plot text{font-size:14px;}
 @media(max-width:620px){#finite-geometry-plot text{font-size:20px;}}
@@ -155,6 +158,7 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
     <p><strong>The next step has now been calculated.</strong> A finite angular-exchange model supplies an explicit re-filing, its energy book and a named external co-signer. It gives a reciprocal directional reaction, but not the proposed fast topological burst. The carried coupling makes the exchange very slow. See <a class="xref" href="#sec-exchange">the concrete transition</a> and <a class="xref" href="#sec-counterpart">its external counterpart</a>.</p>
     <p><strong>The material-to-mechanical connection is now explicit.</strong> A weak-link switch changes a ring's local circulation according to its independently calibrated rotational response. Matched counter-wound rings change equally and oppositely. Their switch-and-reset cycle gives a calculable reciprocal support contribution, not an automatic change of the Earth-orbital constraint. See <a class="xref" href="#sec-phase-support">phase, angular momentum and the complete support ledger</a>.</p>
     <p><strong>Finite separation has now been tested.</strong> The carried point-body interaction does not uniquely fix its extended form. Two explicit finite sums agree in the point limit but differ for a separated pair. The horizontal coaxial construction remains null in both; a tilted-pair residual in one is suppressed by core spacing divided by Earth radius. See <a class="xref" href="#sec-finite-size">the finite-size calculation and its selection boundary</a>.</p>
+    <p><strong>The source contains a different spin–orbit rule.</strong> Osborne and Pope's 2007 treatment combines orbital and spin kinetic energies; it is not the later inverse-cube pair model. Its one-body response can be calculated. For several opposed circulations, evaluating each entry first or combining their directional energies first gives different answers. <a class="xref" href="#sec-interaction-law">&sect;5H recovers the source rule and isolates the missing composition law.</a> The preceding linear nulls do not settle this distinct nonlinear route.</p>
     <p class="caveat">The calculation below stays inside the Normal Realism / POAMS ledger. It neither reopens the fine-structure-constant program nor supplies a new apparatus-independent impossibility theorem. <a class="xref" href="#sec-5b">Jump to the momentum and power budget</a>.</p>
   </div>
 </section>
@@ -829,6 +833,101 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
   <p class="caveat">Reproduce with <a class="xref" href="./scripts/vortex_finite_size.py">vortex_finite_size.py</a> (Python + NumPy and the neighboring scripts). Checks cover independent cost derivatives, fixed-rate completion, two-ended reaction, rotations, subdivision, point limits, exact versus moment-expanded results, a 65-digit SI difference, the non-uniqueness witness, and complete cycle symmetry. Mathematical reference only: <a class="xref" href="https://www.damtp.cam.ac.uk/user/tong/dynamics/dynhtml/S3.html">Tong, finite rigid-body kinematics and angular-momentum sums</a>; the Hamiltonian reference in &sect;5F. These references do not select either proposed POAMS spatial coupling.</p>
 </section>
 
+<!-- ============ §5H ============ -->
+<section id="sec-interaction-law">
+  <h2>&sect;5H — Back to the source: what is paired, and how the entries combine</h2>
+  <p>The previous calculations differentiated a specified interaction. This pass asks the earlier question: <strong>which interaction do the source relations actually supply?</strong> Three different pairings must not be exchanged silently.</p>
+  <div class="table-wrap"><table>
+    <tr><th>Pairing</th><th>Actual circulation entries</th><th>What is supplied</th></tr>
+    <tr><td>Two local cores</td><td>The two named local angular momenta, $\vec J_A$ and $\vec J_B$</td><td>&sect;2's inverse-cube energy is a carried model, not a source-selected universal law.</td></tr>
+    <tr><td>A spinning body and its orbit</td><td>That body's spin, and its natural orbital relation to a larger body</td><td>Osborne and Pope give a kinetic-energy composition postulate for one axially symmetric spinning body.</td></tr>
+    <tr><td>A core and Earth's own rotation</td><td>Local circulation and Earth's separately resolved internal circulation</td><td>This would need an extended two-body coupling and a physical summation rule. Earth's spin is not the device's Earth-relative orbital momentum.</td></tr>
+  </table></div>
+
+  <h3>The source rule is more specific than conservation alone</h3>
+  <p><em>Einstein's Lost Legacy</em>, Appendices 4–5, writes the circular relation as $L=mvr=GmM/v$—not an equality between angular momentum and $GmM/r^2$. It discusses spin through the orbital balance and a variable $\mathcal G$. The fuller treatment in <em>Light-Speed, Gravitation and Quantum Instantaneity</em>, &sect;7.3, explicitly adds an energy-composition postulate. For one axially symmetric spinning body,</p>
+  <div class="eq">$$\mathcal K^2=K_o^2+K_s^2+2K_oK_s\cos\theta,\qquad
+  K_s=\tfrac12 I\omega^2.$$</div>
+  <p>$K_o$ is its spinless <strong>natural-orbit</strong> kinetic energy; $K_s$ is its own rotational kinetic energy; $\theta$ is the angle between spin and orbital angular momentum. The source calls the energy rule a postulate by analogy with vector composition. The identity $\lVert\vec L+\vec S\rVert^2=L^2+S^2+2LS\cos\theta$ motivates it but does not, without that postulate, turn angular momentum into kinetic energy. This rule contains neither the later $-2G/c^2$ coefficient nor an assumed pair separation cubed.</p>
+  <p>Source provenance: <a class="xref" href="https://cfmilam.github.io/nr-poams-books/einsteins-lost-legacy.html#appendix-4">ELL, Appendices 4–5</a>; <a class="xref" href="https://cfmilam.github.io/nr-poams-books/light-speed-gravitation-and-quantum-instantaneity.html#7-3-the-incorporation-of-spin-into-orbital-angular">Osborne &amp; Pope, &sect;&sect;7.3–7.5</a>, especially printed pp. 133–135. The energy formula was checked against the scanned original, not just the digital transcription. <a class="xref" href="https://cfmilam.github.io/nr-poams-books/light-speed-gravitation-and-quantum-instantaneity.html#7-7-attraction-and-repulsion-in-the-hydrogen-atom">&sect;7.7</a> also discusses mutually spinning components and aligned collections; its qualitative balance argument does not supply the spatial kernel or composite support functional needed for this apparatus.</p>
+
+  <h3>The one-body response follows explicitly</h3>
+  <p>Use the source's fixed circular-orbit label $L$, with body mass $m$ and central mass $M_E$. Its equations are $v_s^2=2\mathcal K/m$, $r_s=L/(mv_s)$ and $\mathcal G=r_sv_s^2/M_E$. Comparing with the spinless reference gives</p>
+  <div class="eq">$$\epsilon=\frac{K_s}{K_o},\qquad u=\cos\theta,\qquad
+  h(\epsilon,u)=(1+2\epsilon u+\epsilon^2)^{1/4},$$
+  $$\boxed{\frac{\mathcal G}{G}=\frac{v_s}{v_0}=\frac{r_0}{r_s}=h(\epsilon,u).}$$</div>
+  <p>These are consequences of the stated source postulate, not of conservation alone. In the source's equatorial held-body comparison (Example 7.2), the constrained orbital factor $G'$ stays the same between spin states. On the inward-support branch, $N=mM_E(\mathcal G-G')/R^2$, so subtraction yields</p>
+  <div class="eq">$$\Delta N=m g_0[h(\epsilon,u)-1],\qquad g_0=\frac{GM_E}{R^2}.$$</div>
+  <p>Here $g_0$ is the normalization, not the complete rotating-Earth baseline weight. $K_o$ belongs to the source's reference natural orbit at the specified $L$; substituting the held surface kinetic energy would be a different calculation. This is the source's static constraint prescription, not a new derivation of a driven many-body Hamiltonian. It is an alternative to &sect;5F, <strong>not an extra term to add to it</strong>.</p>
+
+  <h3>Opposed circulation cancels the first order—not necessarily the whole source response</h3>
+  <p>Now add a clearly stated extension: evaluate the source rule separately for two equal, physically identified rotors, each with the same $\epsilon$, and add their support entries. Their axes are opposite, so their angle cosines are $u$ and $-u$. With total rotor mass $m_D$,</p>
+  <div class="eq">$$\delta_{\rm entry}(\epsilon,u)\equiv\frac{\Delta N_{\rm entry}}{m_Dg_0}
+  =\frac{h(\epsilon,u)+h(\epsilon,-u)}{2}-1
+  =\frac{2-3u^2}{8}\epsilon^2+O(\epsilon^4).$$</div>
+  <p>The linear term cancels. The even term remains. For horizontal rotors on the equator, their spin axes are perpendicular to the Earth-relative orbital vector, hence $u=0$:</p>
+  <div class="eq">$$\delta_{\rm entry}(\epsilon,0)=(1+\epsilon^2)^{1/4}-1
+  =\frac{\epsilon^2}{4}+O(\epsilon^4).$$</div>
+  <p><strong>This is not the earlier linear-kernel null.</strong> Nor is it a device prediction: applying a rigid-rotor postulate separately to current-carrying closures is an additional material and composition assumption. Its sign is also not universally positive: for parallel/opposed axes $u=1$ and $0&lt;\epsilon&lt;1$, the paired excess is negative to leading order.</p>
+
+  <h3>A second composition agrees for one rotor and disagrees for the pair</h3>
+  <p>An alternative extension retains the same list of positive rotational energies but first forms its <strong>directional energy sum</strong>, $\vec W=\sum_i K_{s,i}\hat n_i$, with $K_{o,D}=\sum_iK_{o,i}$. It then applies the source norm once:</p>
+  <div class="eq">$$h_{\rm combined}=
+  \left(\frac{\lVert K_{o,D}\hat\ell+\vec W\rVert}{K_{o,D}}\right)^{1/2},
+  \qquad\Delta N_{\rm combined}=m_Dg_0(h_{\rm combined}-1).$$</div>
+  <p>$\hat\ell$ is the common orbital direction. For one rotor this is exactly the source rule. For equal opposite energy entries, $\vec W=0$ and the excess is zero. Both continuations preserve a subdivision of a homogeneous co-located record when its mass, orbital energy and spin energy are divided together. <strong>But they are different multi-rotor rules.</strong> Neither is adopted here. A zero directional sum does not erase the positive stored energy; nor may a counter-rotating assembly be silently treated as a single spinless rigid body.</p>
+  <p>These are two <em>static support continuations</em>, not two completed material theories. They prove that the source's single-body formula and accounting invariance do not decide whether to combine before or after its nonlinear norm. A full action, transition law and reciprocal drive/receiver budget remain necessary for a physical composite.</p>
+
+  <div class="card blue" aria-labelledby="source-composition-title">
+    <h3 id="source-composition-title">One source formula, two composite readings</h3>
+    <p class="caveat">Dimensionless illustration at a common equatorial reference orbit. These energy ratios are not the calibration of our weak-link rings. Blue: evaluate each rotor first. Gold dashed: combine directional energies first. The disagreement is the result—not a fitted force.</p>
+    <div class="budget-controls">
+      <label for="source-energy-ratio">Each rotor's $K_s/K_o$<output id="source-energy-value" for="source-energy-ratio">0.20</output><input id="source-energy-ratio" type="range" min="0.02" max="0.60" step="0.02" value="0.20"></label>
+      <label for="source-angle">First spin axis relative to orbital AM<output id="source-angle-value" for="source-angle">90° — perpendicular</output><input id="source-angle" type="range" min="0" max="90" step="1" value="90"></label>
+    </div>
+    <svg id="source-composition-plot" viewBox="0 0 740 300" role="img" aria-labelledby="source-plot-title source-plot-description">
+      <title id="source-plot-title">Conditional paired source response versus spin-axis angle</title>
+      <desc id="source-plot-description">The entrywise continuation changes sign with orientation. The combined-energy continuation gives zero for the same matched pair. Neither is selected as the apparatus law.</desc>
+      <g id="source-plot-content"></g>
+    </svg>
+    <div class="budget-results" aria-live="polite" aria-atomic="true">
+      <div>Entrywise excess / ($m_Dg_0$)<strong id="source-entrywise-value">+9.853407e-3</strong></div>
+      <div>Combined excess / ($m_Dg_0$)<strong>0</strong></div>
+    </div>
+    <noscript><p>At $K_s/K_o=0.20$ and perpendicular axes, the entrywise normalized excess is $0.00985340655$; the combined continuation is zero. These are illustrative ratios, not newtons.</p></noscript>
+  </div>
+
+  <h3>What can be summed without choosing a new interaction</h3>
+  <p>The actual angular-momentum ledger does compose exactly. With all quantities referred to the same observational origin,</p>
+  <div class="eq">$$\vec{\mathcal J}_O=\sum_a(\vec x_a\times\vec p_a+\vec s_a)
+  =\vec R_D\times\vec P_D+
+  \sum_a(\vec\rho_a\times\vec\pi_a+\vec s_a).$$</div>
+  <p>$\vec R_D,\vec P_D$ are the assembly's center and total momentum; $\vec\rho_a,\vec\pi_a$ are internal relative entries; $\vec s_a$ is the separately named intrinsic contribution. All are records of circulation, not contents of an aether. Grouping preserves this sum if every internal entry is retained. But <strong>adding angular momentum does not imply adding a nonlinear function of its state</strong>. Erasing the constituent energy/axis data and applying a one-body formula again is a new approximation, not regrouping.</p>
+
+  <details>
+    <summary>Why symmetry and two-endedness do not select the inverse-cube interaction</summary>
+    <p>Restrict attention to a reciprocal scalar bilinear in two AM vectors, with no preferred axis except their separation direction $\hat r$, reflection symmetry, and no dimensional inputs beyond $G/c^2$, the AM entries and $r$. In that restricted class, rotation symmetry allows a transverse and a longitudinal coefficient:</p>
+    <div class="eq">$$U_{ab}=\frac{G}{c^2r_{ab}^3}
+    \left[a\,\vec J_a\cdot\vec J_b+b(\vec J_a\cdot\hat r_{ab})(\vec J_b\cdot\hat r_{ab})\right].$$</div>
+    <p>The $r^{-3}$ scale follows from the <em>no-other-scale restriction</em>; it is not forced by angular-momentum conservation. The earlier model chooses $(a,b)=(-2,0)$. For example, $(-2,1)$ obeys the same listed symmetries and gives a different response. Material lengths, separate axes, rates or chiral data enlarge the class further. This test neither selects a substitute nor imports a field theory.</p>
+    <p>Once a physical pair entry is specified, the finite cross-body sum is unambiguous:</p>
+    <div class="eq">$$U_{DE}=\sum_{a\in D}\sum_{b\in E}U_{ab},\qquad
+    \sum_{a&lt;b}U_{ab}=\tfrac12\sum_{a\ne b}U_{ab}.$$</div>
+    <p>Regrouping must retain all cross entries and their positions. A derivative of the same relational cost gives opposite endpoint reactions, and its orientation derivatives supply the matching torques. The executable checks both, including the orbital moment of the reaction. Two-endedness supplies the reciprocal entries; <strong>counting two receipts does not by itself determine the size of their physical energy</strong>. A per-endpoint normalization convention is not an independent derivation of $a=-2$.</p>
+  </details>
+
+  <h3>The remaining material question is now narrower</h3>
+  <p>&sect;5E supplies a calibrated local $J(q)$. It does not identify that current pattern with the source's single rigid rotor or fix its rotational kinetic energy $K_s(q)$. Even for a rotor, $K_s=J^2/(2I)$ requires its physical inertia. The released weak-link energy includes storage and joining contributions; it is not automatically $K_s$. Equal total energy and equal calibrated $J$ can coexist with different kinetic/storage partitions.</p>
+  <p>A source-model switching signal would involve <em>before and after energies</em>, not merely the sign of $J$:</p>
+  <div class="eq">$$\Delta N_{\rm switch}=m_Dg_0
+  [\delta(\epsilon_{\rm after},u)-\delta(\epsilon_{\rm before},u)].$$</div>
+  <p>An equal-energy reversal of a matched pair leaves this source response unchanged. A change in stored rotational energy need not. A symmetric reversal of AM is also not enough to cancel a term that is even in that AM; the previous linear-cycle cancellation must not be copied into this nonlinear model. The actual energy history, source work and Earth's reciprocal entries would have to be calculated together.</p>
+  <div class="card gold">
+    <p><strong>Result.</strong> The source does supply a definite single-body spin–orbit postulate, and its circular and static support consequences are now derived explicitly. It does <em>not</em> supply the later inverse-cube kernel or uniquely prescribe how to price several opposed material circulations. What remains is a <strong>material kinetic-energy map and a multi-circulation composition/action law</strong>, not another differentiation of the earlier model. No new apparatus force is established, and the earlier matched-pair nulls are not a dismissal of this distinct source route.</p>
+  </div>
+  <p class="caveat">Reproduce with <a class="xref" href="./scripts/vortex_interaction_law.py">vortex_interaction_law.py</a> (Python + NumPy). Checks reconstruct the source's circular equations, the fourth-root response, paired small-energy expansion, two composition rules, exact AM regrouping, reciprocal tensor reactions and torques, and counting conventions. The original 2007 &sect;6.2.2 itself distinguishes conservation from an equation of motion. No measured target was fitted.</p>
+</section>
+
 <!-- ============ §6 ============ -->
 <section id="sec-status">
   <h2>&sect;6 — What is settled, and the remaining “unless”</h2>
@@ -846,16 +945,17 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
     <tr><td>Does a phase reset leave a net support impulse?</td><td><span class="tag claim">DERIVED IN MODEL</span>The complete symmetric reciprocal cycle cancels it. Unequal dwell can give an externally balanced impulse; the source-on-balance contribution cancels. Neither is automatically a new weight law.</td></tr>
     <tr><td>Can the carried mixed term be completed into an Earth support law?</td><td><span class="tag assume">CONDITIONAL DERIVATION</span>&sect;5F derives the fixed-Earth-rate constraint and its phase-dependent radial derivative. The matched horizontal construction gives zero leading mixed load. The local-AM identification and finite-size interaction are not forced by closure.</td></tr>
     <tr><td>Does finite core separation supply an amplifier?</td><td><span class="tag assume">FINITE-SIZE CALCULATION</span>&sect;5G gives two subdivision-consistent extensions. Both leave the horizontal coaxial pair null; one gives a tilted residual suppressed by $d/r$, while the other cancels every matched pair. A point-invisible tensor term proves these are not universal finite-body results. The physical spatial law remains unselected.</td></tr>
+    <tr><td>Does the source itself supply a spin–orbit law?</td><td><span class="tag assume">SOURCE POSTULATE</span>Yes. &sect;5H derives its fourth-root orbital/support response. It is a kinetic-energy composition, not the later inverse-cube kernel. Applying it separately to opposed rotors leaves a second-order term; combining their directional energies first can cancel it. Material identification and composite action remain unselected.</td></tr>
     <tr><td>Can there be measurable collective exchange?</td><td><span class="tag open">CONDITIONAL</span>Yes, if actual transitions, supplied power, directional counterparts and readout bandwidth satisfy the stated budget. No apparatus prediction is delivered here.</td></tr>
     <tr><td>Has weight modification been derived from those events?</td><td><span class="tag open">NOT ESTABLISHED</span>The specified matched geometry gives no leading effect under &sect;5F and remains null in &sect;5G's two tested extensions. Conditional finite-size terms have been calculated, but the material-to-Earth law selecting one has not been derived; a recoil budget does not supply it.</td></tr>
   </table></div>
 
   <div class="card gold">
     <p><strong>The “unless,” in plain language.</strong> Not “unless enough turns do it together.” Rather: <em>unless a specified collective change can post a measurable directional entry against a specified external counterpart, with the full energy and momentum books balanced.</em> The work has narrowed the claim, not ruled out that experiment. A derived alteration of the natural-orbit constraint would be a distinct route with its own calculation.</p>
-    <p><strong>The remaining physical input.</strong> &sect;5D supplies the conditional material switch/reset, &sect;5E the calibrated local-AM connection, &sect;5F the fixed-rate Earth constraint, and &sect;5G explicit finite-size continuations with their selection boundary. An apparatus still needs its actual material and rotational calibrations and a physical joint spatial coupling. A different weight result cannot be obtained by another population multiplier or by silently choosing an otherwise unselected tensor term. The missing law is no longer concealed as an uncomputed derivative.</p>
+    <p><strong>The remaining physical input.</strong> &sect;5D supplies the conditional material switch/reset, &sect;5E the calibrated local-AM connection, &sect;5F the fixed-rate Earth constraint, and &sect;5G finite-size continuations of that carried model. &sect;5H recovers the source's distinct kinetic-energy rule and shows why it needs a multi-circulation composition before it can price this apparatus. We now need the actual material kinetic-energy map and a joint action/composition law—not a new population multiplier, an unselected tensor term, or a substitution of a single rigid body for two counter-circulations.</p>
   </div>
   <p>The proposed conducting, superconducting, fluid and lattice embodiments remain research candidates. Nothing here claims they have achieved a weight change. The scope is the amplification inference, not a general verdict on the wider Normal Realism / POAMS program.</p>
-  <p class="caveat">Calculation record: <a class="xref" href="./scripts/vortex_amplification_audit.py">vortex_amplification_audit.py</a> — finite counterexamples, sum identities, frequency conventions, corrected tables and readout example. Earlier proposal preserved in <a class="xref" href="https://github.com/cfmilam/nr-poams-exhibits/blob/11f6818/counter-rotating-circulation-pair.html">the pre-inquiry version</a>. Updated 2026-09-14.</p>
+  <p class="caveat">Calculation record: <a class="xref" href="./scripts/vortex_amplification_audit.py">vortex_amplification_audit.py</a> — finite counterexamples, sum identities, frequency conventions, corrected tables and readout example. Earlier proposal preserved in <a class="xref" href="https://github.com/cfmilam/nr-poams-exhibits/blob/11f6818/counter-rotating-circulation-pair.html">the pre-inquiry version</a>. Source-interaction pass added 2026-09-15.</p>
 </section>
 
 </main>
@@ -1017,6 +1117,48 @@ try{
   }
   tilt.addEventListener('input',update);
   latitude.addEventListener('input',update);
+  update();
+})();
+
+(function(){
+  var energy=document.getElementById('source-energy-ratio');
+  var angle=document.getElementById('source-angle');
+  var plot=document.getElementById('source-composition-plot');
+  if(!energy||!angle||!plot)return;
+  // Dimensionless continuations of the printed single-body postulate.
+  // No Ks(q) calibration or newtons are supplied by this illustration.
+  function excess(e,theta){
+    var u=Math.cos(theta*Math.PI/180);
+    return .5*(Math.expm1(.25*Math.log1p(e*e+2*e*u))+
+      Math.expm1(.25*Math.log1p(e*e-2*e*u)));
+  }
+  function update(){
+    var e=Number(energy.value),theta=Number(angle.value),value=excess(e,theta);
+    var scale=1.18*Math.max(Math.abs(excess(e,0)),Math.abs(excess(e,90)));
+    var px=function(t){return 102+593*t/90;};
+    var py=function(v){return 144-94*v/scale;};
+    var points=[];
+    for(var t=0;t<=90;t++)points.push((t?'L':'M')+px(t).toFixed(2)+','+py(excess(e,t)).toFixed(2));
+    var ticks=[-scale/2,0,scale/2].map(function(v){return '<text x="92" y="'+(py(v)+5)+'" text-anchor="end" fill="currentColor">'+(v===0?'0':v.toExponential(1))+'</text>';}).join('');
+    document.getElementById('source-plot-content').innerHTML=
+      '<text x="102" y="23" fill="currentColor">Normalized support excess</text>'+
+      '<path d="M102 40V249H695" fill="none" stroke="currentColor" opacity=".5"/>'+ticks+
+      '<path d="M102 144H695" fill="none" stroke="var(--gold)" stroke-width="2" stroke-dasharray="8 6"/>'+
+      '<path d="'+points.join(' ')+'" fill="none" stroke="var(--blue)" stroke-width="3"/>'+
+      '<path d="M'+px(theta)+' 40V249" fill="none" stroke="currentColor" opacity=".3"/>'+
+      '<circle cx="'+px(theta)+'" cy="'+py(value)+'" r="5" fill="var(--blue)"/>'+
+      '<text x="102" y="273" fill="currentColor">0°</text><text x="398" y="273" text-anchor="middle" fill="currentColor">45°</text>'+
+      '<text x="695" y="273" text-anchor="end" fill="currentColor">90°</text>';
+    document.getElementById('source-energy-value').textContent=e.toFixed(2);
+    document.getElementById('source-angle-value').textContent=theta+'°'+(theta===90?' — perpendicular':'');
+    document.getElementById('source-entrywise-value').textContent=(value>0?'+':'')+value.toExponential(6);
+    energy.setAttribute('aria-valuetext',e.toFixed(2)+' spin to orbital kinetic energy ratio');
+    angle.setAttribute('aria-valuetext',theta+' degrees between first spin and orbital axes');
+    plot.dataset.entrywise=String(value);
+    plot.dataset.combined='0';
+  }
+  energy.addEventListener('input',update);
+  angle.addEventListener('input',update);
   update();
 })();
 </script>
