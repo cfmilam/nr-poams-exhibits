@@ -1,0 +1,407 @@
+{
+  "schema": "water-equilibrium-reference.v1",
+  "date": "2026-09-16",
+  "status": "completed_bounded_finite_basis_reference",
+  "grade": "local minimum of the stated effective model; no basis-limit or experimental-accuracy qualification",
+  "units": {
+    "energy": "E*",
+    "energy_over_h_PHz_per_Estar": 6.579683920428908,
+    "internal_coordinates": [
+      "angstrom",
+      "angstrom",
+      "radian"
+    ],
+    "public_distances": "pm"
+  },
+  "comparison": {
+    "status": "fixed_geometry_comparison_complete",
+    "slopes": {
+      "D": {
+        "angle": {
+          "RHF": {
+            "slope": 0.005919248009055557,
+            "step_discrepancy": 7.221234754988849e-06,
+            "curvature": 0.166908808387773,
+            "curvature_step_discrepancy": 3.0768519822255147e-06
+          },
+          "MP2": {
+            "slope": 0.008406733270663323,
+            "step_discrepancy": 6.635149618280933e-06,
+            "curvature": 0.15070965232637723,
+            "curvature_step_discrepancy": 1.928199140743825e-06
+          },
+          "CCSD": {
+            "slope": 0.008183003266877943,
+            "step_discrepancy": 6.7539788051792365e-06,
+            "curvature": 0.15510143000599957,
+            "curvature_step_discrepancy": 2.0084396933905957e-06
+          },
+          "CCSD(T)": {
+            "slope": 0.00841225741870723,
+            "step_discrepancy": 6.689424028254176e-06,
+            "curvature": 0.15380187933150444,
+            "curvature_step_discrepancy": 1.9679462051891417e-06
+          }
+        }
+      },
+      "T": {
+        "angle": {
+          "RHF": {
+            "slope": 0.00512210616272405,
+            "step_discrepancy": 6.793755585358767e-06,
+            "curvature": 0.16736280657336908,
+            "curvature_step_discrepancy": 4.758917892866421e-06,
+            "analytic_minus_stencil": -1.7900384733510188e-10
+          },
+          "MP2": {
+            "slope": 0.00794064273227075,
+            "step_discrepancy": 6.4448805932385e-06,
+            "curvature": 0.15010760372773427,
+            "curvature_step_discrepancy": 3.4049985213613354e-06
+          },
+          "CCSD": {
+            "slope": 0.007742017853439515,
+            "step_discrepancy": 6.574320314109948e-06,
+            "curvature": 0.15504559352890424,
+            "curvature_step_discrepancy": 3.6009347545440384e-06,
+            "analytic_minus_stencil": 6.165598189118715e-09
+          },
+          "CCSD(T)": {
+            "slope": 0.007991284655406184,
+            "step_discrepancy": 6.5243384825136586e-06,
+            "curvature": 0.15336366094820256,
+            "curvature_step_discrepancy": 3.5295579838834357e-06
+          }
+        },
+        "symmetric_stretch": {
+          "RHF": {
+            "slope": 0.005278477236340488,
+            "step_discrepancy": 6.013755005085386e-05,
+            "curvature": 4.410258468941682,
+            "curvature_step_discrepancy": 0.00018807533308518032,
+            "analytic_minus_stencil": -1.164573376968847e-10
+          },
+          "MP2": {
+            "slope": -0.06927591529345041,
+            "step_discrepancy": 5.97516294220668e-05,
+            "curvature": 4.332717709942813,
+            "curvature_step_discrepancy": 0.00018704504611832817
+          },
+          "CCSD": {
+            "slope": -0.06003804964767786,
+            "step_discrepancy": 5.9916111183611065e-05,
+            "curvature": 4.331610920615958,
+            "curvature_step_discrepancy": 0.00018733814499682921,
+            "analytic_minus_stencil": -6.312421766546672e-08
+          },
+          "CCSD(T)": {
+            "slope": -0.0702768742755211,
+            "step_discrepancy": 5.9938827234873315e-05,
+            "curvature": 4.318926527820584,
+            "curvature_step_discrepancy": 0.00018747847718714183
+          }
+        }
+      },
+      "Q": {
+        "angle": {
+          "RHF": {
+            "slope": 0.005162591946521446,
+            "step_discrepancy": 6.830862938716348e-06,
+            "curvature": 0.1672870060601688,
+            "curvature_step_discrepancy": 4.6859549717448434e-06,
+            "analytic_minus_stencil": 8.936492171263133e-12
+          },
+          "MP2": {
+            "slope": 0.007750546072868201,
+            "step_discrepancy": 6.6467441395380925e-06,
+            "curvature": 0.14962315431460996,
+            "curvature_step_discrepancy": 3.0134992668184868e-06
+          },
+          "CCSD": {
+            "slope": 0.007480943018680048,
+            "step_discrepancy": 6.781933081941548e-06,
+            "curvature": 0.15468369893294934,
+            "curvature_step_discrepancy": 3.2392924498581e-06,
+            "analytic_minus_stencil": 1.8858557191553382e-08
+          },
+          "CCSD(T)": {
+            "slope": 0.007741508910001904,
+            "step_discrepancy": 6.7435771191493715e-06,
+            "curvature": 0.15294320051452465,
+            "curvature_step_discrepancy": 3.1557862932851677e-06
+          }
+        },
+        "symmetric_stretch": {
+          "RHF": {
+            "slope": 0.010026805157418531,
+            "step_discrepancy": 6.0244461863590004e-05,
+            "curvature": 4.401646516901299,
+            "curvature_step_discrepancy": 0.0001885762657138912,
+            "analytic_minus_stencil": -9.367410024746503e-10
+          },
+          "MP2": {
+            "slope": -0.06052333518210181,
+            "step_discrepancy": 5.992619911410202e-05,
+            "curvature": 4.315770552191604,
+            "curvature_step_discrepancy": 0.00018782131405714608
+          },
+          "CCSD": {
+            "slope": -0.050466321232770874,
+            "step_discrepancy": 6.0089291764597874e-05,
+            "curvature": 4.316302588236454,
+            "curvature_step_discrepancy": 0.00018768453458051226,
+            "analytic_minus_stencil": -1.3228314871965852e-07
+          },
+          "CCSD(T)": {
+            "slope": -0.060975544956913076,
+            "step_discrepancy": 6.0113166000519414e-05,
+            "curvature": 4.302864351046765,
+            "curvature_step_discrepancy": 0.00018761525666377565
+          }
+        }
+      },
+      "T-tail": {
+        "angle": {
+          "RHF": {
+            "slope": 0.005133541751376241,
+            "step_discrepancy": 6.808688416811044e-06,
+            "curvature": 0.16746865213517612,
+            "curvature_step_discrepancy": 4.834120085228655e-06
+          },
+          "MP2": {
+            "slope": 0.00800219649915046,
+            "step_discrepancy": 6.497550985874387e-06,
+            "curvature": 0.1502736778172585,
+            "curvature_step_discrepancy": 3.3636653064550437e-06
+          },
+          "CCSD": {
+            "slope": 0.007806674861229342,
+            "step_discrepancy": 6.626189105187266e-06,
+            "curvature": 0.15526570963063746,
+            "curvature_step_discrepancy": 3.5881522479352945e-06
+          },
+          "CCSD(T)": {
+            "slope": 0.008060078082884704,
+            "step_discrepancy": 6.5795468051164235e-06,
+            "curvature": 0.1535744973544259,
+            "curvature_step_discrepancy": 3.5039929706104367e-06
+          }
+        }
+      }
+    },
+    "controls": {
+      "rigid_permutation": {
+        "RHF": 4.831690603168681e-13,
+        "MP2": -6.66489086142974e-12,
+        "CCSD": 1.1084466677857563e-12,
+        "CCSD(T)": -1.0516032489249483e-12
+      },
+      "energy_zero": {
+        "RHF": -7.815970093361102e-12,
+        "MP2": -7.759126674500294e-12,
+        "CCSD": -7.73070496506989e-12,
+        "CCSD(T)": -7.759126674500294e-12
+      }
+    },
+    "staging_gates": [
+      {
+        "name": "angle T/Q sensitivity",
+        "pass": true,
+        "difference": -0.0002497757454042798
+      },
+      {
+        "name": "T angle triples sensitivity",
+        "pass": true,
+        "difference": 0.000249266801966669
+      },
+      {
+        "name": "Q angle triples sensitivity",
+        "pass": true,
+        "difference": 0.00026056589132185566
+      },
+      {
+        "name": "symmetric_stretch T/Q sensitivity",
+        "pass": true,
+        "difference": 0.009301329318608019
+      },
+      {
+        "name": "T symmetric_stretch triples sensitivity",
+        "pass": true,
+        "difference": -0.010238824627843236
+      },
+      {
+        "name": "Q symmetric_stretch triples sensitivity",
+        "pass": true,
+        "difference": -0.010509223724142203
+      },
+      {
+        "name": "resolved common angular descent",
+        "pass": true
+      }
+    ],
+    "bounded_optimization_justified": true,
+    "point_count": 30,
+    "scope": "Local-descent staging only; no equilibrium, basis-limit or experimental accuracy claim."
+  },
+  "equilibrium": {
+    "status": "bounded_T_equilibrium_reference_complete",
+    "basis": "T",
+    "method": "all-entry RCCSD(T)",
+    "geometry": [
+      0.9605706555010307,
+      0.9605706552837865,
+      1.8201887564755348
+    ],
+    "distances_angstrom": [
+      0.9605706555010307,
+      0.9605706552837865
+    ],
+    "angle_degrees": 104.28913366321373,
+    "start_geometry": [
+      0.9413525666760885,
+      0.9413527641657244,
+      1.8851471850875599
+    ],
+    "energy": -76.39965663296607,
+    "energy_change_from_start": -0.0009208798415016872,
+    "gradient": [
+      1.4887054552067033e-07,
+      1.439559582649963e-07,
+      3.1559939846677785e-09
+    ],
+    "gradient_step_difference": [
+      -7.677414259887883e-08,
+      -7.311484750971431e-08,
+      -1.687538997430238e-09
+    ],
+    "curvature": {
+      "matrix_internal": [
+        [
+          1.9192875768681006,
+          -0.02212404659474032,
+          0.059136080032828886
+        ],
+        [
+          -0.02212404659474032,
+          1.9192877118712204,
+          0.059136051611119456
+        ],
+        [
+          0.059136080032828886,
+          0.059136051611119456,
+          0.16144796788353233
+        ]
+      ],
+      "scaled_eigenvalues": [
+        0.004402611933919363,
+        0.004853529227411112,
+        0.0067982157758591155
+      ],
+      "coordinate_scales": [
+        0.05,
+        0.05,
+        0.2
+      ],
+      "steps": [
+        0.002,
+        0.002,
+        0.004
+      ],
+      "half_step_diagonal": [
+        1.9192661397937627,
+        1.9192663671674381,
+        0.16144741010748476
+      ],
+      "scope": "positive internal curvature, not vibrational frequencies"
+    },
+    "endpoint_energy_difference": 5.400124791776761e-13,
+    "basis_checks": {
+      "Q": {
+        "energy": -76.42462530448809,
+        "gradient_at_T_minimum": [
+          0.0045153318595225755,
+          0.004515331504251208,
+          -0.00024725801850422613
+        ],
+        "local_displacement_estimate": [
+          -0.0024845151661427554,
+          -0.0024845147613102967,
+          0.0033515869320560714
+        ],
+        "scope": "unrelaxed basis check; Newton displacement is an estimate, not an equilibrium"
+      },
+      "T-tail": {
+        "energy": -76.3999995045048,
+        "gradient_at_T_minimum": [
+          -8.266873408047104e-05,
+          -8.266791695632492e-05,
+          5.2900599456506825e-05
+        ],
+        "local_displacement_estimate": [
+          5.504538140812536e-05,
+          5.5044951301380806e-05,
+          -0.0003679879616747114
+        ],
+        "scope": "unrelaxed basis check; Newton displacement is an estimate, not an equilibrium"
+      }
+    },
+    "optimization": {
+      "success": true,
+      "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+      "iterations": 5,
+      "evaluations": 6
+    },
+    "unique_points": 87,
+    "limitations": [
+      "A local finite-T-basis effective-model minimum, not an independent native-closure derivation.",
+      "Q and diffuse checks are unrelaxed; basis-limit geometry is not established.",
+      "No full triples/quadruples, recoil, relativistic or nuclear-motion corrections.",
+      "Previous native water failure, methane partial and s/p-seed failure remain.",
+      "Atomic O axial 1.018046% sensitivity and removal limits retained; no ad hoc error transfer or energy addition.",
+      "No dissociation, atomization energy or experimental-accuracy qualification."
+    ]
+  },
+  "audits": {
+    "comparison": {
+      "passed": true,
+      "count": 306,
+      "failures": []
+    },
+    "equilibrium": {
+      "passed": true,
+      "count": 477,
+      "failures": []
+    },
+    "publication": {
+      "passed": true,
+      "failures": [],
+      "geometry_pm": [
+        96.05706555010308,
+        96.05706552837864
+      ],
+      "angle_degrees": 104.28913366321373,
+      "energy_lowering_rate_PHz": 0.0060590982857757734,
+      "basis_displacement_estimates": {
+        "Q": {
+          "distance_change_pm": [
+            -0.24845151621800285,
+            -0.24845147573796497
+          ],
+          "angle_change_degrees": 0.19203178275465252,
+          "scope": "local estimate using T curvature, not an optimized geometry or error bound"
+        },
+        "T-tail": {
+          "distance_change_pm": [
+            0.005504537682208871,
+            0.005504495552125089
+          ],
+          "angle_change_degrees": -0.021084157192134786,
+          "scope": "local estimate using T curvature, not an optimized geometry or error bound"
+        }
+      },
+      "scope": "post-run numerical/custody review; no new scientific thresholds, observed-target scoring, or qualification of basis-limit accuracy"
+    }
+  },
+  "evidence_archive": "water_equilibrium_reference_record.zip",
+  "next_step": "Separately register a Q-basis relaxation and convergence assessment; none running for this release."
+}
