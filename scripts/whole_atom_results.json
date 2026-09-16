@@ -1,0 +1,2592 @@
+{
+  "schema": "poams.whole_atom.helium.v1",
+  "date": "2026-09-15",
+  "model": "Effective nonrelativistic inverse-distance helium operator; measured alpha; finite point-eye recoil",
+  "status": "Correlated envelope and response solved within the declared model. Intrinsic compact-core structure not derived.",
+  "input_policy": "No helium energy, radius, polarizability or dispersion coefficient is fitted. Species count and symmetry sector are specified, not derived from isotope counts.",
+  "inputs": {
+    "alpha": 0.0072973525643,
+    "h": 6.62607015e-34,
+    "c": 299792458.0,
+    "m_light_kg": 9.1093837139e-31,
+    "M_eye_kg": 6.644657345e-27,
+    "M_eye_uncertainty_kg": 2.1e-36,
+    "eta": 0.00013709335547234302,
+    "Z": 2,
+    "mobile_count": 2,
+    "compact_I": 0,
+    "compact_I_status": "measured state assignment",
+    "intrinsic_pair": "singlet sector specified",
+    "source": "https://physics.nist.gov/cuu/Constants/Table/allascii.txt"
+  },
+  "units": {
+    "length_m": 5.291772105467402e-11,
+    "energy_J": 4.359744722158896e-18,
+    "energy_eV": 27.21138624568717,
+    "rate_Hz": 6579683920428908.0,
+    "force_N": 8.23872350370957e-08,
+    "compliance_m2_per_J": 0.0006423048550039005,
+    "C6_J_m6": 9.573436403496088e-80
+  },
+  "references": {
+    "infinite_energy": -2.9037243770341195,
+    "infinite_static_response": 1.383192174455,
+    "finite_nonrelativistic_static_response": 1.383809986408,
+    "corrected_physical_static_response": 1.38376078,
+    "helium_first_removal_eV": 24.587389011,
+    "H_H_C6": 6.499026705405839,
+    "infinite_He_He_C6": 1.46097783768,
+    "infinite_H_He_C6": 2.82134391528
+  },
+  "sources": [
+    {
+      "title": "NIST ASD helium ionization value",
+      "url": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=2",
+      "role": "observable comparison, not input"
+    },
+    {
+      "title": "Schwartz 2006 helium energy",
+      "url": "https://arxiv.org/abs/math-ph/0605018",
+      "role": "same-operator numerical benchmark"
+    },
+    {
+      "title": "Puchalski, Jentschura and Mohr 2011",
+      "url": "https://www.nist.gov/document/blackbody-radiationpdf",
+      "role": "infinite-eye response benchmark"
+    },
+    {
+      "title": "Puchalski et al. 2020 helium response",
+      "url": "https://arxiv.org/abs/1912.12242",
+      "role": "finite-mass and corrected-response comparisons"
+    },
+    {
+      "title": "Yan, Babb, Dalgarno and Drake 1996",
+      "url": "https://arxiv.org/abs/atom-ph/9607002",
+      "role": "H/H, H/He and He/He dispersion benchmarks"
+    },
+    {
+      "title": "NIST helium isotope and ground state",
+      "url": "https://physics.nist.gov/PhysRefData/Handbook/Tables/heliumtable1.htm",
+      "role": "compact I=0 state input and angular-state correspondence"
+    }
+  ],
+  "convergence": {
+    "infinite": [
+      {
+        "degree": 2,
+        "quadrature": 20,
+        "energy": -2.9034258578074676,
+        "zeta": 1.8148607826380228,
+        "support": {
+          "dimension": 7,
+          "retained": 7,
+          "cutoff": 1e-13,
+          "smallest_retained_relative": 0.00016730927913140634,
+          "most_negative_relative": 0.0
+        },
+        "removal_interval": 0.9034258578074676,
+        "polarizability": 1.3693864851918816,
+        "C6": 1.4485083416865987,
+        "response_support": {
+          "dimension": 10,
+          "retained": 10,
+          "cutoff": 1e-13,
+          "smallest_retained_relative": 0.00011047367874650175,
+          "most_negative_relative": 0.0
+        }
+      },
+      {
+        "degree": 4,
+        "quadrature": 20,
+        "energy": -2.903713945024281,
+        "zeta": 2.0382707923875425,
+        "support": {
+          "dimension": 22,
+          "retained": 22,
+          "cutoff": 1e-13,
+          "smallest_retained_relative": 6.243280760544944e-08,
+          "most_negative_relative": 0.0
+        },
+        "removal_interval": 0.9037139450242808,
+        "polarizability": 1.381767074928497,
+        "C6": 1.4594594870846755,
+        "response_support": {
+          "dimension": 35,
+          "retained": 35,
+          "cutoff": 1e-13,
+          "smallest_retained_relative": 2.6704239056521032e-08,
+          "most_negative_relative": 0.0
+        }
+      },
+      {
+        "degree": 6,
+        "quadrature": 20,
+        "energy": -2.9037237019379574,
+        "zeta": 2.2344693711811576,
+        "support": {
+          "dimension": 50,
+          "retained": 50,
+          "cutoff": 1e-13,
+          "smallest_retained_relative": 2.7773147138353068e-11,
+          "most_negative_relative": 0.0
+        },
+        "removal_interval": 0.9037237019379574,
+        "polarizability": 1.3830571885614995,
+        "C6": 1.460847199281519,
+        "response_support": {
+          "dimension": 84,
+          "retained": 84,
+          "cutoff": 1e-13,
+          "smallest_retained_relative": 6.831210773259963e-12,
+          "most_negative_relative": 0.0
+        }
+      },
+      {
+        "degree": 8,
+        "quadrature": 22,
+        "energy": -2.90372430538862,
+        "zeta": 2.426842934937401,
+        "support": {
+          "dimension": 95,
+          "retained": 92,
+          "cutoff": 1e-13,
+          "smallest_retained_relative": 1.6535261320462883e-13,
+          "most_negative_relative": 0.0
+        },
+        "removal_interval": 0.9037243053886201,
+        "polarizability": 1.3831735748454708,
+        "C6": 1.4609610734847942,
+        "response_support": {
+          "dimension": 165,
+          "retained": 155,
+          "cutoff": 1e-13,
+          "smallest_retained_relative": 1.8275433846452262e-13,
+          "most_negative_relative": 0.0
+        }
+      },
+      {
+        "degree": 10,
+        "quadrature": 24,
+        "energy": -2.9037243660419905,
+        "zeta": 2.6179188131099442,
+        "support": {
+          "dimension": 161,
+          "retained": 136,
+          "cutoff": 1e-13,
+          "smallest_retained_relative": 1.751752564557322e-13,
+          "most_negative_relative": 0.0
+        },
+        "removal_interval": 0.9037243660419905,
+        "polarizability": 1.3831886791674781,
+        "C6": 1.460974871491407,
+        "response_support": {
+          "dimension": 286,
+          "retained": 228,
+          "cutoff": 1e-13,
+          "smallest_retained_relative": 1.1000124634588702e-13,
+          "most_negative_relative": -2.842083273754557e-17
+        }
+      },
+      {
+        "degree": 12,
+        "quadrature": 26,
+        "energy": -2.9037243717966073,
+        "zeta": 2.835925274401201,
+        "support": {
+          "dimension": 252,
+          "retained": 176,
+          "cutoff": 1e-13,
+          "smallest_retained_relative": 1.2018080306385799e-13,
+          "most_negative_relative": -3.1047569938564894e-17
+        },
+        "removal_interval": 0.9037243717966073,
+        "polarizability": 1.3831902171815025,
+        "C6": 1.4609762028012567,
+        "response_support": {
+          "dimension": 455,
+          "retained": 290,
+          "cutoff": 1e-13,
+          "smallest_retained_relative": 1.0451611847539121e-13,
+          "most_negative_relative": -1.6719230334447334e-17
+        }
+      }
+    ],
+    "finite": [
+      {
+        "degree": 2,
+        "quadrature": 20,
+        "energy": -2.9030059974849762,
+        "zeta": 1.814676990835372,
+        "support": {
+          "dimension": 7,
+          "retained": 7,
+          "cutoff": 1e-13,
+          "smallest_retained_relative": 0.00016730927913140634,
+          "most_negative_relative": 0.0
+        },
+        "removal_interval": 0.9032801466118972,
+        "polarizability": 1.3699802089928537,
+        "C6": 1.449620924650453,
+        "response_support": {
+          "dimension": 10,
+          "retained": 10,
+          "cutoff": 1e-13,
+          "smallest_retained_relative": 0.00011047367874650175,
+          "most_negative_relative": 0.0
+        }
+      },
+      {
+        "degree": 4,
+        "quadrature": 20,
+        "energy": -2.903294124421749,
+        "zeta": 2.0380082353586846,
+        "support": {
+          "dimension": 22,
+          "retained": 22,
+          "cutoff": 1e-13,
+          "smallest_retained_relative": 6.243280760544944e-08,
+          "most_negative_relative": 0.0
+        },
+        "removal_interval": 0.9035682735486701,
+        "polarizability": 1.3823834369532655,
+        "C6": 1.460602380865478,
+        "response_support": {
+          "dimension": 35,
+          "retained": 35,
+          "cutoff": 1e-13,
+          "smallest_retained_relative": 2.6704239056521032e-08,
+          "most_negative_relative": 0.0
+        }
+      },
+      {
+        "degree": 6,
+        "quadrature": 20,
+        "energy": -2.9033038825713517,
+        "zeta": 2.2341740090534876,
+        "support": {
+          "dimension": 50,
+          "retained": 50,
+          "cutoff": 1e-13,
+          "smallest_retained_relative": 2.7773147138353068e-11,
+          "most_negative_relative": 0.0
+        },
+        "removal_interval": 0.9035780316982727,
+        "polarizability": 1.3836748684015647,
+        "C6": 1.4619920417535752,
+        "response_support": {
+          "dimension": 84,
+          "retained": 84,
+          "cutoff": 1e-13,
+          "smallest_retained_relative": 6.831210773259963e-12,
+          "most_negative_relative": 0.0
+        }
+      },
+      {
+        "degree": 8,
+        "quadrature": 22,
+        "energy": -2.903304486077902,
+        "zeta": 2.4264602625073457,
+        "support": {
+          "dimension": 95,
+          "retained": 92,
+          "cutoff": 1e-13,
+          "smallest_retained_relative": 1.6535261320462883e-13,
+          "most_negative_relative": 0.0
+        },
+        "removal_interval": 0.9035786352048227,
+        "polarizability": 1.383791384268668,
+        "C6": 1.4621060824747592,
+        "response_support": {
+          "dimension": 165,
+          "retained": 155,
+          "cutoff": 1e-13,
+          "smallest_retained_relative": 1.8275433846452262e-13,
+          "most_negative_relative": 0.0
+        }
+      },
+      {
+        "degree": 10,
+        "quadrature": 24,
+        "energy": -2.9033045467367087,
+        "zeta": 2.6178713006978094,
+        "support": {
+          "dimension": 161,
+          "retained": 136,
+          "cutoff": 1e-13,
+          "smallest_retained_relative": 1.751752564557322e-13,
+          "most_negative_relative": 0.0
+        },
+        "removal_interval": 0.9035786958636296,
+        "polarizability": 1.3838064733969988,
+        "C6": 1.4621198699389932,
+        "response_support": {
+          "dimension": 286,
+          "retained": 228,
+          "cutoff": 1e-13,
+          "smallest_retained_relative": 1.1000124634588702e-13,
+          "most_negative_relative": -2.842083273754557e-17
+        }
+      },
+      {
+        "degree": 12,
+        "quadrature": 26,
+        "energy": -2.9033045524907957,
+        "zeta": 2.835407189320782,
+        "support": {
+          "dimension": 252,
+          "retained": 176,
+          "cutoff": 1e-13,
+          "smallest_retained_relative": 1.2018080306385799e-13,
+          "most_negative_relative": -3.1047569938564894e-17
+        },
+        "removal_interval": 0.9035787016177166,
+        "polarizability": 1.383808029844554,
+        "C6": 1.4621212183719061,
+        "response_support": {
+          "dimension": 455,
+          "retained": 290,
+          "cutoff": 1e-13,
+          "smallest_retained_relative": 1.0451611847539121e-13,
+          "most_negative_relative": -1.6719230334447334e-17
+        }
+      }
+    ],
+    "variants": {
+      "quadrature32": {
+        "degree": 12,
+        "quadrature": 32,
+        "energy": -2.9033045524911683,
+        "zeta": 2.836404017799109,
+        "support": {
+          "dimension": 252,
+          "retained": 176,
+          "cutoff": 1e-13,
+          "smallest_retained_relative": 1.201823517426071e-13,
+          "most_negative_relative": -3.7195124235911486e-17
+        },
+        "removal_interval": 0.9035787016180892,
+        "polarizability": 1.3838080083280748,
+        "C6": 1.4621211995127146,
+        "response_support": {
+          "dimension": 455,
+          "retained": 290,
+          "cutoff": 1e-13,
+          "smallest_retained_relative": 1.0451825718986108e-13,
+          "most_negative_relative": -1.6472058504466697e-17
+        }
+      },
+      "cutoff1e-12": {
+        "degree": 12,
+        "quadrature": 26,
+        "energy": -2.9033045504191004,
+        "zeta": 2.8057164606961496,
+        "support": {
+          "dimension": 252,
+          "retained": 159,
+          "cutoff": 1e-12,
+          "smallest_retained_relative": 1.0241797717696392e-12,
+          "most_negative_relative": -3.1047569938564894e-17
+        },
+        "removal_interval": 0.9035786995460213,
+        "polarizability": 1.383807132020771,
+        "C6": 1.4621203587071139,
+        "response_support": {
+          "dimension": 455,
+          "retained": 256,
+          "cutoff": 1e-12,
+          "smallest_retained_relative": 1.0095316542350827e-12,
+          "most_negative_relative": -1.6719230334447334e-17
+        }
+      },
+      "cutoff1e-14": {
+        "degree": 12,
+        "quadrature": 26,
+        "energy": -2.903304555579753,
+        "zeta": 2.8008090632092997,
+        "support": {
+          "dimension": 252,
+          "retained": 194,
+          "cutoff": 1e-14,
+          "smallest_retained_relative": 1.0258976479947331e-14,
+          "most_negative_relative": -3.1047569938564894e-17
+        },
+        "removal_interval": 0.9035787047066741,
+        "polarizability": 1.383809131770226,
+        "C6": 1.4621221918324152,
+        "response_support": {
+          "dimension": 455,
+          "retained": 322,
+          "cutoff": 1e-14,
+          "smallest_retained_relative": 1.012858226885071e-14,
+          "most_negative_relative": -1.6719230334447334e-17
+        }
+      },
+      "degree14": {
+        "degree": 14,
+        "quadrature": 28,
+        "energy": -2.903304554603042,
+        "zeta": 2.999978950123384,
+        "support": {
+          "dimension": 372,
+          "retained": 214,
+          "cutoff": 1e-13,
+          "smallest_retained_relative": 1.1128210578067741e-13,
+          "most_negative_relative": -5.0741384897200315e-17
+        },
+        "removal_interval": 0.903578703729963,
+        "polarizability": 1.3838089616273783,
+        "C6": 1.462122010786222,
+        "response_support": {
+          "dimension": 680,
+          "retained": 346,
+          "cutoff": 1e-13,
+          "smallest_retained_relative": 1.0108783856963945e-13,
+          "most_negative_relative": -1.5523120781527533e-16
+        }
+      }
+    }
+  },
+  "uncorrelated_baseline": {
+    "energy": -2.8472659087625742,
+    "mean_radius_pm": 47.04442246418893,
+    "first_removal_eV": 23.062739873923114,
+    "zeta": 1.687268701033245
+  },
+  "energy_account": [
+    {
+      "key": "light_kinetic",
+      "label": "Mobile kinetic sum",
+      "value": 2.9028848023904956,
+      "rate_PHz": 19.100064457146193,
+      "energy_J": 1.2655836696257233e-17,
+      "energy_eV": 78.99151958458305
+    },
+    {
+      "key": "eye_recoil",
+      "label": "Compact-component translational recoil",
+      "value": 0.0004197499363594612,
+      "rate_PHz": 0.002761821906865404,
+      "energy_J": 1.8300025696696934e-21,
+      "energy_eV": 0.011421977644879906
+    },
+    {
+      "key": "eye_attraction",
+      "label": "Joint compact/mobile attraction",
+      "value": -6.752306341008997,
+      "rate_PHz": -44.42804145774706,
+      "energy_J": -2.943833193261402e-17,
+      "energy_eV": -183.73961589439847
+    },
+    {
+      "key": "mobile_pair_repulsion",
+      "label": "Joint mobile/mobile repulsion",
+      "value": 0.945697236191343,
+      "rate_PHz": 6.222388898562239,
+      "energy_J": 4.122998534245463e-18,
+      "energy_eV": 25.73373276548148
+    },
+    {
+      "key": "energy",
+      "label": "Total external binding account",
+      "value": -2.9033045524907957,
+      "rate_PHz": -19.102826280131737,
+      "energy_J": -1.2657666699541642e-17,
+      "energy_eV": -79.00294156668897
+    },
+    {
+      "key": "removal_interval",
+      "label": "First-removal interval",
+      "value": 0.9035787016177166,
+      "rate_PHz": 5.94526225387612,
+      "energy_J": 3.939372475433028e-18,
+      "energy_eV": 24.587629053096205
+    }
+  ],
+  "envelope": {
+    "mean_r": 0.9296078785790529,
+    "mean_r2": 1.1938345725242854,
+    "mean_r12": 1.422247447440888,
+    "mean_r12_squared": 2.5170612450847347,
+    "mean_inverse_r": 1.6880765852522541,
+    "mean_cos_angle": -0.06415550791712718,
+    "dipole_z_squared": 0.7527590150041354,
+    "rms_r": 1.0926273713047305,
+    "relative_one_entry_L_squared_over_hbar_squared": 0.009475413006691993,
+    "relative_L1_dot_L2_over_hbar_squared": -0.009475413006691993,
+    "total_orbital_L_squared_over_hbar_squared": 0.0,
+    "mean_pm": 49.1927304088736,
+    "rms_pm": 57.81935045140547,
+    "mean_separation_pm": 75.26209369439906,
+    "radius90_pm": 89.81100130449832,
+    "radius90_status": "numerical radial quantile, not a hard atomic boundary",
+    "radial_profile": [
+      {
+        "radius_pm": 0.0,
+        "probability_per_pm": 0.0
+      },
+      {
+        "radius_pm": 1.0583544210934803,
+        "probability_per_pm": 0.00015870546720881643
+      },
+      {
+        "radius_pm": 2.1167088421869606,
+        "probability_per_pm": 0.0005862777528159644
+      },
+      {
+        "radius_pm": 3.175063263280441,
+        "probability_per_pm": 0.001218623099576211
+      },
+      {
+        "radius_pm": 4.233417684373921,
+        "probability_per_pm": 0.002002010677671727
+      },
+      {
+        "radius_pm": 5.291772105467403,
+        "probability_per_pm": 0.00289164477723987
+      },
+      {
+        "radius_pm": 6.350126526560882,
+        "probability_per_pm": 0.0038504170471138056
+      },
+      {
+        "radius_pm": 7.408480947654364,
+        "probability_per_pm": 0.004847820794373258
+      },
+      {
+        "radius_pm": 8.466835368747843,
+        "probability_per_pm": 0.005858979924094416
+      },
+      {
+        "radius_pm": 9.525189789841322,
+        "probability_per_pm": 0.006863824195546103
+      },
+      {
+        "radius_pm": 10.583544210934805,
+        "probability_per_pm": 0.007846383420558484
+      },
+      {
+        "radius_pm": 11.641898632028285,
+        "probability_per_pm": 0.008794157475477472
+      },
+      {
+        "radius_pm": 12.700253053121765,
+        "probability_per_pm": 0.009697538776023636
+      },
+      {
+        "radius_pm": 13.758607474215246,
+        "probability_per_pm": 0.01054936937317711
+      },
+      {
+        "radius_pm": 14.816961895308728,
+        "probability_per_pm": 0.011344556109251908
+      },
+      {
+        "radius_pm": 15.875316316402206,
+        "probability_per_pm": 0.012079724766339114
+      },
+      {
+        "radius_pm": 16.933670737495685,
+        "probability_per_pm": 0.012752902879493417
+      },
+      {
+        "radius_pm": 17.99202515858917,
+        "probability_per_pm": 0.013363231883078428
+      },
+      {
+        "radius_pm": 19.050379579682645,
+        "probability_per_pm": 0.013910795266081306
+      },
+      {
+        "radius_pm": 20.10873400077613,
+        "probability_per_pm": 0.014396443824099762
+      },
+      {
+        "radius_pm": 21.16708842186961,
+        "probability_per_pm": 0.014821637972102768
+      },
+      {
+        "radius_pm": 22.225442842963087,
+        "probability_per_pm": 0.015188312169848377
+      },
+      {
+        "radius_pm": 23.28379726405657,
+        "probability_per_pm": 0.015498728031710252
+      },
+      {
+        "radius_pm": 24.34215168515005,
+        "probability_per_pm": 0.015755381460579174
+      },
+      {
+        "radius_pm": 25.40050610624353,
+        "probability_per_pm": 0.015960962271300696
+      },
+      {
+        "radius_pm": 26.45886052733701,
+        "probability_per_pm": 0.016118290274622932
+      },
+      {
+        "radius_pm": 27.517214948430492,
+        "probability_per_pm": 0.016230260079616827
+      },
+      {
+        "radius_pm": 28.575569369523972,
+        "probability_per_pm": 0.016299795879654386
+      },
+      {
+        "radius_pm": 29.633923790617455,
+        "probability_per_pm": 0.016329805191855597
+      },
+      {
+        "radius_pm": 30.692278211710928,
+        "probability_per_pm": 0.016323124056656223
+      },
+      {
+        "radius_pm": 31.75063263280441,
+        "probability_per_pm": 0.016282520152517528
+      },
+      {
+        "radius_pm": 32.808987053897894,
+        "probability_per_pm": 0.01621068890296254
+      },
+      {
+        "radius_pm": 33.86734147499137,
+        "probability_per_pm": 0.016110238443856187
+      },
+      {
+        "radius_pm": 34.925695896084854,
+        "probability_per_pm": 0.015983678301858255
+      },
+      {
+        "radius_pm": 35.98405031717834,
+        "probability_per_pm": 0.015833411348480615
+      },
+      {
+        "radius_pm": 37.04240473827181,
+        "probability_per_pm": 0.015661726910580844
+      },
+      {
+        "radius_pm": 38.10075915936529,
+        "probability_per_pm": 0.015470783911819165
+      },
+      {
+        "radius_pm": 39.15911358045877,
+        "probability_per_pm": 0.015262609908292936
+      },
+      {
+        "radius_pm": 40.21746800155226,
+        "probability_per_pm": 0.015039118082012725
+      },
+      {
+        "radius_pm": 41.27582242264574,
+        "probability_per_pm": 0.014802110289780415
+      },
+      {
+        "radius_pm": 42.33417684373922,
+        "probability_per_pm": 0.014553278288290412
+      },
+      {
+        "radius_pm": 43.392531264832705,
+        "probability_per_pm": 0.014294205933429435
+      },
+      {
+        "radius_pm": 44.450885685926174,
+        "probability_per_pm": 0.014026372096869704
+      },
+      {
+        "radius_pm": 45.50924010701966,
+        "probability_per_pm": 0.013751153887742873
+      },
+      {
+        "radius_pm": 46.56759452811314,
+        "probability_per_pm": 0.013469826349969745
+      },
+      {
+        "radius_pm": 47.625948949206624,
+        "probability_per_pm": 0.013183561919612953
+      },
+      {
+        "radius_pm": 48.6843033703001,
+        "probability_per_pm": 0.01289344183024951
+      },
+      {
+        "radius_pm": 49.74265779139358,
+        "probability_per_pm": 0.012600464462314335
+      },
+      {
+        "radius_pm": 50.80101221248706,
+        "probability_per_pm": 0.012305549397258243
+      },
+      {
+        "radius_pm": 51.85936663358054,
+        "probability_per_pm": 0.012009541303507154
+      },
+      {
+        "radius_pm": 52.91772105467402,
+        "probability_per_pm": 0.011713213883494236
+      },
+      {
+        "radius_pm": 53.9760754757675,
+        "probability_per_pm": 0.011417273813931754
+      },
+      {
+        "radius_pm": 55.034429896860985,
+        "probability_per_pm": 0.011122364583516993
+      },
+      {
+        "radius_pm": 56.09278431795446,
+        "probability_per_pm": 0.010829069263738687
+      },
+      {
+        "radius_pm": 57.151138739047944,
+        "probability_per_pm": 0.010537911984056037
+      },
+      {
+        "radius_pm": 58.20949316014143,
+        "probability_per_pm": 0.01024936278951584
+      },
+      {
+        "radius_pm": 59.26784758123491,
+        "probability_per_pm": 0.00996384360785487
+      },
+      {
+        "radius_pm": 60.32620200232839,
+        "probability_per_pm": 0.009681731882428145
+      },
+      {
+        "radius_pm": 61.384556423421856,
+        "probability_per_pm": 0.009403363474891808
+      },
+      {
+        "radius_pm": 62.44291084451534,
+        "probability_per_pm": 0.009129035459343985
+      },
+      {
+        "radius_pm": 63.50126526560882,
+        "probability_per_pm": 0.008859008809659
+      },
+      {
+        "radius_pm": 64.5596196867023,
+        "probability_per_pm": 0.008593510970200596
+      },
+      {
+        "radius_pm": 65.61797410779579,
+        "probability_per_pm": 0.008332738286415625
+      },
+      {
+        "radius_pm": 66.67632852888926,
+        "probability_per_pm": 0.008076858082173368
+      },
+      {
+        "radius_pm": 67.73468294998274,
+        "probability_per_pm": 0.00782601020687014
+      },
+      {
+        "radius_pm": 68.79303737107622,
+        "probability_per_pm": 0.007580309116880857
+      },
+      {
+        "radius_pm": 69.85139179216971,
+        "probability_per_pm": 0.007339846676165453
+      },
+      {
+        "radius_pm": 70.90974621326319,
+        "probability_per_pm": 0.007104694363618225
+      },
+      {
+        "radius_pm": 71.96810063435667,
+        "probability_per_pm": 0.006874904964245073
+      },
+      {
+        "radius_pm": 73.02645505545016,
+        "probability_per_pm": 0.006650514109546472
+      },
+      {
+        "radius_pm": 74.08480947654363,
+        "probability_per_pm": 0.006431541732936999
+      },
+      {
+        "radius_pm": 75.1431638976371,
+        "probability_per_pm": 0.006217993440441592
+      },
+      {
+        "radius_pm": 76.20151831873058,
+        "probability_per_pm": 0.006009861797997377
+      },
+      {
+        "radius_pm": 77.25987273982406,
+        "probability_per_pm": 0.005807127531104005
+      },
+      {
+        "radius_pm": 78.31822716091754,
+        "probability_per_pm": 0.005609760596189827
+      },
+      {
+        "radius_pm": 79.37658158201103,
+        "probability_per_pm": 0.005417721083488555
+      },
+      {
+        "radius_pm": 80.43493600310453,
+        "probability_per_pm": 0.005230960139282998
+      },
+      {
+        "radius_pm": 81.493290424198,
+        "probability_per_pm": 0.005049421060703697
+      },
+      {
+        "radius_pm": 82.55164484529148,
+        "probability_per_pm": 0.004873040300755183
+      },
+      {
+        "radius_pm": 83.60999926638496,
+        "probability_per_pm": 0.004701748278892593
+      },
+      {
+        "radius_pm": 84.66835368747844,
+        "probability_per_pm": 0.004535470090574797
+      },
+      {
+        "radius_pm": 85.72670810857193,
+        "probability_per_pm": 0.004374126162637933
+      },
+      {
+        "radius_pm": 86.78506252966541,
+        "probability_per_pm": 0.0042176328624598525
+      },
+      {
+        "radius_pm": 87.8434169507589,
+        "probability_per_pm": 0.0040659030627798205
+      },
+      {
+        "radius_pm": 88.90177137185235,
+        "probability_per_pm": 0.003918846664118947
+      },
+      {
+        "radius_pm": 89.96012579294583,
+        "probability_per_pm": 0.003776371075111095
+      },
+      {
+        "radius_pm": 91.01848021403931,
+        "probability_per_pm": 0.0036383816450935897
+      },
+      {
+        "radius_pm": 92.0768346351328,
+        "probability_per_pm": 0.0035047820439338493
+      },
+      {
+        "radius_pm": 93.13518905622628,
+        "probability_per_pm": 0.0033754746184461587
+      },
+      {
+        "radius_pm": 94.19354347731976,
+        "probability_per_pm": 0.0032503607641542805
+      },
+      {
+        "radius_pm": 95.25189789841325,
+        "probability_per_pm": 0.003129341280643713
+      },
+      {
+        "radius_pm": 96.31025231950672,
+        "probability_per_pm": 0.003012316673819962
+      },
+      {
+        "radius_pm": 97.3686067406002,
+        "probability_per_pm": 0.002899187415288086
+      },
+      {
+        "radius_pm": 98.42696116169368,
+        "probability_per_pm": 0.0027898541743628155
+      },
+      {
+        "radius_pm": 99.48531558278717,
+        "probability_per_pm": 0.0026842180284506016
+      },
+      {
+        "radius_pm": 100.54367000388065,
+        "probability_per_pm": 0.002582180653639042
+      },
+      {
+        "radius_pm": 101.60202442497412,
+        "probability_per_pm": 0.0024836444967034133
+      },
+      {
+        "radius_pm": 102.6603788460676,
+        "probability_per_pm": 0.002388512929649629
+      },
+      {
+        "radius_pm": 103.71873326716108,
+        "probability_per_pm": 0.0022966903875381093
+      },
+      {
+        "radius_pm": 104.77708768825455,
+        "probability_per_pm": 0.002208082489500573
+      },
+      {
+        "radius_pm": 105.83544210934804,
+        "probability_per_pm": 0.0021225961431065557
+      },
+      {
+        "radius_pm": 106.89379653044152,
+        "probability_per_pm": 0.0020401396366239786
+      },
+      {
+        "radius_pm": 107.952150951535,
+        "probability_per_pm": 0.001960622726213618
+      },
+      {
+        "radius_pm": 109.01050537262849,
+        "probability_per_pm": 0.0018839567163939823
+      },
+      {
+        "radius_pm": 110.06885979372197,
+        "probability_per_pm": 0.001810054527315795
+      },
+      {
+        "radius_pm": 111.12721421481545,
+        "probability_per_pm": 0.0017388307485505738
+      },
+      {
+        "radius_pm": 112.18556863590892,
+        "probability_per_pm": 0.0016702016825119101
+      },
+      {
+        "radius_pm": 113.2439230570024,
+        "probability_per_pm": 0.001604085379628597
+      },
+      {
+        "radius_pm": 114.30227747809589,
+        "probability_per_pm": 0.0015404016662808212
+      },
+      {
+        "radius_pm": 115.36063189918937,
+        "probability_per_pm": 0.001479072166124824
+      },
+      {
+        "radius_pm": 116.41898632028285,
+        "probability_per_pm": 0.0014200203153388012
+      },
+      {
+        "radius_pm": 117.47734074137635,
+        "probability_per_pm": 0.0013631713722765692
+      },
+      {
+        "radius_pm": 118.53569516246982,
+        "probability_per_pm": 0.001308452421936936
+      },
+      {
+        "radius_pm": 119.5940495835633,
+        "probability_per_pm": 0.001255792375546391
+      },
+      {
+        "radius_pm": 120.65240400465677,
+        "probability_per_pm": 0.0012051219655882803
+      },
+      {
+        "radius_pm": 121.71075842575027,
+        "probability_per_pm": 0.001156373737075398
+      },
+      {
+        "radius_pm": 122.76911284684371,
+        "probability_per_pm": 0.0011094820362189375
+      },
+      {
+        "radius_pm": 123.82746726793721,
+        "probability_per_pm": 0.0010643829968089876
+      },
+      {
+        "radius_pm": 124.88582168903068,
+        "probability_per_pm": 0.0010210145236933452
+      },
+      {
+        "radius_pm": 125.94417611012418,
+        "probability_per_pm": 0.0009793162731645294
+      },
+      {
+        "radius_pm": 127.00253053121764,
+        "probability_per_pm": 0.0009392296307270905
+      },
+      {
+        "radius_pm": 128.06088495231114,
+        "probability_per_pm": 0.0009006976867775219
+      },
+      {
+        "radius_pm": 129.1192393734046,
+        "probability_per_pm": 0.0008636652105582676
+      },
+      {
+        "radius_pm": 130.1775937944981,
+        "probability_per_pm": 0.0008280786226344307
+      },
+      {
+        "radius_pm": 131.23594821559158,
+        "probability_per_pm": 0.0007938859660949979
+      },
+      {
+        "radius_pm": 132.29430263668505,
+        "probability_per_pm": 0.0007610368766592563
+      },
+      {
+        "radius_pm": 133.35265705777852,
+        "probability_per_pm": 0.0007294825518527588
+      },
+      {
+        "radius_pm": 134.411011478872,
+        "probability_per_pm": 0.0006991757193989289
+      },
+      {
+        "radius_pm": 135.46936589996548,
+        "probability_per_pm": 0.0006700706049538015
+      },
+      {
+        "radius_pm": 136.52772032105898,
+        "probability_per_pm": 0.0006421228993090408
+      },
+      {
+        "radius_pm": 137.58607474215245,
+        "probability_per_pm": 0.0006152897252238557
+      },
+      {
+        "radius_pm": 138.64442916324595,
+        "probability_per_pm": 0.0005895296040793767
+      },
+      {
+        "radius_pm": 139.70278358433941,
+        "probability_per_pm": 0.000564802422481426
+      },
+      {
+        "radius_pm": 140.7611380054329,
+        "probability_per_pm": 0.0005410693988199256
+      },
+      {
+        "radius_pm": 141.81949242652638,
+        "probability_per_pm": 0.0005182930497854156
+      },
+      {
+        "radius_pm": 142.87784684761988,
+        "probability_per_pm": 0.0004964371569128993
+      },
+      {
+        "radius_pm": 143.93620126871335,
+        "probability_per_pm": 0.00047546673325423453
+      },
+      {
+        "radius_pm": 144.99455568980684,
+        "probability_per_pm": 0.00045534799026639
+      },
+      {
+        "radius_pm": 146.0529101109003,
+        "probability_per_pm": 0.00043604830498207196
+      },
+      {
+        "radius_pm": 147.11126453199378,
+        "probability_per_pm": 0.00041753618751558225
+      },
+      {
+        "radius_pm": 148.16961895308725,
+        "probability_per_pm": 0.00039978124894871796
+      },
+      {
+        "radius_pm": 149.22797337418072,
+        "probability_per_pm": 0.0003827541696358888
+      },
+      {
+        "radius_pm": 150.2863277952742,
+        "probability_per_pm": 0.0003664266679627171
+      },
+      {
+        "radius_pm": 151.3446822163677,
+        "probability_per_pm": 0.00035077146958772753
+      },
+      {
+        "radius_pm": 152.40303663746116,
+        "probability_per_pm": 0.0003357622771924067
+      },
+      {
+        "radius_pm": 153.46139105855465,
+        "probability_per_pm": 0.00032137374076223976
+      },
+      {
+        "radius_pm": 154.51974547964812,
+        "probability_per_pm": 0.0003075814284216656
+      },
+      {
+        "radius_pm": 155.57809990074162,
+        "probability_per_pm": 0.00029436179784671777
+      },
+      {
+        "radius_pm": 156.6364543218351,
+        "probability_per_pm": 0.0002816921682733589
+      },
+      {
+        "radius_pm": 157.6948087429286,
+        "probability_per_pm": 0.0002695506931074499
+      },
+      {
+        "radius_pm": 158.75316316402206,
+        "probability_per_pm": 0.0002579163331358503
+      },
+      {
+        "radius_pm": 159.81151758511555,
+        "probability_per_pm": 0.0002467688303410556
+      },
+      {
+        "radius_pm": 160.86987200620905,
+        "probability_per_pm": 0.00023608868232549032
+      },
+      {
+        "radius_pm": 161.92822642730252,
+        "probability_per_pm": 0.00022585711735105852
+      },
+      {
+        "radius_pm": 162.986580848396,
+        "probability_per_pm": 0.0002160560699968225
+      },
+      {
+        "radius_pm": 164.04493526948946,
+        "probability_per_pm": 0.0002066681574349855
+      },
+      {
+        "radius_pm": 165.10328969058295,
+        "probability_per_pm": 0.0001976766563233497
+      },
+      {
+        "radius_pm": 166.16164411167642,
+        "probability_per_pm": 0.00018906548031096226
+      },
+      {
+        "radius_pm": 167.21999853276992,
+        "probability_per_pm": 0.00018081915815243047
+      },
+      {
+        "radius_pm": 168.2783529538634,
+        "probability_per_pm": 0.00017292281242538046
+      },
+      {
+        "radius_pm": 169.3367073749569,
+        "probability_per_pm": 0.0001653621388445756
+      },
+      {
+        "radius_pm": 170.39506179605036,
+        "probability_per_pm": 0.00015812338616540296
+      },
+      {
+        "radius_pm": 171.45341621714385,
+        "probability_per_pm": 0.0001511933366688021
+      },
+      {
+        "radius_pm": 172.51177063823732,
+        "probability_per_pm": 0.00014455928721931148
+      },
+      {
+        "radius_pm": 173.57012505933082,
+        "probability_per_pm": 0.00013820903088767605
+      },
+      {
+        "radius_pm": 174.6284794804243,
+        "probability_per_pm": 0.00013213083912890042
+      },
+      {
+        "radius_pm": 175.6868339015178,
+        "probability_per_pm": 0.0001263134445056317
+      },
+      {
+        "radius_pm": 176.74518832261123,
+        "probability_per_pm": 0.00012074602394585681
+      },
+      {
+        "radius_pm": 177.8035427437047,
+        "probability_per_pm": 0.00011541818252371896
+      },
+      {
+        "radius_pm": 178.86189716479817,
+        "probability_per_pm": 0.0001103199377524973
+      },
+      {
+        "radius_pm": 179.92025158589166,
+        "probability_per_pm": 0.0001054417043789029
+      },
+      {
+        "radius_pm": 180.97860600698513,
+        "probability_per_pm": 0.0001007742796677259
+      },
+      {
+        "radius_pm": 182.03696042807863,
+        "probability_per_pm": 9.630882916567499e-05
+      },
+      {
+        "radius_pm": 183.0953148491721,
+        "probability_per_pm": 9.20368729330883e-05
+      },
+      {
+        "radius_pm": 184.1536692702656,
+        "probability_per_pm": 8.795027223212241e-05
+      },
+      {
+        "radius_pm": 185.21202369135906,
+        "probability_per_pm": 8.404121665999431e-05
+      },
+      {
+        "radius_pm": 186.27037811245256,
+        "probability_per_pm": 8.030221171586803e-05
+      },
+      {
+        "radius_pm": 187.32873253354603,
+        "probability_per_pm": 7.672606679001785e-05
+      },
+      {
+        "radius_pm": 188.38708695463953,
+        "probability_per_pm": 7.330588356397347e-05
+      },
+      {
+        "radius_pm": 189.445441375733,
+        "probability_per_pm": 7.003504481043358e-05
+      },
+      {
+        "radius_pm": 190.5037957968265,
+        "probability_per_pm": 6.690720358185222e-05
+      },
+      {
+        "radius_pm": 191.56215021791996,
+        "probability_per_pm": 6.391627277673816e-05
+      },
+      {
+        "radius_pm": 192.62050463901343,
+        "probability_per_pm": 6.105641507286171e-05
+      },
+      {
+        "radius_pm": 193.6788590601069,
+        "probability_per_pm": 5.832203321671955e-05
+      },
+      {
+        "radius_pm": 194.7372134812004,
+        "probability_per_pm": 5.570776065874651e-05
+      },
+      {
+        "radius_pm": 195.79556790229387,
+        "probability_per_pm": 5.3208452523887946e-05
+      },
+      {
+        "radius_pm": 196.85392232338737,
+        "probability_per_pm": 5.081917690731296e-05
+      },
+      {
+        "radius_pm": 197.91227674448083,
+        "probability_per_pm": 4.853520648525977e-05
+      },
+      {
+        "radius_pm": 198.97063116557433,
+        "probability_per_pm": 4.635201043122238e-05
+      },
+      {
+        "radius_pm": 200.0289855866678,
+        "probability_per_pm": 4.426524662789967e-05
+      },
+      {
+        "radius_pm": 201.0873400077613,
+        "probability_per_pm": 4.2270754165536804e-05
+      },
+      {
+        "radius_pm": 202.14569442885477,
+        "probability_per_pm": 4.036454611747843e-05
+      },
+      {
+        "radius_pm": 203.20404884994824,
+        "probability_per_pm": 3.8542802583966074e-05
+      },
+      {
+        "radius_pm": 204.2624032710417,
+        "probability_per_pm": 3.680186399540889e-05
+      },
+      {
+        "radius_pm": 205.3207576921352,
+        "probability_per_pm": 3.5138224666574774e-05
+      },
+      {
+        "radius_pm": 206.37911211322867,
+        "probability_per_pm": 3.354852659335225e-05
+      },
+      {
+        "radius_pm": 207.43746653432217,
+        "probability_per_pm": 3.202955348394864e-05
+      },
+      {
+        "radius_pm": 208.49582095541564,
+        "probability_per_pm": 3.057822501659856e-05
+      },
+      {
+        "radius_pm": 209.5541753765091,
+        "probability_per_pm": 2.919159131606612e-05
+      },
+      {
+        "radius_pm": 210.61252979760258,
+        "probability_per_pm": 2.7866827641432968e-05
+      },
+      {
+        "radius_pm": 211.67088421869607,
+        "probability_per_pm": 2.6601229277870545e-05
+      },
+      {
+        "radius_pm": 212.72923863978957,
+        "probability_per_pm": 2.5392206625299648e-05
+      },
+      {
+        "radius_pm": 213.78759306088304,
+        "probability_per_pm": 2.4237280477042953e-05
+      },
+      {
+        "radius_pm": 214.84594748197654,
+        "probability_per_pm": 2.3134077481774207e-05
+      },
+      {
+        "radius_pm": 215.90430190307,
+        "probability_per_pm": 2.2080325782262084e-05
+      },
+      {
+        "radius_pm": 216.96265632416348,
+        "probability_per_pm": 2.1073850824596445e-05
+      },
+      {
+        "radius_pm": 218.02101074525697,
+        "probability_per_pm": 2.0112571331777352e-05
+      },
+      {
+        "radius_pm": 219.07936516635044,
+        "probability_per_pm": 1.9194495435731868e-05
+      },
+      {
+        "radius_pm": 220.13771958744394,
+        "probability_per_pm": 1.83177169620088e-05
+      },
+      {
+        "radius_pm": 221.1960740085374,
+        "probability_per_pm": 1.7480411861583557e-05
+      },
+      {
+        "radius_pm": 222.2544284296309,
+        "probability_per_pm": 1.66808347843776e-05
+      },
+      {
+        "radius_pm": 223.31278285072437,
+        "probability_per_pm": 1.5917315789270174e-05
+      },
+      {
+        "radius_pm": 224.37113727181784,
+        "probability_per_pm": 1.5188257185548522e-05
+      },
+      {
+        "radius_pm": 225.4294916929113,
+        "probability_per_pm": 1.4492130500904304e-05
+      },
+      {
+        "radius_pm": 226.4878461140048,
+        "probability_per_pm": 1.382747357124699e-05
+      },
+      {
+        "radius_pm": 227.54620053509828,
+        "probability_per_pm": 1.3192887747758394e-05
+      },
+      {
+        "radius_pm": 228.60455495619178,
+        "probability_per_pm": 1.2587035216767805e-05
+      },
+      {
+        "radius_pm": 229.66290937728525,
+        "probability_per_pm": 1.2008636428173934e-05
+      },
+      {
+        "radius_pm": 230.72126379837874,
+        "probability_per_pm": 1.1456467628285189e-05
+      },
+      {
+        "radius_pm": 231.7796182194722,
+        "probability_per_pm": 1.092935849309103e-05
+      },
+      {
+        "radius_pm": 232.8379726405657,
+        "probability_per_pm": 1.0426189858113844e-05
+      },
+      {
+        "radius_pm": 233.89632706165918,
+        "probability_per_pm": 9.94589154112482e-06
+      },
+      {
+        "radius_pm": 234.9546814827527,
+        "probability_per_pm": 9.48744025413562e-06
+      },
+      {
+        "radius_pm": 236.01303590384612,
+        "probability_per_pm": 9.049857601205595e-06
+      },
+      {
+        "radius_pm": 237.07139032493964,
+        "probability_per_pm": 8.632208158724207e-06
+      },
+      {
+        "radius_pm": 238.1297447460331,
+        "probability_per_pm": 8.233597634948947e-06
+      },
+      {
+        "radius_pm": 239.1880991671266,
+        "probability_per_pm": 7.853171105692634e-06
+      },
+      {
+        "radius_pm": 240.24645358822005,
+        "probability_per_pm": 7.490111323166484e-06
+      },
+      {
+        "radius_pm": 241.30480800931355,
+        "probability_per_pm": 7.143637095093604e-06
+      },
+      {
+        "radius_pm": 242.36316243040702,
+        "probability_per_pm": 6.813001731312431e-06
+      },
+      {
+        "radius_pm": 243.42151685150054,
+        "probability_per_pm": 6.497491555190933e-06
+      },
+      {
+        "radius_pm": 244.47987127259395,
+        "probability_per_pm": 6.196424477271872e-06
+      },
+      {
+        "radius_pm": 245.53822569368742,
+        "probability_per_pm": 5.909148628663592e-06
+      },
+      {
+        "radius_pm": 246.59658011478095,
+        "probability_per_pm": 5.635041051783861e-06
+      },
+      {
+        "radius_pm": 247.65493453587442,
+        "probability_per_pm": 5.373506446153338e-06
+      },
+      {
+        "radius_pm": 248.7132889569679,
+        "probability_per_pm": 5.123975967020586e-06
+      },
+      {
+        "radius_pm": 249.77164337806136,
+        "probability_per_pm": 4.885906074686291e-06
+      },
+      {
+        "radius_pm": 250.82999779915488,
+        "probability_per_pm": 4.658777432472241e-06
+      },
+      {
+        "radius_pm": 251.88835222024835,
+        "probability_per_pm": 4.442093851360743e-06
+      },
+      {
+        "radius_pm": 252.94670664134182,
+        "probability_per_pm": 4.2353812794042775e-06
+      },
+      {
+        "radius_pm": 254.0050610624353,
+        "probability_per_pm": 4.038186834078674e-06
+      },
+      {
+        "radius_pm": 255.0634154835288,
+        "probability_per_pm": 3.850077875822519e-06
+      },
+      {
+        "radius_pm": 256.1217699046223,
+        "probability_per_pm": 3.670641121074176e-06
+      },
+      {
+        "radius_pm": 257.1801243257157,
+        "probability_per_pm": 3.4994817931826453e-06
+      },
+      {
+        "radius_pm": 258.2384787468092,
+        "probability_per_pm": 3.3362228096318594e-06
+      },
+      {
+        "radius_pm": 259.2968331679027,
+        "probability_per_pm": 3.180504004078713e-06
+      },
+      {
+        "radius_pm": 260.3551875889962,
+        "probability_per_pm": 3.0319813817643338e-06
+      },
+      {
+        "radius_pm": 261.41354201008966,
+        "probability_per_pm": 2.890326406913993e-06
+      },
+      {
+        "radius_pm": 262.47189643118315,
+        "probability_per_pm": 2.755225320796377e-06
+      },
+      {
+        "radius_pm": 263.53025085227665,
+        "probability_per_pm": 2.6263784891649293e-06
+      },
+      {
+        "radius_pm": 264.5886052733701,
+        "probability_per_pm": 2.5034997778551875e-06
+      },
+      {
+        "radius_pm": 265.6469596944636,
+        "probability_per_pm": 2.3863159553604492e-06
+      },
+      {
+        "radius_pm": 266.70531411555703,
+        "probability_per_pm": 2.274566121255342e-06
+      },
+      {
+        "radius_pm": 267.7636685366506,
+        "probability_per_pm": 2.1680011593822197e-06
+      },
+      {
+        "radius_pm": 268.822022957744,
+        "probability_per_pm": 2.0663832147587074e-06
+      },
+      {
+        "radius_pm": 269.8803773788375,
+        "probability_per_pm": 1.9694851932068526e-06
+      },
+      {
+        "radius_pm": 270.93873179993096,
+        "probability_per_pm": 1.8770902827446463e-06
+      },
+      {
+        "radius_pm": 271.99708622102446,
+        "probability_per_pm": 1.7889914958195697e-06
+      },
+      {
+        "radius_pm": 273.05544064211796,
+        "probability_per_pm": 1.7049912315012724e-06
+      },
+      {
+        "radius_pm": 274.11379506321146,
+        "probability_per_pm": 1.6249008567863446e-06
+      },
+      {
+        "radius_pm": 275.1721494843049,
+        "probability_per_pm": 1.548540306202745e-06
+      },
+      {
+        "radius_pm": 276.2305039053984,
+        "probability_per_pm": 1.475737698934867e-06
+      },
+      {
+        "radius_pm": 277.2888583264919,
+        "probability_per_pm": 1.406328972722008e-06
+      },
+      {
+        "radius_pm": 278.34721274758533,
+        "probability_per_pm": 1.3401575338138037e-06
+      },
+      {
+        "radius_pm": 279.40556716867883,
+        "probability_per_pm": 1.2770739222958024e-06
+      },
+      {
+        "radius_pm": 280.46392158977227,
+        "probability_per_pm": 1.2169354921267006e-06
+      },
+      {
+        "radius_pm": 281.5222760108658,
+        "probability_per_pm": 1.159606105255906e-06
+      },
+      {
+        "radius_pm": 282.58063043195926,
+        "probability_per_pm": 1.104955839216585e-06
+      },
+      {
+        "radius_pm": 283.63898485305276,
+        "probability_per_pm": 1.0528607076142516e-06
+      },
+      {
+        "radius_pm": 284.6973392741462,
+        "probability_per_pm": 1.0032023929551834e-06
+      },
+      {
+        "radius_pm": 285.75569369523976,
+        "probability_per_pm": 9.55867991282366e-07
+      },
+      {
+        "radius_pm": 286.8140481163332,
+        "probability_per_pm": 9.107497681086007e-07
+      },
+      {
+        "radius_pm": 287.8724025374267,
+        "probability_per_pm": 8.677449251581153e-07
+      },
+      {
+        "radius_pm": 288.93075695852013,
+        "probability_per_pm": 8.267553774484508e-07
+      },
+      {
+        "radius_pm": 289.9891113796137,
+        "probability_per_pm": 7.876875402639762e-07
+      },
+      {
+        "radius_pm": 291.04746580070713,
+        "probability_per_pm": 7.504521255915185e-07
+      },
+      {
+        "radius_pm": 292.1058202218006,
+        "probability_per_pm": 7.14963947606601e-07
+      },
+      {
+        "radius_pm": 293.16417464289407,
+        "probability_per_pm": 6.811417368162238e-07
+      },
+      {
+        "radius_pm": 294.22252906398757,
+        "probability_per_pm": 6.489079624808432e-07
+      },
+      {
+        "radius_pm": 295.28088348508106,
+        "probability_per_pm": 6.181886629542304e-07
+      },
+      {
+        "radius_pm": 296.3392379061745,
+        "probability_per_pm": 5.889132835952024e-07
+      },
+      {
+        "radius_pm": 297.397592327268,
+        "probability_per_pm": 5.610145219200801e-07
+      },
+      {
+        "radius_pm": 298.45594674836144,
+        "probability_per_pm": 5.344281796786631e-07
+      },
+      {
+        "radius_pm": 299.514301169455,
+        "probability_per_pm": 5.090930215502588e-07
+      },
+      {
+        "radius_pm": 300.5726555905484,
+        "probability_per_pm": 4.849506401692333e-07
+      },
+      {
+        "radius_pm": 301.63101001164193,
+        "probability_per_pm": 4.6194532720181864e-07
+      },
+      {
+        "radius_pm": 302.6893644327354,
+        "probability_per_pm": 4.400239502082046e-07
+      },
+      {
+        "radius_pm": 303.7477188538289,
+        "probability_per_pm": 4.1913583503503324e-07
+      },
+      {
+        "radius_pm": 304.8060732749223,
+        "probability_per_pm": 3.992326534945916e-07
+      },
+      {
+        "radius_pm": 305.86442769601587,
+        "probability_per_pm": 3.802683160974106e-07
+      },
+      {
+        "radius_pm": 306.9227821171093,
+        "probability_per_pm": 3.6219886961507353e-07
+      },
+      {
+        "radius_pm": 307.9811365382028,
+        "probability_per_pm": 3.4498239925968217e-07
+      },
+      {
+        "radius_pm": 309.03949095929624,
+        "probability_per_pm": 3.285789352756302e-07
+      },
+      {
+        "radius_pm": 310.09784538038974,
+        "probability_per_pm": 3.1295036374823847e-07
+      },
+      {
+        "radius_pm": 311.15619980148324,
+        "probability_per_pm": 2.980603414422602e-07
+      },
+      {
+        "radius_pm": 312.21455422257674,
+        "probability_per_pm": 2.838742144913273e-07
+      },
+      {
+        "radius_pm": 313.2729086436702,
+        "probability_per_pm": 2.703589407673218e-07
+      },
+      {
+        "radius_pm": 314.3312630647637,
+        "probability_per_pm": 2.574830157659325e-07
+      },
+      {
+        "radius_pm": 315.3896174858572,
+        "probability_per_pm": 2.452164018519249e-07
+      },
+      {
+        "radius_pm": 316.44797190695067,
+        "probability_per_pm": 2.335304607144013e-07
+      },
+      {
+        "radius_pm": 317.5063263280441,
+        "probability_per_pm": 2.223978888889086e-07
+      },
+      {
+        "radius_pm": 318.5646807491376,
+        "probability_per_pm": 2.1179265620946592e-07
+      },
+      {
+        "radius_pm": 319.6230351702311,
+        "probability_per_pm": 2.0168994705963164e-07
+      },
+      {
+        "radius_pm": 320.6813895913246,
+        "probability_per_pm": 1.920661042974056e-07
+      },
+      {
+        "radius_pm": 321.7397440124181,
+        "probability_per_pm": 1.8289857573429707e-07
+      },
+      {
+        "radius_pm": 322.79809843351154,
+        "probability_per_pm": 1.741658630541103e-07
+      },
+      {
+        "radius_pm": 323.85645285460504,
+        "probability_per_pm": 1.658474730620729e-07
+      },
+      {
+        "radius_pm": 324.91480727569854,
+        "probability_per_pm": 1.579238711596764e-07
+      },
+      {
+        "radius_pm": 325.973161696792,
+        "probability_per_pm": 1.5037643694527812e-07
+      },
+      {
+        "radius_pm": 327.0315161178854,
+        "probability_per_pm": 1.4318742184486813e-07
+      },
+      {
+        "radius_pm": 328.0898705389789,
+        "probability_per_pm": 1.3633990868164852e-07
+      },
+      {
+        "radius_pm": 329.1482249600724,
+        "probability_per_pm": 1.2981777309710034e-07
+      },
+      {
+        "radius_pm": 330.2065793811659,
+        "probability_per_pm": 1.2360564674005717e-07
+      },
+      {
+        "radius_pm": 331.26493380225935,
+        "probability_per_pm": 1.176888821440501e-07
+      },
+      {
+        "radius_pm": 332.32328822335285,
+        "probability_per_pm": 1.120535192166428e-07
+      },
+      {
+        "radius_pm": 333.38164264444634,
+        "probability_per_pm": 1.0668625326793707e-07
+      },
+      {
+        "radius_pm": 334.43999706553984,
+        "probability_per_pm": 1.0157440450859787e-07
+      },
+      {
+        "radius_pm": 335.4983514866333,
+        "probability_per_pm": 9.670588895088704e-08
+      },
+      {
+        "radius_pm": 336.5567059077268,
+        "probability_per_pm": 9.20691906491187e-08
+      },
+      {
+        "radius_pm": 337.6150603288203,
+        "probability_per_pm": 8.765333521879947e-08
+      },
+      {
+        "radius_pm": 338.6734147499138,
+        "probability_per_pm": 8.344786457641688e-08
+      },
+      {
+        "radius_pm": 339.7317691710072,
+        "probability_per_pm": 7.944281284442456e-08
+      },
+      {
+        "radius_pm": 340.7901235921007,
+        "probability_per_pm": 7.562868336844764e-08
+      },
+      {
+        "radius_pm": 341.84847801319415,
+        "probability_per_pm": 7.199642679610681e-08
+      },
+      {
+        "radius_pm": 342.9068324342877,
+        "probability_per_pm": 6.853742016910654e-08
+      },
+      {
+        "radius_pm": 343.9651868553811,
+        "probability_per_pm": 6.524344698241162e-08
+      },
+      {
+        "radius_pm": 345.02354127647465,
+        "probability_per_pm": 6.210667816639936e-08
+      },
+      {
+        "radius_pm": 346.0818956975681,
+        "probability_per_pm": 5.9119653949849454e-08
+      },
+      {
+        "radius_pm": 347.14025011866164,
+        "probability_per_pm": 5.627526656352689e-08
+      },
+      {
+        "radius_pm": 348.198604539755,
+        "probability_per_pm": 5.3566743745924656e-08
+      },
+      {
+        "radius_pm": 349.2569589608486,
+        "probability_per_pm": 5.098763301445482e-08
+      },
+      {
+        "radius_pm": 350.315313381942,
+        "probability_per_pm": 4.853178666703249e-08
+      },
+      {
+        "radius_pm": 351.3736678030356,
+        "probability_per_pm": 4.619334748057424e-08
+      },
+      {
+        "radius_pm": 352.43202222412896,
+        "probability_per_pm": 4.396673507444279e-08
+      },
+      {
+        "radius_pm": 353.49037664522245,
+        "probability_per_pm": 4.18466329083126e-08
+      },
+      {
+        "radius_pm": 354.54873106631595,
+        "probability_per_pm": 3.982797588530736e-08
+      },
+      {
+        "radius_pm": 355.6070854874094,
+        "probability_per_pm": 3.7905938532582364e-08
+      },
+      {
+        "radius_pm": 356.6654399085029,
+        "probability_per_pm": 3.607592373277734e-08
+      },
+      {
+        "radius_pm": 357.72379432959633,
+        "probability_per_pm": 3.4333551980973765e-08
+      },
+      {
+        "radius_pm": 358.7821487506899,
+        "probability_per_pm": 3.267465114294244e-08
+      },
+      {
+        "radius_pm": 359.8405031717833,
+        "probability_per_pm": 3.109524669155466e-08
+      },
+      {
+        "radius_pm": 360.8988575928768,
+        "probability_per_pm": 2.959155239929611e-08
+      },
+      {
+        "radius_pm": 361.95721201397026,
+        "probability_per_pm": 2.8159961465810684e-08
+      },
+      {
+        "radius_pm": 363.0155664350638,
+        "probability_per_pm": 2.679703806036951e-08
+      },
+      {
+        "radius_pm": 364.07392085615726,
+        "probability_per_pm": 2.549950926007155e-08
+      },
+      {
+        "radius_pm": 365.13227527725076,
+        "probability_per_pm": 2.426425736545809e-08
+      },
+      {
+        "radius_pm": 366.1906296983442,
+        "probability_per_pm": 2.3088312576056703e-08
+      },
+      {
+        "radius_pm": 367.24898411943775,
+        "probability_per_pm": 2.1968846009173814e-08
+      },
+      {
+        "radius_pm": 368.3073385405312,
+        "probability_per_pm": 2.090316304600843e-08
+      },
+      {
+        "radius_pm": 369.3656929616247,
+        "probability_per_pm": 1.988869698989819e-08
+      },
+      {
+        "radius_pm": 370.42404738271813,
+        "probability_per_pm": 1.892300302219449e-08
+      },
+      {
+        "radius_pm": 371.4824018038116,
+        "probability_per_pm": 1.8003752441933627e-08
+      },
+      {
+        "radius_pm": 372.5407562249051,
+        "probability_per_pm": 1.7128727176104883e-08
+      },
+      {
+        "radius_pm": 373.59911064599856,
+        "probability_per_pm": 1.6295814547917595e-08
+      },
+      {
+        "radius_pm": 374.65746506709206,
+        "probability_per_pm": 1.550300229105401e-08
+      },
+      {
+        "radius_pm": 375.71581948818556,
+        "probability_per_pm": 1.474837379844181e-08
+      },
+      {
+        "radius_pm": 376.77417390927906,
+        "probability_per_pm": 1.4030103594610075e-08
+      },
+      {
+        "radius_pm": 377.8325283303725,
+        "probability_per_pm": 1.3346453021195831e-08
+      },
+      {
+        "radius_pm": 378.890882751466,
+        "probability_per_pm": 1.2695766125649069e-08
+      },
+      {
+        "radius_pm": 379.94923717255944,
+        "probability_per_pm": 1.2076465743640654e-08
+      },
+      {
+        "radius_pm": 381.007591593653,
+        "probability_per_pm": 1.1487049766120896e-08
+      },
+      {
+        "radius_pm": 382.06594601474643,
+        "probability_per_pm": 1.0926087582389445e-08
+      },
+      {
+        "radius_pm": 383.1243004358399,
+        "probability_per_pm": 1.0392216690938873e-08
+      },
+      {
+        "radius_pm": 384.18265485693337,
+        "probability_per_pm": 9.884139470216211e-09
+      },
+      {
+        "radius_pm": 385.24100927802687,
+        "probability_per_pm": 9.400620101809197e-09
+      },
+      {
+        "radius_pm": 386.29936369912036,
+        "probability_per_pm": 8.940481638911048e-09
+      },
+      {
+        "radius_pm": 387.3577181202138,
+        "probability_per_pm": 8.502603213249259e-09
+      },
+      {
+        "radius_pm": 388.4160725413073,
+        "probability_per_pm": 8.085917373981658e-09
+      },
+      {
+        "radius_pm": 389.4744269624008,
+        "probability_per_pm": 7.689407552361629e-09
+      },
+      {
+        "radius_pm": 390.5327813834943,
+        "probability_per_pm": 7.312105646265466e-09
+      },
+      {
+        "radius_pm": 391.59113580458774,
+        "probability_per_pm": 6.9530897189473205e-09
+      },
+      {
+        "radius_pm": 392.64949022568123,
+        "probability_per_pm": 6.611481806651628e-09
+      },
+      {
+        "radius_pm": 393.70784464677473,
+        "probability_per_pm": 6.286445829960527e-09
+      },
+      {
+        "radius_pm": 394.76619906786823,
+        "probability_per_pm": 5.977185603994744e-09
+      },
+      {
+        "radius_pm": 395.82455348896167,
+        "probability_per_pm": 5.6829429428131e-09
+      },
+      {
+        "radius_pm": 396.88290791005517,
+        "probability_per_pm": 5.40299585357317e-09
+      },
+      {
+        "radius_pm": 397.94126233114866,
+        "probability_per_pm": 5.136656816222298e-09
+      },
+      {
+        "radius_pm": 398.99961675224216,
+        "probability_per_pm": 4.8832711446878165e-09
+      },
+      {
+        "radius_pm": 400.0579711733356,
+        "probability_per_pm": 4.642215425721422e-09
+      },
+      {
+        "radius_pm": 401.1163255944291,
+        "probability_per_pm": 4.412896031734215e-09
+      },
+      {
+        "radius_pm": 402.1746800155226,
+        "probability_per_pm": 4.194747704130043e-09
+      },
+      {
+        "radius_pm": 403.23303443661604,
+        "probability_per_pm": 3.9872322038081195e-09
+      },
+      {
+        "radius_pm": 404.29138885770953,
+        "probability_per_pm": 3.789837025662674e-09
+      },
+      {
+        "radius_pm": 405.349743278803,
+        "probability_per_pm": 3.6020741740552636e-09
+      },
+      {
+        "radius_pm": 406.4080976998965,
+        "probability_per_pm": 3.4234789963780664e-09
+      },
+      {
+        "radius_pm": 407.46645212098997,
+        "probability_per_pm": 3.2536090719618095e-09
+      },
+      {
+        "radius_pm": 408.5248065420834,
+        "probability_per_pm": 3.0920431537104983e-09
+      },
+      {
+        "radius_pm": 409.5831609631769,
+        "probability_per_pm": 2.9383801599685616e-09
+      },
+      {
+        "radius_pm": 410.6415153842704,
+        "probability_per_pm": 2.7922382142436627e-09
+      },
+      {
+        "radius_pm": 411.6998698053639,
+        "probability_per_pm": 2.653253730519468e-09
+      },
+      {
+        "radius_pm": 412.75822422645734,
+        "probability_per_pm": 2.521080542000386e-09
+      },
+      {
+        "radius_pm": 413.81657864755084,
+        "probability_per_pm": 2.3953890712308598e-09
+      },
+      {
+        "radius_pm": 414.87493306864434,
+        "probability_per_pm": 2.275865539629833e-09
+      },
+      {
+        "radius_pm": 415.93328748973784,
+        "probability_per_pm": 2.162211214572671e-09
+      },
+      {
+        "radius_pm": 416.9916419108313,
+        "probability_per_pm": 2.0541416922410994e-09
+      },
+      {
+        "radius_pm": 418.0499963319248,
+        "probability_per_pm": 1.951386214545941e-09
+      },
+      {
+        "radius_pm": 419.1083507530182,
+        "probability_per_pm": 1.8536870185072699e-09
+      },
+      {
+        "radius_pm": 420.16670517411177,
+        "probability_per_pm": 1.760798716552808e-09
+      },
+      {
+        "radius_pm": 421.22505959520515,
+        "probability_per_pm": 1.6724877062685535e-09
+      },
+      {
+        "radius_pm": 422.2834140162987,
+        "probability_per_pm": 1.5885316082042188e-09
+      },
+      {
+        "radius_pm": 423.34176843739215,
+        "probability_per_pm": 1.5087187304029865e-09
+      }
+    ]
+  },
+  "response": {
+    "finite": 1.383808029844554,
+    "infinite": 1.3831902171815025,
+    "occupied_only": 0.0,
+    "numerical_display_tolerance": 3e-06,
+    "physical_reference_difference_ppm": 34.14596311523965,
+    "compliance_m2_per_J": 0.0008888266159625394,
+    "commutator_sum": 1.0002741436773483,
+    "commutator_reference": 1.0002741867109446
+  },
+  "dispersion": {
+    "H_H": 6.499026705386818,
+    "infinite_H_He": 2.821341761591858,
+    "infinite_He_He": 1.4609762028012567,
+    "finite_He4_He4": 1.4621212183719061,
+    "units": "E_* a_*^6",
+    "scope": "Non-overlapping, nonretarded leading dipole response only; no bond curve, short-range repulsion or dimer binding predicted."
+  },
+  "comparisons": {
+    "first_removal_eV": 24.587629053096205,
+    "first_removal_reference_eV": 24.587389011,
+    "first_removal_residual_eV": 0.00024004209620542838,
+    "first_removal_residual_ppm": 9.76281361553255,
+    "infinite_energy_error": 5.237512201716754e-09
+  },
+  "hydrogen_controls": {
+    "0": {
+      "polarizability": 4.000000000000001,
+      "dipole_strength_sum": 1.0000000000000004,
+      "energy_weighted_sum": 0.5000000000000003,
+      "commutator_reference": 0.5,
+      "support": {
+        "dimension": 1,
+        "retained": 1,
+        "cutoff": 1e-13,
+        "smallest_retained_relative": 1.0,
+        "most_negative_relative": 0.0
+      },
+      "degree": 0,
+      "occupied_only_response": 0.0,
+      "C6_identical": 6.0000000000000036
+    },
+    "1": {
+      "polarizability": 4.500000000000002,
+      "dipole_strength_sum": 1.0000000000000007,
+      "energy_weighted_sum": 0.5000000000000001,
+      "commutator_reference": 0.5,
+      "support": {
+        "dimension": 2,
+        "retained": 2,
+        "cutoff": 1e-13,
+        "smallest_retained_relative": 0.045548849896677825,
+        "most_negative_relative": 0.0
+      },
+      "degree": 1,
+      "occupied_only_response": 0.0,
+      "C6_identical": 6.482142857142865
+    },
+    "4": {
+      "polarizability": 4.499999999999985,
+      "dipole_strength_sum": 0.9999999999999937,
+      "energy_weighted_sum": 0.5000000000000016,
+      "commutator_reference": 0.5,
+      "support": {
+        "dimension": 5,
+        "retained": 5,
+        "cutoff": 1e-13,
+        "smallest_retained_relative": 2.1407219687256868e-05,
+        "most_negative_relative": 0.0
+      },
+      "degree": 4,
+      "occupied_only_response": 0.0,
+      "C6_identical": 6.499025354924704
+    },
+    "8": {
+      "polarizability": 4.500000000000169,
+      "dipole_strength_sum": 1.0000000000000724,
+      "energy_weighted_sum": 0.5000000000000864,
+      "commutator_reference": 0.5,
+      "support": {
+        "dimension": 9,
+        "retained": 9,
+        "cutoff": 1e-13,
+        "smallest_retained_relative": 2.220622892264195e-09,
+        "most_negative_relative": 0.0
+      },
+      "degree": 8,
+      "occupied_only_response": 0.0,
+      "C6_identical": 6.499026705062201
+    },
+    "10": {
+      "polarizability": 4.500000000000062,
+      "dipole_strength_sum": 0.9999999999998334,
+      "energy_weighted_sum": 0.49999999999877787,
+      "commutator_reference": 0.5,
+      "support": {
+        "dimension": 11,
+        "retained": 11,
+        "cutoff": 1e-13,
+        "smallest_retained_relative": 2.544543060677382e-11,
+        "most_negative_relative": 0.0
+      },
+      "degree": 10,
+      "occupied_only_response": 0.0,
+      "C6_identical": 6.499026705386818
+    },
+    "12": {
+      "polarizability": 4.500000000004383,
+      "dipole_strength_sum": 1.0000000000024776,
+      "energy_weighted_sum": 0.5000000000054872,
+      "commutator_reference": 0.5,
+      "support": {
+        "dimension": 13,
+        "retained": 13,
+        "cutoff": 1e-13,
+        "smallest_retained_relative": 3.007677361921622e-13,
+        "most_negative_relative": 0.0
+      },
+      "degree": 12,
+      "occupied_only_response": 0.0,
+      "C6_identical": 6.4990267054215245
+    }
+  },
+  "checks": [
+    {
+      "name": "analytic one-shape energy",
+      "passed": true,
+      "actual": 7.149836278586008e-14,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "analytic one-shape scale",
+      "passed": true,
+      "actual": 5.54764256754936e-09,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "analytic uncorrelated mean distance",
+      "passed": true,
+      "actual": 2.9222122499561465e-09,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "analytic uncorrelated separation",
+      "passed": true,
+      "actual": 4.2615613260466034e-09,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "quadrature32: energy stability",
+      "passed": true,
+      "actual": 3.7259084706420253e-13,
+      "tolerance": 1e-08
+    },
+    {
+      "name": "quadrature32: static response stability",
+      "passed": true,
+      "actual": 2.1516479264960253e-08,
+      "tolerance": 3e-06
+    },
+    {
+      "name": "quadrature32: dispersion stability",
+      "passed": true,
+      "actual": 1.885919154176463e-08,
+      "tolerance": 3e-06
+    },
+    {
+      "name": "quadrature32: envelope mean radius stability",
+      "passed": true,
+      "actual": 4.985212243013848e-10,
+      "tolerance": 2e-06
+    },
+    {
+      "name": "cutoff1e-12: energy stability",
+      "passed": true,
+      "actual": 2.0716952597865657e-09,
+      "tolerance": 1e-08
+    },
+    {
+      "name": "cutoff1e-12: static response stability",
+      "passed": true,
+      "actual": 8.97823783096996e-07,
+      "tolerance": 3e-06
+    },
+    {
+      "name": "cutoff1e-12: dispersion stability",
+      "passed": true,
+      "actual": 8.596647922409772e-07,
+      "tolerance": 3e-06
+    },
+    {
+      "name": "cutoff1e-12: envelope mean radius stability",
+      "passed": true,
+      "actual": 1.9163294395774244e-08,
+      "tolerance": 2e-06
+    },
+    {
+      "name": "cutoff1e-14: energy stability",
+      "passed": true,
+      "actual": 3.0889575342030184e-09,
+      "tolerance": 1e-08
+    },
+    {
+      "name": "cutoff1e-14: static response stability",
+      "passed": true,
+      "actual": 1.1019256718203252e-06,
+      "tolerance": 3e-06
+    },
+    {
+      "name": "cutoff1e-14: dispersion stability",
+      "passed": true,
+      "actual": 9.73460509090529e-07,
+      "tolerance": 3e-06
+    },
+    {
+      "name": "cutoff1e-14: envelope mean radius stability",
+      "passed": true,
+      "actual": 2.1258841131910344e-08,
+      "tolerance": 2e-06
+    },
+    {
+      "name": "degree14: energy stability",
+      "passed": true,
+      "actual": 2.1122463778056044e-09,
+      "tolerance": 1e-08
+    },
+    {
+      "name": "degree14: static response stability",
+      "passed": true,
+      "actual": 9.31782824231675e-07,
+      "tolerance": 3e-06
+    },
+    {
+      "name": "degree14: dispersion stability",
+      "passed": true,
+      "actual": 7.924143159421249e-07,
+      "tolerance": 3e-06
+    },
+    {
+      "name": "degree14: envelope mean radius stability",
+      "passed": true,
+      "actual": 1.7730682699834688e-08,
+      "tolerance": 2e-06
+    },
+    {
+      "name": "infinite: decreasing calculated energies",
+      "passed": true
+    },
+    {
+      "name": "infinite: energy sum",
+      "passed": true,
+      "actual": 9.325873406851315e-15,
+      "tolerance": 1e-08
+    },
+    {
+      "name": "infinite: virial",
+      "passed": true,
+      "actual": 1.0821332718791155e-10,
+      "tolerance": 2e-07
+    },
+    {
+      "name": "infinite: normalization",
+      "passed": true,
+      "actual": 8.881784197001252e-16,
+      "tolerance": 1e-09
+    },
+    {
+      "name": "infinite: dipole strength completeness",
+      "passed": true,
+      "actual": 1.7176593480883184e-11,
+      "tolerance": 1e-08
+    },
+    {
+      "name": "infinite: energy-weighted dipole sum",
+      "passed": true,
+      "actual": 4.303983192066596e-08,
+      "tolerance": 2e-07
+    },
+    {
+      "name": "infinite: independent frequency-integral C6",
+      "passed": true,
+      "actual": 4.218847493575595e-15,
+      "tolerance": 2e-09
+    },
+    {
+      "name": "infinite: all response denominators positive",
+      "passed": true
+    },
+    {
+      "name": "infinite: positive recoil and correlation variances",
+      "passed": true
+    },
+    {
+      "name": "finite: decreasing calculated energies",
+      "passed": true
+    },
+    {
+      "name": "finite: energy sum",
+      "passed": true,
+      "actual": 3.1086244689504383e-15,
+      "tolerance": 1e-08
+    },
+    {
+      "name": "finite: virial",
+      "passed": true,
+      "actual": 1.6394341439962545e-10,
+      "tolerance": 2e-07
+    },
+    {
+      "name": "finite: normalization",
+      "passed": true,
+      "actual": 2.220446049250313e-15,
+      "tolerance": 1e-09
+    },
+    {
+      "name": "finite: dipole strength completeness",
+      "passed": true,
+      "actual": 1.7175372235556097e-11,
+      "tolerance": 1e-08
+    },
+    {
+      "name": "finite: energy-weighted dipole sum",
+      "passed": true,
+      "actual": 4.303359624202585e-08,
+      "tolerance": 2e-07
+    },
+    {
+      "name": "finite: independent frequency-integral C6",
+      "passed": true,
+      "actual": 3.552713678800501e-15,
+      "tolerance": 2e-09
+    },
+    {
+      "name": "finite: all response denominators positive",
+      "passed": true
+    },
+    {
+      "name": "finite: positive recoil and correlation variances",
+      "passed": true
+    },
+    {
+      "name": "independent infinite-eye energy",
+      "passed": true,
+      "actual": 5.237512201716754e-09,
+      "tolerance": 1e-08
+    },
+    {
+      "name": "independent infinite-eye response",
+      "passed": true,
+      "actual": 1.957273497499301e-06,
+      "tolerance": 3e-06
+    },
+    {
+      "name": "independent finite-eye response",
+      "passed": true,
+      "actual": 1.956563445926207e-06,
+      "tolerance": 3e-06
+    },
+    {
+      "name": "independent infinite-eye dispersion",
+      "passed": true,
+      "actual": 1.6348787432729495e-06,
+      "tolerance": 3e-06
+    },
+    {
+      "name": "hydrogen occupied-only static response",
+      "passed": true,
+      "actual": 0.0,
+      "tolerance": 1e-15
+    },
+    {
+      "name": "hydrogen one directional radial function",
+      "passed": true,
+      "actual": 8.881784197001252e-16,
+      "tolerance": 1e-12
+    },
+    {
+      "name": "hydrogen exact static response with two radial functions",
+      "passed": true,
+      "actual": 1.7763568394002505e-15,
+      "tolerance": 1e-12
+    },
+    {
+      "name": "hydrogen converged static response",
+      "passed": true,
+      "actual": 6.217248937900877e-14,
+      "tolerance": 1e-09
+    },
+    {
+      "name": "hydrogen total dipole strength",
+      "passed": true,
+      "actual": 1.66644475996236e-13,
+      "tolerance": 1e-09
+    },
+    {
+      "name": "hydrogen energy-weighted sum",
+      "passed": true,
+      "actual": 1.2221335055073723e-12,
+      "tolerance": 1e-09
+    },
+    {
+      "name": "hydrogen dispersion benchmark",
+      "passed": true,
+      "actual": 1.9021229036297882e-11,
+      "tolerance": 1e-08
+    },
+    {
+      "name": "mixed infinite-eye H/He dispersion",
+      "passed": true,
+      "actual": 2.1536881420480825e-06,
+      "tolerance": 4e-06
+    },
+    {
+      "name": "hydrogen dispersion degree convergence",
+      "passed": true,
+      "actual": 3.4706459928202094e-11,
+      "tolerance": 1e-08
+    },
+    {
+      "name": "finite-field energy curvature",
+      "passed": true,
+      "actual": 9.796058408895192e-09,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "independent radial marginal normalization",
+      "passed": true,
+      "actual": 1.4687223637288582e-07,
+      "tolerance": 5e-05
+    },
+    {
+      "name": "independent radial marginal mean radius",
+      "passed": true,
+      "actual": 2.1938730243586946e-07,
+      "tolerance": 5e-05
+    },
+    {
+      "name": "independent radial marginal second moment",
+      "passed": true,
+      "actual": 2.127054349099211e-06,
+      "tolerance": 0.0001
+    },
+    {
+      "name": "radial distribution nonnegative",
+      "passed": true
+    }
+  ],
+  "numerical_precision": "Display about 5-6 significant digits for envelope response. Degree/support checks indicate 1e-8 E_* for energy and 3e-6 absolute for response/C6; these are convergence indicators, not rigorous error bars or physical uncertainty.",
+  "not_derived": [
+    "compact-core shape, radius, thickness and intrinsic binding",
+    "regional core/envelope energy or count-to-mass law",
+    "carbon/nitrogen/oxygen many-entry response",
+    "molecular short-range exchange and bond geometry",
+    "propulsion or whole-device support response"
+  ],
+  "molecular_use": [
+    "exact hydrogen directional-response gate",
+    "two-entry joint-tensor and recoil benchmark",
+    "correlated helium envelope moments",
+    "complete dipole response and energy-weighted sums",
+    "leading long-range H/H, H/He and He/He C6 controls"
+  ],
+  "next_gate": "Apply corresponding complete response spaces to the existing C/N/O atom generators; retain water representation/gradient gates before any long geometry search."
+}

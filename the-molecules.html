@@ -43,6 +43,8 @@ header{text-align:center;padding:54px 20px 30px;background:radial-gradient(circl
 section.card{background:var(--card);border:1px solid var(--edge);border-radius:13px;padding:24px 28px;margin:22px 0}section.card h2{color:var(--gold);margin:0 0 12px;font-size:1.45rem}section.card h3{color:var(--blue);margin:22px 0 7px;font-size:1.05rem}.equation{overflow:auto;text-align:center;background:var(--card2);border-left:4px solid var(--gold);padding:13px 16px;margin:16px 0}.callout{border:1px solid rgba(91,200,245,.25);background:rgba(91,200,245,.05);border-radius:9px;padding:14px 17px;margin:15px 0}.warning{border-color:rgba(255,123,114,.3);background:rgba(255,123,114,.05)}
 .angle-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}.angle-card{background:var(--card2);border:1px solid var(--edge);border-radius:9px;padding:14px;text-align:center}.angle-card strong{display:block;color:var(--gold);font-size:1.3rem}.angle-card span{color:var(--muted);font-size:12px}
 .benchmark{width:100%;border-collapse:collapse;font-size:13px;margin:15px 0}.benchmark th,.benchmark td{border:1px solid var(--edge);padding:9px 11px;vertical-align:top}.benchmark th{text-align:left;color:var(--gold);background:var(--card2)}.benchmark td:first-child{white-space:nowrap}.tag{display:inline-block;border:1px solid currentColor;border-radius:999px;padding:1px 7px;font-size:10px;font-weight:700;letter-spacing:.04em}.tag.d{color:var(--green)}.tag.i{color:var(--blue)}.tag.o{color:var(--red)}
+.benchmark-scroll{max-width:100%;overflow-x:auto;overscroll-behavior-x:contain}
+.card a,.card .mono{overflow-wrap:anywhere}
 .scope-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.scope-grid>div{border:1px solid var(--edge);border-radius:9px;padding:15px}.scope-grid h3{margin:0 0 7px!important}.scope-grid ul{margin:0;padding-left:20px}.sources{font-size:12px;color:var(--muted);padding:10px 0 45px}.sources li{margin:5px 0}
 footer{text-align:center;border-top:1px solid var(--edge);padding:20px;color:var(--muted);font-size:12px}
 @media(max-width:760px){.phn-hide-sm{display:none}.status-strip{grid-template-columns:1fr 1fr}.status-strip div:nth-child(2){border-right:0}.status-strip div:nth-child(-n+2){border-bottom:1px solid var(--edge)}.stage{height:760px}.hud{top:auto;bottom:10px;left:10px;right:10px;width:auto;max-height:205px}.legend{display:none}.action-panel{top:10px;right:10px;bottom:auto;width:min(285px,calc(100% - 20px))}.action-panel canvas{height:112px}.angle-row,.scope-grid{grid-template-columns:1fr}.benchmark{font-size:11px}.benchmark th,.benchmark td{padding:7px}.wrap{padding:0 12px}section.card{padding:19px 17px}.theme-toggle{top:50px}}
@@ -159,6 +161,7 @@ footer{text-align:center;border-top:1px solid var(--edge);padding:20px;color:var
 
   <section class="card" id="benchmarks">
     <h2>5 · Frozen Carbon Benchmark</h2>
+    <div class="benchmark-scroll" tabindex="0" role="region" aria-label="Frozen carbon benchmark table">
     <table class="benchmark">
       <thead><tr><th>Molecule</th><th>Integer closure</th><th>Ideal geometry derived</th><th>Measured comparison</th><th>Open account</th></tr></thead>
       <tbody>
@@ -170,6 +173,7 @@ footer{text-align:center;border-top:1px solid var(--edge);padding:20px;color:var
         <tr><td>C₆H₆ · benzene</td><td>six closed carbon deficits</td><td>one regular six-cycle, 120°</td><td>D<sub>6h</sub>; 120°</td><td>aromatic stabilization</td></tr>
       </tbody>
     </table>
+    </div>
     <p class="muted">Held out before comparison: formaldehyde must close as a three-domain planar carbon; hydrogen cyanide must close as a two-domain linear carbon. Both pass the frozen integer and angle instrument. They remain absent from the selector so they cannot quietly become design inputs.</p>
   </section>
 
@@ -184,7 +188,7 @@ footer{text-align:center;border-top:1px solid var(--edge);padding:20px;color:var
     <p>At co-signed stationarity, \(P_b=bT/U=bP_1\). The unknown coefficient and normalization cancel between bond orders, leaving</p>
     <div class="equation">\[\boxed{R_b=R_1-{\ln b\over2a_{ij}}},\qquad \boxed{b=e^{2a_{ij}(R_1-R_b)}}.\]</div>
     <p>The lab above displays the same action normalized at each selected molecule's stationary posting, \(p=P/P_e\). It is a local reduction: its displayed ruler is measured, while the full pair ledger below supplies the absolute stationary scale.</p>
-    <table class="benchmark">
+    <div class="benchmark-scroll" tabindex="0" role="region" aria-label="Molecular benchmark table"><table class="benchmark">
       <thead><tr><th>Element pair</th><th>Single-bond ruler</th><th>Predicted double · error</th><th>Predicted triple · error</th></tr></thead>
       <tbody>
         <tr><td>C–C · retrospective</td><td>1.536 Å</td><td>1.3344 vs 1.339 · −0.34%</td><td>1.2165 vs 1.203 · +1.12%</td></tr>
@@ -192,7 +196,7 @@ footer{text-align:center;border-top:1px solid var(--edge);padding:20px;color:var
         <tr><td>C–O · stress</td><td>1.427 Å</td><td>1.2350 vs 1.205 · +2.49%</td><td>1.1227 vs 1.1282 · −0.49%</td></tr>
         <tr><td><b>C–S · frozen holdout</b></td><td>1.818 Å</td><td><b>1.6122 vs 1.611 · +0.075%</b></td><td><b>1.4918 vs 1.53494 · −2.81%</b></td></tr>
       </tbody>
-    </table>
+    </table></div>
     <div class="callout"><b>Frozen result.</b> The preregistered C–S double and triple rungs both pass the 5% gate; all eight predictions lie within 3%. The exponential form is not new—it is the extant Pauling bond-order relation. The POAMS result at issue is the parameter-free slope \(1/(2a_{ij})\), derived from the two atomic removal actions. One holdout family is promising evidence, not chemistry-wide validation.</div>
 
     <h3>The Solar System correction: no primitive third centre</h3>
@@ -222,12 +226,12 @@ footer{text-align:center;border-top:1px solid var(--edge);padding:20px;color:var
     <p>One real circulation may be described in several overlapping endpoint census charts \(f_\mu\). Let \(G_{\mu\nu}\) count their shared filing and \(B_{\mu\nu}\) carry their primitive turning and pair postings. The normalized ledger bill and its stationary equation are</p>
     <div class="equation">\[\beta(c)={c^\dagger Bc\over c^\dagger Gc},\qquad \boxed{Bc=\beta Gc}.\]</div>
     <p>\(G\) is not another interaction: it prevents the same co-signed circulation from being counted twice. The coefficients \(c\) say how that circulation re-files across endpoint charts. A fixed dyadic radial census supplies reach; the pair axis activates the directed \(l=1\) spherical handle already licensed in The Elements. Direct two-eye quadrature gives, with no fitted molecular input:</p>
-    <table class="benchmark"><thead><tr><th>Native Gram-ledger gate</th><th>Calculated</th><th>Frozen benchmark</th><th>Error</th></tr></thead><tbody>
+    <div class="benchmark-scroll" tabindex="0" role="region" aria-label="Molecular benchmark table"><table class="benchmark"><thead><tr><th>Native Gram-ledger gate</th><th>Calculated</th><th>Frozen benchmark</th><th>Error</th></tr></thead><tbody>
       <tr><td>one-eye stationary book</td><td>−0.500000 \(E_*\)</td><td>−0.500000 \(E_*\)</td><td>numerical zero</td></tr>
       <tr><td>two-eye separation</td><td>1.99543 \(a_*\)</td><td>2.00000 \(a_*\)</td><td>−0.23%</td></tr>
       <tr><td>two-eye depth</td><td>0.101262 \(E_*\)</td><td>0.102600 \(E_*\)</td><td>−1.30%</td></tr>
       <tr><td>final directed-basis change</td><td>0.20% length · 0.39% depth</td><td>&lt;1% each</td><td>PASS</td></tr>
-    </tbody></table>
+    </tbody></table></div>
     <div class="callout"><b>Validated on the first finite gate.</b> The anisotropic price is radial dilation plus the existing directed spherical census handle, reconciled by the Gram book and priced by primitive pairs. No bond coefficient, observed length, or fitted exponent enters.</div>
 
     <h3>The carbon anisotropy price</h3>
@@ -243,14 +247,14 @@ footer{text-align:center;border-top:1px solid var(--edge);padding:20px;color:var
     <div class="equation">\[\boxed{B_{\rm config}d=\beta G_{\rm config}d}.\]</div>
     <p>Thus the one-entry, carbon-direction, and many-entry censuses use the same Gram reconciliation at three resolutions. Configuration-chart changes leave stationary roots invariant and duplicate entries vanish. Those facts constrain but do not alone determine the many-entry posting book; the primitive pair tensor and its exterior cofactor lift complete the calculation.</p>
     <div class="callout warning"><b>Frontier correction.</b> The earlier configuration test supplied arbitrary \(B_{\rm config}\) and proved only its invariance. A frozen counterexample shows that Gram invariance and duplicate rejection do not uniquely generate the physical book. Pair-only additivity does uniquely lift a supplied four-index primitive pair tensor; the conventional full-pair evaluator supplies that tensor numerically. A wholly native normalized carbon radial census remains open.</div>
-    <table class="benchmark"><thead><tr><th>Full-pair carbon translation</th><th>cc-pVQZ/MP2</th><th>NIST</th><th>Error</th></tr></thead><tbody>
+    <div class="benchmark-scroll" tabindex="0" role="region" aria-label="Molecular benchmark table"><table class="benchmark"><thead><tr><th>Full-pair carbon translation</th><th>cc-pVQZ/MP2</th><th>NIST</th><th>Error</th></tr></thead><tbody>
       <tr><td>methane C–H</td><td>1.08158 Å</td><td>1.087 Å</td><td>−0.50%</td></tr>
       <tr><td>ethane C–C / C–H</td><td>1.52814 / 1.08359 Å</td><td>1.535 / 1.094 Å</td><td>−0.45% / −0.95%</td></tr>
       <tr><td>ethene C=C / C–H</td><td>1.32869 / 1.07639 Å</td><td>1.339 / 1.086 Å</td><td>−0.77% / −0.89%</td></tr>
       <tr><td>ethyne C≡C / C–H</td><td>1.20593 / 1.05900 Å</td><td>1.203 / 1.063 Å</td><td>+0.24% / −0.38%</td></tr>
       <tr><td>CO₂ C–O</td><td>1.16360 Å</td><td>1.162 Å</td><td>+0.14%</td></tr>
       <tr><td>benzene C:C / C–H</td><td>1.38743 / 1.07825 Å</td><td>1.397 / 1.084 Å</td><td>−0.69% / −0.53%</td></tr>
-    </tbody></table>
+    </tbody></table></div>
     <p>Allowing both closed and outward-transfer configurations in the same book gives the phase evolution</p>
     <div class="equation">\[\boxed{i\hbar G_{\rm config}\dot d=B_{\rm config}d}.\]</div>
     <p>Here (d) records phase-weighted re-filing among whole admissible configurations, not probabilities of particles. The evolution conserves both total census (d^\dagger Gd) and the closed action-rate bill (d^\dagger Bd). Rapid or outward branches are therefore configuration-boundary and preparation problems under the same pair book—not new molecular forces.</p>
@@ -274,13 +278,13 @@ footer{text-align:center;border-top:1px solid var(--edge);padding:20px;color:var
     <div class="equation">\[\boxed{\lambda_q=8T\cos(2\pi m/N)\sin^2(\pi q/N)}.\]</div>
     <p>The zero root is a common phase shift, not an instability. For the six-cycle, \(m=0\) and \(m=\pm1\) are locally stable; \(m=\pm2\) is unstable. Ring phase stiffness is therefore a pair-ledger result, while its absolute rate awaits the assembled \(T\) and moving-eye inertia.</p>
 
-    <h3>The absolute solution: do not average before coupling</h3>
+    <h3 id="pair-ledger">The absolute solution: do not average before coupling</h3>
     <p>The failed absolute shortcuts all compressed the atom to one radial number before forming the molecule. Retain every discrete mobile circulation entry and every primitive pair posting first. In POAMS-native bookkeeping, let \(m_*\) be the entry's inertial coefficient and \(\kappa\) the signed two-ended range coefficient. The complete book is</p>
     <div class="equation">\[\boxed{\mathcal L_{\rm pair}=\sum_a{\mathbf p_a^2\over2m_*}-\sum_{aA}{Z_A\kappa\over r_{aA}}+\sum_{a&lt;b}{\kappa\over r_{ab}}+\sum_{A&lt;B}{Z_AZ_B\kappa\over R_{AB}}}.\]</div>
     <p>This is one substance organizing pairwise—not particles exchanging a field. The indices are ledger addresses for mobile circulation entries and eyes; every \(1/r\) term is one co-signed, two-ended posting. Only for comparison does the conventional chart rename \(m_*\mapsto m_e\), \(\kappa\mapsto e^2\), and represent the stationary ledger by an antisymmetric eigenproblem. The native absolute ruler and action-rate scale were already present in the Elements range book:</p>
     <div class="equation">\[\boxed{a_*={\hbar^2\over m_*\kappa}},\qquad \boxed{\Omega_*={\kappa\over\hbar a_*}={m_*\kappa^2\over\hbar^3}},\qquad E_*=\hbar\Omega_*.\]</div>
     <p>Solving the lowest branch \(E_0(\{R_A\})\) gives geometry from \(\partial_RE_0=0\), well depth from an energy difference, and the vibrational Hessian from \(\partial_R^2E_0\). The local \(U,T,P\) above are outputs of this book, not new molecular constants.</p>
-    <table class="benchmark">
+    <div class="benchmark-scroll" tabindex="0" role="region" aria-label="Molecular benchmark table"><table class="benchmark">
       <thead><tr><th>Frozen absolute test</th><th>Calculated</th><th>Benchmark</th><th>Error</th></tr></thead>
       <tbody>
         <tr><td>H₂⁺ length · one-entry HF/QZ</td><td>1.05714 Å</td><td>1.058354 Å</td><td>−0.12%</td></tr>
@@ -290,14 +294,14 @@ footer{text-align:center;border-top:1px solid var(--edge);padding:20px;color:var
         <tr><td>CO length · uncorrelated control</td><td>1.10446 Å</td><td>1.12820 Å</td><td>−2.10%</td></tr>
         <tr><td>CS length · uncorrelated control</td><td>1.51554 Å</td><td>1.534941 Å</td><td>−1.26%</td></tr>
       </tbody>
-    </table>
+    </table></div>
 
     <div id="native-refiling-completeness">
     <h3>Native re-filing completeness: the fixed-eye null survives</h3>
     <p>The occupied census and the directions against which stationarity must be tested are not the same set. Starting only from the occupied chart <i>C</i>, the admissible directions are generated by the primitive one-entry action <i>B</i> and reconciled by the shared Gram book <i>G</i>:</p>
     <div class="equation">\[\boxed{K_q=\operatorname{span}\{C,(G^{-1}B)C,\ldots,(G^{-1}B)^qC\}}.\]</div>
     <p>The first universal rung with two successive fixed-eye convergence intervals is <i>q</i> = 2. It leaves hydrogen at one scalar channel—its occupied entry is already an action eigen-entry—and generates the C/O sequence <span class="mono">(2s,1p) → (4s,2p) → (6s,3p)</span>. No empty channel, molecular scale, or observed radius selects the ladder.</p>
-    <table class="benchmark">
+    <div class="benchmark-scroll" tabindex="0" role="region" aria-label="Molecular benchmark table"><table class="benchmark">
       <thead><tr><th>Frozen native test</th><th>Result</th><th>Gate</th></tr></thead>
       <tbody>
         <tr><td>H/C/O occupied recovery</td><td>largest defect 2.665 × 10<sup>−15</sup></td><td>PASS</td></tr>
@@ -306,7 +310,7 @@ footer{text-align:center;border-top:1px solid var(--edge);padding:20px;color:var
         <tr><td>methane C–H</td><td>1.16168085 Å · +6.8704%</td><td>FAIL</td></tr>
         <tr><td>CO₂ C–O</td><td>1.18263029 Å · +1.7754%</td><td>PASS</td></tr>
       </tbody>
-    </table>
+    </table></div>
     <div class="callout"><b>Adjudication: PARTIAL.</b> The Gram-block action closure passes native completeness Gates 1–5, but frozen Gate 6 requires both molecular holdouts and methane misses the 5% bound. Ethyne, the larger molecules, and finite moving-eye corrections therefore remain blocked. The earlier manually enlarged post-comparison books remain excluded.</div>
     </div>
 
@@ -323,6 +327,16 @@ footer{text-align:center;border-top:1px solid var(--edge);padding:20px;color:var
   <p><strong>Future work.</strong> Complete the many-centre energy functional, counting each shared pair once; identify the overlap, exchange and state-dependent terms. Then compare calculated equilibrium geometries, binding differences and barriers with independent molecular records. This update does not supply those missing terms or rerun the molecular campaign.</p>
   <p class="carryover-link"><a href="./coulomb-from-chirality-directed-depletion.html#carryover-molecules">Coulomb §7: result and future-work map</a> · <a href="./alpha-fine-structure-derivation.html">Measured Alpha</a></p>
 </aside>
+
+    <aside class="calibrated-carryover" id="atomic-preparation" aria-labelledby="atomic-preparation-title">
+      <p class="carryover-label">ATOMIC PREPARATION · CALCULATED 15 SEPTEMBER 2026</p>
+      <h3 id="atomic-preparation-title">Bring the atom’s response, not only its occupied shape</h3>
+      <p>The <a href="./poams-periodic-table.html#whole-atom-helium">Elements Atomic Ledger</a> now provides a correlated helium envelope with finite compact-component recoil, explicit joint-energy terms, directional response and leading long-range attraction coefficients. No helium spectral energy or response value was fitted. The effective operator is the same inverse-distance pair mathematics printed above; this calculation does not independently derive its assumptions or the compact component’s internal structure.</p>
+      <p><strong>A concrete response gate:</strong> exact occupied hydrogen alone gives zero static directional response. One complete directional multiplet with a single radial function gives 4; two radial functions recover 4.5. Occupied-state accuracy cannot substitute for allowed response directions. Helium provides a correlated two-entry control, with χ ≈ 1.38381 and the energy-weighted response sum checked independently.</p>
+      <p><strong>Usable now:</strong> H/H, H/He and He/He leading non-overlapping response coefficients, helium radial moments, and a reproducible pair/recoil/response validation package. These are benchmarks and long-range inputs—not carbon, nitrogen or oxygen tensors, a complete molecular bond curve, or a reason to add the same correlation energy twice.</p>
+      <p><strong>Before a long geometry run:</strong> recover complete C/N/O angular response spaces from their specified atomic operators; establish retained-support and energy-zero/scale invariance; verify joint configurations and gradients at a fixed geometry. The earlier methane and water failures are not erased by this helium result. This atomic preparation is the current step, before—not concurrent with—a new multi-day molecular search.</p>
+      <p class="carryover-link"><a href="./scripts/whole_atom_handoff.json">Atomic state and response data</a> · <a href="./scripts/whole_atom_notes.md">Derivation, comparisons and limits</a> · <a href="./coulomb-from-chirality-directed-depletion.html#carryover-molecules">Coulomb §7 work queue</a></p>
+    </aside>
 
 <h2>7 · What Has—and Has Not—Been Derived</h2>
     <div class="scope-grid">

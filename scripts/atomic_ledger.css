@@ -25,6 +25,11 @@
 #atomic-ledger .al-note {font-size:.88rem;opacity:.85}
 #atomic-ledger details {margin:20px 0} #atomic-ledger summary {cursor:pointer;font-weight:bold;color:var(--accent-gold)}
 #atomic-ledger .al-boundary {border-left:4px solid var(--accent-blue);padding-left:18px}
+#atomic-ledger canvas {display:block;width:100%;max-width:100%;border:1px solid var(--border);border-radius:8px;margin:20px 0;box-sizing:border-box}
+#wa-radial {height:310px} #wa-curve {height:260px}
+#whole-atom-response {margin:28px 0;scroll-margin-top:64px}
+#wa-energy-table .wa-total {font-weight:700}
+#wa-shift {font-size:1.1rem}
 body[data-theme="light"] #atomic-ledger a {color:#176b87}
 body[data-theme="light"] #atomic-ledger h2,body[data-theme="light"] #atomic-ledger h3,body[data-theme="light"] #atomic-ledger .al-label,body[data-theme="light"] #atomic-ledger th,body[data-theme="light"] #atomic-ledger output,body[data-theme="light"] #atomic-ledger summary {color:#785800}
 @media(max-width:650px){#atomic-ledger .al-panel{padding:16px}#atomic-ledger .al-cards{grid-template-columns:1fr}#atomic-ledger h2{font-size:1.55rem}#atomic-ledger th,#atomic-ledger td{padding:9px 6px;font-size:.82rem}}
