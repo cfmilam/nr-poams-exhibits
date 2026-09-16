@@ -1,0 +1,861 @@
+{
+  "schema": "poams.atomic.state-archives.v1",
+  "states": 118,
+  "scope": "Selected highest validated basis per element; NumPy allow_pickle=False. See all_element_notes.md.",
+  "archives": [
+    {
+      "file": "all_element_states_001-064.zip",
+      "bytes": 40363815,
+      "sha256": "db8108951f295ca83fd1f4d9844a8e9b7d9964d090e792ad5082860985c74cd7",
+      "members": [
+        {
+          "z": 1,
+          "symbol": "H",
+          "level": 3,
+          "file": "001-H-v3z-state.npz",
+          "sha256": "169164ca0ff03ba043186e94dcde68c6b2648f1d133aeaef5cda493eec2243c8"
+        },
+        {
+          "z": 2,
+          "symbol": "He",
+          "level": 3,
+          "file": "002-He-v3z-state.npz",
+          "sha256": "beb4c61a7694e06689c3cb8c3bb337328b4432b94fa8fda90f01bd25cdb0f99f"
+        },
+        {
+          "z": 3,
+          "symbol": "Li",
+          "level": 3,
+          "file": "003-Li-v3z-state.npz",
+          "sha256": "a2f79aa8439c9812efd7386080880ff18f67da2f9524e7d6f117eca3cde36915"
+        },
+        {
+          "z": 4,
+          "symbol": "Be",
+          "level": 3,
+          "file": "004-Be-v3z-state.npz",
+          "sha256": "c8f4d9ec0c402bf101c9cafa1b74b28ddb5378fc83a96fa4fab39d15b47b2db0"
+        },
+        {
+          "z": 5,
+          "symbol": "B",
+          "level": 3,
+          "file": "005-B-v3z-state.npz",
+          "sha256": "821618e214d54a4c49191f55508277e1622e0602799dae70ee331b128b78623e"
+        },
+        {
+          "z": 6,
+          "symbol": "C",
+          "level": 3,
+          "file": "006-C-v3z-state.npz",
+          "sha256": "416d31be6c8ae03a4c5590e01686353c5695de4fc09b1f2af3d72d4b468915bb"
+        },
+        {
+          "z": 7,
+          "symbol": "N",
+          "level": 3,
+          "file": "007-N-v3z-state.npz",
+          "sha256": "afd3b26283f2d2f1d59d3ecdb223665055613d40668111e0b6b3d446d31d003f"
+        },
+        {
+          "z": 8,
+          "symbol": "O",
+          "level": 3,
+          "file": "008-O-v3z-state.npz",
+          "sha256": "d76a6c2406f642fbe895c9b5b10828c31f5bdef02ec35b861bab800cfeaf9738"
+        },
+        {
+          "z": 9,
+          "symbol": "F",
+          "level": 3,
+          "file": "009-F-v3z-state.npz",
+          "sha256": "4965c9b3dfd3d223269e35662e5eedf514547e1fafe0aa02eef3210f362272d1"
+        },
+        {
+          "z": 10,
+          "symbol": "Ne",
+          "level": 3,
+          "file": "010-Ne-v3z-state.npz",
+          "sha256": "46e13402148afc5c7f0491b7e76700d4b40f1555e9778ff43ad9529364d05a29"
+        },
+        {
+          "z": 11,
+          "symbol": "Na",
+          "level": 3,
+          "file": "011-Na-v3z-state.npz",
+          "sha256": "c40431346135651354252ce2a522b21847b73b6a564a7ae3bf079a503b9d97b6"
+        },
+        {
+          "z": 12,
+          "symbol": "Mg",
+          "level": 3,
+          "file": "012-Mg-v3z-state.npz",
+          "sha256": "885b068432e1d1d77102f42b92a02f1f34b31d619a6312c8370545efbb75de47"
+        },
+        {
+          "z": 13,
+          "symbol": "Al",
+          "level": 3,
+          "file": "013-Al-v3z-state.npz",
+          "sha256": "edc6e24150061ba49ca130599c15c94776d1e59e6ae1b57f7a7588376dc78c9a"
+        },
+        {
+          "z": 14,
+          "symbol": "Si",
+          "level": 3,
+          "file": "014-Si-v3z-state.npz",
+          "sha256": "9158dcce6c93423817fc694cf7f9211371d13da531e378e6f77d7dce18a5e91f"
+        },
+        {
+          "z": 15,
+          "symbol": "P",
+          "level": 3,
+          "file": "015-P-v3z-state.npz",
+          "sha256": "dde1d1ba2a1c7b30a6bc35dc9060909cd59bd32f18cf97849d7c3198a34ac53b"
+        },
+        {
+          "z": 16,
+          "symbol": "S",
+          "level": 3,
+          "file": "016-S-v3z-state.npz",
+          "sha256": "e78109a1998c4da0637f75a11a354425b8ba839bb90306b0a0075bf809cf02d6"
+        },
+        {
+          "z": 17,
+          "symbol": "Cl",
+          "level": 3,
+          "file": "017-Cl-v3z-state.npz",
+          "sha256": "f1a5b633359789f16dff0693de92487810d1ee14be377e6ab266985254b02289"
+        },
+        {
+          "z": 18,
+          "symbol": "Ar",
+          "level": 3,
+          "file": "018-Ar-v3z-state.npz",
+          "sha256": "3ff19de8531e6e9aebe5fdf4c439c2bec9d2ab08e7e376ecbcfa71dc630a627b"
+        },
+        {
+          "z": 19,
+          "symbol": "K",
+          "level": 3,
+          "file": "019-K-v3z-state.npz",
+          "sha256": "ce6716de09c5c652841399df06dbabd4c5b2c82c4c83c7bae667bd5f8909c9f0"
+        },
+        {
+          "z": 20,
+          "symbol": "Ca",
+          "level": 3,
+          "file": "020-Ca-v3z-state.npz",
+          "sha256": "e6bae56a3b02762475d599f1cc0b57b7e517f6f6a99f1b06db6437f30ff5af5d"
+        },
+        {
+          "z": 21,
+          "symbol": "Sc",
+          "level": 3,
+          "file": "021-Sc-v3z-state.npz",
+          "sha256": "fe0bd7e2055e622a0b3be0c69df872cf2df74d37bd81136056b6f1e9d25d2470"
+        },
+        {
+          "z": 22,
+          "symbol": "Ti",
+          "level": 3,
+          "file": "022-Ti-v3z-state.npz",
+          "sha256": "ad306e4d74a0b66c5bb3297e2db720b62a8bbc9ce4d2f76474b944e8f73713da"
+        },
+        {
+          "z": 23,
+          "symbol": "V",
+          "level": 3,
+          "file": "023-V-v3z-state.npz",
+          "sha256": "c173fd136bd718e92de1d427cba842a7ee4d2e6ce424381715af238a005a5412"
+        },
+        {
+          "z": 24,
+          "symbol": "Cr",
+          "level": 3,
+          "file": "024-Cr-v3z-state.npz",
+          "sha256": "5fa936419e48b327be0fb6b6bc0675886f3d8b5b3a18f4af5a70e3dc385a2163"
+        },
+        {
+          "z": 25,
+          "symbol": "Mn",
+          "level": 3,
+          "file": "025-Mn-v3z-state.npz",
+          "sha256": "0961765d7f500dd8cd3ba78cebd498fa913ff0e23e101c37f51b9611ae515774"
+        },
+        {
+          "z": 26,
+          "symbol": "Fe",
+          "level": 3,
+          "file": "026-Fe-v3z-state.npz",
+          "sha256": "6353f4e9ebe8de2bbe0d6bfa3f62c9072570658f3b66b1aa434313a2f1f75e50"
+        },
+        {
+          "z": 27,
+          "symbol": "Co",
+          "level": 3,
+          "file": "027-Co-v3z-state.npz",
+          "sha256": "3e1ac2c9a57544520b407ac0814f7a809951c14aab5e8c7f14f4850b3e8097e4"
+        },
+        {
+          "z": 28,
+          "symbol": "Ni",
+          "level": 3,
+          "file": "028-Ni-v3z-state.npz",
+          "sha256": "f7633fe836a1ac8c564adbe204f53e73936caf77932ab1fbc861d5bae5887d58"
+        },
+        {
+          "z": 29,
+          "symbol": "Cu",
+          "level": 3,
+          "file": "029-Cu-v3z-state.npz",
+          "sha256": "c0f026399cc047bf6a70cd217b90f4121dd605a2d135f56997ce8ab4cf5f771e"
+        },
+        {
+          "z": 30,
+          "symbol": "Zn",
+          "level": 3,
+          "file": "030-Zn-v3z-state.npz",
+          "sha256": "7a13a4258338a6d6e6242893ba6cb207860496bf1f9b7a99c14e91926ef20a3d"
+        },
+        {
+          "z": 31,
+          "symbol": "Ga",
+          "level": 3,
+          "file": "031-Ga-v3z-state.npz",
+          "sha256": "ab36bd09ba0b23ef5969092d7e1aef9d83f95f36dead7a76ea30d75ee0ee1793"
+        },
+        {
+          "z": 32,
+          "symbol": "Ge",
+          "level": 3,
+          "file": "032-Ge-v3z-state.npz",
+          "sha256": "b537c31ddb7e5124a16e15d4eda19ffd13bb16089de1d5de4a8e85157fbfb00a"
+        },
+        {
+          "z": 33,
+          "symbol": "As",
+          "level": 3,
+          "file": "033-As-v3z-state.npz",
+          "sha256": "bef0285c8502753a473a48d362e2c6e986c359b02db3118e62cc3e42c2940e5a"
+        },
+        {
+          "z": 34,
+          "symbol": "Se",
+          "level": 3,
+          "file": "034-Se-v3z-state.npz",
+          "sha256": "6a4c0dbe32a6b09b98690c6b6369bfe760b724f381062a1794d0916b5bdacdc4"
+        },
+        {
+          "z": 35,
+          "symbol": "Br",
+          "level": 3,
+          "file": "035-Br-v3z-state.npz",
+          "sha256": "4b53a940cbfe873b558eec267a0354a3bdc07d993db617f80c9048b85e4c4af2"
+        },
+        {
+          "z": 36,
+          "symbol": "Kr",
+          "level": 3,
+          "file": "036-Kr-v3z-state.npz",
+          "sha256": "c74c85e3b51c217e8c080f9fca18ee31ac870763afe004d94c7c14a5a7c37bd5"
+        },
+        {
+          "z": 37,
+          "symbol": "Rb",
+          "level": 3,
+          "file": "037-Rb-v3z-state.npz",
+          "sha256": "48aac2eeba18eff3231a53c729c79184f3d5d49db1a840997e8896dbae1d1b4e"
+        },
+        {
+          "z": 38,
+          "symbol": "Sr",
+          "level": 3,
+          "file": "038-Sr-v3z-state.npz",
+          "sha256": "e92fa511552da9f7992e368c88d25a2cd5f71518e790aa8dbed3220e4c7e5942"
+        },
+        {
+          "z": 39,
+          "symbol": "Y",
+          "level": 3,
+          "file": "039-Y-v3z-state.npz",
+          "sha256": "7b612a270742100dd71b57025fd13f165d868d5bc359e30203552481ab1f15b6"
+        },
+        {
+          "z": 40,
+          "symbol": "Zr",
+          "level": 3,
+          "file": "040-Zr-v3z-state.npz",
+          "sha256": "32f0f5e6e7c37b4cddf662ca2e8b70e4c2a34f0e8c8fa68c7e356427c79ae22e"
+        },
+        {
+          "z": 41,
+          "symbol": "Nb",
+          "level": 3,
+          "file": "041-Nb-v3z-state.npz",
+          "sha256": "2f2f3fbd2f5f207ced909dc76a6b4673b8df439e28a8751cea027fdd8a3733f7"
+        },
+        {
+          "z": 42,
+          "symbol": "Mo",
+          "level": 3,
+          "file": "042-Mo-v3z-state.npz",
+          "sha256": "48ba624d9224912be8061735f86aa7fa41ae3759f2b5dc94875a4f26df1140c2"
+        },
+        {
+          "z": 43,
+          "symbol": "Tc",
+          "level": 3,
+          "file": "043-Tc-v3z-state.npz",
+          "sha256": "c9960bdc9fcf6ed78999ddf9b6252fa59eb818accd36f30b5a8f556c49997f72"
+        },
+        {
+          "z": 44,
+          "symbol": "Ru",
+          "level": 3,
+          "file": "044-Ru-v3z-state.npz",
+          "sha256": "5d8679c3e8e041f10e5301ebfac027e6efab2d9f6c7f6f776ad0e1e99431f339"
+        },
+        {
+          "z": 45,
+          "symbol": "Rh",
+          "level": 3,
+          "file": "045-Rh-v3z-state.npz",
+          "sha256": "bfd0d12133d8965d8e38e7be7a89e8d1d36256754f0241c1f9607bfa139c7fc1"
+        },
+        {
+          "z": 46,
+          "symbol": "Pd",
+          "level": 3,
+          "file": "046-Pd-v3z-state.npz",
+          "sha256": "f67371622682d2b27b0404be4692a858bf76a3528030da6550e64d0de6fc9357"
+        },
+        {
+          "z": 47,
+          "symbol": "Ag",
+          "level": 3,
+          "file": "047-Ag-v3z-state.npz",
+          "sha256": "e4753b5d30f9bb25b12c7f0a3be34c2095b1ee38997d955452ba53b542754092"
+        },
+        {
+          "z": 48,
+          "symbol": "Cd",
+          "level": 3,
+          "file": "048-Cd-v3z-state.npz",
+          "sha256": "bbf6311e58f74cff04fb936bb5a1869881f216a239ccf2a1a8e009f25c268f27"
+        },
+        {
+          "z": 49,
+          "symbol": "In",
+          "level": 3,
+          "file": "049-In-v3z-state.npz",
+          "sha256": "d2657ff27ccd66a2807e17315d0f05d4c330cc5d42f78e29712938f6a92bd182"
+        },
+        {
+          "z": 50,
+          "symbol": "Sn",
+          "level": 3,
+          "file": "050-Sn-v3z-state.npz",
+          "sha256": "13e7e5785d532fe56e491e05bd3e717303f67e44e3abbe9bc1d51d1410f2f32b"
+        },
+        {
+          "z": 51,
+          "symbol": "Sb",
+          "level": 3,
+          "file": "051-Sb-v3z-state.npz",
+          "sha256": "5756c92145ab5905c0ac592cb5424d473799a62356f70fc9104a73da1d33cc86"
+        },
+        {
+          "z": 52,
+          "symbol": "Te",
+          "level": 3,
+          "file": "052-Te-v3z-state.npz",
+          "sha256": "63b98f3b972e2f7552692f19b25038471488a735627f88f5f57cbce3f6f8e036"
+        },
+        {
+          "z": 53,
+          "symbol": "I",
+          "level": 3,
+          "file": "053-I-v3z-state.npz",
+          "sha256": "ab2820c9f50d63ee27c6192eac076dc432d2cfb393a35d3fa8070468cf68781a"
+        },
+        {
+          "z": 54,
+          "symbol": "Xe",
+          "level": 3,
+          "file": "054-Xe-v3z-state.npz",
+          "sha256": "e0a1029c29db4071b8b2a52de21d7d8ed7a33ebbf38ca23aa9c916625ae5a04d"
+        },
+        {
+          "z": 55,
+          "symbol": "Cs",
+          "level": 3,
+          "file": "055-Cs-v3z-state.npz",
+          "sha256": "c04118e9c78583b7e2ae72ebd405b9cf6cc473eb65b33a3f12077e405b9b314b"
+        },
+        {
+          "z": 56,
+          "symbol": "Ba",
+          "level": 3,
+          "file": "056-Ba-v3z-state.npz",
+          "sha256": "3c8549ad9fbb95c4960a702843f0b9d3e679bf9725d84fc65af13d0434387c2e"
+        },
+        {
+          "z": 57,
+          "symbol": "La",
+          "level": 3,
+          "file": "057-La-v3z-state.npz",
+          "sha256": "8512cd4852bdaa31238c20858799b90f89542f9a78d9b5e760a71aa2916b594d"
+        },
+        {
+          "z": 58,
+          "symbol": "Ce",
+          "level": 3,
+          "file": "058-Ce-v3z-state.npz",
+          "sha256": "7363bfb1868d95b5da176355460a0e09967f17dc0f7248bcfc208d8de3c5ccaf"
+        },
+        {
+          "z": 59,
+          "symbol": "Pr",
+          "level": 3,
+          "file": "059-Pr-v3z-state.npz",
+          "sha256": "19d6db4769a65cc9319b56a5af9e587310f74824f56f9a0dcd0f74fe715b2878"
+        },
+        {
+          "z": 60,
+          "symbol": "Nd",
+          "level": 3,
+          "file": "060-Nd-v3z-state.npz",
+          "sha256": "74933daba9e84f9127f2ccce19c2821128373ac1ad611548158d4e1ea8390834"
+        },
+        {
+          "z": 61,
+          "symbol": "Pm",
+          "level": 3,
+          "file": "061-Pm-v3z-state.npz",
+          "sha256": "738f575a78f270cccbe720e6aa512109f63d7d5e2290aa59c00d079e05f63db8"
+        },
+        {
+          "z": 62,
+          "symbol": "Sm",
+          "level": 3,
+          "file": "062-Sm-v3z-state.npz",
+          "sha256": "d95c2726ba7ef690d279a021641aea51456147f19056108bb58e61746bfe6808"
+        },
+        {
+          "z": 63,
+          "symbol": "Eu",
+          "level": 3,
+          "file": "063-Eu-v3z-state.npz",
+          "sha256": "36fe773378f4438bd998a9b838535970b7b0cee3bb114df9fbfde584a4a72194"
+        },
+        {
+          "z": 64,
+          "symbol": "Gd",
+          "level": 3,
+          "file": "064-Gd-v3z-state.npz",
+          "sha256": "5a7c25a64a3c179ac52f6f24edd737e694b2dd27a66bdfa796358bf7cc29189f"
+        }
+      ]
+    },
+    {
+      "file": "all_element_states_065-087.zip",
+      "bytes": 40003585,
+      "sha256": "c580484f9f136c95fdfd2b6a77bd7c121501bc9859082223ead0f313c764e048",
+      "members": [
+        {
+          "z": 65,
+          "symbol": "Tb",
+          "level": 3,
+          "file": "065-Tb-v3z-state.npz",
+          "sha256": "40785c9327fc6bb5b053dfe0cdff789f089e66c2b2e4427bd594df8340f40517"
+        },
+        {
+          "z": 66,
+          "symbol": "Dy",
+          "level": 3,
+          "file": "066-Dy-v3z-state.npz",
+          "sha256": "40efdc73b8353ed2f87d5b82d492060dc1538966bc4d5577c36798a513073bf8"
+        },
+        {
+          "z": 67,
+          "symbol": "Ho",
+          "level": 3,
+          "file": "067-Ho-v3z-state.npz",
+          "sha256": "ae2ef47d43a862008557554400dfa8bddff89c5f44d0c88fe6444084fdee25d9"
+        },
+        {
+          "z": 68,
+          "symbol": "Er",
+          "level": 3,
+          "file": "068-Er-v3z-state.npz",
+          "sha256": "29f4d1a8195dfe2e8b9a2c84199d146f635dae168e44b48df86d462b9e92716f"
+        },
+        {
+          "z": 69,
+          "symbol": "Tm",
+          "level": 3,
+          "file": "069-Tm-v3z-state.npz",
+          "sha256": "bde02f4961f164d39e1a6c3eb2e9833a3e6b06398504a004263dddbad7807f3d"
+        },
+        {
+          "z": 70,
+          "symbol": "Yb",
+          "level": 3,
+          "file": "070-Yb-v3z-state.npz",
+          "sha256": "55c8add45c451a680d71d21a5daab1ee44ab393266545141e2b4de10dc0082b7"
+        },
+        {
+          "z": 71,
+          "symbol": "Lu",
+          "level": 3,
+          "file": "071-Lu-v3z-state.npz",
+          "sha256": "870b8702fde51ad4760a714e48b54b8324d807311ce906abb27c258f257c2508"
+        },
+        {
+          "z": 72,
+          "symbol": "Hf",
+          "level": 3,
+          "file": "072-Hf-v3z-state.npz",
+          "sha256": "b6776b356fd282d218f880bbc72dfd99d98cf271210cb63b43b848f243a8b295"
+        },
+        {
+          "z": 73,
+          "symbol": "Ta",
+          "level": 3,
+          "file": "073-Ta-v3z-state.npz",
+          "sha256": "df8e97b4dbb0cf45332868f0b2b7db3cb2fcba0cbf23d1077e5753d2d86bb404"
+        },
+        {
+          "z": 74,
+          "symbol": "W",
+          "level": 3,
+          "file": "074-W-v3z-state.npz",
+          "sha256": "cd6e7e40149e4759823597c1b0e90198d306dec5d83a8b0bf676f3b1c23c0a5c"
+        },
+        {
+          "z": 75,
+          "symbol": "Re",
+          "level": 3,
+          "file": "075-Re-v3z-state.npz",
+          "sha256": "33633a277aa1b9dab73b27376b06ad935073af3a88a97835b7a0f9a0a6bb24a3"
+        },
+        {
+          "z": 76,
+          "symbol": "Os",
+          "level": 3,
+          "file": "076-Os-v3z-state.npz",
+          "sha256": "3fc672da1e4018fd2b17bd10522618ccb6926d94a1c76e55978b207d14c44845"
+        },
+        {
+          "z": 77,
+          "symbol": "Ir",
+          "level": 3,
+          "file": "077-Ir-v3z-state.npz",
+          "sha256": "f27b7a2168f2eee3ca532be419531adac60c2282cf02cb6903d756696e318487"
+        },
+        {
+          "z": 78,
+          "symbol": "Pt",
+          "level": 3,
+          "file": "078-Pt-v3z-state.npz",
+          "sha256": "560a604addc51a08a5dd040c436b5614b21dcc244645c4d4bfc4fac5d1b8a00e"
+        },
+        {
+          "z": 79,
+          "symbol": "Au",
+          "level": 3,
+          "file": "079-Au-v3z-state.npz",
+          "sha256": "647f9cbbe8ae0e8e0f80a5c8929ec74160898cfbd076abedb904b49714a430df"
+        },
+        {
+          "z": 80,
+          "symbol": "Hg",
+          "level": 3,
+          "file": "080-Hg-v3z-state.npz",
+          "sha256": "a5a814a99dbd23747bb146a7c7628cb40e9e03d045ed09e57d2075ea62204817"
+        },
+        {
+          "z": 81,
+          "symbol": "Tl",
+          "level": 3,
+          "file": "081-Tl-v3z-state.npz",
+          "sha256": "3afc037fe39de2ade39bad3465a23697ddb5c0466a3ebc74723e39cf9e06e41d"
+        },
+        {
+          "z": 82,
+          "symbol": "Pb",
+          "level": 3,
+          "file": "082-Pb-v3z-state.npz",
+          "sha256": "f50bb85ea64410f20153f33f07e9faf4d8dd59e561450a023f22fd1a3461f96d"
+        },
+        {
+          "z": 83,
+          "symbol": "Bi",
+          "level": 3,
+          "file": "083-Bi-v3z-state.npz",
+          "sha256": "c18bdbf16b57bea99a990b7cb1e8e4bb9dcd2a958291855f693a73dfc5dbae41"
+        },
+        {
+          "z": 84,
+          "symbol": "Po",
+          "level": 3,
+          "file": "084-Po-v3z-state.npz",
+          "sha256": "bb9a41ef8af07e883a2328fedcd6caa14ae3c77137dc876c4b559de84e975316"
+        },
+        {
+          "z": 85,
+          "symbol": "At",
+          "level": 3,
+          "file": "085-At-v3z-state.npz",
+          "sha256": "a3aa95b5c56ee0da5776a89797ff02a9514a1feecb6124a51e56635623d711af"
+        },
+        {
+          "z": 86,
+          "symbol": "Rn",
+          "level": 3,
+          "file": "086-Rn-v3z-state.npz",
+          "sha256": "5d31822772c68d0871084c67fdbea223e1fdc2008fd447f0be4f1ceccf0fc8a5"
+        },
+        {
+          "z": 87,
+          "symbol": "Fr",
+          "level": 3,
+          "file": "087-Fr-v3z-state.npz",
+          "sha256": "c0f03bcbc36066ef91138735f605ee591fdc0aed56da28cd6026ce044693afd7"
+        }
+      ]
+    },
+    {
+      "file": "all_element_states_088-102.zip",
+      "bytes": 39962992,
+      "sha256": "645b5c0a0e531f106fe1f355175d41b33cb72d1099a62d9e289b6b046d275dca",
+      "members": [
+        {
+          "z": 88,
+          "symbol": "Ra",
+          "level": 3,
+          "file": "088-Ra-v3z-state.npz",
+          "sha256": "dacb1ef2176272e609e1059c851efd608ffdd67ab247186e273d2cb38d9631c8"
+        },
+        {
+          "z": 89,
+          "symbol": "Ac",
+          "level": 3,
+          "file": "089-Ac-v3z-state.npz",
+          "sha256": "054b02462c392ffad879a80cef0f0d00f277624ec4fb43d8e957ea2c0b751150"
+        },
+        {
+          "z": 90,
+          "symbol": "Th",
+          "level": 3,
+          "file": "090-Th-v3z-state.npz",
+          "sha256": "1ec810cef663e96e2dcc8e9ee1a4ddc33ff939e7a3db485db50982f6c0a3f261"
+        },
+        {
+          "z": 91,
+          "symbol": "Pa",
+          "level": 3,
+          "file": "091-Pa-v3z-state.npz",
+          "sha256": "4bb049d3548d2cd6d502f1c7e07d051f88b2f313fc677881a4baf53033650f13"
+        },
+        {
+          "z": 92,
+          "symbol": "U",
+          "level": 3,
+          "file": "092-U-v3z-state.npz",
+          "sha256": "01cb0ba56a538cf0f571e38e7566dea6d0d411f2ae03a1cd5d1b8061c6da0afd"
+        },
+        {
+          "z": 93,
+          "symbol": "Np",
+          "level": 3,
+          "file": "093-Np-v3z-state.npz",
+          "sha256": "56577d97e4c9ef1091481c379239ee6f5805235bda0f32365aa45b2adb1814ef"
+        },
+        {
+          "z": 94,
+          "symbol": "Pu",
+          "level": 3,
+          "file": "094-Pu-v3z-state.npz",
+          "sha256": "a8ace00990d957a37e240dc3dac9ccfe901177ede81b0fc60d65a394b3bff985"
+        },
+        {
+          "z": 95,
+          "symbol": "Am",
+          "level": 3,
+          "file": "095-Am-v3z-state.npz",
+          "sha256": "eb6fe2b0e8b2d5a526566bd842bf3a67ff32e137046a5bbaa529a9492a82393e"
+        },
+        {
+          "z": 96,
+          "symbol": "Cm",
+          "level": 3,
+          "file": "096-Cm-v3z-state.npz",
+          "sha256": "8455e55043e8ff7f0df8f2431a17e884dbbd764337ed9d741b7a98007f4a7f3b"
+        },
+        {
+          "z": 97,
+          "symbol": "Bk",
+          "level": 3,
+          "file": "097-Bk-v3z-state.npz",
+          "sha256": "229d8a1e7f25cfe217fe5957c3e408f9bde77c5240258b86d2e5abbe69e0cfd1"
+        },
+        {
+          "z": 98,
+          "symbol": "Cf",
+          "level": 3,
+          "file": "098-Cf-v3z-state.npz",
+          "sha256": "12c8efeceb5cd45c44dca87cf88a94579efb225e77b0d6dead714177dde6daf5"
+        },
+        {
+          "z": 99,
+          "symbol": "Es",
+          "level": 3,
+          "file": "099-Es-v3z-state.npz",
+          "sha256": "ad17c13996ded224c1732cb1bf467d2868316f6eab00f7dec915e0a704a1fc7f"
+        },
+        {
+          "z": 100,
+          "symbol": "Fm",
+          "level": 3,
+          "file": "100-Fm-v3z-state.npz",
+          "sha256": "d3c0fa3fc193272ea8ec966701c6bc2fbbd26948d5999e79784069e66a4e23da"
+        },
+        {
+          "z": 101,
+          "symbol": "Md",
+          "level": 3,
+          "file": "101-Md-v3z-state.npz",
+          "sha256": "7bc264c3fffb91dc87261917b9c84cdca2e43c8d0df24d5742796d4959f40169"
+        },
+        {
+          "z": 102,
+          "symbol": "No",
+          "level": 3,
+          "file": "102-No-v3z-state.npz",
+          "sha256": "7078740dea2d2a6b21a40dc844f22c3e6805eabbb00960ca0de0cd650d307e63"
+        }
+      ]
+    },
+    {
+      "file": "all_element_states_103-118.zip",
+      "bytes": 35142483,
+      "sha256": "894a92da317638386ee4eb2beb0f33cb33af0ec6fe44fa66aa2f9c664e1931ad",
+      "members": [
+        {
+          "z": 103,
+          "symbol": "Lr",
+          "level": 3,
+          "file": "103-Lr-v3z-state.npz",
+          "sha256": "a743fe656a007888c536fc0c570c0badb5b7b7353cf9190866fdc54365daddf2"
+        },
+        {
+          "z": 104,
+          "symbol": "Rf",
+          "level": 3,
+          "file": "104-Rf-v3z-state.npz",
+          "sha256": "c53c532ea8ca7bec8c363847ee220c34f1a7f4363d82b28b234a2cccba228609"
+        },
+        {
+          "z": 105,
+          "symbol": "Db",
+          "level": 3,
+          "file": "105-Db-v3z-state.npz",
+          "sha256": "0e0a0f69dfbf084dc83c32e340467dddd1c983ee8ed3314e46ea476f54b2c931"
+        },
+        {
+          "z": 106,
+          "symbol": "Sg",
+          "level": 3,
+          "file": "106-Sg-v3z-state.npz",
+          "sha256": "34b973abbf5a9e1488f67c36c83cb01ff799ab0fe4a0ea943e4cc234e9e71d1e"
+        },
+        {
+          "z": 107,
+          "symbol": "Bh",
+          "level": 3,
+          "file": "107-Bh-v3z-state.npz",
+          "sha256": "07ef89dd2a59e34912c924251ab4b12cdf16b5845e9628be1db366f3ff1de1d5"
+        },
+        {
+          "z": 108,
+          "symbol": "Hs",
+          "level": 3,
+          "file": "108-Hs-v3z-state.npz",
+          "sha256": "e08f462ce444aaf2c1fab15b3eda8d73e3db47c50658162a201234f37851365e"
+        },
+        {
+          "z": 109,
+          "symbol": "Mt",
+          "level": 3,
+          "file": "109-Mt-v3z-state.npz",
+          "sha256": "0003fb0119bf010917150f0dd8b187ace2ca58acd3c0adeb6f74183dd1ade50d"
+        },
+        {
+          "z": 110,
+          "symbol": "Ds",
+          "level": 3,
+          "file": "110-Ds-v3z-state.npz",
+          "sha256": "ed87607883158d9931e329ae6b5db951aa3a14ab0d9109503b53303785c2d02c"
+        },
+        {
+          "z": 111,
+          "symbol": "Rg",
+          "level": 3,
+          "file": "111-Rg-v3z-state.npz",
+          "sha256": "049915f34258a5997c500b367ff632f3c2bffddde5afb6d3ecbc0978837227c2"
+        },
+        {
+          "z": 112,
+          "symbol": "Cn",
+          "level": 3,
+          "file": "112-Cn-v3z-state.npz",
+          "sha256": "83711f28465fbc0c662890489cff42530131f38f09b6158e7acde490403a010b"
+        },
+        {
+          "z": 113,
+          "symbol": "Nh",
+          "level": 3,
+          "file": "113-Nh-v3z-state.npz",
+          "sha256": "684f473d7f44d83e3cedd87ec0c666f96e4befd973aea9c3abbfc7279fedf969"
+        },
+        {
+          "z": 114,
+          "symbol": "Fl",
+          "level": 3,
+          "file": "114-Fl-v3z-state.npz",
+          "sha256": "edabb1a3dd60220444c972dfbbb09cf8b93d97f8da49491c65bf459f2dbdf952"
+        },
+        {
+          "z": 115,
+          "symbol": "Mc",
+          "level": 3,
+          "file": "115-Mc-v3z-state.npz",
+          "sha256": "0b03fafab67a52f059247b8c8b861c39ed752b8b411ca92dd9bf5682cb7ec31a"
+        },
+        {
+          "z": 116,
+          "symbol": "Lv",
+          "level": 3,
+          "file": "116-Lv-v3z-state.npz",
+          "sha256": "7ca1e12d121fdb7a08d662caa02c34b8740b961dbd7049920f32c022bc37f859"
+        },
+        {
+          "z": 117,
+          "symbol": "Ts",
+          "level": 3,
+          "file": "117-Ts-v3z-state.npz",
+          "sha256": "f38b5d522b6c82893b42cea768f0eec4d7e606c4533d5ef8e8576176d1c9a67d"
+        },
+        {
+          "z": 118,
+          "symbol": "Og",
+          "level": 3,
+          "file": "118-Og-v3z-state.npz",
+          "sha256": "e8c3ca6e49200f53ff3138e3d4eda375bbd0c69499c7da32a95065d3a30d2d8f"
+        }
+      ]
+    }
+  ]
+}

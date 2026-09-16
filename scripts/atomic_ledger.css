@@ -28,6 +28,11 @@
 #atomic-ledger .al-boundary {border-left:4px solid var(--accent-blue);padding-left:18px}
 #atomic-ledger canvas {display:block;width:100%;max-width:100%;border:1px solid var(--border);border-radius:8px;margin:20px 0;box-sizing:border-box}
 #wa-radial {height:310px} #wa-curve {height:260px}
+#ae-radial {height:300px} #ae-curve {height:250px}
+#ae-results {border-top:1px solid var(--border);margin-top:24px;padding-top:8px;scroll-margin-top:70px}
+#ae-response-panel {margin:25px 0}
+#ae-results .al-controls label {min-width:0}
+#ae-quality {font-size:.92rem;overflow-wrap:anywhere}
 #whole-atom-response {margin:28px 0;scroll-margin-top:64px}
 #whole-atom-selector {scroll-margin-top:70px}
 #whole-atom-selector label {min-width:0;max-width:100%}

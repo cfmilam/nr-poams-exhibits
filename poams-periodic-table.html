@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Elements</title>
-    <link rel="stylesheet" href="./scripts/atomic_ledger.css?v=atom-selector-20260915">
+    <link rel="stylesheet" href="./scripts/atomic_ledger.css?v=all-atoms-20260915">
     <script>
         window.MathJax = {
             tex: {
@@ -1192,7 +1192,8 @@
             <section class="al-panel" id="whole-atom-helium" aria-labelledby="wa-title">
               <p class="al-label">3 · Whole-atom preparation — browse all 118 elements</p>
               <h3 id="wa-title">From occupied entries to a quantitative atomic input</h3>
-              <p>Choose an element to see what is available. <strong>Hydrogen’s exact response control and helium-4’s correlated envelope and response are ready.</strong> The other 116 elements currently have count data, not completed whole-atom calculations. Carbon, nitrogen and oxygen are the next response priorities for Molecules.</p>
+              <p>Choose an element to inspect its individually calculated external atomic reference. <strong>The all-element campaign solves a self-consistent many-entry mean-field model, with two numerical basis sizes and a directional-response calculation.</strong> It does not give all elements helium’s correlated accuracy. The exact hydrogen and correlated helium-4 controls remain separately identified below.</p>
+              <p id="ae-campaign-status" class="al-note"></p>
               <div class="al-controls" id="whole-atom-selector">
                 <label for="wa-element">Element and calculation status<select id="wa-element" aria-describedby="wa-availability wa-count-summary wa-scope"><option value="2">2 · Helium (He) — calculated ⁴He</option></select></label>
               </div>
@@ -1214,6 +1215,46 @@
                 <p>The helium calculation has two mobile entries built into it. Changing the element number cannot supply these missing results, and helium’s numerical outputs are not shown for a pending atom.</p>
                 <p><a href="./the-molecules.html#atomic-preparation">Molecular preparation and readiness checks</a> · <a href="./coulomb-from-chirality-directed-depletion.html#carryover-spectra">Atomic work in Coulomb §7</a></p>
               </div>
+              <section id="ae-results" hidden aria-labelledby="ae-title">
+                <h3 id="ae-title">Calculated all-entry reference</h3>
+                <p id="ae-method" class="al-label"></p>
+                <p>This calculation optimizes every mobile entry together in an effective compact-relative account. The selected spin sector is supplied; the compact component is a fixed point boundary. <strong>No measured atomic radius, binding energy or response coefficient is fitted.</strong> The operator and numerical basis are explicit effective-model inputs, not newly derived POAMS axioms.</p>
+                <div class="al-cards" aria-live="polite">
+                  <div class="al-card"><span>Total external energy-rate E/h</span><output id="ae-energy"></output><span>Compact internal energy excluded</span></div>
+                  <div class="al-card"><span>Mean envelope distance</span><output id="ae-radius"></output><span id="ae-rms"></span></div>
+                  <div class="al-card"><span>Relaxed directional response χ</span><output id="ae-response"></output><span id="ae-response-grade"></span></div>
+                </div>
+                <p id="ae-quality" class="al-boundary"></p>
+                <canvas id="ae-radial" width="900" height="300" role="img" aria-label="Selected atom's calculated orientation-averaged radial distribution"></canvas>
+                <p id="ae-radius-note" class="al-note"></p>
+                <details><summary>Energy account, occupied state and angular-momentum diagnostics</summary>
+                  <div class="al-scroll" tabindex="0" aria-label="Selected atom energy account"><table><thead><tr><th>Contribution</th><th>Rate equivalent E/h (PHz)</th></tr></thead><tbody id="ae-energy-table"></tbody></table></div>
+                  <p id="ae-angular"></p>
+                  <p>The listed angular moments are expectations of the chosen mean-field determinant, not a measured isotope J or a physical planar-core/envelope split. The scalar relativistic approximation does not resolve spin–orbit multiplets. A stationary solution in one specified spin sector is not proof of the absolute ground term.</p>
+                  <p id="ae-koopmans"></p>
+                  <p id="ae-removal"></p>
+                  <div class="al-scroll" tabindex="0" aria-label="Occupied atomic channels"><table><thead><tr><th>Spin account</th><th>Dominant angular degree l</th><th>Occupied entries</th><th>Eigenvalue range /h (PHz)</th></tr></thead><tbody id="ae-occupied"></tbody></table></div>
+                </details>
+                <details><summary>Numerical comparison: two basis sizes</summary>
+                  <div class="al-scroll" tabindex="0" aria-label="Atomic basis comparison"><table><thead><tr><th>Representation</th><th>E/h (PHz)</th><th>Mean r (pm)</th><th>Relaxed χ</th></tr></thead><tbody id="ae-basis-table"></tbody></table></div>
+                  <p id="ae-basis-note"></p>
+                  <p id="ae-validation" class="al-note"></p>
+                  <p>These are numerical checks within a mean-field model, not experimental uncertainty estimates. Correlation, spin–orbit, compact size and recoil, and additional relativistic/radiative terms remain outside this campaign. High-Z results particularly need those refinements for precision comparisons.</p>
+                </details>
+                <div id="ae-response-panel" class="al-boundary">
+                  <h3>Selected atom under a small directional perturbation</h3>
+                  <div class="al-controls">
+                    <label>Response direction<select id="ae-direction"><option value="average">Orientation average</option><option value="0">Calculated x direction</option><option value="1">Calculated y direction</option><option value="2">Calculated z direction</option></select></label>
+                    <label>Perturbation F (×10⁻⁴): <span id="ae-field-label">1.00</span><input id="ae-field" type="range" min="-1" max="1" step="0.02" value="1"></label>
+                  </div>
+                  <canvas id="ae-curve" width="900" height="250" role="img" aria-label="Selected atom mean-field energy response to a small directional perturbation"></canvas>
+                  <output id="ae-shift"></output><p id="ae-displacement"></p>
+                  <p class="al-note">The mean-field state is allowed to respond self-consistently. This is the local quadratic response of that state, not a bond curve, nonlinear drive model or propulsion prediction. For an open shell, the axes describe the selected determinant; the average is Tr(χ)/3.</p>
+                </div>
+                <p id="ae-frozen-note" class="al-note"></p>
+                <p><a href="./scripts/all_element_table.csv">118-element table (CSV)</a> · <a href="./scripts/all_element_results.json">Display data (JSON)</a> · <a href="./scripts/all_element_records.zip">Individual calculations and comparisons</a> · <a id="ae-state-download" href="./scripts/all_element_state_index.json">Selected atom state vectors</a> · <a href="./scripts/all_element_state_index.json">All state archives and checksums</a> · <a href="./scripts/all_element_notes.md">Method, normalization and limits</a></p>
+                <p id="ae-hhe-note" class="al-note" hidden>The H/He benchmark below is a different, more accurate model calculation. It is retained to show what the lower-cost all-element reference does and does not reproduce.</p>
+              </section>
               <div id="wa-hydrogen-results" hidden>
                 <h3>Hydrogen — exact static-response control</h3>
                 <p>This available result tests the one-entry ground state with infinite compact inertia. It is not a new finite-isotope whole-atom or compact-core calculation.</p>
@@ -4204,7 +4245,9 @@
     <script src="./scripts/coulomb_calibrated.js"></script>
     <script src="./scripts/atomic_ledger.js"></script>
     <script src="./scripts/whole_atom_data.js?v=20260915a"></script>
-    <script src="./scripts/whole_atom_ui.js?v=atom-selector-20260915"></script>
+    <script src="./scripts/all_element_data.js?v=all-atoms-20260915"></script>
+    <script src="./scripts/whole_atom_ui.js?v=all-atoms-20260915"></script>
+    <script src="./scripts/all_element_ui.js?v=all-atoms-20260915"></script>
     <script>POAMSAtomicLedger.mount(elements);</script>
 
     <!-- Three.js 3D Spiral Module -->

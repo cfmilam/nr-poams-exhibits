@@ -1,0 +1,388 @@
+{
+  "scope": "Directional variational diagnosis within saved RI-JK scalar-X2C UHF references; not a physical ground-state proof or a production-state replacement.",
+  "states": [
+    {
+      "response_vector_cached": true,
+      "finest_rotation_curvature_agrees_within_two_percent": true,
+      "z": 39,
+      "symbol": "Y",
+      "level": 3,
+      "source_sha256": "48591e54ef1ac7c8852b7fabc3dd1cae32195d439beac91c5917c8b462154871",
+      "source_state_sha256": "7b612a270742100dd71b57025fd13f165d868d5bc359e30203552481ab1f15b6",
+      "response_eigenvalues": [
+        -705.2797941242562,
+        226.18332628150736,
+        226.18332646671442
+      ],
+      "tested_direction": [
+        1.8881757642983137e-10,
+        1.6925384845329974e-09,
+        -1.0
+      ],
+      "minimum_orbital_parity_magnitude": 0.9999999999986997,
+      "recomputed_directional_response": -705.2797941241076,
+      "scaled_response_residual": 1.5545803656272925e-09,
+      "minres_info": 0,
+      "gmres_info": null,
+      "normalized_direction_energy_curvature": -0.0016283953112398615,
+      "baseline_energy_difference": 0.0,
+      "finite_rotations": [
+        {
+          "rotation_norm": 0.01,
+          "energies": [
+            -3383.0003560264395,
+            -3383.0003560264436
+          ],
+          "symmetric_energy_change": -8.089818948064931e-08,
+          "finite_curvature": -0.0016179637896129861,
+          "relative_curvature_difference": 0.006406013057684845,
+          "counts": [
+            39.00000000000004,
+            39.00000000000005
+          ]
+        },
+        {
+          "rotation_norm": 0.005,
+          "energies": [
+            -3383.0003559658626,
+            -3383.0003559658644
+          ],
+          "symmetric_energy_change": -2.032038537436165e-08,
+          "finite_curvature": -0.001625630829948932,
+          "relative_curvature_difference": 0.0016976721020062202,
+          "counts": [
+            39.00000000000006,
+            39.00000000000007
+          ]
+        },
+        {
+          "rotation_norm": 0.0025,
+          "energies": [
+            -3383.000355950634,
+            -3383.000355950636
+          ],
+          "symmetric_energy_change": -5.091806087875739e-09,
+          "finite_curvature": -0.0016293779481202364,
+          "relative_curvature_difference": 0.0006034387802471564,
+          "counts": [
+            39.000000000000014,
+            39.0
+          ]
+        }
+      ],
+      "conclusion": "Negative finite energy curvature: this saved stationary determinant is a saddle along a dipole-coupled orbital rotation in its RI-JK functional. The negative response is not a physical ground-state polarizability.",
+      "seconds": 9.573753118515015
+    },
+    {
+      "response_vector_cached": true,
+      "finest_rotation_curvature_agrees_within_two_percent": true,
+      "z": 40,
+      "symbol": "Zr",
+      "level": 3,
+      "source_sha256": "2da573a040823fe9297a84ffd3e901d14d3fae42f96fe9054691f2b87bbbf675",
+      "source_state_sha256": "32f0f5e6e7c37b4cddf662ca2e8b70e4c2a34f0e8c8fa68c7e356427c79ae22e",
+      "response_eigenvalues": [
+        -4726.624437665075,
+        -4726.622833582382,
+        147.11896332895466
+      ],
+      "tested_direction": [
+        0.048844128775976665,
+        9.216287173142862e-10,
+        -0.9988064132173534
+      ],
+      "minimum_orbital_parity_magnitude": 0.9999999999982152,
+      "recomputed_directional_response": -4726.624437669336,
+      "scaled_response_residual": 1.7991071322567967e-12,
+      "minres_info": 0,
+      "gmres_info": null,
+      "normalized_direction_energy_curvature": -9.916599538883274e-05,
+      "baseline_energy_difference": 0.0,
+      "finite_rotations": [
+        {
+          "rotation_norm": 0.01,
+          "energies": [
+            -3596.2618980761354,
+            -3596.261898076137
+          ],
+          "symmetric_energy_change": -4.436515155248344e-09,
+          "finite_curvature": -8.873030310496688e-05,
+          "relative_curvature_difference": 0.1052345841227853,
+          "counts": [
+            39.999999999999964,
+            39.999999999999936
+          ]
+        },
+        {
+          "rotation_norm": 0.005,
+          "energies": [
+            -3596.2618980729094,
+            -3596.26189807291
+          ],
+          "symmetric_energy_change": -1.2096279533579946e-09,
+          "finite_curvature": -9.677023626863956e-05,
+          "relative_curvature_difference": 0.02415907903509995,
+          "counts": [
+            40.0,
+            40.000000000000014
+          ]
+        },
+        {
+          "rotation_norm": 0.0025,
+          "energies": [
+            -3596.261898072011,
+            -3596.2618980720144
+          ],
+          "symmetric_energy_change": -3.128661774098873e-10,
+          "finite_curvature": -0.00010011717677116394,
+          "relative_curvature_difference": 0.009591809960678432,
+          "counts": [
+            40.0,
+            39.99999999999996
+          ]
+        }
+      ],
+      "conclusion": "Negative finite energy curvature: this saved stationary determinant is a saddle along a dipole-coupled orbital rotation in its RI-JK functional. The negative response is not a physical ground-state polarizability.",
+      "seconds": 9.670084238052368
+    },
+    {
+      "response_vector_cached": true,
+      "finest_rotation_curvature_agrees_within_two_percent": true,
+      "z": 91,
+      "symbol": "Pa",
+      "level": 3,
+      "source_sha256": "cea7fc433c1d808a3e1eac5a57cac89d702b613e0b3a2345e0804930d0d4a81f",
+      "source_state_sha256": "4bb049d3548d2cd6d502f1c7e07d051f88b2f313fc677881a4baf53033650f13",
+      "response_eigenvalues": [
+        -849.6795597597984,
+        243.38352145891326,
+        322.919062517823
+      ],
+      "tested_direction": [
+        -9.668010019925415e-09,
+        -0.999999999999999,
+        -4.586681700530337e-08
+      ],
+      "minimum_orbital_parity_magnitude": 0.9999990525819489,
+      "recomputed_directional_response": -849.6795597592895,
+      "scaled_response_residual": 5.694722089138387e-13,
+      "minres_info": 0,
+      "gmres_info": null,
+      "normalized_direction_energy_curvature": -0.00015507181084591174,
+      "baseline_energy_difference": 0.0,
+      "finite_rotations": [
+        {
+          "rotation_norm": 0.01,
+          "energies": [
+            -27220.9053303595,
+            -27220.9053303595
+          ],
+          "symmetric_energy_change": -7.315975381061435e-09,
+          "finite_curvature": -0.0001463195076212287,
+          "relative_curvature_difference": 0.05644032385344255,
+          "counts": [
+            91.00000000000003,
+            90.99999999999993
+          ],
+          "stable_energy_changes": [
+            -7.4061853064811005e-09,
+            -7.4106233917563594e-09
+          ],
+          "stable_finite_curvature": -0.0001481680869823746,
+          "stable_relative_curvature_difference": 0.04451952824873551,
+          "maximum_total_subtraction_difference": 9.464801069492467e-11
+        },
+        {
+          "rotation_norm": 0.005,
+          "energies": [
+            -27220.90533035407,
+            -27220.90533035407
+          ],
+          "symmetric_energy_change": -1.888111000880599e-09,
+          "finite_curvature": -0.00015104888007044792,
+          "relative_curvature_difference": 0.02594237310778058,
+          "counts": [
+            90.99999999999991,
+            90.99999999999987
+          ],
+          "stable_energy_changes": [
+            -1.913485884823783e-09,
+            -1.9157297289588027e-09
+          ],
+          "stable_finite_curvature": -0.00015316862455130344,
+          "stable_relative_curvature_difference": 0.012272935256424033,
+          "maximum_total_subtraction_difference": 2.7618728078203716e-11
+        },
+        {
+          "rotation_norm": 0.0025,
+          "energies": [
+            -27220.905330352576,
+            -27220.905330352613
+          ],
+          "symmetric_energy_change": -4.1109160520136356e-10,
+          "finite_curvature": -0.00013154931366443634,
+          "relative_curvature_difference": 0.1516877700283561,
+          "counts": [
+            91.00000000000006,
+            90.99999999999997
+          ],
+          "stable_energy_changes": [
+            -4.819961880935683e-10,
+            -4.831212104359197e-10
+          ],
+          "stable_finite_curvature": -0.00015441878376471808,
+          "stable_relative_curvature_difference": 0.004211126945841581,
+          "maximum_total_subtraction_difference": 8.909447692766328e-11
+        }
+      ],
+      "conclusion": "Negative finite energy curvature: this saved stationary determinant is a saddle along a dipole-coupled orbital rotation in its RI-JK functional. The negative response is not a physical ground-state polarizability.",
+      "seconds": 65.78522205352783,
+      "finite_curvature_comparison": "stable_relative_curvature_difference",
+      "energy_difference_method": "Exact RI-JK UHF quadratic density increment Tr(F0 dD)+Tr(dD V[dD])/2; SVD sin/cos occupied/virtual rotations. Original total-energy subtractions are retained separately."
+    },
+    {
+      "response_vector_cached": false,
+      "finest_rotation_curvature_agrees_within_two_percent": true,
+      "z": 103,
+      "symbol": "Lr",
+      "level": 2,
+      "source_sha256": "4f8329791efa802ac9bf944b9dade2747727cb2c3fb5ae2807ad84a8660c556a",
+      "source_state_sha256": "125cdc18b56f8131a93ba8ef6c433ba9c03b19f6fe21e1f39965b44f458c2a84",
+      "response_eigenvalues": [
+        -18.717364932332753,
+        -18.717364800848845,
+        118.39539328280787
+      ],
+      "tested_direction": [
+        0.9678633205187073,
+        -0.25147682357327045,
+        1.0584613968410078e-10
+      ],
+      "minimum_orbital_parity_magnitude": 0.9999999999991432,
+      "recomputed_directional_response": -18.717364932331108,
+      "scaled_response_residual": 3.6562371078044885e-10,
+      "minres_info": 0,
+      "gmres_info": null,
+      "normalized_direction_energy_curvature": -0.0036188962504642846,
+      "baseline_energy_difference": 0.0,
+      "finite_rotations": [
+        {
+          "rotation_norm": 0.01,
+          "energies": [
+            -37590.57589390283,
+            -37590.5758939028
+          ],
+          "symmetric_energy_change": -1.8070568330585957e-07,
+          "finite_curvature": -0.0036141136661171913,
+          "relative_curvature_difference": 0.001321558844490145,
+          "counts": [
+            103.00000000000017,
+            103.00000000000026
+          ]
+        },
+        {
+          "rotation_norm": 0.005,
+          "energies": [
+            -37590.57589376735,
+            -37590.575893767345
+          ],
+          "symmetric_energy_change": -4.524190444499254e-08,
+          "finite_curvature": -0.0036193523555994034,
+          "relative_curvature_difference": 0.0001260343219455784,
+          "counts": [
+            103.00000000000003,
+            103.00000000000006
+          ]
+        },
+        {
+          "rotation_norm": 0.0025,
+          "energies": [
+            -37590.57589373348,
+            -37590.575893733476
+          ],
+          "symmetric_energy_change": -1.1365045793354511e-08,
+          "finite_curvature": -0.0036368146538734436,
+          "relative_curvature_difference": 0.004951344876731545,
+          "counts": [
+            103.00000000000014,
+            103.0000000000002
+          ]
+        }
+      ],
+      "conclusion": "Negative finite energy curvature: this saved stationary determinant is a saddle along a dipole-coupled orbital rotation in its RI-JK functional. The negative response is not a physical ground-state polarizability.",
+      "seconds": 137.55165100097656
+    },
+    {
+      "response_vector_cached": false,
+      "finest_rotation_curvature_agrees_within_two_percent": true,
+      "z": 103,
+      "symbol": "Lr",
+      "level": 3,
+      "source_sha256": "c2319e14a031b4e3c2978a4affa5a1c94ffb27c57555949b01d0e94d52c3de37",
+      "source_state_sha256": "a743fe656a007888c536fc0c570c0badb5b7b7353cf9190866fdc54365daddf2",
+      "response_eigenvalues": [
+        -23.16920421179754,
+        -23.169203685396354,
+        118.48737280136226
+      ],
+      "tested_direction": [
+        0.9991776785095463,
+        -0.04054586006331107,
+        1.9553146295260464e-10
+      ],
+      "minimum_orbital_parity_magnitude": 0.9999999999970024,
+      "recomputed_directional_response": -23.16920421742347,
+      "scaled_response_residual": 1.8640762152639158e-10,
+      "minres_info": 0,
+      "gmres_info": null,
+      "normalized_direction_energy_curvature": -0.004202020399162634,
+      "baseline_energy_difference": 0.0,
+      "finite_rotations": [
+        {
+          "rotation_norm": 0.01,
+          "energies": [
+            -37590.63480117734,
+            -37590.63480117735
+          ],
+          "symmetric_energy_change": -2.097949618473649e-07,
+          "finite_curvature": -0.004195899236947298,
+          "relative_curvature_difference": 0.0014567188242484708,
+          "counts": [
+            103.00000000000009,
+            103.00000000000011
+          ]
+        },
+        {
+          "rotation_norm": 0.005,
+          "energies": [
+            -37590.634801019994,
+            -37590.63480101998
+          ],
+          "symmetric_energy_change": -5.243782652541995e-08,
+          "finite_curvature": -0.004195026122033596,
+          "relative_curvature_difference": 0.0016645033732897163,
+          "counts": [
+            103.00000000000006,
+            103.0000000000001
+          ]
+        },
+        {
+          "rotation_norm": 0.0025,
+          "energies": [
+            -37590.63480098064,
+            -37590.634800980624
+          ],
+          "symmetric_energy_change": -1.30821717903018e-08,
+          "finite_curvature": -0.004186294972896576,
+          "relative_curvature_difference": 0.0037423488637018387,
+          "counts": [
+            103.00000000000006,
+            103.00000000000006
+          ]
+        }
+      ],
+      "conclusion": "Negative finite energy curvature: this saved stationary determinant is a saddle along a dipole-coupled orbital rotation in its RI-JK functional. The negative response is not a physical ground-state polarizability.",
+      "seconds": 212.11653876304626
+    }
+  ]
+}

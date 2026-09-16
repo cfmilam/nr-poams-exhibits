@@ -8,9 +8,10 @@
   const fmt = (n, digits=6) => Number(n).toPrecision(digits);
   const aPM=data.units.length_m*1e12;
   const priorities=new Set([6,7,8]);
+  const campaign=window.POAMS_ALL_ELEMENTS?.elements||{};
   const selector=el('wa-element');
   selector.replaceChildren(...catalogue.map(atom=>{
-    const status=atom.n===1?'exact response control':atom.n===2?'calculated ⁴He':priorities.has(atom.n)?'priority · pending':'pending';
+    const status=campaign[atom.n]?(atom.n===1?'reference + exact control':atom.n===2?'reference + correlated ⁴He':'calculated mean-field reference'):(atom.n===1?'exact response control':atom.n===2?'calculated ⁴He':priorities.has(atom.n)?'priority · pending':'pending');
     return new Option(`${atom.n} · ${atom.name} (${atom.symbol}) — ${status}`,String(atom.n));
   }));
   selector.value='2';
@@ -105,12 +106,15 @@
   function renderSelection(){
     const atom=catalogue.find(item=>item.n===Number(selector.value));
     const hydrogen=atom.n===1,helium=atom.n===2,available=hydrogen||helium;
+    const reference=campaign[atom.n];
     const counts=window.POAMSAtomicLedger.counts(atom.n,atom.massNumber);
     const ratio=Number(counts.ratio.toPrecision(6));
     set('wa-selected-name',`${atom.name} (${atom.symbol})`);
-    set('wa-status',hydrogen?'Exact static-response control available':helium?'Helium-4 envelope and response calculated':priorities.has(atom.n)?'Molecules priority — whole-atom calculation pending':'Whole-atom calculation pending');
+    set('wa-status',reference?'Individually calculated mean-field reference'+(hydrogen?' + exact response control':helium?' + correlated helium-4 benchmark':''):hydrogen?'Exact static-response control available':helium?'Helium-4 envelope and response calculated':'Whole-atom calculation pending');
     set('wa-count-summary',`Count example ${atom.symbol}-${atom.massNumber}: ${counts.depth} depth : ${counts.pattern} pattern; ratio ${ratio} : 1.`);
-    set('wa-scope',hydrogen
+    set('wa-scope',reference
+      ?'The all-element result is for a neutral atom with a fixed point compact component and a specified spin sector. It is not isotope-specific and does not derive the compact core’s internal structure. H/He benchmark calculations remain separately labelled.'
+      :hydrogen
       ?'The response below is the one-entry, infinite-compact-inertia control, not a finite-isotope or internally resolved core calculation.'
       :helium?'The results below apply to the helium-4 effective external-atom model, not every helium isotope or the compact core’s internal structure.'
       :'Only the inherited isotope-count assignment is available here. Physical dimensions, regional energies and directional response have not been calculated for this element.');
@@ -118,7 +122,7 @@
     el('wa-hydrogen-results').hidden=!hydrogen;
     el('whole-atom-response').hidden=!available;
     el('wa-benchmarks').hidden=!available;
-    el('wa-pending').hidden=available;
+    el('wa-pending').hidden=available||Boolean(reference);
     if(available){
       set('wa-response-species',hydrogen?'Showing hydrogen’s exact infinite-compact-inertia response control. Choose an element above to change the available result.':'Showing helium-4’s calculated response, including compact recoil. Choose an element above to change the available result.');
       drawResponse();
