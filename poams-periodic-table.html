@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Elements</title>
-    <link rel="stylesheet" href="./scripts/atomic_ledger.css?v=whole-atom-20260915">
+    <link rel="stylesheet" href="./scripts/atomic_ledger.css?v=atom-selector-20260915">
     <script>
         window.MathJax = {
             tex: {
@@ -1190,9 +1190,38 @@
             </div>
 
             <section class="al-panel" id="whole-atom-helium" aria-labelledby="wa-title">
-              <p class="al-label">3 · Whole-atom preparation — helium-4 envelope and response</p>
+              <p class="al-label">3 · Whole-atom preparation — browse all 118 elements</p>
               <h3 id="wa-title">From occupied entries to a quantitative atomic input</h3>
-              <p><strong>Measured α is enough to calibrate this calculation; its numerical origin is not an obstacle.</strong> We now solve two interacting mobile entries together, including recoil of the compact component. This gives the atom’s external binding account, envelope distribution and response to a weak directional perturbation. The same response then gives leading long-range attraction coefficients for Molecules.</p>
+              <p>Choose an element to see what is available. <strong>Hydrogen’s exact response control and helium-4’s correlated envelope and response are ready.</strong> The other 116 elements currently have count data, not completed whole-atom calculations. Carbon, nitrogen and oxygen are the next response priorities for Molecules.</p>
+              <div class="al-controls" id="whole-atom-selector">
+                <label for="wa-element">Element and calculation status<select id="wa-element" aria-describedby="wa-availability wa-count-summary wa-scope"><option value="2">2 · Helium (He) — calculated ⁴He</option></select></label>
+              </div>
+              <div class="wa-selection" aria-live="polite" aria-atomic="true">
+                <p id="wa-availability"><strong id="wa-selected-name">Helium (He)</strong> — <span id="wa-status">Helium-4 envelope and response calculated</span></p>
+                <p id="wa-count-summary">Count example He-4: 2 depth : 2 pattern; ratio 1 : 1.</p>
+                <p id="wa-scope">The results below apply to the helium-4 effective external-atom model, not every helium isotope or the compact core’s internal structure.</p>
+              </div>
+              <p class="al-note">Count assignments are not measured regional dimensions, energies or angular momenta. <a id="wa-count-link" href="#atomic-counts">View the selected element’s isotope-count choices</a>.</p>
+              <noscript><p>The selector requires JavaScript. The fixed results below are helium-4 and explicitly labelled H/He benchmarks only.</p></noscript>
+              <div id="wa-pending" hidden>
+                <h3>Whole-atom calculation still to do</h3>
+                <p id="wa-next"></p>
+                <ol>
+                  <li>Specify the occupied state, compact-component calibration and many-entry energy account, including any additional physical corrections required.</li>
+                  <li>Converge the joint state, envelope dimensions and energy. Include the complete angular response space and establish the state’s angular-momentum account.</li>
+                  <li>Compare with independent measurements, then export the checked response and long-range coefficients for molecular work.</li>
+                </ol>
+                <p>The helium calculation has two mobile entries built into it. Changing the element number cannot supply these missing results, and helium’s numerical outputs are not shown for a pending atom.</p>
+                <p><a href="./the-molecules.html#atomic-preparation">Molecular preparation and readiness checks</a> · <a href="./coulomb-from-chirality-directed-depletion.html#carryover-spectra">Atomic work in Coulomb §7</a></p>
+              </div>
+              <div id="wa-hydrogen-results" hidden>
+                <h3>Hydrogen — exact static-response control</h3>
+                <p>This available result tests the one-entry ground state with infinite compact inertia. It is not a new finite-isotope whole-atom or compact-core calculation.</p>
+                <p>Its undisturbed spherical state alone gives zero calculated directional response. One directional radial function gives χ = 4; two recover <strong>χ = 4.5 exactly</strong> within this model. Use the response-space control below to see the distinction. The response coefficient is not a fitted measurement.</p>
+              </div>
+              <div id="wa-helium-results">
+              <h3>Helium-4 — correlated envelope and external energy account</h3>
+              <p><strong>Measured α is enough to calibrate this calculation; its numerical origin is not an obstacle.</strong> We now solve two interacting mobile entries together, including recoil of the compact component. This gives the atom’s external binding account, envelope distribution and response to a small directional perturbation. The same response then gives leading long-range attraction coefficients for Molecules.</p>
               <p>The compact component is represented by a point “eye” with measured inertia and the effective strength corresponding to \(Z=2\). It is <strong>not a derived disk</strong>. Its internal geometry, binding and regional circulation rates remain outside this reduction. Helium’s proposed count assignment is 2 depth : 2 pattern; that numerical equality does not make the two regional energies or dimensions equal.</p>
               <details id="wa-model"><summary>What is supplied, and what is actually solved?</summary>
                 <p><strong>Measured inputs:</strong> α, the light-entry inertia, the compact helium-4 inertia \(6.6446573450\times10^{-27}\) kg, and the SI values of \(h\) and \(c\). <strong>Specified state:</strong> two mobile entries, the spatially symmetric paired-intrinsic singlet sector, and the compact component’s measured zero-spin state. Helium’s radius, binding, polarizability and dispersion coefficient are <em>not</em> supplied to the solve.</p>
@@ -1227,23 +1256,26 @@
               <p><strong>A measured/calculated core–envelope comparison is possible.</strong> The compact helium-4 rms charge-distribution radius is 1.6785(21) fm in the <a href="https://physics.nist.gov/cuu/Constants/Table/allascii.txt">NIST table</a>. Comparing that <em>measured reference</em> with the calculated envelope rms distance gives about <strong>34,447 : 1</strong>, with about 0.13% relative uncertainty from the compact measurement alone. These are differently weighted spatial observables. This is not a derivation of a planar disk radius or thickness; the compact radius is not used to fit the envelope.</p>
               <h3>Zero resultant angular momentum does not erase internal organization</h3>
               <p>The spatial state is rotationally scalar, so its total orbital \(L=0\). Nevertheless the correlated state has \(\langle L_1^2\rangle=\langle L_2^2\rangle\approx0.0094754\hbar^2\) and \(\langle\mathbf L_1\cdot\mathbf L_2\rangle=-\langle L_1^2\rangle\), for the compact-relative angular operators. Those terms cancel in the total, not in their separate variances. With the <em>specified</em> intrinsic singlet and measured compact \(I=0\), the account has \(J=0\), consistent with helium-4’s ground-state label. This does not derive the singlet selection or the core’s internal angular-momentum partition from \(A-Z\).</p>
+              </div>
 
               <div id="whole-atom-response" class="al-boundary">
                 <h3>The missing ingredient for Molecules: room to respond</h3>
                 <p>A correct occupied spherical state is not a complete response space. For hydrogen, keeping only that state gives <strong>χ = 0</strong>. One directional radial function gives <strong>4</strong>; two recover the exact static value <strong>4.5</strong>. For the correlated helium envelope, complete directional multiplets give <strong>χ ≈ 1.38381</strong>. No polarizability is fitted.</p>
-                <p>Here a small, dimensionless force parameter \(F\) enters as \(F D_z\), with \(D_z\) the sum of mobile displacements relative to the compact component. The calculated response gives</p>
+                <p>Here the small directional perturbation has dimensionless amplitude \(F\), entering as \(F D_z\), with \(D_z\) the sum of mobile displacements relative to the compact component. The calculated response gives</p>
                 <div class="al-equations"><div class="al-equation">\[\Delta E/E_*=-\tfrac12\chi F^2\]</div><div class="al-equation">\[\langle D_z\rangle/a_*=-\chi F.\]</div></div>
+                <p id="wa-response-species" class="al-note">Showing helium-4’s calculated response. Choose an element above to change the available result.</p>
                 <div class="al-controls">
-                  <label>Atomic response control<select id="wa-atom"><option value="helium">Helium-4 · calculated</option><option value="hydrogen">Hydrogen · exact static control</option></select></label>
                   <label>Allowed response space<select id="wa-space"><option value="complete">Directional response included</option><option value="occupied">Occupied spherical state only</option></select></label>
-                  <label>Weak force F, in units of 10⁻³: <span id="wa-force-label">1.00</span><input id="wa-force" type="range" min="-1" max="1" step="0.02" value="1"></label>
+                  <label>Small directional perturbation F (×10⁻³): <span id="wa-force-label">1.00</span><input id="wa-force" type="range" min="-1" max="1" step="0.02" value="1"></label>
                 </div>
-                <canvas id="wa-curve" width="900" height="260" role="img" aria-label="Calculated second-order energy-rate shift versus weak directional force"></canvas>
+                <canvas id="wa-curve" width="900" height="260" role="img" aria-label="Calculated second-order energy-rate shift versus small directional perturbation"></canvas>
                 <output id="wa-shift" aria-live="polite"></output>
                 <p id="wa-displacement"></p>
                 <p class="al-note">This is linear response, not a nonlinear driven-device simulation. A compensating drive acts on the compact component: displacement is internal, not centre-of-mass thrust. \(E/h\) is a rate equivalent, not an asserted internal ticking clock.</p>
               </div>
-              <h3>A molecular coefficient now follows from the response</h3>
+              <div id="wa-benchmarks">
+              <h3>Available H/He molecular benchmarks</h3>
+              <p>These shared benchmarks name their own atomic pair and mass convention; they do not change with the selected element.</p>
               <p>The calculated response spectrum gives the leading joint-response attraction of separated neutral atoms:</p>
               <div class="al-equation">\[U(R)/E_*\simeq-\frac{C_6}{(R/a_*)^6}.\]</div>
               <div class="al-scroll" tabindex="0" aria-label="Calculated neutral-atom attraction coefficients"><table>
@@ -1262,6 +1294,7 @@
                 <p><a href="./scripts/whole_atom_notes.md">Derivation and scope</a> · <a href="./scripts/whole_atom_results.json">Results and checks</a> · <a href="./scripts/whole_atom_handoff.json">Reusable state and response data</a> · <a href="./scripts/whole_atom_build.py">Reproduce the calculation</a> · <a href="./scripts/whole_atom_helium.py">Independent integral and response solver</a></p>
               </details>
               <div class="al-boundary"><p><strong>Ready for Molecules:</strong> exact H response controls, a correlated two-entry energy/recoil benchmark, a helium envelope profile, and long-range response coefficients. <strong>Still to do before a long molecular run:</strong> recover the corresponding complete response spaces for C/N/O and pass the existing molecular representation and derivative checks. The compact-core shape, thickness and intrinsic energy are not silently filled in by this envelope calculation.</p></div>
+              </div>
             </section>
 
             <div class="al-panel" id="atomic-structure-boundary">
@@ -4171,7 +4204,7 @@
     <script src="./scripts/coulomb_calibrated.js"></script>
     <script src="./scripts/atomic_ledger.js"></script>
     <script src="./scripts/whole_atom_data.js?v=20260915a"></script>
-    <script src="./scripts/whole_atom_ui.js?v=20260915a"></script>
+    <script src="./scripts/whole_atom_ui.js?v=atom-selector-20260915"></script>
     <script>POAMSAtomicLedger.mount(elements);</script>
 
     <!-- Three.js 3D Spiral Module -->

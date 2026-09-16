@@ -1,4 +1,5 @@
 #atomic-ledger {max-width:1040px;margin:0 auto;line-height:1.7;scroll-margin-top:64px}
+#atomic-ledger [hidden] {display:none!important}
 #atomic-ledger h2,#atomic-ledger h3 {color:var(--accent-gold);line-height:1.3;margin:1.6em 0 .6em}
 #atomic-ledger h2 {margin-top:.4em}
 #atomic-ledger p {margin:.7em 0}
@@ -8,7 +9,7 @@
 #atomic-ledger .al-controls {display:flex;flex-wrap:wrap;gap:20px;margin:20px 0}
 #atomic-ledger label {flex:1;min-width:180px;font-family:system-ui,sans-serif;font-size:.9rem}
 #atomic-ledger select,#atomic-ledger input {display:block;width:100%;margin-top:7px}
-#atomic-ledger select {background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:10px;font:inherit}
+#atomic-ledger select {background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:10px;font:inherit;max-width:100%;min-width:0}
 #atomic-ledger input {accent-color:var(--accent-gold)}
 #atomic-ledger .al-bar {display:flex;height:18px;border-radius:9px;overflow:hidden;margin:14px 0;background:var(--bg)}
 #al-depth-bar {background:#bd8f36} #al-pattern-bar {background:#3592ac}
@@ -28,6 +29,11 @@
 #atomic-ledger canvas {display:block;width:100%;max-width:100%;border:1px solid var(--border);border-radius:8px;margin:20px 0;box-sizing:border-box}
 #wa-radial {height:310px} #wa-curve {height:260px}
 #whole-atom-response {margin:28px 0;scroll-margin-top:64px}
+#whole-atom-selector {scroll-margin-top:70px}
+#whole-atom-selector label {min-width:0;max-width:100%}
+#atomic-ledger .wa-selection {border-left:4px solid var(--accent-gold);padding:4px 16px;background:var(--bg);overflow-wrap:anywhere}
+#wa-pending ol {margin:16px 0;padding-left:24px}
+#wa-pending li {margin:10px 0}
 #wa-energy-table .wa-total {font-weight:700}
 #wa-shift {font-size:1.1rem}
 body[data-theme="light"] #atomic-ledger a {color:#176b87}
