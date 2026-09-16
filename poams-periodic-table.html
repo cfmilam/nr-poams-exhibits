@@ -1215,6 +1215,29 @@
                 <p>The helium calculation has two mobile entries built into it. Changing the element number cannot supply these missing results, and helium’s numerical outputs are not shown for a pending atom.</p>
                 <p><a href="./the-molecules.html#atomic-preparation">Molecular preparation and readiness checks</a> · <a href="./coulomb-from-chirality-directed-depletion.html#carryover-spectra">Atomic work in Coulomb §7</a></p>
               </div>
+              <section id="ca-results" hidden aria-labelledby="ca-title" class="al-boundary">
+                <p class="al-label">Correlation upgrade · C/N/O molecular preparation</p>
+                <h3 id="ca-title">Correlated atomic reference</h3>
+                <p>Here the occupied entries respond jointly beyond the average-interaction approximation. Neutral and removal states are calculated separately, and both angular branches are retained where needed. This is a <strong>nonrelativistic, infinite-compact-inertia</strong> calculation; the scalar-relativistic mean-field reference below remains a separate model.</p>
+                <div class="al-cards" aria-live="polite">
+                  <div class="al-card"><span>First-removal rate equivalent</span><output id="ca-removal"></output><span id="ca-removal-conversion"></span></div>
+                  <div class="al-card"><span>Correlated mean envelope distance</span><output id="ca-mean"></output><span id="ca-rms"></span></div>
+                  <div class="al-card"><span>Correlated directional response χ</span><output id="ca-response"></output><span>Angular-term average; not a fitted input</span></div>
+                </div>
+                <p id="ca-grade"></p>
+                <div class="al-controls"><label for="ca-direction">Correlated response direction<select id="ca-direction"><option value="average">Angular-term average</option><option value="parallel">Parallel branch</option><option value="perpendicular">Perpendicular branch</option></select></label></div>
+                <p id="ca-direction-readout" aria-live="polite"></p>
+                <details><summary>Basis convergence, independent comparisons and remaining error</summary>
+                  <div class="al-scroll" tabindex="0" aria-label="Correlated atomic basis comparison"><table><thead><tr><th>Basis</th><th>Removal /h (PHz)</th><th>Mean r (pm)</th><th>Correlated χ</th></tr></thead><tbody id="ca-basis-table"></tbody></table></div>
+                  <p id="ca-basis"></p><p id="ca-diffuse"></p>
+                  <p id="ca-measured"></p><p id="ca-theory"></p><p id="ca-fci"></p>
+                  <p id="ca-controls"></p>
+                  <p id="ca-state-packages"></p>
+                  <p>Energy and response use all-entry CCSD(T); sizes use the CCSD left/right one-body density. They do not have identical approximation errors. The specified C/O angular terms are averaged over their projections, not resolved into spin–orbit J levels. Compact recoil, compact size, relativistic/radiative terms and correlations beyond this truncation remain outside the calculation. Basis differences and the small-space configuration check are diagnostics, not experimental error bars.</p>
+                </details>
+                <p><strong>Molecular use:</strong> these are independent atomic energy/shape/response controls, not a sum of atomic corrections that can be pasted into a bond energy. Dynamic response and short-range molecular correlation require their own calculation. <a href="./the-molecules.html#atomic-preparation">Molecules remains on hold; no long optimization has been launched.</a></p>
+                <p><a href="./scripts/correlated_atoms_notes.md">Method, scope and reproduction</a> · <a href="./scripts/correlated_atoms_results.json">Correlated results and diagnostics</a> · <a href="./scripts/correlated_atoms_records.zip">Raw calculations and reproduction scripts</a> · <a id="ca-state-download" href="./scripts/correlated_atoms_results.json">Selected atom’s states and amplitudes</a></p>
+              </section>
               <section id="ae-results" hidden aria-labelledby="ae-title">
                 <h3 id="ae-title">Calculated all-entry reference</h3>
                 <p id="ae-method" class="al-label"></p>
@@ -4248,6 +4271,8 @@
     <script src="./scripts/all_element_data.js?v=all-atoms-20260915"></script>
     <script src="./scripts/whole_atom_ui.js?v=all-atoms-20260915"></script>
     <script src="./scripts/all_element_ui.js?v=all-atoms-20260915"></script>
+    <script src="./scripts/correlated_atoms_data.js?v=cno-correlated-20260916"></script>
+    <script src="./scripts/correlated_atoms_ui.js?v=cno-correlated-20260916"></script>
     <script>POAMSAtomicLedger.mount(elements);</script>
 
     <!-- Three.js 3D Spiral Module -->
