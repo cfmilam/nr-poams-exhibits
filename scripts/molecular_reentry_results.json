@@ -1,0 +1,174 @@
+{
+  "status": "bounded_full_space_reference_complete",
+  "main_points": 15,
+  "slopes": {
+    "D": {
+      "RHF": {
+        "0.5": {
+          "slope": 0.005916840930803894,
+          "curvature": 0.1669077827704456
+        },
+        "1.0": {
+          "slope": 0.005909619696048905,
+          "curvature": 0.16690470591846338
+        },
+        "richardson_slope": 0.005919248009055557,
+        "slope_step_discrepancy": 7.221234754988849e-06
+      },
+      "MP2": {
+        "0.5": {
+          "slope": 0.008404521554123896,
+          "curvature": 0.1507090095933303
+        },
+        "1.0": {
+          "slope": 0.008397886404505615,
+          "curvature": 0.15070708139418956
+        },
+        "richardson_slope": 0.008406733270663323,
+        "slope_step_discrepancy": 6.635149618280933e-06
+      }
+    },
+    "T": {
+      "RHF": {
+        "0.5": {
+          "slope": 0.00511984157752893,
+          "curvature": 0.1673612202674048
+        },
+        "1.0": {
+          "slope": 0.005113047821943571,
+          "curvature": 0.16735646134951193
+        },
+        "richardson_slope": 0.00512210616272405,
+        "slope_step_discrepancy": 6.793755585358767e-06
+      },
+      "MP2": {
+        "0.5": {
+          "slope": 0.00793849443873967,
+          "curvature": 0.15010646872822717
+        },
+        "1.0": {
+          "slope": 0.007932049558146432,
+          "curvature": 0.1501030637297058
+        },
+        "richardson_slope": 0.00794064273227075,
+        "slope_step_discrepancy": 6.4448805932385e-06
+      }
+    },
+    "T-tail": {
+      "RHF": {
+        "0.5": {
+          "slope": 0.0051312721885706375,
+          "curvature": 0.16746704076181435
+        },
+        "1.0": {
+          "slope": 0.0051244635001538264,
+          "curvature": 0.16746220664172912
+        },
+        "richardson_slope": 0.005133541751376241,
+        "slope_step_discrepancy": 6.808688416811044e-06
+      },
+      "MP2": {
+        "0.5": {
+          "slope": 0.008000030648821835,
+          "curvature": 0.1502725565954897
+        },
+        "1.0": {
+          "slope": 0.00799353309783596,
+          "curvature": 0.15026919293018323
+        },
+        "richardson_slope": 0.00800219649915046,
+        "slope_step_discrepancy": 6.497550985874387e-06
+      }
+    }
+  },
+  "controls": {
+    "analytic_minus_finite_difference": {
+      "RHF": -1.7900384646774015e-10,
+      "MP2": 3.267354506571174e-08
+    },
+    "rigid_permutation_errors": {
+      "RHF": 4.831690603168681e-13,
+      "MP2": -6.66489086142974e-12
+    },
+    "energy_zero_errors": {
+      "RHF": 4.249045559845399e-12,
+      "MP2": 6.0680349633912556e-12
+    }
+  },
+  "basis_superposition_own_minus_ghost": {
+    "RHF_or_ROHF": 0.0003828310906612842,
+    "MP2": 0.003055307722405587
+  },
+  "limitations": [
+    "The s/p-only attempt failed occupied-seed preservation and remains stopped.",
+    "Full-space reference, not native closure, angular-only decomposition or equilibrium validation.",
+    "MP2 is not UCCSD(T); no higher-order error bound.",
+    "O axial atomic cardinal change 1.018046%; finite-basis removal limits retained.",
+    "Ghost-fragment orbital orientation not certified: BSSE is diagnostic only."
+  ],
+  "independent_audit": {
+    "pass": true,
+    "checks": 127,
+    "derived_slopes": {
+      "D": {
+        "RHF": {
+          "slope_Estar_per_rad": 0.005919248009047615,
+          "slope_PHz_per_rad": 0.03894678094616143
+        },
+        "MP2": {
+          "slope_Estar_per_rad": 0.008406733270279826,
+          "slope_PHz_per_rad": 0.0553136477217949
+        }
+      },
+      "T": {
+        "RHF": {
+          "slope_Estar_per_rad": 0.005122106162749234,
+          "slope_PHz_per_rad": 0.03370183955777095
+        },
+        "MP2": {
+          "slope_Estar_per_rad": 0.007940642732403493,
+          "slope_PHz_per_rad": 0.052246919304265935
+        }
+      },
+      "T-tail": {
+        "RHF": {
+          "slope_Estar_per_rad": 0.0051335417516563285,
+          "slope_PHz_per_rad": 0.0337770821182236
+        },
+        "MP2": {
+          "slope_Estar_per_rad": 0.008002196498955321,
+          "slope_PHz_per_rad": 0.052651923632288836
+        }
+      }
+    },
+    "resolved_effects": {
+      "D": {
+        "correlation_slope_change": 0.002487485261607766,
+        "conservative_stencil_budget": 0.00013856384373269783,
+        "resolved": true
+      },
+      "T": {
+        "correlation_slope_change": 0.0028185365695467006,
+        "conservative_stencil_budget": 0.00013238636178597267,
+        "resolved": true
+      },
+      "T-tail": {
+        "correlation_slope_change": 0.0028686547477742193,
+        "conservative_stencil_budget": 0.0001330623940268543,
+        "resolved": true
+      }
+    }
+  },
+  "units": {
+    "length_m": 5.291772105467402e-11,
+    "energy_J": 4.359744722158896e-18,
+    "energy_over_h_PHz": 6.579683920428908
+  },
+  "prior_attempt": {
+    "status": "stopped_failure",
+    "gate": "occupied atomic direction excluded by s/p-only restriction",
+    "completed_D_points": 5,
+    "invalid_sp_points": 0
+  },
+  "next_step": "Same-fixed-geometry higher-order correlation and basis checks; no geometry optimization yet."
+}
