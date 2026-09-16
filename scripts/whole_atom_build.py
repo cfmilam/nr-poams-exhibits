@@ -17,6 +17,17 @@ HERE=Path(__file__).resolve().parent
 CHECKS=[]
 
 
+def state_normalization():
+    return dict(
+        applies_to='helium_infinite and helium4_finite; hydrogen exports spectral response only',
+        coordinates='Physical lengths divided by a_*. rho_i=zeta*r_i; s,t,u in polynomial terms are rho1+rho2, rho1-rho2, and |rho1-rho2|.',
+        ground='psi = zeta^3/(4*pi*a_*^3) * exp[-(rho1+rho2)] * sum c_ljn s^l t^j u^n. The full six-dimensional norm is one.',
+        coefficient_metric='The solver suppresses the common 16*pi^2 in the six-dimensional angular/perimetric measure. Exported scalar c satisfies c^T S c=1 in that suppressed measure.',
+        response='delta_psi/F = -zeta^3/(4*pi*a_*^3) * exp[-(rho1+rho2)] * sum q_ljn s^l t^j u^n (rho1_vector + sign*rho2_vector)_z. F is dimensionless; q are response.coefficients.',
+        intrinsic='Only the normalized spatial amplitude is exported; the intrinsic singlet factor is specified separately.',
+        spectral='gaps are in E_*; strengths are squared one-Cartesian matrix elements of D/a_*. They are invariant to basis scaling and directly usable in the response/C6 formulas.')
+
+
 def check(name, condition, actual=None, tolerance=None):
     record=dict(name=name,passed=bool(condition))
     if actual is not None: record['actual']=float(actual)
@@ -186,6 +197,7 @@ def main():
         next_gate='Apply corresponding complete response spaces to the existing C/N/O atom generators; retain water representation/gradient gates before any long geometry search.',
     )
     handoff=dict(schema='poams.atomic_response_handoff.v1',units=units,inputs=results['inputs'],
+                 state_normalization=state_normalization(),
                  use='Benchmarks and long-range response; not a plug-compatible replacement for C/N/O four-index tensors.',
                  hydrogen=H,helium_infinite=inf,helium4_finite=fin,
                  warning='Do not interpret finite response pseudostates as a converged measured excitation spectrum. Do not add C6 to a correlated molecular operator already containing the same response.',

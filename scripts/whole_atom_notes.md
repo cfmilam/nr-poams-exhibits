@@ -131,6 +131,16 @@ response and C6 here. These are convergence indicators, **not** rigorous
 error bars or experimental uncertainties. This is double-precision
 variational calculation, not the earlier 80-digit alpha substitution.
 
+**Export normalization.** The numerical Gram measure suppresses the common
+16*pi^2 angular factor. Therefore the normalized physical spatial amplitude
+is zeta^3/(4*pi*a_*^3) times the exported polynomial and exponential, evaluated
+at scaled coordinates rho_i=zeta*r_i/a_*. Its full six-dimensional norm is
+one. The handoff JSON states this conversion and the directional-response
+normalization explicitly; raw polynomial coefficients must not be mistaken
+for a separately normalized radial orbital. Spectral strengths already
+include the proper normalization and are one-Cartesian squared matrix
+elements of D/a_*.
+
 ## 4. What “size” and “angular momentum” mean here
 
 The calculated marginal envelope has mean distance 49.19273 pm, rms
