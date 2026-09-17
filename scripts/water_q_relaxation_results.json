@@ -1,0 +1,167 @@
+{
+  "status": "bounded_Q_equilibrium_reference_complete",
+  "basis": "Q",
+  "method": "all-entry RCCSD(T)",
+  "geometry": [
+    0.9580967154242562,
+    0.9580967419516774,
+    1.8235293824062924
+  ],
+  "start_geometry": [
+    0.9605706555010307,
+    0.9605706552837865,
+    1.8201887564755348
+  ],
+  "distances_angstrom": [
+    0.9580967154242562,
+    0.9580967419516774
+  ],
+  "angle_degrees": 104.48053742997811,
+  "energy": -76.42463692196371,
+  "energy_at_T_geometry_in_Q": -76.42462530448809,
+  "energy_change_from_start_same_basis": -1.1617475621505946e-05,
+  "start_reproduction_difference": 0.0,
+  "gradient": [
+    2.799656802684088e-07,
+    3.2632859377675533e-07,
+    1.6644463585180347e-08
+  ],
+  "gradient_step_difference": [
+    -7.037925797703792e-08,
+    -6.579625733138528e-08,
+    -1.758593271006248e-09
+  ],
+  "analytic_minus_stencil": {
+    "RHF": [
+      -2.4103941481667945e-09,
+      3.2770430466455558e-09,
+      1.897323137142748e-09
+    ],
+    "CCSD": [
+      -8.3932984988426e-08,
+      -7.825620633103436e-08,
+      2.2445039545167765e-08
+    ]
+  },
+  "curvature": {
+    "matrix_internal": [
+      [
+        1.9441406067244316,
+        -0.023120626302386427,
+        0.05892163468246281
+      ],
+      [
+        -0.023120626302386427,
+        1.9441404290887476,
+        0.05892164045562254
+      ],
+      [
+        0.05892163468246281,
+        0.05892164045562254,
+        0.16111813572194933
+      ]
+    ],
+    "scaled_eigenvalues": [
+      0.004453792660986066,
+      0.004918152860522544,
+      0.006793482496902313
+    ],
+    "coordinate_scales": [
+      0.05,
+      0.05,
+      0.2
+    ],
+    "steps": [
+      0.002,
+      0.002,
+      0.004
+    ],
+    "half_step_diagonal": [
+      1.94411947518347,
+      1.9441184520019306,
+      0.1611179811789043
+    ],
+    "scope": "positive local internal curvature, not frequencies or global minimality"
+  },
+  "endpoint_energy_difference": -2.5579538487363607e-13,
+  "basis_checks": {
+    "T": {
+      "energy": -76.39964503380101,
+      "gradient_at_Q_minimum": [
+        -0.004535868569632839,
+        -0.004535816273687487,
+        0.00024616065630311823
+      ],
+      "local_displacement_estimate": [
+        0.002463299405095809,
+        0.002463273054168149,
+        -0.0033294971469331625
+      ],
+      "scope": "unrelaxed lower-cardinal comparison, not a Q diffuse limit"
+    },
+    "T-tail": {
+      "energy": -76.39998731762738,
+      "gradient_at_Q_minimum": [
+        -0.004618726840988074,
+        -0.0046186745450427225,
+        0.0002998960546563012
+      ],
+      "local_displacement_estimate": [
+        0.0025178860350162915,
+        0.0025178596901134884,
+        -0.0037029378256447955
+      ],
+      "scope": "unrelaxed lower-cardinal comparison, not a Q diffuse limit"
+    }
+  },
+  "diffuse_difference_at_lower_cardinal": {
+    "gradient_difference": [
+      -8.285827135523505e-05,
+      -8.285827135523505e-05,
+      5.373539835318297e-05
+    ],
+    "local_displacement_estimate": [
+      5.45866299204828e-05,
+      5.4586635945339536e-05,
+      -0.00037344067871163274
+    ],
+    "scope": "T-tail minus T at Q geometry, not Q diffuse convergence"
+  },
+  "relaxed_Q_minus_T": {
+    "internal": [
+      -0.0024739400767744835,
+      -0.0024739133321091122,
+      0.003340625930757568
+    ],
+    "distances_pm": [
+      -0.24739400767744835,
+      -0.24739133321091122
+    ],
+    "angle_degrees": 0.19140376676437104,
+    "previous_unrelaxed_estimate_internal": [
+      -0.0024845151661427554,
+      -0.0024845147613102967,
+      0.0033515869320560714
+    ],
+    "actual_minus_estimate_internal": [
+      1.0575089368271978e-05,
+      1.0601429201184415e-05,
+      -1.0961001298503276e-05
+    ],
+    "scope": "difference between two finite-basis minima, not a basis-limit error bar"
+  },
+  "optimization": {
+    "success": true,
+    "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 4,
+    "evaluations": 5
+  },
+  "unique_points": 80,
+  "limitations": [
+    "Adopted effective-model local minimum, not native POAMS closure or global minimization.",
+    "Two relaxed basis points do not establish the complete-basis limit or experimental precision.",
+    "Lower-cardinal diffuse gradient does not certify Q diffuse convergence.",
+    "No full higher excitations, recoil, relativity, nuclear-motion or dissociation prediction.",
+    "Original native failures and atomic O response/removal limits retained."
+  ]
+}
