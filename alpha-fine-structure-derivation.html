@@ -121,26 +121,46 @@ footer{max-width:900px;margin:0 auto 24px;padding:15px 18px 0;border-top:1px sol
   <p><b>Whole-atom preparation now extends the cascade.</b> The <a href="./poams-periodic-table.html#whole-atom-helium">helium Atomic Ledger</a> solves a correlated two-entry envelope, finite compact-component recoil and directional response using the stated effective inverse-distance operator. Its first-removal interval is within about 9.8 ppm of the measured value, without fitting a helium energy. The response supplies leading long-range neutral-atom attraction coefficients for <a href="./the-molecules.html#atomic-preparation">Molecules</a>. This is a calibrated effective-model success; the compact core’s internal structure and the origin of the operator are not newly derived by accepting α.</p>
   <p><b>The same calibration now supports an all-element numerical campaign.</b> The <a href="./poams-periodic-table.html#whole-atom-selector">118-element selector</a> carries individually optimized many-entry mean-field references, radial distributions, removal calculations and directional-response checks. Each result names its approximation and numerical comparison. This extends the practical atomic input set; it does not transfer helium’s correlated precision to every element or derive isotope-core structure from α alone.</p>
 </section>
+<section id="alpha-gravitational">
+  <h2>3. The same structural role for gravity: a companion calibration</h2>
+  <p>Nothing in the elementary pair account fixes the coefficient's numerical value or restricts it to the electromagnetic case. For any pair of measured masses $m_a$, $m_b$ the gravitational analog reads</p>
+  <div class="eq">$$K_G(m_a,m_b)=Gm_am_b,\qquad
+     \alpha_G(m_a,m_b)\equiv\frac{K_G}{\hbar c}=\frac{Gm_am_b}{\hbar c}.$$</div>
+  <p>$\alpha_G$ is a dimensionless calibrated pair-coupling coefficient in the same structural role as $\alpha$. Both are measured, not derived. Nothing here changes what the origin section below concludes about either.</p>
+  <table><thead><tr><th>Pair</th><th>$\alpha_G(m_a,m_b)$</th><th>$\alpha/\alpha_G$</th><th>$\log_{10}(\alpha/\alpha_G)$</th></tr></thead><tbody>
+    <tr><td>electron–electron</td><td>$1.7518093988\times10^{-45}$</td><td>$4.17\times10^{42}$</td><td>$42.62$</td></tr>
+    <tr><td>electron–proton</td><td>$3.2165895109\times10^{-42}$</td><td>$2.27\times10^{39}$</td><td>$39.36$</td></tr>
+    <tr><td>proton–proton</td><td>$5.9061494298\times10^{-39}$</td><td>$1.24\times10^{36}$</td><td>$36.09$</td></tr>
+  </tbody></table>
+  <p>Applying the same reciprocal-pair circular model to a purely gravitational hydrogenic system gives $r_{1,G}=\hbar/(\mu c\alpha_G)$ and $E_{1,G}=-\mu c^2\alpha_G^2/2$, with reduced mass $\mu=m_am_b/(m_a+m_b)$. For the electron–proton pair,</p>
+  <table><thead><tr><th>Quantity</th><th>Electromagnetic (measured $\alpha$)</th><th>Gravitational (measured $\alpha_G$)</th><th>Ratio</th></tr></thead><tbody>
+    <tr><td>$r_1$ (finite pair)</td><td>$5.2946540946\times10^{-11}$ m</td><td>$1.2011779\times10^{29}$ m</td><td>$2.27\times10^{39}$</td></tr>
+    <tr><td>$E_1$ (finite pair)</td><td>$-13.598287$ eV</td><td>$-2.642\times10^{-78}$ eV</td><td>$5.15\times10^{78}$</td></tr>
+  </tbody></table>
+  <p>The gravitational hydrogenic radius for the electron–proton pair is about $137\times$ the radius of the observable universe; its binding is $78$ orders of magnitude below the electromagnetic binding. <strong>These are scale consequences of the two calibrations, not physical predictions of any bound gravitational atom.</strong> The identity $r_{1,G}/r_{1,EM}=\alpha/\alpha_G$ shows the two calibrations enter every extended calculation in the same place; a hypothetical charge-neutral, gravity-only two-body system with these masses is dominated by every other coupling first, and no such bound state is proposed here.</p>
+  <p><strong>Why the companion table is useful now.</strong> POAMS's calibrated-pair account has one structural pair coefficient. The electromagnetic and gravitational calibrations both fit that structure, use only measured inputs (no fitting), and reproduce all standard order-of-magnitude order-of-signs statements without invoking a field-theoretic apparatus. The observed $\alpha/\alpha_G$ hierarchy is a datum of the world; it is <em>neither derived nor explained</em> here.</p>
+  <p><strong>What is not claimed.</strong> This is not a derivation of $\alpha$ or $\alpha_G$ or their ratio, not a hidden equivalence between the two forces, not a graviton- or dark-matter-flavored construction, and not a new cosmological interpretation. The origin question for $\alpha$ (§6) remains open in exactly the same sense; naming an analogous $\alpha_G$ does not narrow it. <a href="./scripts/alpha_gravitational_companion_results.json">Numerical evidence</a> · <a href="./scripts/alpha_gravitational_companion.py">Reproducible 80-digit calculation</a>.</p>
+</section>
 <section id="geometric-readings">
-  <h2>3. Geometric readings, with their conditions visible</h2>
+  <h2>4. Geometric readings, with their conditions visible</h2>
   <p>The circular relation implies a dimensionless relative-motion ratio $\omega_1r_1/c=\alpha$. In a cone representation using $\sin\theta=\omega r/c$, the corresponding angle is $\arcsin\alpha=0.4181112144\ldots$ degrees. This is a geometrical reading of the calibrated state, not a separate determination of the number.</p>
   <p>The exact spherical-cap expression is $2\pi(1-\sqrt{1-\alpha^2})$. With measured $\alpha$, it gives $1.67296291145\ldots\times10^{-4}$ steradians. Its leading expression $\pi\alpha^2$ is an approximation, not an equality. Neither this cap nor the formal plane/sphere ratio by itself derives elementary spin, an atomic doublet, or a universal macro/micro identity.</p>
   <p>The legacy $N=2/\alpha^2=37557.7301412\ldots$ is a ratio, not an integer winding count. Integer closure of individual records and a noninteger ratio of scales are different statements.</p>
   <details><summary>The inferred Planck-scaled rate is conditional</summary><p>The earlier clock interpretation omitted a normalization. The actual relation is $\alpha=\zeta(\nu_Q/f_{\rm Pl})^2$, with $\zeta=k_Q/k_M$ and measured $G$ entering $f_{\rm Pl}$. Setting $\zeta=1$ gives $\nu_Q\approx2.522\times10^{41}$ Hz, but that setting is not forced by a shared ontology. Neither a universal event clock nor a device-frequency multiplier is established. See <a href="./coulomb-from-chirality-directed-depletion.html#research-status">the corrected Coulomb account</a>.</p></details>
 </section>
 <section id="applications">
-  <h2>4. What we can do with it</h2>
+  <h2>5. What we can do with it</h2>
   <p>Use the calibrated pair strength and atomic reference units in <a href="./the-molecules.html">molecular configuration calculations</a>, energy-difference comparisons and metrology. Preserve complete source/work accounting when applying the same language to materials. A particular medium still needs its actual directional response, losses, state readout and coupling law.</p>
   <div class="card blue"><p><b>Propulsion remains a separate apparatus result.</b> The measured $\alpha$ cascade does not establish whole-body weight control. It does not convert the Vortex Cores local mounting force into thrust. Prov-J remains parked; Prov-A remains the preferred driven-material direction, with a nonzero complete-apparatus response yet to be established. The <a href="./coulomb-from-chirality-directed-depletion.html#propulsion-status">propulsion status</a> and <a href="./coulomb-from-chirality-directed-depletion.html#provisional-carryover">provisional carryover map</a> state what can be used now and what each application still needs.</p></div>
 </section>
 <section id="door">
-  <h2>5. The origin question is open, not an operational roadblock</h2>
+  <h2>6. The origin question is open, not an operational roadblock</h2>
   <p>We have not derived the numerical value of $\alpha$ from the examined source commitments. We have also not proved it fundamentally contingent, impossible to derive, or a consequence of a theological choice. Those were stronger statements than the tested models justified.</p>
   <p>The source audit and later hypothetical networks, spectral constructions and observer/controller accounts narrowed which conditions were insufficient. They did not produce a fully source-derived microscopic interaction law. Active parameter-free model-building is parked. An independently justified future insight could reopen the question; phenomenological work does not need to wait for it.</p>
   <p><b>Two legitimate activities, different claims:</b> a parameter-free derivation must not insert the desired value; a measured-input calculation deliberately supplies it and must say so. The latter is what the current Coulomb exhibit does. Calling a calibrated result a prediction of its own calibration would be circular; using that calibration to compute further relationships is useful work.</p>
 </section>
 <section id="record">
-  <h2>6. Record and reproducible calculation</h2>
+  <h2>7. Record and reproducible calculation</h2>
   <p>The <a href="./alpha-program-2026-archive.html">Archived 2026 Program — Spectra, Gravitation, and Fine Structure in Normal Realism</a> remains a historical research record. The <a href="https://github.com/cfmilam/nr-poams-exhibits/blob/c3f6a31257dc3a3021a7a33c65b318d80176889e/alpha-fine-structure-derivation.html">preceding Alpha edition</a> is preserved in version history, including claims superseded by the present source audit and measured-anchor standard. No historical archive has been rewritten.</p>
   <div class="links">
     <a href="./coulomb-from-chirality-directed-depletion.html#calibrated-calculator">Explore the calculated atomic scales →</a>
