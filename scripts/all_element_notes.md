@@ -198,6 +198,95 @@ usable mean-field starting references and implementation controls, not
 correlated precision inputs. Original exact H/correlated He data and methods
 are unchanged. No long molecular run is part of this campaign.
 
+## The four retained instabilities and their physical near-degeneracy
+
+Y, Zr, Pa and Lr are the four selected states whose relaxed dipole responses
+are withheld from the display. This subsection extracts what the diagnostic
+record in
+[`all_element_response_diagnostics.json`](all_element_response_diagnostics.json)
+says about each, and identifies the physical near-degeneracy each
+instability points at. Nothing in this subsection changes a numerical
+result; it interprets what is already in the record.
+
+The response-tensor eigenvalues at the retained references (in the calculated
+units of the RI-JK response solve, one eigenvalue per Cartesian axis of the
+determined-orientation reference):
+
+| State | λ₁ | λ₂ | λ₃ | Neg. dirs |
+|---|---:|---:|---:|:---:|
+| Y (Z=39) / v3z | −705.28 | +226.18 | +226.18 | 1 |
+| Zr (Z=40) / v3z | −4726.62 | −4726.62 | +147.12 | 2 |
+| Pa (Z=91) / v3z | −849.68 | +243.38 | +322.92 | 1 |
+| Lr (Z=103) / v2z | −18.72 | −18.72 | +118.40 | 2 |
+| Lr (Z=103) / v3z | −23.17 | −23.17 | +118.49 | 2 |
+
+At each of the three sampled orbital-rotation norms the finite-difference
+energy curvature agrees in sign with the linear-response eigenvalue to
+better than the campaign's 2% acceptance threshold, and independently
+confirmed for Pa by an exact-quadratic UHF increment (see the paragraph on
+Pa/v3z earlier in this file).
+
+What each instability is a signature of:
+
+- **Y (5s² 4d¹, ²D):** A single negative direction. The 4d¹ open shell fixes
+  one specific m_l projection out of the fivefold-degenerate d manifold;
+  the RI-JK reference thereby breaks the atom's spherical symmetry. The
+  negative eigenvalue is a rotational mixing of that occupied 4d with the
+  singly-occupied-partner 5s (a well-known 5s/4d near-degeneracy in group
+  3). A physical relaxation would state-average across the ²D manifold or
+  step up to CASSCF over the (5s,4d) active space.
+- **Zr (5s² 4d², ³F):** Two nearly-degenerate negative eigenvalues,
+  −4726.62 each. The 4d² occupation fixes two of the five 4d orbitals and
+  breaks rotational symmetry in two of the three Cartesian directions.
+  This is the classic multireference d-block problem: the ³F ground term
+  and low-lying ³P/¹G terms mix strongly, and a single Slater determinant
+  cannot represent that mixture. State-averaged multi-reference treatment
+  is the standard remedy in the extant literature.
+- **Pa ([Rn]5f² 6d¹ 7s², ⁴K₁₁/₂):** One negative direction, moderate
+  magnitude (−849.68). Pa carries three open shells (5f, 6d, 7s) and its
+  ground multiplet is dense with low-lying alternatives; the near-degenerate
+  5f/6d/7s system is textbook-hard even in fully relativistic multi-reference
+  calculations. Our scalar-relativistic single-reference solve is already
+  outside its guaranteed-adequate regime for actinides of Pa's configuration
+  type; the retained instability marks that fact, not an implementation bug.
+- **Lr ([Rn]5f¹⁴ 7s² 7p¹ predicted, or 6d¹ 7s² nonrelativistically):** Two
+  nearly-degenerate negative eigenvalues at *both* basis levels
+  (v2z: −18.72; v3z: −23.17). Lr is a well-studied borderline case where
+  the ground configuration depends on whether spin-orbit coupling is included:
+  scalar-relativistic (which our RI-JK reference is) predicts 6d¹ 7s², while
+  full spin-orbit-inclusive treatments predict 7s² 7p¹ with 7p₁/₂ as the
+  singly-occupied spinor. Neither is representable as a single scalar
+  non-degenerate reference without spontaneously breaking rotational symmetry
+  in some direction. The consistent two-fold degeneracy of the negative
+  eigenvalues across two bases is exactly the atomic signature this predicts.
+
+**Common origin.** All four are known multi-reference / near-degenerate
+cases in standard quantum chemistry. Our single-reference RI-JK scalar-X2C
+treatment cannot resolve them by construction; that is a scope statement
+about the campaign, not a claim about POAMS. The retained-reference
+instabilities are honest signatures of the underlying physics, made visible
+by the campaign's dipole-response acceptance test.
+
+**What is not diagnosed by the response solve.** Whether the *neutral*
+state is bound (yes; all 118 have converged, stationary references and
+positive first-removal intervals), or whether the exhibit's isotope-count
+assignments are affected (no; those are separate bookkeeping quantities).
+The response check gates only the propagation of these four elements'
+relaxed polarizabilities into downstream molecular work; that gate is
+working as designed.
+
+**What would relax the four references.** A state-averaged multi-reference
+reference (CASSCF over the physically implicated active space for each
+element), a spin-orbit-inclusive one-particle framework (X2C plus mean-field
+spin-orbit or a proper Dirac–Coulomb treatment for Pa and Lr), or an
+ensemble treatment of the degenerate manifold. None of these has been added
+to the campaign; that remains a separately-authorizable multi-reference
+extension, not a same-day fix.
+
+**Standing status is unchanged.** The withheld responses stay withheld; the
+stationary references stay in the record; no symmetry-broken determinant
+has been substituted; no correlated or spin-orbit result is claimed.
+
 ## Reusing the files for Molecules
 
 `all_element_results.json` and `all_element_table.csv` provide the readable
