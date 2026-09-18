@@ -1,0 +1,175 @@
+{
+  "started": "2026-09-17T18:57:22-05:00",
+  "declared_model": "nonrelativistic RCCSD(T), cc-pVQZ, ROHF reference for open-shell atom",
+  "reference_geometry_A_A_rad": [
+    0.9580967154242562,
+    0.9580967419516774,
+    1.8235293824062924
+  ],
+  "reference_energy_ha": -76.42463692196371,
+  "constants": {
+    "HARTREE_J": 4.3597447222071e-18,
+    "BOHR_M": 5.29177210903e-11,
+    "ANGSTROM_M": 1e-10,
+    "U_KG": 1.6605390666e-27,
+    "C_M_S": 299792458.0,
+    "NA": 6.02214076e+23,
+    "E_CHARGE": 1.602176634e-19,
+    "KCAL_MOL_PER_HA": 627.5094740630558,
+    "EV_PER_HA": 27.211386245988034,
+    "M_H1_u": 1.00782503207,
+    "M_O16_u": 15.99491461957
+  },
+  "frequencies_wilson_gf": {
+    "G_1_kg_or_1_kg_m2": [
+      [
+        6.351886661023898e+26,
+        -9.414511419193502e+24,
+        -3.804865679964593e+35
+      ],
+      [
+        -9.414511419193502e+24,
+        6.351886661023898e+26,
+        -3.804865785312282e+35
+      ],
+      [
+        -3.804865679964593e+35,
+        -3.804865785312282e+35,
+        1.4044417232271091e+47
+      ]
+    ],
+    "F_SI_J_per_m2_or_rad2": [
+      [
+        847.595674939535,
+        -10.080002849595187,
+        2.5688328583068205e-09
+      ],
+      [
+        -10.080002849595187,
+        847.5955974949114,
+        2.568833110001847e-09
+      ],
+      [
+        2.5688328583068205e-09,
+        2.568833110001847e-09,
+        7.024339418656158e-19
+      ]
+    ],
+    "GF": [
+      [
+        5.375006580629173e+29,
+        -1.5359808489596913e+28,
+        1.3402425282751114e+18
+      ],
+      [
+        -1.535980914999569e+28,
+        5.375006087481416e+29,
+        1.3402426831185462e+18
+      ],
+      [
+        4.211414100972644e+37,
+        4.211419679005093e+37,
+        9.66979406578396e+28
+      ]
+    ],
+    "eigenvalues_rad2_s2": [
+      9.643276736592794e+28,
+      5.22405997877625e+29,
+      5.528604422253454e+29
+    ],
+    "eigenvectors_columns_in_internal_coords": [
+      [
+        3.148266605208016e-12,
+        5.054210011316673e-09,
+        0.0413619710610424
+      ],
+      [
+        3.1482672891683473e-12,
+        5.054218300103223e-09,
+        -0.041361905464027696
+      ],
+      [
+        -1.0,
+        1.0,
+        0.9982877241188185
+      ]
+    ],
+    "omega_rad_s": [
+      310536257731569.8,
+      722776589187575.2,
+      743545857513405.5
+    ],
+    "omega_cm1": [
+      1648.5865173845748,
+      3837.1034310777345,
+      3947.364100759352
+    ],
+    "classes": [
+      "bend",
+      "symmetric_stretch",
+      "antisymmetric_stretch"
+    ],
+    "omega_cm1_labelled": {
+      "bend": 1648.5865173845748,
+      "symmetric_stretch": 3837.1034310777345,
+      "antisymmetric_stretch": 3947.364100759352
+    }
+  },
+  "zero_point_energy_ha": 0.02149007834037913,
+  "atomic_energies": {
+    "H_cc-pvqz": {
+      "atom": "H",
+      "isotope": "1H",
+      "basis": "cc-pvqz",
+      "method": "ROHF (exact for 1e; RCCSD(T) equals RHF)",
+      "nbasis": 30,
+      "nelec": 1,
+      "spin": 1,
+      "e_scf_ha": -0.4999455685829867,
+      "e_scf_plus_ccsd_t_ha": -0.4999455685829867,
+      "converged": true
+    },
+    "O_cc-pvqz": {
+      "atom": "O",
+      "isotope": "16O",
+      "basis": "cc-pvqz",
+      "method": "ROHF + RCCSD(T)",
+      "nbasis": 55,
+      "nelec": 8,
+      "spin": 2,
+      "e_scf_ha": -74.81084355520625,
+      "e_ccsd_corr_ha": -0.20837986245721485,
+      "e_t_corr_ha": -0.003957315815378929,
+      "e_total_ha": -75.02318073347885,
+      "t1_diagnostic_frobenius_avg": 0.0025599483685678254,
+      "scf_converged": true,
+      "ccsd_converged": true
+    }
+  },
+  "atomization": {
+    "basis_scope": "campaign Q-level atomic basis (H aug-cc-pVQZ; O custom-augmented QZ, 109 fns); identical basis used in the water optimizer; NOT standard cc-pVQZ everywhere",
+    "E_H_ha": -0.49994832146911855,
+    "E_O_ha": -75.05577166059385,
+    "E_water_ha": -76.42463692196371,
+    "sum_atoms_ha": -76.05566830353209,
+    "D_e_ha": 0.368968618431623,
+    "D_e_kcal_per_mol": 231.53130369780004,
+    "D_e_eV": 10.040147588791474,
+    "campaign_H_record": "poams-review/artifacts/cno-correlated-2026-09-16/production/records/H-q0-L4-a1-parallel-F+0.000000-8300a2ee059d.json",
+    "campaign_O_record": "poams-review/artifacts/cno-correlated-2026-09-16/production/records/O-q0-L4-a1-parallel-F+0.000000-e8033299623e.json",
+    "scope": "static-nuclei electronic dissociation limit at the same finite basis and correlation level as the Q water optimizer; no ZPE, no CBS, no relativity, no core-valence beyond frozen-orbital defaults; predicted number, not an experimental accuracy claim",
+    "ZPE_ha_from_harmonic_frequencies": 0.02149007834037913,
+    "D_0_estimate_ha": 0.34747854009124385,
+    "D_0_estimate_kcal_per_mol": 218.04607594085488,
+    "D_0_scope": "D_e minus harmonic ZPE from the same Q Hessian; anharmonic ZPE correction and post-CCSD(T)/post-QZ corrections not applied"
+  },
+  "atomization_standard_ccpvqz_atoms_only": {
+    "basis_scope": "standard cc-pVQZ atoms; the water energy still uses the larger campaign Q molecular basis; comparison is diagnostic only, not a like-basis atomization",
+    "E_H_ha": -0.4999455685829867,
+    "E_O_ha": -75.02318073347885,
+    "D_e_ha_apparent": 0.4015650513188831,
+    "D_e_kcal_per_mol_apparent": 251.98587415521635,
+    "scope": "diagnostic; not a like-basis atomization; do not compare directly to experiment"
+  },
+  "finished": "2026-09-17T18:57:24-05:00"
+}
