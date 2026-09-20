@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Spin–Orbit Settlement Ledger — Twist–Writhe Exchange Across Scales</title>
+<script>
+window.MathJax={tex:{inlineMath:[['\\(','\\)'],['$','$']],displayMath:[['\\[','\\]'],['$$','$$']]},svg:{fontCache:'global'}};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+:root{
+  --bg:#0d0d18;--bg2:#11111f;--card:#1a1a2d;--card2:#202036;--text:#e8e8f0;--muted:#a4a4b8;
+  --gold:#d4af37;--blue:#5bc8f5;--green:#66bb6a;--red:#ef6b68;--violet:#b68cff;--line:#31314a;
+}
+[data-theme="light"]{
+  --bg:#faf8f2;--bg2:#f2eee4;--card:#fff;--card2:#f8f4ea;--text:#282219;--muted:#6c6458;
+  --gold:#8b6914;--blue:#176e94;--green:#2e7d32;--red:#a93434;--violet:#6f42a6;--line:#d8d0bf;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;padding-top:68px;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.67;transition:background .25s,color .25s}
+a{color:var(--blue);text-underline-offset:.15em}#poams-hub-nav{position:fixed;inset:0 0 auto 0;z-index:9999;height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 1rem;background:rgba(13,13,24,.93);backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,175,55,.25);font-size:13px}#poams-hub-nav a{color:#d4af37;text-decoration:none;display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:6px;white-space:nowrap;font-weight:550}#poams-hub-nav a:hover{background:rgba(212,175,55,.12)}#poams-hub-nav .center{display:flex;flex-direction:column;align-items:center;line-height:1.2}#poams-hub-nav .title{font-size:12px;color:#e8e8f0;font-weight:650}#poams-hub-nav .pos{font-size:10px;color:rgba(212,175,55,.68);letter-spacing:.05em}[data-theme="light"] #poams-hub-nav{background:rgba(250,248,242,.96);border-bottom-color:rgba(139,105,20,.25)}[data-theme="light"] #poams-hub-nav a{color:#8b6914}[data-theme="light"] #poams-hub-nav .title{color:#2a2318}.theme-toggle{position:fixed;right:12px;top:52px;z-index:1000;width:40px;height:40px;border:0;border-radius:8px;background:var(--gold);color:var(--bg);font-size:1.1rem;cursor:pointer}.hero{max-width:1040px;margin:0 auto;padding:40px 22px 24px;text-align:center}.eyebrow{font-size:.72rem;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);font-weight:750}.hero h1{margin:.6rem 0 0;color:var(--gold);font:650 clamp(2rem,5vw,3.45rem)/1.08 Georgia,"Times New Roman",serif}.hero h1 span{display:block}.subtitle{max-width:840px;margin:1rem auto 0;color:var(--muted);font-size:1.02rem}.provenance{max-width:880px;margin:1rem auto 0;color:var(--muted);font-size:.82rem;font-style:italic}.status-strip{max-width:980px;margin:12px auto 0;display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.status-strip a{padding:10px 8px;border:1px solid var(--line);border-radius:9px;background:var(--card);text-decoration:none;font-size:.72rem;letter-spacing:.055em;text-transform:uppercase;font-weight:800}.status-strip a:nth-child(1){color:var(--green)}.status-strip a:nth-child(2){color:var(--violet)}.status-strip a:nth-child(3){color:var(--gold)}.status-strip a:nth-child(4){color:var(--red)}main{max-width:980px;margin:0 auto;padding:8px 20px 70px}section{margin:44px 0;scroll-margin-top:72px}h2{color:var(--gold);font-size:1.35rem;line-height:1.3;border-bottom:1px solid var(--line);padding-bottom:9px;margin:0 0 16px}h3{color:var(--blue);font-size:1.02rem;margin:24px 0 8px}p{margin:11px 0}strong{color:var(--blue)}.lead{font-size:1.06rem}.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:17px 0}.card.gold{border-color:rgba(212,175,55,.52);background:rgba(212,175,55,.065)}.card.blue{border-color:rgba(91,200,245,.42);background:rgba(91,200,245,.055)}.card.green{border-color:rgba(102,187,106,.48);background:rgba(102,187,106,.055)}.card.red{border-color:rgba(239,107,104,.48);background:rgba(239,107,104,.055)}.card.violet{border-color:rgba(182,140,255,.48);background:rgba(182,140,255,.055)}.badge{display:inline-block;border-radius:999px;padding:3px 9px;font-size:.68rem;line-height:1.4;font-weight:850;letter-spacing:.075em;text-transform:uppercase;margin:0 7px 6px 0}.derived{color:var(--green);background:rgba(102,187,106,.14)}.open{color:var(--violet);background:rgba(182,140,255,.14)}.hybrid{color:var(--gold);background:rgba(212,175,55,.14)}.gated{color:var(--red);background:rgba(239,107,104,.14)}.premise{color:var(--blue);background:rgba(91,200,245,.14)}.eq{overflow-x:auto;text-align:center;margin:16px 0;padding:4px 0}.eq mjx-container{min-width:max-content}.ledger{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}.account{position:relative;border:1px solid var(--line);border-radius:11px;background:var(--card2);padding:15px}.account b{display:block;color:var(--gold);margin-bottom:5px}.account small{color:var(--muted)}.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:18px 0}.flow div{border:1px solid var(--line);border-radius:10px;background:var(--card);padding:13px;font-size:.9rem}.flow b{display:block;color:var(--gold);font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px}.case{border-left:3px solid var(--gold);padding-left:16px;margin:25px 0}.case h3{margin-top:0}.case .worked{background:var(--bg2);border:1px solid var(--line);border-radius:9px;padding:12px 15px}.grade-title{display:flex;align-items:center;gap:9px;flex-wrap:wrap}.grade-title .badge{margin:0}.tight li{margin:6px 0}.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px}table{width:100%;border-collapse:collapse;min-width:680px;font-size:.88rem}th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{color:var(--gold);background:var(--card2)}tr:last-child td{border-bottom:0}.callout{font:650 1.08rem/1.5 Georgia,serif;color:var(--gold);text-align:center;padding:18px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:22px 0}.micro-note{font-size:.9rem;color:var(--muted)}footer{border-top:1px solid var(--line);max-width:980px;margin:0 auto;padding:22px 20px 34px;text-align:center;color:var(--muted);font-size:.8rem;line-height:1.75}@media(max-width:760px){body{padding-top:62px}.hero{padding-top:34px}.status-strip{grid-template-columns:repeat(2,1fr)}.ledger,.grid2,.flow{grid-template-columns:1fr}.hero h1{font-size:2.15rem}main{padding-left:15px;padding-right:15px}.card{padding:15px}.phn-hide-sm{display:none}}@media(max-width:420px){#poams-hub-nav{padding:0 .35rem}#poams-hub-nav a{padding:4px 6px}.hero h1{font-size:1.82rem}.status-strip{grid-template-columns:1fr}.theme-toggle{width:36px;height:36px;right:8px}}
+</style>
+</head>
+<body>
+<nav id="poams-hub-nav" aria-label="Exhibit navigation">
+  <a href="./loop-of-momentum.html" title="A Closed Loop of Twisted Momentum">← <span class="phn-hide-sm">Closed Loop</span></a>
+  <div class="center"><a href="./index.html" style="flex-direction:column;gap:2px;padding:4px 12px"><span class="title">Return to Hub</span><span class="pos">NR · POAMS · EXHIBIT SERIES</span></a></div>
+  <a href="./solar-system.html" title="The Solar System"><span class="phn-hide-sm">Solar System</span> →</a>
+</nav>
+<button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle light/dark theme">☀️</button>
+<header class="hero">
+  <div class="eyebrow">Foundational ledger · macro → micro · 19 September 2026</div>
+  <h1><span>The Spin–Orbit Settlement Ledger</span><span>Twist–Writhe Exchange Across Scales</span></h1>
+  <p class="provenance">This exhibit is an extrapolation of the foundational work of N. Vivian “Viv” Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
+  <p class="subtitle">A legal posting system for spin–orbit exchange: what conservation and topology force, what a constitutive theory must still build, and what experiment must measure before orientation becomes a magnitude law.</p>
+  <nav class="status-strip" aria-label="Evidence grades"><a href="#derived">Derived</a><a href="#theory-opens">Derivable / theory-construction opens</a><a href="#hybrid">Hybrid</a><a href="#experimental-gates">Experimentally gated</a></nav>
+</header>
+<main>
+<section id="touchstone">
+  <h2>1 · The touchstone: one substance, two organizations</h2>
+  <p class="lead"><strong>There is one substance: angular momentum keeping its books.</strong> Orbit and spin are not two stuffs. They are two independent organizations of the same circulation—and they must never be conflated.</p>
+  <div class="grid2">
+    <div class="card blue"><span class="badge premise">Orbit = writhe</span><p><strong>Writhe</strong> is the containing winding: how a circulation goes around a named centre or coils through its larger organization. It is the big, slow winding account.</p></div>
+    <div class="card gold"><span class="badge premise">Spin = twist</span><p><strong>Twist</strong> is intrinsic turning about the circulation's own axis. It is the strand turning on itself, not extra orbital angular momentum hidden in the numerator.</p></div>
+  </div>
+  <div class="callout">Same substance does not mean same account. Total linking is not the twist/writhe partition; settled orientation is not a radial response.</div>
+  <p><strong>Universal settlement orientation.</strong> Where an internal spin and its immediate containing orbit are dynamically coupled, anti-sense organization is higher and an available exchange path settles toward co-sense. In vector form, a settled edge has
+  $c=(\mathbf S\cdot\mathbf L)/(|\mathbf S||\mathbf L|)>0$.</p>
+  <p><strong>Boundary.</strong> This is an orientation ordering only. It supplies no universal coupling strength, energy gap, torque, path, relaxation time, transfer amount, terminal angle, natural-radius shift, weight sign, or galaxy rotation profile. A blocked or weak channel can remain displaced for longer than the system's age.</p>
+</section>
+
+<section id="ledger">
+  <h2>2 · The exact conservative three-account posting</h2>
+  <p>Name one hierarchy edge and expose three accounts:</p>
+  <div class="ledger">
+    <div class="account"><b>\(\mathbf S\) · internal twist</b><small>The spin account of the subsystem at this edge.</small></div>
+    <div class="account"><b>\(\mathbf L\) · containing writhe</b><small>The immediate enclosing orbital account—not every larger orbit at once.</small></div>
+    <div class="account"><b>\(\mathbf J_R\) · reservoir / boundary</b><small>Drive, support, bearings, primary spin, unresolved modes, heat-bearing apparatus, or a larger system.</small></div>
+  </div>
+  <div class="eq">$$\boxed{\mathbf J_{\rm tot}=\mathbf S+\mathbf L+\mathbf J_R},\qquad \Delta\mathbf J_{\rm tot}=0.$$</div>
+  <p>Let \(\mathbf q\) be angular momentum posted from containing writhe into internal twist, and let \(\boldsymbol\rho\) be the net posting from the resolved \(S+L\) sector into the reservoir. The minimum exact event is</p>
+  <div class="eq">$$\boxed{\begin{aligned}
+  \mathbf S'&amp;=\mathbf S+\mathbf q,\\
+  \mathbf L'&amp;=\mathbf L-\mathbf q-\boldsymbol\rho,\\
+  \mathbf J_R'&amp;=\mathbf J_R+\boldsymbol\rho.
+  \end{aligned}}$$</div>
+  <p>Adding the three lines cancels \(\mathbf q\) and \(\boldsymbol\rho\) identically. That is the posting proof—not a metaphor.</p>
+  <div class="card green"><span class="badge derived">Derived</span><strong>Pure exchange:</strong> \(\boldsymbol\rho=0\) gives \(\Delta\mathbf S=-\Delta\mathbf L\). <strong>Open apparatus:</strong> a motor or support belongs in \(R\); omitting it manufactures a false conservation failure. <strong>Dissipation:</strong> heat may carry negligible net vector AM while still receiving positive energy.</div>
+  <h3>Energy closure and why “grinding” names an account, not a coefficient</h3>
+  <div class="eq">$$E_{SL}=E_S(\mathbf S,\xi)+E_L(\mathbf L,\xi)+U(\mathbf S,\mathbf L,\xi),\qquad
+  \boxed{E_{SL}+E_R=E_{\rm tot}}.$$</div>
+  <div class="eq">$$\text{passive settlement:}\qquad \boxed{\Delta E_R=-\Delta E_{SL}\ge0}.$$</div>
+  <p>A closed conservative two-account system may precess or oscillate forever. Irreversible settlement requires a reservoir, coarse-grained phase mixing, boundary work, or an explicit irreversible rule. Sound, vibration and heat identify possible reservoir channels; they do not determine \(U\), \(\mathbf q\), \(\boldsymbol\rho\), or a universal rate.</p>
+</section>
+
+<section id="topology">
+  <h2>3 · Topology constrains redistribution; it does not price it</h2>
+  <div class="eq">$$\boxed{Lk=Tw+Wr},\qquad Lk\in\mathbb Z.$$</div>
+  <p>For a smooth deformation with no crossing, cutting or boundary event,</p>
+  <div class="eq">$$\Delta Lk=0,\qquad \Delta Tw=\tau,\qquad \Delta Wr=-\tau,$$</div>
+  <p>where the geometric repartition \(\tau\) may be real. A topology-changing event instead posts an integer boundary receipt:</p>
+  <div class="eq">$$\Delta Lk=m\in\mathbb Z,\qquad \Delta N_R=-m,\qquad \boxed{\Delta(Lk+N_R)=0}.$$</div>
+  <div class="card red"><strong>Guardrail.</strong> \(Lk=Tw+Wr\) fixes neither physical angular-momentum magnitude nor energy cost, torque, relaxation rate, or final partition. The geometric quantities become physical AM only after a calibration \(\mathcal C\) is supplied. Topology-changing events require the whole-turn boundary receipt; topology still does not tell the ledger what that receipt costs.</div>
+</section>
+
+<section id="operator">
+  <h2>4 · The scale-universal result is set-valued</h2>
+  <p>Write the state at one named edge as</p>
+  <div class="eq">$$X=(\mathbf S,\mathbf L,\mathbf J_R,E_R,Tw,Wr,Lk,N_R,\xi).$$</div>
+  <p>The strongest earned recursion is not one trajectory but an admissible set:</p>
+  <div class="eq">$$\boxed{X_{n+1}\in\mathfrak T_{\Theta}[X_n]}.$$</div>
+  <p>An event belongs to that set only if it closes the three-account vector ledger, obeys the smooth or integer topology rule, closes total energy, and leaves a terminal accessible settlement co-sense. The free constitutive package is</p>
+  <div class="eq">$$\boxed{\Theta=\{U,\mathcal P,\mathcal M,\mathcal C,\mathcal I,\mathcal N\}}.$$</div>
+  <div class="tablewrap"><table><thead><tr><th>Piece</th><th>What it must supply</th><th>Status</th></tr></thead><tbody>
+    <tr><td>\(U\)</td><td>Orientation/account energy, barriers and terminal basin.</td><td>Free constitutive law.</td></tr>
+    <tr><td>\(\mathcal P\)</td><td>Allowed and blocked exchange paths.</td><td>System-dependent.</td></tr>
+    <tr><td>\(\mathcal M\)</td><td>Event selection, mobility, torque representation or rate.</td><td>Not derived.</td></tr>
+    <tr><td>\(\mathcal C\)</td><td>Calibration from geometric topology to physical AM postings.</td><td>Not supplied by \(Lk=Tw+Wr\).</td></tr>
+    <tr><td>\(\mathcal I\)</td><td>Parent interface / coarse-graining rule.</td><td>C1 below is the minimum premise.</td></tr>
+    <tr><td>\(\mathcal N\)</td><td>Posting → radius, rate, support, effective coupling or heat observable.</td><td>Channel-dependent.</td></tr>
+  </tbody></table></div>
+  <p><strong>Scale-universal in form does not mean scale-independent in magnitude.</strong> The same legality tests can govern a rotor, moon, planet, binary, material mode or galactic subsystem while every function in \(\Theta\) changes with organization.</p>
+</section>
+
+<section id="hierarchy">
+  <h2>5 · Hierarchy without double counting</h2>
+  <h3>Associative internal-angular-momentum aggregation</h3>
+  <p>For subsystem \(A\), with child groups \(a\), barycentric positions \(\mathbf R_a\), velocities \(\mathbf V_a\), masses \(M_a\), and already aggregated internal accounts \(\mathbf J_{\rm int}(a)\),</p>
+  <div class="eq">$$\boxed{\mathbf J_{\rm int}(A)=
+  \sum_{a\prec A}\mathbf J_{\rm int}(a)+
+  \sum_{a\prec A}(\mathbf R_a-\mathbf R_A)\times M_a(\mathbf V_a-\mathbf V_A).}$$</div>
+  <p>The first sum carries child spins and lower-level internal accounts; the second carries the resolved internal orbits of child barycentres. Regrouping children into intermediate systems gives the same result: the aggregation is associative.</p>
+  <h3>The exposure-cut rule</h3>
+  <div class="card green"><span class="badge derived">Derived</span>At a parent interface, expose either the aggregate \(\mathbf J_{\rm int}(A)\) <em>or</em> the constituent spin/orbit accounts that sum to it—never both. The exposed nodes must cover every primitive account exactly once. Overlap is double counting; incomplete coverage is a missing entry.</div>
+</section>
+
+<section id="c1">
+  <h2>6 · C1: the new constitutive premise, isolated</h2>
+  <div class="card blue"><span class="badge premise">New premise · not derived</span><p><strong>C1 — Exterior-interface sufficiency.</strong> When a parent exchange channel does not resolve a subsystem's internal phases, separations or higher organization, the channel depends on the interior only through the aggregate \(\mathbf J_{\rm int}\) and an explicitly declared residual state \(\xi_A\). In that named regime, coarse-graining commutes with exchange:</p>
+  <div class="eq">$$CG_A\!\left(\mathfrak T_A^{\rm resolved}(X)\right)=
+  \mathfrak T_A^{\rm effective}\!\left(CG_A(X)\right).$$</div></div>
+  <p>Conservation proves that the aggregate exists. It does not prove that a parent responds only to that aggregate. Two interiors with the same \(\mathbf J_{\rm int}\) can differ in phase, separation, multipoles, topology, spectrum and dissipation. C1 is the minimum bridge that makes “recursive effective twist” a physical model rather than a bookkeeping nickname.</p>
+</section>
+
+<section id="macro-cases">
+  <h2>7 · Macro worked cases: use the immediate edge</h2>
+  <div class="case" id="rotor-case">
+    <h3>7.1 · Powered and blocked rotor</h3>
+    <div class="worked"><p><strong>Preparation:</strong> reverse the containing platform while the rotor initially retains \(\mathbf S\), so \(c>0\to c<0\).</p>
+    <p><strong>Complete domain:</strong> \(\mathbf S_{\rm rotor}+\mathbf L_{\rm platform}+\mathbf J_{\rm motor/support/Earth}\).</p>
+    <p><strong>Free-axis branch:</strong> an available reorientation path can move \(\mathbf S\) toward co-sense while retaining substantial \(|\mathbf S|\).</p>
+    <p><strong>Blocked-axis branch:</strong> locking the gimbal closes that geometric path. The admissible alternative is spin-down plus posting into platform, bearings, support, sound, heat and unresolved modes.</p></div>
+    <p>The two branches are a clean demonstration of \(\mathcal P\): conservation and settled sign constrain both, but a constitutive branch-selection and rate law must decide which event occurs and how fast.</p>
+  </div>
+  <div class="case" id="earth-moon-case">
+    <h3>7.2 · Earth–Moon</h3>
+    <p>At the immediate Moon–Earth edge, the measured synchronous Moon is co-sense. Its 1:1 lock is a stronger dynamical endpoint than the universal orientation rule supplies.</p>
+    <div class="eq">$$J=L_{M|E}+S_E+S_M+J_R.$$</div>
+    <p>A forced reversal \(S_M\to-S_M\) gives \(\Delta S_M=-2S_M\), so</p>
+    <div class="eq">$$\boxed{\Delta L_{M|E}+\Delta S_E+\Delta J_R=+2S_M}. $$</div>
+    <p>If the receipt lands in lunar orbital winding, the orbit responds through \(\mathcal N\); if it lands in Earth's spin or an actuator, the immediate orbital shift can be small. “The Moon flipped” therefore does not name a radial answer.</p>
+  </div>
+  <div class="case" id="triton-case">
+    <h3>7.3 · Triton: the hierarchy rule working correctly</h3>
+    <p>Triton's orbit about Neptune is retrograde under the broader prograde convention, so \(\mathbf L_{T|N}\) is negative in that convention. Its synchronous spin follows that local orbit, so \(\mathbf S_T\) is also negative and</p>
+    <div class="eq">$$\boxed{\mathbf S_T\cdot\mathbf L_{T|N}>0}. $$</div>
+    <p>Triton is co-sense at its immediate edge. The fact that the whole inner edge opposes a higher-level convention is not an exception and must not be “fixed” by changing sign rules.</p>
+  </div>
+  <div class="case" id="displaced-planets">
+    <h3>7.4 · Venus and Uranus: displacement is allowed; explanation is owed</h3>
+    <p>Long-lived anti-sense or high-obliquity states are admissible when the path is absent, blocked, weak, reservoir-limited, externally maintained, repeatedly perturbed, or slower than system age. Those are classes of explanation, not calculations.</p>
+    <div class="card red"><span class="badge gated">Venus quantitative gate</span><ul class="tight">
+      <li>Present axial spin: \((1.67\text{–}1.93)\times10^{31}\ {\rm kg\,m^2\,s^{-1}}\); present rotational energy: \((2.50\text{–}2.88)\times10^{24}\ {\rm J}\).</li>
+      <li>Fixed-magnitude reversal needs \(|\Delta S|=(3.34\text{–}3.85)\times10^{31}\ {\rm kg\,m^2\,s^{-1}}\), but its endpoint rotational kinetic-energy difference is zero. The path and recipient matter.</li>
+      <li>Published conventional solid/atmospheric solar-tide torque scales are about \(2\times10^{16}\ {\rm N\,m}\), only about \(12\ {\rm GW}\) at the present slip—not the audit's \(9.2\text{–}18.4\ {\rm TW}\) heat bracket.</li>
+      <li>A new channel supplying heat fraction \(f\) at the spin–orbit slip would require \(N_P\simeq(1.5\text{–}3.0)\times10^{19}f\ {\rm N\,m}\). For \(f=1\), an unbalanced implementation reverses Venus in roughly 40,000–80,000 years and drives about 9–18 minutes per year of length-of-day drift.</li>
+      <li>Long survival with a full-heating steady torque therefore requires a named counter-account or internal opposite torques, with cancellation at roughly one part in \(10^5\).</li>
+    </ul></div>
+    <p><strong>Verdict:</strong> Venus is an experimentally sharp gate, not an established POAMS heat engine. Uranus carries the same logical demand: calculate the path, barrier and timescale rather than attaching “still settling” after the fact.</p>
+  </div>
+  <div class="case" id="galaxy-case">
+    <h3>7.5 · Galaxy hierarchy: the exact gain and the exact boundary</h3>
+    <div class="flow"><div><b>Derived</b>Internal spins and resolved internal orbits aggregate associatively.</div><div><b>Premise C1</b>The parent may see that aggregate as effective twist only in a declared unresolved regime.</div><div><b>Constitutive</b>\(U,\mathcal M,\mathcal N\) must turn that account into a signed response.</div><div><b>Population law</b>The settled fraction and hierarchy distribution must produce \(v(r)\) without fitting the answer.</div></div>
+    <p>Co-sense ordering can prevent a legitimately coupled, settled population from averaging to zero. It cannot turn an unspecified or tiny term into an order-unity flat rotation curve. The galaxy front remains open until C1 and the magnitude/profile law survive the radial data.</p>
+  </div>
+</section>
+
+<section id="micro-handoff">
+  <h2>8 · Micro and application handoff</h2>
+  <p>The atom is not microscopic machinery exempt from the ledger; it is the final discrete resolution of the same observed circulation. But scale continuity of ontology does not license copying a macroscopic torque law into a molecule or atom.</p>
+  <div class="grid2">
+    <div class="card blue"><h3>YIG: separate the accounts</h3><ul class="tight">
+      <li><strong>Static alignment</strong> measures ordered intrinsic twist and its constitutive work \(K_s=\int\Omega_s\,dJ\).</li>
+      <li><strong>Coherent drive</strong> creates a bounded precessional displacement set by cone angle; elapsed RF cycles do not multiply the instantaneous AM.</li>
+      <li><strong>Retained writhe</strong> requires an independently readable post-drive register and a whole-system receipt.</li>
+      <li>The decisive outputs are channel partition, response odd under reversal, retention after ring-down, and scaling—not alignment by itself.</li>
+    </ul><p><a href="./the-poams-brilliant-vortex-atom.html#yig-conditional-derivation">Open the YIG derivation and PROV-A protocol</a>.</p></div>
+    <div class="card violet"><h3>Molecules, atoms and fine structure</h3><ul class="tight">
+      <li>Molecular torsion and conformational writhe are candidate organizations; topology alone does not set their energy surfaces or relaxation.</li>
+      <li>Atomic spin–orbit doublets require a signed term that distinguishes angular harmonic and phase sense. A scalar shift with measured \(\alpha\) inserted is not that derivation.</li>
+      <li>The macro settlement rule fixes the lower orientation class only when a coupling exists; it does not identify the microscopic exchange Hamiltonian or measured splitting.</li>
+      <li>Native fine structure remains open, with measured \(\alpha\) available as an input but not as a target manufactured from numerology.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section id="derived">
+  <h2 class="grade-title"><span class="badge derived">Derived</span>What the ledger now closes</h2>
+  <div class="card green"><ul class="tight">
+    <li>The exact three-account angular-momentum posting and enlarged-domain conservation identity.</li>
+    <li>The reservoir energy boundary required to describe genuinely dissipative settlement.</li>
+    <li>Fixed-\(Lk\) smooth twist/writhe exchange and integer topology-changing boundary receipts.</li>
+    <li>The broad co-sense terminal ordering supplied by the ratified settlement rule.</li>
+    <li>Associative barycentric internal-AM aggregation.</li>
+    <li>The exposure-cut rule that prevents double counting across hierarchy.</li>
+    <li>A scale-universal <em>admissibility shell</em>: legal exchanges can be identified before a unique dynamics exists.</li>
+  </ul></div>
+</section>
+
+<section id="theory-opens">
+  <h2 class="grade-title"><span class="badge open">Derivable / theory-construction opens</span>What a predictive law must build</h2>
+  <div class="card violet"><ul class="tight">
+    <li>A dimensionful energy tariff and angular functional \(U\), including barriers and terminal angle.</li>
+    <li>An allowed-path rule \(\mathcal P\), branch selection and mobility/rate law \(\mathcal M\).</li>
+    <li>A topology-to-AM calibration \(\mathcal C\).</li>
+    <li>C1's domain and residual state \(\xi\), with regrouping invariance proved in that regime.</li>
+    <li>The twist/writhe channel partition and observable response map \(\mathcal N\).</li>
+    <li>For galaxies, a preregistered population recursion and radial profile.</li>
+  </ul></div>
+  <p>These are not necessarily forever empirical constants. They are theory-construction openings: the next derivation may constrain them. Until it does, they remain free and must not be hidden inside a chosen dot-product potential.</p>
+</section>
+
+<section id="hybrid">
+  <h2 class="grade-title"><span class="badge hybrid">Hybrid</span>Theory must precede measurement</h2>
+  <div class="card gold"><p>Some quantities cannot be read straight from data because the measurement itself depends on a declared account and scale-transfer law. Theory must first specify the dimensionless variable, sign convention, complete boundary and scaling form; measurement may then determine a disclosed coefficient or reject the form.</p>
+  <ul class="tight">
+    <li><strong>Rotor scale transfer:</strong> derive the dependence on \(|S|\), containing-orbit rate, radius/acceleration, geometry and support before using one apparatus to infer a planet.</li>
+    <li><strong>Venus:</strong> name the counter-torque and deposition geometry before interpreting heat, LOD or volcanism as one channel.</li>
+    <li><strong>C1:</strong> define what the parent cannot resolve, then compare resolved and aggregate predictions.</li>
+    <li><strong>Galaxy:</strong> fix \(U,\mathcal M,\mathcal N\) and population law before confronting rotation curves; do not fit a new function at each radius.</li>
+  </ul></div>
+</section>
+
+<section id="experimental-gates">
+  <h2 class="grade-title"><span class="badge gated">Experimentally gated</span>What measurement must decide</h2>
+  <div class="card red"><ol class="tight">
+    <li><strong>Closed vector ledger:</strong> verify \(\Delta(\mathbf S+\mathbf L+\mathbf J_R)=0\) within uncertainty.</li>
+    <li><strong>Sense reversal:</strong> isolate the response odd under \(\mathbf S\cdot\mathbf L\) reversal after sham, vibration, magnetic, electrical, aerodynamic and thermal controls.</li>
+    <li><strong>Energy closure:</strong> reconcile motor work, kinetic changes, heat, acoustic/vibration power and support reaction.</li>
+    <li><strong>Path branch:</strong> compare free-axis and blocked-axis preparations with the same initial accounts.</li>
+    <li><strong>Retention:</strong> distinguish bias-following twist, ring-down-limited coherent motion and a post-drive retained register.</li>
+    <li><strong>Scaling:</strong> vary \(S\), containing rate, orbit radius, specimen scale, reversal rate and support geometry.</li>
+    <li><strong>Hierarchy regrouping:</strong> resolved and aggregate calculations must agree wherever C1 is claimed.</li>
+  </ol></div>
+</section>
+
+<section id="falsification">
+  <h2>9 · Promotion and falsification gates</h2>
+  <div class="tablewrap"><table><thead><tr><th>Gate</th><th>Promotion criterion</th><th>Failure means</th></tr></thead><tbody>
+    <tr><td>Ledger</td><td>Vector and energy residuals close within registered uncertainty.</td><td>The boundary or model is incomplete.</td></tr>
+    <tr><td>Orientation</td><td>Reversal changes the displaced branch reproducibly.</td><td>The claimed §4.0 channel is absent in that preparation.</td></tr>
+    <tr><td>Magnitude</td><td>One preregistered scaling law survives apparatus size and geometry changes.</td><td>No universal coefficient has been earned.</td></tr>
+    <tr><td>C1</td><td>Parent response is invariant under allowed regrouping.</td><td>Aggregate effective twist is insufficient.</td></tr>
+    <tr><td>Displaced planets</td><td>The same law predicts survival time and counter-account.</td><td>“Metastable” was only a label.</td></tr>
+    <tr><td>Galaxy</td><td>Magnitude and radial shape emerge without rotation-curve fitting.</td><td>Orientation bookkeeping did not solve the galaxy problem.</td></tr>
+  </tbody></table></div>
+</section>
+
+<section id="not-claim">
+  <h2>10 · What this exhibit does not claim</h2>
+  <div class="card red"><ul class="tight">
+    <li>It does not derive \(-K\mathbf S\cdot\mathbf L\), a conventional torque, a unique aligned angle or a universal relaxation time.</li>
+    <li>It does not say every anti-sense body must already have flipped, nor that orientation determines inward/outward motion.</li>
+    <li>It does not make Venus an established heat engine or identify volcanism as spin–orbit grinding.</li>
+    <li>It does not turn internal binary/orbital AM into parent-visible twist without C1.</li>
+    <li>It does not derive a flat galaxy rotation curve, atomic fine structure or the numerical value of \(\alpha\).</li>
+    <li>It does not allow topology to stand in for dynamics, energy pricing or measurement.</li>
+  </ul></div>
+  <p class="callout">The gain is exact and useful: the books now close across scales. The missing law is no longer hidden.</p>
+</section>
+
+<section id="provenance">
+  <h2>11 · Provenance and onward paths</h2>
+  <p>This public synthesis follows the 19 September 2026 internal derivation <em>POAMS-native twist–writhe exchange and accounting map</em> and the companion quantitative review <em>Venus anti-sense spin / internal-heating energy audit under POAMS</em>. Their exact-ledger, topology, aggregation, dimensional and counterfamily checks are retained in the project review archive; no local filesystem path is part of the public claim.</p>
+  <div class="grid2">
+    <div class="card blue"><h3>Corpus links</h3><ul class="tight"><li><a href="./poams-analysis.html#settlement-channel-boundary">POAMS Analysis §16</a> — engineering boundary.</li><li><a href="./solar-system.html#spin-orbit-settlement">The Solar System</a> — immediate-edge cases.</li><li><a href="./loop-of-momentum.html">A Closed Loop of Twisted Momentum</a> — geometric topology.</li><li><a href="./the-poams-brilliant-vortex-atom.html#yig-conditional-derivation">Brilliant Vortex Atom §20a</a> — YIG and retained-state protocol.</li><li><a href="./the-poams-brilliant-vortex-atom.html#dark-matter-is-dark-spin-the-variable-g-forced-ch.-9-5">Brilliant Vortex Atom §28</a> — galaxy boundary.</li></ul></div>
+    <div class="card blue"><h3>Mathematical and Venus source links</h3><ul class="tight"><li><a href="https://doi.org/10.2307/2373348">White (1969)</a> and <a href="https://doi.org/10.1073/pnas.68.4.815">Fuller (1971)</a> — link, twist and writhe.</li><li><a href="https://doi.org/10.1038/s41550-021-01339-7">Margot et al. (2021)</a> — Venus spin and moment of inertia.</li><li><a href="https://doi.org/10.1029/96GL01589">Konopliv &amp; Yoder (1996)</a> — Venus \(k_2\).</li><li><a href="https://doi.org/10.1038/s41561-022-01068-0">Smrekar et al. (2023)</a> — corona heat-flow inference used to bracket the audit.</li><li><a href="https://science.nasa.gov/venus/venus-facts/">NASA Venus facts</a> and <a href="https://ssd.jpl.nasa.gov/planets/phys_par.html">JPL physical parameters</a>.</li></ul></div>
+  </div>
+</section>
+</main>
+<footer>
+  <div>Normal Realism / POAMS exhibit series · <a href="./loop-of-momentum.html">Previous: Closed Loop</a> · <a href="./index.html">All exhibits</a> · <a href="./solar-system.html">Next: Solar System</a></div>
+  <div style="margin-top:7px">Foundational guide: use this ledger before applying spin–orbit claims to apparatus, planets, materials, atoms or galaxies.</div>
+</footer>
+<script>
+function setTheme(t){document.documentElement.dataset.theme=t;document.querySelector('.theme-toggle').textContent=t==='light'?'🌙':'☀️'}
+function toggleTheme(){const t=document.documentElement.dataset.theme==='light'?'dark':'light';setTheme(t);try{localStorage.setItem('poams-theme',t)}catch(e){}}
+try{setTheme(localStorage.getItem('poams-theme')==='light'?'light':'dark')}catch(e){setTheme('dark')}
+</script>
+</body>
+</html>
