@@ -41,7 +41,10 @@
   .card.gold{border-color:rgba(201,168,76,.45);background:rgba(201,168,76,.06);}
   .card.blue{border-color:rgba(79,195,247,.35);background:rgba(79,195,247,.05);}
   .card.red{border-color:rgba(239,83,80,.4);background:rgba(239,83,80,.05);}
-  .eq{margin:16px 0;text-align:center;font-size:16px;}
+  .eq{margin:16px 0;text-align:center;font-size:16px;max-width:100%;overflow-x:auto;}
+  .status-label{display:inline-block;border-radius:999px;padding:3px 9px;font-size:.66rem;line-height:1.4;font-weight:850;letter-spacing:.07em;text-transform:uppercase;margin:0 7px 7px 0;}
+  .status-label.identity{color:var(--green);background:rgba(102,187,106,.14);}
+  .status-label.premise{color:var(--blue);background:rgba(91,200,245,.14);}
   ul{margin:10px 0;padding-left:22px;}
   li{margin:7px 0;font-size:14.5px;}
   canvas.chart{width:100%;height:340px;background:#10101c;border:1px solid var(--edge);border-radius:10px;}
@@ -146,6 +149,10 @@ body{padding-top:72px !important;}
   action accumulates by whole turns — \( \Delta S = h\,\Delta n \), with \( h = 2\pi\hbar \) the action of one completed
   turn (ħ is the same ledger read per radian of phase) — and the honest operation is the sum. \( E = h\nu \) is
   the rate at which turns are being completed, read off the staircase; we differentiate in the model, nature integrates in whole turns.</p>
+  <div class="card blue" id="rate-tariff-guard">
+    <span class="status-label identity">Native rate pricing</span><span class="status-label premise">Adopted measurement bridge</span>
+    <p style="margin:4px 0;"><b>Keep the two readings distinct.</b> The chain-rule account \(E=L\omega=h\nu\) prices action per time natively once the single-closure rate premise is declared. Equality to laboratory-measured energy and momentum is a further, openly adopted boundary-transfer premise: a completed co-signed exchange is read through the same rest-calibrated translation tariff. The first line supplies the native meaning; the second supplies the measured boundary readout. Neither may be silently presented as deriving the other. <a class="xref" href="./translation-ledger.html#premises">The Translation Ledger §3</a> states the boundary and its equations.</p>
+  </div>
   <p>Now the inversion that separates this page from the fantasy model. Conventional physics takes mass as primitive and
   writes \( E = mc^2 \) as if energy were stored <span class="fant">in</span> matter. Read the same equation right way up:</p>
   <div class="eq">\[ m \;=\; \frac{E}{c^2} \;=\; \frac{\hbar\,\omega}{c^2} \;=\; \frac{h\,\nu}{c^2} \quad\text{per quantum} \]</div>
@@ -413,9 +420,8 @@ body{padding-top:72px !important;}
 <section>
   <h2>7 · Scope &amp; Status</h2>
   <div class="card red">
-    <p style="margin:4px 0 10px;"><b>Forced by the ontology (no freedom):</b> the identity \( E = L\omega \) (the anchor's single-closure postulate — one angle carries the time dependence — plus the chain rule on the
-    two ledger definitions); the inversion \( m = \hbar\Omega/c^2 \) with \( c^2 \) as ledger conversion; additivity of rate
-    across a shared closure; and the prediction that reorganizing a fixed count changes the presented mass.</p>
+    <p style="margin:4px 0 10px;"><b>Native rate account:</b> once the declared single-closure rate premise is in place, the chain rule on the two ledger definitions gives \( E = L\omega \); the page then reads \( m = \hbar\Omega/c^2 \), with \( c^2 \) as ledger conversion, and adds rates across a shared closure. This is the native ontology and accounting form.</p>
+    <p style="margin:0 0 10px;"><b>Adopted measured boundary:</b> identifying those native entries with laboratory-measured energy, momentum and inertial/rest mass uses the rest-calibrated boundary-transfer tariff stated in <a href="./translation-ledger.html#premises">The Translation Ledger §3</a>. That constitutive bridge is ratified and explicit; it is not derived from AM bookkeeping alone. The prediction that reorganizing a fixed count changes the presented mass is therefore tested through that same measured readout.</p>
     <p style="margin:0 0 10px;"><b>Read in from measurement (not yet derived):</b> the base rate — the bare fundamental's
     \( \nu_{\text{H}} = 227.0\ \text{ZHz} \) (\( \omega_{\text{H}} = 2\pi\nu_{\text{H}} = 1.426\times10^{24} \) rad/s; equivalently the scale of u). Same epistemic slot as the fine-structure
     ratio: mechanism and form necessary, magnitude contingent-until-derived. Deriving \( \nu_{\text{H}} \) from closure

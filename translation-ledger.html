@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Translation Ledger — Extant Quantities in POAMS-Native Form</title>
+<script>
+window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},svg:{fontCache:'global'}};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+:root{
+  --bg:#0d0d18;--bg2:#11111f;--card:#19192c;--card2:#202036;--text:#e8e8f0;--muted:#a5a5b8;
+  --gold:#d4af37;--blue:#5bc8f5;--green:#66bb6a;--amber:#e7a84d;--violet:#b68cff;--red:#ef6b68;--line:#31314a;
+}
+[data-theme="light"]{
+  --bg:#faf8f2;--bg2:#f3eee3;--card:#fff;--card2:#f8f4ea;--text:#282219;--muted:#6c6458;
+  --gold:#8b6914;--blue:#176e94;--green:#2e7d32;--amber:#9b6415;--violet:#6f42a6;--red:#a93434;--line:#d8d0bf;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;padding-top:68px;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.68;transition:background .25s,color .25s}a{color:var(--blue);text-underline-offset:.15em}
+#poams-hub-nav{position:fixed;inset:0 0 auto 0;z-index:9999;height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 1rem;background:rgba(13,13,24,.93);backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,175,55,.25);font-size:13px}
+#poams-hub-nav a{color:#d4af37;text-decoration:none;display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:6px;white-space:nowrap;font-weight:550}#poams-hub-nav a:hover{background:rgba(212,175,55,.12)}#poams-hub-nav .center{display:flex;flex-direction:column;align-items:center;line-height:1.2}#poams-hub-nav .title{font-size:12px;color:#e8e8f0;font-weight:650}#poams-hub-nav .pos{font-size:10px;color:rgba(212,175,55,.68);letter-spacing:.05em}[data-theme="light"] #poams-hub-nav{background:rgba(250,248,242,.96);border-bottom-color:rgba(139,105,20,.25)}[data-theme="light"] #poams-hub-nav a{color:#8b6914}[data-theme="light"] #poams-hub-nav .title{color:#2a2318}
+.theme-toggle{position:fixed;right:12px;top:52px;z-index:1000;width:40px;height:40px;border:0;border-radius:8px;background:var(--gold);color:var(--bg);font-size:1.1rem;cursor:pointer}
+.hero{max-width:1040px;margin:0 auto;padding:42px 22px 22px;text-align:center}.eyebrow{font-size:.72rem;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);font-weight:800}.hero h1{margin:.55rem 0 0;color:var(--gold);font:650 clamp(2.15rem,5vw,3.55rem)/1.08 Georgia,"Times New Roman",serif}.subtitle{max-width:880px;margin:1rem auto 0;color:var(--muted);font-size:1.05rem}.provenance{max-width:900px;margin:1rem auto 0;color:var(--muted);font-size:.82rem;font-style:italic}.mission{max-width:900px;margin:18px auto 0;padding:15px 18px;border:1px solid rgba(212,175,55,.45);border-radius:11px;background:rgba(212,175,55,.055);font-family:Georgia,"Times New Roman",serif;font-size:1.05rem}
+.status-strip{max-width:1000px;margin:14px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.status-strip a{padding:10px 8px;border:1px solid var(--line);border-radius:9px;background:var(--card);text-decoration:none;font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;font-weight:850}.status-strip a:nth-child(1){color:var(--green)}.status-strip a:nth-child(2){color:var(--blue)}.status-strip a:nth-child(3){color:var(--gold)}.status-strip a:nth-child(4){color:var(--amber)}.status-strip a:nth-child(5){color:var(--violet)}.status-strip a:nth-child(6){color:var(--red)}
+main{max-width:980px;margin:0 auto;padding:6px 20px 72px}section{margin:46px 0;scroll-margin-top:72px}h2{color:var(--gold);font-size:1.38rem;line-height:1.3;border-bottom:1px solid var(--line);padding-bottom:9px;margin:0 0 16px}h3{color:var(--blue);font-size:1.04rem;margin:25px 0 8px}p{margin:11px 0}strong{color:var(--blue)}.lead{font-size:1.06rem}.muted{color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:17px 0}.card.gold{border-color:rgba(212,175,55,.5);background:rgba(212,175,55,.055)}.card.blue{border-color:rgba(91,200,245,.42);background:rgba(91,200,245,.05)}.card.green{border-color:rgba(102,187,106,.46);background:rgba(102,187,106,.05)}.card.red{border-color:rgba(239,107,104,.5);background:rgba(239,107,104,.05)}.card.violet{border-color:rgba(182,140,255,.48);background:rgba(182,140,255,.05)}
+.badge{display:inline-block;border-radius:999px;padding:3px 9px;font-size:.67rem;line-height:1.45;font-weight:900;letter-spacing:.075em;text-transform:uppercase;margin:0 7px 7px 0}.identity{color:var(--green);background:rgba(102,187,106,.14)}.premise{color:var(--blue);background:rgba(91,200,245,.14)}.measured{color:var(--gold);background:rgba(212,175,55,.15)}.model{color:var(--amber);background:rgba(231,168,77,.15)}.open{color:var(--violet);background:rgba(182,140,255,.15)}.prohibited{color:var(--red);background:rgba(239,107,104,.15)}
+.equation-block{margin:17px 0;padding:14px 16px;background:var(--bg2);border:1px solid var(--line);border-radius:10px}.equation-block .eq{overflow-x:auto;text-align:center;padding:1px 0}.equation-block .eq mjx-container{min-width:max-content}.equation-block p{font-size:.9rem;color:var(--muted);margin:7px 0 0}.equation-block strong{color:var(--text)}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}.record{border:1px solid var(--line);border-radius:10px;background:var(--card2);padding:15px}.record b{display:block;color:var(--gold);margin-bottom:5px}.record small{color:var(--muted)}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px}table{width:100%;border-collapse:collapse;min-width:720px;font-size:.88rem}th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{color:var(--gold);background:var(--card2)}tr:last-child td{border-bottom:0}.tight li{margin:7px 0}.worked{border-left:3px solid var(--gold);padding-left:17px;margin:24px 0}.worked h3{margin-top:0}.verdict{font:650 1.08rem/1.5 Georgia,serif;color:var(--gold);text-align:center;padding:18px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:24px 0}.link-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.link-grid a{display:block;background:var(--card);border:1px solid var(--line);border-radius:9px;padding:12px 14px;text-decoration:none}.link-grid a:hover{border-color:var(--gold)}footer{border-top:1px solid var(--line);max-width:980px;margin:0 auto;padding:22px 20px 34px;text-align:center;color:var(--muted);font-size:.8rem;line-height:1.75}
+@media(max-width:760px){body{padding-top:62px}.hero{padding-top:34px}.status-strip{grid-template-columns:repeat(2,1fr)}.grid2,.grid3,.link-grid{grid-template-columns:1fr}.hero h1{font-size:2.15rem}main{padding-left:15px;padding-right:15px}.card{padding:15px}.phn-hide-sm{display:none}.tablewrap{margin-left:-1px;margin-right:-1px}}
+@media(max-width:420px){#poams-hub-nav{padding:0 .35rem}#poams-hub-nav a{padding:4px 6px}.hero h1{font-size:1.85rem}.status-strip{grid-template-columns:1fr}.theme-toggle{width:36px;height:36px;right:8px}.equation-block{padding:12px 9px}}
+</style>
+</head>
+<body>
+<nav id="poams-hub-nav" aria-label="Exhibit navigation">
+  <a href="./tenets-of-normal-realism.html" title="Normal Realism — The Tenets">← <span class="phn-hide-sm">Normal Realism</span></a>
+  <div class="center"><a href="./index.html" style="flex-direction:column;gap:2px;padding:4px 12px"><span class="title">Return to Hub</span><span class="pos">NR · POAMS · FOUNDATIONS</span></a></div>
+  <a href="./loop-of-momentum.html" title="A Closed Loop of Twisted Momentum"><span class="phn-hide-sm">Closed Loop</span> →</a>
+</nav>
+<button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle light/dark theme">☀️</button>
+<header class="hero">
+  <div class="eyebrow">Foundational crosswalk · status before substitution · 21 September 2026</div>
+  <h1>The Translation Ledger</h1>
+  <p class="subtitle">Extant Quantities in POAMS-Native Form—Identities, Premises, Calibrations, and Open Bridges</p>
+  <p class="provenance">This exhibit is an extrapolation of the foundational work of N. Vivian “Viv” Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
+  <div class="mission">This page does not rename familiar quantities and call the renaming a derivation. It records which native account is being read, what supplied the bridge, which channel owns the sign, and what the equation does <em>not</em> establish.</div>
+  <nav class="status-strip" aria-label="Equation status vocabulary">
+    <a href="#identity">Identity</a><a href="#premises">Adopted premise</a><a href="#calibrations">Measured calibration</a><a href="#model-conditional">Model-conditional</a><a href="#open-bridges">Open bridge</a><a href="#prohibited-inferences">Prohibited inference</a>
+  </nav>
+</header>
+<main>
+<section id="how-to-read">
+  <h2>0 · How to read this ledger</h2>
+  <p class="lead"><strong>One substance does not mean one undifferentiated account.</strong> Phase, completed-turn count, action, rate, topology, channel orientation, and measured boundary tariffs are records of the same world—but they are not interchangeable columns.</p>
+  <div class="grid3">
+    <div class="record"><span class="badge identity">Identity</span><b>Algebra closes the line.</b><small>The result follows from definitions or from an equation whose status is already stated.</small></div>
+    <div class="record"><span class="badge premise">Adopted premise</span><b>A constitutive rule is declared.</b><small>The corpus ratifies the rule; discreteness alone does not derive it.</small></div>
+    <div class="record"><span class="badge measured">Measured calibration</span><b>The world supplies the scale.</b><small>The input is empirical and must not reappear disguised as its own prediction.</small></div>
+    <div class="record"><span class="badge model">Model-conditional</span><b>A named approximation does work.</b><small>The result is earned only inside that model and its declared boundary.</small></div>
+    <div class="record"><span class="badge open">Open bridge</span><b>A physical identification is missing.</b><small>Dimensional agreement or a suggestive picture is not yet a law.</small></div>
+    <div class="record"><span class="badge prohibited">Prohibited inference</span><b>A category error is blocked.</b><small>The displayed records may coexist; that does not make them equal.</small></div>
+  </div>
+  <div class="card gold"><strong>The firewall.</strong> For every translation ask: What actually circulates? Is this bookkeeping rather than a force or bearer? Are orbit/writhe and spin/twist kept typed? Was a measured target inserted? Is the sign or channel named? Dimensional agreement is necessary; it is never sufficient. A successful substitution calculates consequences—it does not select the numerical input.</div>
+</section>
+
+<section id="native-records">
+  <h2>1 · The native records stay in separate columns</h2>
+  <div class="tablewrap"><table><thead><tr><th>Record</th><th>Native entry</th><th>What it can establish</th><th>What it cannot establish alone</th></tr></thead><tbody>
+    <tr><td>Completion</td><td>Integer whole-turn count $n$</td><td>How many closures completed.</td><td>Historical count from final phase alone.</td></tr>
+    <tr><td>Phase</td><td>Angle $\theta$ modulo $2\pi$</td><td>Current angular position/sense.</td><td>The number of prior whole turns.</td></tr>
+    <tr><td>Action / AM</td><td>$S$, $L=dS/d\theta$</td><td>The angular-momentum account.</td><td>A speed share, radius, energy tariff, or measured mass without a bridge.</td></tr>
+    <tr><td>Rate</td><td>$\nu=dn/dt$, $\omega=d\theta/dt$</td><td>Completion rate or angular phase rate.</td><td>A spatial speed unless a radius and translational readout are specified.</td></tr>
+    <tr><td>Boundary receipt</td><td>Co-signed $(\delta T,\delta\mathbf X)$ response</td><td>Measured energy–momentum tariffs under the adopted transfer premise.</td><td>A derivation of those tariffs from AM bookkeeping alone.</td></tr>
+    <tr><td>Topology</td><td>$Lk$, $Tw$, $Wr$</td><td>Linking class and geometric partition.</td><td>Physical AM magnitude, energy, torque, rate, or $\alpha$.</td></tr>
+    <tr><td>Channel / sign</td><td>Orbit/writhe, spin/twist, phase sense</td><td>Which account owns an orientation or response.</td><td>A magnitude law merely from a handedness label.</td></tr>
+  </tbody></table></div>
+  <p class="muted">The authoritative companions are <a href="./the-winding-register.html">The Winding Register</a> for phase versus retained integer history, <a href="./computation-as-completion.html">Computation as Completion</a> for completed counts, and <a href="./spin-orbit-settlement-ledger.html#topology">The Spin–Orbit Settlement Ledger</a> for topology versus calibrated physical posting.</p>
+</section>
+
+<section id="identity">
+  <h2>2 · Whole turn, radian, action, and rate</h2>
+  <div class="equation-block"><span class="badge identity">Identity</span>
+    <div class="eq">$$h=2\pi\hbar.$$</div>
+    <p><strong>$h$</strong> is action per completed whole turn; <strong>$\hbar$</strong> is the same action read per radian.</p>
+  </div>
+  <div class="equation-block"><span class="badge identity">Identity</span>
+    <div class="eq">$$\Delta S=h\,\Delta n,\qquad \nu\equiv\frac{dn}{dt},\qquad \omega\equiv\frac{d\theta}{dt}=2\pi\nu.$$</div>
+    <p><strong>$S$</strong> is accumulated action, <strong>$n$</strong> is completed-turn count, <strong>$\nu$</strong> is turns per unit time, and <strong>$\omega$</strong> is radians per unit time. The derivatives are continuum readouts of an integer staircase.</p>
+  </div>
+  <div class="equation-block"><span class="badge identity">Identity inside the declared rate account</span>
+    <div class="eq">$$E\equiv\frac{dS}{dt}=\frac{dS}{d\theta}\frac{d\theta}{dt}=L\omega,
+    \qquad L=\hbar\ \Longrightarrow\ E=\hbar\omega=h\nu.$$</div>
+    <p><strong>$E$</strong> is native action-per-time pricing, <strong>$L$</strong> is the angular-momentum entry, and the last step is for one-quantum closure. This does not by itself prove that every laboratory energy or momentum readout is already derived; §3 states the measurement bridge.</p>
+  </div>
+  <div class="card red"><span class="badge prohibited">Prohibited inference</span><strong>Same phase is not same history.</strong> A record may return to the same angle modulo $2\pi$ while its integer completion count has increased. Accumulated phase, completed-turn history, and a measured rate calibration must not be collapsed into one datum.</div>
+</section>
+
+<section id="premises">
+  <h2>3 · Boundary-transfer tariffs: the measurement bridge is stated</h2>
+  <p>Measured energy and momentum are read here as the same-account translation tariffs of a completed, co-signed closure exchange. That identification is an adopted constitutive premise, not a theorem of whole-turn discreteness, topology, collision balance, or the native identity $E=L\omega$.</p>
+  <div class="equation-block"><span class="badge premise">Adopted premise</span>
+    <div class="eq">$$\delta W=\mathbf p\!\cdot\!\delta\mathbf X-E\,\delta T.$$</div>
+    <p><strong>$\delta W$</strong> is the boundary work receipt, <strong>$(\delta T,\delta\mathbf X)$</strong> is the calibrated endpoint translation, and <strong>$(E,\mathbf p)$</strong> is the measured covector tariff on that same completed exchange.</p>
+  </div>
+  <div class="equation-block"><span class="badge premise">Adopted premise</span><span class="badge identity">Conditional consequence</span>
+    <div class="eq">$$E=\gamma E_0,\qquad \mathbf p=\gamma\frac{E_0}{c^2}\mathbf v,
+    \qquad E^2-p^2c^2=E_0^2,
+    \qquad \gamma=\frac{1}{\sqrt{1-v^2/c^2}}.$$</div>
+    <p>These follow in the ratified translation account when the boundary-transfer premise is combined with the free-closure extremum and additive intrinsic pricing. <strong>$E_0$</strong> is the rest receipt, <strong>$\mathbf v$</strong> the calibrated translational velocity, and <strong>$p=|\mathbf p|$</strong>.</p>
+  </div>
+  <div class="equation-block"><span class="badge measured">Measured calibration</span>
+    <div class="eq">$$m\equiv\frac{E_0}{c^2}.$$</div>
+    <p>The measured rest receipt fixes the mass calibration. “Mass as trapped rate” is the native reading; equality to measured inertial/rest mass uses this disclosed boundary-transfer calibration.</p>
+  </div>
+  <p>See <a href="./mass-as-trapped-rate.html">Mass as Trapped Rate</a> for the native rate account. Its identity and this measured transfer premise are complementary layers, not rival equations and not permission to smuggle measured $E$ or $p$ into a supposed derivation.</p>
+</section>
+
+<section id="cone-ledger">
+  <h2>4 · The Pope–Osborne projection ledger</h2>
+  <div class="equation-block"><span class="badge premise">Adopted premise</span>
+    <div class="eq">$$a\equiv\frac{d\tau}{dt},\qquad b\equiv\frac{|d\mathbf s|}{c\,dt},
+    \qquad a^2+b^2=1.$$</div>
+    <p><strong>$a$</strong> is the normalized internal-count component, <strong>$b$</strong> the normalized projected-translation component, <strong>$\tau$</strong> the on-body count, and <strong>$t$</strong> the reference count. In the translational readout, $b=v/c$.</p>
+  </div>
+  <div class="card red"><span class="badge prohibited">Prohibited inference</span><strong>Cone share is not twist/writhe share.</strong> The orthogonal-turn premise is not derived from $Lk=Tw+Wr$, and its components are not topological partitions.</div>
+  <div class="equation-block"><span class="badge prohibited">Prohibited inference</span>
+    <div class="eq">$$\frac{x}{2}\ne 1-\sqrt{1-x}\quad(0&lt;x&lt;1);\qquad
+    \frac{x}{2}=1-\sqrt{1-x}\ \Longrightarrow\ x=0.$$</div>
+    <p>Here <strong>$x=b^2=(v/c)^2$</strong>. In the circular model of §5, $x/2$ is a binding fraction; $1-\sqrt{1-x}=1-a$ is the exact linear Cone deficit. Their leading small-$x$ resemblance does not make them the same ledger.</p>
+  </div>
+  <p><a href="./the-rate-of-time.html#triangle-status">The Rate of Time</a> carries the full premise, conditional proof, measured clock comparisons, and scope boundary.</p>
+</section>
+
+<section id="model-conditional">
+  <h2>5 · Circular atomic calibration—and the local no-go</h2>
+  <p>Declare the model before reading its consequences: a two-ended circular account with reduced mass $\mu=m_1m_2/(m_1+m_2)$, orbital action $L=\mu vr=\hbar$, radius $r$, relative speed $v$, and angular rate $\omega=v/r$.</p>
+  <div class="equation-block"><span class="badge model">Model-conditional definitions</span>
+    <div class="eq">$$x\equiv\left(\frac vc\right)^2,\qquad
+    \omega_0\equiv\frac{\mu c^2}{\hbar},\qquad
+    \ell_\mu\equiv\frac{\hbar}{\mu c}.$$</div>
+    <p><strong>$x$</strong> is the squared speed share, <strong>$\omega_0$</strong> the reduced-mass angular-rate scale, and <strong>$\ell_\mu$</strong> the reduced Compton length.</p>
+  </div>
+  <div class="equation-block"><span class="badge identity">Identity within the circular model</span>
+    <div class="eq">$$\boxed{x=\frac{\omega}{\omega_0}=\left(\frac{\ell_\mu}{r}\right)^2}.$$</div>
+    <p>Action closure fixes the linked ratios once one member of the scale family is supplied.</p>
+  </div>
+  <div class="equation-block" id="calibrations"><span class="badge measured">Measured calibration</span>
+    <div class="eq">$$\left.\frac vc\right|_{\rm hydrogen}=\alpha
+    \quad\Longrightarrow\quad x=\alpha^2.$$</div>
+    <p>The empirical hydrogen calibration supplies <strong>$\alpha$</strong>. This identifies the circular state; it does not derive the numerical value of $\alpha$.</p>
+  </div>
+  <div class="equation-block"><span class="badge model">Model-conditional binding</span>
+    <div class="eq">$$|E_B|=\frac12\mu v^2
+    \quad\Longrightarrow\quad
+    \frac{|E_B|}{\mu c^2}=\frac{x}{2}=\frac{\alpha^2}{2}.$$</div>
+    <p><strong>$E_B$</strong> is the circular-model binding energy. The dynamical rate ratio is $x$; the binding fraction is $x/2$. They are related but not identical entries.</p>
+  </div>
+  <div class="equation-block"><span class="badge identity">Circular-model corollaries</span>
+    <div class="eq">$$\frac{r}{\ell_\mu}=x^{-1/2}=\alpha^{-1},\qquad
+    \frac{T}{T_0}=x^{-1}=\alpha^{-2},$$
+    $$T\equiv\frac{2\pi}{\omega},\qquad T_0\equiv\frac{2\pi}{\omega_0}=\frac{h}{\mu c^2}.$$</div>
+    <p>The radius and period hierarchies follow after the measured calibration. $T$ is the circular period and $T_0$ the reduced-mass reference period.</p>
+  </div>
+  <div class="equation-block"><span class="badge identity">Local scale-symmetry no-go</span>
+    <div class="eq">$$v\mapsto\lambda v,\qquad r\mapsto\frac r\lambda,$$
+    $$\mu vr=\hbar\qquad\text{unchanged}.$$</div>
+    <p>For nonzero scale factor <strong>$\lambda$</strong>, action closure fixes the product $vr$, not $v/c$ or $r$ separately. Therefore $L=\mu vr=\hbar$ cannot by itself select $\alpha$. An independent law or measured calibration is required.</p>
+  </div>
+  <div class="verdict">The earned result is local and conditional: the tested circular equations calculate linked consequences once a speed share is supplied; they do not choose that share.</div>
+  <p>Full applications and precision boundaries: <a href="./alpha-fine-structure-derivation.html#calculated-world">The Fine-Structure Constant</a> and <a href="./balmer-rydberg-poams.html">Spectral Lines</a>.</p>
+</section>
+
+<section id="charge-sign">
+  <h2>6 · Charge, pair coefficient, and sign</h2>
+  <div class="equation-block"><span class="badge measured">Measured coefficient translation</span>
+    <div class="eq">$$K_Q\equiv\frac{e^2}{4\pi\varepsilon_0}=\alpha\hbar c.$$</div>
+    <p><strong>$K_Q$</strong> is the measured elementary pair coefficient, with dimensions energy × length; <strong>$e$</strong> is the conventional elementary-charge magnitude and <strong>$\varepsilon_0$</strong> the conventional electric constant. The equality translates measured coefficients after $\alpha$ is supplied.</p>
+  </div>
+  <div class="card red"><span class="badge prohibited">Prohibited inference</span><strong>Magnitude is not sign.</strong> The scalar coefficient does not by itself supply attraction/repulsion, phase sense, or a spin–orbit channel. Nor does the translation turn $e$, $\alpha$, or $K_Q$ into a circulating charge-stuff.</div>
+  <p>See <a href="./poams-electricity.html">POAMS &amp; Electricity</a> for charge sign, voltage as energy-per-count, and current as completion rate; see <a href="./coulomb-from-chirality-directed-depletion.html#calibrated-world">Coulomb from Chirality</a> for the calibrated pair-scale account.</p>
+</section>
+
+<section id="open-bridges">
+  <h2>7 · Orbit, spin, twist, and writhe</h2>
+  <div class="equation-block"><span class="badge identity">Topological identity</span>
+    <div class="eq">$$Lk=Tw+Wr,
+    \qquad \Delta Lk=0\ \Longrightarrow\ \Delta Tw=-\Delta Wr.$$</div>
+    <p><strong>$Lk$</strong> is linking number, <strong>$Tw$</strong> twist, and <strong>$Wr$</strong> writhe. Smooth redistribution at fixed linking class constrains the geometric partition.</p>
+  </div>
+  <div class="card red"><span class="badge prohibited">Prohibited inference</span>Topology alone sets no physical angular-momentum magnitude, energy, torque, relaxation rate, measured mass, or $\alpha$. Orbit/writhe and intrinsic spin/twist remain typed channels.</div>
+  <div class="card violet"><span class="badge open">Open bridge</span><strong>A topology-to-tariff calibration must be earned independently.</strong> Any coefficient mapping $(Tw,Wr)$ into measured mechanical angular momentum, work, or rate needs a complete boundary, a channel rule, and an empirical test. A dimensionless topological number is not automatically an action or an energy fraction.</div>
+  <p>The current guardrails and legal posting accounts are in <a href="./spin-orbit-settlement-ledger.html#topology">The Spin–Orbit Settlement Ledger</a>. <a href="./lande-from-twist-writhe.html#calibrated-carryover">Landé from Twist–Writhe</a> retains its own explicitly added normalization assumptions.</p>
+</section>
+
+<section id="worked-translations">
+  <h2>8 · Three worked translations</h2>
+  <div class="worked"><h3>8.1 · Hydrogen gross scale</h3><p><span class="badge measured">Measured</span>$\alpha$ and the two measured endpoint masses fix $\mu$. <span class="badge model">Model-conditional</span>The circular account then gives $r=\ell_\mu/\alpha$, $|E_B|=\mu c^2\alpha^2/2$, and $\omega=\omega_0\alpha^2$.</p><p><strong>Measured:</strong> $\alpha$, masses. <strong>Derived inside the model:</strong> linked gross radius, binding, and rate scales. <strong>Not derived:</strong> the numerical origin of $\alpha$ or all resolved atomic structure.</p></div>
+  <div class="worked"><h3>8.2 · Electric pair scale</h3><p><span class="badge measured">Measured</span>$\alpha$ translates the conventional coefficient into $K_Q=\alpha\hbar c$. <span class="badge prohibited">Not supplied</span>The scalar magnitude does not choose phase sense or interaction sign.</p><p><strong>Measured:</strong> the coefficient calibration. <strong>Translated:</strong> its value in action × speed units. <strong>Not derived:</strong> charge as a substance, a sign law, or $\alpha$ itself.</p></div>
+  <div class="worked"><h3>8.3 · Completion versus phase</h3><p><span class="badge identity">Identity</span>Two states may share $\theta\bmod 2\pi$ while differing by an integer completion count $\Delta n$. The current phase and retained history are distinct records.</p><p><strong>Read now:</strong> present phase. <strong>Retained separately:</strong> completed-turn history. <strong>Not recoverable without a register:</strong> how many full turns occurred.</p></div>
+</section>
+
+<section id="prohibited-inferences">
+  <h2>9 · Prohibited inferences and retired selectors</h2>
+  <div class="tablewrap"><table><thead><tr><th>Tempting move</th><th>Status</th><th>Why it fails</th></tr></thead><tbody>
+    <tr><td>$\alpha=Wr$ or $Wr=(v/c)^2$</td><td><span class="badge prohibited">Prohibited</span></td><td>No topology-to-physical calibration supplies the equality.</td></tr>
+    <tr><td>$Tw=\sqrt{1-\beta^2}$</td><td><span class="badge prohibited">Prohibited</span></td><td>Conflates the adopted Cone projection with topological partition.</td></tr>
+    <tr><td>Planar support and spherical pattern as orthogonal vector components</td><td><span class="badge prohibited">Prohibited</span></td><td>Support geometry and mode pattern are not automatically coordinates of one normalized state vector.</td></tr>
+    <tr><td>$1/\sqrt{137^2+\pi^2}$ or a chosen $m=137$ mode</td><td><span class="badge prohibited">Retired fit</span></td><td>The target chooses the integer or representation; the agreement is built in.</td></tr>
+    <tr><td>Cutoff, window, or localization selector</td><td><span class="badge prohibited">Retired fit</span></td><td>The hidden cutoff or metric becomes the free input.</td></tr>
+    <tr><td>Context-specific closure deficit $=\alpha^2$</td><td><span class="badge prohibited">Prohibited</span></td><td>No universal deficit or bridge was established.</td></tr>
+    <tr><td>“$\alpha$ is proved free, contingent, or underivable”</td><td><span class="badge prohibited">Overclaim</span></td><td>Only the tested local account is underdetermined. The numerical origin remains open.</td></tr>
+  </tbody></table></div>
+  <p class="muted">Historical provenance, not current support: <a href="./alpha-program-2026-archive.html">Archived 2026 Alpha Program — retired research record</a>. The archive is preserved unchanged.</p>
+</section>
+
+<section id="current-status">
+  <h2>10 · Current status and legitimate research door</h2>
+  <div class="card green"><span class="badge measured">Ratified public status</span><strong>$\alpha$ is a measured anchor whose gross consequences are calculable; its numerical origin is open.</strong> No public equation on this page promotes the measured anchor into a derivation.</div>
+  <div class="card violet"><span class="badge open">Open bridge</span><strong>What could change the status?</strong> A future selector must be POAMS-native, typed, internally accessible, non-aliasing, and independent of the measured target. It must break the circular account's local scale symmetry, name the actual circulation and channel, and survive an empirical discriminator fixed before comparison.</div>
+  <div class="card red"><span class="badge prohibited">Still prohibited</span>A free integer family, chosen spectral representation, fitted cutoff, topological nickname, or imported measured value does not become a derivation because it reproduces $1/137$.</div>
+  <div class="link-grid">
+    <a href="./alpha-fine-structure-derivation.html">Measured Alpha — applications and open origin →</a>
+    <a href="./the-rate-of-time.html">The Rate of Time — adopted Cone premise →</a>
+    <a href="./mass-as-trapped-rate.html">Mass as Trapped Rate — native rate pricing →</a>
+    <a href="./atom-as-phase.html">Atom as Organized Phase — support/pattern guard →</a>
+    <a href="./the-winding-register.html">The Winding Register — phase and history →</a>
+    <a href="./spin-orbit-settlement-ledger.html">Spin–Orbit Ledger — typed topology →</a>
+  </div>
+</section>
+</main>
+<footer>
+  An extrapolation of the foundational work of N. Vivian “Viv” Pope &amp; Dr. Anthony D. Osborne, PhD — Normal Realism first, then the Pope–Osborne Angular Momentum Synthesis.<br>
+  Part of the <a href="./index.html">Normal Realism / POAMS exhibit series</a> · status-ledger edition · 21 September 2026
+</footer>
+<script>
+function toggleTheme(){
+  var root=document.documentElement;
+  var light=root.getAttribute('data-theme')==='light';
+  root.setAttribute('data-theme',light?'dark':'light');
+  document.querySelector('.theme-toggle').textContent=light?'☀️':'🌙';
+  try{localStorage.setItem('poams-theme',light?'dark':'light')}catch(e){}
+}
+try{if(localStorage.getItem('poams-theme')==='light'){document.documentElement.setAttribute('data-theme','light');document.querySelector('.theme-toggle').textContent='🌙';}}catch(e){}
+</script>
+</body>
+</html>

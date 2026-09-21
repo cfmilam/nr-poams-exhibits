@@ -62,6 +62,11 @@ th{background:var(--card);color:var(--gold);font-family:-apple-system,BlinkMacSy
 .tag-d{background:var(--green);color:#04120a}
 .tag-e{background:var(--muted);color:var(--bg)}
 .tag-r{background:var(--amber);color:#221408}
+.status-chip{display:inline-block;border-radius:999px;padding:3px 9px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:.66rem;font-weight:850;letter-spacing:.07em;text-transform:uppercase;margin:0 7px 7px 0}
+.status-chip.model{color:var(--amber);background:rgba(231,168,77,.14)}
+.status-chip.measured{color:var(--gold);background:rgba(212,175,55,.14)}
+.status-chip.identity{color:var(--green);background:rgba(105,207,135,.14)}
+.status-chip.prohibited{color:var(--red);background:rgba(239,106,103,.14)}
 .chain{background:var(--card);border:1px solid var(--edge);border-radius:8px;padding:18px 22px;margin:20px 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:.94rem;line-height:1.95}
 .chain b{color:var(--blue)}
 .door{background:#0f0f1e;border:1px solid var(--gold);border-radius:10px;padding:26px 28px;margin:26px 0;box-shadow:0 0 24px rgba(212,175,55,.08)}
@@ -108,6 +113,12 @@ footer{max-width:900px;margin:0 auto 24px;padding:15px 18px 0;border-top:1px sol
   <div class="eq">$$E_n(r)=\frac{n^2\hbar^2}{2\mu r^2}-\frac{\alpha\hbar c}{r}
    \quad\Longrightarrow\quad r_n=\frac{n^2\hbar}{\mu c\alpha},\quad E_n=-\frac{\mu c^2\alpha^2}{2n^2}.$$</div>
   <p>Both ends participate; no fixed central nucleus is inserted. The circular calculation establishes gross scales, not the full angular state or all resolved spectral effects. It uses both the energy relation and orbital-action condition; the radius law does not follow from action quantization alone.</p>
+  <div class="card amber" id="circular-rate-crosswalk">
+    <span class="status-chip model">Model-conditional</span><span class="status-chip identity">Identity within the circular model</span>
+    <p><b>The fundamental circular-rate crosswalk.</b> For the $n=1$ closure $L=\mu vr=\hbar$, define $x=(v/c)^2$, $\omega=v/r$, $\omega_0=\mu c^2/\hbar$, and $\ell_\mu=\hbar/(\mu c)$. Then</p>
+    <div class="eq">$$x=\left(\frac vc\right)^2=\frac{\omega}{\omega_0}=\left(\frac{\ell_\mu}{r}\right)^2.$$</div>
+    <p><span class="status-chip measured">Measured calibration</span>For hydrogen, measured $v/c=\alpha$ gives $x=\alpha^2$. <span class="status-chip model">Model-conditional binding</span>The circular law $|E_B|=\mu v^2/2$ then gives $|E_B|/(\mu c^2)=x/2=\alpha^2/2$. The dynamical rate ratio is $x$; the binding fraction is $x/2$. Full status map: <a href="./translation-ledger.html#model-conditional">The Translation Ledger §5</a>.</p>
+  </div>
   <table><thead><tr><th>Consequence</th><th>Value or relation</th></tr></thead><tbody>
     <tr><td>Elementary pair coefficient</td><td>$2.3070775508\times10^{-28}\ \mathrm{J\,m}$</td></tr>
     <tr><td>Fundamental radius / $\hbar/(\mu c)$</td><td>$1/\alpha=137.0359991776\ldots$</td></tr>
@@ -145,7 +156,7 @@ footer{max-width:900px;margin:0 auto 24px;padding:15px 18px 0;border-top:1px sol
   <h2>4. Geometric readings, with their conditions visible</h2>
   <p>The circular relation implies a dimensionless relative-motion ratio $\omega_1r_1/c=\alpha$. In a cone representation using $\sin\theta=\omega r/c$, the corresponding angle is $\arcsin\alpha=0.4181112144\ldots$ degrees. This is a geometrical reading of the calibrated state, not a separate determination of the number.</p>
   <p>The exact spherical-cap expression is $2\pi(1-\sqrt{1-\alpha^2})$. With measured $\alpha$, it gives $1.67296291145\ldots\times10^{-4}$ steradians. Its leading expression $\pi\alpha^2$ is an approximation, not an equality. Neither this cap nor the formal plane/sphere ratio by itself derives elementary spin, an atomic doublet, or a universal macro/micro identity.</p>
-  <p>The legacy $N=2/\alpha^2=37557.7301412\ldots$ is a ratio, not an integer winding count. Integer closure of individual records and a noninteger ratio of scales are different statements.</p>
+  <p>The legacy $N=2/\alpha^2=37557.7301412\ldots$ is a ratio, not an integer winding count. Integer closure of individual records and a noninteger ratio of scales are different statements. The <a href="./translation-ledger.html#prohibited-inferences">Translation Ledger</a> collects the corresponding phase, topology, support/component, and calibration guardrails in one status-bearing crosswalk.</p>
   <details><summary>The inferred Planck-scaled rate is conditional</summary><p>The earlier clock interpretation omitted a normalization. The actual relation is $\alpha=\zeta(\nu_Q/f_{\rm Pl})^2$, with $\zeta=k_Q/k_M$ and measured $G$ entering $f_{\rm Pl}$. Setting $\zeta=1$ gives $\nu_Q\approx2.522\times10^{41}$ Hz, but that setting is not forced by a shared ontology. Neither a universal event clock nor a device-frequency multiplier is established. See <a href="./coulomb-from-chirality-directed-depletion.html#research-status">the corrected Coulomb account</a>.</p></details>
 </section>
 <section id="applications">
@@ -157,6 +168,7 @@ footer{max-width:900px;margin:0 auto 24px;padding:15px 18px 0;border-top:1px sol
   <h2>6. The origin question is open, not an operational roadblock</h2>
   <p>We have not derived the numerical value of $\alpha$ from the examined source commitments. We have also not proved it fundamentally contingent, impossible to derive, or a consequence of a theological choice. Those were stronger statements than the tested models justified.</p>
   <p>The source audit and later hypothetical networks, spectral constructions and observer/controller accounts narrowed which conditions were insufficient. They did not produce a fully source-derived microscopic interaction law. Active parameter-free model-building is parked. An independently justified future insight could reopen the question; phenomenological work does not need to wait for it.</p>
+  <p><span class="status-chip identity">Local no-go</span>The closure $L=\mu vr=\hbar$ has the scale symmetry $v\mapsto\lambda v$, $r\mapsto r/\lambda$: it fixes $vr$, not $v/c$. Action quantization alone therefore cannot select $\alpha$; an independent law or measured calibration is required. This result is local to the tested circular account, not a proof that $\alpha$ is fundamentally underivable. <a href="./translation-ledger.html#model-conditional">See the full derivation and status boundary</a>.</p>
   <p><b>Two legitimate activities, different claims:</b> a parameter-free derivation must not insert the desired value; a measured-input calculation deliberately supplies it and must say so. The latter is what the current Coulomb exhibit does. Calling a calibrated result a prediction of its own calibration would be circular; using that calibration to compute further relationships is useful work.</p>
 </section>
 <section id="record">
