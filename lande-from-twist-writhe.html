@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>POAMS: The Landé g-Factor from Twist/Writhe Coupling</title>
+<title>POAMS: Landé Recoupling — A Conditional Channel Analogy</title>
 <script>
   window.MathJax = {
     tex: { inlineMath: [['\\(','\\)'], ['$','$']], displayMath: [['\\[','\\]'], ['$$','$$']] },
@@ -103,7 +103,7 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
 <body>
 
 <div id="poams-hub-nav">
-  <a href="./stern-gerlach-as-two-chiralities.html" title="Stern-Gerlach as Two Chiralities">← <span class="phn-hide-sm">Stern-Gerlach as Two Chiralities</span></a>
+  <a href="./stern-gerlach-as-two-chiralities.html" title="Stern-Gerlach Axis-Response Branches">← <span class="phn-hide-sm">Stern-Gerlach Axis Responses</span></a>
   <div class="phn-center">
     <a href="./index.html" style="flex-direction:column;gap:2px;padding:4px 12px;">
       <span class="phn-title">Return to Hub</span>
@@ -116,164 +116,120 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
 <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle light/dark theme">🌙</button>
 
 <header>
-  <h1>The Land&eacute; g-Factor from Twist/Writhe Coupling</h1>
+  <h1>Land&eacute; Recoupling: A Conditional POAMS Channel Analogy</h1>
   <p class="nr-provenance" style="font-size:0.8em;font-style:italic;opacity:0.72;line-height:1.5;margin:0.5em 0 1em;text-align:center">This exhibit is an extrapolation of the foundational work of N. Vivian &ldquo;Viv&rdquo; Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
-  <div class="sub">How $g_L = 1$ and $g_S = 2$ Fall Out of POAMS Geometry, and Land&eacute;'s Formula With Them</div>
+  <div class="sub">Twist and writhe as an internal/external channel dictionary &mdash; not a derivation of spin or the factor two</div>
   </header>
 
 <main>
 
 <!-- ============ §1 ============ -->
 <section>
-  <h2>&sect;1 &mdash; What Extant Postulates</h2>
+  <h2>&sect;1 &mdash; The Extant Starting Point</h2>
 
-  <div class="card compare">
-    <span class="tag compare">CROSS-ONTOLOGY</span>
-    <p style="margin-top:6px">The paragraphs below use extant quantum-mechanical vocabulary <em>only</em> for comparative purposes. Nothing in the POAMS derivation that follows depends on any of these terms.</p>
+  <div class="card compare" id="status">
+    <span class="tag compare">CONDITIONAL INTERPRETATION</span>
+    <p style="margin-top:6px">This page is a cross-ontology recoupling reference. It imports the extant SU(2) state law, the labels $L,S,J,m_J$, the magneton scale, and the leading coefficients $c_W=1$ and $c_T=2$. Current POAMS does not derive those inputs from $Tw$, $Wr$, or $Lk=Tw+Wr$.</p>
   </div>
 
   <p>In standard atomic physics, an atomic state's magnetic moment along the field axis reads</p>
   <div class="eq">$$\mu_z = g_J \, m_J \, \mu_B$$</div>
   <p>where $m_J$ is the projection quantum number of total angular momentum $J$, and $g_J$ is the Land&eacute; g-factor:</p>
   <div class="eq">$$g_J = 1 + \frac{J(J+1) + S(S+1) - L(L+1)}{2J(J+1)}$$</div>
-  <p>The formula is derived in QM by applying the projection theorem to the operator identity $\hat\mu = g_L \hat L + g_S \hat S$, with two <em>separately postulated</em> $g$-factors:</p>
+  <p>The formula is derived in QM by applying the projection theorem to the operator identity $\hat\mu = g_L \hat L + g_S \hat S$, with distinct orbital and intrinsic response coefficients:</p>
   <ul>
-    <li>Orbital: $g_L = 1$ &mdash; the &ldquo;classical&rdquo; magnetic moment of a circulating charge</li>
-    <li>Spin: $g_S \approx 2$ &mdash; introduced by Uhlenbeck and Goudsmit (1925) as the empirically-required factor to reproduce anomalous Zeeman splittings, later &ldquo;explained&rdquo; by the Dirac equation as an unavoidable consequence of relativistic electron structure</li>
+    <li>Orbital: $g_L = 1$ &mdash; the leading orbital magnetic-response coefficient</li>
+    <li>Spin: $g_S \approx 2$ &mdash; the leading electron-spin coefficient, with higher-order corrections measured and calculated separately</li>
   </ul>
 
-  <p>For the present comparison the leading coefficients are stated inputs to the angular projection. A derivation of their physical normalization is distinct from the Landé recoupling identity. The current POAMS account no longer claims that merely duplicating endpoint records derives both coefficients.</p>
+  <p>For the present comparison, the labels $L,S,J,m_J$, the SU(2) projection theorem, the response coefficients $g_L=1$ and $g_S\simeq2$, and the magneton scale are supplied inputs. The algebraic recoupling identity is exact once they are supplied; their physical origin is a separate question.</p>
 </section>
 
 <!-- ============ §2 ============ -->
 <section>
-  <h2>&sect;2 &mdash; The POAMS Identification</h2>
+  <h2>&sect;2 &mdash; The POAMS Modeling Dictionary</h2>
 
-  <p>Per <a class="xref" href="./index.html">GROUNDING</a> &sect;2, the C&#259;lug&#259;reanu decomposition of any closed circulation splits it into two independent components:</p>
+  <p>Per <a class="xref" href="./index.html">GROUNDING</a> &sect;2, the C&#259;lug&#259;reanu decomposition of a framed closed curve separates two geometric contributions:</p>
   <ul>
     <li><strong>Twist</strong> ($Tw$): how the ribbon rotates around its own centerline &mdash; the strand rotating on itself.</li>
     <li><strong>Writhe</strong> ($Wr$): how the centerline itself coils in three-space &mdash; the big slow winding.</li>
     <li>Total linking: $Lk = Tw + Wr$, integer, invariant under smooth deformation.</li>
   </ul>
 
-  <p>The identification with extant angular-momentum vocabulary is direct and named in the corpus:</p>
+  <p>The page uses the following modeling dictionary:</p>
   <ul>
-    <li>$Tw \leftrightarrow S$ (spin: strand rotating on itself)</li>
-    <li>$Wr \leftrightarrow L$ (orbital: centerline winding in space)</li>
-    <li>$Lk \leftrightarrow$ total angular-momentum quantum book</li>
+    <li>twist motivates the interpretation of the intrinsic response channel labeled $S$;</li>
+    <li>writhe motivates the interpretation of the orbital response channel labeled $L$;</li>
+    <li>their joint bookkeeping motivates reading the coupled total labeled $J$ as one conserved organization.</li>
   </ul>
 
-  <p>What extant treats as two independent postulated $g$-factors, POAMS treats as two distinct geometric channels through which the elementary closure couples to the EM sector of the ledger. The task is to derive the coupling coefficient for each channel.</p>
+  <p>This is an adopted interpretation, not an identity theorem. The scalar invariants $Lk$, $Tw$, and $Wr$ do not by themselves become SU(2) operators or select the allowed values of $L$, $S$, $J$, or $m_J$. Geometric handedness $\tau$, species grade $q$, axis attitude $m_s$, and spin&ndash;orbit branch $\chi_{\rm so}$ remain separate records.</p>
+
+  <p>Within that boundary, twist and writhe provide a useful POAMS picture of two distinct channels. The calculation still has to be given their measured/extant response coefficients.</p>
 </section>
 
 <!-- ============ §3 ============ -->
-<section>
-  <h2>&sect;3 &mdash; Deriving $g_L = 1$ (Writhe is Externally Referenced)</h2>
+<section id="calibrated-carryover">
+  <h2>&sect;3 &mdash; Why the Response Coefficients Are Supplied</h2>
 
-  <p>Writhe is the coiling of a centerline in three dimensions. Each element of writhe is a relational fact about how the centerline lies relative to the rest of the nexus &mdash; where this piece of the coil sits relative to other pieces, relative to the axis, relative to other closures.</p>
-
-  <p>Every writhe element is <em>externally referenced</em>: it describes the relationship between the closure and the substance around it. The reference points of the coiling are outside the closure itself. There is no self-reference; no element of writhe involves the closure reading itself.</p>
-
-  <p>In ledger terms, an externally-referenced element is a normal single-ended geometric fact. It participates in exchanges with its surround, and each of those exchanges is counted once (no double-counting). This is <a class="xref" href="./the-receiver-keys-the-exchange.html#sec-pair-lagrangian">Receiver Keys &sect;7</a> Case 1 (decomposable coupling): each endpoint records only its own coordinate's piece, the ledger sum recovers the standard $\sum_{i<j}V$ halving convention, and the geometric coefficient is unity.</p>
+  <p>Writhe motivates an externally organized channel and twist motivates an internally organized channel. That distinction is useful, but static framed-curve receipts do not determine temporal angular-momentum generators or magnetic normalization.</p>
 
   <div class="card gold">
-    <p><strong>Writhe coupling coefficient: $c_W = 1$.</strong> No factor-of-two premium; writhe is single-ended geometric information about the closure's embedding &mdash; &sect;7 Case 1 applies.</p>
+    <p><strong>Displayed leading member: $c_W=1$, $c_T=2$.</strong> These are supplied from the extant state-response law and are the coefficients used by the recoupling calculation below.</p>
   </div>
 
-  <p>This matches the extant $g_L = 1$ for orbital angular momentum &mdash; the &ldquo;classical current loop&rdquo; picture, in POAMS ontology, is exactly the writhe-of-a-closed-circulation picture: how the centerline coils in space, single-ended, no self-reference.</p>
+  <p>The sharp boundary is stronger than an unspecified open problem. After granting a positive $V_{1/2}$ state fiber and inner product, a relational vector transfer, a magnetic-bivector map, one common connection, and free normalization, the allowed leading response family can be written</p>
+
+  <div class="eq">$$c_W=1,\qquad c_T=2(1-\beta+\kappa),\qquad 0\le\beta\le\frac32,\quad \kappa\in\mathbb R.$$</div>
+
+  <p>Here $\beta$ weights a complementary positive transfer channel and $\kappa$ is an independent curvature response. Current POAMS premises do not force either coefficient to vanish. The <strong>exclusive Pauli choice</strong> $\beta=\kappa=0$ yields $c_T=2$, but the number two alone is not exclusive: every allowed point with $\kappa=\beta$ also gives $c_T=2$. Selecting the exclusive point requires an added state, apparatus, and response-exhaustion law.</p>
+
+  <div class="card red">
+    <p><strong>This page therefore supplies the coefficients; it does not derive them from self-reference, endpoint counting, whole-turn closure, or $Lk=Tw+Wr$.</strong></p>
+  </div>
 </section>
 
 <!-- ============ §4 ============ -->
 <section>
-  <h2>&sect;4 &mdash; Deriving $g_S = 2$ (Twist is Self-Referential)</h2>
+  <h2>&sect;4 &mdash; Conditional Land&eacute; Recoupling</h2>
 
-  <p>Twist is the closure spinning on itself. Unlike writhe, twist is defined <em>internally</em> to the closure: it describes how the ribbon's own material rotates around its own centerline. Both endpoints of any twist element are on the same closure.</p>
+  <p>With the empirical magneton scale and the two response coefficients supplied, the axis response is written in standard angular-momentum notation:</p>
+  <div class="eq">$$\frac{\mu_z}{\mu_B}=c_W\frac{\langle L_z\rangle}{\hbar}+c_T\frac{\langle S_z\rangle}{\hbar},\qquad c_W=1,\quad c_T=2.$$</div>
 
-  <p>The earlier argument assigned the full joint invariant to each endpoint and added both records. That does not determine a physical energy normalization: recording one event twice need not create two energies. <a class="xref" href="./the-receiver-keys-the-exchange.html#sec-pair-lagrangian">Receiver Keys §7</a> now states this distinction. The leading value used below is explicit; its independent physical justification is not obtained from duplicate counting.</p>
-
-  <div class="card gold">
-    <p><strong>Twist coupling coefficient used here: $c_T=2$.</strong> This leading assignment gives the familiar Landé combination when paired with $c_W=1$. The earlier claim that two-ended records alone derive its normalization does not survive the <a class="xref" href="./the-receiver-keys-the-exchange.html#sec-pair-lagrangian">pair-accounting correction</a>: one physical exchange recorded twice is not automatically twice its energy.</p>
+  <div class="caveat">
+    <span class="tag assume">IMPORTED STATE LAW</span> The operators $\hat L$, $\hat S$, and $\hat J=\hat L+\hat S$; the quantum numbers $L,S,J,m_J$; their SU(2) commutators and Casimir eigenvalues; and the projection theorem are standard quantum-mechanical inputs. The scalar topology $Lk=Tw+Wr$ neither supplies this operator algebra nor identifies geometric handedness with $m_s$.
   </div>
 
-  <p>This reproduces the leading $g_S=2$ value under that assignment. The angular-combination algebra remains usable; deriving the spin-response normalization from a complete physical action is a separate task, not settled by accepting measured α.</p>
+  <h3 id="sec-5A-premise-b">&sect;4A &mdash; Imported Angular Machinery and the Model Boundary</h3>
 
-  <div class="caveat"><span class="tag open">OPEN</span> The anomalous magnetic response requires a signed higher-order state law and quantitative comparison with observation. Accepting measured α supplies an input to that work; it does not calculate the anomaly. No order or magnitude is inferred here merely from a scalar time-dilation correction.</div>
+  <p>For the supplied extant state space, SU(2) gives $\hat J^2\to J(J+1)\hbar^2$ and the corresponding results for $L$ and $S$. The projection theorem then gives</p>
+
+  <div class="eq">$$\frac{\langle L_z\rangle}{\hbar}=m_J\frac{J(J+1)+L(L+1)-S(S+1)}{2J(J+1)}$$</div>
+  <div class="eq">$$\frac{\langle S_z\rangle}{\hbar}=m_J\frac{J(J+1)+S(S+1)-L(L+1)}{2J(J+1)}.$$</div>
+
+  <p>The twist/writhe dictionary interprets these as intrinsic and orbital bookkeeping channels. It does not turn $Tw$ and $Wr$ into the operators above, derive their allowed quantum numbers, or select the spinor doublet.</p>
+
+  <p>Combining the imported projection formulas with $c_W=1$ and $c_T=2$:</p>
+
+  <div class="eq">$$\frac{\mu_z}{\mu_B}=m_J\frac{(1)[J(J+1)+L(L+1)-S(S+1)]+(2)[J(J+1)+S(S+1)-L(L+1)]}{2J(J+1)}$$</div>
+
+  <p>Simplifying the numerator: $(1+2)J(J+1) + (1-2)(L(L+1) - S(S+1)) = 3J(J+1) + S(S+1) - L(L+1)$.</p>
+
+  <div class="eq">$$g_J = \frac{3J(J+1) + S(S+1) - L(L+1)}{2J(J+1)} \;=\; 1 + \frac{J(J+1) + S(S+1) - L(L+1)}{2J(J+1)}$$</div>
+
+  <div class="card gold">
+    <p><strong>This is the leading Land&eacute; formula under the stated inputs.</strong> The result is an exact recoupling identity inside the imported SU(2) state law. The POAMS contribution on this page is the channel interpretation, not an independent derivation of the state space or coefficients.</p>
+  </div>
 </section>
 
 <!-- ============ §5 ============ -->
 <section>
-  <h2>&sect;5 &mdash; Land&eacute;'s Formula from C&#259;lug&#259;reanu Projection</h2>
+  <h2>&sect;5 &mdash; Arithmetic Check Across Representative States</h2>
 
-  <p>With the two coupling coefficients derived, the atom's coherent-AM projection along the imposed axis reads (with $\mu_B$ imported empirically per <a class="xref" href="./stern-gerlach-as-two-chiralities.html">Stern-Gerlach</a> &sect;3):</p>
-  <div class="eq">$$\mu_z = c_W \cdot Wr_z + c_T \cdot Tw_z = 1 \cdot Wr_z + 2 \cdot Tw_z$$</div>
-
-  <p>For a state characterized by definite total linking $J$ (identifying $Lk_{total} \leftrightarrow J$ across the extant/POAMS conversion), the individual $Wr$ and $Tw$ components have average projections onto the total-$Lk$ direction. The algebraic identity $Wr \cdot Lk = (Lk^2 + Wr^2 - Tw^2)/2$ (and similarly for $Tw$) holds by direct expansion of the scalar sum $Lk = Tw + Wr$.</p>
-
-  <div class="caveat">
-    <span class="tag claim">DERIVED &mdash; see &sect;5A below</span> <strong>Operator quantization of topological invariants.</strong> The projection formulas below use Casimir-eigenvalue combinations $J(J+1)$, $L(L+1)$, $S(S+1)$. That substitution is a consequence of POAMS's one-substance axiom (<a class="xref" href="./index.html">GROUNDING</a> &sect;1) together with standard 3D rotational covariance: any quantized angular momentum in 3D forms an SU(2) representation, and topological invariants at closures inherit operator status with Casimir eigenvalues. The derivation is formalized in the new &sect;5A immediately below; premise (b) is closed.
-  </div>
-
-  <h3 id="sec-5A-premise-b">&sect;5A &mdash; Formalization of Premise (b): SU(2) structure at closures from POAMS one-substance</h3>
-
-  <p>The Casimir substitution used in the projection formulas below does not follow from the plain integer identity $Lk = Tw + Wr$ alone &mdash; a literal scalar reading would give $X^2$, not $X(X{+}1)$, and would numerically diverge for cases like H&nbsp;²P₁/₂ ($g=0$ instead of $2/3$). This subsection supplies the operator structure from ratified POAMS axioms plus standard SU(2) representation theory. Two honesty labels apply (added 2026-09-22): the SU(2) operator machinery itself is <strong>imported standard representation theory</strong>, and the identification of the topological invariants $Lk$, $Tw$, $Wr$ with its representation labels is an <strong>adopted modeling identification</strong>, not a theorem of the scalar topology-only definitions. Given those two labels, the derivation below is exact.</p>
-
-  <p><strong>Step 1: POAMS one-substance.</strong> Everything is quantized angular momentum in $\hbar$ units, organized in three-dimensional space with normal rotational covariance (<a class="xref" href="./index.html">GROUNDING</a> &sect;1: "quantized angular momentum in $\hbar$ units... intrinsic spin and orbital organization kept distinct"). Closures are quantized angular-momentum organizations.</p>
-
-  <p><strong>Step 2: SU(2) by Wigner classification.</strong> Any quantum system whose states carry a unitary irreducible representation of the 3D rotation group is (up to the double cover for half-integer spin) an SU(2) representation. This is a mathematical fact &mdash; Wigner's classification of unitary irreducible representations of the rotation group, not a physics assumption. POAMS's one-substance closures satisfy the classification premise: they are quantized angular-momentum organizations with normal 3D rotational covariance. Therefore each closure carries an SU(2) representation labeled by a non-negative integer or half-integer $j$.</p>
-
-  <p><strong>Step 3: Operator structure.</strong> The generators of the SU(2) representation at a closure are angular-momentum operators satisfying</p>
-  <div class="eq">$$[\hat J_i,\ \hat J_j] \;=\; i\hbar\,\varepsilon_{ijk}\hat J_k, \qquad i,j,k \in \{x,y,z\}.$$</div>
-  <p>The Casimir operator $\hat{\vec{J}}^{\,2} = \hat J_x^2 + \hat J_y^2 + \hat J_z^2$ commutes with all $\hat J_i$ and, on the $j$-representation, has eigenvalue $j(j+1)\hbar^2$. This is the standard textbook result of SU(2) representation theory; nothing here is a new physics assumption.</p>
-
-  <p><strong>Step 4: Lk, Tw, Wr as SU(2) labels at closures.</strong> The topological invariants at a closure label its SU(2) content:</p>
-  <ul>
-    <li>$Lk$ is the total angular-momentum quantum number at the closure &mdash; the $j$ label of the SU(2) representation, and its $z$-projection is the eigenvalue $m_J$ of $\hat J_z^{\text{total}}$.</li>
-    <li>$Tw$ labels the self-referential (intrinsic) sub-representation of the total AM at the closure &mdash; the intrinsic ("spin") quantum number $s$.</li>
-    <li>$Wr$ labels the externally-referenced (orbital) sub-representation &mdash; the orbital quantum number $l$.</li>
-    <li>Vector decomposition at the operator level: $\hat{\vec{J}}^{\,\text{total}} = \hat{\vec{J}}^{\,\text{self}} + \hat{\vec{J}}^{\,\text{ext}}$, equivalently $\hat{\vec{Lk}} = \hat{\vec{Tw}} + \hat{\vec{Wr}}$ as an operator equation.</li>
-    <li>The C&#259;lug&#259;reanu scalar identity $Lk = Tw + Wr$ is the $z$-projection statement $m_J^{\text{total}} = m_s + m_l$: it holds for the eigenvalues of the $z$-components on eigenstates. The identity is compatible with (indeed a consequence of) the operator equation above; it does not by itself commit to any operator algebra, but the operator algebra it is compatible with is fixed by Steps 1&ndash;3.</li>
-  </ul>
-
-  <p><strong>Step 5: Casimir eigenvalues (the "$+1$" structure).</strong> In an eigenstate of the total SU(2) representation labeled by $j = J$, the squared vector operator has eigenvalue</p>
-  <div class="eq">$$\langle \hat{\vec{Lk}}^{\,2} \rangle \;=\; J(J{+}1)\hbar^2,$$</div>
-  <p>and similarly $\langle \hat{\vec{Wr}}^{\,2} \rangle = L(L{+}1)\hbar^2$, $\langle \hat{\vec{Tw}}^{\,2} \rangle = S(S{+}1)\hbar^2$. The extra "$+1$" comes from the non-abelian structure of SU(2): $\hat J_x$ and $\hat J_y$ do not commute, so their squared expectation values contribute $\hbar^2 J/2$ each even when the state has maximal $\hat J_z$ eigenvalue. The scalar-square reading ($X^2$ rather than $X(X{+}1)$) is what one would get if the algebra were abelian; it is not.</p>
-
-  <p><strong>Step 6: The projection theorem.</strong> For any vector operator $\hat{\vec{V}}$ acting within a $J$-eigenspace, the standard SU(2) projection theorem (Wigner&ndash;Eckart, vector case) gives</p>
-  <div class="eq">$$\langle J,m_J | \hat V_z | J,m_J \rangle \;=\; m_J \cdot \frac{\langle J |\, \hat{\vec{V}} \cdot \hat{\vec{J}}\, | J \rangle}{J(J+1)\hbar^2}.$$</div>
-  <p>Applied to $\hat{\vec{V}} = \hat{\vec{Wr}}$ with $\hat{\vec{Wr}} \cdot \hat{\vec{J}} = (\hat{\vec{J}}^{\,2} + \hat{\vec{Wr}}^{\,2} - \hat{\vec{Tw}}^{\,2})/2$ (from squaring $\hat{\vec{Tw}} = \hat{\vec{J}} - \hat{\vec{Wr}}$), and using the Casimir eigenvalues from Step 5:</p>
-  <div class="eq">$$\langle \hat{Wr}_z \rangle \;=\; m_J \cdot \frac{J(J+1) + L(L+1) - S(S+1)}{2\,J(J+1)},$$</div>
-  <p>and analogously $\langle \hat{Tw}_z \rangle = m_J \cdot [J(J{+}1) + S(S{+}1) - L(L{+}1)] / [2J(J{+}1)]$. These are the projection formulas used in the derivation immediately following, now grounded in POAMS one-substance rather than assumed.</p>
-
-  <div class="card gold">
-    <p><strong>Separate the angular algebra from the response law.</strong> Section 5A states the corpus's use of SU(2) angular-operator structure. Even granting that identification, it does not fix how strongly the intrinsic and orbital contributions couple to the measuring apparatus. The leading response coefficients used below remain explicit additional assignments.</p>
-  </div>
-
-  <p>Under the SU(2) operator quantization derived above, the projections read:</p>
-
-  <div class="eq">$$\langle Wr_z \rangle = m_J \cdot \frac{J(J+1) + L(L+1) - S(S+1)}{2J(J+1)}$$</div>
-  <div class="eq">$$\langle Tw_z \rangle = m_J \cdot \frac{J(J+1) + S(S+1) - L(L+1)}{2J(J+1)}$$</div>
-
-  <p>Combining with $c_W = 1$ and $c_T = 2$:</p>
-
-  <div class="eq">$$\mu_z = m_J \cdot \frac{(1)(J(J+1) + L(L+1) - S(S+1)) + (2)(J(J+1) + S(S+1) - L(L+1))}{2J(J+1)}$$</div>
-
-  <p>Simplifying the numerator: $(1+2)J(J+1) + (1-2)(L(L+1) - S(S+1)) = 3J(J+1) + S(S+1) - L(L+1)$.</p>
-
-  <div class="eq">$$g_J^{POAMS} = \frac{3J(J+1) + S(S+1) - L(L+1)}{2J(J+1)} \;=\; 1 + \frac{J(J+1) + S(S+1) - L(L+1)}{2J(J+1)}$$</div>
-
-  <div class="card gold">
-    <p><strong>This is the leading Landé formula under the stated assignments.</strong> The angular projection uses $c_W=1$ and $c_T=2$. Its algebraic agreement is not an independent derivation of those response coefficients, and the former “no additional postulates” inference from two-endedness is not retained.</p>
-  </div>
-</section>
-
-<!-- ============ §6 ============ -->
-<section>
-  <h2>&sect;6 &mdash; Verification Across the Periodic Table</h2>
-
-  <p>Every atomic state's Land&eacute; g-factor is a test point. The following are exact matches between the POAMS derivation above and the extant Land&eacute; formula:</p>
+  <p>The following rows check the conditional algebra against representative values of the same leading Land&eacute; formula. Because both columns use the supplied SU(2) state labels and coefficients, agreement is a consistency check, not independent evidence for the twist/writhe dictionary.</p>
 
   <table>
-    <tr><th>Atom / State</th><th class="c">$L$</th><th class="c">$S$</th><th class="c">$J$</th><th class="c">Land&eacute; $g_J$</th><th class="c">POAMS $g_J$</th></tr>
+    <tr><th>Atom / State</th><th class="c">$L$</th><th class="c">$S$</th><th class="c">$J$</th><th class="c">Land&eacute; $g_J$</th><th class="c">Conditional model $g_J$</th></tr>
     <tr><td>Silver ²S₁/₂ (ground)</td><td class="c">0</td><td class="c">$\tfrac{1}{2}$</td><td class="c">$\tfrac{1}{2}$</td><td class="c">$2$</td><td class="c">$2$ ✓</td></tr>
     <tr><td>Hydrogen ²P₁/₂ (excited)</td><td class="c">1</td><td class="c">$\tfrac{1}{2}$</td><td class="c">$\tfrac{1}{2}$</td><td class="c">$\tfrac{2}{3}$</td><td class="c">$\tfrac{2}{3}$ ✓</td></tr>
     <tr><td>Hydrogen ²P₃/₂ (excited)</td><td class="c">1</td><td class="c">$\tfrac{1}{2}$</td><td class="c">$\tfrac{3}{2}$</td><td class="c">$\tfrac{4}{3}$</td><td class="c">$\tfrac{4}{3}$ ✓</td></tr>
@@ -287,53 +243,39 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
     <tr><td>Dysprosium ⁵I₈ (ground)</td><td class="c">6</td><td class="c">2</td><td class="c">8</td><td class="c">$\tfrac{5}{4}$</td><td class="c">$\tfrac{5}{4}$ ✓</td></tr>
   </table>
 
-  <p>The pattern extends to every atomic state whose extant g-factor is computable from the Land&eacute; formula. Since POAMS reproduces the formula in closed form, the match is not case-by-case verification but a universal derived identity.</p>
+  <p>The arithmetic extends to every state in the leading LS-coupling domain because both columns evaluate the same recoupling identity. It does not supply a new state law or a higher-order magnetic prediction.</p>
 
   <div class="card blue">
     <p><strong>The comparison has a defined domain.</strong> The rows verify the leading Landé arithmetic for states described by this coupling scheme. They do not demonstrate every Zeeman component or higher-order magnetic correction across the periodic table. Those require a state law and comparison with the relevant measurements.</p>
   </div>
 </section>
 
-<aside class="calibrated-carryover" id="calibrated-carryover" aria-labelledby="calibrated-carryover-title">
-  <p class="carryover-label">MEASURED-α APPLICATION · 15 SEPTEMBER 2026</p>
-  <h3 id="calibrated-carryover-title">Measured α: calibration and magnetic response are separate tasks</h3>
-  <p><strong>Available now.</strong> Accepting α supplies the common elementary interaction scale. It does not independently select a spin-coupling coefficient or turn the Landé angular-combination formula into a calculation of every anomaly and hyperfine interval.</p>
-  <p><strong>Future work.</strong> Derive the signed higher-order spin and state-dependent interactions with α held at its measured value; compare component patterns and magnitudes with spectroscopy. In particular, the earlier two-endedness-to-double-energy argument is an additional normalization assumption, not a consequence of merely recording one exchange at both ends.</p>
-  <p class="carryover-link"><a href="./coulomb-from-chirality-directed-depletion.html#carryover-magnetic">Coulomb §7: result and future-work map</a> · <a href="./alpha-fine-structure-derivation.html">Measured Alpha</a></p>
-</aside>
-
-<!-- ============ §7 ============ -->
+<!-- ============ §6 ============ -->
 <section>
-  <h2>&sect;7 &mdash; What is Claimed, What Remains Open</h2>
+  <h2>&sect;6 &mdash; Status and Exact Boundary</h2>
 
   <div class="card gold">
-    <p><span class="tag claim">CONDITIONAL ANGULAR COMBINATION</span> With $c_W=1$ and $c_T=2$ supplied, the displayed combination gives the leading Landé formula. The geometric recoupling and the independent physical justification of those response coefficients are different claims; the latter is not established by the counting identity alone.</p>
+    <p><span class="tag assume">ADOPTED CHANNEL ANALOGY</span> Twist and writhe motivate intrinsic and orbital channel interpretations. They are not identified with SU(2) operators, projection quantum numbers, species grade, or geometric handedness.</p>
 
-    <p><span class="tag open">RESPONSE NORMALIZATION OPEN</span> The intrinsic coefficient $c_T=2$ is the leading value used in this calculation. A complete physical action, not duplicate endpoint records, is needed to justify its normalization independently.</p>
+    <p><span class="tag assume">SUPPLIED STATE AND COEFFICIENTS</span> The SU(2) state law, magneton scale, and leading values $c_W=1$ and $c_T=2$ are inputs.</p>
 
-    <p><span class="tag claim">CONDITIONAL RESULT</span> With the leading response coefficients stated and the angular-operator structure used in §5A, the projection algebra reproduces the Landé formula for states in its domain. This does not establish every higher-order magnetic response or every state outside that coupling regime.</p>
-
-    <p><span class="tag claim">CLAIMED</span> <strong>Universal arithmetic verification.</strong> POAMS $g_J$ equals the extant Land&eacute; $g_J$ for every combination of $L$, $S$, $J$ &mdash; verified for the eleven representative rows in &sect;6 and extending by identical algebra to every additional atomic state whose extant $g_J$ is Land&eacute;-computable. Historical Zeeman spectroscopy data is now readable as POAMS-native directly.</p>
-
-    <p><span class="tag claim">CONDITIONAL &mdash; PREMISE (b) FORMALIZED UNDER AN ADOPTED IDENTIFICATION</span> <strong>SU(2) operator quantization of topological invariants at closures.</strong> Given GROUNDING &sect;1 (one-substance quantized angular momentum in 3D with normal rotational covariance), Wigner classification supplies the SU(2) operator algebra. That algebra is imported standard representation theory, and reading $Lk$, $Tw$, $Wr$ as its representation labels is an adopted modeling identification rather than a consequence of their topology-only definitions (status corrected 2026-09-22). See &sect;5A for the full conditional derivation.</p>
+    <p><span class="tag claim">CONDITIONAL IDENTITY</span> Given those inputs, the projection algebra reproduces the leading Land&eacute; formula throughout its LS-coupling domain. This is an exact recoupling check, not a separate empirical prediction.</p>
   </div>
 
-  <div class="card blue">
-    <p><span class="tag open">PAIR-COUNTING CORRECTION</span> <a class="xref" href="./the-receiver-keys-the-exchange.html#sec-pair-lagrangian">Receiver Keys §7</a> distinguishes the exact ordered/unordered-pair identity from a physical energy normalization. The earlier assertion that this identity closed the spin and inverse-cube response coefficients is withdrawn.</p>
+  <div class="card red">
+    <p><span class="tag draft">NOT A NATIVE DERIVATION</span> Whole-turn closure and $Lk=Tw+Wr$ do not select the spinor sector, turn spatial receipts into temporal generators, or force $\beta=\kappa=0$.</p>
 
-    <p><span class="tag open">SEPARATE STATE-RESPONSE WORK</span> Measured α is an accepted elementary calibration, not a common missing derivation that automatically supplies magnetic anomalies, hyperfine intervals and all magneton coefficients. Dimensional magnetic units require their declared mass and electrical calibration; the signed state-dependent factors require additional relations and comparison with observation.</p>
-
-    <p><span class="tag open">STATE LAW AND DATA</span> <strong>Hyperfine structure.</strong> The observed 21 cm interval is a comparison target, not an output of accepting α. Derive the appropriate signed state-dependent interaction and its normalization, then compare intervals and components. The inverse-cube trial and endpoint-counting argument do not yet supply that law.</p>
+    <p><span class="tag compare">PROMOTION BOUNDARY</span> A native upgrade would require explicitly adopted state, relative-apparatus, and exclusive-response laws—or new microscopic structure that independently removes the surviving countermodels. None is claimed on this page.</p>
   </div>
 
-  <p style="margin-top:22px">The Landé and Vortex inquiries share a need for a justified joint response law, not an independently established factor-of-two theorem. Their existing conditional calculations remain available; the observed magnetic response and any proposed apparatus response must each be assessed on its own evidence.</p>
+  <p style="margin-top:22px"><strong>Use this exhibit as a recoupling reference and a POAMS channel analogy.</strong> It should not be cited as evidence that twist/writhe geometry derives quantum spin, the magneton scale, or the intrinsic factor two.</p>
 </section>
 
 </main>
 
 <footer>
   Part of the <a href="./index.html">Normal Realism / POAMS exhibit series</a> &middot;
-  <a href="./stern-gerlach-as-two-chiralities.html">Stern-Gerlach as Two Chiralities</a> &middot;
+  <a href="./stern-gerlach-as-two-chiralities.html">Stern-Gerlach Axis Responses</a> &middot;
   <a href="./counter-rotating-circulation-pair.html">Counter-Rotating Vortex Cores</a> &middot;
   <a href="./the-receiver-keys-the-exchange.html">The Receiver Keys the Exchange</a> &middot;
   <a href="./atom-as-phase.html">The Atom as Organized Phase</a>
