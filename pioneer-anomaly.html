@@ -493,7 +493,7 @@
             <h1>The Pioneer Anomaly</h1>
 <p class="nr-provenance" style="font-size:0.8em;font-style:italic;opacity:0.72;line-height:1.5;margin:0.5em 0 1em;text-align:center">This exhibit is an extrapolation of the foundational work of N. Vivian “Viv” Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
 <div class="record-note">
-<strong>STATUS — RETIRED · DATED RECORD (2026-08-14).</strong> This page predates the ratified touchstone (GROUNDING, 2026-07-19) and is retained as a dated record only; nothing on it is currently claimed. Its faults are named rather than repaired: (1) it works in force ontology throughout — a completed Newton force law (F = 𝒢*mM/r², "the missing piece in Newton's gravity") and a probe "pulled" sunward — where the current record reads all of this as bookkeeping: a body rides the natural orbit its angular momentum assigns, and force is only the constraint bill for being held off it; (2) it routes the spacecraft's intrinsic spin into the orbital angular-momentum budget — the orbit/spin conflation the corrected Appendix-5 record rejects (intrinsic spin composes through the variable 𝒢, not through L<sub>orb</sub>); (3) the "Agreement %" gauge below is fitted — the model curve is scaled to the observed 8.74×10⁻¹⁰ m/s² target, so agreement is built in, not evidence. The sound core — spin makes 𝒢 a variable — lives correctly on <a href="./navigation-engine.html">The Navigation Engine</a> and <a href="./poams-periodic-table.html">The Elements</a>. Whether the Pioneer anomaly is a POAMS effect is OPEN and unclaimed; the page stays on the record as the honest shape of an early attempt.
+<strong>STATUS — RETIRED · DATED RECORD (2026-08-14; internal logic repaired 2026-09-26).</strong> This page predates the ratified touchstone (GROUNDING, 2026-07-19) and is retained as a dated record only; nothing on it is currently claimed. The target-coded anomaly output, unexplained scale factor, incompatible calculators, and unconstrained angular-momentum sliders have been removed or converted to explicit open/illustrative displays. The remaining limitations are substantive: (1) it works in force ontology throughout, whereas the current record reads force as the constraint bill for departure from a natural orbit; and (2) it routes spacecraft intrinsic spin into an orbital budget, while the corrected Appendix-5 account routes intrinsic spin through variable 𝒢. The sound core — spin makes 𝒢 a variable — lives correctly on <a href="./navigation-engine.html">The Navigation Engine</a> and <a href="./poams-periodic-table.html">The Elements</a>. Whether the Pioneer anomaly is a POAMS effect is OPEN and unclaimed; this page supplies no independent anomaly magnitude.
 </div>
             <p class="subtitle">How spinning spacecraft reveal the missing piece in Newton's gravity</p>
         </header>
@@ -510,13 +510,13 @@
                         <br>— John Anderson, JPL
                     </div>
 
-                    <p>Dozens of explanations were proposed: thermal radiation, gas leaks, relativistic effects. None fully explained the anomaly. POAMS theory provides a simple solution: <strong>Newton's gravity ignores spin angular momentum</strong>.</p>
+                    <p>Dozens of explanations were proposed, including thermal radiation, gas leaks, and relativistic effects. This historical POAMS page asks whether spacecraft spin could matter through a variable (G^*); it does not derive the required coupling or the observed anomaly.</p>
                 </div>
                 <div>
                     <canvas id="anomalyPlot" width="500" height="300"></canvas>
                     <div class="controls">
                         <button onclick="showAnomalyData()">Show Observed Data</button>
-                        <button onclick="showPredictions()">Newton vs POAMS</button>
+                        <button onclick="showPredictions()">Newton vs Historical POAMS Sketch</button>
                     </div>
                 </div>
             </div>
@@ -535,18 +535,18 @@
             </div>
             <div class="concept-card">
                 <div class="concept-number">3</div>
-                <strong>POAMS: Total angular momentum = orbital + spin</strong> — conservation demands spin changes orbital parameters
+                <strong>Historical hypothesis: spin changes effective (G^*)</strong> — the required coupling law is not derived here
             </div>
             <div class="concept-card">
                 <div class="concept-number">4</div>
-                <strong>Spinning probes orbit closer</strong> — when spin angular momentum aligns with orbital motion
+                <strong>Orbital consequence remains open</strong> — spin magnitude alone does not determine a radius shift
             </div>
 
             <div class="formula-box">
                 <h3 style="color: var(--gold); margin-bottom: 15px;">The POAMS Equation</h3>
-                $$L_O = mvr = \frac{2(K_O + K_S)r}{v} = \frac{G^*mM}{v}$$
+                $$L_O=mvr=\frac{2K_Or}{v}$$
                 <p style="margin-top: 15px; color: var(--text-secondary);">
-                    Where $K_O$ is orbital kinetic energy, $K_S$ is spin kinetic energy, and $G^*$ is the effective gravitational constant
+                    The first identity follows from (K_O=\tfrac12mv^2). A nonzero (K_S) cannot be inserted into that identity without an additional coupling law. Likewise, (G^*mM/v) follows only after imposing the circular-orbit condition. This dated exhibit does not derive the required spin-to-(G^*) law.
                 </p>
             </div>
         </div>
@@ -563,7 +563,7 @@
                         <div class="control-group">
                             <label>Simulation Mode:</label>
                             <button id="newtonBtn" onclick="setMode('newton')" class="active">Newtonian Prediction</button>
-                            <button id="poamsBtn" onclick="setMode('poams')">POAMS Prediction</button>
+                            <button id="poamsBtn" onclick="setMode('poams')">Historical POAMS Sketch</button>
                             <button id="bothBtn" onclick="setMode('both')">Compare Both</button>
                         </div>
 
@@ -584,7 +584,7 @@
                         </div>
 
                         <div id="deviationDisplay" class="value-display">
-                            Sunward deviation: <span id="deviationValue">0.00</span> × 10⁻¹⁰ m/s²
+                            Sunward deviation: <span id="deviationValue">not derived</span>
                         </div>
                     </div>
 
@@ -622,8 +622,8 @@
                     <canvas id="momentumCanvas" width="500" height="400"></canvas>
                     <div class="controls">
                         <div class="control-group">
-                            <label for="orbitalMomentum">Orbital Angular Momentum</label>
-                            <input type="range" id="orbitalMomentum" min="1" max="10" value="8" step="0.1" oninput="updateMomentumVisualization()">
+                            <label for="orbitalMomentum">Orbital Angular Momentum (fixed total minus spin)</label>
+                            <input type="range" id="orbitalMomentum" min="4" max="9" value="8" step="0.1" disabled>
                         </div>
                         <div class="control-group">
                             <label for="spinMomentum">Spin Angular Momentum</label>
@@ -657,7 +657,7 @@
                             <li>Total angular momentum conserved</li>
                             <li>Orbital velocity must increase</li>
                             <li>Orbital radius decreases</li>
-                            <li>Probe pulled closer to Sun</li>
+                            <li>Any orbital consequence requires the missing spin-to-(G^*) coupling law</li>
                         </ul>
                     </div>
                 </div>
@@ -672,7 +672,7 @@
                     <canvas id="galaxyCanvas" width="500" height="400"></canvas>
                     <div class="controls">
                         <button onclick="showStandardCurve()">Standard Gravity</button>
-                        <button onclick="showPOAMSCurve()">POAMS Prediction</button>
+                        <button onclick="showPOAMSCurve()">Historical POAMS Curve</button>
                         <button onclick="showObservedCurve()">Observed Data</button>
                         <button onclick="showAllCurves()">Show All</button>
                     </div>
@@ -695,15 +695,15 @@
                             <h4 style="color: var(--success);">POAMS Theory</h4>
                             <p>Spinning stars orbit closer/faster than non-spinning theory predicts</p>
                             <ul style="text-align: left; margin-top: 10px;">
-                                <li>No exotic matter needed</li>
-                                <li>Same physics as Pioneer</li>
-                                <li>Unified explanation</li>
+                                <li>Alternative historical hypothesis</li>
+                                <li>Common quantitative law not derived</li>
+                                <li>Historical hypothesis; quantitative coupling remains open</li>
                             </ul>
                         </div>
                     </div>
 
                     <div class="quote">
-                        POAMS resolves BOTH the Pioneer anomaly AND galaxy rotation curves with ONE modification to gravity: include spin angular momentum in the equations.
+                        This page proposed a common spin-sensitive (G^*) hypothesis for Pioneer and galaxy rotation. It did not derive either quantitative response.
                     </div>
                 </div>
             </div>
@@ -741,7 +741,7 @@
                 <div class="timeline-item">
                     <div class="timeline-year">Present</div>
                     <h4>POAMS</h4>
-                    <p>Unified explanation linking the Pioneer anomaly to galaxy rotation curves through spin angular momentum</p>
+                    <p>Historical proposal linking the Pioneer anomaly and galaxy rotation through spin-sensitive (G^*); no common quantitative law was derived</p>
                 </div>
             </div>
         </div>
@@ -760,8 +760,8 @@
                 </tr>
                 <tr>
                     <td><strong>POAMS</strong></td>
-                    <td class="highlight">✓ Explains magnitude & direction</td>
-                    <td class="highlight">✓ No dark matter needed</td>
+                    <td class="highlight">Hypothesis only; magnitude not derived</td>
+                    <td class="highlight">No quantitative galaxy result derived</td>
                     <td class="highlight">Spin angular momentum</td>
                     <td>Minimal (modify G)</td>
                 </tr>
@@ -797,8 +797,8 @@
 
             </div>
             <div class="formula-box">
-                <h3 style="color: var(--gold);">The POAMS Advantage</h3>
-                <p>One simple modification to Newtonian gravity explains both anomalies:</p>
+                <h3 style="color: var(--gold);">The Historical POAMS Proposal</h3>
+                <p>The page proposed one functional modification but left the function (f(\mathrm{spin})) undetermined:</p>
                 <div style="margin: 20px 0;">
                     <strong>Standard Newton:</strong> $F = \frac{GmM}{r^2}$ (G constant)<br>
                     <strong>POAMS:</strong> $F = \frac{G^*mM}{r^2}$ where $G^* = G \cdot f(\text{spin})$
@@ -829,10 +829,11 @@
                     <h3 style="color: var(--gold);">POAMS Calculation Results</h3>
                     <div id="calculationResults">
                         <p><strong>Standard G:</strong> <span id="standardG">6.673 × 10⁻¹¹</span> N m² kg⁻²</p>
-                        <p><strong>Effective G*:</strong> <span id="effectiveG">-</span> N m² kg⁻²</p>
-                        <p><strong>Predicted Anomaly:</strong> <span id="predictedAnomaly" class="highlight">-</span> m/s²</p>
+                        <p><strong>Spin/orbit AM ratio:</strong> <span id="spinOrbitRatio">-</span></p>
+                        <p><strong>Effective G*:</strong> <span id="effectiveG">not derived</span> N m² kg⁻²</p>
+                        <p><strong>Predicted Anomaly:</strong> <span id="predictedAnomaly" class="highlight">not derived</span></p>
                         <p><strong>Observed Anomaly:</strong> <span class="highlight">8.74 × 10⁻¹⁰</span> m/s²</p>
-                        <p><strong>Agreement:</strong> <span id="agreement">-</span>%</p>
+                        <p><strong>Agreement:</strong> <span id="agreement">not applicable</span></p>
                     </div>
                 </div>
             </div>
@@ -988,9 +989,9 @@
             const orbitalV = Math.sqrt(G * sunMass / (distance * 1.496e11));
             const orbitalL = probeMass * orbitalV * distance * 1.496e11;
             
-            // POAMS effect (simplified)
+            // Dimensionless spin/orbit ratio shown schematically; no anomaly scale is derived.
             const effectFactor = spinL / orbitalL;
-            return distance * effectFactor * 0.01; // Scale factor for visualization
+            return distance * effectFactor;
         }
 
         function getCurrentProbePosition() {
@@ -1003,15 +1004,7 @@
         }
 
         function updateDeviationDisplay() {
-            const deviation = calculateAnomalyMagnitude(spinRate);
-            document.getElementById('deviationValue').textContent = deviation.toFixed(2);
-        }
-
-        function calculateAnomalyMagnitude(spinRpm) {
-            // Simplified calculation returning the anomaly in units of 10^-10 m/s²
-            const baseAnomaly = 8.74; // Observed Pioneer anomaly
-            const spinFactor = spinRpm / 4.8; // Normalize to Pioneer 10's actual spin
-            return baseAnomaly * spinFactor;
+            document.getElementById('deviationValue').textContent = 'not derived';
         }
 
         function setMode(mode) {
@@ -1066,9 +1059,10 @@
             
             ctx.clearRect(0, 0, width, height);
             
-            const orbitalL = parseFloat(document.getElementById('orbitalMomentum').value);
             const spinL = parseFloat(document.getElementById('spinMomentum').value);
-            const totalL = orbitalL + spinL;
+            const totalL = 9;
+            const orbitalL = totalL - spinL;
+            document.getElementById('orbitalMomentum').value = orbitalL;
             
             // Draw central body (Sun)
             ctx.fillStyle = '#FFD700';
@@ -1409,22 +1403,13 @@
                 ctx.lineTo(width - 20, height - 50);
                 ctx.stroke();
                 
-                // POAMS prediction
-                ctx.strokeStyle = '#51cf66';
-                ctx.lineWidth = 3;
-                ctx.beginPath();
-                const poamsY = height - 50 - 8.74 * yScale;
-                ctx.moveTo(50, poamsY);
-                ctx.lineTo(width - 20, poamsY);
-                ctx.stroke();
-                
                 // Legend
                 ctx.fillStyle = '#ffffff';
                 ctx.font = '12px Arial';
                 ctx.fillStyle = '#ff6b6b';
                 ctx.fillText('Newton: 0 anomaly', width - 150, 40);
                 ctx.fillStyle = '#51cf66';
-                ctx.fillText('POAMS: 8.74×10⁻¹⁰ m/s²', width - 150, 55);
+                ctx.fillText('POAMS: magnitude not derived', width - 190, 55);
             }
         }
 
@@ -1449,23 +1434,15 @@
             const orbitalVel = Math.sqrt(G * sunMass / orbitalRadius);
             const orbitalL = mass * orbitalVel * orbitalRadius;
             
-            // POAMS effective G (simplified model)
+            // The ratio is computable from the declared geometry; its conversion into G* is open.
             const spinEffect = spinL / orbitalL;
-            const effectiveG = G * (1 + spinEffect * 0.01); // Scale factor
-            
-            // Calculate predicted anomaly
-            const standardAccel = G * sunMass / (orbitalRadius * orbitalRadius);
-            const poamsAccel = effectiveG * sunMass / (orbitalRadius * orbitalRadius);
-            const anomaly = poamsAccel - standardAccel;
-            
-            const observedAnomaly = 8.74e-10;
-            const agreement = (1 - Math.abs(anomaly - observedAnomaly) / observedAnomaly) * 100;
             
             // Update display
             document.getElementById('standardG').textContent = G.toExponential(3);
-            document.getElementById('effectiveG').textContent = effectiveG.toExponential(3);
-            document.getElementById('predictedAnomaly').textContent = anomaly.toExponential(2);
-            document.getElementById('agreement').textContent = Math.max(0, agreement).toFixed(1);
+            document.getElementById('spinOrbitRatio').textContent = spinEffect.toExponential(3);
+            document.getElementById('effectiveG').textContent = 'not derived';
+            document.getElementById('predictedAnomaly').textContent = 'not derived';
+            document.getElementById('agreement').textContent = 'not applicable';
         }
 
         // Theme toggle — corpus convention: opens light (data-theme="light" on <html>), toggles to dark, no persistence
