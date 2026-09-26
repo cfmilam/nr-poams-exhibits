@@ -487,8 +487,9 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 .patent-link { display:flex; flex-direction:column; justify-content:space-between; gap:.65rem; height:100%; padding:1.1rem 1.2rem; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); color:var(--fg); text-decoration:none; transition:background .2s,border-color .2s; }
 .patent-link:hover { background:var(--surface2); border-color:var(--gold); }
 .patent-link:focus-visible { outline:2px solid var(--gold); outline-offset:3px; }
-.patent-title { font-size:.95rem; line-height:1.5; }
+.patent-title { display:flex; flex-direction:column; align-items:flex-start; gap:.16rem; font-size:.95rem; line-height:1.35; }
 .patent-title strong { color:var(--gold); font-weight:600; white-space:nowrap; }
+.patent-description { color:var(--fg); }
 .patent-meta { color:var(--fg2); font-size:.78rem; }
 @media(max-width:900px) { .patent-list { grid-template-columns:repeat(2,minmax(0,1fr)); grid-template-rows:none; grid-auto-flow:row; } }
 @media(max-width:680px) { .patents-wrap { width:calc(100% - 2.4rem); } }
@@ -1075,15 +1076,15 @@ footer {
       <h2 id="patents-title">Patents Pending</h2>
     </div>
     <ul class="patent-list">
-      <li><a class="patent-link" href="./provisionals/PROV-A.pdf" target="_blank" rel="noopener" type="application/pdf"><span class="patent-title"><strong>PROV-A</strong> — Weight Control</span><span class="patent-meta">Assembled PDF · 46 pages</span></a></li>
-      <li><a class="patent-link" href="./provisionals/PROV-B.pdf" target="_blank" rel="noopener" type="application/pdf"><span class="patent-title"><strong>PROV-B</strong> — Transportation &amp; Lift</span><span class="patent-meta">Assembled PDF · 37 pages</span></a></li>
-      <li><a class="patent-link" href="./provisionals/PROV-C.pdf" target="_blank" rel="noopener" type="application/pdf"><span class="patent-title"><strong>PROV-C</strong> — Instruments &amp; Metrology</span><span class="patent-meta">Assembled PDF · 32 pages</span></a></li>
-      <li><a class="patent-link" href="./provisionals/PROV-D.pdf" target="_blank" rel="noopener" type="application/pdf"><span class="patent-title"><strong>PROV-D</strong> — Energy Storage &amp; Infrastructure</span><span class="patent-meta">Assembled PDF · 33 pages</span></a></li>
-      <li><a class="patent-link" href="./provisionals/PROV-E.pdf" target="_blank" rel="noopener" type="application/pdf"><span class="patent-title"><strong>PROV-E</strong> — Media, Arrays &amp; Manufacturing</span><span class="patent-meta">Assembled PDF · 35 pages</span></a></li>
-      <li><a class="patent-link" href="./provisionals/PROV-F.pdf" target="_blank" rel="noopener" type="application/pdf"><span class="patent-title"><strong>PROV-F</strong> — Memory, Power &amp; Signaling</span><span class="patent-meta">Assembled PDF · 35 pages</span></a></li>
-      <li><a class="patent-link" href="./provisionals/PROV-G.pdf" target="_blank" rel="noopener" type="application/pdf"><span class="patent-title"><strong>PROV-G</strong> — Time-Rate Control</span><span class="patent-meta">Assembled PDF · 48 pages</span></a></li>
-      <li><a class="patent-link" href="./provisionals/PROV-H.pdf" target="_blank" rel="noopener" type="application/pdf"><span class="patent-title"><strong>PROV-H</strong> — Phase-Completion Computing</span><span class="patent-meta">Assembled PDF · 33 pages</span></a></li>
-      <li><a class="patent-link" href="./provisionals/PROV-I.pdf" target="_blank" rel="noopener" type="application/pdf"><span class="patent-title"><strong>PROV-I</strong> — Molecular Design &amp; Control</span><span class="patent-meta">Assembled PDF · 31 pages</span></a></li>
+      <li><a class="patent-link" href="./provisionals/PROV-A.pdf" target="_blank" rel="noopener" type="application/pdf"><span class="patent-title"><strong>PROV-A</strong><span class="patent-description">Radius Management</span></span><span class="patent-meta">Assembled PDF · 46 pages</span></a></li>
+      <li><a class="patent-link" href="./provisionals/PROV-B.pdf" target="_blank" rel="noopener" type="application/pdf"><span class="patent-title"><strong>PROV-B</strong><span class="patent-description">Transportation</span></span><span class="patent-meta">Assembled PDF · 37 pages</span></a></li>
+      <li><a class="patent-link" href="./provisionals/PROV-C.pdf" target="_blank" rel="noopener" type="application/pdf"><span class="patent-title"><strong>PROV-C</strong><span class="patent-description">Instruments &amp; Metrology</span></span><span class="patent-meta">Assembled PDF · 32 pages</span></a></li>
+      <li><a class="patent-link" href="./provisionals/PROV-D.pdf" target="_blank" rel="noopener" type="application/pdf"><span class="patent-title"><strong>PROV-D</strong><span class="patent-description">Energy Storage</span></span><span class="patent-meta">Assembled PDF · 33 pages</span></a></li>
+      <li><a class="patent-link" href="./provisionals/PROV-E.pdf" target="_blank" rel="noopener" type="application/pdf"><span class="patent-title"><strong>PROV-E</strong><span class="patent-description">Media &amp; Arrays</span></span><span class="patent-meta">Assembled PDF · 35 pages</span></a></li>
+      <li><a class="patent-link" href="./provisionals/PROV-F.pdf" target="_blank" rel="noopener" type="application/pdf"><span class="patent-title"><strong>PROV-F</strong><span class="patent-description">Memory &amp; Signaling</span></span><span class="patent-meta">Assembled PDF · 35 pages</span></a></li>
+      <li><a class="patent-link" href="./provisionals/PROV-G.pdf" target="_blank" rel="noopener" type="application/pdf"><span class="patent-title"><strong>PROV-G</strong><span class="patent-description">Time-Rate Management</span></span><span class="patent-meta">Assembled PDF · 48 pages</span></a></li>
+      <li><a class="patent-link" href="./provisionals/PROV-H.pdf" target="_blank" rel="noopener" type="application/pdf"><span class="patent-title"><strong>PROV-H</strong><span class="patent-description">Computation</span></span><span class="patent-meta">Assembled PDF · 33 pages</span></a></li>
+      <li><a class="patent-link" href="./provisionals/PROV-I.pdf" target="_blank" rel="noopener" type="application/pdf"><span class="patent-title"><strong>PROV-I</strong><span class="patent-description">Molecular Design</span></span><span class="patent-meta">Assembled PDF · 31 pages</span></a></li>
     </ul>
   </div>
 </section>

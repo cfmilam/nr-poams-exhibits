@@ -145,7 +145,7 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
   <p><strong>Tangled vs coherent trapped rate.</strong> The trapped rate of a body organizes in one of two general states: <em>tangled</em> (the constituent closures' $Lk = \pm 1$ orientations average to zero net over any macroscopic region &mdash; the mass of a rock, a planet, or a stellar body) or <em>coherent</em> (the closures' orientations align, giving net non-zero angular momentum &mdash; the case addressed in <a class="xref" href="./counter-rotating-circulation-pair.html">Counter-Rotating Vortex Cores</a>). Newton's law is the tangled case; the coherent case adds subleading corrections.</p>
 
   <div class="card blue">
-    <p style="margin:0"><strong>What is new in this exhibit.</strong> The Navigation Engine derives the multi-body orbital chart operator-side, starting from a pair Lagrangian with named premises and controlled scope. This exhibit derives Newton's $1/r^2$ mechanism-side: <em>why</em> the pair potential is $1/r$ rather than some other form, and <em>what</em> in the nexus produces it. Same physics, complementary derivation; both together give the ledger and the mechanism it enforces. Coulomb's derivation (<a class="xref" href="./coulomb-from-chirality-directed-depletion.html">Coulomb from Chirality-Directed Depletion</a>) is an extension of this exhibit's machinery to chirality-directed depletion.</p>
+    <p style="margin:0"><strong>What is new in this exhibit.</strong> The Navigation Engine derives a multi-body orbital chart operator-side from named premises. This page supplies a <em>conditional mechanism candidate</em>: if completion density obeys a steady linear isotropic transport law with a spherical sink and a linear test-body response, its Green-function branch has a $1/r$ profile and a $1/r^2$ gradient. Those transport and response premises are additional physics, not consequences of angular-momentum conservation or spherical geometry alone. Coulomb's page examines a chirality-directed use of the same candidate machinery without treating the shared coefficient as established.</p>
   </div>
 </section>
 
@@ -161,17 +161,17 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
 
   <h3>Depletion pattern in the nexus</h3>
 
-  <p>The nexus supports completion propagation at $c$; the number-density of completions in the nexus is $\rho_N$ with a characteristic diffusivity $D$ (dimensions $\text{m}^2/\text{s}$; a shared property of the nexus, common to this derivation and to <a class="xref" href="./coulomb-from-chirality-directed-depletion.html">Coulomb</a>). Around a spherically-symmetric tangled sink at the origin, in steady state, the completion-density distribution satisfies the spherical-shell balance: the completion flux crossing every sphere of radius $r$ must equal $\dot{N}_M$ (all completions leaving the sink must pass through that sphere).</p>
+  <p><strong>Adopt the linear transport branch.</strong> Represent the completion census by a scalar $\rho_N$ and stipulate a steady constitutive flux $\mathbf j=-D\nabla\rho_N$ with constant $D$ (dimensions $\text{m}^2/\text{s}$). Around a spherical point sink, require the integrated flux through each enclosing sphere to equal $\dot N_M$. These are modeling premises. Spherical symmetry fixes equal flux per area, but the $1/r$ density profile additionally depends on the linear local relation between flux and gradient and on its boundary condition.</p>
 
   <div class="eq">$$\rho_N(r) \;=\; \rho_N(\infty) \;-\; \frac{\dot{N}_M}{4\pi D r}$$</div>
 
-  <p>The near-source completion count density is <em>lower</em> than the far-field value by a factor that scales as $1/r$. This is the geometry of any spherically-symmetric spherical-shell balance in three dimensions; $1/r$ is not chosen &mdash; it is the shape the geometry allows.</p>
+  <p>Within that branch the near-source count density is lower than the far-field value by a term proportional to $1/r$. A nonlinear mobility $\mathbf j=-D(\rho_N)\nabla\rho_N$, saturation, a nonlocal kernel, or different boundary data can preserve spherical flux conservation while changing the density–radius relation. The displayed shape is therefore a conditional Green-function result, not geometry alone.</p>
 
   <h3>Coupling to a test body</h3>
 
-  <p>A test body of tangled trapped-rate $m_{test}$ placed at radius $r$ has its own sink. Its closures preferentially route their completions where the nexus's local completion-density gradient makes the routing favourable &mdash; the natural configuration of the test body's closures shifts toward the source's depletion pocket (extant label: <span class="fant">&ldquo;gravitational attraction&rdquo;</span>). What extant physics reads as an attractive force is this ledger fact: the test body's natural configuration has it closer to the source; if held off that natural configuration by a scale or support, the support-force it must supply is the constraint bill (extant label: <span class="fant">&ldquo;weight&rdquo;</span>).</p>
+  <p>A test body of tangled trapped rate is proposed to respond to the local depletion profile. To obtain the displayed acceleration one must further adopt a linear, composition-independent response to $-\nabla\rho_N$ and calibrate its coefficient. The ontology reads the resulting natural configuration as orbital bookkeeping and a held body's scale reading as a constraint bill; the transport equation alone neither fixes the response map nor proves universality across test bodies.</p>
 
-  <p>Working through the coupling of the test body's sink to the source's depletion gradient and identifying constants against SI:</p>
+  <p>Under that response premise, identifying the one free coefficient against SI gives:</p>
 
   <div class="eq">$$g(r) \;=\; \left(\frac{Gh}{c^2}\right) \frac{\dot{N}_M}{r^2}$$</div>
 
@@ -180,7 +180,7 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
   <div class="eq">$$\boxed{\;g(r) \;=\; \frac{GM}{r^2}\;}$$</div>
 
   <div class="card gold">
-    <p><strong>Newton's $1/r^2$ acceleration is the derived consequence.</strong> The $1/r^2$ shape is spherical-shell geometry (a $1/r$ potential gives a $1/r^2$ gradient). The proportionality to $M$ is the sink-rate proportionality $\dot{N}_M = Mc^2/h$. The coupling coefficient $Gh/c^2$ is fixed by the nexus's diffusivity and background completion density (see &sect;4). Nothing is postulated as a force; nothing crosses a gap; a free test body rides the natural configuration the ledger assigns it, weightless. Weight, when a body is held off that configuration, is the constraint bill.</p>
+    <p><strong>Newton's $1/r^2$ acceleration is recovered conditionally.</strong> Constant-$D$ linear spherical transport gives the $1/r$ profile; the adopted linear test response gives its $1/r^2$ gradient; $\dot N_M=Mc^2/h$ supplies proportionality to $M$; and one measured gravitational datum fixes the remaining coefficient $Gh/c^2$. The construction is compatible with the POAMS constraint-bill reading, but $D\rho_N(\infty)$ does not by itself fix $G$ without the missing sink and response law.</p>
   </div>
 
   <h3>Numerical check (Earth)</h3>
@@ -192,7 +192,7 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
       <tr><td>$R$</td><td>$6.37 \times 10^{6}$ m</td><td>Earth radius, measured</td></tr>
       <tr><td>$\dot{N}_M$</td><td>$8.1 \times 10^{74}$ s$^{-1}$</td><td>$Mc^2/h$, POAMS-native</td></tr>
       <tr><td>$Gh/c^2$</td><td>$4.9 \times 10^{-61}$ m$^3$/(Hz&middot;s$^2$)</td><td>POAMS coupling coefficient</td></tr>
-      <tr><td>$g$ at surface</td><td>$9.8$ m/s$^2$</td><td>Derived; matches observation</td></tr>
+      <tr><td>$g$ at surface</td><td>$9.8$ m/s$^2$</td><td>Reconstructed after one empirical coupling calibration</td></tr>
     </table>
   </div>
 
@@ -207,13 +207,13 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
   <p>$F = m_{test} \cdot g(r) = GMm_{test}/r^2$, the classical Newtonian gravitational force expression. The test body's natural configuration is closer to the source; any support holding it off that natural configuration produces the constraint force conventionally called weight.</p>
 
   <h3>Reproduces superposition for many-body configurations</h3>
-  <p>For an assembly of many mass sources, each contributes its own tangled-depletion pattern to the shared nexus. The pattern at any point is the sum of individual contributions (additive for small perturbations of $\rho_N$). This reproduces the Newtonian superposition principle (Poisson's equation with source density $\rho_M$) without additional POAMS commitment. Equivalently, Gauss's law for gravity falls out of the spherical-shell flux balance.</p>
+  <p>For an assembly of sources, exact superposition follows only inside the stipulated linear constant-$D$ branch, where the transport operator and test response are linear. If depletion changes the mobility, background density, sink strength or response coefficient, summing isolated-source profiles is at most a weak-depletion approximation. Gauss-type flux balance constrains integrated flux; it does not by itself select exact potential superposition.</p>
 
   <h3>Two-endedness, not signal propagation</h3>
   <p>The pair coupling is a proper-time two-ended exchange between source and test-body closures, each reading the nexus's local completion-density gradient (per <a class="xref" href="./the-receiver-keys-the-exchange.html">The Receiver Keys the Exchange</a> &sect;7). No graviton, no field carrier, no signal propagating through a container. The observer's apparent $r/c$ delay under specific measurement configurations is optical projection of the two-endedness onto their space-projection, not something travelling.</p>
 
   <h3>Long-range limit matches Newton exactly</h3>
-  <p>The derivation gives the leading $1/r$ pair potential exactly. Corrections at subleading order &mdash; the Kerr-analog $1/r^3$ term from coherent angular momentum (per <a class="xref" href="./counter-rotating-circulation-pair.html">Counter-Rotating Vortex Cores</a> &sect;2) and higher-order geometric corrections yielding perihelion precession (per <a class="xref" href="./perihelion-precession.html">Perihelion Precession</a>) &mdash; attach to this leading term additively without changing its form. Newton is the tangled-body long-range limit; POAMS reduces to Newton in that limit exactly.</p>
+  <p>The stipulated linear point-sink branch gives a leading $1/r$ pair potential. Candidate coherent-angular and finite-geometry terms may be added only after specifying whether they modify the source, response, transport kernel, or constitute a separate exchange channel; a displayed $1/r^3$ term does not prove exact additivity. Newton is the calibrated leading branch where those corrections and nonlinear depletion are negligible.</p>
 
   <h3>Bertrand-clean orbital geometry</h3>
   <p>The derived $1/r$ potential is one of exactly two central-force potentials that produce closed orbits for arbitrary initial conditions (Bertrand's theorem). This closes the solar-system observational anchor: closed Keplerian orbits are what the derived $1/r$ potential produces, and what nature displays.</p>
@@ -223,7 +223,7 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
 <section>
   <h2>&sect;4 &mdash; The Coupling Coefficient: What's Derived, What's Fitted, and What Would Close It</h2>
 
-  <p>The &sect;2 derivation of Newton's $1/r^2$ <em>shape</em> from spherical-shell nexus depletion is complete: the geometry is exact, the proportionality to $M$ comes from $\dot{N}_M = Mc^2/h$, and the coupling coefficient carries the value $Gh/c^2$ by identifying constants against SI. This section examines the &mdash; separate &mdash; question of whether $G$ itself is <em>derived</em> from POAMS or whether it enters as a fitted numerical input. The honest answer is that $G$ is currently a fitted input; the framework below names what an independent POAMS-native derivation would need to supply.</p>
+  <p>Section 2 closes a conditional calculation: linear constant-$D$ transport, a spherical point sink, a linear universal test response and one empirical coefficient produce the Newtonian branch. It does not derive those constitutive premises from POAMS foundations. The proportionality to $M$ uses $\dot N_M=Mc^2/h$; the coefficient carries the fitted value $Gh/c^2$. This section asks what an independent native origin would still need to supply.</p>
 
   <div class="caveat">
     <span class="tag open">OPEN &mdash; CIRCULARITY RETRACTED</span> <strong>Prior circular derivation retracted.</strong> An earlier version of &sect;4 pinned $D \cdot \rho_N(\infty)$ by writing
@@ -250,9 +250,9 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
   <h3>What survives, honestly framed</h3>
 
   <ul>
-    <li>Newton's $1/r^2$ <em>shape</em> is derived from spherical-shell depletion geometry (&sect;2). Exact, independent of $G$'s numerical value.</li>
+    <li>Newton's $1/r^2$ <em>shape</em> follows exactly within the stated linear spherical transport and response branch; geometry alone does not select it.</li>
     <li>The proportionality to $M$ comes from $\dot{N}_M = Mc^2/h$ (POAMS-native). Exact.</li>
-    <li>Superposition, Gauss's law, and Bertrand-clean orbits are derived consequences (&sect;3).</li>
+    <li>Exact superposition is a consequence of the adopted linear operator; Gauss flux balance is broader, and Bertrand-clean orbits belong to the resulting calibrated pair branch.</li>
     <li>The overall coupling <em>coefficient</em> $Gh/c^2$ is fixed by matching one number (either $g$ at Earth's surface or $G$ from Cavendish). A single empirical calibration, not a first-principles derivation.</li>
   </ul>
 
@@ -264,17 +264,17 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
   <h2>&sect;5 &mdash; What is Claimed, What Remains Open</h2>
 
   <div class="card gold">
-    <p><span class="tag claim">CLAIMED</span> <strong>Newton's $1/r^2$ shape is a derived consequence of POAMS foundations.</strong> Spherical-shell depletion of the angular-momentum nexus by a tangled trapped-rate sink gives a $1/r$ potential, hence $1/r^2$ acceleration. No mediator, no force crossing a gap. The shape is derived without any adjustable parameter; the overall coupling coefficient $Gh/c^2$ carries one empirically calibrated number (either $G$ or $g$; see &sect;4).</p>
+    <p><span class="tag claim">CONDITIONAL RESULT</span> <strong>The Newtonian branch follows from named transport and response premises.</strong> A steady linear isotropic point-sink equation gives a $1/r$ profile and a linear test response gives $1/r^2$ acceleration. No mediator or in-vacuo force is introduced in the native reading. One empirical gravitational datum fixes the overall coefficient; the constitutive premises remain open to direct derivation or test.</p>
 
-    <p><span class="tag claim">CLAIMED</span> <strong>Quantitative agreement with observation, one calibrated coupling.</strong> With $G$ calibrated to one Cavendish (or equivalent Earth-surface) measurement, the derived $g$ at Earth's surface, the tangled-body long-range limit, the Kepler solar-system limit, and Bertrand's closed-orbit theorem all follow. No additional adjustable parameters.</p>
+    <p><span class="tag claim">CALIBRATED BRANCH</span> <strong>Quantitative agreement after one coupling calibration.</strong> With $G$ calibrated to one Cavendish (or equivalent) measurement, Earth-surface $g$, the Kepler limit and the Bertrand result are consequences of the same inverse-square model. They are checks of consistency and range, not independent derivations of the calibrated coefficient or depletion mechanism.</p>
 
-    <p><span class="tag claim">CLAIMED</span> <strong>Ontological cleanliness.</strong> Same substance-depletion machinery underwrites Newton (this exhibit), <a class="xref" href="./coulomb-from-chirality-directed-depletion.html">Coulomb</a> (chirality-directed extension), and the coherent-AM subleading Kerr-analog corrections of <a class="xref" href="./counter-rotating-circulation-pair.html">Counter-Rotating Vortex Cores</a>. One mechanism, three exhibit-scales; POAMS carries a unified account of gravitational and electric pair coupling.</p>
+    <p><span class="tag claim">PROGRAM</span> <strong>One vocabulary, several unclosed bridges.</strong> Newton, <a class="xref" href="./coulomb-from-chirality-directed-depletion.html">Coulomb</a>, and <a class="xref" href="./counter-rotating-circulation-pair.html">Counter-Rotating Vortex Cores</a> use a common circulation/depletion vocabulary. Their source types, response coefficients and kernels are not thereby proven to be one calibrated mechanism.</p>
   </div>
 
   <div class="card blue">
     <p><span class="tag open">CALIBRATED G · ORIGIN OPEN</span> G is an independently measured input to §4. The candidate deeper explanations remain research questions, distinct from use of that calibration. Accepting or deriving α does not close this sector without an additional independently justified relation between the two coefficients. The former “closing either closes both” claim is withdrawn.</p>
 
-    <p><span class="tag open">OPEN</span> <strong>First-principles derivation of the Planck-scale mean-free-path $\lambda$ from POAMS foundations.</strong> The Planck-length choice is a POAMS modeling commitment; the prior "QFT vacuum-energy-density convergence" cross-check is retracted (see &sect;4, dimensional and numerical mismatch). A POAMS-native derivation of $\lambda \sim l_{Pl}$ from the discreteum's own structural parameters would upgrade the nexus $D/\rho_N$ split from a modeling choice to a derived consequence.</p>
+    <p><span class="tag open">OPEN</span> <strong>Independent microscopic length and transport law.</strong> The Planck length contains measured $G$, so choosing $\lambda=l_{Pl}=\sqrt{\hbar G/c^3}$ cannot independently derive the same gravitational coefficient. Treat it only as a $G$-conditioned modeling choice. A native length, mobility law, sink strength and test-response map must be supplied without importing the target coefficient.</p>
 
     <p><span class="tag open">OPEN</span> <strong>Multi-body corrections beyond leading pair term.</strong> The n-centre closure derivation on <a class="xref" href="./navigation-engine.html">The Navigation Engine</a> covers the reciprocal pair-kick structure at higher order; explicit reconciliation of the substance-depletion approach with the Lagrangian approach at second and higher order is future work.</p>
   </div>
