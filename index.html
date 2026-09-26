@@ -383,6 +383,41 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   line-height: 1.5;
   flex: 1;
 }
+
+/* ─── Heresy note ───────────────────────────────────────────────────── */
+.heresy-note {
+  max-width: 820px;
+  margin: 3rem auto 1rem;
+  padding: 0 1.25rem;
+}
+.heresy-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.6rem 1.8rem;
+  box-shadow: var(--shadow);
+  color: var(--fg2);
+  font-size: 0.86rem;
+  line-height: 1.58;
+}
+.heresy-card h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  color: var(--gold);
+  font-size: 1.18rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem;
+}
+.heresy-card p { margin: 0.55rem 0; }
+.heresy-card .heresy-lede {
+  font-style: italic;
+  opacity: 0.72;
+  margin: 0 0 0.9rem;
+}
+.heresy-card li { margin: 0.3rem 0; }
+@media (max-width: 640px) {
+  .heresy-note { margin-top: 2rem; padding: 0 1rem; }
+  .heresy-card { padding: 1.3rem 1.2rem; font-size: 0.84rem; }
+}
 .lib-list {
   list-style: none;
   margin-bottom: 1.3rem;
@@ -1088,10 +1123,10 @@ else updateExhibitCount();
 
 
 <!-- ── A NOTE ON HERESY ── -->
-<section class="heresy-note" style="max-width:880px;margin:40px auto 10px;padding:0 18px;">
-<div style="border:1px solid rgba(201,168,76,.45);border-left:4px solid #d4af37;border-radius:12px;padding:20px 24px;background:rgba(201,168,76,.05);">
-<h2 style="margin:0 0 6px;color:#d4af37;font-size:1.25em;">A Note on Heresy</h2>
-<p style="font-style:italic;opacity:.75;margin:0 0 12px;font-size:.95em;">"It can be a messy business, this heresy."</p>
+<section class="heresy-note">
+<div class="heresy-card">
+<h2>A Note on Heresy</h2>
+<p class="heresy-lede">"It can be a messy business, this heresy."</p>
 <p style="margin:8px 0;">On February 17, 1600, Giordano Bruno was burned in the Campo de' Fiori after condemnation
 for heresy. Rome erected his memorial there in 1889. Those dates are part of the
 <a href="https://www.turismoroma.it/en/node/1514" target="_blank" rel="noopener">city's historical record</a>, not proof
@@ -1131,7 +1166,6 @@ wide open.</em></p>
 </ol>
 <p style="margin:8px 0;">Normal Realism is not a philosophical preface pasted onto POAMS afterward. It is the root from which POAMS grew. Reversing that order would invite exactly the disease we are trying to escape: choose an attractive formalism first, then invent a world that makes its symbols sound physical. The empirical findings may constrain philosophy, but a successful model must not quietly become philosophy.</p>
 <p style="margin:12px 0 8px;">The self-reinforcing loop that extant physics has fallen into:</p>
-<p style="margin:0 0 8px;"><code>Now bash kill.</code></p>
 <ol style="margin:0 0 14px 1.35em;padding:0;">
 <li style="margin:5px 0;">A formalism predicts a limited class of observations.</li>
 <li style="margin:5px 0;">Its symbols are promoted into literal entities.</li>
@@ -1139,7 +1173,7 @@ wide open.</em></p>
 <li style="margin:5px 0;">The worldview determines which questions, careers, and instruments are respectable.</li>
 <li style="margin:5px 0;">Every new observation is interpreted inside that same worldview.</li>
 </ol>
-<p style="margin:8px 0 0;">At that point, the model is no longer being tested; it is deciding what counts as a test. That is how science hardens into metaphysics—and sometimes into a quasi-religious orthodoxy. Normal Realism breaks the loop: ontology before formalism, physical receipts before mathematical prestige, and nature retains veto power over both. That is not anti-science. It restores science to natural philosophy instead of letting a provisional calculus impersonate reality.</p>
+<p style="margin:8px 0 0;">At that point, the model is no longer being tested; it is deciding what counts as a test. That is how science hardens into metaphysics—and sometimes into a quasi-religious orthodoxy. Now bash kill. Normal Realism breaks the loop: ontology before formalism, physical receipts before mathematical prestige, and nature retains veto power over both. That is not anti-science. It restores science to natural philosophy instead of letting a provisional calculus impersonate reality.</p>
 </div>
 </div>
 </section>
