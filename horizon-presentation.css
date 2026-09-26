@@ -1,0 +1,52 @@
+/* Shared typography for the eight developmental Horizon exhibits. */
+body {
+  font-size: 16px !important;
+  line-height: 1.65 !important;
+}
+
+header h1,
+.hero h1 {
+  font-size: 2rem !important;
+  line-height: 1.22 !important;
+}
+
+header > p,
+.hero > p,
+.subtitle,
+.nr-provenance,
+.standard-exhibit .nr-provenance {
+  font-size: .95rem !important;
+  line-height: 1.6 !important;
+}
+
+main p,
+main li {
+  font-size: 1rem !important;
+  line-height: 1.65 !important;
+}
+
+main h2 {
+  font-size: 1.35rem !important;
+  line-height: 1.3 !important;
+}
+
+main h3 {
+  font-size: 1.05rem !important;
+  line-height: 1.4 !important;
+}
+
+main table {
+  font-size: .9rem !important;
+  line-height: 1.5 !important;
+}
+
+nav,
+#poams-hub-nav {
+  font-size: 13px !important;
+  line-height: 1.2 !important;
+}
+
+@media (max-width: 640px) {
+  header h1,
+  .hero h1 { font-size: 2rem !important; }
+}
