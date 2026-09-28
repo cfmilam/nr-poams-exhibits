@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POAMS Series A Lectures — Anthony D. Osborne</title>
+<style>
+:root{--bg:#0b0b16;--fg:#e2e2ea;--muted:#9a9ab0;--gold:#c9a84c;--card:#11111f;--line:#29293d}
+:root.light{--bg:#faf8f2;--fg:#2a2a2a;--muted:#68635a;--gold:#8b6914;--card:#fff;--line:#d7d1c4}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:Georgia,serif;line-height:1.6}
+main{max-width:880px;margin:0 auto;padding:4rem 1.5rem 5rem}h1{color:var(--gold);font-size:clamp(2rem,5vw,3.4rem);margin:0 0 .35rem}
+.subtitle{color:var(--muted);font-size:1.05rem;margin:0 0 2.5rem}.nav{margin-bottom:2rem}.nav a,a{color:var(--gold)}
+.lecture{display:block;margin:.75rem 0;padding:1rem 1.2rem;border:1px solid var(--line);border-radius:9px;background:var(--card);text-decoration:none;transition:border-color .2s,transform .2s}
+.lecture:hover{border-color:var(--gold);transform:translateY(-1px)}.lecture strong{display:block;color:var(--gold);font-size:1.04rem}.lecture span{display:block;color:var(--fg);margin-top:.2rem}
+.syllabus{border-color:var(--gold);margin-bottom:2rem}.note{color:var(--muted);font-size:.9rem;margin-top:2rem;border-top:1px solid var(--line);padding-top:1.2rem}
+#theme{position:fixed;right:1rem;top:1rem;width:42px;height:42px;border:0;border-radius:8px;background:var(--gold);cursor:pointer;font-size:1.15rem}
+@media(max-width:600px){main{padding:3rem 1rem 4rem}.lecture{padding:.9rem 1rem}}
+</style>
+</head>
+<body>
+<button id="theme" type="button" aria-label="Toggle light and dark theme">☀️</button>
+<main>
+<div class="nav"><a href="../">← Return to Hub</a></div>
+<h1>POAMS Series A Lectures</h1>
+<p class="subtitle">Dr. Anthony D. Osborne · Normal Realism and the Pope–Osborne Angular Momentum Synthesis</p>
+
+<a class="lecture syllabus" href="poams-lectures-series-a-syllabus.pdf" target="_blank" rel="noopener"><strong>Series A Syllabus</strong><span>Course outline and lecture sequence</span></a>
+
+<a class="lecture" href="poams-lecture-1-introduction-and-historical-background-i.pdf" target="_blank" rel="noopener"><strong>Lecture 1</strong><span>Introduction and Historical Background I</span></a>
+<a class="lecture" href="poams-lecture-2-historical-background-ii.pdf" target="_blank" rel="noopener"><strong>Lecture 2</strong><span>Historical Background II</span></a>
+<a class="lecture" href="poams-lecture-3-philosophical-background-normal-realism.pdf" target="_blank" rel="noopener"><strong>Lecture 3</strong><span>Philosophical Background: Normal Realism</span></a>
+<a class="lecture" href="poams-lecture-4-the-universal-constant-c.pdf" target="_blank" rel="noopener"><strong>Lecture 4</strong><span>The Universal Constant c</span></a>
+<a class="lecture" href="poams-lecture-5-uniform-motion-and-time-dilation.pdf" target="_blank" rel="noopener"><strong>Lecture 5</strong><span>Uniform Motion and Time-Dilation</span></a>
+<a class="lecture" href="poams-lecture-6-uniform-motion-some-consequences-of-time-dilation-and-the-cone-model.pdf" target="_blank" rel="noopener"><strong>Lecture 6</strong><span>Uniform Motion: Some Consequences of Time-Dilation and the Cone Model</span></a>
+<a class="lecture" href="poams-lecture-7-uniform-motion-length-contraction-minkowski-space-time-and-lorentz-transformations.pdf" target="_blank" rel="noopener"><strong>Lecture 7</strong><span>Uniform Motion: Length Contraction, Minkowski Space-Time and Lorentz Transformations</span></a>
+<a class="lecture" href="poams-lecture-8-uniform-motion-relativistic-speeds-and-relativistic-kinematics.pdf" target="_blank" rel="noopener"><strong>Lecture 8</strong><span>Uniform Motion: Relativistic Speeds and Relativistic Kinematics</span></a>
+<a class="lecture" href="poams-lecture-9-uniform-motion-relativistic-linear-momentum-mass-and-energy.pdf" target="_blank" rel="noopener"><strong>Lecture 9</strong><span>Uniform Motion: Relativistic Linear Momentum, Mass and Energy</span></a>
+<a class="lecture" href="poams-lecture-10-the-ultimately-discrete-nature-of-physical-phenomena.pdf" target="_blank" rel="noopener"><strong>Lecture 10</strong><span>The Ultimately Discrete Nature of Physical Phenomena</span></a>
+<a class="lecture" href="poams-lecture-11-quantum-mechanics-and-the-discrete-nature-of-light-energy.pdf" target="_blank" rel="noopener"><strong>Lecture 11</strong><span>Quantum Mechanics and the Discrete Nature of Light-Energy</span></a>
+<a class="lecture" href="poams-lecture-12-the-discrete-nature-of-light-energy-from-the-normal-realist-perspective.pdf" target="_blank" rel="noopener"><strong>Lecture 12</strong><span>The Discrete Nature of Light-Energy from the Normal Realist Perspective</span></a>
+
+<p class="note">Primary Series A lecture documents by Dr. Anthony D. Osborne. PDFs open in a new tab.</p>
+</main>
+<script>
+document.getElementById('theme').addEventListener('click',function(){document.documentElement.classList.toggle('light');this.textContent=document.documentElement.classList.contains('light')?'🌙':'☀️'});
+</script>
+</body>
+</html>
