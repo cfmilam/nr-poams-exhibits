@@ -4,13 +4,16 @@ The Inner Census — counting verification.
 
 Companion script to inner-census.html (NR/POAMS exhibit series).
 
-Verifies two distinct arithmetic statements without promoting either one's
-physical premises: (i) a confined harmonic ladder has cumulative closures
-2, 8, 20 exactly; and (ii) the historical intruder bookkeeping reproduces
-28, 50, 82, 126 (and 184) when its threshold, one-rung descent, and sign are
-read from the measured record. Both native pricings of that intruder rule
-were later falsified. The script remains a counting certificate, not a
-derivation of the physical nuclear sequence.
+Verifies the confined harmonic ladder and the heavy re-filing arithmetic.
+The historical intruder bookkeeping reproduces 28, 50, 82, 126 (and 184).
+Its two 2026-09-06/07 pricings were falsified and remain historical controls.
+On 2026-09-29 POAMS ratified three explicit constitutive extensions: E1, the
+closure-incidence chirality gate; E2, the same-account primitive unit tariff;
+and E3, conservative active-branch posting with receipt exhaustion. This
+script checks their discrete consequences. Because the sequence was known
+before E1-E3 were formulated, the result is a target-aware conditional
+theorem, not independent confirmation of those extensions or of a physical
+nuclear realization of the confined ladder.
 
 The rule
 --------
@@ -32,8 +35,8 @@ The rule
    multiplet of size 2l+2 and the counter-turning multiplet of
    size 2l.   (2l+2) + (2l) = 2(2l+1).  Pure counting.
 
-3. THE INTRUDER RULE (record-description; mechanism open).
-   From the measured record the threshold is l* = 3: for every rung N >= 3 the
+3. THE RATIFIED EXTENSION (target-aware conditional theorem).
+   E1 makes the path available at l* = 3: for every rung N >= 3 the
    top co-turning multiplet (l = N, size 2N+2) descends exactly one
    rung, landing just ABOVE the band below.  A closure gap always
    survives above the descended multiplet.  Below it: if the band
@@ -43,11 +46,26 @@ The rule
    and the vacated ladder seam is destroyed as a closure (40, 70,
    112 survive at most as the record's semi-magic seams).
 
+   E2 fixes one primitive receipt to one rung tariff. E3 posts the credit to
+   the active co branch, leaves the counter branch fixed, and exhausts the
+   receipt after one booking. These are ratified extensions, not consequences
+   of the pre-2026-09-29 premise set.
+
 Expected arithmetic: 2, 8, 20, 28, 50, 82, 126 (and conditional 184).
 """
 
-L_STAR = 3  # the one imported integer: intrusion threshold (named, not derived)
+L_STAR = 3  # E1 closure-incidence chirality gate (ratified constitutive extension)
 N_MAX = 7   # build rungs 0..7 (rung 7 supplies the intruder for the 184 group)
+
+
+def settlement_path(l):
+    """E1: cyclic receipt order becomes chirality-legible at three incidences."""
+    return l >= L_STAR
+
+
+def settlement_posting(l):
+    """E2-E3: one downward co credit, no counter rise, once the E1 path opens."""
+    return (-1, 0) if settlement_path(l) else (0, 0)
 
 TARGET = [2, 8, 20, 28, 50, 82, 126]
 
@@ -100,7 +118,13 @@ print("  [PASS] co (2l+2) + counter (2l) multiplets exactly tile every rung 0..%
 check("top co-multiplet sizes 2N+2 (the intruders)",
       [2 * N + 2 for N in range(3, 8)], [8, 10, 12, 14, 16])
 
-print("\n== 3. Imported intruder rule: assemble groups, read the gaps ==")
+print("\n== 3. Ratified E1-E3 extension: assemble groups, read the gaps ==")
+check("E1 path gate for l=0..7",
+      [settlement_path(l) for l in range(8)],
+      [False, False, False, True, True, True, True, True])
+check("E2-E3 branch posting for l=0..7",
+      [settlement_posting(l) for l in range(8)],
+      [(0, 0), (0, 0), (0, 0), (-1, 0), (-1, 0), (-1, 0), (-1, 0), (-1, 0)])
 # groups = lists of multiplets between consecutive closure gaps,
 # generated from the descent rule.  Start from the pure ladder
 # (one group per rung), then move each rung-N co-multiplet (N >= l*)
@@ -109,7 +133,9 @@ print("\n== 3. Imported intruder rule: assemble groups, read the gaps ==")
 # group below (the remainder of rung N-1).
 groups = [multiplets(N) for N in range(N_MAX + 1)]
 descended = []
-for N in range(L_STAR, N_MAX + 1):
+for N in range(N_MAX + 1):
+    if not settlement_path(N):
+        continue
     intruder = (N, "co", 2 * N + 2)
     groups[N].remove(intruder)
     descended.append((N, intruder))
@@ -137,7 +163,7 @@ for i, g in enumerate(groups[:-1]):
     print(f"    up to {closures[i]:>3}: {lab}")
 
 check("closure sequence", closures[:7], TARGET)
-check("conditional next closure (rung-6 remainder + imported rung-7 intruder)", closures[7], 184)
+check("conditional next closure (rung-6 remainder + E1-E3 rung-7 re-filing)", closures[7], 184)
 
 print("\n== 4. Closed form for the reordered numbers ==")
 # magic(N) = cumulative ladder through rung N + intruder from rung N+1
@@ -147,4 +173,4 @@ check("(N+2)(N²+4N+9)/3 for N=2..6", cf, [28, 50, 82, 126, 184])
 
 print("\nALL CHECKS PASS — the stated counting rule reproduces 2, 8, 20, 28, 50, 82, 126 exactly")
 print("GRADE: 2/8/20 are exact given the confined-ladder premise; 28+ are a")
-print("record-description using imported threshold/descent/sign rules whose native pricings failed.")
+print("target-aware conditional theorem under the ratified E1-E3 constitutive extensions.")
