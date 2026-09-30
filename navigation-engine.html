@@ -105,9 +105,9 @@ button:disabled{opacity:.45;cursor:not-allowed}
 </div>
 
 <h2>B · Intrinsic Spin and the Coupling Sign</h2>
-<p>Franks and Osborne propose a ratio for the <b>intrinsic-spin</b> channel. If $F_0=L v_n/r^2$ is their nonzero baseline coupling scale and $k=K_s/K_n$ the spin/orbital rate-energy ratio, then:</p>
-<div class="eqbox">$$q\equiv\frac{F}{F_0}=\sqrt{1+k\cos\theta},\qquad 0\le k\le1,\quad 0\le\theta\le\pi.$$</div>
-<p>The native sign claim is preserved: co-sense intrinsic twist increases coupling and, in the corresponding held-body comparison, points toward heavier; opposed twist points toward lighter. <b>This ratio alone does not calculate the holding constraint or a balance reading.</b> A freely orbiting body is already weightless in POAMS even when $q\ne0$. The algebraic zero at $k=1,\theta=\pi$ is a zero of this proposed coupling factor.</p>
+<p>Franks and Osborne propose a ratio for the <b>intrinsic-spin</b> channel. If $F_0=L v_n/r^2$ is their nonzero baseline coupling scale and $k=K_s/K_n$ the spin/orbital rate-energy ratio, their full vector-energy composition gives:</p>
+<div class="eqbox">$$q\equiv\frac{F}{F_0}=\left(1+k^2+2k\cos\theta\right)^{1/4},\qquad 0\le k\le1,\quad 0\le\theta\le\pi.$$</div>
+<p>The fourth root matters away from exact co/anti alignment: the intrinsic contribution retains its magnitude when its signed projection vanishes. The native sign claim is preserved: co-sense intrinsic twist increases coupling and, in the corresponding held-body comparison, points toward heavier; opposed twist points toward lighter. <b>This ratio alone does not calculate the holding constraint or a balance reading.</b> A freely orbiting body is already weightless in POAMS even when $q\ne0$. The algebraic zero at $k=1,\theta=\pi$ is a zero of this proposed coupling factor.</p>
 <div class="card panel">
   <div class="controls">
     <label for="ks">Spin / orbital rate-energy ratio $k$: <span class="val" id="ks_v"></span></label>
@@ -122,6 +122,7 @@ button:disabled{opacity:.45;cursor:not-allowed}
 </div>
 <p class="note">This panel preserves a testable hypothesis; it does not establish an apparatus response. Intrinsic twist and driven orbital writhe are distinct POAMS channels and can have opposite signs. A driven YIG test must identify that partition and measure its support response; this slider supplies neither a drive-to-spin calibration nor a completed experiment. See the channel distinction in <a href="./the-poams-brilliant-vortex-atom.html">The Brilliant Vortex Atom</a>.</p>
 <div class="card"><p><strong>Topology does not calculate the control input.</strong> $Lk=Tw+Wr$ fixes a geometric sum for a framed closed curve. It supplies neither the action-scale map into physical $\mathbf S,\mathbf L$, nor the drive/reservoir partition, energy, mobility, retention, or support law. This engine must therefore consume a measured $\Delta\mathbf S$ or $\Delta\mathbf L$ with an independently calibrated apparatus response; it may not infer the channel from drive-cycle count or from the sign of a balance result.</p></div>
+<div class="card"><p><strong>Conditional held-body extension.</strong> For a declared complete support boundary, the exact contact identity is $F_{\rm sup}=m(a_{\rm enf}-a_{\rm free})$. A prepared internal state can therefore change a support reading only through an explicit state-to-free-evolution map and the measured support transfer function. At matched mass, position and centre-of-mass velocity, $L_{\rm cm}=m\,\mathbf R\times\mathbf v_{\rm cm}$ is fixed: retained internal writhe may not be inserted into that orbital account by renaming it.</p><p>Applying the Appendix-5 twist law to a surface-fixed spherical-Earth chart gives $\mathbf L_O=m\Omega_E R^2\cos\lambda\,\hat{\mathbf n}$, directed local north. The leading signed north/south support contrast is proportional to $K_s\cos^2\lambda$; vertical and east/west reversal channels are first-order nulls. At nominal city latitudes, the frozen conditional Austin/Palo Alto amplitude ratio is $1.183318$. This is a prospective discriminator, not evidence that the response occurs.</p></div>
 
 <h2>C · The Matching Pair Equations</h2>
 <p>Here is the mathematical chart actually used. With constant $\mu$ from Panel A, the per-unit-ledger expression and its Euler–Lagrange equation are:</p>
@@ -234,8 +235,10 @@ function computeA(){
 }
 function spinData(k,degrees){
   if(!Number.isFinite(k)||!Number.isFinite(degrees)||k<0||k>1||degrees<0||degrees>180)throw Error('Spin inputs outside range.');
-  // Equivalent to 1+k cos θ, but stable close to the opposed endpoint.
-  const factor=k===1&&degrees===180?0:Math.sqrt((1-k)+2*k*Math.cos(degrees*Math.PI/360)**2);
+  // Full source composition: fourth root of 1+k²+2k cos θ,
+  // evaluated as (1-k)²+4k cos²(θ/2) for endpoint stability.
+  const rad=(1-k)**2+4*k*Math.cos(degrees*Math.PI/360)**2;
+  const factor=rad===0?0:Math.sqrt(Math.sqrt(rad));
   const sign=k===0||degrees===90?0:degrees<90?1:-1;
   return {k,degrees,factor,change:(factor-1)*100,state:factor===0?'zero coupling (model endpoint)':sign===0?'baseline coupling':sign>0?'increased coupling':'reduced coupling'};
 }
