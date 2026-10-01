@@ -44,4 +44,19 @@ for q in (0,.2,.7,1):
  close(-q,float(np.real(np.trace(rw@np.kron(Z,Z)))))
 rho_cl=(np.outer(np.kron(up,dn),np.kron(up,dn).conj())+np.outer(np.kron(dn,up),np.kron(dn,up).conj()))/2
 close(np.trace(rho_cl@np.kron(Z,Z)),-1); close(np.trace(rho_cl@np.kron(X,X)),0)
+
+# Operational scalar receipt: Pi_s=(I-XX-YY-ZZ)/4 and J^2=2(I-Pi_s).
+I4=np.eye(4,dtype=complex)
+Pi_s=(I4-np.kron(X,X)-np.kron(Y,Y)-np.kron(Z,Z))/4
+close(np.linalg.norm(Pi_s@Pi_s-Pi_s),0)
+close(np.linalg.norm(Pi_s-rho),0)
+J2_receipt=1.5*I4+0.5*(np.kron(X,X)+np.kron(Y,Y)+np.kron(Z,Z))
+close(np.linalg.norm(J2_receipt-2*(I4-Pi_s)),0)
+for q in (0,.2,.7,1):
+ rw=q*rho+(1-q)*I4/4
+ csum=sum(np.trace(rw@np.kron(s,s)) for s in sig)
+ fidelity=float(np.real((1-csum)/4))
+ close(fidelity,float(np.real(np.trace(rw@Pi_s))))
+ close(fidelity,(1+3*q)/4)
+ close(fidelity,1-float(np.real(np.trace(rw@J2_receipt)))/2)
 print(f"PASS: {checks} scalar-pair, joint-law, CHSH, and source-countermodel checks")
