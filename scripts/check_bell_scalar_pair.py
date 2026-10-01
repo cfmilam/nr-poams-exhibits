@@ -59,4 +59,21 @@ for q in (0,.2,.7,1):
  close(fidelity,float(np.real(np.trace(rw@Pi_s))))
  close(fidelity,(1+3*q)/4)
  close(fidelity,1-float(np.real(np.trace(rw@J2_receipt)))/2)
-print(f"PASS: {checks} scalar-pair, joint-law, CHSH, and source-countermodel checks")
+
+# Environment-factorization theorem. A unit expectation of rank-one Pi_s on the
+# two endpoints forces rho_12E = Pi_s tensor sigma_E; no correlated record remains.
+rng=np.random.default_rng(1729); dE=3
+M=rng.normal(size=(dE,dE))+1j*rng.normal(size=(dE,dE))
+sigma=M@M.conj().T; sigma/=np.trace(sigma)
+rho_full=np.kron(Pi_s,sigma); Pfull=np.kron(Pi_s,np.eye(dE))
+close(np.trace(Pfull@rho_full),1)
+close(np.linalg.norm(rho_full-Pfull@rho_full@Pfull),0)
+close(np.linalg.norm(rho_full-np.kron(rho,sigma)),0)
+# A non-scalar component has exactly the advertised failed-receipt weight.
+trip=np.array([1,0,0,0],complex); triprho=np.outer(trip,trip.conj())
+for eps in (0,.01,.2,1):
+ mixed=(1-eps)*rho_full+eps*np.kron(triprho,sigma)
+ close(np.trace(Pfull@mixed),1-eps)
+ close(np.trace((np.eye(4*dE)-Pfull)@mixed),eps)
+ assert np.linalg.norm(mixed-Pfull@mixed@Pfull,ord='nuc') <= 2*sqrt(eps)+tol; checks+=1
+print(f"PASS: {checks} scalar-pair, joint-law, CHSH, source-countermodel, and factorization checks")
