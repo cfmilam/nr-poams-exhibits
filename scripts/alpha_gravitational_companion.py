@@ -8,7 +8,9 @@ Computes:
   2. K_G(m_a, m_b) = G * m_a * m_b               (gravitational pair coefficient)
   3. alpha_G(m_a, m_b) = K_G / (hbar * c) = G * m_a * m_b / (hbar * c)
                                                  (dimensionless gravitational pair)
-  4. Ratios alpha / alpha_G and the corresponding "gravitational hydrogenic"
+  4. EGSA translation A_circle = G*hbar/c^3 and
+     alpha_G = A_circle/(ell_a*ell_b), ell_i = hbar/(m_i*c)
+  5. Ratios alpha / alpha_G and the corresponding "gravitational hydrogenic"
      radii and binding-energy scales for a hypothetical purely-gravitational
      hydrogenic system with reduced mass mu = m_a*m_b/(m_a+m_b).
 
@@ -118,8 +120,9 @@ def main():
     e_SI = D(INPUTS["e_SI"]["value"])
     hbar_val = hbar(h)
 
-    # Electromagnetic pair coefficient.
+    # Electromagnetic pair coefficient and calibrated EGSA translation.
     K_Q = alpha * hbar_val * c   # J*m
+    A_circle = G * hbar_val / (c ** 3)
     # Cross-check dimensionless: alpha_EM = K_Q / (hbar*c) = alpha (by construction).
 
     pairs = {
@@ -130,6 +133,9 @@ def main():
     results = {}
     for name, (m_a, m_b) in pairs.items():
         a_G = alpha_G_pair(G, m_a, m_b, hbar_val, c)
+        ell_a = hbar_val / (m_a * c)
+        ell_b = hbar_val / (m_b * c)
+        a_G_area_form = A_circle / (ell_a * ell_b)
         K_G = G * m_a * m_b                    # J*m
         mu = reduced_mass(m_a, m_b)
 
@@ -140,6 +146,10 @@ def main():
         results[name] = {
             "reduced_mass_kg": str(mu),
             "alpha_G": str(a_G),
+            "reduced_Compton_length_a_m": str(ell_a),
+            "reduced_Compton_length_b_m": str(ell_b),
+            "alpha_G_from_A_circle_over_lengths": str(a_G_area_form),
+            "area_identity_relative_residual": str(abs(a_G_area_form - a_G) / a_G),
             "K_G_J_m": str(K_G),
             "alpha_over_alpha_G": str(alpha / a_G),
             "log10_alpha_over_alpha_G": str(
@@ -168,14 +178,15 @@ def main():
     r_diff_relative = abs(r_em_ep - published_r1) / published_r1
 
     payload = {
-        "schema": "poams.alpha_gravitational_companion.v1",
-        "computed_at": "2026-09-17",
+        "schema": "poams.alpha_gravitational_companion.v2",
+        "computed_at": "2026-10-04",
         "source_sha256": sha256_source(),
         "source_reference": SOURCE,
-        "input_policy": ("No new derivation of alpha or alpha_G. Both are "
-                         "calibrated dimensionless pair-coupling coefficients "
-                         "in identical structural roles. Uses only measured "
-                         "or exact-SI inputs. No cosmological or origin claim."),
+        "input_policy": ("IRC + EGSA supplies the exact structural identity "
+                         "alpha_G=A_circle/(ell_a*ell_b). The numerical area "
+                         "A_circle=G*hbar/c^3 remains calibrated from measured G, "
+                         "not independently predicted. Alpha is a separate measured "
+                         "electric-sector input. No cosmological or origin claim."),
         "precision_context": {
             "decimal_prec_significant_digits": 200,
             "reporting_significant_digits": 80,
@@ -190,6 +201,12 @@ def main():
             "K_Q_alpha_hbar_c_definition": "alpha * hbar * c",
             "alpha_dimensionless": str(alpha),
         },
+        "egsa_translation": {
+            "A_circle_m2": str(A_circle),
+            "definition": "G * hbar / c^3",
+            "status": "calibrated_from_measured_G_not_independently_predicted",
+            "pair_identity": "alpha_G = A_circle / (ell_a * ell_b); ell_i = hbar / (m_i*c)",
+        },
         "gravitational_pair_couplings": results,
         "internal_cross_check_electron_proton_r1_vs_coulomb_exhibit": {
             "coulomb_calibrated_finite_two_ended_r_1_m_ref": str(published_r1),
@@ -199,12 +216,12 @@ def main():
         },
         "scope": {
             "what_is_established": [
-                "alpha_G(m_a, m_b) is a well-defined dimensionless calibrated pair-coupling coefficient in the same structural role as alpha for the electromagnetic pair.",
+                "IRC + EGSA gives alpha_G(m_a,m_b)=A_circle/(ell_a*ell_b) as an exact structural translation.",
                 "For every mass pair the analogous reciprocal-pair circular model produces a gravitational-hydrogenic radius and binding-energy scale.",
                 "The scale ratio between electromagnetic and gravitational hydrogenic radii equals (alpha/alpha_G).",
             ],
             "what_is_NOT_established": [
-                "Numerical value or physical origin of alpha or alpha_G (both accepted as measured or as G*m_a*m_b/hbar*c on measured G and masses).",
+                "Numerical value or physical origin of alpha or A_circle; the displayed alpha_G values use measured G and masses.",
                 "Existence of a gravitationally-bound hydrogenic atom (the calculated grav radii are typically larger than the observable universe; this is a scale statement, not a physical binding claim).",
                 "Any prediction of cosmological structure, dark-matter, or graviton physics.",
                 "Any quantitative link between alpha and alpha_G beyond the two calibrations sitting side by side.",
