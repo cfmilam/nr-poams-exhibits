@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -185,12 +185,10 @@ footer { padding:0 0 3rem; color:var(--fg2); font-size:.8rem; text-align:center;
 <footer>Normal Realism · Pope–Osborne Angular Momentum Synthesis</footer>
 <script>
 (function(){
-  var root=document.documentElement,button=document.getElementById('theme'),key='poams-theme';
-  try { if(localStorage.getItem(key)==='light') root.classList.add('light'); } catch(e) {}
+  var root=document.documentElement,button=document.getElementById('theme');
   function sync(){ button.textContent=root.classList.contains('light')?'🌙':'☀️'; }
   button.addEventListener('click',function(){
     root.classList.toggle('light'); sync();
-    try { localStorage.setItem(key,root.classList.contains('light')?'light':'dark'); } catch(e) {}
   });
   sync();
 })();
