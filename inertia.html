@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inertia — The Felt and the Seen</title>
+<script>
+window.MathJax={tex:{inlineMath:[['\\(','\\)'],['$','$']],displayMath:[['\\[','\\]'],['$$','$$']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+:root{--bg:#0d0d18;--card:#1c1c30;--text:#e8e8f0;--muted:#a1a1b6;--gold:#d4af37;--blue:#5bc8f5;--green:#66bb6a;--red:#ef5350;--edge:#2c2c46}
+body.light{--bg:#faf8f2;--card:#fff;--text:#26211a;--muted:#6b6355;--gold:#8b6914;--blue:#176e94;--green:#2e7d32;--red:#b03030;--edge:#d9d2bf}
+*{box-sizing:border-box}body{margin:0;padding-top:72px;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;transition:.25s}header{text-align:center;padding:28px 20px 20px;border-bottom:1px solid var(--edge)}h1{margin:0;color:var(--gold);font-size:30px}header .sub{color:var(--muted);margin:7px auto 0;max-width:800px}main{max-width:940px;margin:auto;padding:12px 20px 64px}section{margin-top:38px}h2{font-size:20px;color:var(--gold);border-bottom:1px solid var(--edge);padding-bottom:8px}h3{font-size:16px;color:var(--blue)}p,li{font-size:14.5px}.mut{color:var(--muted)}b{color:var(--blue)}em{color:var(--gold);font-style:normal;font-weight:650}.card{background:var(--card);border:1px solid var(--edge);border-radius:11px;padding:18px 20px;margin:18px 0}.gold{border-color:rgba(212,175,55,.5);background:rgba(212,175,55,.06)}.blue{border-color:rgba(91,200,245,.4);background:rgba(91,200,245,.05)}.red{border-color:rgba(239,83,80,.45);background:rgba(239,83,80,.05)}.eq{text-align:center;overflow-x:auto;margin:17px 0;font-size:16px}.pill{display:inline-block;padding:3px 9px;border-radius:999px;margin:0 6px 6px 0;font-size:.68rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}.p-native{color:var(--gold);background:rgba(212,175,55,.14)}.p-theorem{color:var(--green);background:rgba(102,187,106,.14)}.p-open{color:var(--red);background:rgba(239,83,80,.14)}.p-design{color:var(--blue);background:rgba(91,200,245,.14)}table{width:100%;border-collapse:collapse;font-size:13.5px}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--edge);vertical-align:top}th{color:var(--gold)}a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}.viz{display:grid;grid-template-columns:minmax(240px,1fr) minmax(300px,1.5fr);gap:18px;align-items:center}.controls label{display:block;margin:12px 0 4px;color:var(--muted);font-size:13px}.controls input{width:100%}canvas{width:100%;height:330px;border:1px solid var(--edge);border-radius:10px;background:#111120}.readout{text-align:center;color:var(--gold);font-family:ui-monospace,Menlo,monospace}.theme-toggle{position:fixed;top:52px;right:12px;z-index:10000;background:var(--gold);color:var(--bg);border:0;width:40px;height:40px;border-radius:8px;cursor:pointer;font-size:1.1rem}footer{text-align:center;border-top:1px solid var(--edge);padding:20px;color:var(--muted);font-size:12.5px}
+#poams-hub-nav{position:fixed;top:0;left:0;right:0;z-index:9999;height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 1rem;background:rgba(13,13,24,.94);border-bottom:1px solid rgba(212,175,55,.25);font-size:13px}#poams-hub-nav a{color:#d4af37;padding:5px 10px}.phn-center{text-align:center;line-height:1.15}.phn-title{display:block;color:var(--text);font-size:12px;font-weight:600}.phn-pos{font-size:10px;opacity:.65}[data-theme="light"] #poams-hub-nav{background:rgba(250,248,242,.95)}
+@media(max-width:700px){.viz{grid-template-columns:1fr}.phn-hide-sm{display:none}canvas{height:285px}table{font-size:12px}th,td{padding:7px}}
+</style>
+</head>
+<body>
+<div id="poams-hub-nav">
+  <a href="./mass-as-trapped-rate.html">← <span class="phn-hide-sm">Mass as Trapped Rate</span></a>
+  <div class="phn-center"><a href="./index.html"><span class="phn-title">Return to Hub</span><span class="phn-pos">NR · POAMS · EXHIBIT SERIES</span></a></div>
+  <a href="./newton-from-tangled-trapped-rate-depletion.html"><span class="phn-hide-sm">Newton</span> →</a>
+</div>
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light and dark theme">☀️</button>
+<header>
+  <h1>Inertia</h1>
+  <p class="nr-provenance" style="font-size:.8em;font-style:italic;opacity:.72;margin:.5em auto 1em;max-width:820px">This exhibit is an extrapolation of the foundational work of N. Vivian “Viv” Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
+  <div class="sub">The Felt and the Seen Are Two Readings of One Relational Rebooking</div>
+</header>
+<main>
+<div class="card gold">
+  <span class="pill p-native">Foundational interpretation</span><span class="pill p-theorem">NOIR adopted · 4 Oct 2026</span><span class="pill p-open">Physical response unmeasured</span>
+  <p><b>Inertia is not a force produced by distant matter.</b> It is the experienced form of changing a retained circulation relative to its completed external action account. The jolt felt inside and the changed relation seen outside are not separate events joined by invisible machinery. They are the internal and external readings of one angular-momentum rebooking.</p>
+</div>
+
+<section id="claim">
+<h2>1 · Mach’s Fixed Stars, Without a Hidden Machine</h2>
+<p>When a train starts, its passenger feels a change while the visible world appears to swing backward. An absolute-space account treats one reading as real motion and the other as a visual consequence. A mechanical Machian account may instead imagine distant matter exerting an influence. POAMS needs neither move.</p>
+<p>There is one relational occurrence: the passenger’s retained angular organization changes its booking against the accessible external record. <em>The felt is no different in kind from the seen.</em> Muscles, accelerometers, gyroscopes and optical records are different instruments reading the same relational change.</p>
+<div class="card blue"><p><b>Principle of Relational Angular Inertia.</b> A retained circulation persists in its booked angular relation. Changing that relation requires a new settlement against the completed external action account. The internal registration of that rebooking is inertia; the external registration is changed orientation or motion. No force, carrier, field in a void, absolute frame or instantaneous signal is added.</p></div>
+</section>
+
+<section id="receipts">
+<h2>2 · What the Observer Actually Has</h2>
+<p>The fixed stars cannot enter as an infinite simultaneous mass census. The observer has finite completed records. Over a declared local proper-time exposure $T$, let $a_i$ be the whole-action receipts assigned to angular class $i$. Their normalized measure is</p>
+<div class="eq">\[A_T=\sum_i a_i,\qquad w_i=\frac{a_i}{A_T},\qquad \nu_T(B)=\frac{\sum_{i\in B}a_i}{A_T}.\]</div>
+<p>Partition additivity forces this form once the receipt class and exposure boundary are fixed: if an unnormalized weight obeys $f(a+b)=f(a)+f(b)$ on nonnegative whole-action counts, then $f(a)=af(1)$. Normalization cancels $f(1)$. Splitting one transaction among database rows therefore cannot create more nature.</p>
+<div class="card red"><p><b>Epistemic firewall.</b> Detector counts over an exposure define an observational estimator $\widetilde\nu_T$, not automatically the constitutive inertia account $\nu_*$. Closing a shutter or changing an aperture changes $\widetilde\nu_T$ while ordinary inertia does not change. The physical proposal therefore requires an ontic custody measure over the completed external relations constituting the retained organization. Equality $\widetilde\nu_T=\nu_*$ needs a separate sufficiency theorem or calibration.</p></div>
+<p class="mut">The additivity theorem does not decide which physical transactions participate, whether completed relations persist as retained history, or how the constitutive boundary is drawn. It forbids arbitrary catalogue labels from doing that work.</p>
+</section>
+
+<section id="operator">
+<h2>3 · The Relational Comparison Operator</h2>
+<p>An external axis \(\hat{\boldsymbol n}_i\) compares the component of a local turn transverse to itself. The minimal parity-even comparison map is</p>
+<div class="eq">\[P_i=I-\hat{\boldsymbol n}_i\hat{\boldsymbol n}_i^{\mathsf T}.\]</div>
+<p>Averaging it over the completed-action measure gives</p>
+<div class="card gold"><div class="eq">\[\boxed{\mathcal M_T=\frac1{A_T}\sum_i a_i\left(I-\hat{\boldsymbol n}_i\hat{\boldsymbol n}_i^{\mathsf T}\right).}\]</div></div>
+<p>At second angular order this projector is fixed by three requirements: linearity, no comparison along the external axis, and unit comparison in its orthogonal plane. The receipt measure carries the remaining physical choice. With detector receipts the displayed tensor is $\widetilde{\mathcal M}_T$, an estimator; the constitutive proposal uses $\mathcal M_*$ built from $\nu_*$.</p>
+<table>
+<tr><th>Property</th><th>Consequence</th></tr>
+<tr><td>Rotational covariance</td><td>\(\mathcal M\mapsto R\mathcal M R^{\mathsf T}\); the account rotates with its physical preparation.</td></tr>
+<tr><td>Positive, bounded spectrum</td><td>All eigenvalues lie in \([0,1]\); no direction contributes negative comparison.</td></tr>
+<tr><td>Fixed trace</td><td>\(\operatorname{tr}\mathcal M=2\): each axis has two transverse comparison directions.</td></tr>
+<tr><td>Receipt refinement</td><td>Splitting or regrouping one conserved receipt leaves \(\mathcal M\) unchanged.</td></tr>
+<tr><td>Parity even</td><td>\(\hat n\) and \(-\hat n\) define the same axis; dipole reversal is invisible and quadrupolar distortion is the first signature.</td></tr>
+</table>
+</section>
+
+<section id="isotropy">
+<h2>4 · Why an Isotropic Sky Feels the Same in Every Direction</h2>
+<p>For an isotropic completed-action account, \(\langle\hat n\hat n^{\mathsf T}\rangle=I/3\), so</p>
+<div class="eq">\[\mathcal M_{\rm iso}=\frac23I.\]</div>
+<p>The number $2/3$ is geometry, not a fitted coupling: two transverse directions out of three. Multiplying by $3/2$ merely calibrates the isotropic comparison operator to the identity. Isotropy supplies direction-independent relational geometry. It does not determine how large the felt response must be.</p>
+<div class="viz card">
+  <div class="controls">
+    <label for="anis">External quadrupole anisotropy</label><input id="anis" type="range" min="0" max="0.8" value="0.45" step="0.01">
+    <label for="angle">Action-tensor angle</label><input id="angle" type="range" min="0" max="180" value="25" step="1">
+    <label for="sensor">Sensor-axis angle</label><input id="sensor" type="range" min="0" max="180" value="0" step="1">
+    <p class="readout" id="readout"></p>
+    <p class="mut">The ellipse shows the traceless comparison tensor. The displayed response is normalized design mathematics, not a measured inertial effect.</p>
+  </div>
+  <canvas id="tensorCanvas" width="760" height="500" aria-label="Interactive relational tensor diagram"></canvas>
+</div>
+<h3 id="tariff-selection">The tariff family—and the adopted principle that closes it</h3>
+<p>Let $m=E_0/c^2$ be the locally calibrated scalar tariff and $\widehat{\mathcal M}=3\mathcal M_*/2$. Rotation covariance, affine consistency under mixtures, receipt refinement and isotropic calibration permit the entire family</p>
+<div class="eq">\[\mathsf K_\kappa=m\left[I+\kappa\left(\widehat{\mathcal M}-I\right)\right],\qquad -2\le\kappa\le1.\]</div>
+<p>Every member returns $mI$ under exact isotropy. The ordinary inertial record cannot select $\kappa$. Complete custody also leaves the family intact.</p>
+<div class="card blue"><p><b>Adopted selector — No-Orphan Inertial Response (NOIR), ratified 4 October 2026.</b> If the complete relational comparison account has no component along a direction, no inertial response may be posted there from an unrepresented background term. For a one-axis account, $\mathcal M_*\hat n=0$ while $\mathsf K_\kappa\hat n=m(1-\kappa)\hat n$; NOIR therefore forces $\kappa=1$ and $\mathsf K=m\widehat{\mathcal M}$. This is a conditional derivation from the adopted constitutive principle—not a consequence already contained in conservation or normalization. Its printed cost is severe: a truly one-axis complete nexus has zero response along that axis.</p></div>
+</section>
+
+<section id="usefulness">
+<h2>5 · What This Principle Buys</h2>
+<h3>A relational definition of nonrotation</h3><p>Nonrotation is no longer rotation relative to an invisible container. It is stable booking against the external action tensor. Principal eigenvectors provide the accessible relational axes; exact isotropy leaves every axis equivalent.</p>
+<h3>A clean separation of mass, inertia and weight</h3><p><a href="./mass-as-trapped-rate.html">Mass</a> is the local trapped-rate account. Inertia is the persistence and rebooking tariff of that retained organization relative to the external account. <a href="./newton-from-tangled-trapped-rate-depletion.html">Weight</a> is the support record for preventing the natural relational continuation assigned in a specific two-centre configuration. They may be empirically linked without being synonyms.</p>
+<h3>A tensorial prediction class</h3><p>If the external receipt account is anisotropic and if it couples to local response, the effect must follow the tensor’s axes and transform covariantly when those axes are rotated. This is stronger than predicting an unexplained scalar drift.</p>
+<h3>Technological leverage</h3><p>A repeatable coupling would enable relational orientation sensing, action-environment mapping and possibly controlled rate or inertial-response experiments. No propulsion or inertia-control capability follows before a measured response law and load-path closure exist.</p>
+<h3>A disciplined bridge to the Polyverse</h3><p><a href="./the-polyverse.html">Polyverse</a> sky records can constrain an observational estimator of the large-account angular measure. They cannot prove that estimator equals the constitutive custody account, nor establish the local response coefficient from one realized sky. Laboratory geometry must identify the joint first.</p>
+</section>
+
+<section id="synthetic">
+<h2>6 · Synthetic Design: The False Positive That Matters</h2>
+<p>For a fixed sensor axis, the traceless operator \(\mathcal Q=\mathcal M-2I/3\) produces the lowest-order conditional form</p>
+<div class="eq">\[\Delta y=A\cos2\theta+B\sin2\theta.\]</div>
+<p>A private synthetic identifiability study injected drift, action variation, first-harmonic apparatus response, second-harmonic hardware response and noise. With action-tensor and hardware angles varied independently, the null tensor channel returned $0.27\sigma$, while an injected response was recovered at $48.7\sigma$ and the hardware term separately at $72.3\sigma$.</p>
+<div class="card red"><p><b>Locked rotation is inadmissible.</b> When source tensor and hardware were rotated together, a pure hardware quadrupole with zero physical response appeared as a $75.1\sigma$ “Mach response.” Repetition cannot cure structural aliasing. The future apparatus must rotate source tensor, detector and support hardware independently.</p></div>
+<p><span class="pill p-design">Synthetic only</span> These numbers establish design identifiability under the injected model family. They are not physical data or M0/M1 evidence.</p>
+</section>
+
+<section id="test">
+<h2>7 · The Physical Gate</h2>
+<ol>
+<li><b>Native intervention:</b> rotate or permute a prepared external completed-action distribution while preserving its total receipt.</li>
+<li><b>Raw observable:</b> independently recorded local orientation, phase, rate or torque.</li>
+<li><b>Frozen discriminator:</b> second-harmonic tensor covariance with the prepared action axes, not the support hardware.</li>
+<li><b>Controls:</b> isotropic action-matched clone, dummy, detuned, source-absent, geometry reversal, detector rotation, randomized blocks and direct artifact injections.</li>
+<li><b>Finite-null consequence:</b> failure within calibrated sensitivity rejects this response realization over the tested envelope—not every possible relational account.</li>
+</ol>
+</section>
+
+<section id="boundary">
+<h2>8 · What Is Established—and What Is Not</h2>
+<table>
+<tr><th>Status</th><th>Claim</th></tr>
+<tr><td><span class="pill p-native">Ontological principle</span></td><td>The felt and the seen are internal and external readings of one relational angular rebooking.</td></tr>
+<tr><td><span class="pill p-theorem">Conditional theorem</span></td><td>Whole-action additivity yields the normalized receipt measure; its transverse projector average has the stated covariance, positivity, trace and isotropic limit.</td></tr>
+<tr><td><span class="pill p-design">Design result</span></td><td>Independent source, detector and hardware rotations make the declared tensor response identifiable in the synthetic model.</td></tr>
+<tr><td><span class="pill p-open">Open physical joints</span></td><td>NOIR selects $\kappa=1$ within the adopted theory. No measurement yet shows the predicted anisotropic inertial response, and detector receipts are not yet proved sufficient for the constitutive custody measure.</td></tr>
+</table>
+<p class="mut">Not derived here: a response coefficient, Newton’s $G$, alpha, $A_\circ$, inertial-mass equality, propulsion, time control, instantaneous causal influence, or a numerical constant from the infinite sky.</p>
+</section>
+
+<section id="custody-control">
+<h2>9 · The Open Door: Can the Nexus Be Deliberately Changed?</h2>
+<div class="card gold">
+  <span class="pill p-open">Unproven consequence</span><span class="pill p-design">Engineering question opened</span>
+  <p><b>If an engineered preparation changes even a small fraction of the constitutive custody account, NOIR requires a corresponding change in the inertial tensor.</b> This is not an observed effect and not a device claim. It is the most consequential conditional result of the construction.</p>
+</div>
+<p>Write a controlled preparation as a mixture of the baseline custody account $\nu_0$ and a deliberately organized account $\nu_d$:</p>
+<div class="eq">\[\nu_*^{\prime}=(1-f)\nu_0+f\nu_d,\qquad 0\le f\le1.\]</div>
+<p>The dimensionless quantity $f$ is the <b>custody participation fraction</b>: the share of the complete constitutive account genuinely changed by the preparation. It is not source power, brightness, catalogue count, stored energy, aligned fraction or detector exposure unless an independent bridge proves the identification.</p>
+<p>Because the operator is affine in the custody measure, NOIR gives</p>
+<div class="card gold"><div class="eq">\[\boxed{\Delta\mathsf K=\frac{3m}{2}\,f\left(\mathcal M_d-\mathcal M_0\right).}\]</div></div>
+<p>For a unit direction $\hat u$, the fractional principal response is</p>
+<div class="eq">\[\boxed{\frac{\Delta k_{\hat u}}{m}=\frac32f\,\hat u^{\mathsf T}\left(\mathcal M_d-\mathcal M_0\right)\hat u.}\]</div>
+<p>The conversion contains no further coupling coefficient. The entire practical question has moved into one brutally specific open: <em>can an engineered preparation alter $\nu_*$ at all, and if so by how much?</em></p>
+<table>
+<tr><th>If the preparation changes…</th><th>Then NOIR requires…</th><th>But it does not yet establish…</th></tr>
+<tr><td>Only the detector estimator $\widetilde\nu_T$</td><td>No constitutive response</td><td>Participation in the nexus</td></tr>
+<tr><td>The ontic account by a fraction $f$</td><td>A trace-free tensor redistribution proportional to $f$</td><td>That any present source reaches useful $f$</td></tr>
+<tr><td>A principal comparison direction toward a null</td><td>Reduced response along that direction and compensating transverse response</td><td>Free translation, weight loss or propulsion</td></tr>
+</table>
+<p>A practical search must therefore measure two things separately: the prepared source/action state and the local inertial observable. It must rotate the action tensor, detector and support hardware independently; preserve total action while changing tensor geometry; and reject any signal that follows heat, fields, vibration, light pressure, cabling or mechanical orientation instead of the independently witnessed custody preparation.</p>
+<div class="card red"><p><b>Kill gate.</b> If a preparation is independently shown to change the complete custody tensor by a registered amount while the corresponding NOIR response is absent within calibrated sensitivity, this realization fails. Conversely, an unexplained oscillator or balance shift without proof of custody participation does not support the theory.</p></div>
+<p>The companion Engineering paper develops the staged program, identifiability boundary, crossed-sensor architecture, source/dummy/clone states, data custody and finite-null rules: <a href="https://cfmilam.github.io/nr-poams-engineering/relational-inertia-custody-control.html">Relational Inertia Custody-Control Program</a>.</p>
+</section>
+
+<section id="provenance">
+<h2>10 · Provenance and Reproducibility</h2>
+<p>The philosophical lineage is Mach’s relational criticism of absolute space and Pope–Osborne’s Principle of Angular Inertia. The finite completed-action estimator, proposed ontic custody measure, transverse posting operator, refinement theorem, adopted NOIR principle and synthetic discriminator are current POAMS constitutive developments. They are presented as such, not retroactively attributed to the sources.</p>
+<p>Executable mathematics: <a href="./scripts/inertia_operator_checks.py">operator checks</a> · <a href="./scripts/inertia_operator_results.json">machine-readable results</a>. Private design development retains the fuller synthetic fixtures and receipts.</p>
+</section>
+</main>
+<footer><a href="./mass-as-trapped-rate.html">Mass as Trapped Rate</a> · <a href="./index.html">Hub</a> · <a href="./newton-from-tangled-trapped-rate-depletion.html">Newton</a></footer>
+<script>
+function toggleTheme(){document.body.classList.toggle('light');document.documentElement.dataset.theme=document.body.classList.contains('light')?'light':'dark';draw()}
+const canvas=document.getElementById('tensorCanvas'),ctx=canvas.getContext('2d');
+function draw(){
+ const a=+document.getElementById('anis').value,th=+document.getElementById('angle').value*Math.PI/180,u=+document.getElementById('sensor').value*Math.PI/180;
+ const d=th-u,response=a*Math.cos(2*d);document.getElementById('readout').textContent='normalized traceless response = '+response.toFixed(4);
+ const w=canvas.width,h=canvas.height,cx=w/2,cy=h/2,fg=document.body.classList.contains('light')?'#26211a':'#e8e8f0',gold=document.body.classList.contains('light')?'#8b6914':'#d4af37',blue=document.body.classList.contains('light')?'#176e94':'#5bc8f5';
+ ctx.clearRect(0,0,w,h);ctx.strokeStyle='rgba(128,128,150,.25)';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(60,cy);ctx.lineTo(w-60,cy);ctx.moveTo(cx,45);ctx.lineTo(cx,h-45);ctx.stroke();
+ ctx.save();ctx.translate(cx,cy);ctx.rotate(th);ctx.strokeStyle=gold;ctx.lineWidth=8;ctx.beginPath();ctx.ellipse(0,0,115*(1+a),115*(1-a/2),0,0,2*Math.PI);ctx.stroke();ctx.restore();
+ ctx.save();ctx.translate(cx,cy);ctx.rotate(u);ctx.strokeStyle=blue;ctx.lineWidth=5;ctx.beginPath();ctx.moveTo(-165,0);ctx.lineTo(165,0);ctx.stroke();ctx.beginPath();ctx.moveTo(165,0);ctx.lineTo(145,-12);ctx.moveTo(165,0);ctx.lineTo(145,12);ctx.stroke();ctx.restore();
+ ctx.fillStyle=fg;ctx.font='25px -apple-system,sans-serif';ctx.fillText('external action tensor',42,38);ctx.fillStyle=gold;ctx.fillRect(42,54,54,6);ctx.fillStyle=fg;ctx.fillText('sensor axis',w-210,h-35);ctx.fillStyle=blue;ctx.fillRect(w-210,h-23,54,6);
+}
+['anis','angle','sensor'].forEach(id=>document.getElementById(id).addEventListener('input',draw));draw();
+</script>
+</body>
+</html>

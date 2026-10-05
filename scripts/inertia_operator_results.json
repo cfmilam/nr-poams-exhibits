@@ -1,0 +1,102 @@
+{
+  "status": "conditional mathematics; no physical inertia measurement",
+  "isotropic_operator": [
+    [
+      0.6666666666666666,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.6666666666666666,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.6666666666666666
+    ]
+  ],
+  "isotropic_target": [
+    [
+      0.6666666666666666,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.6666666666666666,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.6666666666666666
+    ]
+  ],
+  "isotropic_error": 0.0,
+  "trace": 2.0,
+  "receipt_partition_error": 1.5823112613210482e-16,
+  "parity_error": 0.0,
+  "kappa_positive_interval": [
+    -2,
+    1
+  ],
+  "single_axis_kappa_countermodels": {
+    "-2": [
+      3.0,
+      0.0,
+      0.0
+    ],
+    "-1": [
+      2.0,
+      0.5,
+      0.5
+    ],
+    "0": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "0.5": [
+      0.5,
+      1.25,
+      1.25
+    ],
+    "1": [
+      0.0,
+      1.5,
+      1.5
+    ]
+  },
+  "isotropic_kappa_indistinguishability": {
+    "-2": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "-1": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "0": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "0.5": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "1": [
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  "adopted_selector": "NOIR, ratified 2026-10-04, forces kappa=1 because the zero-comparison direction must have zero response",
+  "estimator_guard": "detector receipt measure is not automatically the constitutive custody measure",
+  "synthetic_warning": "locked source/hardware rotation is structurally aliased; see exhibit design section"
+}
