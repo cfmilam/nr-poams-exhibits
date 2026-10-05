@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="NotebookLM audio discussions and video overviews for the Normal Realism and POAMS exhibits.">
+<title>Educational Resources — Normal Realism &amp; POAMS</title>
+<style>
+:root {
+  --bg:#0b0b16; --bg2:#10101c; --surface:#141424; --surface2:#19192b;
+  --fg:#e7e5df; --fg2:#aaa7b4; --gold:#c9a84c; --line:#2b2a3e;
+  --shadow:0 12px 34px rgba(0,0,0,.22);
+}
+:root.light {
+  --bg:#f7f4ec; --bg2:#eee9de; --surface:#fffdf8; --surface2:#f7f1e6;
+  --fg:#28251f; --fg2:#686158; --gold:#896b1e; --line:#d7d0c2;
+  --shadow:0 10px 28px rgba(52,42,24,.10);
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; background:var(--bg); color:var(--fg); font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; line-height:1.6; }
+a { color:inherit; }
+.theme { position:fixed; z-index:5; top:1rem; right:1rem; width:42px; height:42px; border:1px solid var(--line); border-radius:10px; background:var(--surface); color:var(--gold); cursor:pointer; font-size:1.05rem; box-shadow:var(--shadow); }
+.hero { border-bottom:1px solid var(--line); background:radial-gradient(circle at 50% -30%,rgba(201,168,76,.16),transparent 50%),var(--bg2); }
+.hero-inner, main, footer { width:min(1080px,calc(100% - 2.5rem)); margin:0 auto; }
+.hero-inner { padding:4.5rem 0 3.4rem; }
+.back { display:inline-block; margin-bottom:1.7rem; color:var(--gold); text-decoration:none; font-size:.9rem; font-weight:650; }
+.back:hover { text-decoration:underline; }
+.eyebrow { margin:0 0 .5rem; color:var(--gold); font-size:.74rem; font-weight:750; letter-spacing:.17em; text-transform:uppercase; }
+h1,h2 { font-family:"Cormorant Garamond",Georgia,serif; }
+h1 { margin:0; max-width:820px; color:var(--gold); font-size:clamp(2.4rem,7vw,4.9rem); font-weight:500; line-height:.98; }
+.lede { max-width:790px; margin:1.35rem 0 0; color:var(--fg2); font-size:clamp(1rem,2.3vw,1.15rem); }
+.guide { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; margin:2rem 0 0; }
+.guide div { padding:1rem 1.1rem; border:1px solid var(--line); border-radius:12px; background:rgba(20,20,36,.6); }
+:root.light .guide div { background:rgba(255,253,248,.74); }
+.guide strong { display:block; margin-bottom:.16rem; color:var(--gold); font-size:.85rem; }
+.guide span { color:var(--fg2); font-size:.84rem; }
+main { padding:3.5rem 0 4.5rem; }
+.notice { margin:0 0 2.5rem; padding:1rem 1.15rem; border-left:3px solid var(--gold); background:var(--surface); color:var(--fg2); font-size:.9rem; }
+.notice strong { color:var(--fg); }
+.group { margin:0 0 3rem; scroll-margin-top:1.25rem; }
+.group-head { display:flex; align-items:baseline; justify-content:space-between; gap:1rem; padding-bottom:.65rem; border-bottom:1px solid var(--line); }
+h2 { margin:0; color:var(--gold); font-size:clamp(1.65rem,4vw,2.25rem); font-weight:550; }
+.count { color:var(--fg2); font-size:.78rem; white-space:nowrap; }
+.resource-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.75rem; margin-top:1rem; }
+.resource { display:flex; align-items:center; justify-content:space-between; gap:1rem; min-height:64px; padding:.9rem 1rem; border:1px solid var(--line); border-radius:10px; background:var(--surface); text-decoration:none; transition:transform .18s,border-color .18s,background .18s; }
+.resource:hover { transform:translateY(-2px); border-color:var(--gold); background:var(--surface2); }
+.resource:focus-visible,.theme:focus-visible { outline:2px solid var(--gold); outline-offset:3px; }
+.resource-title { font-family:Georgia,serif; font-size:.96rem; line-height:1.35; }
+.arrow { flex:0 0 auto; color:var(--gold); font-size:.9rem; }
+footer { padding:0 0 3rem; color:var(--fg2); font-size:.8rem; text-align:center; }
+@media (max-width:760px) {
+  .guide,.resource-grid { grid-template-columns:1fr; }
+  .hero-inner { padding:3.8rem 0 2.8rem; }
+  main { padding-top:2.5rem; }
+}
+@media (max-width:460px) {
+  .hero-inner,main,footer { width:min(100% - 1.5rem,1080px); }
+  .theme { top:.65rem; right:.65rem; }
+  .group-head { align-items:flex-end; }
+  .resource { padding:.85rem .9rem; }
+}
+</style>
+</head>
+<body>
+<button class="theme" id="theme" type="button" aria-label="Toggle light and dark theme">☀️</button>
+<header class="hero">
+  <div class="hero-inner">
+    <a class="back" href="./index.html#library">← Return to the Hub</a>
+    <p class="eyebrow">Normal Realism · POAMS</p>
+    <h1>Educational Resources</h1>
+    <p class="lede">The exhibits are driven by mathematics. These Google NotebookLM companions provide an accessible route into their source texts through prepared audio discussions, short video overviews, and an interactive place to ask questions.</p>
+    <div class="guide" aria-label="How to use the notebooks">
+      <div><strong>Video overviews</strong><span>About 8–10 minutes for a concise visual orientation.</span></div>
+      <div><strong>Audio discussions</strong><span>About 45–60 minutes for a deeper treatment of implications.</span></div>
+      <div><strong>Ask the source</strong><span>Open Studio for prepared media, or use the notebook chat to question the source text.</span></div>
+    </div>
+  </div>
+</header>
+<main>
+  <p class="notice"><strong>A reading companion, not a replacement.</strong> The media are AI-generated from the exhibit source and its POAMS grounding. The exhibits remain the controlling text, especially for equations, qualifications, provenance, and current claim status. On a phone, the Google NotebookLM app provides the easiest route to playback and offline listening.</p>
+
+  <section class="group" id="philosophy">
+    <div class="group-head"><h2>Philosophy (Grounding)</h2><span class="count">4 notebooks</span></div>
+    <div class="resource-grid">
+      <a class="resource" href="https://notebook.google.com/notebook/02628b74-f99d-493d-8a02-6742442f7c6f" target="_blank" rel="noopener"><span class="resource-title">Restoration of Natural Philosophy</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/8f525360-8ac3-4d71-b663-400e1030e98f" target="_blank" rel="noopener"><span class="resource-title">Logos</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/7f6a88d8-6f2c-405c-becf-43e05d8c3217" target="_blank" rel="noopener"><span class="resource-title">The POAMS Framework</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/e2853dad-0e61-4831-ac8a-7bbe2f7db647" target="_blank" rel="noopener"><span class="resource-title">The Tenets of the Synthesis</span><span class="arrow">↗</span></a>
+    </div>
+  </section>
+
+  <section class="group" id="one-substance">
+    <div class="group-head"><h2>One Substance</h2><span class="count">8 notebooks</span></div>
+    <div class="resource-grid">
+      <a class="resource" href="https://notebook.google.com/notebook/fb8ba009-f5b1-4104-b021-15e1635be580" target="_blank" rel="noopener"><span class="resource-title">The Translation Ledger</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/177461ae-c32f-4379-85e7-78448a7722b2" target="_blank" rel="noopener"><span class="resource-title">The Spin-Orbit Settlement Ledger</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/502bf34c-9760-4bac-91ae-1329c2966a34" target="_blank" rel="noopener"><span class="resource-title">The Coherent Completion Kernel</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/143f93d6-5a92-492f-8aef-78771e70a189" target="_blank" rel="noopener"><span class="resource-title">Pairwise Reality</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/385be092-aadd-4bf2-95d1-9b211c38506b" target="_blank" rel="noopener"><span class="resource-title">The Topology of Phase and Momentum</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/d97be2f8-3bb9-4de4-99e8-c05b68e8906f" target="_blank" rel="noopener"><span class="resource-title">The Atom as Organized Phase</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/d9eaa358-b005-47be-8436-b6f448ea6577" target="_blank" rel="noopener"><span class="resource-title">Mass as Trapped Rate</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/6940af3d-c4a5-429c-b7b0-89f41d252870" target="_blank" rel="noopener"><span class="resource-title">Inertia</span><span class="arrow">↗</span></a>
+    </div>
+  </section>
+
+  <section class="group" id="organized-matter">
+    <div class="group-head"><h2>Organized Matter</h2><span class="count">14 notebooks</span></div>
+    <div class="resource-grid">
+      <a class="resource" href="https://notebook.google.com/notebook/c597c14a-9801-468f-be94-ece12924cacf" target="_blank" rel="noopener"><span class="resource-title">Elements</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/c04d981d-b137-4b1d-bcd7-e5b63394f191" target="_blank" rel="noopener"><span class="resource-title">Molecules</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/e38a6be4-abcc-4ce8-a8d4-3aca7904357a" target="_blank" rel="noopener"><span class="resource-title">Spectral Lines</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/e5d65866-6b84-40fd-8733-bf5d66096e26" target="_blank" rel="noopener"><span class="resource-title">Alpha Fine-Structure Constant</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/88787c2a-8375-4c16-96d9-03c30df39bab" target="_blank" rel="noopener"><span class="resource-title">Newton</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/187d8990-c5ce-468f-b4d3-aba94d3681e3" target="_blank" rel="noopener"><span class="resource-title">Coulomb</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/fa7bb3e9-7e8f-4b67-9121-c8c714ebb3bd" target="_blank" rel="noopener"><span class="resource-title">Landé</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/2de86074-935e-4d3a-8455-860e4bfe637f" target="_blank" rel="noopener"><span class="resource-title">Stern–Gerlach</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/212d6235-5beb-4d30-aa47-51099dcc9987" target="_blank" rel="noopener"><span class="resource-title">Aufbau as Closure</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/64497018-a19d-4877-b996-eba87ab9f523" target="_blank" rel="noopener"><span class="resource-title">The Census Flow</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/219bfaaf-41b1-4406-9e14-a41bc16fca4e" target="_blank" rel="noopener"><span class="resource-title">The Inner Census</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/8c63ba77-4c31-46b8-a2aa-6055a77d76bb" target="_blank" rel="noopener"><span class="resource-title">The Mass Ledger</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/318eb118-9a24-4061-93bc-3183ffca3a34" target="_blank" rel="noopener"><span class="resource-title">The Valley of Stability</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/265a68b0-bc04-4f24-8dd1-68cf05cefb17" target="_blank" rel="noopener"><span class="resource-title">The Patient Sun</span><span class="arrow">↗</span></a>
+    </div>
+  </section>
+
+  <section class="group" id="time-geometry">
+    <div class="group-head"><h2>Time Geometry</h2><span class="count">4 notebooks</span></div>
+    <div class="resource-grid">
+      <a class="resource" href="https://notebook.google.com/notebook/80df1bf5-197f-4360-902a-e5b149f37aba" target="_blank" rel="noopener"><span class="resource-title">The Cone Model of Time Dilation</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/8df0a0e5-5035-456f-987c-04c86fc456a8" target="_blank" rel="noopener"><span class="resource-title">Orbital Time Dilation</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/f3336c44-7246-4b2e-92cb-feff1a4e1783" target="_blank" rel="noopener"><span class="resource-title">The Twins Non-Paradox</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/cb7e1fa2-7f60-4077-806c-1b143268bba4" target="_blank" rel="noopener"><span class="resource-title">The Rate of Time (The Managed Second)</span><span class="arrow">↗</span></a>
+    </div>
+  </section>
+
+  <section class="group" id="common-ledger">
+    <div class="group-head"><h2>The Common Ledger</h2><span class="count">5 notebooks</span></div>
+    <div class="resource-grid">
+      <a class="resource" href="https://notebook.google.com/notebook/25938ea7-6d8f-4224-83e5-1a1d2b8e20d3" target="_blank" rel="noopener"><span class="resource-title">The Solar System</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/9b69f012-45a8-4074-9648-ac367cf1f27d" target="_blank" rel="noopener"><span class="resource-title">The Navigation Engine</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/4088847c-f073-4c6d-a7b2-75a951b29232" target="_blank" rel="noopener"><span class="resource-title">The Resonance Network</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/48628e92-e9a8-447d-82ca-bf4806649500" target="_blank" rel="noopener"><span class="resource-title">The Ledger Navigator</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/7d41b9eb-05a4-4747-9419-ef4cab187343" target="_blank" rel="noopener"><span class="resource-title">Counter-Rotating Vortices</span><span class="arrow">↗</span></a>
+    </div>
+  </section>
+
+  <section class="group" id="completion">
+    <div class="group-head"><h2>Completion</h2><span class="count">16 notebooks</span></div>
+    <div class="resource-grid">
+      <a class="resource" href="https://notebook.google.com/notebook/a59f02e6-fff9-43cc-b9e3-d8f5ed02f931" target="_blank" rel="noopener"><span class="resource-title">The Cinematograph</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/f41b002b-d8d6-473c-b274-1a5cb05ba404" target="_blank" rel="noopener"><span class="resource-title">The Two-Slit Experiment</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/8bb384fe-bc5e-4dc0-9734-134a95467af4" target="_blank" rel="noopener"><span class="resource-title">Light is Everything</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/177bca0f-43b1-4517-acbb-7b71b5ba701d" target="_blank" rel="noopener"><span class="resource-title">The Time Rope</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/9673e270-58b2-4394-942d-1ee44eea5916" target="_blank" rel="noopener"><span class="resource-title">Temperature</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/5934c295-0e85-4d6a-814f-66ff579ceae4" target="_blank" rel="noopener"><span class="resource-title">Heat and Coherence</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/7ce073db-ec83-460f-a7bb-f79b2035ca14" target="_blank" rel="noopener"><span class="resource-title">Electricity and the Dead Circuit</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/faa4482e-5bba-49ba-9872-600f2b8513ee" target="_blank" rel="noopener"><span class="resource-title">The Antenna Demystified</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/4e4ae4c8-8374-485e-a839-4e7d18b35374" target="_blank" rel="noopener"><span class="resource-title">Telecommunications</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/4b6aa782-a366-4807-8dd6-a7acad156eb5" target="_blank" rel="noopener"><span class="resource-title">The Receiver Keys the Exchange</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/51e88e0f-fff8-45bc-92e2-d1c23f395f62" target="_blank" rel="noopener"><span class="resource-title">Memory</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/b46db3e8-ff3b-4dc1-a36e-12edce25bf3d" target="_blank" rel="noopener"><span class="resource-title">Computation</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/174e895e-a44e-44bc-a44a-21ef41795a3d" target="_blank" rel="noopener"><span class="resource-title">Bell</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/e213ba30-2316-43e1-b251-0de40fa095e4" target="_blank" rel="noopener"><span class="resource-title">The Winding Register</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/f4070b24-c28b-4c09-ac5b-62db2a82fcc4" target="_blank" rel="noopener"><span class="resource-title">The POAMS Brilliant Vortex Atom</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/aa556c2d-2cb5-4c0f-a827-89fe31de4d86" target="_blank" rel="noopener"><span class="resource-title">The Polyverse: Black Holes, the Big Bang, and the Microwave Sky</span><span class="arrow">↗</span></a>
+    </div>
+  </section>
+
+  <section class="group" id="provisionals">
+    <div class="group-head"><h2>Provisional Applications</h2><span class="count">9 notebooks</span></div>
+    <div class="resource-grid">
+      <a class="resource" href="https://notebook.google.com/notebook/18d956f8-998b-483f-9aaf-d225e9a07820" target="_blank" rel="noopener"><span class="resource-title">Provisional A: Radius Control</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/4bfec960-6a77-45d0-9f88-32b5617f635a" target="_blank" rel="noopener"><span class="resource-title">Provisional B: Transportation</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/3e1a4ed4-eb66-4d9b-a553-d8cee9d8d4d0" target="_blank" rel="noopener"><span class="resource-title">Provisional C: Metrology &amp; Instruments</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/d3e0fe01-04f0-4076-9d46-cf1e08103511" target="_blank" rel="noopener"><span class="resource-title">Provisional D: Energy Storage</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/09fe1f7a-911d-4607-ab72-0351961b13c5" target="_blank" rel="noopener"><span class="resource-title">Provisional E: Media and Arrays</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/851e5b86-68e6-4860-9e28-5ac74e2e8b62" target="_blank" rel="noopener"><span class="resource-title">Provisional F: Memory &amp; Signaling</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/654a591e-b19e-4725-aa36-2963ff1dfe70" target="_blank" rel="noopener"><span class="resource-title">Provisional G: Time Rate-Control</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/5ccc7e76-5118-4c67-b69b-5f84b5ab5e88" target="_blank" rel="noopener"><span class="resource-title">Provisional H: Computation</span><span class="arrow">↗</span></a>
+      <a class="resource" href="https://notebook.google.com/notebook/ddd87373-9d31-4fc0-b9b3-c70cb36bf364" target="_blank" rel="noopener"><span class="resource-title">Provisional I: Molecule Design</span><span class="arrow">↗</span></a>
+    </div>
+  </section>
+</main>
+<footer>Normal Realism · Pope–Osborne Angular Momentum Synthesis</footer>
+<script>
+(function(){
+  var root=document.documentElement,button=document.getElementById('theme'),key='poams-theme';
+  try { if(localStorage.getItem(key)==='light') root.classList.add('light'); } catch(e) {}
+  function sync(){ button.textContent=root.classList.contains('light')?'🌙':'☀️'; }
+  button.addEventListener('click',function(){
+    root.classList.toggle('light'); sync();
+    try { localStorage.setItem(key,root.classList.contains('light')?'light':'dark'); } catch(e) {}
+  });
+  sync();
+})();
+</script>
+</body>
+</html>
