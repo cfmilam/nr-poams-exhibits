@@ -309,7 +309,7 @@ algebraic match between the paper's two stated speed relations. The dimensionles
 <section class="demo" id="circular-sec">
 <div class="explanation">
 <p>A particle <b>P</b> orbits a central mass <b>M</b> on a circular path at radius <i>r</i>. We compare two clocks:</p>
-<p><span class="blue">■</span> <b>Deep Space Time (DST)</b> — coordinate time <i>t</i>, far from any gravity.</p>
+<p><span class="blue">■</span> <b>Deep Space Time (DST)</b> — coordinate time <i>t</i>, far enough from the central-body pair contribution for the adopted reference clock.</p>
 <p><span class="gold">■</span> <b>Orbiter Proper Time</b> — time τ experienced by P.</p>
 <p><span class="eq-label">Eq 2.9 — Velocity-only contribution:</span><br>
 \(\displaystyle \tau = \sqrt{1 - \frac{GM}{rc^2}}\;\cdot\; t\)</p>
@@ -1321,7 +1321,7 @@ Eq 3.6 (full orbital): &nbsp; $\tau = \sqrt{1 - \frac{3GM}{rc^2}}\; t$
 <h2>Statistics</h2>
 <div class="stats-grid">
 <div class="stat"><div class="val" id="gps-s-vel-day">−7.1 μs</div><div class="lbl">Velocity drift / day</div></div>
-<div class="stat"><div class="val" id="gps-s-grav-day">+45.6 μs</div><div class="lbl">Gravitational drift / day</div></div>
+<div class="stat"><div class="val" id="gps-s-grav-day">+45.6 μs</div><div class="lbl">Altitude/pair-account drift / day</div></div>
 <div class="stat"><div class="val" id="gps-s-net-day">+38.5 μs</div><div class="lbl">Net drift / day</div></div>
 <div class="stat"><div class="val" id="gps-s-km-day">11.5 km</div><div class="lbl">Position error / day</div></div>
 </div>
@@ -1354,7 +1354,7 @@ const R_gps = 26.571e6;         // meters (20,200 km altitude)
 const DAY = 86400;              // seconds
 
 // Time dilation rates (proper time per coordinate time)
-// Ground: stationary on surface, gravitational dilation only
+// Ground: stationary on surface, central-body pair contribution only
 // τ_ground/t = sqrt(1 - 2GM/(r_earth * c²))
 const rate_ground = Math.sqrt(1 - 2*G*M/(R_earth*c2));
 
