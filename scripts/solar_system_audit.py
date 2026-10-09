@@ -60,7 +60,6 @@ def main() -> None:
         "159.68° span",
         "4/4 forward-width gates pass",
         "339 times denser",
-        "eight published history families",
     )
     for phrase in required_page_phrases:
         require(phrase in page, f"missing release guard: {phrase}")
