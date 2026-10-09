@@ -205,7 +205,7 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
   <div class="eq">$$V_{\mathrm{coh}}(1,2)=-\frac{2G}{c^2}\frac{\vec L_1\cdot\vec L_2}{r_{12}^{3}}.$$</div>
   <p>Its intended reading is the coherent column alongside the grade-blind Newton branch in <a class="xref" href="./newton-from-tangled-trapped-rate-depletion.html">Newton</a>. The current base translation gives $G/c^2=cA_\circ/\hbar$, but it does not derive this separate $1/r^3$ coherent kernel or make $A_\circ$ configuration-dependent. The coefficient also uses the pair-entry convention discussed in <a class="xref" href="./the-receiver-keys-the-exchange.html#sec-pair-lagrangian">Receiver Keys &sect;7</a>. For this investigation it remains a <strong>carried model</strong>: the continuous estimates are conditional on this kernel.</p>
 
-  <h3>What topology does — and does not — fix</h3>
+  <h3>Topology fixes the state class</h3>
   <p>The algebraic identity</p>
   <div class="eq">$$Lk_1Lk_2=(Tw_1+Wr_1)(Tw_2+Wr_2)$$</div>
   <p>does not make the physical twist/writhe partition a gauge freedom. Conserving the sum does not fix the cost of changing its parts. This is already the <a class="xref" href="./the-molecules.html">Molecule</a> guardrail: the linking identity conserves the total but does not price the partition. Treating all such rearrangements as energetically identical would remove precisely the state-cost information a threshold calculation needs.</p>
@@ -239,7 +239,7 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
     <p><strong>The required next relation is the voltage-dependent interaction of the maintained circulations at the fixed gap.</strong> The electrode connections, material response and external counterpart must be specified before calculating its torque or whole-apparatus support load. Neither that interaction nor a new weight effect follows from the power balance alone. The source's nonlinear spin–orbit route in <a class="xref" href="#sec-interaction-law">&sect;5H</a> remains distinct from the earlier inverse-cube model.</p>
   </div>
 
-  <h3>Stacking is not linking</h3>
+  <h3>Stacking and linking are distinct operations</h3>
   <p>Two disjoint circular centerlines in parallel planes have mutual linking zero, regardless of their circulation senses. Changing their separation or mutual inductance without a crossing does not change that integer. Each circulation can still have its own framing and phase winding. To propose a linking transition, name the actual curves, the rejoining or boundary event, and the invariant before and after it.</p>
 
   <h3>Compression has its own bill</h3>
@@ -261,7 +261,7 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
 <section id="sec-threshold">
   <h2>&sect;4 — Threshold and domain: the finite transition ledger</h2>
 
-  <h3>1. An integer is a state label, not a trigger</h3>
+  <h3>1. From state label to transition trigger</h3>
   <p>A preserved $Lk$ does not creep through non-integer values until it “hits” the next integer. It remains the same integer throughout an admissible deformation. A genuine rejoining event can connect different topological sectors, but the linking identity supplies neither the drive value at which that happens nor a rule that every drive cycle must contain such an event.</p>
   <p>Write $C$ for a finite configuration of circulation entries and $u$ for the imposed drive setting. Let $\mathcal B(C;u)$ be its action-rate cost in energy units, and let $\mathcal A(C;u)$ list the allowed re-filings. In the quasistatic, cost-minimizing case, local stability requires</p>
   <div class="eq">$$\mathcal B(C';u)-\mathcal B(C;u)\geq0
@@ -273,14 +273,14 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
     <p>Consider integer-labelled states with costs $\mathcal B_k(u)=A(k-u/u_0)^2$, where $A&gt;0$ and $u_0&gt;0$. Adjacent costs cross at $u=(k+\tfrac12)u_0$. Every member of this family has the same integer labels, yet changing $u_0$ changes the crossing and changing $A$ changes its energy scale. A barrier can change the actual switching point further. These are counterexamples to uniqueness from integer labels alone, <strong>not fitted candidate laws for the device</strong>. A POAMS-specific cost and transition rule is what could select one member or exclude the entire family.</p>
   </details>
 
-  <h3>2. Price the change of rate, not the name of the topology</h3>
+  <h3>2. Price the change of rate</h3>
   <p>For counted modes whose energies add as $\mathcal B_{\mathrm{modes}}=\hbar\sum_i n_i\omega_i$, the exact finite change is</p>
   <div class="eq">$$\Delta\mathcal B_{\mathrm{modes}}
   =\hbar\sum_i\left[\omega_i\Delta n_i+(n_i+\Delta n_i)\Delta\omega_i\right].$$</div>
   <p>Any additional organization or pair term must be included once in the full cost. Released energy also depends on the work done by the drive during the transition. The special value $\hbar\omega_d=h\nu_d$ follows only when an actual single counted mode-step changes at that fixed rate, with the other terms accounted for. A change in a geometric linking integer does not establish those conditions or even require a nonzero change in the net AM vector.</p>
   <p>The earlier assertion “every integer-$Lk$ crossing releases one $\hbar\omega_d$” is replaced by this conditional rate ledger. Quantized organization remains; a universal transition energy has not been derived.</p>
 
-  <h3>3. Phase agreement is not the number of changing entries</h3>
+  <h3>3. Count the changing entries</h3>
   <p>A domain can be phase-aligned while only one entry changes, many entries change, or equal-and-opposite re-filings cancel in a particular observable. Define the active set from the actual transition:</p>
   <div class="eq">$$\mathcal P=\{i:\text{entry }i\text{ changes in }C\to C'\},
   \qquad N_{\mathrm{act}}=|\mathcal P|.$$</div>
@@ -312,7 +312,7 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
     <p>If an actual control contributes $\Omega_A L_{Az}+\Omega_B L_{Bz}$, adjacent diagonal costs differ by $\hbar(\Omega_A-\Omega_B)+E_0(2m-1)$. They cross at $\Omega_A-\Omega_B=-\kappa\hbar(2m-1)$. Here $\Omega_i$ denotes the control's conjugate energy gradient, not automatically the pump frequency. The nonzero $T_m$ produces mixing; a diagonal crossing is not an irreversible switching trigger. The full sector must be retained unless isolation of two states is independently established.</p>
   </details>
 
-  <h3>The energy book does not turn that move into a burst</h3>
+  <h3>The energy book sets the transition scale</h3>
   <p>For total pair angular label $f=0,\ldots,2j$, the interaction energies are</p>
   <div class="eq">$$E_f=-\frac{E_0}{2}\left[f(f+1)-2j(j+1)\right].$$</div>
   <p>These give definite gaps, but the fixed pair operator does not transfer the closed pair between its own stationary energy levels. It conserves the full action-rate bill. Movement among projection configurations is not emission of a level gap.</p>
@@ -445,7 +445,7 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
 </section>
 
 <section id="sec-counterpart">
-  <h2>&sect;5C — A named external counterpart, not a free directional fraction</h2>
+  <h2>&sect;5C — The named external counterpart</h2>
   <p>The angular exchange can also be extended into a complete, explicitly reciprocal example. Put cores $A,B$ inside the test assembly and a third circulation $C$ on an independent support outside it. Choose $j=1$ at all three addresses, initial projections $(1,-1,0)$, and collinear positions</p>
   <div class="eq">$$z_A=-d/2,\qquad z_B=d/2,\qquad z_C=3d.$$</div>
   <p>These are declared geometry and preparation inputs for a minimal calculation, not a claim that a macroscopic device has three angular states. As in &sect;4A, no additional projection-dependent intrinsic energy is assumed. Apply the same carried pair law to all three pairs, counting each once:</p>
@@ -511,7 +511,7 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
       |\delta(t)|\le|\delta(0)|e^{-(K_+-E_b)t/\gamma}.$$</div>
   <p>This is a sufficient, not necessary, condition for the identical opposed-drive model. It makes both cores' participation a calculated stable mode rather than an imposed domain multiplier. It still needs the material to supply that coupling and sufficiently matched controls. Merely having $\zeta&gt;0$ guarantees the first local instability, not contraction throughout the whole switch.</p>
 
-  <h3>Trigger: loss of a local minimum, not an integer crossing alone</h3>
+  <h3>Trigger: loss of a local minimum</h3>
   <p>The stationary branch and its stability follow from the same cost:</p>
   <div class="eq">$$q-u+b\sin q=0,\qquad 1+b\cos q&gt;0.$$</div>
   <p>If $b\le1$, the opposed one-coordinate branch has no hysteretic fold. If $b&gt;1$, increasing the drive along that branch near $q=0$ reaches the fold</p>
@@ -557,7 +557,7 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
       \left(\frac{\Delta J_A}{r_{AC}^4}+\frac{\Delta J_B}{r_{BC}^4}\right).$$</div>
   <p>This expression assumes collinear signed angular entries and a receiver held above both cores. The material's map from $q_i$ to the physical $J_i$ is supplied for a calibrated case in <a class="xref" href="#sec-phase-support">&sect;5E</a>: a phase coordinate is not automatically a body's angular momentum. The factor $G/c^2$ does not disappear because switching is fast. Balanced opposite changes cancel at equal receiver distances and are further suppressed for a distant receiver. Stronger material drive/receiver coupling would be a different, explicitly characterized exchange channel, not an enhancement silently attached to this one.</p>
 
-  <h3>What cannot be selected by the current POAMS premises</h3>
+  <h3>The current selection frontier</h3>
   <p>There is a direct non-uniqueness test. Multiply $K$ and $E_b$ together by any positive factor: the integer branches, $b$, and switching biases stay the same, while every released energy changes by that factor. Change $\gamma$ independently and the reset time changes. Change the receiver's position dependence and the load changes, or vanishes. Higher joining harmonics can change the threshold itself without violating $2\pi$ closure. The existing premises do not select among these cases.</p>
   <div class="card blue">
     <p><strong>Result.</strong> We have a worked switch, a conditional collective-instability criterion, a positive energy release, a paid reset cycle and an explicit reciprocal load law. <strong>We do not have an apparatus-specific, parameter-free POAMS derivation of their values.</strong> That requires the actual finite material stiffness/joining book, relaxation, phase-to-angular-momentum map and external coupling. Calling those supplied functions “derived” would put the missing physics into the assumptions.</p>
@@ -870,7 +870,7 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
     </div>
   </div>
 
-  <h3>4. Why even this finite null is not a universal result</h3>
+  <h3>4. The finite-null reach</h3>
   <p>Subdivision consistency, rotational symmetry and the point-body limit still leave finite tensor terms unselected. For example, take $\vec R$ to be the actual mass centroid and consider the following <strong>counterexample only, not an adopted interaction</strong>:</p>
   <div class="eq">$$\delta\mathcal C_\chi=
       \chi\,\frac{a_GM\Omega_E}{r^2}
@@ -912,7 +912,7 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
   <div class="eq">$$\Delta N=m g_0[h(\epsilon,u)-1],\qquad g_0=\frac{GM_E}{R^2}.$$</div>
   <p>Here $g_0$ is the normalization, not the complete rotating-Earth baseline weight. $K_o$ belongs to the source's reference natural orbit at the specified $L$; substituting the held surface kinetic energy would be a different calculation. This is the source's static constraint prescription, not a new derivation of a driven many-body Hamiltonian. It is an alternative to &sect;5F, <strong>not an extra term to add to it</strong>.</p>
 
-  <h3>Opposed circulation cancels the first order—not necessarily the whole source response</h3>
+  <h3>Opposed circulation cancels the first order</h3>
   <p>Now add a clearly stated extension: evaluate the source rule separately for two equal, physically identified rotors, each with the same $\epsilon$, and add their support entries. Their axes are opposite, so their angle cosines are $u$ and $-u$. With total rotor mass $m_D$,</p>
   <div class="eq">$$\delta_{\rm entry}(\epsilon,u)\equiv\frac{\Delta N_{\rm entry}}{m_Dg_0}
   =\frac{h(\epsilon,u)+h(\epsilon,-u)}{2}-1
@@ -1138,7 +1138,7 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
   <p>This particular differential axial observable needs <strong>both directional response and its dissipative quadrature</strong>. Anisotropy can mix circular responses even off resonance, but in the lossless off-resonant limit this equal-drive axial phase term is zero. Unequal drive amplitudes also create a direct pressure difference, which is not evidence of converted circulation.</p>
 
   <div class="card blue" aria-labelledby="middle-demo-title">
-    <h3 id="middle-demo-title" style="margin-top:0">Geometry-derived response — specified inputs, not a measured specimen</h3>
+    <h3 id="middle-demo-title" style="margin-top:0">Geometry-derived response from specified inputs</h3>
     <p>Change the second beam length to make the axes equal or unequal. Sweep frequency across the two resonances, then reverse phase. The graph shows the <strong>middle plate's internal axial force</strong>, not apparatus thrust. All remaining inputs are the values in the table.</p>
     <div class="budget-controls">
       <label>Signal frequency (Hz)<output id="middle-frequency-value"></output><input id="middle-frequency" type="range" min="1100" max="1280" step="0.001" value="1203.227"></label>
@@ -1180,7 +1180,7 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
 <!-- ============ §6 ============ -->
 <aside class="calibrated-carryover" id="calibrated-carryover" aria-labelledby="calibrated-carryover-title">
   <p class="carryover-label">MEASURED-α APPLICATION · 15 SEPTEMBER 2026</p>
-  <h3 id="calibrated-carryover-title">Measured α does not reopen the parked vortex device</h3>
+  <h3 id="calibrated-carryover-title">Measured-alpha carryover</h3>
   <p><strong>Available now.</strong> The calibrated elementary coefficient and the source-accounting results can be reused. They do not alter this page’s bounded local calculations, matched-geometry cancellations or the distinction between local force and whole-apparatus support.</p>
   <p><strong>Future work.</strong> Prov-J remains parked: no new quantized-weight derivation is scheduled. Preserve the record. The directional material/voltage-control lead belongs in Prov-A/E, where its state-response law and complete-apparatus performance still require calculation and measurement.</p>
   <p class="carryover-link"><a href="./coulomb-from-chirality-directed-depletion.html#carryover-vortex">Coulomb §7: result and future-work map</a> · <a href="./alpha-fine-structure-derivation.html">Measured Alpha</a></p>
