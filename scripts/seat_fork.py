@@ -73,7 +73,7 @@ phenomenological identification, not a blind derivation or held-out test.
 CR-C also survives the stated composite band; the record comparison does not
 uniquely select the contact prescription.
 
-ORDER NOTE (honesty): registration, gates, tolerances, and hand expectations
+ORDER NOTE (method): registration, gates, tolerances, and hand expectations
 print first, and the record comparison is the last section. That print order
 documents the search path but is not external preregistration. In particular,
 CR-B and the 5.32-ZHz target (record orientation: 22.0 MeV) were known in advance. No continuous

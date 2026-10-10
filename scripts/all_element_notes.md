@@ -264,7 +264,7 @@ What each instability is a signature of:
 cases in standard quantum chemistry. Our single-reference RI-JK scalar-X2C
 treatment cannot resolve them by construction; that is a scope statement
 about the campaign, not a claim about POAMS. The retained-reference
-instabilities are honest signatures of the underlying physics, made visible
+instabilities are physical signatures of the underlying physics, made visible
 by the campaign's dipole-response acceptance test.
 
 **What is not diagnosed by the response solve.** Whether the *neutral*

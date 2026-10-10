@@ -20,7 +20,7 @@ Mass Ledger subsequently quarantined that model's absolute normalization
 is preserved as a historical conditional test; it is not a live zero-input
 derivation of a nuclear well.
 
-ORDER GATE (honesty): all numbers are computed and printed BEFORE any
+ORDER GATE (method): all numbers are computed and printed BEFORE any
 comparison against the l* = 3 band. The comparison is the last section.
 
 Historical substrate (all cited; status corrected 2026-09-08):

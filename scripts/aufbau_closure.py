@@ -36,7 +36,7 @@ whatever they are -- both metrics are reported, they are NOT the same number):
   M3  PROVENANCE GATE: the page's precomputed arrays (ZONES dots, KDATA
       curves, EMERGENT sequence) regenerated from first principles here;
       max |delta k| printed. If regeneration fails, that failure prints --
-      the arrays' provenance is then this script's honest state.
+      the arrays' provenance is then this script's declared state.
 VALIDATION GATES (frozen): chi(1)=0.424008, chi(10)=0.024314,
   chi(50)=0.000632 (+-1e-6); Demkov-Ostrovsky model potential returns
   k = 2.000000 (+-1e-5) for every tested (v, L), strength-independent;
@@ -303,7 +303,7 @@ print(f"  matches page EMERGENT array: {same_as_page}")
 
 # ------------------------------------------------- 6. the two metrics
 print("-" * 78)
-print("METRICS (both, honestly, side by side):")
+print("METRICS (both, side by side):")
 m1 = sum(1 for i in range(19)
          if i < len(emergent19) and emergent19[i] == IDEAL_MADELUNG[i])
 print(f"  M1 POSITIONAL vs IDEAL MADELUNG: {m1}/19")
@@ -385,7 +385,7 @@ SCOPE, declared: isoelectronic ions are OUT. Reason: for N < Z the frontier
   potential carries a residual -(Z-N)/r Coulomb tail, whose E = 0 orbits are
   parabolic and never return -- no closure shortfall exists at zero binding;
   the admission edge sits at E < 0 and is different physics. The TF-frontier
-  model does not extend honestly to ions, so no ion prediction is forced.
+  model does not extend reliably to ions, so no ion prediction is forced.
 
 OUTCOMES (registered): (i) exact >= proxy on both metrics -> ordering moves
   toward derivation grade (TF import, E=0 license, Langer convention stay

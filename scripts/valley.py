@@ -40,7 +40,7 @@ coefficient derivation:
     Cross-seat tension NAMED: 7.96 (ladder) vs 11.14 (capacity density), the
     oscillator's skin-spread top rungs vs the pinned interior density.
 
-ORDER NOTE (honesty): the original registration and the 2026-09-08 repair
+ORDER NOTE (method): the original registration and the 2026-09-08 repair
 registration print before computation. The repair was prompted by a known
 referee result: the old gate compared fractional minima with integer nuclides.
 It is therefore an audit, not a new blind prediction. No coefficient is tuned
