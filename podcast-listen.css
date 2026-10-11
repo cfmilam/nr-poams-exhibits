@@ -1,0 +1,13 @@
+.poams-listen{margin:12px 0 20px;max-width:560px;font:14px/1.4 system-ui,sans-serif;text-align:left;letter-spacing:normal}.poams-listen .pl-pill{border:1px solid currentColor;border-radius:99px;background:transparent;color:inherit;font:600 12px system-ui;letter-spacing:.12em;padding:8px 19px;cursor:pointer}.poams-listen .pl-player{display:flex;align-items:center;gap:10px;margin-top:12px;width:100%;box-sizing:border-box}.poams-listen [hidden]{display:none!important}.poams-listen .pl-play{background:transparent;border:1px solid currentColor;border-radius:50%;color:inherit;width:36px;height:36px;flex:0 0 36px;cursor:pointer;padding:0;font:16px system-ui}.poams-listen .pl-seek{min-width:20px;flex:1;width:0;margin:0;accent-color:#c3a56b}.poams-listen .pl-timer{font:12px ui-monospace,monospace;white-space:nowrap;flex:0 0 auto}.poams-listen button:focus-visible,.poams-listen input:focus-visible{outline:2px solid currentColor;outline-offset:3px}.poams-listen .pl-error{font:13px system-ui;margin:10px 0}
+
+/* Paired media choices: stable contrast on both light and dark exhibits. */
+.poams-listen .pl-pills{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.poams-listen .pl-pill,.poams-listen .pl-video{display:inline-flex;align-items:center;justify-content:center;gap:6px;box-sizing:border-box;min-height:40px;padding:8px 19px;border:1px solid transparent;border-radius:99px;font:600 12px system-ui;letter-spacing:.12em;text-decoration:none;line-height:1.4;white-space:nowrap}
+.poams-listen .pl-pill{background:#116b64;color:#fff;border-color:#116b64}
+.poams-listen .pl-video{background:#6543a5;color:#fff;border-color:#6543a5}
+.poams-listen .pl-pill:hover,.poams-listen a.pl-video:hover{filter:brightness(1.15);text-decoration:none}
+.poams-listen .pl-video:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+.poams-listen .pl-unavailable{background:#eeeaf5;color:#514566;border-color:#9283aa;cursor:default}
+.poams-listen .pl-unavailable small{font-size:10px;letter-spacing:0;text-transform:none}
+.poams-listen .pl-pills>*{margin:0;align-self:center}
+body.light .poams-listen button.pl-pill{background:#116b64;color:#fff}

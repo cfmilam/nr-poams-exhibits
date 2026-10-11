@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
+<script src="./reader-theme.js?v=20261011a"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>POAMS: Pair-Writhe Radial Continuation</title>
@@ -16,7 +17,7 @@
   --bg:#0d0d18; --card:#1c1c30; --text:#e8e8f0; --muted:#9a9ab0;
   --gold:#d4af37; --blue:#5bc8f5; --green:#66bb6a; --red:#ef5350; --edge:#2c2c46;
 }
-[data-theme="light"], body.light{
+[data-legacy-theme="light"], body.legacy-light-theme{
   --bg:#faf8f2; --card:#ffffff; --text:#26211a; --muted:#6b6355;
   --gold:#8b6914; --blue:#176e94; --green:#2e7d32; --red:#b03030; --edge:#d9d2bf;
 }
@@ -77,7 +78,7 @@ a.xref:hover{border-bottom-style:solid;}
   width:40px; height:40px; border-radius:8px; padding:0; cursor:pointer;
   font-size:1.15rem; display:flex; align-items:center; justify-content:center;
 }
-[data-theme="light"] .theme-toggle, body.light .theme-toggle{background:#8b6914; color:#faf8f2;}
+[data-legacy-theme="light"] .theme-toggle, body.legacy-light-theme .theme-toggle{background:#8b6914; color:#faf8f2;}
 #poams-hub-nav{
   position:fixed; top:0; left:0; right:0; z-index:9999; height:44px;
   display:flex; align-items:center; justify-content:space-between;
@@ -96,15 +97,17 @@ a.xref:hover{border-bottom-style:solid;}
 #poams-hub-nav .phn-center{display:flex; flex-direction:column; align-items:center; line-height:1.2;}
 #poams-hub-nav .phn-title{font-weight:600; color:#e8e8f0; font-size:12px;}
 #poams-hub-nav .phn-pos{font-size:10px; color:rgba(212,175,55,0.6); letter-spacing:.05em;}
-[data-theme="light"] #poams-hub-nav, body.light #poams-hub-nav{background:rgba(250,248,242,0.95); border-bottom-color:rgba(139,105,20,0.25);}
-[data-theme="light"] #poams-hub-nav a, body.light #poams-hub-nav a{color:#8b6914;}
-body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
-[data-theme="light"] #poams-hub-nav .phn-title, body.light #poams-hub-nav .phn-title{color:#2a2318;}
+[data-legacy-theme="light"] #poams-hub-nav, body.legacy-light-theme #poams-hub-nav{background:rgba(250,248,242,0.95); border-bottom-color:rgba(139,105,20,0.25);}
+[data-legacy-theme="light"] #poams-hub-nav a, body.legacy-light-theme #poams-hub-nav a{color:#8b6914;}
+body.legacy-light-theme #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
+[data-legacy-theme="light"] #poams-hub-nav .phn-title, body.legacy-light-theme #poams-hub-nav .phn-title{color:#2a2318;}
 @media (max-width:640px){.phn-hide-sm{display:none;}}
 </style>
 <link rel="stylesheet" href="./styles/calibrated-carryover.css">
+<link rel="stylesheet" href="./reader-standard.css?v=20261011a">
+<!-- POAMS LISTEN BEGIN --><link rel="stylesheet" href="podcast-listen.css"><script defer src="podcast-listen.js"></script><!-- POAMS LISTEN END -->
 </head>
-<body>
+<body class="reader-standard">
 
 <div id="poams-hub-nav">
   <a href="./mass-as-trapped-rate.html" title="Mass as Trapped Rate">← <span class="phn-hide-sm">Mass as Trapped Rate</span></a>
@@ -121,6 +124,14 @@ body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
 
 <header>
   <h1>Pair-Writhe Radial Continuation</h1>
+<!-- POAMS LISTEN BEGIN -->
+<div class="poams-listen" data-podcast="17" data-podcast-title="Newton">
+<div class="pl-pills"><button class="pl-pill" type="button" aria-label="Audio: Newton" aria-expanded="false" aria-controls="pl-player-17">AUDIO</button><a class="pl-video" href="https://notebook.google.com/notebook/88787c2a-8375-4c16-96d9-03c30df39bab" target="_blank" rel="noopener noreferrer" aria-label="Video in NotebookLM: Newton (opens in a new tab)">VIDEO</a></div>
+<div id="pl-player-17" class="pl-player" hidden><button class="pl-play" type="button" aria-label="Play podcast" disabled>▶</button><input class="pl-seek" type="range" min="0" max="100" step="0.1" value="0" aria-label="Seek podcast" disabled><span class="pl-timer">0:00 / 0:00</span></div>
+<p class="pl-error" role="status" hidden></p><audio preload="none" src="https://audio.resonantmachines.us/podcasts/17/00635b264163090e1cf6bd896f495faac1d90fe021cf794f5110b85da648922b.mp3"></audio>
+</div>
+<!-- POAMS LISTEN END -->
+
   <p class="nr-provenance" style="font-size:0.8em;font-style:italic;opacity:0.72;line-height:1.5;margin:0.5em 0 1em;text-align:center">This exhibit is an extrapolation of the foundational work of N. Vivian &ldquo;Viv&rdquo; Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
   <div class="sub">The measured inverse-square law from tangled retained rate, relational cuts, and prevented two-centre continuation</div>
   </header>

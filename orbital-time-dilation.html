@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
+<script src="./reader-theme.js?v=20261011a"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Orbital Time Dilation — One Paper, Worked Live</title>
@@ -8,7 +9,7 @@
 <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 <style>
 :root{--bg:#0d0d18;--panel:#131322;--edge:#26263a;--gold:#d4af37;--blue:#5bc8f5;--red:#e06060;--green:#63d67e;--fg:#dfe0ea;--muted:#9a9bb0;}
-body.light{--bg:#faf8f2;--panel:#ffffff;--edge:#d9d2bf;--gold:#8b6914;--blue:#176e94;--red:#b03030;--green:#2e7d32;--fg:#26211a;--muted:#6b6355;}
+body.legacy-light-theme{--bg:#faf8f2;--panel:#ffffff;--edge:#d9d2bf;--gold:#8b6914;--blue:#176e94;--red:#b03030;--green:#2e7d32;--fg:#26211a;--muted:#6b6355;}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font-family:Georgia,'Times New Roman',serif;line-height:1.65;transition:background .3s,color .3s;}
 header{padding:44px 22px 22px;border-bottom:1px solid var(--edge);text-align:center;}
@@ -20,10 +21,10 @@ header h1{margin:0 0 14px;font-size:27px;line-height:1.35;color:var(--gold);font
 #poams-hub-nav .phn-center{display:flex;flex-direction:column;align-items:center;line-height:1.2;}
 #poams-hub-nav .phn-title{font-weight:600;color:var(--fg);font-size:12px;}
 #poams-hub-nav .phn-pos{font-size:10px;color:rgba(212,175,55,0.6);letter-spacing:.05em;}
-[data-theme="light"] #poams-hub-nav,body.light #poams-hub-nav{background:rgba(250,248,242,0.95);border-bottom-color:rgba(139,105,20,0.25);}
-[data-theme="light"] #poams-hub-nav a,body.light #poams-hub-nav a{color:#8b6914;}
-body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
-[data-theme="light"] #poams-hub-nav .phn-title,body.light #poams-hub-nav .phn-title{color:#2a2318;}
+[data-legacy-theme="light"] #poams-hub-nav,body.legacy-light-theme #poams-hub-nav{background:rgba(250,248,242,0.95);border-bottom-color:rgba(139,105,20,0.25);}
+[data-legacy-theme="light"] #poams-hub-nav a,body.legacy-light-theme #poams-hub-nav a{color:#8b6914;}
+body.legacy-light-theme #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
+[data-legacy-theme="light"] #poams-hub-nav .phn-title,body.legacy-light-theme #poams-hub-nav .phn-title{color:#2a2318;}
 @media (max-width:640px){.phn-hide-sm{display:none;}}
 body{padding-top:72px;}
 main{max-width:980px;margin:0 auto;padding:10px 18px 40px;}
@@ -181,79 +182,81 @@ section.demo{margin-bottom:8px;}
 #gps-sec .stat .lbl{font-size:.7em;color:#888}
 /* ===== theme toggle + light-mode overrides (cosmetic; dark untouched) ===== */
 .theme-toggle{position:fixed;top:54px;right:12px;z-index:1000;background:var(--gold);color:var(--bg);border:none;width:40px;height:40px;border-radius:8px;padding:0;cursor:pointer;font-size:1.15rem;display:flex;align-items:center;justify-content:center}
-body.light .tag.prov{background:#dbe8f0;color:#176e94}
+body.legacy-light-theme .tag.prov{background:#dbe8f0;color:#176e94}
 /* circular */
-body.light #circular-sec canvas{background:#f6f3ea;border-color:#d9d2bf}
-body.light #circular-sec .explanation{background:#ffffff;border-color:#d9d2bf}
-body.light #circular-sec .eq-label,body.light #circular-sec .gold{color:#8b6914}
-body.light #circular-sec .blue{color:#176e94}
-body.light #circular-sec .clock-box{background:#f6f3ea;border-color:#d9d2bf}
-body.light #circular-sec .clock-box.dst,body.light #circular-sec .clock-box.proper.blue-mode{border-color:#176e94}
-body.light #circular-sec .clock-box.proper.gold-mode{border-color:#8b6914}
-body.light #circular-sec .clock-label{color:#6b6355}
-body.light #circular-sec .clock-box.dst .clock-val,body.light #circular-sec .clock-box.proper.blue-mode .clock-val{color:#176e94}
-body.light #circular-sec .clock-box.proper.gold-mode .clock-val{color:#8b6914}
-body.light #circular-sec .controls{background:#ffffff;border-color:#d9d2bf}
-body.light #circular-sec .range-info{color:#6b6355}
-body.light #circular-sec .toggle-btn.velocity{background:#dbe8f0;color:#176e94;border-color:#176e94}
-body.light #circular-sec .toggle-btn.orbital{background:#f0e6c8;color:#8b6914;border-color:#8b6914}
-body.light #circular-sec .info-box{background:#f6f3ea;border-color:#d9d2bf}
-body.light #circular-sec .info-box .factor.blue{color:#176e94}
-body.light #circular-sec .info-box .factor.gold{color:#8b6914}
-body.light #circular-sec .reset-btn{border-color:#c9c2ae;color:#26211a}
-body.light #circular-sec .reset-btn:hover{background:#e8e0cc}
-body.light #circular-sec .speed-controls button{border-color:#c9c2ae;color:#26211a}
-body.light #circular-sec .speed-controls button.active{background:#8b6914;color:#faf8f2;border-color:#8b6914}
+body.legacy-light-theme #circular-sec canvas{background:#f6f3ea;border-color:#d9d2bf}
+body.legacy-light-theme #circular-sec .explanation{background:#ffffff;border-color:#d9d2bf}
+body.legacy-light-theme #circular-sec .eq-label,body.legacy-light-theme #circular-sec .gold{color:#8b6914}
+body.legacy-light-theme #circular-sec .blue{color:#176e94}
+body.legacy-light-theme #circular-sec .clock-box{background:#f6f3ea;border-color:#d9d2bf}
+body.legacy-light-theme #circular-sec .clock-box.dst,body.legacy-light-theme #circular-sec .clock-box.proper.blue-mode{border-color:#176e94}
+body.legacy-light-theme #circular-sec .clock-box.proper.gold-mode{border-color:#8b6914}
+body.legacy-light-theme #circular-sec .clock-label{color:#6b6355}
+body.legacy-light-theme #circular-sec .clock-box.dst .clock-val,body.legacy-light-theme #circular-sec .clock-box.proper.blue-mode .clock-val{color:#176e94}
+body.legacy-light-theme #circular-sec .clock-box.proper.gold-mode .clock-val{color:#8b6914}
+body.legacy-light-theme #circular-sec .controls{background:#ffffff;border-color:#d9d2bf}
+body.legacy-light-theme #circular-sec .range-info{color:#6b6355}
+body.legacy-light-theme #circular-sec .toggle-btn.velocity{background:#dbe8f0;color:#176e94;border-color:#176e94}
+body.legacy-light-theme #circular-sec .toggle-btn.orbital{background:#f0e6c8;color:#8b6914;border-color:#8b6914}
+body.legacy-light-theme #circular-sec .info-box{background:#f6f3ea;border-color:#d9d2bf}
+body.legacy-light-theme #circular-sec .info-box .factor.blue{color:#176e94}
+body.legacy-light-theme #circular-sec .info-box .factor.gold{color:#8b6914}
+body.legacy-light-theme #circular-sec .reset-btn{border-color:#c9c2ae;color:#26211a}
+body.legacy-light-theme #circular-sec .reset-btn:hover{background:#e8e0cc}
+body.legacy-light-theme #circular-sec .speed-controls button{border-color:#c9c2ae;color:#26211a}
+body.legacy-light-theme #circular-sec .speed-controls button.active{background:#8b6914;color:#faf8f2;border-color:#8b6914}
 /* geodesic */
-body.light #geodesic-sec .explanation{background:#ffffff}
-body.light #geodesic-sec .panel{background:#ffffff}
-body.light #geodesic-sec .panel h2,body.light #geodesic-sec .highlight,body.light #geodesic-sec .a-val{color:#8b6914}
-body.light #geodesic-sec .snap-btn{background:#8b6914;color:#faf8f2}
-body.light #geodesic-sec .snap-btn:hover{background:#a67d10}
-body.light #geodesic-sec .bar-label{color:#6b6355}
-body.light #geodesic-sec .eq-row{background:#f6f3ea}
-body.light #geodesic-sec .eq-row .eq-label{color:#6b6355}
-body.light #geodesic-sec .mismatch{color:#b03030}
+body.legacy-light-theme #geodesic-sec .explanation{background:#ffffff}
+body.legacy-light-theme #geodesic-sec .panel{background:#ffffff}
+body.legacy-light-theme #geodesic-sec .panel h2,body.legacy-light-theme #geodesic-sec .highlight,body.legacy-light-theme #geodesic-sec .a-val{color:#8b6914}
+body.legacy-light-theme #geodesic-sec .snap-btn{background:#8b6914;color:#faf8f2}
+body.legacy-light-theme #geodesic-sec .snap-btn:hover{background:#a67d10}
+body.legacy-light-theme #geodesic-sec .bar-label{color:#6b6355}
+body.legacy-light-theme #geodesic-sec .eq-row{background:#f6f3ea}
+body.legacy-light-theme #geodesic-sec .eq-row .eq-label{color:#6b6355}
+body.legacy-light-theme #geodesic-sec .mismatch{color:#b03030}
 /* ellipse */
-body.light #ellipse-sec canvas{background:#f6f3ea;border-color:#d9d2bf}
-body.light #ellipse-sec .card{background:#ffffff;border-color:#d9d2bf}
-body.light #ellipse-sec .card h3,body.light #ellipse-sec .clock-box.proper .time,body.light #ellipse-sec .stat .val,body.light #ellipse-sec .explanation em{color:#8b6914}
-body.light #ellipse-sec .clock-box{background:#f6f3ea}
-body.light #ellipse-sec .clock-box .label{color:#6b6355}
-body.light #ellipse-sec .clock-box .time{color:#26211a}
-body.light #ellipse-sec .stat{border-bottom-color:#e2dcc9}
-body.light #ellipse-sec .explanation{color:#6b6355}
-body.light #ellipse-sec .btn{border-color:#8b6914;color:#8b6914}
-body.light #ellipse-sec .btn:hover{background:#f3ecd6}
-body.light #ellipse-sec .btn.active{background:#eaddb4}
+body.legacy-light-theme #ellipse-sec canvas{background:#f6f3ea;border-color:#d9d2bf}
+body.legacy-light-theme #ellipse-sec .card{background:#ffffff;border-color:#d9d2bf}
+body.legacy-light-theme #ellipse-sec .card h3,body.legacy-light-theme #ellipse-sec .clock-box.proper .time,body.legacy-light-theme #ellipse-sec .stat .val,body.legacy-light-theme #ellipse-sec .explanation em{color:#8b6914}
+body.legacy-light-theme #ellipse-sec .clock-box{background:#f6f3ea}
+body.legacy-light-theme #ellipse-sec .clock-box .label{color:#6b6355}
+body.legacy-light-theme #ellipse-sec .clock-box .time{color:#26211a}
+body.legacy-light-theme #ellipse-sec .stat{border-bottom-color:#e2dcc9}
+body.legacy-light-theme #ellipse-sec .explanation{color:#6b6355}
+body.legacy-light-theme #ellipse-sec .btn{border-color:#8b6914;color:#8b6914}
+body.legacy-light-theme #ellipse-sec .btn:hover{background:#f3ecd6}
+body.legacy-light-theme #ellipse-sec .btn.active{background:#eaddb4}
 /* precession */
-body.light #precession-sec canvas{background:#f6f3ea;border-color:#d9d2bf}
-body.light #precession-sec .card{background:#ffffff;border-color:#d9d2bf}
-body.light #precession-sec .card h3,body.light #precession-sec .val,body.light #precession-sec .eq-highlight,body.light #precession-sec .stats span{color:#8b6914}
-body.light #precession-sec label,body.light #precession-sec .explain{color:#6b6355}
-body.light #precession-sec button{background:#8b6914;color:#faf8f2}
-body.light #precession-sec button:hover{background:#a67d10}
-body.light #precession-sec .explain strong{color:#26211a}
+body.legacy-light-theme #precession-sec canvas{background:#f6f3ea;border-color:#d9d2bf}
+body.legacy-light-theme #precession-sec .card{background:#ffffff;border-color:#d9d2bf}
+body.legacy-light-theme #precession-sec .card h3,body.legacy-light-theme #precession-sec .val,body.legacy-light-theme #precession-sec .eq-highlight,body.legacy-light-theme #precession-sec .stats span{color:#8b6914}
+body.legacy-light-theme #precession-sec label,body.legacy-light-theme #precession-sec .explain{color:#6b6355}
+body.legacy-light-theme #precession-sec button{background:#8b6914;color:#faf8f2}
+body.legacy-light-theme #precession-sec button:hover{background:#a67d10}
+body.legacy-light-theme #precession-sec .explain strong{color:#26211a}
 /* gps */
-body.light #gps-sec .panel{background:#ffffff;border-color:#d9d2bf}
-body.light #gps-sec .panel h2{color:#8b6914;border-bottom-color:#d9d2bf}
-body.light #gps-sec .clock-card{background:#f6f3ea;border-color:#d9d2bf}
-body.light #gps-sec .clock-card h3,body.light #gps-sec .speed-label,body.light #gps-sec .explain em,body.light #gps-sec .eq{color:#8b6914}
-body.light #gps-sec .clock-card.ground .clock-time{color:#176e94}
-body.light #gps-sec .clock-card.velocity .clock-time{color:#b3651a}
-body.light #gps-sec .clock-time,body.light #gps-sec .clock-card.full .clock-time{color:#2e7d32}
-body.light #gps-sec .drift{color:#6b6355}
-body.light #gps-sec .drift span,body.light #gps-sec .stat .val{color:#26211a}
-body.light #gps-sec .error-display{background:#f7e3e0;border-color:#b03030}
-body.light #gps-sec .error-display .big{color:#b03030}
-body.light #gps-sec .error-display .label,body.light #gps-sec .stat .lbl{color:#6b6355}
-body.light #gps-sec .controls label{color:#6b6355}
-body.light #gps-sec .controls button{background:#8b6914;color:#faf8f2}
-body.light #gps-sec .controls button:hover{background:#a67d10}
-body.light #gps-sec .explain{color:#6b6355}
+body.legacy-light-theme #gps-sec .panel{background:#ffffff;border-color:#d9d2bf}
+body.legacy-light-theme #gps-sec .panel h2{color:#8b6914;border-bottom-color:#d9d2bf}
+body.legacy-light-theme #gps-sec .clock-card{background:#f6f3ea;border-color:#d9d2bf}
+body.legacy-light-theme #gps-sec .clock-card h3,body.legacy-light-theme #gps-sec .speed-label,body.legacy-light-theme #gps-sec .explain em,body.legacy-light-theme #gps-sec .eq{color:#8b6914}
+body.legacy-light-theme #gps-sec .clock-card.ground .clock-time{color:#176e94}
+body.legacy-light-theme #gps-sec .clock-card.velocity .clock-time{color:#b3651a}
+body.legacy-light-theme #gps-sec .clock-time,body.legacy-light-theme #gps-sec .clock-card.full .clock-time{color:#2e7d32}
+body.legacy-light-theme #gps-sec .drift{color:#6b6355}
+body.legacy-light-theme #gps-sec .drift span,body.legacy-light-theme #gps-sec .stat .val{color:#26211a}
+body.legacy-light-theme #gps-sec .error-display{background:#f7e3e0;border-color:#b03030}
+body.legacy-light-theme #gps-sec .error-display .big{color:#b03030}
+body.legacy-light-theme #gps-sec .error-display .label,body.legacy-light-theme #gps-sec .stat .lbl{color:#6b6355}
+body.legacy-light-theme #gps-sec .controls label{color:#6b6355}
+body.legacy-light-theme #gps-sec .controls button{background:#8b6914;color:#faf8f2}
+body.legacy-light-theme #gps-sec .controls button:hover{background:#a67d10}
+body.legacy-light-theme #gps-sec .explain{color:#6b6355}
 </style>
+<link rel="stylesheet" href="./reader-standard.css?v=20261011a">
+<!-- POAMS LISTEN BEGIN --><link rel="stylesheet" href="podcast-listen.css"><script defer src="podcast-listen.js"></script><!-- POAMS LISTEN END -->
 </head>
-<body>
+<body class="reader-standard">
 <div id="poams-hub-nav">
   <a href="./cone-model.html" title="The Cone Model">← <span class="phn-hide-sm">The Cone Model</span></a>
   <div class="phn-center">
@@ -284,6 +287,14 @@ try{if(localStorage.getItem('poams-theme')==='light'){document.body.classList.ad
 </script>
 <header>
   <h1>Orbital Time Dilation</h1>
+<!-- POAMS LISTEN BEGIN -->
+<div class="poams-listen" data-podcast="29" data-podcast-title="Orbital Time Dilation">
+<div class="pl-pills"><button class="pl-pill" type="button" aria-label="Audio: Orbital Time Dilation" aria-expanded="false" aria-controls="pl-player-29">AUDIO</button><a class="pl-video" href="https://notebook.google.com/notebook/8df0a0e5-5035-456f-987c-04c86fc456a8" target="_blank" rel="noopener noreferrer" aria-label="Video in NotebookLM: Orbital Time Dilation (opens in a new tab)">VIDEO</a></div>
+<div id="pl-player-29" class="pl-player" hidden><button class="pl-play" type="button" aria-label="Play podcast" disabled>▶</button><input class="pl-seek" type="range" min="0" max="100" step="0.1" value="0" aria-label="Seek podcast" disabled><span class="pl-timer">0:00 / 0:00</span></div>
+<p class="pl-error" role="status" hidden></p><audio preload="none" src="https://audio.resonantmachines.us/podcasts/29/f15aa14a79011ca5242dc9a41f311c015c57585dd7bb5f81a953a24348a98a0c.mp3"></audio>
+</div>
+<!-- POAMS LISTEN END -->
+
 <p class="nr-provenance" style="font-size:0.8em;font-style:italic;opacity:0.72;line-height:1.6;margin:0 auto 1.2em;max-width:820px;text-align:center">This exhibit is an extrapolation of the foundational work of N. Vivian “Viv” Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
   <div class="sub">One Paper, Worked Live</div>
 </header>

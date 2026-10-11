@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="light">
 <head>
+<script src="./reader-theme.js?v=20261011a"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="NotebookLM audio discussions and video overviews for the Normal Realism and POAMS exhibits.">
@@ -11,7 +12,7 @@
   --fg:#e7e5df; --fg2:#aaa7b4; --gold:#c9a84c; --line:#2b2a3e;
   --shadow:0 12px 34px rgba(0,0,0,.22);
 }
-:root.light {
+:root.legacy-light-theme {
   --bg:#f7f4ec; --bg2:#eee9de; --surface:#fffdf8; --surface2:#f7f1e6;
   --fg:#28251f; --fg2:#686158; --gold:#896b1e; --line:#d7d0c2;
   --shadow:0 10px 28px rgba(52,42,24,.10);
@@ -32,7 +33,7 @@ h1 { margin:0; max-width:900px; color:var(--gold); font-size:1.5rem; font-weight
 .lede { max-width:800px; margin:.75rem 0 0; color:var(--fg2); font-size:.8rem; line-height:1.55; }
 .guide { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; margin:2rem 0 0; }
 .guide div { padding:1rem 1.1rem; border:1px solid var(--line); border-radius:12px; background:rgba(20,20,36,.6); }
-:root.light .guide div { background:rgba(255,253,248,.74); }
+:root.legacy-light-theme .guide div { background:rgba(255,253,248,.74); }
 .guide strong { display:block; margin-bottom:.16rem; color:var(--gold); font-size:.85rem; }
 .guide span { color:var(--fg2); font-size:.84rem; }
 main { padding:3.5rem 0 4.5rem; }
@@ -63,8 +64,9 @@ footer { padding:0 0 3rem; color:var(--fg2); font-size:.8rem; text-align:center;
   .resource { padding:.85rem .9rem; }
 }
 </style>
+<link rel="stylesheet" href="./reader-standard.css?v=20261011a">
 </head>
-<body>
+<body class="reader-standard">
 <button class="theme" id="theme" type="button" aria-label="Toggle light and dark theme">☀️</button>
 <header class="hero">
   <div class="hero-inner">

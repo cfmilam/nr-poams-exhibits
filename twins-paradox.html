@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
+<script src="./reader-theme.js?v=20261011a"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Twins Paradox Through POAMS | Interactive Visualization</title>
@@ -37,7 +38,7 @@
             --shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
 
-        [data-theme="light"] {
+        [data-legacy-theme="light"] {
             --bg-primary: #ffffff;
             --bg-secondary: #f3f4f6;
             --bg-tertiary: #e9ebef;
@@ -425,7 +426,7 @@
         .table-scroll { overflow-x: auto; }
         .panel a { color: var(--accent-blue); }
         .scope-note { color: var(--text-secondary); margin: 0.8rem 0; }
-        [data-theme="light"] { --accent-gold:#826300; --accent-blue:#086b98; --accent-green:#166534; --accent-red:#b91c1c; }
+        [data-legacy-theme="light"] { --accent-gold:#826300; --accent-blue:#086b98; --accent-green:#166534; --accent-red:#b91c1c; }
         @media (max-width:768px) {
             .phn-hide-sm { display:none; }
             .header h1 { font-size:1.85rem; line-height:1.2; }
@@ -454,8 +455,8 @@
       font-size: 13px;
       box-sizing: border-box;
     }
-    [data-theme="light"] #poams-hub-nav,
-    body.light #poams-hub-nav {
+    [data-legacy-theme="light"] #poams-hub-nav,
+    body.legacy-light-theme #poams-hub-nav {
       background: rgba(250, 248, 242, 0.95);
       border-bottom-color: rgba(139, 105, 20, 0.25);
     }
@@ -471,8 +472,8 @@
       white-space: nowrap;
       font-weight: 500;
     }
-    [data-theme="light"] #poams-hub-nav a,
-    body.light #poams-hub-nav a { color: #8b6914; }
+    [data-legacy-theme="light"] #poams-hub-nav a,
+    body.legacy-light-theme #poams-hub-nav a { color: #8b6914; }
     #poams-hub-nav a:hover { background: rgba(201, 168, 76, 0.12); }
     #poams-hub-nav .phn-disabled {
       color: rgba(201, 168, 76, 0.28);
@@ -493,8 +494,8 @@
       color: #e8e4d8;
       font-size: 12px;
     }
-    [data-theme="light"] #poams-hub-nav .phn-title,
-    body.light #poams-hub-nav .phn-title { color: #2a2318; }
+    [data-legacy-theme="light"] #poams-hub-nav .phn-title,
+    body.legacy-light-theme #poams-hub-nav .phn-title { color: #2a2318; }
     #poams-hub-nav .phn-pos {
       font-size: 10px;
       color: rgba(201, 168, 76, 0.6);
@@ -508,8 +509,10 @@
 .theme-toggle,#theme-btn{position:fixed !important;top:54px;right:12px;z-index:1200;width:40px;height:40px;padding:0;border:none;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;line-height:1;cursor:pointer;background:var(--accent-gold,var(--accent,var(--gold,#8b6914)));color:var(--bg,var(--bg-dark,var(--bg-primary,#ffffff)));box-shadow:0 2px 8px rgba(0,0,0,.18);}
 </style>
 <link rel="stylesheet" href="./exhibit-presentation.css">
+<link rel="stylesheet" href="./reader-standard.css?v=20261011a">
+<!-- POAMS LISTEN BEGIN --><link rel="stylesheet" href="podcast-listen.css"><script defer src="podcast-listen.js"></script><!-- POAMS LISTEN END -->
 </head>
-<body class="standard-exhibit">
+<body class="reader-standard standard-exhibit">
 <div id="poams-hub-nav">
   <a href="./solar-system.html" title="The Solar System">← <span class="phn-hide-sm">The Solar System</span></a>
   <div class="phn-center">
@@ -525,6 +528,14 @@
     <header class="header">
         <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle light/dark theme">☀️</button>
         <h1>The Twins Paradox Through POAMS</h1>
+<!-- POAMS LISTEN BEGIN -->
+<div class="poams-listen" data-podcast="28" data-podcast-title="Twins Non-Paradox">
+<div class="pl-pills"><button class="pl-pill" type="button" aria-label="Audio: Twins Non-Paradox" aria-expanded="false" aria-controls="pl-player-28">AUDIO</button><a class="pl-video" href="https://notebook.google.com/notebook/f3336c44-7246-4b2e-92cb-feff1a4e1783" target="_blank" rel="noopener noreferrer" aria-label="Video in NotebookLM: Twins Non-Paradox (opens in a new tab)">VIDEO</a></div>
+<div id="pl-player-28" class="pl-player" hidden><button class="pl-play" type="button" aria-label="Play podcast" disabled>▶</button><input class="pl-seek" type="range" min="0" max="100" step="0.1" value="0" aria-label="Seek podcast" disabled><span class="pl-timer">0:00 / 0:00</span></div>
+<p class="pl-error" role="status" hidden></p><audio preload="none" src="https://audio.resonantmachines.us/podcasts/28/4e4d90a9ebbb70d488386ca4a5e1a1012c58d94446d6e6a8c2b85c2bcae1d3b1.mp3"></audio>
+</div>
+<!-- POAMS LISTEN END -->
+
 <p class="nr-provenance" style="font-size:0.8em;font-style:italic;opacity:0.72;line-height:1.5;margin:0.5em 0 1em;text-align:center">This exhibit is an extrapolation of the foundational work of N. Vivian “Viv” Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
         <p>An Interactive Exploration of Time Dilation via Pope-Osborne Angular Momentum Synthesis</p>
     </header>

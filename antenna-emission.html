@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
+<script src="./reader-theme.js?v=20261011a"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>POAMS: The Antenna, Demystified — Radio Emission as Angular-Momentum Bookkeeping</title>
@@ -24,7 +25,7 @@
   --radius:12px; --shadow:0 8px 32px rgba(0,0,0,0.4); --shadow-h:0 16px 48px rgba(201,168,76,0.15);
   --transition:all .3s cubic-bezier(.4,0,.2,1);
 }
-[data-theme="light"]{
+[data-legacy-theme="light"]{
   --bg:#faf8f2; --bg2:#f3f4f6; --bg3:#e9ebef;
   --surface:rgba(0,0,0,0.03); --surface2:rgba(0,0,0,0.06); --border:rgba(0,0,0,0.10);
   --fg:#2a2318; --fg2:#6b5d48; --gold:#8b6914; --gold2:#6b5210; --blue:#0369a1; --red:#b4462f;
@@ -135,8 +136,8 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:3rem 2re
       font-size: 13px;
       box-sizing: border-box;
     }
-    [data-theme="light"] #poams-hub-nav,
-    body.light #poams-hub-nav {
+    [data-legacy-theme="light"] #poams-hub-nav,
+    body.legacy-light-theme #poams-hub-nav {
       background: rgba(250, 248, 242, 0.95);
       border-bottom-color: rgba(139, 105, 20, 0.25);
     }
@@ -152,8 +153,8 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:3rem 2re
       white-space: nowrap;
       font-weight: 500;
     }
-    [data-theme="light"] #poams-hub-nav a,
-    body.light #poams-hub-nav a { color: #8b6914; }
+    [data-legacy-theme="light"] #poams-hub-nav a,
+    body.legacy-light-theme #poams-hub-nav a { color: #8b6914; }
     #poams-hub-nav a:hover { background: rgba(201, 168, 76, 0.12); }
     #poams-hub-nav .phn-disabled {
       color: rgba(201, 168, 76, 0.28);
@@ -174,8 +175,8 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:3rem 2re
       color: #e8e4d8;
       font-size: 12px;
     }
-    [data-theme="light"] #poams-hub-nav .phn-title,
-    body.light #poams-hub-nav .phn-title { color: #2a2318; }
+    [data-legacy-theme="light"] #poams-hub-nav .phn-title,
+    body.legacy-light-theme #poams-hub-nav .phn-title { color: #2a2318; }
     #poams-hub-nav .phn-pos {
       font-size: 10px;
       color: rgba(201, 168, 76, 0.6);
@@ -191,8 +192,10 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:3rem 2re
     }
 
 </style>
+<link rel="stylesheet" href="./reader-standard.css?v=20261011a">
+<!-- POAMS LISTEN BEGIN --><link rel="stylesheet" href="podcast-listen.css"><script defer src="podcast-listen.js"></script><!-- POAMS LISTEN END -->
 </head>
-<body>
+<body class="reader-standard">
 <div id="poams-hub-nav">
   <a href="./heat-and-coherence.html" title="Heat & Coherence">← <span class="phn-hide-sm">Heat & Coherence</span></a>
   <div class="phn-center">
@@ -210,6 +213,14 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:3rem 2re
 <section class="hero">
   <div class="hero-eyebrow">Normal Realism · POAMS · Electromagnetism</div>
   <h1>The Antenna,<br><em>Demystified</em></h1>
+<!-- POAMS LISTEN BEGIN -->
+<div class="poams-listen" data-podcast="45" data-podcast-title="Antenna Emission">
+<div class="pl-pills"><button class="pl-pill" type="button" aria-label="Audio: Antenna Emission" aria-expanded="false" aria-controls="pl-player-45">AUDIO</button><a class="pl-video" href="https://notebook.google.com/notebook/faa4482e-5bba-49ba-9872-600f2b8513ee" target="_blank" rel="noopener noreferrer" aria-label="Video in NotebookLM: Antenna Emission (opens in a new tab)">VIDEO</a></div>
+<div id="pl-player-45" class="pl-player" hidden><button class="pl-play" type="button" aria-label="Play podcast" disabled>▶</button><input class="pl-seek" type="range" min="0" max="100" step="0.1" value="0" aria-label="Seek podcast" disabled><span class="pl-timer">0:00 / 0:00</span></div>
+<p class="pl-error" role="status" hidden></p><audio preload="none" src="https://audio.resonantmachines.us/podcasts/45/aee7355f22f92c051132f486b89ffc1fc56aca83e849a6dcab25279926161541.mp3"></audio>
+</div>
+<!-- POAMS LISTEN END -->
+
 <p class="nr-provenance" style="font-size:0.8em;font-style:italic;opacity:0.72;line-height:1.5;margin:0.5em auto 1em;text-align:center">This exhibit is an extrapolation of the foundational work of N. Vivian “Viv” Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
   <p class="hero-sub">A powered antenna does not fling energy into empty space. It keeps a ledger. Radio emission restated as angular momentum balancing its books — no field in a void, no particle in flight, no magic.</p>
   <p style="font-size:.82rem;opacity:.75;text-align:center;margin:.4em auto 0">Sibling exhibit: <a href="./poams-electricity.html" style="color:#c9a84c">POAMS &amp; Electricity</a> — the same hand-off principle in the proposed one-sink case of a bound circuit. This page states the many-sink hypothesis: emission into a distributed census. The applications layer built on both is <a href="./poams-telecommunications.html" style="color:#c9a84c">POAMS &amp; Telecommunications</a>.</p>

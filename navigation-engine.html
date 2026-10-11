@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
+<script src="./reader-theme.js?v=20261011a"></script>
 <meta charset="UTF-8">
 <link rel="icon" href="data:,">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,7 @@
 <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 <style>
 :root{--bg:#0d0d18;--bg2:#10101e;--gold:#d4af37;--blue:#5bc8f5;--fg:#dfe0ea;--dim:#9a9bb0;--border:#26263a;--card:#131322;--good:#63d67e;--bad:#e06060}
-[data-theme="light"]{--bg:#faf8f2;--bg2:#f3f4f6;--gold:#b8860b;--blue:#0277bd;--fg:#212529;--dim:#6c757d;--border:#dee2e6;--card:#ffffff}
+[data-legacy-theme="light"]{--bg:#faf8f2;--bg2:#f3f4f6;--gold:#b8860b;--blue:#0277bd;--fg:#212529;--dim:#6c757d;--border:#dee2e6;--card:#ffffff}
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:var(--bg);color:var(--fg);font-family:Georgia,'Times New Roman',serif;line-height:1.65;padding:0 0 4rem}
 #poams-hub-nav{display:flex;align-items:center;justify-content:space-between;gap:.5rem;padding:.5rem 1rem;background:var(--bg2);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;font-size:.9rem}
@@ -34,7 +35,7 @@ p{margin:.7rem 0}a{color:var(--gold)}
 .readout .k{color:var(--dim);display:inline-block;min-width:200px}
 .readout .v{color:var(--blue);font-weight:700}
 canvas{background:#0f1830;border:1px solid var(--border);border-radius:10px;display:block;margin:0 auto;max-width:100%}
-[data-theme="light"] canvas{background:#eef1f7}
+[data-legacy-theme="light"] canvas{background:#eef1f7}
 .gauge{height:26px;background:var(--bg2);border:1px solid var(--border);border-radius:13px;overflow:hidden;margin:.5rem 0;position:relative}
 .gauge-fill{height:100%;background:linear-gradient(90deg,var(--blue),var(--gold));transition:width .1s,background .1s}
 .eqbox{background:var(--bg2);border-left:3px solid var(--gold);padding:.6rem 1rem;margin:.8rem 0;overflow-x:auto}
@@ -60,8 +61,10 @@ button:disabled{opacity:.45;cursor:not-allowed}
 @media(max-width:480px){#poams-hub-nav .phn-title{font-size:12px;white-space:nowrap}#poams-hub-nav .phn-pos{font-size:9px;white-space:nowrap}#poams-hub-nav .phn-center>a{padding:4px 6px!important}}
 </style>
 <link rel="stylesheet" href="./styles/calibrated-carryover.css">
+<link rel="stylesheet" href="./reader-standard.css?v=20261011a">
+<!-- POAMS LISTEN BEGIN --><link rel="stylesheet" href="podcast-listen.css"><script defer src="podcast-listen.js"></script><!-- POAMS LISTEN END -->
 </head>
-<body>
+<body class="reader-standard">
 <div id="poams-hub-nav">
   <a href="./angular-momentum-calculator.html" title="AM Calculator">← <span class="phn-hide-sm">AM Calculator</span></a>
   <div class="phn-center">
@@ -76,6 +79,14 @@ button:disabled{opacity:.45;cursor:not-allowed}
 
 <main>
 <h1>The Navigation Engine</h1>
+<!-- POAMS LISTEN BEGIN -->
+<div class="poams-listen" data-podcast="32" data-podcast-title="The Navigation Engine">
+<div class="pl-pills"><button class="pl-pill" type="button" aria-label="Audio: The Navigation Engine" aria-expanded="false" aria-controls="pl-player-32">AUDIO</button><a class="pl-video" href="https://notebook.google.com/notebook/9b69f012-45a8-4074-9648-ac367cf1f27d" target="_blank" rel="noopener noreferrer" aria-label="Video in NotebookLM: The Navigation Engine (opens in a new tab)">VIDEO</a></div>
+<div id="pl-player-32" class="pl-player" hidden><button class="pl-play" type="button" aria-label="Play podcast" disabled>▶</button><input class="pl-seek" type="range" min="0" max="100" step="0.1" value="0" aria-label="Seek podcast" disabled><span class="pl-timer">0:00 / 0:00</span></div>
+<p class="pl-error" role="status" hidden></p><audio preload="none" src="https://audio.resonantmachines.us/podcasts/32/31203cc901a91f44a56e2253f6eb65016ae6a36c413ccecafbaf6652483b64ad.mp3"></audio>
+</div>
+<!-- POAMS LISTEN END -->
+
 <p class="nr-provenance" style="font-size:0.8em;font-style:italic;opacity:0.72;line-height:1.5;margin:0.5em 0 1em;text-align:center">This exhibit is an extrapolation of the foundational work of N. Vivian “Viv” Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
 
 <p class="subtitle">Normal Realism / POAMS — a conditional orbital calculator, with source and model boundaries</p>

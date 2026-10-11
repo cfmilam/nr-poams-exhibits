@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
+<script src="./reader-theme.js?v=20261011a"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>A Cone-Model of Time-Dilation — N. Vivian Pope (1986)</title>
@@ -8,7 +9,7 @@
 <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 <style>
 :root{--bg:#0d0d18;--panel:#131322;--edge:#26263a;--gold:#d4af37;--blue:#5bc8f5;--red:#e06060;--green:#63d67e;--fg:#dfe0ea;--muted:#9a9bb0;}
-body.light{--bg:#faf8f2;--panel:#ffffff;--edge:#d9d2bf;--gold:#8b6914;--blue:#176e94;--red:#b03030;--green:#2e7d32;--fg:#26211a;--muted:#6b6355;}
+body.legacy-light-theme{--bg:#faf8f2;--panel:#ffffff;--edge:#d9d2bf;--gold:#8b6914;--blue:#176e94;--red:#b03030;--green:#2e7d32;--fg:#26211a;--muted:#6b6355;}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font-family:Georgia,'Times New Roman',serif;line-height:1.65;transition:background .3s,color .3s;}
 header{padding:44px 22px 22px;border-bottom:1px solid var(--edge);text-align:center;}
@@ -20,10 +21,10 @@ header h1{margin:0 0 14px;font-size:27px;line-height:1.35;color:var(--gold);font
 #poams-hub-nav .phn-center{display:flex;flex-direction:column;align-items:center;line-height:1.2;}
 #poams-hub-nav .phn-title{font-weight:600;color:var(--fg);font-size:12px;}
 #poams-hub-nav .phn-pos{font-size:10px;color:rgba(212,175,55,0.6);letter-spacing:.05em;}
-[data-theme="light"] #poams-hub-nav,body.light #poams-hub-nav{background:rgba(250,248,242,0.95);border-bottom-color:rgba(139,105,20,0.25);}
-[data-theme="light"] #poams-hub-nav a,body.light #poams-hub-nav a{color:#8b6914;}
-body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
-[data-theme="light"] #poams-hub-nav .phn-title,body.light #poams-hub-nav .phn-title{color:#2a2318;}
+[data-legacy-theme="light"] #poams-hub-nav,body.legacy-light-theme #poams-hub-nav{background:rgba(250,248,242,0.95);border-bottom-color:rgba(139,105,20,0.25);}
+[data-legacy-theme="light"] #poams-hub-nav a,body.legacy-light-theme #poams-hub-nav a{color:#8b6914;}
+body.legacy-light-theme #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
+[data-legacy-theme="light"] #poams-hub-nav .phn-title,body.legacy-light-theme #poams-hub-nav .phn-title{color:#2a2318;}
 @media (max-width:640px){.phn-hide-sm{display:none;}}
 body{padding-top:72px;}
 main{max-width:900px;margin:0 auto;padding:10px 18px 40px;}
@@ -64,14 +65,16 @@ a{color:var(--blue);}
 .plate .platecap{color:#6b6650;}
 section.appendix{margin-top:30px;}
 .theme-toggle{position:fixed;top:54px;right:12px;z-index:1000;background:var(--gold);color:var(--bg);border:none;width:40px;height:40px;border-radius:8px;padding:0;cursor:pointer;font-size:1.15rem;display:flex;align-items:center;justify-content:center}
-body.light canvas{background:#f6f3ea}
-body.light .eqbox,body.light .equation{background:#f6f3ea}
-body.light button{background:#e8e0cc}
-body.light .tag.prov{background:#dbe8f0;color:#176e94}
-body.light .tag.edit{background:#f0e6c8;color:#8b6914}
+body.legacy-light-theme canvas{background:#f6f3ea}
+body.legacy-light-theme .eqbox,body.legacy-light-theme .equation{background:#f6f3ea}
+body.legacy-light-theme button{background:#e8e0cc}
+body.legacy-light-theme .tag.prov{background:#dbe8f0;color:#176e94}
+body.legacy-light-theme .tag.edit{background:#f0e6c8;color:#8b6914}
 </style>
+<link rel="stylesheet" href="./reader-standard.css?v=20261011a">
+<!-- POAMS LISTEN BEGIN --><link rel="stylesheet" href="podcast-listen.css"><script defer src="podcast-listen.js"></script><!-- POAMS LISTEN END -->
 </head>
-<body>
+<body class="reader-standard">
 <div id="poams-hub-nav">
   <a href="./twins-paradox.html" title="Twins Paradox">← <span class="phn-hide-sm">Twins Paradox</span></a>
   <div class="phn-center">
@@ -87,6 +90,14 @@ body.light .tag.edit{background:#f0e6c8;color:#8b6914}
 
 <header>
   <h1>A Cone-Model of Time-Dilation</h1>
+<!-- POAMS LISTEN BEGIN -->
+<div class="poams-listen" data-podcast="26" data-podcast-title="The Cone Model">
+<div class="pl-pills"><button class="pl-pill" type="button" aria-label="Audio: The Cone Model" aria-expanded="false" aria-controls="pl-player-26">AUDIO</button><a class="pl-video" href="https://notebook.google.com/notebook/80df1bf5-197f-4360-902a-e5b149f37aba" target="_blank" rel="noopener noreferrer" aria-label="Video in NotebookLM: The Cone Model (opens in a new tab)">VIDEO</a></div>
+<div id="pl-player-26" class="pl-player" hidden><button class="pl-play" type="button" aria-label="Play podcast" disabled>▶</button><input class="pl-seek" type="range" min="0" max="100" step="0.1" value="0" aria-label="Seek podcast" disabled><span class="pl-timer">0:00 / 0:00</span></div>
+<p class="pl-error" role="status" hidden></p><audio preload="none" src="https://audio.resonantmachines.us/podcasts/26/3de4cf7ab87683bdb5b3b379e238169c6475e9015a69be829fa892fc73930f93.mp3"></audio>
+</div>
+<!-- POAMS LISTEN END -->
+
 <p class="nr-provenance" style="font-size:0.8em;font-style:italic;opacity:0.72;line-height:1.6;margin:0 auto 1.2em;max-width:820px;text-align:center">This exhibit presents an unabridged transcription of a foundational source document of the philosophy of Normal Realism (NR): N. Vivian “Viv” Pope's cone-model paper, read at the 1986 EASST Conference. Pope's text and equations are transcribed below; the plates are editorial SVG reconstructions from the archived figures, and the interactive apparatus is added. The mathematics anticipates the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
   <div class="sub">Philosophy first: relativity is not Einstein's to own — it is the Theorem of Pythagoras applied to the
   observational dimensions of distance and time.</div>

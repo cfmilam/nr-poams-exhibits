@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
+<script src="./reader-theme.js?v=20261011a"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Normal Realism — The Tenets</title>
@@ -9,7 +10,7 @@
     --bg:#0d0d18; --card:#1c1c30; --text:#e8e8f0; --muted:#9a9ab0;
     --gold:#d4af37; --blue:#5bc8f5; --green:#66bb6a; --cyan:#26c6da; --red:#ef5350; --edge:#2c2c46;
   }
-  body.light{
+  body.legacy-light-theme{
     --bg:#faf8f2; --card:#ffffff; --text:#26211a; --muted:#6b6355;
     --gold:#8b6914; --blue:#176e94; --green:#2e7d32; --cyan:#0e7490; --red:#b03030; --edge:#d9d2bf;
   }
@@ -56,7 +57,7 @@
   #poams-hub-nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;
     justify-content:space-between;padding:10px 16px;background:rgba(13,13,24,.92);backdrop-filter:blur(8px);
     border-bottom:1px solid var(--edge);font-size:13px;}
-  body.light #poams-hub-nav{background:rgba(250,248,242,.92);}
+  body.legacy-light-theme #poams-hub-nav{background:rgba(250,248,242,.92);}
   #poams-hub-nav a{color:var(--gold);text-decoration:none;padding:6px 10px;border-radius:8px;display:flex;align-items:center;gap:6px;}
   #poams-hub-nav a:hover{background:rgba(212,175,55,.12);}
   #poams-hub-nav .phn-center{display:flex;justify-content:center;}
@@ -67,8 +68,10 @@
   .theme-toggle{position:fixed;right:16px;bottom:16px;z-index:60;background:var(--card);color:var(--text);
     border:1px solid var(--edge);border-radius:50%;width:42px;height:42px;cursor:pointer;font-size:17px;}
 </style>
+<link rel="stylesheet" href="./reader-standard.css?v=20261011a">
+<!-- POAMS LISTEN BEGIN --><link rel="stylesheet" href="podcast-listen.css"><script defer src="podcast-listen.js"></script><!-- POAMS LISTEN END -->
 </head>
-<body>
+<body class="reader-standard">
 
 <div id="poams-hub-nav">
   <a href="./index.html" title="POAMS Exhibit Hub">← <span class="phn-hide-sm">Exhibit Hub</span></a>
@@ -84,6 +87,14 @@
 
 <header>
   <h1>Normal Realism — The Tenets</h1>
+<!-- POAMS LISTEN BEGIN -->
+<div class="poams-listen" data-podcast="3" data-podcast-title="Normal Realism">
+<div class="pl-pills"><button class="pl-pill" type="button" aria-label="Audio: Normal Realism" aria-expanded="false" aria-controls="pl-player-3">AUDIO</button><a class="pl-video" href="https://notebook.google.com/notebook/e2853dad-0e61-4831-ac8a-7bbe2f7db647" target="_blank" rel="noopener noreferrer" aria-label="Video in NotebookLM: Normal Realism (opens in a new tab)">VIDEO</a></div>
+<div id="pl-player-3" class="pl-player" hidden><button class="pl-play" type="button" aria-label="Play podcast" disabled>▶</button><input class="pl-seek" type="range" min="0" max="100" step="0.1" value="0" aria-label="Seek podcast" disabled><span class="pl-timer">0:00 / 0:00</span></div>
+<p class="pl-error" role="status" hidden></p><audio preload="none" src="https://audio.resonantmachines.us/podcasts/03/b643aa05069a4be30154dd9fd4725041c8bcb2bc5bf52f8291f32a95ce4b6057.mp3"></audio>
+</div>
+<!-- POAMS LISTEN END -->
+
   <p class="nr-provenance" style="font-size:0.8em;font-style:italic;opacity:0.72;line-height:1.5;margin:0.5em 0 1em;text-align:center">This exhibit is an extrapolation of the foundational work of N.&nbsp;Vivian &ldquo;Viv&rdquo; Pope &amp; Dr.&nbsp;Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
   <div class="sub">The philosophy beneath every exhibit on this site — a reader's gate to sixty years of work, and to why it grants what the extant scientific enterprise cannot: <b>a world in which your choices genuinely make the future</b>.</div>
 </header>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
+<script src="./reader-theme.js?v=20261011a"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Translation Ledger — Extant Quantities in POAMS-Native Form</title>
@@ -13,13 +14,13 @@ window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$
   --bg:#0d0d18;--bg2:#11111f;--card:#19192c;--card2:#202036;--text:#e8e8f0;--muted:#a5a5b8;
   --gold:#d4af37;--blue:#5bc8f5;--green:#66bb6a;--amber:#e7a84d;--violet:#b68cff;--red:#ef6b68;--line:#31314a;
 }
-[data-theme="light"]{
+[data-legacy-theme="light"]{
   --bg:#faf8f2;--bg2:#f3eee3;--card:#fff;--card2:#f8f4ea;--text:#282219;--muted:#6c6458;
   --gold:#8b6914;--blue:#176e94;--green:#2e7d32;--amber:#9b6415;--violet:#6f42a6;--red:#a93434;--line:#d8d0bf;
 }
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;padding-top:68px;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.68;transition:background .25s,color .25s}a{color:var(--blue);text-underline-offset:.15em}
 #poams-hub-nav{position:fixed;inset:0 0 auto 0;z-index:9999;height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 1rem;background:rgba(13,13,24,.93);backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,175,55,.25);font-size:13px}
-#poams-hub-nav a{color:#d4af37;text-decoration:none;display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:6px;white-space:nowrap;font-weight:550}#poams-hub-nav a:hover{background:rgba(212,175,55,.12)}#poams-hub-nav .center{display:flex;flex-direction:column;align-items:center;line-height:1.2}#poams-hub-nav .title{font-size:12px;color:#e8e8f0;font-weight:650}#poams-hub-nav .pos{font-size:10px;color:rgba(212,175,55,.68);letter-spacing:.05em}[data-theme="light"] #poams-hub-nav{background:rgba(250,248,242,.96);border-bottom-color:rgba(139,105,20,.25)}[data-theme="light"] #poams-hub-nav a{color:#8b6914}[data-theme="light"] #poams-hub-nav .title{color:#2a2318}
+#poams-hub-nav a{color:#d4af37;text-decoration:none;display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:6px;white-space:nowrap;font-weight:550}#poams-hub-nav a:hover{background:rgba(212,175,55,.12)}#poams-hub-nav .center{display:flex;flex-direction:column;align-items:center;line-height:1.2}#poams-hub-nav .title{font-size:12px;color:#e8e8f0;font-weight:650}#poams-hub-nav .pos{font-size:10px;color:rgba(212,175,55,.68);letter-spacing:.05em}[data-legacy-theme="light"] #poams-hub-nav{background:rgba(250,248,242,.96);border-bottom-color:rgba(139,105,20,.25)}[data-legacy-theme="light"] #poams-hub-nav a{color:#8b6914}[data-legacy-theme="light"] #poams-hub-nav .title{color:#2a2318}
 .theme-toggle{position:fixed;right:12px;top:52px;z-index:1000;width:40px;height:40px;border:0;border-radius:8px;background:var(--gold);color:var(--bg);font-size:1.1rem;cursor:pointer}
 .hero{max-width:1040px;margin:0 auto;padding:42px 22px 22px;text-align:center}.eyebrow{font-size:.72rem;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);font-weight:800}.hero h1{margin:.55rem 0 0;color:var(--gold);font:650 clamp(2.15rem,5vw,3.55rem)/1.08 Georgia,"Times New Roman",serif}.subtitle{max-width:880px;margin:1rem auto 0;color:var(--muted);font-size:1.05rem}.provenance{max-width:900px;margin:1rem auto 0;color:var(--muted);font-size:.82rem;font-style:italic}.mission{max-width:900px;margin:18px auto 0;padding:15px 18px;border:1px solid rgba(212,175,55,.45);border-radius:11px;background:rgba(212,175,55,.055);font-family:Georgia,"Times New Roman",serif;font-size:1.05rem}
 .status-strip{max-width:1000px;margin:14px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.status-strip a{padding:10px 8px;border:1px solid var(--line);border-radius:9px;background:var(--card);text-decoration:none;font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;font-weight:850}.status-strip a:nth-child(1){color:var(--green)}.status-strip a:nth-child(2){color:var(--blue)}.status-strip a:nth-child(3){color:var(--gold)}.status-strip a:nth-child(4){color:var(--amber)}.status-strip a:nth-child(5){color:var(--violet)}.status-strip a:nth-child(6){color:var(--red)}
@@ -33,8 +34,10 @@ main{max-width:980px;margin:0 auto;padding:6px 20px 72px}section{margin:46px 0;s
 @media(max-width:420px){#poams-hub-nav{padding:0 .35rem}#poams-hub-nav a{padding:4px 6px}.hero h1{font-size:1.85rem}.status-strip{grid-template-columns:1fr}.theme-toggle{width:36px;height:36px;right:8px}.equation-block{padding:12px 9px}}
 </style>
 <link rel="stylesheet" href="./exhibit-presentation.css">
+<link rel="stylesheet" href="./reader-standard.css?v=20261011a">
+<!-- POAMS LISTEN BEGIN --><link rel="stylesheet" href="podcast-listen.css"><script defer src="podcast-listen.js"></script><!-- POAMS LISTEN END -->
 </head>
-<body class="standard-exhibit">
+<body class="reader-standard standard-exhibit">
 <nav id="poams-hub-nav" aria-label="Exhibit navigation">
   <a href="./tenets-of-normal-realism.html" title="Normal Realism — The Tenets">← <span class="phn-hide-sm">Normal Realism</span></a>
   <div class="center"><a href="./index.html" style="flex-direction:column;gap:2px;padding:4px 12px"><span class="title">Return to Hub</span><span class="pos">NR · POAMS · FOUNDATIONS</span></a></div>
@@ -44,6 +47,14 @@ main{max-width:980px;margin:0 auto;padding:6px 20px 72px}section{margin:46px 0;s
 <header class="hero">
   <div class="eyebrow">Foundational crosswalk · status before substitution · 21 September 2026</div>
   <h1>The Translation Ledger</h1>
+<!-- POAMS LISTEN BEGIN -->
+<div class="poams-listen" data-podcast="4" data-podcast-title="The Translation Ledger">
+<div class="pl-pills"><button class="pl-pill" type="button" aria-label="Audio: The Translation Ledger" aria-expanded="false" aria-controls="pl-player-4">AUDIO</button><a class="pl-video" href="https://notebook.google.com/notebook/fb8ba009-f5b1-4104-b021-15e1635be580" target="_blank" rel="noopener noreferrer" aria-label="Video in NotebookLM: The Translation Ledger (opens in a new tab)">VIDEO</a></div>
+<div id="pl-player-4" class="pl-player" hidden><button class="pl-play" type="button" aria-label="Play podcast" disabled>▶</button><input class="pl-seek" type="range" min="0" max="100" step="0.1" value="0" aria-label="Seek podcast" disabled><span class="pl-timer">0:00 / 0:00</span></div>
+<p class="pl-error" role="status" hidden></p><audio preload="none" src="https://audio.resonantmachines.us/podcasts/04/fcbcaf8c9c675909ebde5269e06027fa96e71a0977579f9718a2be9f27418aaa.mp3"></audio>
+</div>
+<!-- POAMS LISTEN END -->
+
   <p class="subtitle">Extant Quantities in POAMS-Native Form—Identities, Premises, Calibrations, and Open Bridges</p>
   <p class="provenance">This exhibit is an extrapolation of the foundational work of N. Vivian “Viv” Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
   <div class="mission">This page does not rename familiar quantities and call the renaming a derivation. It records which native account is being read, what supplied the bridge, which channel owns the sign, and what the equation does <em>not</em> establish.</div>

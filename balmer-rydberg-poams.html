@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
+<script src="./reader-theme.js?v=20261011a"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spectral Lines — A POAMS Balmer–Rydberg Derivation</title>
@@ -37,7 +38,7 @@
             --h-delta: #ff8800;    /* 410nm */
         }
 
-        [data-theme="light"] {
+        [data-legacy-theme="light"] {
             --bg-dark: #faf8f2;
             --bg-darker: #f3f4f6;
             --accent-gold: #b8860b;
@@ -408,8 +409,8 @@
       font-size: 13px;
       box-sizing: border-box;
     }
-    [data-theme="light"] #poams-hub-nav,
-    body.light #poams-hub-nav {
+    [data-legacy-theme="light"] #poams-hub-nav,
+    body.legacy-light-theme #poams-hub-nav {
       background: rgba(250, 248, 242, 0.95);
       border-bottom-color: rgba(139, 105, 20, 0.25);
     }
@@ -425,8 +426,8 @@
       white-space: nowrap;
       font-weight: 500;
     }
-    [data-theme="light"] #poams-hub-nav a,
-    body.light #poams-hub-nav a { color: #8b6914; }
+    [data-legacy-theme="light"] #poams-hub-nav a,
+    body.legacy-light-theme #poams-hub-nav a { color: #8b6914; }
     #poams-hub-nav a:hover { background: rgba(201, 168, 76, 0.12); }
     #poams-hub-nav .phn-disabled {
       color: rgba(201, 168, 76, 0.28);
@@ -447,8 +448,8 @@
       color: #e8e4d8;
       font-size: 12px;
     }
-    [data-theme="light"] #poams-hub-nav .phn-title,
-    body.light #poams-hub-nav .phn-title { color: #2a2318; }
+    [data-legacy-theme="light"] #poams-hub-nav .phn-title,
+    body.legacy-light-theme #poams-hub-nav .phn-title { color: #2a2318; }
     #poams-hub-nav .phn-pos {
       font-size: 10px;
       color: rgba(201, 168, 76, 0.6);
@@ -467,8 +468,10 @@
 .theme-toggle,#theme-btn{position:fixed !important;top:54px;right:12px;z-index:1200;width:40px;height:40px;padding:0;border:none;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;line-height:1;cursor:pointer;background:var(--accent-gold,var(--accent,var(--gold,#8b6914)));color:var(--bg,var(--bg-dark,var(--bg-primary,#ffffff)));box-shadow:0 2px 8px rgba(0,0,0,.18);}
 </style>
 <link rel="stylesheet" href="./styles/calibrated-carryover.css">
+<link rel="stylesheet" href="./reader-standard.css?v=20261011a">
+<!-- POAMS LISTEN BEGIN --><link rel="stylesheet" href="podcast-listen.css"><script defer src="podcast-listen.js"></script><!-- POAMS LISTEN END -->
 </head>
-<body>
+<body class="reader-standard">
 <div id="poams-hub-nav">
   <a href="./census-flow.html" title="The Census Flow">← <span class="phn-hide-sm">The Census Flow</span></a>
   <div class="phn-center">
@@ -484,6 +487,14 @@
     
     <header>
         <h1>Spectral Lines</h1>
+<!-- POAMS LISTEN BEGIN -->
+<div class="poams-listen" data-podcast="15" data-podcast-title="Spectral Lines">
+<div class="pl-pills"><button class="pl-pill" type="button" aria-label="Audio: Spectral Lines" aria-expanded="false" aria-controls="pl-player-15">AUDIO</button><a class="pl-video" href="https://notebook.google.com/notebook/e38a6be4-abcc-4ce8-a8d4-3aca7904357a" target="_blank" rel="noopener noreferrer" aria-label="Video in NotebookLM: Spectral Lines (opens in a new tab)">VIDEO</a></div>
+<div id="pl-player-15" class="pl-player" hidden><button class="pl-play" type="button" aria-label="Play podcast" disabled>▶</button><input class="pl-seek" type="range" min="0" max="100" step="0.1" value="0" aria-label="Seek podcast" disabled><span class="pl-timer">0:00 / 0:00</span></div>
+<p class="pl-error" role="status" hidden></p><audio preload="none" src="https://audio.resonantmachines.us/podcasts/15/fd86d6ca0b176bd494c3516ace33880a4f7a075fbb604d04ccf2a63bbb157380.mp3"></audio>
+</div>
+<!-- POAMS LISTEN END -->
+
 <p class="nr-provenance" style="font-size:0.8em;font-style:italic;opacity:0.72;line-height:1.5;margin:0.5em 0 1em;text-align:center">This exhibit is an extrapolation of the foundational work of N. Vivian “Viv” Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
         <div class="subtitle">A POAMS derivation of the inverse-square ladder from stated discrete-time premises</div>
     </header>

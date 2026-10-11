@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
+<script src="./reader-theme.js?v=20261011a"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Elements</title>
@@ -45,7 +46,7 @@
             --border: var(--border-dark);
         }
 
-        [data-theme="light"] {
+        [data-legacy-theme="light"] {
             --bg: var(--bg-light);
             --text: var(--text-light);
             --card: var(--card-light);
@@ -81,8 +82,8 @@
             text-underline-offset: 2px;
         }
         .container a:hover { color: var(--accent-gold); }
-        [data-theme="light"] .container a { color: #1565c0; }
-        [data-theme="light"] .container a:hover { color: #0d47a1; }
+        [data-legacy-theme="light"] .container a { color: #1565c0; }
+        [data-legacy-theme="light"] .container a:hover { color: #0d47a1; }
 
         header {
             text-align: center;
@@ -640,8 +641,8 @@
       font-size: 13px;
       box-sizing: border-box;
     }
-    [data-theme="light"] #poams-hub-nav,
-    body.light #poams-hub-nav {
+    [data-legacy-theme="light"] #poams-hub-nav,
+    body.legacy-light-theme #poams-hub-nav {
       background: rgba(250, 248, 242, 0.95);
       border-bottom-color: rgba(139, 105, 20, 0.25);
     }
@@ -657,8 +658,8 @@
       white-space: nowrap;
       font-weight: 500;
     }
-    [data-theme="light"] #poams-hub-nav a,
-    body.light #poams-hub-nav a { color: #8b6914; }
+    [data-legacy-theme="light"] #poams-hub-nav a,
+    body.legacy-light-theme #poams-hub-nav a { color: #8b6914; }
     #poams-hub-nav a:hover { background: rgba(201, 168, 76, 0.12); }
     #poams-hub-nav .phn-disabled {
       color: rgba(201, 168, 76, 0.28);
@@ -679,8 +680,8 @@
       color: #e8e4d8;
       font-size: 12px;
     }
-    [data-theme="light"] #poams-hub-nav .phn-title,
-    body.light #poams-hub-nav .phn-title { color: #2a2318; }
+    [data-legacy-theme="light"] #poams-hub-nav .phn-title,
+    body.legacy-light-theme #poams-hub-nav .phn-title { color: #2a2318; }
     #poams-hub-nav .phn-pos {
       font-size: 10px;
       color: rgba(201, 168, 76, 0.6);
@@ -693,8 +694,10 @@
 /* Keep the center Hub link usable on narrow screens. */
 @media(max-width:760px){#poams-hub-nav .phn-hide-sm{display:none}}
     </style>
+<link rel="stylesheet" href="./reader-standard.css?v=20261011a">
+<!-- POAMS LISTEN BEGIN --><link rel="stylesheet" href="podcast-listen.css"><script defer src="podcast-listen.js"></script><!-- POAMS LISTEN END -->
 </head>
-<body data-theme="dark">
+<body data-theme="dark" class="reader-standard">
 <div id="poams-hub-nav">
   <a href="./loop-of-momentum.html" title="Loop of Twisted Momentum">← <span class="phn-hide-sm">Loop of Twisted Momentum</span></a>
   <div class="phn-center">
@@ -711,6 +714,14 @@
     <div class="container">
         <header>
             <h1 class="title">The Elements</h1>
+<!-- POAMS LISTEN BEGIN -->
+<div class="poams-listen" data-podcast="12" data-podcast-title="The Elements">
+<div class="pl-pills"><button class="pl-pill" type="button" aria-label="Audio: The Elements" aria-expanded="false" aria-controls="pl-player-12">AUDIO</button><a class="pl-video" href="https://notebook.google.com/notebook/c597c14a-9801-468f-be94-ece12924cacf" target="_blank" rel="noopener noreferrer" aria-label="Video in NotebookLM: The Elements (opens in a new tab)">VIDEO</a></div>
+<div id="pl-player-12" class="pl-player" hidden><button class="pl-play" type="button" aria-label="Play podcast" disabled>▶</button><input class="pl-seek" type="range" min="0" max="100" step="0.1" value="0" aria-label="Seek podcast" disabled><span class="pl-timer">0:00 / 0:00</span></div>
+<p class="pl-error" role="status" hidden></p><audio preload="none" src="https://audio.resonantmachines.us/podcasts/12/35aeb6a0fa01e1bffe916100cd9cd0ddff57545eab86d0dac8fd3b013ac33aa2.mp3"></audio>
+</div>
+<!-- POAMS LISTEN END -->
+
 <p class="nr-provenance" style="font-size:0.8em;font-style:italic;opacity:0.72;line-height:1.5;margin:0.5em 0 1em;text-align:center">This exhibit is an extrapolation of the foundational work of N. Vivian “Viv” Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
             <p class="subtitle">Restating the Periodic Table through Normal Realism and POAMS</p>
         </header>

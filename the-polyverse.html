@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
+<script src="./reader-theme.js?v=20261011a"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Polyverse: Black Holes, the Big Bang, and the Microwave Sky</title>
@@ -8,7 +9,7 @@
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
 <style>
 :root{--bg:#0d0d18;--card:#12121e;--edge:#2a2a3e;--fg:#e2e2ea;--mut:#9a9ab0;--gold:#c9a84c;--blue:#64b5e0;--green:#66bb6a;--red:#e05f5f;}
-body.light{--bg:#faf8f2;--card:#ffffff;--edge:#d9d2bf;--fg:#26211a;--mut:#6b6355;--gold:#8b6914;--blue:#1f6f9f;--green:#2e7d32;--red:#b03030;}
+body.legacy-light-theme{--bg:#faf8f2;--card:#ffffff;--edge:#d9d2bf;--fg:#26211a;--mut:#6b6355;--gold:#8b6914;--blue:#1f6f9f;--green:#2e7d32;--red:#b03030;}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--fg);font-family:Georgia,serif;line-height:1.7;font-size:16.5px;transition:background .3s,color .3s}
 main{max-width:880px;margin:0 auto;padding:2.2rem 1.2rem 4rem}
@@ -37,11 +38,11 @@ a{color:var(--blue)}
 .nav{display:flex;justify-content:space-between;font-size:.85rem;margin-top:3rem;border-top:1px solid var(--edge);padding-top:1rem}
 .eqbox{background:#10101e;border:1px solid var(--edge);border-radius:8px;padding:8px 12px;margin:10px 0;overflow-x:auto}
 .theme-toggle{position:fixed;top:54px;right:12px;z-index:1000;background:var(--gold);color:var(--bg);border:none;width:40px;height:40px;border-radius:8px;padding:0;cursor:pointer;font-size:1.15rem;display:flex;align-items:center;justify-content:center}
-body.light canvas{background:#f6f3ea}
-body.light .eqbox{background:#f6f3ea}
-body.light .prov{background:rgba(139,105,20,.06)}
-body.light button{color:#fff}
-body.light button.off{background:#dcd5c2;color:#6b6355}
+body.legacy-light-theme canvas{background:#f6f3ea}
+body.legacy-light-theme .eqbox{background:#f6f3ea}
+body.legacy-light-theme .prov{background:rgba(139,105,20,.06)}
+body.legacy-light-theme button{color:#fff}
+body.legacy-light-theme button.off{background:#dcd5c2;color:#6b6355}
 .q{border-left:3px solid var(--blue);padding:.45rem .95rem;font-style:italic;background:rgba(100,181,224,.05);margin:.9rem 0;font-size:.95rem}
 .q .src{display:block;font-style:normal;font-size:.78rem;color:var(--mut);margin-top:4px}
 .tier{border:1px solid var(--edge);border-radius:8px;padding:.7rem 1rem;margin:.8rem 0;font-size:.92rem}
@@ -58,15 +59,17 @@ body.light button.off{background:#dcd5c2;color:#6b6355}
 #poams-hub-nav .phn-center{display:flex;flex-direction:column;align-items:center;line-height:1.2;}
 #poams-hub-nav .phn-title{font-weight:600;color:#e8e8f0;font-size:12px;}
 #poams-hub-nav .phn-pos{font-size:10px;color:rgba(212,175,55,0.6);letter-spacing:.05em;}
-[data-theme="light"] #poams-hub-nav,body.light #poams-hub-nav{background:rgba(250,248,242,0.95);border-bottom-color:rgba(139,105,20,0.25);}
-[data-theme="light"] #poams-hub-nav a,body.light #poams-hub-nav a{color:#8b6914;}
-body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
-[data-theme="light"] #poams-hub-nav .phn-title,body.light #poams-hub-nav .phn-title{color:#2a2318;}
+[data-legacy-theme="light"] #poams-hub-nav,body.legacy-light-theme #poams-hub-nav{background:rgba(250,248,242,0.95);border-bottom-color:rgba(139,105,20,0.25);}
+[data-legacy-theme="light"] #poams-hub-nav a,body.legacy-light-theme #poams-hub-nav a{color:#8b6914;}
+body.legacy-light-theme #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
+[data-legacy-theme="light"] #poams-hub-nav .phn-title,body.legacy-light-theme #poams-hub-nav .phn-title{color:#2a2318;}
 @media (max-width:640px){.phn-hide-sm{display:none;}}
 body{padding-top:72px !important;}
 </style>
+<link rel="stylesheet" href="./reader-standard.css?v=20261011a">
+<!-- POAMS LISTEN BEGIN --><link rel="stylesheet" href="podcast-listen.css"><script defer src="podcast-listen.js"></script><!-- POAMS LISTEN END -->
 </head>
-<body>
+<body class="reader-standard">
 <div id="poams-hub-nav">
   <a href="./the-poams-brilliant-vortex-atom.html" title="The POAMS Brilliant Vortex Atom">&larr; <span class="phn-hide-sm">The Brilliant Vortex Atom</span></a>
   <div class="phn-center">
@@ -83,6 +86,14 @@ body{padding-top:72px !important;}
 <main>
 
 <h1>The Polyverse: Black Holes, the Big Bang, and the Microwave Sky</h1>
+<!-- POAMS LISTEN BEGIN -->
+<div class="poams-listen" data-podcast="52" data-podcast-title="The Polyverse: Black Holes, the Big Bang &amp; the Microwave Sky">
+<div class="pl-pills"><button class="pl-pill" type="button" aria-label="Audio: The Polyverse: Black Holes, the Big Bang &amp; the Microwave Sky" aria-expanded="false" aria-controls="pl-player-52">AUDIO</button><a class="pl-video" href="https://notebook.google.com/notebook/aa556c2d-2cb5-4c0f-a827-89fe31de4d86" target="_blank" rel="noopener noreferrer" aria-label="Video in NotebookLM: The Polyverse: Black Holes, the Big Bang &amp; the Microwave Sky (opens in a new tab)">VIDEO</a></div>
+<div id="pl-player-52" class="pl-player" hidden><button class="pl-play" type="button" aria-label="Play podcast" disabled>▶</button><input class="pl-seek" type="range" min="0" max="100" step="0.1" value="0" aria-label="Seek podcast" disabled><span class="pl-timer">0:00 / 0:00</span></div>
+<p class="pl-error" role="status" hidden></p><audio preload="none" src="https://audio.resonantmachines.us/podcasts/52/6fdc14d10fa111d2b0c31ab1411ad697769fbe9b0a68e3e6a7e69b6d05a29508.mp3"></audio>
+</div>
+<!-- POAMS LISTEN END -->
+
 <p class="note" style="margin-top:-2px">No God&rsquo;s-eye instant &middot; no chalk-circle universe &middot; empty barycentres, not holes &middot; the redshift books the growth of the ledger between the two entries of one hand-off &middot; no zero &mdash; a spin-pinned floor &middot; evolution yes, singularity no</p>
 <div class="prov">This exhibit is an extrapolation of the foundational work of N. Vivian &ldquo;Viv&rdquo; Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).<br>
 Built on the corpus record: <em>The Eye of the Beholder</em> (2004) &sect;VII; <em>Light-Speed&hellip;</em> (2007) Ch.&nbsp;9; <em>Immediate Distant Action&hellip;</em> (2005) &sect;5.9.3; <em>Wondering in the Wilderness</em> (2009); Osborne, Bull. IMA <b>21</b> (1985) &middot; <a href="./the-poams-brilliant-vortex-atom.html">The Brilliant Vortex Atom</a> (items 26&ndash;28, audited here) &middot; <a href="./orbital-time-dilation.html">Orbital Time Dilation</a> &middot; <a href="./gps-clocks.html">GPS Clocks</a> &middot; <a href="./navigation-engine.html">The Navigation Engine</a>. Astronomical values are the extant measured record, tagged; the native reading is ours. This exhibit is published as <b>one page in four parts</b>: <a href="#part-core">Part I</a> (the philosophical core and the verdict tier), <a href="#part-audit">Part II</a> &mdash; the observational audit (the staked mechanism refuted at full strength and its successor derived; the ladder; the census fork run and closed; the watch), <a href="#part-model">Part III</a> &mdash; the model fronts (graded conjectures, with their debts named), and <a href="#part-appendix">Part IV</a> &mdash; the appendix (changelog, the published pipeline, references) &mdash; the covenant of this corpus working, not failing.</div>

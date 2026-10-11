@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="./reader-theme.js?v=20261011a"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="A POAMS-native census of phase closure, capture, and resonant clearing among the major bodies, moons, and asteroid belt.">
 <title>The Solar System — Phase Closure, Capture, and Clearing</title>
 <style>
 :root{--bg:#0d0d18;--panel:#131322;--panel2:#10101e;--ink:#dfe0ea;--muted:#9a9bb0;--gold:#d4af37;--blue:#5bc8f5;--green:#63d67e;--red:#e06060;--line:#26263a;--max:1000px}
-body.light{--bg:#faf8f2;--panel:#fff;--panel2:#f6f3ea;--ink:#26211a;--muted:#6b6355;--gold:#8b6914;--blue:#176e94;--green:#2e7d32;--red:#b03030;--line:#d9d2bf}
+body.legacy-light-theme{--bg:#faf8f2;--panel:#fff;--panel2:#f6f3ea;--ink:#26211a;--muted:#6b6355;--gold:#8b6914;--blue:#176e94;--green:#2e7d32;--red:#b03030;--line:#d9d2bf}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;padding-top:72px;background:var(--bg);color:var(--ink);font:16px/1.65 Georgia,'Times New Roman',serif;transition:background .3s,color .3s}a{color:var(--blue)}button,select{font:inherit}.wrap{max-width:var(--max);margin:auto;padding:0 18px 60px}
-#poams-hub-nav{position:fixed;top:0;left:0;right:0;height:44px;background:rgba(13,13,24,.92);border-bottom:1px solid rgba(212,175,55,.25);display:flex;align-items:center;justify-content:space-between;padding:0 16px;z-index:1000;backdrop-filter:blur(10px);font:13px/1.2 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}body.light #poams-hub-nav{background:rgba(250,248,242,.95)}#poams-hub-nav a{color:var(--gold);text-decoration:none;display:flex;align-items:center;gap:5px;padding:5px 10px;border-radius:6px}.phn-center{position:absolute;left:50%;transform:translateX(-50%);text-align:center}.phn-center a{flex-direction:column;gap:2px}.phn-title{color:var(--ink);font-size:12px;font-weight:600}.phn-pos{font-size:10px;letter-spacing:.05em;opacity:.65}.theme-toggle{position:fixed;top:54px;right:12px;z-index:1100;border:0;border-radius:8px;width:40px;height:40px;background:var(--gold);color:var(--bg);cursor:pointer}
+#poams-hub-nav{position:fixed;top:0;left:0;right:0;height:44px;background:rgba(13,13,24,.92);border-bottom:1px solid rgba(212,175,55,.25);display:flex;align-items:center;justify-content:space-between;padding:0 16px;z-index:1000;backdrop-filter:blur(10px);font:13px/1.2 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}body.legacy-light-theme #poams-hub-nav{background:rgba(250,248,242,.95)}#poams-hub-nav a{color:var(--gold);text-decoration:none;display:flex;align-items:center;gap:5px;padding:5px 10px;border-radius:6px}.phn-center{position:absolute;left:50%;transform:translateX(-50%);text-align:center}.phn-center a{flex-direction:column;gap:2px}.phn-title{color:var(--ink);font-size:12px;font-weight:600}.phn-pos{font-size:10px;letter-spacing:.05em;opacity:.65}.theme-toggle{position:fixed;top:54px;right:12px;z-index:1100;border:0;border-radius:8px;width:40px;height:40px;background:var(--gold);color:var(--bg);cursor:pointer}
 header{text-align:center;padding:26px 22px 18px;border-bottom:1px solid var(--line);margin-bottom:20px}.eyebrow{font:600 11px/1.2 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}h1{font-size:27px;line-height:1.35;margin:0 0 8px;color:var(--gold);font-weight:650;letter-spacing:0}.subtitle{font-size:15px;color:var(--muted);margin:0 auto;max-width:880px}.provenance{font-size:.8rem;font-style:italic;color:var(--muted);max-width:880px;margin:10px auto 0}
 .verdict{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px auto 0;max-width:900px}.metric{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:13px 14px}.metric b{display:block;color:var(--gold);font:700 1.45rem/1 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}.metric span{display:block;color:var(--muted);font-size:.8rem;margin-top:6px}.tabs{display:flex;gap:7px;justify-content:center;flex-wrap:wrap;margin:18px 0 28px}.tabbtn{border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:7px 12px;border-radius:8px;cursor:pointer;font-size:.9rem}.tabbtn:hover{border-color:var(--gold)}.tabbtn.active{color:#111;background:var(--gold);border-color:var(--gold);font-weight:600}.tab{display:none}.tab.active{display:block}
 h2{color:var(--gold);font-size:20px;line-height:1.3;margin:38px 0 10px;border-bottom:1px solid var(--line);padding-bottom:6px}h3{color:var(--blue);font-size:1.05rem;margin:0 0 8px}.lead{font-size:1rem;color:var(--muted);max-width:880px}.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:14px 0}.card.gold{border-left:3px solid var(--gold)}.card.blue{border-left:3px solid var(--blue)}.card.green{border-left:3px solid var(--green)}.card.red{border-left:3px solid var(--red)}.tag{display:inline-block;border:1px solid currentColor;border-radius:10px;padding:1px 8px;margin-right:6px;font:600 10px/1.5 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;letter-spacing:.06em;text-transform:uppercase}.native{color:var(--green)}.conditional{color:var(--gold)}.imported{color:var(--blue)}.open{color:var(--red)}
@@ -21,14 +22,24 @@ h2{color:var(--gold);font-size:20px;line-height:1.3;margin:38px 0 10px;border-bo
 /* Keep the center Hub link usable on narrow screens. */
 #poams-hub-nav .phn-title,#poams-hub-nav .phn-pos{white-space:nowrap}
 </style>
+<link rel="stylesheet" href="./reader-standard.css?v=20261011a">
+<!-- POAMS LISTEN BEGIN --><link rel="stylesheet" href="podcast-listen.css"><script defer src="podcast-listen.js"></script><!-- POAMS LISTEN END -->
 </head>
-<body>
+<body class="reader-standard">
 <div id="poams-hub-nav"><a href="./balmer-rydberg-poams.html" title="Spectral Lines">← <span class="phn-hide-sm">Spectral Lines</span></a><div class="phn-center"><a href="./index.html"><span class="phn-title">Return to Hub</span><span class="phn-pos">NR · POAMS · EXHIBIT SERIES</span></a></div><a href="./twins-paradox.html" title="Twins Paradox"><span class="phn-hide-sm">Twins Paradox</span> →</a></div>
 <button class="theme-toggle" id="themeBtn" title="Toggle theme" aria-label="Toggle light and dark theme">☀️</button>
 <div class="wrap">
 <header>
   <div class="eyebrow">The measured sky · one observable · no fitted rung</div>
   <h1>The Solar System</h1>
+<!-- POAMS LISTEN BEGIN -->
+<div class="poams-listen" data-podcast="31" data-podcast-title="The Solar System">
+<div class="pl-pills"><button class="pl-pill" type="button" aria-label="Audio: The Solar System" aria-expanded="false" aria-controls="pl-player-31">AUDIO</button><a class="pl-video" href="https://notebook.google.com/notebook/25938ea7-6d8f-4224-83e5-1a1d2b8e20d3" target="_blank" rel="noopener noreferrer" aria-label="Video in NotebookLM: The Solar System (opens in a new tab)">VIDEO</a></div>
+<div id="pl-player-31" class="pl-player" hidden><button class="pl-play" type="button" aria-label="Play podcast" disabled>▶</button><input class="pl-seek" type="range" min="0" max="100" step="0.1" value="0" aria-label="Seek podcast" disabled><span class="pl-timer">0:00 / 0:00</span></div>
+<p class="pl-error" role="status" hidden></p><audio preload="none" src="https://audio.resonantmachines.us/podcasts/31/6d2b6678928544b392139f919760a626d4481210cc5ef97bd26c4784a4249eac.mp3"></audio>
+</div>
+<!-- POAMS LISTEN END -->
+
   <p class="subtitle">Phase Closure, Capture, and Clearing Across the Measured Solar System — derived from whole-turn bookkeeping, then confronted with the bodies, moons, gaps, and surviving populations.</p>
   <p class="provenance">This exhibit is an extrapolation of the foundational work of N. Vivian “Viv” Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
   <div class="verdict"><div class="metric"><b>59</b><span>JPL bodies in the fixed census: 13 heliocentric + 46 characterized satellites</span></div><div class="metric"><b>0</b><span>free rungs, mixed observables in the period screen, fitted base periods, or atom-to-planet scale claims</span></div><div class="metric"><b>1 rule</b><span>coherent exchange requires a physically admissible integer phase closure</span></div></div>

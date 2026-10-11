@@ -1,0 +1,1080 @@
+{
+  "schema": 1,
+  "status": "approved",
+  "episodes": [
+    {
+      "order": 1,
+      "title": "The Logos · The World Is Language",
+      "sources": [
+        "the-designers-reading.html",
+        "the-world-is-language.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/01/1da74f9c44f5388d6dea56ceef34544724833e325e2e7cf4e123b1f66021e093.mp3",
+      "audio_sha256": "1da74f9c44f5388d6dea56ceef34544724833e325e2e7cf4e123b1f66021e093",
+      "source_content_sha256": "d0323430147082c2ab6d4e477d8858c9639d6f03f6763248998206e8edae5222",
+      "script_source_sha256": {
+        "the-designers-reading.html": "85ea84548cb20243f06c0c274831f8d915d93f89c11766643ebfa7224749e9d3",
+        "the-world-is-language.html": "a3db8d92817240fd999bd8d1457cd9a8f13b1c715c5aaf2f57f14617ad970896"
+      },
+      "source_sha256": {
+        "the-designers-reading.html": "3bc99848e9e2a6feb56c8c8bb58d8c12df5f409134e71896d3ef868e437d2880",
+        "the-world-is-language.html": "01f7e8c11df268bea82a6958e400debddca7ac60a582b5ef6bfecf2c9db1d9f5"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 2,
+      "title": "The Rules of Persistence",
+      "sources": [
+        "the-rules-of-persistence.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/02/06ddaa05bde4af9b63b9fedb00268f75a375b36f5358b077ec59f51764e68c7c.mp3",
+      "audio_sha256": "06ddaa05bde4af9b63b9fedb00268f75a375b36f5358b077ec59f51764e68c7c",
+      "source_content_sha256": "0c5c422041ce465a3c4dfb62e7db7e24ef5ecc41b189847436dee7786dd4d374",
+      "script_source_sha256": {
+        "the-rules-of-persistence.html": "cccaddff0b81009a5a8c468fcfc988e3802a669a716a212c1da452f38df72cbd"
+      },
+      "source_sha256": {
+        "the-rules-of-persistence.html": "ef94d661ca1e5cd0e9d0b2615c0312cbd214697ddf740225ce79b908fc3d6b6f"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 3,
+      "title": "Normal Realism",
+      "sources": [
+        "tenets-of-normal-realism.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/03/b643aa05069a4be30154dd9fd4725041c8bcb2bc5bf52f8291f32a95ce4b6057.mp3",
+      "audio_sha256": "b643aa05069a4be30154dd9fd4725041c8bcb2bc5bf52f8291f32a95ce4b6057",
+      "source_content_sha256": "a5330132ae0ce343ad04b6966e49aec80ab2056dfb5fcc04711e188a3d46ac48",
+      "script_source_sha256": {
+        "tenets-of-normal-realism.html": "b88a8529f9a5672a9b636383796828ed8df6bb25d48399af2718e5270282f4e5"
+      },
+      "source_sha256": {
+        "tenets-of-normal-realism.html": "adcdf4bed39349d767d94817c031574246a4167aa839426e15bf91022824d3e7"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 4,
+      "title": "The Translation Ledger",
+      "sources": [
+        "translation-ledger.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/04/fcbcaf8c9c675909ebde5269e06027fa96e71a0977579f9718a2be9f27418aaa.mp3",
+      "audio_sha256": "fcbcaf8c9c675909ebde5269e06027fa96e71a0977579f9718a2be9f27418aaa",
+      "source_content_sha256": "85ca9f2bce9f2ee49263169bc551e529820851e62be296ee4567b0d334df0631",
+      "script_source_sha256": {
+        "translation-ledger.html": "ca44712be77f30eccfcf64639537d657ffed9da195d9f3156a70897cfa95f1d8"
+      },
+      "source_sha256": {
+        "translation-ledger.html": "3e28b7c0c654c5a38d31f9a6dc44f58435cb8953073f3f89e830c565dcf62bfb"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 5,
+      "title": "The Coherent Completion Kernel",
+      "sources": [
+        "coherent-completion-kernel.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/05/c5c15114535557436e2ce9196d2e5cd78018bc1c40aa4366016e4d49f67cddcc.mp3",
+      "audio_sha256": "c5c15114535557436e2ce9196d2e5cd78018bc1c40aa4366016e4d49f67cddcc",
+      "source_content_sha256": "3aa5ffb035a5b168e273a77921e854fe0cf252299dc8ae77f8df2db4b141225f",
+      "script_source_sha256": {
+        "coherent-completion-kernel.html": "e783d4224bde0d707ec66199fc585d13efa7cd35237a569cf513878252617350"
+      },
+      "source_sha256": {
+        "coherent-completion-kernel.html": "fe646031b6280be952ba4d2546ca824666501b39267f332a69b46f60cc6e9af5"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 6,
+      "title": "Pairwise Reality: Sequential Settlement",
+      "sources": [
+        "sequential-settlement-method.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/06/2f80b2c82149dfbbfdb58dd0b7c5caad6ea2bac313ab3e5cecc7acdf49ae20cd.mp3",
+      "audio_sha256": "2f80b2c82149dfbbfdb58dd0b7c5caad6ea2bac313ab3e5cecc7acdf49ae20cd",
+      "source_content_sha256": "2f3792971584fb87ebf45a047629a1eb6e4bfcdaf47689412b18b7c343643550",
+      "script_source_sha256": {
+        "sequential-settlement-method.html": "7a27adb5b4f0e584652a10748019565cbee8b31774f7990bf633279c5fa87913"
+      },
+      "source_sha256": {
+        "sequential-settlement-method.html": "9ddf890e78ed6aeb714c6ff39835e05a31eb3666c2b3c06f5ae124827424045f"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 7,
+      "title": "A Closed Loop of Twisted Momentum",
+      "sources": [
+        "loop-of-momentum.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/07/bf6ed007731a7548c14395f0eb823ec498754494a9f91ff8db3fdbcc750ff39c.mp3",
+      "audio_sha256": "bf6ed007731a7548c14395f0eb823ec498754494a9f91ff8db3fdbcc750ff39c",
+      "source_content_sha256": "5696e4193246da130e2d789185a007e8eea278b80e73d699af05695d170c1d82",
+      "script_source_sha256": {
+        "loop-of-momentum.html": "8f7e21646bed6436d74419c35972b90cf0dc295b29d0e3f624239ee50bfe55a7"
+      },
+      "source_sha256": {
+        "loop-of-momentum.html": "ea2fd8999c60dc267915b144af0541da4493864f280a6072516bfdf98da5ce4f"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 8,
+      "title": "The Spin–Orbit Settlement Ledger",
+      "sources": [
+        "spin-orbit-settlement-ledger.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/08/2327d86f99c4ae00aeef093e883c019a98f2f4e064beea93da44d2471d3a820a.mp3",
+      "audio_sha256": "2327d86f99c4ae00aeef093e883c019a98f2f4e064beea93da44d2471d3a820a",
+      "source_content_sha256": "2190c3711d6ebd811beb3339ecc2f70548b7e27c7818f8dca78ba44653f02d6d",
+      "script_source_sha256": {
+        "spin-orbit-settlement-ledger.html": "0db357e80802c99ddcfc778e5e48db4838266a3a7cc9a54290efd70f740f5148"
+      },
+      "source_sha256": {
+        "spin-orbit-settlement-ledger.html": "61bde5395c540d8e06631d889d01f85dad2b1bac5abee0d943951215d9abc3fd"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 9,
+      "title": "The Atom as Organized Phase",
+      "sources": [
+        "atom-as-phase.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/09/a4d1c999258120e8657fef103514dbb3bf4ce96ca428f6759ceaa112cb59e325.mp3",
+      "audio_sha256": "a4d1c999258120e8657fef103514dbb3bf4ce96ca428f6759ceaa112cb59e325",
+      "source_content_sha256": "48f6e63bb91647dcb99a3986390b0e127de4dea8cb4bd3dedd069340266ccca7",
+      "script_source_sha256": {
+        "atom-as-phase.html": "fb8d28f1d3d75e71fffa7269fce7a01f3a3cdef214cdeab54573f8b71575b026"
+      },
+      "source_sha256": {
+        "atom-as-phase.html": "5bdf12d78c6c503b103f2134ccce65576993087685cfcb2a5e5f397442289507"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 10,
+      "title": "Mass as Trapped Rate",
+      "sources": [
+        "mass-as-trapped-rate.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/10/b4f6d30db37c57fb44c44326ed016ddff6e4fed7465bf3294307af2f95fa94a2.mp3",
+      "audio_sha256": "b4f6d30db37c57fb44c44326ed016ddff6e4fed7465bf3294307af2f95fa94a2",
+      "source_content_sha256": "5593fc884808a8d4e3096284ed6c1f3ec25b3daf2f3bd82615eee4bed361c381",
+      "script_source_sha256": {
+        "mass-as-trapped-rate.html": "9c1c010c118ae6eed0f18c9240d50a75cf55934ce2a26612a01e496a99c3a18c"
+      },
+      "source_sha256": {
+        "mass-as-trapped-rate.html": "0a5677d7b77a0bbb2a0a7cab01daa293382d3ce9a2d21d1579df7ab92efe0ce8"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 11,
+      "title": "Inertia: The Felt and the Seen",
+      "sources": [
+        "inertia.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/11/c809b7848cfa60158c82b66edd402d0f4e1a060bd856919c29f9edddf828d4b9.mp3",
+      "audio_sha256": "c809b7848cfa60158c82b66edd402d0f4e1a060bd856919c29f9edddf828d4b9",
+      "source_content_sha256": "5a777be05cd3991f11e7cb7125379d3c0bdd5c23e4c128453b0ee207683cdd52",
+      "script_source_sha256": {
+        "inertia.html": "52084c023aec9fa7d74b8c24e336863b8ab0e45f1016eb6d44cff585146e8df3"
+      },
+      "source_sha256": {
+        "inertia.html": "36e66525c84ac95007251a2054d4f5cfea2c4deacd6d66f294d7fa42d7300530"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e",
+        "scripts/inertia_operator_results.json": "641bf977de980c38c9e6fe1e292fab2462815e3f30ead6c8d7aa77201ef901c4"
+      }
+    },
+    {
+      "order": 12,
+      "title": "The Elements",
+      "sources": [
+        "poams-periodic-table.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/12/35aeb6a0fa01e1bffe916100cd9cd0ddff57545eab86d0dac8fd3b013ac33aa2.mp3",
+      "audio_sha256": "35aeb6a0fa01e1bffe916100cd9cd0ddff57545eab86d0dac8fd3b013ac33aa2",
+      "source_content_sha256": "e4a4577c92277bc1a5867075754712ea792cc6b19ee452193e5ed32b7b249889",
+      "script_source_sha256": {
+        "poams-periodic-table.html": "4dee14b74581b3dd1e1fe3020b8d23e687be1d3b7ff8e1e5962dd3c95406eea3"
+      },
+      "source_sha256": {
+        "poams-periodic-table.html": "36349055457e7f386c038830d63664913dd335e5298d98600366a5a2ea02051e"
+      },
+      "source_dependency_sha256": {
+        "scripts/correlated_atoms_ui.js": "710d5a781441cb8928e672467ca9803426a51000ca012549c8f902067967b826",
+        "scripts/correlated_atoms_data.js": "c4b0500bb48f1a46c0a93491fca37d5e0af8fce7364de366586d25970f897b5d",
+        "scripts/all_element_ui.js": "d19cc976c31422b5eebf2f11152d6226a8a16af09a08e03349781c0165f1c044",
+        "scripts/whole_atom_ui.js": "a8695437769976236bb13ae616e6497c24d9dd5022b4288cc0f14426fb9fe07c",
+        "scripts/all_element_data.js": "5f49a56235e5c62411ac17eb25c36ba87949df30770c6874f32489a205e663db",
+        "scripts/whole_atom_data.js": "1c0a52bcc6b310b7767d55dad57b414dcf73af488705424bf62a43ddf29d459b",
+        "scripts/atomic_ledger.js": "858d497aad258f1070d0b347326bf1e81fdbd64fa5e132674abccb61b90d9908",
+        "scripts/coulomb_calibrated.js": "f9b1ae9ddc4106332c78930558d0858f7cf767ed5302182f5298d01261b4c20d",
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e",
+        "scripts/whole_atom_handoff.json": "08a06f2d6c3c7e18a9fa69fd3ab2f1fb9ce36a52d724ab24a18e7533fb105858",
+        "scripts/atomic_ledger_results.json": "c776664df187d7e52751eec395f241885512cb5d839f3c3912abca6fbd791a24",
+        "scripts/whole_atom_helium_radial.csv": "cae40df76b1a88f3ffb57d4b374b7c69d8beee0d8c716179ee62802c64fd252f",
+        "scripts/atomic_count_partitions.csv": "d63bf11f83e20716adbee1f9de225d160394f07c261ef86c077612b9f44180e0",
+        "scripts/all_element_state_index.json": "401fb05aa063496baaffac3639b96bcf773dc615cf893aa7cf38e4293a03cb93",
+        "scripts/whole_atom_results.json": "dd79474356ec0e68fd4aed5ab374f59ca6b4eeb01cbfb6ac2aec44d174f8f51c",
+        "scripts/all_element_results.json": "5b1fdf55be5c1df9239c52ff44b99eb8130e2fbe100436c63525adbfe6e22c09",
+        "scripts/correlated_atoms_results.json": "9e16940fd89faaed0a5f64f2148639927ffc70e93d5c40c29bb73aa8feff49e9",
+        "scripts/all_element_table.csv": "d25261961d1de944576532f448474c11dc54821e59dc7927b48328e80916ebe2"
+      }
+    },
+    {
+      "order": 13,
+      "title": "Aufbau as Closure",
+      "sources": [
+        "aufbau-as-closure.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/13/1640a0cebcba490d23720019633ab2ef771546f41d9d38ffc3013df5777a4439.mp3",
+      "audio_sha256": "1640a0cebcba490d23720019633ab2ef771546f41d9d38ffc3013df5777a4439",
+      "source_content_sha256": "fcb6bbf5f54117368adaee1c9232066dfcb7d87efe692dad0aec2a15788c4073",
+      "script_source_sha256": {
+        "aufbau-as-closure.html": "f79718c8e1c659d5662f5fcf80e9db3e96cd4405c97ef1aef42caa941aedc8f3"
+      },
+      "source_sha256": {
+        "aufbau-as-closure.html": "8c31aa6227d8cf4152be3052a3c3ce1dc6c3fa69bcda4e90e7d4be7560437700"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 14,
+      "title": "The Census Flow",
+      "sources": [
+        "census-flow.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/14/9f59e87c0759df029d5d1cce2c06097b5cebe2d9316d255d5162f5846bafc65f.mp3",
+      "audio_sha256": "9f59e87c0759df029d5d1cce2c06097b5cebe2d9316d255d5162f5846bafc65f",
+      "source_content_sha256": "0a342529f05425e851a8a741fc7063a97f46aba06e0d5192915f3ae58bbdeb7d",
+      "script_source_sha256": {
+        "census-flow.html": "dd823300f66956abb1d577412fc8db4a9679ead10852d78144680fcb8d7e979b"
+      },
+      "source_sha256": {
+        "census-flow.html": "31b2650d9cbaef542818d20d065d74b536f203e5b0709a8e77b9f2655cb1a8de"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 15,
+      "title": "Spectral Lines",
+      "sources": [
+        "balmer-rydberg-poams.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/15/fd86d6ca0b176bd494c3516ace33880a4f7a075fbb604d04ccf2a63bbb157380.mp3",
+      "audio_sha256": "fd86d6ca0b176bd494c3516ace33880a4f7a075fbb604d04ccf2a63bbb157380",
+      "source_content_sha256": "8845dd6f97d0a938d71cdcf57e4441f09aeb3c3afecff08011ec7797e157a05a",
+      "script_source_sha256": {
+        "balmer-rydberg-poams.html": "2ce38414889f0ecd4b48b9a8940e293f7adc5f9e00acc19e96014d1c93eecb16"
+      },
+      "source_sha256": {
+        "balmer-rydberg-poams.html": "836fc73ea394a13797fed35e8825e642cc60e38dd20274a6ee6eb3cc6c46cdab"
+      },
+      "source_dependency_sha256": {
+        "scripts/coulomb_calibrated.js": "f9b1ae9ddc4106332c78930558d0858f7cf767ed5302182f5298d01261b4c20d",
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e",
+        "scripts/coulomb_calibrated_inputs.json": "ae7e10d4d9ecb1334212fd95c3cdeeb62414981786cd3a629da9b94bbafb30c9"
+      }
+    },
+    {
+      "order": 16,
+      "title": "Alpha",
+      "sources": [
+        "alpha-fine-structure-derivation.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/16/439997ef0e53aed7c731ebf185344ef7a38ac24600a504405d681fb5a8e4a2e2.mp3",
+      "audio_sha256": "439997ef0e53aed7c731ebf185344ef7a38ac24600a504405d681fb5a8e4a2e2",
+      "source_content_sha256": "d62a8e5355c6b4f79453aedc699f2ba7701c0bcbcec2d88cc0cb13e7d27d98fa",
+      "script_source_sha256": {
+        "alpha-fine-structure-derivation.html": "88d3bb02be51c66d23aca786db8ff4999f1a0fff49946f856e01c6d9badcd77d"
+      },
+      "source_sha256": {
+        "alpha-fine-structure-derivation.html": "08cbac5a3d47df6ead0b5f2abe047115ffba6288955b637ff5ce0097a3337244"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 17,
+      "title": "Newton",
+      "sources": [
+        "newton-from-tangled-trapped-rate-depletion.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/17/00635b264163090e1cf6bd896f495faac1d90fe021cf794f5110b85da648922b.mp3",
+      "audio_sha256": "00635b264163090e1cf6bd896f495faac1d90fe021cf794f5110b85da648922b",
+      "source_content_sha256": "5ce2e8914a23e0ea753c47ea7c67f8aa86cdc60871f841cbd6c22a4bd920a5fd",
+      "script_source_sha256": {
+        "newton-from-tangled-trapped-rate-depletion.html": "fb9148eb822ccbc335cb70058c4f11923f55a4c4408b5bad8e5c018e7d8faee0"
+      },
+      "source_sha256": {
+        "newton-from-tangled-trapped-rate-depletion.html": "728efc4115fd299923a3d548ef547d2dcb601253e443032085a93315b2de6fe5"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 18,
+      "title": "Coulomb",
+      "sources": [
+        "coulomb-from-chirality-directed-depletion.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/18/da5fc947a3c0e028543a9401d35c9c060c9bed0741d4f1ae8fa399531e5e4550.mp3",
+      "audio_sha256": "da5fc947a3c0e028543a9401d35c9c060c9bed0741d4f1ae8fa399531e5e4550",
+      "source_content_sha256": "0fe459c58b3391223ad3f7d7b625f61ec582d704cd083a7129b8703d6bf38ba2",
+      "script_source_sha256": {
+        "coulomb-from-chirality-directed-depletion.html": "af90d59a86ed84a2df6993fe29e91a25fde8005ca3b57b6a74d0894b24c9dd0a"
+      },
+      "source_sha256": {
+        "coulomb-from-chirality-directed-depletion.html": "a54f276fb948d0296d464d73102079e36abcef1c4901edb59ead9cced9fb447e"
+      },
+      "source_dependency_sha256": {
+        "scripts/coulomb_calibrated.js": "f9b1ae9ddc4106332c78930558d0858f7cf767ed5302182f5298d01261b4c20d",
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e",
+        "scripts/coulomb_calibrated_results.json": "1a96c1608616f6d96290d5bade269c8d7ae64bbddb691ee68439914394db5f0c"
+      }
+    },
+    {
+      "order": 19,
+      "title": "Landé",
+      "sources": [
+        "lande-from-twist-writhe.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/19/4afd958251985c9221ae1d34cfd67ea43c0256dc168db894f968491414629934.mp3",
+      "audio_sha256": "4afd958251985c9221ae1d34cfd67ea43c0256dc168db894f968491414629934",
+      "source_content_sha256": "ed25bbf88f53c4e53ad088a353de947eb70fc126bf9498e9bc6d3ecefe19c3d3",
+      "script_source_sha256": {
+        "lande-from-twist-writhe.html": "4d8ee039c7a2a4727af610299a720bad9d1927307df5424b3076726876e11bae"
+      },
+      "source_sha256": {
+        "lande-from-twist-writhe.html": "3e01bef4bdfbcc0032df84c225f244d9ead0301290390ad05512215d71370eda"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 20,
+      "title": "Stern-Gerlach",
+      "sources": [
+        "stern-gerlach-as-two-chiralities.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/20/d80254901ef92de16d0ea4fbfbcd9aafabf166363c595c46bad52befc01dc6e9.mp3",
+      "audio_sha256": "d80254901ef92de16d0ea4fbfbcd9aafabf166363c595c46bad52befc01dc6e9",
+      "source_content_sha256": "976b32b977b34651127c1b5128f47936e419e4e29ce3c9913e56d1dd9798cb4d",
+      "script_source_sha256": {
+        "stern-gerlach-as-two-chiralities.html": "936b2e3f3a2af74abf1c0185a75fefbe1eb6ac169439d56fb1a79c18e3569021"
+      },
+      "source_sha256": {
+        "stern-gerlach-as-two-chiralities.html": "dbc3fa27c292355c1bfe57cabe7e43833df9cc2e9a69933148fee48de4fc4931"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 21,
+      "title": "The Inner Census",
+      "sources": [
+        "inner-census.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/21/d7b1d29d66caf7f1b8613b8c7fd6166e314d40b2789c5c61296887033845d8d2.mp3",
+      "audio_sha256": "d7b1d29d66caf7f1b8613b8c7fd6166e314d40b2789c5c61296887033845d8d2",
+      "source_content_sha256": "c4808e5b80e75064115b68aa361091259a7dae76b8432a2332117932963c743e",
+      "script_source_sha256": {
+        "inner-census.html": "47ff354c1c1999d2d1dae89ace7fa3f576a5f7edd0408692d1bcc8876ccc9672"
+      },
+      "source_sha256": {
+        "inner-census.html": "f7fa5706dc6de146b83d54d4b30b1409563607973f14b6108ef155a91955a4e3"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 22,
+      "title": "The Mass Ledger",
+      "sources": [
+        "mass-ledger.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/22/88e334de5bfdc8aaeeb4f8de45d04097abfebaabcbbf0336529fce680a08f5ea.mp3",
+      "audio_sha256": "88e334de5bfdc8aaeeb4f8de45d04097abfebaabcbbf0336529fce680a08f5ea",
+      "source_content_sha256": "6ceb927a2d9c4c52fb81b517612de438edbb97954a23fe4e76b1c23f88c9c186",
+      "script_source_sha256": {
+        "mass-ledger.html": "a56dd8af84444893a78417c95d2f3cd6bef763d19988914018f508bb57faa619"
+      },
+      "source_sha256": {
+        "mass-ledger.html": "0d8c421ce4ccfec9afa64ac23931edd4487b8da7f2488ff99f84bcc74bb1b843"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 23,
+      "title": "The Valley",
+      "sources": [
+        "valley-of-stability.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/23/e400e38a94a3a438e6c216acf1fe190fc3fb79cab64cde6abdb48c38015ebbae.mp3",
+      "audio_sha256": "e400e38a94a3a438e6c216acf1fe190fc3fb79cab64cde6abdb48c38015ebbae",
+      "source_content_sha256": "29029f5881a5dcb76ac21933c31d8a2f6d5baa872526139e2f8385940462f9d9",
+      "script_source_sha256": {
+        "valley-of-stability.html": "b91f483a18a215422e36d2a666d03033cab798434656dd4c4c30fe59e380cdbf"
+      },
+      "source_sha256": {
+        "valley-of-stability.html": "a5b0a5bc7fd8fe0d2213ce8767b7ec790db29e9db2b481a68be4998aaded32b8"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 24,
+      "title": "The Molecule",
+      "sources": [
+        "the-molecules.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/24/715eaa0e4f55f35c4173679f5ef113437717f68870cb98815ba76d23c335fc18.mp3",
+      "audio_sha256": "715eaa0e4f55f35c4173679f5ef113437717f68870cb98815ba76d23c335fc18",
+      "source_content_sha256": "0f05866a0dbe69ec2cb3c52df8951f9b7298a158d3cc9312c6eb18e39e486365",
+      "script_source_sha256": {
+        "the-molecules.html": "ad572e54939ffe127d4f3e5d4896df74c7627ef5e198ee8a5e2ff8762698219f"
+      },
+      "source_sha256": {
+        "the-molecules.html": "9ab732b22aad2b6bcdeb95c44a24a94fe405442b983e6215389c3d66b294638b"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e",
+        "scripts/water_reproducible_prediction_results.json": "1b20ae9ffd7c3aafc93de231a229824dc932e75fa471e0b5fede98ba558ec1a1",
+        "scripts/whole_atom_handoff.json": "08a06f2d6c3c7e18a9fa69fd3ab2f1fb9ce36a52d724ab24a18e7533fb105858",
+        "scripts/all_element_table.csv": "d25261961d1de944576532f448474c11dc54821e59dc7927b48328e80916ebe2",
+        "scripts/molecular_reentry_results.json": "9494e5dfe275831248ca664676edb6e44158cd52352551d6753f3a81fa144623",
+        "scripts/all_element_state_index.json": "401fb05aa063496baaffac3639b96bcf773dc615cf893aa7cf38e4293a03cb93",
+        "scripts/water_q_relaxation_results.json": "a863cd3627c02b35dbe0955f276bd51cbad1bf8067d1517d042cda2b778d785e",
+        "scripts/water_equilibrium_reference_results.json": "656d89ceefa94f5f8d449f2d2864dc18281e01c3dd89cc56ded19b912dda6e7c"
+      }
+    },
+    {
+      "order": 25,
+      "title": "The Patient Sun",
+      "sources": [
+        "the-patient-sun.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/25/1f286d2a481aeab4c54fb89aae98dab7d77b6437bb7d7cb1d313e72065dfd7b3.mp3",
+      "audio_sha256": "1f286d2a481aeab4c54fb89aae98dab7d77b6437bb7d7cb1d313e72065dfd7b3",
+      "source_content_sha256": "32902c72b5f9e32c319594a6c2a6be3b6b57190795cd7971a1c81f1b806fa4b7",
+      "script_source_sha256": {
+        "the-patient-sun.html": "77fda79c816935f70e9bf1bc67fd62dc0837e5eb9906be9dd413916713618838"
+      },
+      "source_sha256": {
+        "the-patient-sun.html": "8bafbec7eaa4e32523e68855fcbbabdca837a38b4ca5fc4bd2148d6463490d9c"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 26,
+      "title": "The Cone Model",
+      "sources": [
+        "cone-model.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/26/3de4cf7ab87683bdb5b3b379e238169c6475e9015a69be829fa892fc73930f93.mp3",
+      "audio_sha256": "3de4cf7ab87683bdb5b3b379e238169c6475e9015a69be829fa892fc73930f93",
+      "source_content_sha256": "e660e3f77028b9ddfa7fd0a3ec94f9e36fb08ce031e63200e3a7b33329061a7c",
+      "script_source_sha256": {
+        "cone-model.html": "33be2d09e7b1fe52baf480d332825d7b057f071996d4be28917add4f7860e19f"
+      },
+      "source_sha256": {
+        "cone-model.html": "fd4d72ea864489c0c88ef38f5c959f176286195a0dd3e2bffff90662866e27c0"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 27,
+      "title": "The Rate of Time",
+      "sources": [
+        "the-rate-of-time.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/27/fdf302276a487ef7e0baa06a285d9943472fd309ec2c146768cfdcc58b4a17ab.mp3",
+      "audio_sha256": "fdf302276a487ef7e0baa06a285d9943472fd309ec2c146768cfdcc58b4a17ab",
+      "source_content_sha256": "5594ba550afb1e4126b7aec82c008669a900171b4c511e29f043a5743d39a6ba",
+      "script_source_sha256": {
+        "the-rate-of-time.html": "35d24e991aa226488eda0154d28c980c4cbb44aaf9ca4fd9688659a346345ba6"
+      },
+      "source_sha256": {
+        "the-rate-of-time.html": "891d56ed939da36bea51e53e7022224c7c4c45fcc059f549126f483b3e2dcd80"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 28,
+      "title": "Twins Non-Paradox",
+      "sources": [
+        "twins-paradox.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/28/4e4d90a9ebbb70d488386ca4a5e1a1012c58d94446d6e6a8c2b85c2bcae1d3b1.mp3",
+      "audio_sha256": "4e4d90a9ebbb70d488386ca4a5e1a1012c58d94446d6e6a8c2b85c2bcae1d3b1",
+      "source_content_sha256": "5dd2b6b19bed348f93409ffdb9db2b9d38471d6b600871147ebdc32643610db7",
+      "script_source_sha256": {
+        "twins-paradox.html": "daa13579682e008d1e38ff74b8505f59960afc3b31fcf4daa73a2435ee879d64"
+      },
+      "source_sha256": {
+        "twins-paradox.html": "6f6626f9cd3c3c586cec24a44fcf6ba136860e4efedcbaeef58760a806e0eca6"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 29,
+      "title": "Orbital Time Dilation",
+      "sources": [
+        "orbital-time-dilation.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/29/f15aa14a79011ca5242dc9a41f311c015c57585dd7bb5f81a953a24348a98a0c.mp3",
+      "audio_sha256": "f15aa14a79011ca5242dc9a41f311c015c57585dd7bb5f81a953a24348a98a0c",
+      "source_content_sha256": "3497440f0d094a29fd916dcb4020748ef5e6410ddd0b693083d53cb45ee33622",
+      "script_source_sha256": {
+        "orbital-time-dilation.html": "a849df38f6ce06954072101e764c4d2eaf82bbbd0878f8ca7d80fe034ca1e278"
+      },
+      "source_sha256": {
+        "orbital-time-dilation.html": "c6606dd9e454cafda49191b804cd1a6230c5e935b71b23508d219aff4825abe3"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 30,
+      "title": "The Spin–Orbit Settlement Ledger",
+      "sources": [
+        "spin-orbit-settlement-ledger.html#galaxy-case"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/30/6ecd9d5099b1e91b295896ce72c191abefb9adc715b105e0632e8a4b90488d34.mp3",
+      "audio_sha256": "6ecd9d5099b1e91b295896ce72c191abefb9adc715b105e0632e8a4b90488d34",
+      "source_content_sha256": "261c5e523f184d1308c6ce83b7b2e5a358ef4ea23640b9e72c9bb2bf0eb75d47",
+      "script_source_sha256": {
+        "spin-orbit-settlement-ledger.html": "0db357e80802c99ddcfc778e5e48db4838266a3a7cc9a54290efd70f740f5148"
+      },
+      "source_sha256": {
+        "spin-orbit-settlement-ledger.html": "61bde5395c540d8e06631d889d01f85dad2b1bac5abee0d943951215d9abc3fd"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 31,
+      "title": "The Solar System",
+      "sources": [
+        "solar-system.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/31/6d2b6678928544b392139f919760a626d4481210cc5ef97bd26c4784a4249eac.mp3",
+      "audio_sha256": "6d2b6678928544b392139f919760a626d4481210cc5ef97bd26c4784a4249eac",
+      "source_content_sha256": "7620c685b4fea5ef8fe5cd2b8bde99705c7b232b319e784e218a1748165ef08e",
+      "script_source_sha256": {
+        "solar-system.html": "4071b2f74487e2896423f470a5e94e7310598e94491bbd89abfdf448d52167b2"
+      },
+      "source_sha256": {
+        "solar-system.html": "935dc14bedf0c0edc5eb3f36d3e278bd9d6b99c74f983eb65c5cfb2c9795875f"
+      },
+      "source_dependency_sha256": {
+        "solar-system-jpl.js": "606ddaa2ea91f216ffe39ab8a6c996f4c470a7db9019fd6d71758ad1f5e9f2c3",
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e",
+        "solar-system-jpl.json": "9dc6c1d32d1594d526e34907dde34fdfeb78ef525e2c0a823636f7c689f7cd5e"
+      }
+    },
+    {
+      "order": 32,
+      "title": "The Navigation Engine",
+      "sources": [
+        "navigation-engine.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/32/31203cc901a91f44a56e2253f6eb65016ae6a36c413ccecafbaf6652483b64ad.mp3",
+      "audio_sha256": "31203cc901a91f44a56e2253f6eb65016ae6a36c413ccecafbaf6652483b64ad",
+      "source_content_sha256": "736ba7634e0c52bfd7d1446faef6d7e4892613e5343616b8505048ff0a308f5d",
+      "script_source_sha256": {
+        "navigation-engine.html": "e8076b9130f13f288ecbbc498954cb19a2d0c28bc702b3951d5a3d5586f05760"
+      },
+      "source_sha256": {
+        "navigation-engine.html": "2a489b01ae69bc8fd94e29aafa8886065e6207072d2bb33f8a924cd9f8447791"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 33,
+      "title": "The Resonance Network",
+      "sources": [
+        "resonance-network.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/33/18e3c65d12619e0dc1fc69d72044019c6e822edcc425b0740ab57eea537d96c2.mp3",
+      "audio_sha256": "18e3c65d12619e0dc1fc69d72044019c6e822edcc425b0740ab57eea537d96c2",
+      "source_content_sha256": "1a77f5e1ab9d4a7dc5e45b28385d436d7a16f93a8915edba91d12737fcccd900",
+      "script_source_sha256": {
+        "resonance-network.html": "6902932ad7fea1c46a8241572d532ce135f34d62711bf4dc65e9fbed2765b5d0"
+      },
+      "source_sha256": {
+        "resonance-network.html": "41eff4c803f744abeb3715e24ea0dda1991bba4860e445df9f550d235532c9a0"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 34,
+      "title": "The Ledger Navigator",
+      "sources": [
+        "ledger-navigator.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/34/e47bb71bb8020464854e22b35248d79b360e16bc47aec375c60c620541a19897.mp3",
+      "audio_sha256": "e47bb71bb8020464854e22b35248d79b360e16bc47aec375c60c620541a19897",
+      "source_content_sha256": "bef6bc069eab2fc024d16ebd23b46c206f8e9fa2bd273b0b71324bde6df09790",
+      "script_source_sha256": {
+        "ledger-navigator.html": "3583d267ec487b006f0690968c97a90a9b84e2fdd0384619066c3f93fa672639"
+      },
+      "source_sha256": {
+        "ledger-navigator.html": "61ffdd98977ce44f384df867fcd405457604834c491750b70de5bed3f54e9604"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 35,
+      "title": "Counter-Rotating Vortex Cores",
+      "sources": [
+        "counter-rotating-circulation-pair.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/35/6b7033862a24a57de7b41b869e89679e6871c86aa110d218710950e0afa10429.mp3",
+      "audio_sha256": "6b7033862a24a57de7b41b869e89679e6871c86aa110d218710950e0afa10429",
+      "source_content_sha256": "222d5b0a791593be7bfb4602984d9b49c8c05ce74960887512eaf49eeacbf27f",
+      "script_source_sha256": {
+        "counter-rotating-circulation-pair.html": "3113e4b084de669aa10f9c3ebd51719b98537d80fd936178167fe2d22fdf168b"
+      },
+      "source_sha256": {
+        "counter-rotating-circulation-pair.html": "a652981d8258d331e53b02d15082d1a2bff38f7a3f7ef26d53233c89f5407f56"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 36,
+      "title": "Keren Li AM Calculator",
+      "sources": [
+        "angular-momentum-calculator.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/36/9aa3353e2cb9a99f33373d2d240efdc28efae9f9558a0d99c0d3da48dd5e6641.mp3",
+      "audio_sha256": "9aa3353e2cb9a99f33373d2d240efdc28efae9f9558a0d99c0d3da48dd5e6641",
+      "source_content_sha256": "1fe041e9d6d09150f9aaa2adb67d08ae83258c93522fbd9cf605182a9dc9c863",
+      "script_source_sha256": {
+        "angular-momentum-calculator.html": "9740c549e273f9281bb167c4cede5ccca24db90eb74d00730f5ad5f0d12329b5"
+      },
+      "source_sha256": {
+        "angular-momentum-calculator.html": "5f5d3b08d3e006642c7fd86c459e6473879e67db66b465710e96ddbfc8dda54e"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 37,
+      "title": "Quantum Cinematograph",
+      "sources": [
+        "quantum-cinematograph.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/37/5c69ec0405ad749c2871d4a5bd878018901c9abc0a7bbe5b9dd7601f2e2ad0ec.mp3",
+      "audio_sha256": "5c69ec0405ad749c2871d4a5bd878018901c9abc0a7bbe5b9dd7601f2e2ad0ec",
+      "source_content_sha256": "7d27b26f6fa52ab686d48ef3aa1ce59e86ab921cf5ac9af0319fc1c1307a14c7",
+      "script_source_sha256": {
+        "quantum-cinematograph.html": "0b0e888fcad0cdc16620f5082b1ac6331e5c3e01227c9970fe10320e3623925c"
+      },
+      "source_sha256": {
+        "quantum-cinematograph.html": "3310e6c63b42b3752629991f798882b8e4388156fc224aa87e35b66707d0f9cd"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 38,
+      "title": "The Two-Slit Experiment",
+      "sources": [
+        "the-two-slit-experiment.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/38/07313911ef40269514465e569294fcd78e02be3a8caa4a7d6b769255f324e7cc.mp3",
+      "audio_sha256": "07313911ef40269514465e569294fcd78e02be3a8caa4a7d6b769255f324e7cc",
+      "source_content_sha256": "be7f785084303958b387a484d869b7ce82a87befa13428d2e97766eeeb8d2807",
+      "script_source_sha256": {
+        "the-two-slit-experiment.html": "8d4a9880bd49f8978f029edd242f48601b48f611eb0b6a0aeedcb18fbec91ce8"
+      },
+      "source_sha256": {
+        "the-two-slit-experiment.html": "72e5a8e3d3b5796bf3d190796e39af688027065a566954c63a994f7bfed4a53a"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 39,
+      "title": "Light is Everything",
+      "sources": [
+        "the-poams-brilliant-vortex-atom.html#light-is-everything"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/39/49c9ff55998d47975eb51f14723ff4208562e702762e200a7ce89b1835321a4e.mp3",
+      "audio_sha256": "49c9ff55998d47975eb51f14723ff4208562e702762e200a7ce89b1835321a4e",
+      "source_content_sha256": "513fbdcfb81674b5c7b82cd8aa3d1f919107a3a051503db584e0d83897b0c7c8",
+      "script_source_sha256": {
+        "the-poams-brilliant-vortex-atom.html": "917cef6011a5d893472a7853fae72a5c7fc25634556ef4ec61d86bf35d1e8189"
+      },
+      "source_sha256": {
+        "the-poams-brilliant-vortex-atom.html": "5fc252a6af7cbbf34dc8d37cee2de4e7eaa1540df488c6653fb964f1bea145ce"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 40,
+      "title": "Time-Rope",
+      "sources": [
+        "time-rope.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/40/bac99b1957aaf0bf3dda8aecaa25c3cb146ed6cf9266a19407f11c95296f0368.mp3",
+      "audio_sha256": "bac99b1957aaf0bf3dda8aecaa25c3cb146ed6cf9266a19407f11c95296f0368",
+      "source_content_sha256": "44497e7d58aa23b798f2596fc2268ec251f7bbce3127a2ecc99112e1f31654a8",
+      "script_source_sha256": {
+        "time-rope.html": "f91d11fac1d37ad2fc635b1b01c74f735d3f348a9de32cd3a2eb724d8213a94f"
+      },
+      "source_sha256": {
+        "time-rope.html": "d0103f9fce65dce317e92c5a966aebdedb639ca6001d5038cf4138358ff96b9a"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 41,
+      "title": "Bell at the Completion Boundary",
+      "sources": [
+        "horizon-bell-contextuality-delayed-choice.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/41/56c6d57bc4c62223bc143ea95701f0528cf793c07dfd4c09dd5a4cdf2c282c19.mp3",
+      "audio_sha256": "56c6d57bc4c62223bc143ea95701f0528cf793c07dfd4c09dd5a4cdf2c282c19",
+      "source_content_sha256": "9718b53feec9ccfe64922f37fd35da4d8259fe6fdd2952fd372bc66cb1f2e91e",
+      "script_source_sha256": {
+        "horizon-bell-contextuality-delayed-choice.html": "fee818864d877f2c7f6bd3b3cb6e53b81a5804b889c6cbf5d05f4ab91d76c094"
+      },
+      "source_sha256": {
+        "horizon-bell-contextuality-delayed-choice.html": "26ca23112e556cb5fce81d3b54c492daee776814522ffabd152540f0d681bc59"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 42,
+      "title": "Temperature",
+      "sources": [
+        "the-poams-brilliant-vortex-atom.html#the-transaction-and-temperature"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/42/c55f802b79aa4a2a93898cd2a8a832dbf471cadb6baf6f12faacc2b0b438f6f1.mp3",
+      "audio_sha256": "c55f802b79aa4a2a93898cd2a8a832dbf471cadb6baf6f12faacc2b0b438f6f1",
+      "source_content_sha256": "0a408f14c27f15c0d795c0816360806669e9c895531d4e56f7d3311e47375cb2",
+      "script_source_sha256": {
+        "the-poams-brilliant-vortex-atom.html": "917cef6011a5d893472a7853fae72a5c7fc25634556ef4ec61d86bf35d1e8189"
+      },
+      "source_sha256": {
+        "the-poams-brilliant-vortex-atom.html": "5fc252a6af7cbbf34dc8d37cee2de4e7eaa1540df488c6653fb964f1bea145ce"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 43,
+      "title": "Heat & Coherence",
+      "sources": [
+        "heat-and-coherence.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/43/f7904f633aa2160bc5a3371728d75c1e4733822dc6651325ebba81a82bd69832.mp3",
+      "audio_sha256": "f7904f633aa2160bc5a3371728d75c1e4733822dc6651325ebba81a82bd69832",
+      "source_content_sha256": "62b1fecab5fd58d0c14f4b23023edd69e57c48b1b2ab2ce823cc94e790174d62",
+      "script_source_sha256": {
+        "heat-and-coherence.html": "ab7c4d6048020ef017e3bf3cbb9d75cc146bdb5f4e4d6286e69fc6d9c65b6023"
+      },
+      "source_sha256": {
+        "heat-and-coherence.html": "482e12fef37c87963ae0e80f8d32305e63c2e8e3a3808636592ecffce1d9106a"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 44,
+      "title": "Electricity",
+      "sources": [
+        "poams-electricity.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/44/29d9ec67e604bd5e0e88eefadc8dd04faa9e77def739eb85302626a359e8f983.mp3",
+      "audio_sha256": "29d9ec67e604bd5e0e88eefadc8dd04faa9e77def739eb85302626a359e8f983",
+      "source_content_sha256": "3cb5ca53aa391cd525e3868c7589be29f9d86fe8adb24be0ce889dbaf416db0c",
+      "script_source_sha256": {
+        "poams-electricity.html": "74431936dd8f1504d7f9b3fde29e91e3162d9aae5558ef9a9bc9bc22d52e3bec"
+      },
+      "source_sha256": {
+        "poams-electricity.html": "8dbe0202ff98a716dac810805fa21aa1d48acf6930af51ad1ac4c413a7dd5619"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 45,
+      "title": "Antenna Emission",
+      "sources": [
+        "antenna-emission.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/45/aee7355f22f92c051132f486b89ffc1fc56aca83e849a6dcab25279926161541.mp3",
+      "audio_sha256": "aee7355f22f92c051132f486b89ffc1fc56aca83e849a6dcab25279926161541",
+      "source_content_sha256": "8ee491dc036ee8fe83dbebaa8500802f5287ef690fac208d3fa21bde6a2f5db8",
+      "script_source_sha256": {
+        "antenna-emission.html": "bc9e23f7888a4d80180af5c292aa1a533ad0491b17de4d4cc2023e6ca4f6845f"
+      },
+      "source_sha256": {
+        "antenna-emission.html": "0d5a4f98abea712a6b511592d3c0881fa9668a7d8fd4e2a78b4b5fba224e38f1"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 46,
+      "title": "Telecommunications",
+      "sources": [
+        "poams-telecommunications.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/46/27a09708de1b9fdfc3538cfff5731343568848af425aa26bf81b81381bbec64c.mp3",
+      "audio_sha256": "27a09708de1b9fdfc3538cfff5731343568848af425aa26bf81b81381bbec64c",
+      "source_content_sha256": "b0ca77e066b3448aa0f66f47a688bd442ed521c119e7864db91d076c7c808644",
+      "script_source_sha256": {
+        "poams-telecommunications.html": "5755bae387a99da044b02be37abcd2e6f4555605540a1f6c91e3a1f388d95b05"
+      },
+      "source_sha256": {
+        "poams-telecommunications.html": "f609f87e206407d170c5cf4937ca081ef42cfc6fd86bf79e30044cbf48194f4b"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 47,
+      "title": "The Receiver Keys the Exchange",
+      "sources": [
+        "the-receiver-keys-the-exchange.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/47/025c53e8816f245cbbe5cab1a7610d27ce96ac8cb4c73e9928f457aa5b7b5c03.mp3",
+      "audio_sha256": "025c53e8816f245cbbe5cab1a7610d27ce96ac8cb4c73e9928f457aa5b7b5c03",
+      "source_content_sha256": "4ebfd2048e1ed87fa7369392922cca0e77bc32b0d5d71c3b8e5c23fcb4173f37",
+      "script_source_sha256": {
+        "the-receiver-keys-the-exchange.html": "012ab49c3988879e963f13231a00e51ee8552468ed1e02ce7448017aeab9e9c0"
+      },
+      "source_sha256": {
+        "the-receiver-keys-the-exchange.html": "640e54e8c36a48dda5b32b3b8cce06813b43eb44f06e3f4d480392a31fafc3ad"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 48,
+      "title": "Memory",
+      "sources": [
+        "poams-memory.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/48/50f521020c51a46ed4934713a54c3db28317b7bc0c6717fae058cbee412b8e00.mp3",
+      "audio_sha256": "50f521020c51a46ed4934713a54c3db28317b7bc0c6717fae058cbee412b8e00",
+      "source_content_sha256": "c7332b390b2527e0ee70326aba3fca2411aaae6b708e80606ddfe5bd9a298f16",
+      "script_source_sha256": {
+        "poams-memory.html": "3bec1ea8c22f36b82905c1ae0a230d43a853ac1c870c83a5cd5e161fca0ff0cb"
+      },
+      "source_sha256": {
+        "poams-memory.html": "2b20a41518fbeeef26ae09fcb891c720d7d8eac2eab626117ef92fdfe808370e"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 49,
+      "title": "Computation",
+      "sources": [
+        "computation-as-completion.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/49/8cd12468071c49347488e732427ed2d7a4ed47cdb1259f6cf13e648881d39a6a.mp3",
+      "audio_sha256": "8cd12468071c49347488e732427ed2d7a4ed47cdb1259f6cf13e648881d39a6a",
+      "source_content_sha256": "d2ef6b2979507f97e41edea9a3baa3f156954e876e996885af75fc9ca8f305bf",
+      "script_source_sha256": {
+        "computation-as-completion.html": "f0e6f7dd3509cea7b4a799072a60b7560f7da5363f712714af17e87515c75ddf"
+      },
+      "source_sha256": {
+        "computation-as-completion.html": "9436994dc779fcf1ad3665bf296c7842b4320f1cafe2e71041a79f35732b2085"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 50,
+      "title": "The Winding Register",
+      "sources": [
+        "the-winding-register.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/50/bff932d32c6f1921896e8b61bb3813c005dc941bc4c65525f3c5c5fdd21c7c0a.mp3",
+      "audio_sha256": "bff932d32c6f1921896e8b61bb3813c005dc941bc4c65525f3c5c5fdd21c7c0a",
+      "source_content_sha256": "df68c7cf20c84ec527b8c56b84c67599448512633f1dfd5ceb58c01f16fb3238",
+      "script_source_sha256": {
+        "the-winding-register.html": "fe8a8beb072d1c1602817699c6e7e899a15a7f8267ec9d152f9fa76c586e3e7e"
+      },
+      "source_sha256": {
+        "the-winding-register.html": "0347ddf5d4feaf26c9ff47c2bb86fc4f8ca593a00fb4480f34aabc54311290b2"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 51,
+      "title": "The POAMS Brilliant Vortex Atom",
+      "sources": [
+        "the-poams-brilliant-vortex-atom.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/51/2e0c832f7e7a3779ba7483c54ec4bf76712b266c79bfbba32970db500466a92f.mp3",
+      "audio_sha256": "2e0c832f7e7a3779ba7483c54ec4bf76712b266c79bfbba32970db500466a92f",
+      "source_content_sha256": "2d15cc8bd2fb6897473cdb93d7c5fc4700d74516ff5127ba2526aa2f253fed86",
+      "script_source_sha256": {
+        "the-poams-brilliant-vortex-atom.html": "917cef6011a5d893472a7853fae72a5c7fc25634556ef4ec61d86bf35d1e8189"
+      },
+      "source_sha256": {
+        "the-poams-brilliant-vortex-atom.html": "5fc252a6af7cbbf34dc8d37cee2de4e7eaa1540df488c6653fb964f1bea145ce"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 52,
+      "title": "The Polyverse: Black Holes, the Big Bang & the Microwave Sky",
+      "sources": [
+        "the-polyverse.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/52/6fdc14d10fa111d2b0c31ab1411ad697769fbe9b0a68e3e6a7e69b6d05a29508.mp3",
+      "audio_sha256": "6fdc14d10fa111d2b0c31ab1411ad697769fbe9b0a68e3e6a7e69b6d05a29508",
+      "source_content_sha256": "a6b44feb1e881935e63ef1df93e5dad9a18d17aa0c7fa9070f9b40f4ee113ade",
+      "script_source_sha256": {
+        "the-polyverse.html": "d0bdc76c4fb8900b4eba49069d471f3d74c0353f90cee8712ffc9f27c77196c3"
+      },
+      "source_sha256": {
+        "the-polyverse.html": "97410d8fb25a65b23234f39b79516420d14ef89e11fd6863b9798aee05917690"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    }
+  ]
+}

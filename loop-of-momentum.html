@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
+<script src="./reader-theme.js?v=20261011a"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>A Closed Loop of Twisted Momentum — depicting the non-thing</title>
@@ -9,7 +10,7 @@
     --bg:#0d0d18; --card:#1c1c30; --text:#e8e8f0; --muted:#9a9ab0;
     --gold:#d4af37; --blue:#5bc8f5; --edge:#2c2c46;
   }
-  body.light{
+  body.legacy-light-theme{
     --bg:#faf8f2; --card:#ffffff; --text:#26211a; --muted:#6b6355;
     --gold:#8b6914; --blue:#176e94; --edge:#d9d2bf;
   }
@@ -19,12 +20,12 @@
     transition:background .3s,color .3s;}
   .theme-toggle{position:fixed;top:54px;right:12px;z-index:1000;background:var(--gold);color:var(--bg);border:none;width:40px;height:40px;border-radius:8px;padding:0;cursor:pointer;font-size:1.15rem;display:flex;align-items:center;justify-content:center}
   /* the 3D stage and its overlays keep the dark instrument look in both themes */
-  body.light #stage{background:#0d0d18;}
-  body.light #hud, body.light #info, body.light #infoToggle{
+  body.legacy-light-theme #stage{background:#0d0d18;}
+  body.legacy-light-theme #hud, body.legacy-light-theme #info, body.legacy-light-theme #infoToggle{
     --gold:#d4af37; --blue:#5bc8f5; --muted:#9a9ab0; --text:#e8e8f0; --edge:#2c2c46;
     background:rgba(13,13,24,.78); color:var(--muted);
   }
-  body.light #creed{background:#f3efe0;}
+  body.legacy-light-theme #creed{background:#f3efe0;}
   #wrap{display:flex;flex-direction:column;height:100%;}
   header{padding:20px 22px 14px;border-bottom:1px solid var(--edge);text-align:center;}
   header h1{margin:0;font-size:24px;color:var(--gold);font-weight:650;}
@@ -96,15 +97,17 @@
 #poams-hub-nav .phn-center{display:flex;flex-direction:column;align-items:center;line-height:1.2;}
 #poams-hub-nav .phn-title{font-weight:600;color:#e8e8f0;font-size:12px;}
 #poams-hub-nav .phn-pos{font-size:10px;color:rgba(212,175,55,0.6);letter-spacing:.05em;}
-[data-theme="light"] #poams-hub-nav,body.light #poams-hub-nav{background:rgba(250,248,242,0.95);border-bottom-color:rgba(139,105,20,0.25);}
-[data-theme="light"] #poams-hub-nav a,body.light #poams-hub-nav a{color:#8b6914;}
-body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
-[data-theme="light"] #poams-hub-nav .phn-title,body.light #poams-hub-nav .phn-title{color:#2a2318;}
+[data-legacy-theme="light"] #poams-hub-nav,body.legacy-light-theme #poams-hub-nav{background:rgba(250,248,242,0.95);border-bottom-color:rgba(139,105,20,0.25);}
+[data-legacy-theme="light"] #poams-hub-nav a,body.legacy-light-theme #poams-hub-nav a{color:#8b6914;}
+body.legacy-light-theme #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
+[data-legacy-theme="light"] #poams-hub-nav .phn-title,body.legacy-light-theme #poams-hub-nav .phn-title{color:#2a2318;}
 @media (max-width:640px){.phn-hide-sm{display:none;}}
 body{padding-top:72px !important;}
 </style>
+<link rel="stylesheet" href="./reader-standard.css?v=20261011a">
+<!-- POAMS LISTEN BEGIN --><link rel="stylesheet" href="podcast-listen.css"><script defer src="podcast-listen.js"></script><!-- POAMS LISTEN END -->
 </head>
-<body>
+<body class="reader-standard">
 <div id="poams-hub-nav">
   <a href="./poams-analysis.html" title="The POAMS Framework: A Comprehensive Analysis">← <span class="phn-hide-sm">POAMS Analysis</span></a>
   <div class="phn-center">
@@ -126,6 +129,14 @@ try{if(localStorage.getItem('poams-theme')==='light'){document.body.classList.ad
 <div id="wrap">
   <header>
     <h1>A Closed Loop of Twisted Momentum</h1>
+<!-- POAMS LISTEN BEGIN -->
+<div class="poams-listen" data-podcast="7" data-podcast-title="A Closed Loop of Twisted Momentum">
+<div class="pl-pills"><button class="pl-pill" type="button" aria-label="Audio: A Closed Loop of Twisted Momentum" aria-expanded="false" aria-controls="pl-player-7">AUDIO</button><a class="pl-video" href="https://notebook.google.com/notebook/385be092-aadd-4bf2-95d1-9b211c38506b" target="_blank" rel="noopener noreferrer" aria-label="Video in NotebookLM: A Closed Loop of Twisted Momentum (opens in a new tab)">VIDEO</a></div>
+<div id="pl-player-7" class="pl-player" hidden><button class="pl-play" type="button" aria-label="Play podcast" disabled>▶</button><input class="pl-seek" type="range" min="0" max="100" step="0.1" value="0" aria-label="Seek podcast" disabled><span class="pl-timer">0:00 / 0:00</span></div>
+<p class="pl-error" role="status" hidden></p><audio preload="none" src="https://audio.resonantmachines.us/podcasts/07/bf6ed007731a7548c14395f0eb823ec498754494a9f91ff8db3fdbcc750ff39c.mp3"></audio>
+</div>
+<!-- POAMS LISTEN END -->
+
     <p class="nr-provenance" style="font-size:0.8em;font-style:italic;opacity:0.72;line-height:1.5;margin:0.5em 0 1em">This exhibit is an extrapolation of the foundational work of N. Vivian “Viv” Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
     <p style="margin:6px auto 0;font-size:13px;color:var(--muted);">Depicting the Non-Thing</p>
   </header>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
+<script src="./reader-theme.js?v=20261011a"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Fine-Structure Constant — Measured Anchor, Calculated World</title>
@@ -13,7 +14,7 @@ window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$
   --bg:#0d0d18;--card:#17172a;--edge:#2c2c46;--text:#e8e8f0;--muted:#a0a0b6;
   --gold:#d4af37;--blue:#5bc8f5;--green:#69cf87;--red:#ef6a67;--amber:#e7a84d;
 }
-body.light{
+body.legacy-light-theme{
   --bg:#faf8f2;--card:#ffffff;--edge:#d9d2bf;--text:#26211a;--muted:#6b6355;
   --gold:#8b6914;--blue:#176e94;--green:#2e7d32;--red:#a63834;--amber:#9b6415;
 }
@@ -27,8 +28,8 @@ a{color:var(--blue)}
 .phn-center{display:flex;flex-direction:column;align-items:center;line-height:1.2}
 .phn-title{font-weight:650;color:var(--text);font-size:12px}
 .phn-pos{font-size:10px;color:var(--gold);opacity:.65;letter-spacing:.08em}
-body.light #poams-hub-nav{background:rgba(250,248,242,.96);border-bottom-color:rgba(139,105,20,.25)}
-body.light #poams-hub-nav a{color:#8b6914}
+body.legacy-light-theme #poams-hub-nav{background:rgba(250,248,242,.96);border-bottom-color:rgba(139,105,20,.25)}
+body.legacy-light-theme #poams-hub-nav a{color:#8b6914}
 .theme-toggle{position:fixed;top:54px;right:12px;z-index:1000;background:var(--gold);color:var(--bg);border:0;width:40px;height:40px;border-radius:8px;cursor:pointer;font-size:1.15rem}
 main{max-width:880px;margin:0 auto;padding:22px 22px 64px}
 header{text-align:center;padding:18px 0 28px;border-bottom:1px solid var(--edge)}
@@ -70,7 +71,7 @@ th{background:var(--card);color:var(--gold);font-family:-apple-system,BlinkMacSy
 .chain{background:var(--card);border:1px solid var(--edge);border-radius:8px;padding:18px 22px;margin:20px 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:.94rem;line-height:1.95}
 .chain b{color:var(--blue)}
 .door{background:#0f0f1e;border:1px solid var(--gold);border-radius:10px;padding:26px 28px;margin:26px 0;box-shadow:0 0 24px rgba(212,175,55,.08)}
-body.light .door{background:#f9f4e4}
+body.legacy-light-theme .door{background:#f9f4e4}
 .door h2{border-bottom:1px solid rgba(212,175,55,.35)}
 .links{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:10px;margin-top:15px}
 .links a{display:block;background:var(--card);border:1px solid var(--edge);border-radius:8px;padding:12px 14px;text-decoration:none}
@@ -78,8 +79,10 @@ body.light .door{background:#f9f4e4}
 footer{max-width:900px;margin:0 auto 24px;padding:15px 18px 0;border-top:1px solid rgba(212,175,55,.35);text-align:center;color:var(--muted);font-size:.8rem;line-height:1.7}
 @media(max-width:620px){.phn-hide-sm{display:none}main{padding-left:16px;padding-right:16px}table{display:block;overflow-x:auto}}
 </style>
+<link rel="stylesheet" href="./reader-standard.css?v=20261011a">
+<!-- POAMS LISTEN BEGIN --><link rel="stylesheet" href="podcast-listen.css"><script defer src="podcast-listen.js"></script><!-- POAMS LISTEN END -->
 </head>
-<body>
+<body class="reader-standard">
 <div id="poams-hub-nav">
   <a href="./index.html">&larr; <span class="phn-hide-sm">Exhibits Hub</span></a>
   <div class="phn-center">
@@ -94,6 +97,14 @@ footer{max-width:900px;margin:0 auto 24px;padding:15px 18px 0;border-top:1px sol
 
 <header>
   <h1>The Fine-Structure Constant</h1>
+<!-- POAMS LISTEN BEGIN -->
+<div class="poams-listen" data-podcast="16" data-podcast-title="Alpha">
+<div class="pl-pills"><button class="pl-pill" type="button" aria-label="Audio: Alpha" aria-expanded="false" aria-controls="pl-player-16">AUDIO</button><a class="pl-video" href="https://notebook.google.com/notebook/e5d65866-6b84-40fd-8733-bf5d66096e26" target="_blank" rel="noopener noreferrer" aria-label="Video in NotebookLM: Alpha (opens in a new tab)">VIDEO</a></div>
+<div id="pl-player-16" class="pl-player" hidden><button class="pl-play" type="button" aria-label="Play podcast" disabled>▶</button><input class="pl-seek" type="range" min="0" max="100" step="0.1" value="0" aria-label="Seek podcast" disabled><span class="pl-timer">0:00 / 0:00</span></div>
+<p class="pl-error" role="status" hidden></p><audio preload="none" src="https://audio.resonantmachines.us/podcasts/16/439997ef0e53aed7c731ebf185344ef7a38ac24600a504405d681fb5a8e4a2e2.mp3"></audio>
+</div>
+<!-- POAMS LISTEN END -->
+
   <div class="subtitle">A measured anchor. Calculated relationships. The observed world as the test.</div>
   <div class="status">MEASURED &alpha; ACCEPTED · APPLICATIONS PROCEED</div>
   <p class="prov">An extrapolation of the foundational work of N. Vivian &ldquo;Viv&rdquo; Pope and Dr. Anthony D. Osborne in Normal Realism and POAMS. This edition separates the phenomenological use of $\alpha$ from the optional research question of its numerical origin.</p>

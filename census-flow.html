@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
+<script src="./reader-theme.js?v=20261011a"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Census Flow — Why the Table Closes at Two Turns</title>
@@ -8,7 +9,7 @@
 <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 <style>
 :root{--bg:#0d0d18;--panel:#131322;--edge:#26263a;--gold:#d4af37;--blue:#5bc8f5;--red:#e06060;--green:#63d67e;--fg:#dfe0ea;--muted:#9a9bb0;}
-body.light{--bg:#faf8f2;--panel:#ffffff;--edge:#d9d2bf;--gold:#8b6914;--blue:#176e94;--red:#b03030;--green:#2e7d32;--fg:#26211a;--muted:#6b6355;}
+body.legacy-light-theme{--bg:#faf8f2;--panel:#ffffff;--edge:#d9d2bf;--gold:#8b6914;--blue:#176e94;--red:#b03030;--green:#2e7d32;--fg:#26211a;--muted:#6b6355;}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font-family:Georgia,'Times New Roman',serif;line-height:1.65;transition:background .3s,color .3s;}
 header{padding:26px 22px 18px;border-bottom:1px solid var(--edge);text-align:center;}
@@ -40,13 +41,13 @@ a{color:var(--blue);}
 .legend span{margin-right:14px;}
 .sw{display:inline-block;width:22px;height:3px;vertical-align:middle;margin-right:5px;border-radius:2px;}
 .theme-toggle{position:fixed;top:54px;right:12px;z-index:1000;background:var(--gold);color:var(--bg);border:none;width:40px;height:40px;border-radius:8px;padding:0;cursor:pointer;font-size:1.15rem;display:flex;align-items:center;justify-content:center}
-body.light canvas{background:#f6f3ea}
-body.light .eqbox{background:#f6f3ea}
-body.light button:not(.theme-toggle){background:#ece7d8}
-body.light .tag.prov{background:#dbeaf3}
-body.light .tag.assume{background:#efe7cf}
-body.light .tag.open{background:#f3dede}
-body.light footer{border-top-color:rgba(139,105,20,.35)}
+body.legacy-light-theme canvas{background:#f6f3ea}
+body.legacy-light-theme .eqbox{background:#f6f3ea}
+body.legacy-light-theme button:not(.theme-toggle){background:#ece7d8}
+body.legacy-light-theme .tag.prov{background:#dbeaf3}
+body.legacy-light-theme .tag.assume{background:#efe7cf}
+body.legacy-light-theme .tag.open{background:#f3dede}
+body.legacy-light-theme footer{border-top-color:rgba(139,105,20,.35)}
 </style>
 <style id="poams-hub-nav-style">
 #poams-hub-nav{position:fixed;top:0;left:0;right:0;z-index:9999;height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 1rem;background:rgba(13,13,24,0.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,175,55,0.25);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;box-sizing:border-box;}
@@ -55,15 +56,17 @@ body.light footer{border-top-color:rgba(139,105,20,.35)}
 #poams-hub-nav .phn-center{display:flex;flex-direction:column;align-items:center;line-height:1.2;}
 #poams-hub-nav .phn-title{font-weight:600;color:#e8e8f0;font-size:12px;}
 #poams-hub-nav .phn-pos{font-size:10px;color:rgba(212,175,55,0.6);letter-spacing:.05em;}
-[data-theme="light"] #poams-hub-nav,body.light #poams-hub-nav{background:rgba(250,248,242,0.95);border-bottom-color:rgba(139,105,20,0.25);}
-[data-theme="light"] #poams-hub-nav a,body.light #poams-hub-nav a{color:#8b6914;}
-body.light #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
-[data-theme="light"] #poams-hub-nav .phn-title,body.light #poams-hub-nav .phn-title{color:#2a2318;}
+[data-legacy-theme="light"] #poams-hub-nav,body.legacy-light-theme #poams-hub-nav{background:rgba(250,248,242,0.95);border-bottom-color:rgba(139,105,20,0.25);}
+[data-legacy-theme="light"] #poams-hub-nav a,body.legacy-light-theme #poams-hub-nav a{color:#8b6914;}
+body.legacy-light-theme #poams-hub-nav a:hover{background:rgba(139,105,20,0.1);}
+[data-legacy-theme="light"] #poams-hub-nav .phn-title,body.legacy-light-theme #poams-hub-nav .phn-title{color:#2a2318;}
 @media (max-width:640px){.phn-hide-sm{display:none;}}
 body{padding-top:72px !important;}
 </style>
+<link rel="stylesheet" href="./reader-standard.css?v=20261011a">
+<!-- POAMS LISTEN BEGIN --><link rel="stylesheet" href="podcast-listen.css"><script defer src="podcast-listen.js"></script><!-- POAMS LISTEN END -->
 </head>
-<body>
+<body class="reader-standard">
 <div id="poams-hub-nav">
   <a href="./aufbau-as-closure.html" title="Aufbau as Closure">← <span class="phn-hide-sm">Aufbau as Closure</span></a>
   <div class="phn-center">
@@ -79,6 +82,14 @@ body{padding-top:72px !important;}
 
 <header>
   <h1>The Census Flow</h1>
+<!-- POAMS LISTEN BEGIN -->
+<div class="poams-listen" data-podcast="14" data-podcast-title="The Census Flow">
+<div class="pl-pills"><button class="pl-pill" type="button" aria-label="Audio: The Census Flow" aria-expanded="false" aria-controls="pl-player-14">AUDIO</button><a class="pl-video" href="https://notebook.google.com/notebook/64497018-a19d-4877-b996-eba87ab9f523" target="_blank" rel="noopener noreferrer" aria-label="Video in NotebookLM: The Census Flow (opens in a new tab)">VIDEO</a></div>
+<div id="pl-player-14" class="pl-player" hidden><button class="pl-play" type="button" aria-label="Play podcast" disabled>▶</button><input class="pl-seek" type="range" min="0" max="100" step="0.1" value="0" aria-label="Seek podcast" disabled><span class="pl-timer">0:00 / 0:00</span></div>
+<p class="pl-error" role="status" hidden></p><audio preload="none" src="https://audio.resonantmachines.us/podcasts/14/9f59e87c0759df029d5d1cce2c06097b5cebe2d9316d255d5162f5846bafc65f.mp3"></audio>
+</div>
+<!-- POAMS LISTEN END -->
+
 <p class="nr-provenance" style="font-size:0.8em;font-style:italic;opacity:0.72;line-height:1.5;margin:0.5em 0 1em;text-align:center">This exhibit is an extrapolation of the foundational work of N. Vivian “Viv” Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
   <div class="sub">Why the Table Closes at Two Turns</div>
 </header>

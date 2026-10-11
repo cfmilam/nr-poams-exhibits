@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
+<script src="./reader-theme.js?v=20261011a"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Molecule — Coupled Vortices</title>
@@ -18,7 +19,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)'],['$','$']],displayMath:[['\\[','\
   --gold:#d4af37;--blue:#5bc8f5;--cyan:#26c6da;--violet:#b388ff;--red:#ff7b72;
   --green:#66bb6a;--edge:#2c2c46;--shadow:rgba(0,0,0,.32)
 }
-body.light{
+body.legacy-light-theme{
   --bg:#faf8f2;--card:#ffffff;--card2:#f3efe5;--text:#26211a;--muted:#6b6355;
   --gold:#8b6914;--blue:#176e94;--cyan:#0e7c8a;--violet:#6f42c1;--red:#b33a32;
   --green:#2e7d32;--edge:#d9d2bf;--shadow:rgba(70,55,30,.12)
@@ -28,7 +29,7 @@ a{color:var(--gold)}code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,mon
 #poams-hub-nav{position:fixed;top:0;left:0;right:0;z-index:9999;height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 1rem;background:rgba(13,13,24,.94);backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,175,55,.25);font-size:13px}
 #poams-hub-nav a{text-decoration:none;display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:6px;font-weight:500;white-space:nowrap}#poams-hub-nav a:hover{background:rgba(212,175,55,.12)}
 .phn-center{display:flex;flex-direction:column;align-items:center;line-height:1.15}.phn-title{font-weight:650;color:#e8e8f0;font-size:12px}.phn-pos{font-size:9px;color:rgba(212,175,55,.62);letter-spacing:.08em}
-body.light #poams-hub-nav{background:rgba(250,248,242,.95);border-bottom-color:rgba(139,105,20,.25)}body.light .phn-title{color:#26211a}
+body.legacy-light-theme #poams-hub-nav{background:rgba(250,248,242,.95);border-bottom-color:rgba(139,105,20,.25)}body.legacy-light-theme .phn-title{color:#26211a}
 .theme-toggle{position:fixed;right:12px;top:54px;z-index:1000;width:40px;height:40px;border:0;border-radius:8px;background:var(--gold);color:var(--bg);cursor:pointer;font-size:18px}
 header{text-align:center;padding:54px 20px 30px;background:radial-gradient(circle at 50% 10%,rgba(91,200,245,.08),transparent 48%)}header h1{margin:0;color:var(--gold);font-size:2.5rem;line-height:1.2;font-weight:650;letter-spacing:0}header .sub{font-size:clamp(1rem,2.2vw,1.35rem);color:var(--blue);margin:3px 0 12px}header p{max-width:850px;margin:8px auto;color:var(--muted)}
 .provenance{font-size:12px;font-style:italic;opacity:.82}.thesis{font-size:1.08rem!important;color:var(--text)!important}
@@ -51,8 +52,10 @@ footer{text-align:center;border-top:1px solid var(--edge);padding:20px;color:var
 @media(max-width:760px){.phn-hide-sm{display:none}.status-strip{grid-template-columns:1fr 1fr}.status-strip div:nth-child(2){border-right:0}.status-strip div:nth-child(-n+2){border-bottom:1px solid var(--edge)}.stage{height:760px}.hud{top:auto;bottom:10px;left:10px;right:10px;width:auto;max-height:205px}.legend{display:none}.action-panel{top:10px;right:10px;bottom:auto;width:min(285px,calc(100% - 20px))}.action-panel canvas{height:112px}.angle-row,.scope-grid{grid-template-columns:1fr}.benchmark{font-size:11px}.benchmark th,.benchmark td{padding:7px}.wrap{padding:0 12px}section.card{padding:19px 17px}.theme-toggle{top:50px}}
 </style>
 <link rel="stylesheet" href="./styles/calibrated-carryover.css">
+<link rel="stylesheet" href="./reader-standard.css?v=20261011a">
+<!-- POAMS LISTEN BEGIN --><link rel="stylesheet" href="podcast-listen.css"><script defer src="podcast-listen.js"></script><!-- POAMS LISTEN END -->
 </head>
-<body>
+<body class="reader-standard">
 <div id="poams-hub-nav">
   <a href="./mass-ledger.html" title="The Mass Ledger">← <span class="phn-hide-sm">The Mass Ledger</span></a>
   <div class="phn-center">
@@ -67,6 +70,14 @@ footer{text-align:center;border-top:1px solid var(--edge);padding:20px;color:var
 
 <header>
   <h1>The Molecule</h1>
+<!-- POAMS LISTEN BEGIN -->
+<div class="poams-listen" data-podcast="24" data-podcast-title="The Molecule">
+<div class="pl-pills"><button class="pl-pill" type="button" aria-label="Audio: The Molecule" aria-expanded="false" aria-controls="pl-player-24">AUDIO</button><a class="pl-video" href="https://notebook.google.com/notebook/c04d981d-b137-4b1d-bcd7-e5b63394f191" target="_blank" rel="noopener noreferrer" aria-label="Video in NotebookLM: The Molecule (opens in a new tab)">VIDEO</a></div>
+<div id="pl-player-24" class="pl-player" hidden><button class="pl-play" type="button" aria-label="Play podcast" disabled>▶</button><input class="pl-seek" type="range" min="0" max="100" step="0.1" value="0" aria-label="Seek podcast" disabled><span class="pl-timer">0:00 / 0:00</span></div>
+<p class="pl-error" role="status" hidden></p><audio preload="none" src="https://audio.resonantmachines.us/podcasts/24/715eaa0e4f55f35c4173679f5ef113437717f68870cb98815ba76d23c335fc18.mp3"></audio>
+</div>
+<!-- POAMS LISTEN END -->
+
   <div class="sub">When separate vortices close one shared ledger</div>
   <p class="provenance">An extrapolation of the foundational work of N. Vivian “Viv” Pope and Dr. Anthony D. Osborne in Normal Realism and the Pope–Osborne Angular Momentum Synthesis.</p>
   <p class="thesis">An element is one organized circulation. A molecule is not a bag of those circulations: it is the <b>new whole-turn relation they complete together</b>. Carbon is the clean first test because the deficit of its outer census is four—and four equivalent coupling axes close as a tetrahedron.</p>

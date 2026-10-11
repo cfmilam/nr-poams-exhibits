@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
+<script src="./reader-theme.js?v=20261011a"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The POAMS Framework: A Comprehensive Analysis</title>
@@ -29,7 +30,7 @@
             --blockquote-border: #d4af37;
         }
         
-        .light {
+        .legacy-light-theme {
             --bg: #ffffff;
             --fg: #2a2a2a;
             --accent: #8b6914;
@@ -256,8 +257,8 @@
       font-size: 13px;
       box-sizing: border-box;
     }
-    [data-theme="light"] #poams-hub-nav,
-    body.light #poams-hub-nav {
+    [data-legacy-theme="light"] #poams-hub-nav,
+    body.legacy-light-theme #poams-hub-nav {
       background: rgba(250, 248, 242, 0.95);
       border-bottom-color: rgba(139, 105, 20, 0.25);
     }
@@ -273,8 +274,8 @@
       white-space: nowrap;
       font-weight: 500;
     }
-    [data-theme="light"] #poams-hub-nav a,
-    body.light #poams-hub-nav a { color: #8b6914; }
+    [data-legacy-theme="light"] #poams-hub-nav a,
+    body.legacy-light-theme #poams-hub-nav a { color: #8b6914; }
     #poams-hub-nav a:hover { background: rgba(201, 168, 76, 0.12); }
     #poams-hub-nav .phn-disabled {
       color: rgba(201, 168, 76, 0.28);
@@ -295,8 +296,8 @@
       color: #e8e4d8;
       font-size: 12px;
     }
-    [data-theme="light"] #poams-hub-nav .phn-title,
-    body.light #poams-hub-nav .phn-title { color: #2a2318; }
+    [data-legacy-theme="light"] #poams-hub-nav .phn-title,
+    body.legacy-light-theme #poams-hub-nav .phn-title { color: #2a2318; }
     #poams-hub-nav .phn-pos {
       font-size: 10px;
       color: rgba(201, 168, 76, 0.6);
@@ -307,8 +308,9 @@
 
     </style>
 <link rel="stylesheet" href="./styles/calibrated-carryover.css">
+<link rel="stylesheet" href="./reader-standard.css?v=20261011a">
 </head>
-<body class="light">
+<body class="reader-standard">
 <div id="poams-hub-nav">
   <a href="./dunne-serialism.html" title="Dunne Serialism">← <span class="phn-hide-sm">Dunne Serialism</span></a>
   <div class="phn-center">
