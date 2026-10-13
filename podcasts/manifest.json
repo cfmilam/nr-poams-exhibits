@@ -59,7 +59,7 @@
         "tenets-of-normal-realism.html": "b88a8529f9a5672a9b636383796828ed8df6bb25d48399af2718e5270282f4e5"
       },
       "source_sha256": {
-        "tenets-of-normal-realism.html": "adcdf4bed39349d767d94817c031574246a4167aa839426e15bf91022824d3e7"
+        "tenets-of-normal-realism.html": "e1db5595d005ea50f8fdc0063a4f1f153c05266af6b6e0e049ba3f05056e4a7e"
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
@@ -79,7 +79,7 @@
         "translation-ledger.html": "ca44712be77f30eccfcf64639537d657ffed9da195d9f3156a70897cfa95f1d8"
       },
       "source_sha256": {
-        "translation-ledger.html": "3e28b7c0c654c5a38d31f9a6dc44f58435cb8953073f3f89e830c565dcf62bfb"
+        "translation-ledger.html": "f1ddaddb87f6ef2fff8bd38148da7366623005ddc6387b9b0e5bf0166b2f770a"
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
@@ -99,7 +99,7 @@
         "coherent-completion-kernel.html": "e783d4224bde0d707ec66199fc585d13efa7cd35237a569cf513878252617350"
       },
       "source_sha256": {
-        "coherent-completion-kernel.html": "fe646031b6280be952ba4d2546ca824666501b39267f332a69b46f60cc6e9af5"
+        "coherent-completion-kernel.html": "59abbff71d6c75ff2436071b0fd9812da939974980de927fb9b4da1f0f84f324"
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
@@ -119,7 +119,7 @@
         "sequential-settlement-method.html": "7a27adb5b4f0e584652a10748019565cbee8b31774f7990bf633279c5fa87913"
       },
       "source_sha256": {
-        "sequential-settlement-method.html": "9ddf890e78ed6aeb714c6ff39835e05a31eb3666c2b3c06f5ae124827424045f"
+        "sequential-settlement-method.html": "578cb400778d3c4beb738e891ab157912aea4e7c937147d5f489b8024866a4f0"
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
@@ -139,7 +139,7 @@
         "loop-of-momentum.html": "8f7e21646bed6436d74419c35972b90cf0dc295b29d0e3f624239ee50bfe55a7"
       },
       "source_sha256": {
-        "loop-of-momentum.html": "ea2fd8999c60dc267915b144af0541da4493864f280a6072516bfdf98da5ce4f"
+        "loop-of-momentum.html": "dda6ee1614c7d161bebff45041e430e32c8c760086a38c7f37b5c968dcb75ebb"
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
@@ -159,7 +159,7 @@
         "spin-orbit-settlement-ledger.html": "0db357e80802c99ddcfc778e5e48db4838266a3a7cc9a54290efd70f740f5148"
       },
       "source_sha256": {
-        "spin-orbit-settlement-ledger.html": "61bde5395c540d8e06631d889d01f85dad2b1bac5abee0d943951215d9abc3fd"
+        "spin-orbit-settlement-ledger.html": "d06ed00c9267d706e7b5f15c3d0a778aba6dae3d6f070221fc4d79c5f0652e1f"
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
@@ -179,7 +179,7 @@
         "atom-as-phase.html": "fb8d28f1d3d75e71fffa7269fce7a01f3a3cdef214cdeab54573f8b71575b026"
       },
       "source_sha256": {
-        "atom-as-phase.html": "5bdf12d78c6c503b103f2134ccce65576993087685cfcb2a5e5f397442289507"
+        "atom-as-phase.html": "c4a947ea120d00201be2becb16d0efe7fa669efab4fc4acbc43ba74832f265f5"
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
@@ -219,7 +219,7 @@
         "inertia.html": "52084c023aec9fa7d74b8c24e336863b8ab0e45f1016eb6d44cff585146e8df3"
       },
       "source_sha256": {
-        "inertia.html": "36e66525c84ac95007251a2054d4f5cfea2c4deacd6d66f294d7fa42d7300530"
+        "inertia.html": "5bbed56b15429d3416555fdab7a1379d18a4c1c0d350b366c905ac2930e700dd"
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e",
@@ -252,15 +252,15 @@
         "scripts/atomic_ledger.js": "858d497aad258f1070d0b347326bf1e81fdbd64fa5e132674abccb61b90d9908",
         "scripts/coulomb_calibrated.js": "f9b1ae9ddc4106332c78930558d0858f7cf767ed5302182f5298d01261b4c20d",
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e",
-        "scripts/whole_atom_handoff.json": "08a06f2d6c3c7e18a9fa69fd3ab2f1fb9ce36a52d724ab24a18e7533fb105858",
-        "scripts/atomic_ledger_results.json": "c776664df187d7e52751eec395f241885512cb5d839f3c3912abca6fbd791a24",
-        "scripts/whole_atom_helium_radial.csv": "cae40df76b1a88f3ffb57d4b374b7c69d8beee0d8c716179ee62802c64fd252f",
         "scripts/atomic_count_partitions.csv": "d63bf11f83e20716adbee1f9de225d160394f07c261ef86c077612b9f44180e0",
+        "scripts/correlated_atoms_results.json": "9e16940fd89faaed0a5f64f2148639927ffc70e93d5c40c29bb73aa8feff49e9",
+        "scripts/atomic_ledger_results.json": "c776664df187d7e52751eec395f241885512cb5d839f3c3912abca6fbd791a24",
+        "scripts/whole_atom_handoff.json": "08a06f2d6c3c7e18a9fa69fd3ab2f1fb9ce36a52d724ab24a18e7533fb105858",
+        "scripts/all_element_results.json": "5b1fdf55be5c1df9239c52ff44b99eb8130e2fbe100436c63525adbfe6e22c09",
+        "scripts/all_element_table.csv": "d25261961d1de944576532f448474c11dc54821e59dc7927b48328e80916ebe2",
         "scripts/all_element_state_index.json": "401fb05aa063496baaffac3639b96bcf773dc615cf893aa7cf38e4293a03cb93",
         "scripts/whole_atom_results.json": "dd79474356ec0e68fd4aed5ab374f59ca6b4eeb01cbfb6ac2aec44d174f8f51c",
-        "scripts/all_element_results.json": "5b1fdf55be5c1df9239c52ff44b99eb8130e2fbe100436c63525adbfe6e22c09",
-        "scripts/correlated_atoms_results.json": "9e16940fd89faaed0a5f64f2148639927ffc70e93d5c40c29bb73aa8feff49e9",
-        "scripts/all_element_table.csv": "d25261961d1de944576532f448474c11dc54821e59dc7927b48328e80916ebe2"
+        "scripts/whole_atom_helium_radial.csv": "cae40df76b1a88f3ffb57d4b374b7c69d8beee0d8c716179ee62802c64fd252f"
       }
     },
     {
@@ -339,7 +339,7 @@
         "alpha-fine-structure-derivation.html": "88d3bb02be51c66d23aca786db8ff4999f1a0fff49946f856e01c6d9badcd77d"
       },
       "source_sha256": {
-        "alpha-fine-structure-derivation.html": "08cbac5a3d47df6ead0b5f2abe047115ffba6288955b637ff5ce0097a3337244"
+        "alpha-fine-structure-derivation.html": "bd5ec83ce07b0ced1320220b2ddc9de561e41aa77e7222b3e583879e225060d3"
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
@@ -359,7 +359,7 @@
         "newton-from-tangled-trapped-rate-depletion.html": "fb9148eb822ccbc335cb70058c4f11923f55a4c4408b5bad8e5c018e7d8faee0"
       },
       "source_sha256": {
-        "newton-from-tangled-trapped-rate-depletion.html": "728efc4115fd299923a3d548ef547d2dcb601253e443032085a93315b2de6fe5"
+        "newton-from-tangled-trapped-rate-depletion.html": "aa9203879ae10fb81476cd2523420e3afda4660b67239ea46cc4ee79419cc20b"
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
@@ -379,7 +379,7 @@
         "coulomb-from-chirality-directed-depletion.html": "af90d59a86ed84a2df6993fe29e91a25fde8005ca3b57b6a74d0894b24c9dd0a"
       },
       "source_sha256": {
-        "coulomb-from-chirality-directed-depletion.html": "a54f276fb948d0296d464d73102079e36abcef1c4901edb59ead9cced9fb447e"
+        "coulomb-from-chirality-directed-depletion.html": "03fba0d3ec5e0f195c0b875a8b4cece8819056eb28245bf6e17c69c4c7b5340a"
       },
       "source_dependency_sha256": {
         "scripts/coulomb_calibrated.js": "f9b1ae9ddc4106332c78930558d0858f7cf767ed5302182f5298d01261b4c20d",
@@ -401,7 +401,7 @@
         "lande-from-twist-writhe.html": "4d8ee039c7a2a4727af610299a720bad9d1927307df5424b3076726876e11bae"
       },
       "source_sha256": {
-        "lande-from-twist-writhe.html": "3e01bef4bdfbcc0032df84c225f244d9ead0301290390ad05512215d71370eda"
+        "lande-from-twist-writhe.html": "56029286d944f8cc6547a46b085793c5f511a7b49c1c69f544edc1a54512d516"
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
@@ -421,7 +421,7 @@
         "stern-gerlach-as-two-chiralities.html": "936b2e3f3a2af74abf1c0185a75fefbe1eb6ac169439d56fb1a79c18e3569021"
       },
       "source_sha256": {
-        "stern-gerlach-as-two-chiralities.html": "dbc3fa27c292355c1bfe57cabe7e43833df9cc2e9a69933148fee48de4fc4931"
+        "stern-gerlach-as-two-chiralities.html": "c5942a052abf1db9c32ed4f61359121e5288ce5ce8d335eacef448d65265ac90"
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
@@ -501,17 +501,17 @@
         "the-molecules.html": "ad572e54939ffe127d4f3e5d4896df74c7627ef5e198ee8a5e2ff8762698219f"
       },
       "source_sha256": {
-        "the-molecules.html": "9ab732b22aad2b6bcdeb95c44a24a94fe405442b983e6215389c3d66b294638b"
+        "the-molecules.html": "c802581e73fc8494e64ac7cf8f4d4f3afa4ccbbf01562d6d748085e803bec695"
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e",
-        "scripts/water_reproducible_prediction_results.json": "1b20ae9ffd7c3aafc93de231a229824dc932e75fa471e0b5fede98ba558ec1a1",
-        "scripts/whole_atom_handoff.json": "08a06f2d6c3c7e18a9fa69fd3ab2f1fb9ce36a52d724ab24a18e7533fb105858",
-        "scripts/all_element_table.csv": "d25261961d1de944576532f448474c11dc54821e59dc7927b48328e80916ebe2",
         "scripts/molecular_reentry_results.json": "9494e5dfe275831248ca664676edb6e44158cd52352551d6753f3a81fa144623",
-        "scripts/all_element_state_index.json": "401fb05aa063496baaffac3639b96bcf773dc615cf893aa7cf38e4293a03cb93",
         "scripts/water_q_relaxation_results.json": "a863cd3627c02b35dbe0955f276bd51cbad1bf8067d1517d042cda2b778d785e",
-        "scripts/water_equilibrium_reference_results.json": "656d89ceefa94f5f8d449f2d2864dc18281e01c3dd89cc56ded19b912dda6e7c"
+        "scripts/whole_atom_handoff.json": "08a06f2d6c3c7e18a9fa69fd3ab2f1fb9ce36a52d724ab24a18e7533fb105858",
+        "scripts/all_element_state_index.json": "401fb05aa063496baaffac3639b96bcf773dc615cf893aa7cf38e4293a03cb93",
+        "scripts/water_equilibrium_reference_results.json": "656d89ceefa94f5f8d449f2d2864dc18281e01c3dd89cc56ded19b912dda6e7c",
+        "scripts/water_reproducible_prediction_results.json": "1b20ae9ffd7c3aafc93de231a229824dc932e75fa471e0b5fede98ba558ec1a1",
+        "scripts/all_element_table.csv": "d25261961d1de944576532f448474c11dc54821e59dc7927b48328e80916ebe2"
       }
     },
     {
@@ -628,7 +628,7 @@
         "spin-orbit-settlement-ledger.html": "0db357e80802c99ddcfc778e5e48db4838266a3a7cc9a54290efd70f740f5148"
       },
       "source_sha256": {
-        "spin-orbit-settlement-ledger.html": "61bde5395c540d8e06631d889d01f85dad2b1bac5abee0d943951215d9abc3fd"
+        "spin-orbit-settlement-ledger.html": "d06ed00c9267d706e7b5f15c3d0a778aba6dae3d6f070221fc4d79c5f0652e1f"
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
@@ -648,7 +648,7 @@
         "solar-system.html": "4071b2f74487e2896423f470a5e94e7310598e94491bbd89abfdf448d52167b2"
       },
       "source_sha256": {
-        "solar-system.html": "935dc14bedf0c0edc5eb3f36d3e278bd9d6b99c74f983eb65c5cfb2c9795875f"
+        "solar-system.html": "f06b049ec1a748eb773032b808342956523c0ce3d863010ec0590785d32361c2"
       },
       "source_dependency_sha256": {
         "solar-system-jpl.js": "606ddaa2ea91f216ffe39ab8a6c996f4c470a7db9019fd6d71758ad1f5e9f2c3",
@@ -730,7 +730,7 @@
         "counter-rotating-circulation-pair.html": "3113e4b084de669aa10f9c3ebd51719b98537d80fd936178167fe2d22fdf168b"
       },
       "source_sha256": {
-        "counter-rotating-circulation-pair.html": "a652981d8258d331e53b02d15082d1a2bff38f7a3f7ef26d53233c89f5407f56"
+        "counter-rotating-circulation-pair.html": "0881080d57e7b6f0bfdbdc78fd658690c42d133ec50d04e98dd99eb67002abad"
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
@@ -750,7 +750,7 @@
         "angular-momentum-calculator.html": "9740c549e273f9281bb167c4cede5ccca24db90eb74d00730f5ad5f0d12329b5"
       },
       "source_sha256": {
-        "angular-momentum-calculator.html": "cbd7957e45e3f21f70e80146d48f3f61d05ad1174d54e0efda122959569da1bc"
+        "angular-momentum-calculator.html": "5b1b3851046adb55b40e82f30616d1dbb2f5c63fecd6af00219f76ab303ac844"
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
@@ -803,14 +803,14 @@
         "the-poams-brilliant-vortex-atom.html#light-is-everything"
       ],
       "approved": true,
-      "audio_url": "https://audio.resonantmachines.us/podcasts/39/49c9ff55998d47975eb51f14723ff4208562e702762e200a7ce89b1835321a4e.mp3",
-      "audio_sha256": "49c9ff55998d47975eb51f14723ff4208562e702762e200a7ce89b1835321a4e",
-      "source_content_sha256": "513fbdcfb81674b5c7b82cd8aa3d1f919107a3a051503db584e0d83897b0c7c8",
+      "audio_url": "https://audio.resonantmachines.us/podcasts/39/2044da104f769f3dbf768106e50393d97ac220bb617a4eecebd70a061d427191.mp3",
+      "audio_sha256": "2044da104f769f3dbf768106e50393d97ac220bb617a4eecebd70a061d427191",
+      "source_content_sha256": "2d29a5d75985c305d647d97e70ed265d95de5bcf6396f567622c9c8855ce4b0d",
       "script_source_sha256": {
-        "the-poams-brilliant-vortex-atom.html": "917cef6011a5d893472a7853fae72a5c7fc25634556ef4ec61d86bf35d1e8189"
+        "the-poams-brilliant-vortex-atom.html": "0e162bcd4ba4040796d7af3b3f39931f38f9db7b73777ec706a57ef1b8820e12"
       },
       "source_sha256": {
-        "the-poams-brilliant-vortex-atom.html": "5fc252a6af7cbbf34dc8d37cee2de4e7eaa1540df488c6653fb964f1bea145ce"
+        "the-poams-brilliant-vortex-atom.html": "74d8db3327a580d2fffdd337f651af8fd532668bf2928d59832aff732a36804a"
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
@@ -850,7 +850,7 @@
         "horizon-bell-contextuality-delayed-choice.html": "fee818864d877f2c7f6bd3b3cb6e53b81a5804b889c6cbf5d05f4ab91d76c094"
       },
       "source_sha256": {
-        "horizon-bell-contextuality-delayed-choice.html": "26ca23112e556cb5fce81d3b54c492daee776814522ffabd152540f0d681bc59"
+        "horizon-bell-contextuality-delayed-choice.html": "2cc9f57c1070cf1129e2a1ded2eab652cca7c1da0c7f7b455b52ccd59f95f23c"
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
@@ -863,14 +863,14 @@
         "the-poams-brilliant-vortex-atom.html#the-transaction-and-temperature"
       ],
       "approved": true,
-      "audio_url": "https://audio.resonantmachines.us/podcasts/42/c55f802b79aa4a2a93898cd2a8a832dbf471cadb6baf6f12faacc2b0b438f6f1.mp3",
-      "audio_sha256": "c55f802b79aa4a2a93898cd2a8a832dbf471cadb6baf6f12faacc2b0b438f6f1",
-      "source_content_sha256": "0a408f14c27f15c0d795c0816360806669e9c895531d4e56f7d3311e47375cb2",
+      "audio_url": "https://audio.resonantmachines.us/podcasts/42/8aacae1cdc12932bf8a41683b728e9d42d9e857b3c77d9c92e74cef1548ac83c.mp3",
+      "audio_sha256": "8aacae1cdc12932bf8a41683b728e9d42d9e857b3c77d9c92e74cef1548ac83c",
+      "source_content_sha256": "ffc55ed4a29740f50cad749181d572bca6924b5e35f466d4a10c75fb8d460365",
       "script_source_sha256": {
-        "the-poams-brilliant-vortex-atom.html": "917cef6011a5d893472a7853fae72a5c7fc25634556ef4ec61d86bf35d1e8189"
+        "the-poams-brilliant-vortex-atom.html": "0e162bcd4ba4040796d7af3b3f39931f38f9db7b73777ec706a57ef1b8820e12"
       },
       "source_sha256": {
-        "the-poams-brilliant-vortex-atom.html": "5fc252a6af7cbbf34dc8d37cee2de4e7eaa1540df488c6653fb964f1bea145ce"
+        "the-poams-brilliant-vortex-atom.html": "74d8db3327a580d2fffdd337f651af8fd532668bf2928d59832aff732a36804a"
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
@@ -883,14 +883,14 @@
         "heat-and-coherence.html"
       ],
       "approved": true,
-      "audio_url": "https://audio.resonantmachines.us/podcasts/43/f7904f633aa2160bc5a3371728d75c1e4733822dc6651325ebba81a82bd69832.mp3",
-      "audio_sha256": "f7904f633aa2160bc5a3371728d75c1e4733822dc6651325ebba81a82bd69832",
-      "source_content_sha256": "62b1fecab5fd58d0c14f4b23023edd69e57c48b1b2ab2ce823cc94e790174d62",
+      "audio_url": "https://audio.resonantmachines.us/podcasts/43/ca80ab3178ea087e431207ed09e0055acd72011535dcfe6bcf38ccc1490705ac.mp3",
+      "audio_sha256": "ca80ab3178ea087e431207ed09e0055acd72011535dcfe6bcf38ccc1490705ac",
+      "source_content_sha256": "b52163cc33c8202c16525d8b90e8b3cb6ea60b3303e8f2f9063efeeea648c6a3",
       "script_source_sha256": {
-        "heat-and-coherence.html": "ab7c4d6048020ef017e3bf3cbb9d75cc146bdb5f4e4d6286e69fc6d9c65b6023"
+        "heat-and-coherence.html": "93ec332d8a56485ac43133966a15dbb595d375fe233db16d04bc383976921f9d"
       },
       "source_sha256": {
-        "heat-and-coherence.html": "482e12fef37c87963ae0e80f8d32305e63c2e8e3a3808636592ecffce1d9106a"
+        "heat-and-coherence.html": "cb58e30c51a28055bd07ec35fb5368ce8c2db7ca6b9a67634487f230ee50b234"
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
@@ -1043,14 +1043,14 @@
         "the-poams-brilliant-vortex-atom.html"
       ],
       "approved": true,
-      "audio_url": "https://audio.resonantmachines.us/podcasts/51/2e0c832f7e7a3779ba7483c54ec4bf76712b266c79bfbba32970db500466a92f.mp3",
-      "audio_sha256": "2e0c832f7e7a3779ba7483c54ec4bf76712b266c79bfbba32970db500466a92f",
-      "source_content_sha256": "2d15cc8bd2fb6897473cdb93d7c5fc4700d74516ff5127ba2526aa2f253fed86",
+      "audio_url": "https://audio.resonantmachines.us/podcasts/51/33409a962dc1954e56d6132ac94d48922e9e93776454ead60c512c27e96b9f90.mp3",
+      "audio_sha256": "33409a962dc1954e56d6132ac94d48922e9e93776454ead60c512c27e96b9f90",
+      "source_content_sha256": "1b393bdca973189a0da5a5c7eb346d83177274d77b6c17dcbd703778e2ae41da",
       "script_source_sha256": {
-        "the-poams-brilliant-vortex-atom.html": "917cef6011a5d893472a7853fae72a5c7fc25634556ef4ec61d86bf35d1e8189"
+        "the-poams-brilliant-vortex-atom.html": "0e162bcd4ba4040796d7af3b3f39931f38f9db7b73777ec706a57ef1b8820e12"
       },
       "source_sha256": {
-        "the-poams-brilliant-vortex-atom.html": "5fc252a6af7cbbf34dc8d37cee2de4e7eaa1540df488c6653fb964f1bea145ce"
+        "the-poams-brilliant-vortex-atom.html": "74d8db3327a580d2fffdd337f651af8fd532668bf2928d59832aff732a36804a"
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
@@ -1071,6 +1071,26 @@
       },
       "source_sha256": {
         "the-polyverse.html": "97410d8fb25a65b23234f39b79516420d14ef89e11fd6863b9798aee05917690"
+      },
+      "source_dependency_sha256": {
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      }
+    },
+    {
+      "order": 53,
+      "title": "What the Local Readings Miss",
+      "sources": [
+        "what-the-local-readings-miss.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/53/8160c2d6d062ddfa384a3838dfdf847f93259eb2b8d9f099f1a1c511c48f9d15.mp3",
+      "audio_sha256": "8160c2d6d062ddfa384a3838dfdf847f93259eb2b8d9f099f1a1c511c48f9d15",
+      "source_content_sha256": "b0f33ff1018fee91974e95a30d64737212009a04641ca940114dc0406994adf8",
+      "script_source_sha256": {
+        "what-the-local-readings-miss.html": "155eaf540bbb8d7363d09fc4b81da9094ad38b8478a37cfef976813b75f574a9"
+      },
+      "source_sha256": {
+        "what-the-local-readings-miss.html": "554ee1a1b4e78751c65fc4f5b2e12f3580065718676e8ea100ac1d549d0a6964"
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
