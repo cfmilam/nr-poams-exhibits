@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Within yet Beyond the Hull</title>
+<script>window.MathJax={svg:{fontCache:'global'}};</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+:root{--bg:#0d0d18;--card:#131321;--card2:#181829;--edge:#2d2d45;--fg:#e5e5ee;--mut:#aaaabd;--gold:#d0ad50;--gold2:#8f722d;--blue:#6bbbe5;--green:#71c879;--red:#e36a64;--shadow:0 18px 55px rgba(0,0,0,.25)}
+body.light{--bg:#faf8f2;--card:#fff;--card2:#f3efe4;--edge:#d7cfba;--fg:#25221c;--mut:#6d6659;--gold:#8a6717;--gold2:#b79a51;--blue:#176d9c;--green:#367a3b;--red:#ac3934;--shadow:0 16px 45px rgba(70,55,25,.12)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(circle at 50% -15%,rgba(208,173,80,.11),transparent 35rem),var(--bg);color:var(--fg);font-family:Georgia,"Times New Roman",serif;font-size:17px;line-height:1.73;transition:.25s}
+.topbar{position:fixed;inset:0 0 auto 0;z-index:20;height:46px;display:flex;align-items:center;justify-content:space-between;padding:0 18px;background:color-mix(in srgb,var(--bg) 92%,transparent);border-bottom:1px solid color-mix(in srgb,var(--gold) 30%,var(--edge));backdrop-filter:blur(12px);font:600 12px/1.2 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:.04em}
+.topbar .series{color:var(--gold);text-transform:uppercase}.topbar .state{color:var(--mut)}
+.topbar a{color:var(--gold);text-decoration:none}
+.theme{border:1px solid var(--edge);border-radius:7px;background:var(--card);color:var(--gold);padding:6px 10px;cursor:pointer;font-size:15px}
+header{max-width:980px;margin:46px auto 0;padding:74px 24px 48px;border-bottom:1px solid var(--edge)}
+.kicker{color:var(--gold);font:750 12px/1.2 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:.16em;text-transform:uppercase}
+h1{max-width:900px;margin:13px 0 10px;color:var(--gold);font-size:clamp(2.35rem,7vw,5rem);line-height:.98;letter-spacing:-.035em}
+.subtitle{max-width:800px;margin:20px 0;color:var(--fg);font-size:clamp(1.1rem,2.2vw,1.42rem);line-height:1.45}
+.status{display:inline-block;margin-top:13px;padding:8px 11px;border:1px solid color-mix(in srgb,var(--red) 58%,var(--edge));border-radius:6px;background:color-mix(in srgb,var(--red) 7%,var(--card));color:var(--red);font:750 11px/1.3 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:.07em;text-transform:uppercase}
+.thesis{max-width:880px;margin:34px 0 0;padding:21px 24px;border-left:4px solid var(--gold);background:linear-gradient(90deg,color-mix(in srgb,var(--gold) 11%,var(--card)),var(--card));border-radius:0 10px 10px 0;font-size:1.18rem;box-shadow:var(--shadow)}
+main{max-width:920px;margin:auto;padding:22px 24px 90px}
+h2{margin:3.2rem 0 1rem;padding-bottom:.45rem;border-bottom:1px solid var(--edge);color:var(--gold);font:700 clamp(1.34rem,3vw,1.75rem)/1.25 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+h3{margin:2rem 0 .55rem;color:var(--blue);font:700 1.08rem/1.35 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+p{margin:.78rem 0}
+strong{color:color-mix(in srgb,var(--blue) 78%,var(--fg))}
+em{color:color-mix(in srgb,var(--gold) 78%,var(--fg))}
+a{color:var(--blue)}
+ul,ol{padding-left:1.55rem}li{margin:.42rem 0}li::marker{color:var(--gold)}
+blockquote{margin:1.5rem 0;padding:1.1rem 1.3rem;border-left:4px solid var(--gold);background:var(--card);border-radius:0 9px 9px 0;font-size:1.12rem;box-shadow:var(--shadow)}
+blockquote p{margin:0}
+hr{border:0;border-top:1px solid var(--edge);margin:2.7rem 0}
+.math.display{display:block;margin:1.2rem 0;padding:14px 16px;overflow-x:auto;border:1px solid var(--edge);border-radius:9px;background:var(--card);text-align:center}
+code{padding:.1rem .3rem;border:1px solid var(--edge);border-radius:4px;background:var(--card);color:var(--green);font-size:.88em}
+table{width:100%;margin:1.2rem 0;border-collapse:collapse;font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+th,td{padding:10px 11px;border:1px solid var(--edge);vertical-align:top;text-align:left}th{background:var(--card2);color:var(--gold)}
+main>p:first-of-type{padding:15px 18px;border:1px solid var(--edge);border-radius:9px;background:var(--card);color:var(--mut);font-size:.92rem}
+.footer{max-width:920px;margin:auto;padding:20px 24px 42px;border-top:1px solid var(--edge);color:var(--mut);font:12px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+@media(max-width:680px){body{font-size:16px}header{padding:54px 16px 36px}main{padding:14px 16px 65px}.topbar{padding:0 10px}.topbar .state{display:none}table{display:block;overflow-x:auto}.thesis{padding:17px 18px}}
+@media print{.topbar{display:none}body{background:#fff;color:#191919}header{margin-top:0}.theme{display:none}}
+</style>
+</head>
+<body>
+<div class="topbar"><a class="series" href="./index.html">← Return to Hub</a><span class="state">NR · POAMS · Constructive Geometry</span><button class="theme" onclick="document.body.classList.toggle('light')" aria-label="Toggle theme">☀︎ / ◐</button></div>
+<header>
+  <div class="kicker">Interior / Exterior Geometry</div>
+  <h1>Within yet Beyond the Hull</h1>
+  <p class="subtitle">An NR–POAMS constructive account of an exteriorly small craft with an operationally larger interior.</p>
+  <div class="status">Constructive conjecture · Not a recovered-craft measurement claim</div>
+  <div class="thesis"><strong>The craft is not a small container holding a large place.</strong> It is a maintained circulation whose threshold joins the observer to a larger relational geometry.</div>
+</header>
+<main>
+<h2 id="abstract">Abstract</h2>
+<p>Reports that a recovered craft is “larger inside than outside” appear
+contradictory only if one assumes that the exterior hull and the
+experienced interior must occupy one pre-existing Euclidean container.
+Normal Realism and POAMS do not make that assumption. Space is not a
+substance or stage. It is an observer’s stable projection of completed
+relations among retained organizations. The exterior and interior
+dimensions of a craft are therefore two operational reconstructions from
+two sets of completed exchanges. They may be locally regular without
+admitting one global Euclidean embedding.</p>
+<p>This paper supplies a constructive mathematical account. Reality is
+represented first as a discrete network of completion addresses, not a
+continuum. Each stable adjacency has an operational cost obtained by
+clocked, co-signed exchanges. Shortest accumulated costs define an
+intrinsic metric. A small exterior interface can be joined to an
+arbitrarily large internal network; neither the diameter nor the number
+of internal addresses is bounded by the interface’s diameter. This
+result is elementary and exact. It removes the logical contradiction but
+does not, by itself, build a craft.</p>
+<p>The POAMS physical proposal is that a sufficiently organized
+circulation may maintain two locally coherent completion networks and a
+threshold map between them. A crossing body is not compressed into a
+hidden box. Its retained whole-turn organization is re-addressed: local
+internal relations remain intact while its permitted external
+adjacencies change from the exterior network to the interior network.
+Metric volume is not a conserved book because metric volume is not
+substance. Angular momentum and whole-turn closure remain conserved;
+action-rate, energy, momentum, and every completed boundary exchange
+still require explicit receipts.</p>
+<p>The construction yields distinct observational regimes. A pure
+adjacency transformation can produce greater internal extent with no
+clock-rate anomaly and no local scale change. A rate-weighted
+transformation adds clock and ranging offsets. A dynamically maintained
+threshold can make the geometry depend on craft state, loading, phase,
+or entry order. Each regime has different measurements and failure
+conditions. The proposal is therefore not “extra dimensions” under a new
+name. It is a specific account of how spatial appearance can change when
+the relational organization from which space is projected changes.</p>
+<p>The stronger conjecture developed below treats the craft as a fibered
+completion system. Exterior observers resolve a compact base address;
+entrants gain access to a large internal fiber of completion relations.
+The threshold supplies a closure-preserving connection between the two.
+Its measurable signatures are holonomy, finite cut capacity, spectral
+stability, phase-matching tolerances, and a state-dependent internal
+metric. These additions do not make the proposal established. They make
+it sufficiently definite to calculate, criticize, and compare with
+hardware.</p>
+<hr />
+<h2 id="the-alleged-impossibility">1. The alleged impossibility</h2>
+<p>Let an exterior survey assign a craft a hull diameter <span
+class="math inline">\(D_{\mathrm{out}}\)</span>. Let an entrant assign
+its interior a traversable diameter <span
+class="math inline">\(D_{\mathrm{in}}\)</span>, with</p>
+<p><span class="math display">\[
+D_{\mathrm{in}} &gt; D_{\mathrm{out}}.
+\]</span></p>
+<p>In ordinary container language, every interior point must be a point
+in the bounded Euclidean region enclosed by the hull. Under that
+assumption,</p>
+<p><span class="math display">\[
+\operatorname{diam}(\text{interior}) \leq
+\operatorname{diam}(\text{hull}),
+\]</span></p>
+<p>and the report is impossible, mistaken, or deceptive.</p>
+<p>But the inequality is not a measurement law. It follows from a prior
+ontological choice: both surveys are assumed to be restrictions of one
+ambient Euclidean metric. The contradiction therefore proves only this
+conditional:</p>
+<blockquote>
+<p>If the exterior and interior observations inherit one common
+Euclidean embedding, a larger operational interior cannot lie inside the
+smaller surveyed hull.</p>
+</blockquote>
+<p>The reported phenomenon, if sound, denies the antecedent. The proper
+question is not how a large Euclidean room was squeezed into a small
+Euclidean shell. It is how two locally coherent spatial reconstructions
+could meet at one operational threshold without belonging to one global
+Euclidean embedding.</p>
+<p>That is a geometry problem before it is a materials problem.</p>
+<hr />
+<h2 id="ontological-ground-no-container-called-space">2. Ontological
+ground: no container called space</h2>
+<h3 id="one-substance">2.1 One substance</h3>
+<p>POAMS admits one physical substance: organized angular
+momentum—turning, circulation, rotational time. Retained bodies, clocks,
+rulers, signals, observers, walls, and instruments are organizations of
+that same substance. None sits in a second substance called space.</p>
+<p>The foundational relation</p>
+<p><span class="math display">\[
+L=\frac{dS}{d\theta}
+\]</span></p>
+<p>is the smooth representation of a discrete physical book: persistent
+organizations close in whole turns. The continuum is the far-field
+drawing through an integer staircase, not the substrate beneath it.</p>
+<h3 id="space-as-projection">2.2 Space as projection</h3>
+<p>An observer does not receive “space.” The observer receives completed
+differences: this return followed that emission; this surface closed an
+optical transaction before that surface; this rigid body required so
+many local steps to carry from one retained organization to another;
+these two paths returned equal counts; this loop closed.</p>
+<p>From stable ratios among such completions, the observer constructs a
+spatial map. Distance is therefore an organized comparison, not a cord
+of substance stretched through a void. In the corpus translation ledger,
+the metre is read as a time-projection calibrated through <span
+class="math inline">\(c\)</span>; <span
+class="math inline">\(r/c\)</span> is a projection-ledger entry, not the
+travel time of a resident pellet called a photon.</p>
+<h3 id="the-observer-is-also-relational">2.3 The observer is also
+relational</h3>
+<p>The entrant is not a container of private experience. The entrant is
+a retained census of closures: biological, mechanical, vestibular,
+optical, acoustic, and mnemonic. Crossing a threshold can alter the
+entrant’s permitted relations without requiring a second stage behind
+the first. “Inside” names the network in which the entrant’s continuing
+exchanges close.</p>
+<h3 id="what-must-remain-conserved">2.4 What must remain conserved</h3>
+<p>A change of spatial projection does not license missing books. The
+following remain non-negotiable:</p>
+<ul>
+<li>whole-turn closure of retained organizations;</li>
+<li>angular-momentum accounting;</li>
+<li>co-signing of every completed exchange;</li>
+<li>action and rate receipts at the declared boundary;</li>
+<li>continuity, or a precisely identified discontinuity, of the entering
+body’s retained organization;</li>
+<li>a balancing entry for every repeatable energetic or momentum
+change.</li>
+</ul>
+<p>Spatial volume is absent from this list. Volume is a derived property
+of a metric reconstruction. It is not a conserved substance.</p>
+<hr />
+<h2 id="the-discrete-relational-construction">3. The discrete relational
+construction</h2>
+<p>The mathematics begins with the least structure needed to reconstruct
+geometry.</p>
+<h3 id="completion-network">3.1 Completion network</h3>
+<p>Let</p>
+<p><span class="math display">\[
+G=(V,E)
+\]</span></p>
+<p>be a connected graph.</p>
+<ul>
+<li><span class="math inline">\(V\)</span> is a set of retained
+completion addresses.</li>
+<li><span class="math inline">\(E\)</span> is a set of repeatable,
+co-signed adjacencies.</li>
+<li>Each edge <span class="math inline">\(e\in E\)</span> has a positive
+operational price <span class="math inline">\(w(e)&gt;0\)</span>.</li>
+</ul>
+<p>The price is not assumed to be a little length residing on the edge.
+It is the reproducible count assigned by a declared ranging procedure:
+clock count, rigid-step count, phase count, or another disclosed
+comparison. Different procedures may initially supply different
+edge-price families and must be shown to agree before they are called
+one geometry.</p>
+<p>For a path <span class="math inline">\(P=(e_1,\ldots,e_k)\)</span>,
+define its accumulated price</p>
+<p><span class="math display">\[
+W(P)=\sum_{j=1}^{k} w(e_j).
+\]</span></p>
+<p>The intrinsic operational distance is</p>
+<p><span class="math display">\[
+d_G(u,v)=\inf_{P:u\leadsto v} W(P).
+\]</span></p>
+<p>Because the graph is discrete and the weights are positive, this
+defines a metric on connected addresses. Continuous curves and metric
+tensors may approximate this book when the address census is dense. They
+are not required at foundation.</p>
+<h3 id="exterior-and-interior-books">3.2 Exterior and interior
+books</h3>
+<p>Let</p>
+<p><span class="math display">\[
+G_{\mathrm{out}}=(V_{\mathrm{out}},E_{\mathrm{out}},w_{\mathrm{out}})
+\]</span></p>
+<p>be the network from which exterior observers reconstruct the craft
+and its surroundings. Let</p>
+<p><span class="math display">\[
+G_{\mathrm{in}}=(V_{\mathrm{in}},E_{\mathrm{in}},w_{\mathrm{in}})
+\]</span></p>
+<p>be the network from which entrants reconstruct the craft’s
+interior.</p>
+<p>Let <span class="math inline">\(A_{\mathrm{out}}\subset
+V_{\mathrm{out}}\)</span> and <span
+class="math inline">\(A_{\mathrm{in}}\subset V_{\mathrm{in}}\)</span> be
+the addresses participating in the doorway or threshold. A threshold
+rule</p>
+<p><span class="math display">\[
+T:A_{\mathrm{out}}\longleftrightarrow A_{\mathrm{in}}
+\]</span></p>
+<p>specifies which completion addresses on one side co-sign crossings
+with which addresses on the other.</p>
+<p>The total operational network is the gluing</p>
+<p><span class="math display">\[
+G=G_{\mathrm{out}}\sqcup_T G_{\mathrm{in}},
+\]</span></p>
+<p>meaning the disjoint networks plus the declared threshold
+adjacencies. This notation does not place two spaces in a larger space.
+It defines one relational book assembled from two locally coherent
+address families.</p>
+<h3 id="the-elementary-theorem">3.3 The elementary theorem</h3>
+<p><strong>Theorem — interface size does not bound intrinsic
+extent.</strong> For every positive interface diameter <span
+class="math inline">\(a\)</span>, every desired internal diameter <span
+class="math inline">\(R\)</span>, and every desired finite internal
+address count <span class="math inline">\(N\)</span>, there exists a
+weighted connected network <span
+class="math inline">\(G_{\mathrm{in}}\)</span> joined to an exterior
+network through an interface of diameter no greater than <span
+class="math inline">\(a\)</span>, while</p>
+<p><span class="math display">\[
+\operatorname{diam}(G_{\mathrm{in}})\ge R
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+|V_{\mathrm{in}}|\ge N.
+\]</span></p>
+<p><strong>Construction.</strong> Choose one threshold address <span
+class="math inline">\(q\)</span>. Attach to <span
+class="math inline">\(q\)</span> a path of <span
+class="math inline">\(m\)</span> edges, each of weight <span
+class="math inline">\(\ell\)</span>, with <span
+class="math inline">\(m\ell\ge R\)</span>. If at least <span
+class="math inline">\(N\)</span> addresses are required, choose <span
+class="math inline">\(m+1\ge N\)</span>, or attach an <span
+class="math inline">\(n\times n\times n\)</span> lattice beyond <span
+class="math inline">\(q\)</span>. The interface may remain the single
+address <span class="math inline">\(q\)</span>, hence diameter zero in
+the induced interface metric, while the internal diameter and address
+census grow without bound. ∎</p>
+<p>The theorem is mathematically modest and physically consequential. A
+boundary aperture does not determine the intrinsic extent of the network
+reached through it. The familiar bound arises only when the reached
+network is required to embed isometrically inside the exterior hull.</p>
+<h3 id="why-this-is-not-a-trick-with-labels">3.4 Why this is not a trick
+with labels</h3>
+<p>A relabeled database can also contain many nodes behind one icon.
+That alone is not a physical room. A physical interior requires the
+graph prices to be instantiated by repeatable, mutually consistent
+completions among matter, instruments, and observers. If an entrant
+walks ten rigidly calibrated metres, sends and receives ranging
+exchanges, places objects at separated addresses, and later retrieves
+them with the same local standards, then the internal network has
+operational extent. The proposal does not reduce that extent to
+imagination. It denies only that operational extent must inherit the
+exterior hull’s embedding.</p>
+<hr />
+<h2 id="three-distinct-meanings-of-larger-inside">4. Three distinct
+meanings of “larger inside”</h2>
+<p>The phrase can conceal different physical claims.</p>
+<h3 id="greater-capacity">4.1 Greater capacity</h3>
+<p>The internal address census supports more retained objects than an
+exterior Euclidean volume estimate permits. This is a cardinality or
+occupancy claim.</p>
+<h3 id="greater-intrinsic-distance">4.2 Greater intrinsic distance</h3>
+<p>Rigid-step, acoustic, optical, or clocked ranging produces internal
+path lengths larger than the hull’s exterior diameter. This is a metric
+claim.</p>
+<h3 id="non-embeddable-layout">4.3 Non-embeddable layout</h3>
+<p>The internal adjacency graph cannot be placed inside the exterior
+hull while preserving measured local distances and adjacencies. This is
+stronger than either visual spaciousness or one long corridor.</p>
+<p>A scientifically valuable account must say which of these occurred.
+All three together would be far stronger than any one alone.</p>
+<hr />
+<h2 id="the-physical-threshold-re-addressing-without-destruction">5. The
+physical threshold: re-addressing without destruction</h2>
+<p>The graph theorem removes contradiction. It does not explain how
+matter crosses. POAMS must now pay the physical bill.</p>
+<h3 id="a-body-as-a-retained-closure-complex">5.1 A body as a retained
+closure complex</h3>
+<p>Represent an entering body (B) not as material points occupying
+coordinates but as a finite retained subnetwork</p>
+<p><span class="math display">\[
+B=(V_B,E_B,n_B,\phi_B),
+\]</span></p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(V_B,E_B\)</span> encode its persistent
+internal adjacencies;</li>
+<li><span class="math inline">\(n_B\in\mathbb Z^k\)</span> records
+relevant whole-turn closure grades;</li>
+<li><span class="math inline">\(\phi_B\)</span> records phase relations
+needed for continuation.</li>
+</ul>
+<p>The body persists if its defining internal closure relations remain
+within their permitted tolerances through the crossing. Its identity is
+not the list of ambient coordinates assigned to it.</p>
+<h3 id="external-address-is-not-internal-constitution">5.2 External
+address is not internal constitution</h3>
+<p>Separate two books:</p>
+<ol type="1">
+<li><strong>Constitution book:</strong> relations by which the body
+remains that body.</li>
+<li><strong>Custody book:</strong> relations by which the body continues
+with its surroundings.</li>
+</ol>
+<p>Ordinary motion changes the custody book continuously while largely
+preserving the constitution book. The proposed threshold performs a more
+radical custody update: external adjacencies to <span
+class="math inline">\(G_{\mathrm{out}}\)</span> close out and
+adjacencies to <span class="math inline">\(G_{\mathrm{in}}\)</span>
+open, while the body’s defining internal closures remain co-signed.</p>
+<p>Schematically,</p>
+<p><span class="math display">\[
+(B,\,C_{\mathrm{out}})\xrightarrow{\;T\;}(B&#39;,\,C_{\mathrm{in}}),
+\]</span></p>
+<p>with a successful non-destructive crossing requiring an isomorphism
+of retained constitution,</p>
+<p><span class="math display">\[
+B&#39;\cong B,
+\]</span></p>
+<p>up to ordinary reversible deformations and rate-state changes.</p>
+<p>The body is not miniaturized. Its environmental address changes.</p>
+<h3 id="whole-turn-threshold-condition">5.3 Whole-turn threshold
+condition</h3>
+<p>Let <span class="math inline">\(n_k^-\)</span> and <span
+class="math inline">\(n_k^+\)</span> be the closure grades of each
+protected organizational channel immediately before and after crossing.
+A minimal continuity condition is</p>
+<p><span class="math display">\[
+n_k^+=n_k^-
+\]</span></p>
+<p>for every protected channel (k), together with phase matching</p>
+<p><span class="math display">\[
+\phi_k^+ = \phi_k^- + 2\pi m_k,\qquad m_k\in\mathbb Z.
+\]</span></p>
+<p>This says the threshold may advance whole turns but may not strand
+the body at an unclosed fractional organization. A real mechanism would
+have to identify the protected channels, tolerances, and crossing
+cadence. The equations state the debt; they do not pretend it has
+already been paid.</p>
+<h3 id="co-signed-boundary-accounting">5.4 Co-signed boundary
+accounting</h3>
+<p>For the complete body-plus-threshold-plus-craft boundary, write the
+discrete angular-momentum receipt for crossing event (j) as</p>
+<p><span class="math display">\[
+\Delta \mathbf L_B^{(j)}+
+\Delta \mathbf L_T^{(j)}+
+\Delta \mathbf L_C^{(j)}+
+\Delta \mathbf L_R^{(j)}=0,
+\]</span></p>
+<p>where <span class="math inline">\(T\)</span> is the threshold
+organization, <span class="math inline">\(C\)</span> the craft, and
+<span class="math inline">\(R\)</span> all remaining receiving seats
+included in the declared boundary. Corresponding energy/action-rate and
+linear-recoil receipts must close under their disclosed
+calibrations.</p>
+<p>If an entrant acquires orientation, momentum, heat, or a rate change,
+the opposite posting must appear somewhere in the complete apparatus.
+Re-addressing is not permission for conservation failure.</p>
+<hr />
+<h2 id="where-the-large-interior-comes-from">6. Where the large interior
+comes from</h2>
+<p>The larger interior is not manufactured by stretching empty space. It
+follows from the adjacency book maintained after the threshold.</p>
+<h3 id="exterior-observation">6.1 Exterior observation</h3>
+<p>Exterior observers close exchanges with the hull and doorway
+addresses available in <span
+class="math inline">\(G_{\mathrm{out}}\)</span>. Their reconstruction
+yields a compact boundary with diameter <span
+class="math inline">\(D_{\mathrm{out}}\)</span>. Unless the craft
+exposes internal addresses to exterior completion channels, the exterior
+survey contains no measurement of the interior network’s diameter.</p>
+<h3 id="crossing">6.2 Crossing</h3>
+<p>At the threshold, the entrant’s local constitution is maintained
+while its permitted custody relations change. The doorway is therefore
+not principally a hole through material. It is the physical organization
+that enforces the map <span class="math inline">\(T\)</span> and closes
+the corresponding receipts.</p>
+<h3 id="interior-observation">6.3 Interior observation</h3>
+<p>After crossing, the entrant’s optical, acoustic, mechanical, and
+locomotor exchanges close predominantly with <span
+class="math inline">\(G_{\mathrm{in}}\)</span>. If those completions are
+stable and mutually calibrated, the entrant reconstructs a regular
+interior. Its measured diameter is</p>
+<p><span class="math display">\[
+D_{\mathrm{in}}=sup_{u,v\in V_{\mathrm{in}}}d_{G_{\mathrm{in}}}(u,v),
+\]</span></p>
+<p>which has no mathematical dependence on <span
+class="math inline">\(D_{\mathrm{out}}\)</span> unless an additional
+embedding law imposes one.</p>
+<h3 id="exit">6.4 Exit</h3>
+<p>An exit event reverses the custody transition while preserving the
+retained body’s protected closures. Memory and carried artifacts can
+persist because they are part of the entrant’s retained constitution,
+not data stored in exterior coordinates.</p>
+<h3 id="why-the-hull-does-not-secretly-contain-the-room">6.5 Why the
+hull does not secretly contain the room</h3>
+<p>The statement “the room is inside the craft” is operational
+shorthand: the room is reached by crossing the craft’s threshold and is
+controlled by the craft’s maintained organization. It does not mean the
+room’s addresses form a Euclidean subset of the volume inferred from the
+hull.</p>
+<p>The craft contains the <strong>access and maintenance
+relation</strong>, not necessarily the interior metric volume.</p>
+<hr />
+<h2 id="the-circulation-that-would-have-to-maintain-it">7. The
+circulation that would have to maintain it</h2>
+<p>The preceding account remains geometry until an actual circulation is
+named. POAMS therefore proposes a research form, not a completed
+engineering claim.</p>
+<h3 id="required-organization">7.1 Required organization</h3>
+<p>A viable craft must maintain at least:</p>
+<ol type="1">
+<li>an exterior closure organization that presents a stable hull to
+<span class="math inline">\(G_{\mathrm{out}}\)</span>;</li>
+<li>an interior closure organization that presents stable mutual
+adjacencies within <span
+class="math inline">\(G_{\mathrm{in}}\)</span>;</li>
+<li>a threshold organization that phase-matches retained bodies between
+the two custody books;</li>
+<li>a common conservation ledger through which changes in any of the
+three are reciprocally posted.</li>
+</ol>
+<h3 id="candidate-topological-bookkeeping">7.2 Candidate topological
+bookkeeping</h3>
+<p>POAMS distinguishes twist and writhe within a closed organization
+through the bookkeeping identity</p>
+<p><span class="math display">\[
+Lk=Tw+Wr.
+\]</span></p>
+<p>This identity does not derive the craft mechanism. It does, however,
+name a lawful way for one conserved topological grade to be partitioned
+among local internal turning and global winding. A candidate craft
+organization might maintain its exterior and interior address books
+through different partitions of one closed linking account, while the
+threshold controls conversion between partitions.</p>
+<p>That possibility is explicitly conjectural. To promote it, one must
+identify:</p>
+<ul>
+<li>the physical loop or linked circulation;</li>
+<li>its measured twist and writhe proxies;</li>
+<li>the control that changes the partition;</li>
+<li>the predicted geometry change before observing it;</li>
+<li>the balancing mechanical, thermal, electrical, and rate
+receipts.</li>
+</ul>
+<p>Invoking <span class="math inline">\(Lk=Tw+Wr\)</span> without those
+items would merely rename the mystery.</p>
+<h3 id="rate-organization">7.3 Rate organization</h3>
+<p>The Pope–Osborne orthogonal-turn premise states that internal count
+and projected motion are orthogonal, equally calibrated projections of
+one local turning budget:</p>
+<p><span class="math display">\[
+a^2+b^2=1,\qquad
+a=\frac{d\tau}{dt},\qquad
+b=\frac{|ds|}{c\,dt}.
+\]</span></p>
+<p>This supplies an existing POAMS relation between internal count and
+spatial projection. It shows that spatial measure and internal rate are
+not independent ontological ingredients. But it does
+<strong>not</strong> by itself generate a large interior, choose the
+graph <span class="math inline">\(G_{\mathrm{in}}\)</span>, or derive
+the threshold map <span class="math inline">\(T\)</span>.</p>
+<p>Its relevance is conditional: if the craft maintains different rate
+partitions on the two sides, clock and distance reconstructions may
+change together. The local segment book becomes</p>
+<p><span class="math display">\[
+d\tau^2=dt^2-\frac{ds^2}{c^2},
+\]</span></p>
+<p>or, solving for projected path per internal count,</p>
+<p><span class="math display">\[
+\frac{ds}{d\tau}=c\,\frac{b}{a}.
+\]</span></p>
+<p>As <span class="math inline">\(a\)</span> decreases relative to <span
+class="math inline">\(b\)</span>, a larger projected path can accrue per
+unit of the entrant’s internal count. This is a candidate
+<strong>rate-weighted expansion</strong>, distinct from pure adjacency
+expansion.</p>
+<h3 id="two-mechanisms-must-not-be-conflated">7.4 Two mechanisms must
+not be conflated</h3>
+<p><strong>Adjacency expansion:</strong> <span
+class="math inline">\(G_{\mathrm{in}}\)</span> contains more addresses
+or longer intrinsic paths while local clock and ruler calibrations
+remain ordinary. No universal internal/external clock offset is
+required.</p>
+<p><strong>Rate-weighted expansion:</strong> edge prices themselves
+differ because internal count and projected-path channels are
+repartitioned. Clocks, propagation comparisons, chemistry, decay, and
+traversals may show common rate effects.</p>
+<p>A real specimen could instantiate either or both. Observations must
+decide; vocabulary must not.</p>
+<hr />
+<h2 id="smooth-mathematical-representation">8. Smooth mathematical
+representation</h2>
+<p>For reviewers accustomed to differential geometry, the dense-network
+limit may be represented by two local metric spaces,</p>
+<p><span class="math display">\[
+(M_{\mathrm{out}},g_{\mathrm{out}}),\qquad
+(M_{\mathrm{in}},g_{\mathrm{in}}),
+\]</span></p>
+<p>joined across a threshold relation <span
+class="math inline">\(T:\Sigma_{\mathrm{out}}\leftrightarrow\Sigma_{\mathrm{in}}\)</span>.</p>
+<p>Each side may be locally Euclidean to measurement precision:</p>
+<p><span class="math display">\[
+g_{\mathrm{out}}\approx \delta_{ij},\qquad
+g_{\mathrm{in}}\approx \delta_{ij},
+\]</span></p>
+<p>while the union admits no isometric embedding that places <span
+class="math inline">\(M_{\mathrm{in}}\)</span> within the bounded hull
+reconstructed in <span
+class="math inline">\(M_{\mathrm{out}}\)</span>.</p>
+<p>This statement requires neither an ambient higher-dimensional space
+nor a continuous spacetime substance. Manifolds and metrics are
+compression formats for the underlying completion network.</p>
+<p>If a rate scale <span class="math inline">\(\Omega(x)&gt;0\)</span>
+modifies internal edge prices, one may write the effective smooth
+representation</p>
+<p><span class="math display">\[
+g_{\mathrm{in}}&#39;=\Omega^2(x)g_{\mathrm{in}}.
+\]</span></p>
+<p>Then a path’s operational length is</p>
+<p><span class="math display">\[
+\ell_{\mathrm{in}}(\gamma)=
+\int_\gamma \Omega(x)
+\sqrt{g_{ij}\,dx^i dx^j}.
+\]</span></p>
+<p>This equation describes what a stable census would look like. It does
+not explain what physical circulation sets <span
+class="math inline">\(\Omega\)</span>. That remains a constitutive and
+engineering debt.</p>
+<hr />
+<h2
+id="a.-strong-conjecture-the-craft-as-a-fibered-completion-system">8A.
+Strong conjecture: the craft as a fibered completion system</h2>
+<p>The graph-gluing construction proves possibility but says little
+about organization. A more powerful model treats the craft as a
+<strong>fibered completion system</strong>.</p>
+<p>Let <span class="math inline">\(B\)</span> be the exterior completion
+network—the compact address reconstructed as the hull and its
+surroundings. For each relevant exterior address <span
+class="math inline">\(x\in B\)</span>, let <span
+class="math inline">\(F_x\)</span> be the set of internal completion
+states maintained over that address. The complete relational state
+is</p>
+<p><span class="math display">\[
+E=\bigsqcup_{x\in B}F_x,
+\]</span></p>
+<p>with projection</p>
+<p><span class="math display">\[
+\pi:E\rightarrow B,
+\qquad
+\pi(y)=x\quad\text{for }y\in F_x.
+\]</span></p>
+<p>The symbol <span class="math inline">\(E\)</span> is not a
+higher-dimensional container. It is the full address book. The
+projection <span class="math inline">\(\pi\)</span> states which
+distinctions remain visible to an exterior observer. Many internally
+distinct states may share the same exterior address:</p>
+<p><span class="math display">\[
+y_1\neq y_2,\qquad \pi(y_1)=\pi(y_2)=x.
+\]</span></p>
+<p>An exterior survey resolves <span class="math inline">\(x\)</span>
+and nearby base relations. It does not thereby resolve the intrinsic
+metric, address census, or topology of <span
+class="math inline">\(F_x\)</span>. The hull can therefore remain
+compact in <span class="math inline">\(B\)</span> while the fiber <span
+class="math inline">\(F_x\)</span> supports an extensive interior
+geometry.</p>
+<p>This is the sharper answer to “where is the room?” The room is not
+elsewhere in an ambient space. It is the family of completion
+distinctions suppressed by the exterior projection and made available
+after threshold enrollment.</p>
+<h3 id="a.1-local-product-without-global-container">8A.1 Local product
+without global container</h3>
+<p>Near a stable threshold, the relational book may locally factor
+as</p>
+<p><span class="math display">\[
+E|_U \cong U\times F,
+\]</span></p>
+<p>where <span class="math inline">\(U\subset B\)</span> is a small
+exterior neighborhood and <span class="math inline">\(F\)</span> is a
+representative internal completion network. This is a local bookkeeping
+factorization. It says that the craft maintains both exterior relations
+and internal relations in that operating neighborhood. It does
+<strong>not</strong> assert that <span class="math inline">\(F\)</span>
+is geometrically stacked beside <span class="math inline">\(U\)</span>
+in a larger stage.</p>
+<p>The internal metric <span class="math inline">\(d_F\)</span> is
+independent of the exterior base metric <span
+class="math inline">\(d_B\)</span> unless a constitutive law couples
+them. Consequently,</p>
+<p><span class="math display">\[
+\operatorname{diam}_{d_B}(U)\ll
+\operatorname{diam}_{d_F}(F)
+\]</span></p>
+<p>is entirely admissible.</p>
+<h3 id="a.2-external-compactness-as-projection-degeneracy">8A.2 External
+compactness as projection degeneracy</h3>
+<p>Define the exterior distinguishability relation</p>
+<p><span class="math display">\[
+y_1\sim_{\mathrm{out}}y_2
+\quad\Longleftrightarrow\quad
+\pi(y_1)=\pi(y_2).
+\]</span></p>
+<p>The exterior craft is the quotient description</p>
+<p><span class="math display">\[
+B\cong E/{\sim_{\mathrm{out}}}.
+\]</span></p>
+<p>The apparent smallness is therefore not necessarily compression of
+internal distances. It may be <strong>projection degeneracy</strong>:
+many internal distinctions belong to one exterior equivalence class
+because exterior transactions do not close with them separately.</p>
+<p>That yields a concrete question for recovered hardware: does the
+hull’s exterior response remain nearly invariant while internal state,
+occupancy, or layout changes? If so, exterior observation is quotienting
+internal distinctions rather than faithfully embedding them.</p>
+<hr />
+<h2 id="b.-threshold-connection-and-closure-preserving-transport">8B.
+Threshold connection and closure-preserving transport</h2>
+<p>A fiber family is not enough. A body needs a rule for moving from
+base-addressed custody into fiber-addressed custody.</p>
+<h3 id="b.1-protected-closure-lattice">8B.1 Protected closure
+lattice</h3>
+<p>Let the entering body’s protected whole-turn organization be
+represented by an integer closure vector</p>
+<p><span class="math display">\[
+\mathbf n=(n_1,\ldots,n_k)^T\in\mathbb Z^k,
+\]</span></p>
+<p>with a positive comparison form <span
+class="math inline">\(Q\)</span> that prices departures from its
+retained organization:</p>
+<p><span class="math display">\[
+\|\mathbf n\|_Q^2=\mathbf n^TQ\mathbf n.
+\]</span></p>
+<p>A non-destructive threshold map on the protected closure book must
+act by an integer automorphism</p>
+<p><span class="math display">\[
+M_T\in GL(k,\mathbb Z)
+\]</span></p>
+<p>so complete turns remain complete. If the crossing preserves the
+protected comparison tariff, then</p>
+<p><span class="math display">\[
+M_T^TQM_T=Q.
+\]</span></p>
+<p>This is a demanding restriction. The threshold cannot use an
+arbitrary continuous transformation that maps whole closures into
+fractional debris. It must preserve the closure lattice, and—on
+protected channels—the relevant norm.</p>
+<p>The minimal identity crossing has <span
+class="math inline">\(M_T=I\)</span>. A nontrivial crossing may permute
+closure channels, reverse paired senses, or add whole winding subject to
+the same preservation law. Any claimed mechanism must name which case
+occurs.</p>
+<h3 id="b.2-phase-connection">8B.2 Phase connection</h3>
+<p>Let <span class="math inline">\(\boldsymbol\phi\in\mathbb
+T^k\)</span> be the vector of closure phases, with <span
+class="math inline">\(\mathbb T^k\)</span> the <span
+class="math inline">\(k\)</span>-torus of phase angles modulo <span
+class="math inline">\(2\pi\)</span>, and define the embedded phase
+state</p>
+<p><span class="math display">\[
+\mathbf z=
+(e^{i\phi_1},\ldots,e^{i\phi_k})^T.
+\]</span></p>
+<p>Along a crossing parameter <span class="math inline">\(s\)</span>,
+let a connection <span class="math inline">\(A_s\)</span> act on this
+state in the smooth representation:</p>
+<p><span class="math display">\[
+\frac{d\mathbf z}{ds}=-A_s\mathbf z.
+\]</span></p>
+<p>The transported phase state is</p>
+<p><span class="math display">\[
+\mathbf z(s_1)=
+\mathcal P\exp\!\left(-\int_{s_0}^{s_1}A_s\,ds\right)
+\mathbf z(s_0),
+\]</span></p>
+<p>where <span class="math inline">\(\mathcal P\)</span> records
+ordering when successive threshold operations do not commute.</p>
+<p>POAMS reads this equation operationally: the threshold must advance
+and compare phases in an order that returns each protected circulation
+to an admitted closure address. The connection is not a field inhabiting
+the doorway. It is the rule implemented by the doorway’s organized
+circulation.</p>
+<h3 id="b.3-continuity-criterion">8B.3 Continuity criterion</h3>
+<p>Let <span class="math inline">\(U_T\)</span> denote the total
+threshold transport on the body’s protected relational state <span
+class="math inline">\(\Psi_B\)</span>. A successful crossing
+requires</p>
+<p><span class="math display">\[
+\langle U_T\Psi_B,U_T\Psi_B\rangle_Q
+=
+\langle \Psi_B,\Psi_B\rangle_Q,
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+U_T\Lambda_B=\Lambda_B,
+\]</span></p>
+<p>where <span class="math inline">\(\Lambda_B\)</span> is the body’s
+allowed whole-closure lattice. These conditions formalize “the same
+retained body exits the map.” They do not require imported quantum
+ontology; they require preservation of an organized comparison norm and
+integer closure set.</p>
+<h3 id="b.4-mismatch-cost">8B.4 Mismatch cost</h3>
+<p>If the actual threshold map is <span class="math inline">\(\widetilde
+U_T=U_T+\delta U\)</span>, define a mismatch functional</p>
+<p><span class="math display">\[
+\mathcal E_{\mathrm{mis}}
+=
+\kappa
+\left\|
+(I-P_{\Lambda})\widetilde U_T\Psi_B
+\right\|_Q^2,
+\]</span></p>
+<p>where <span class="math inline">\(P_{\Lambda}\)</span> projects onto
+admitted retained closures and <span
+class="math inline">\(\kappa\)</span> is a measured tariff converting
+mismatch into an apparatus receipt. A viable threshold demands</p>
+<p><span class="math display">\[
+\mathcal E_{\mathrm{mis}}&lt;\mathcal E_{\mathrm{crit}}
+\]</span></p>
+<p>for every protected subsystem. Heating, disorientation, material
+damage, memory discontinuity, or failure to cross may be manifestations
+of mismatch, but no particular symptom follows until <span
+class="math inline">\(\kappa\)</span> and the affected channels are
+measured.</p>
+<hr />
+<h2
+id="c.-holonomy-the-threshold-should-leave-a-geometrical-receipt">8C.
+Holonomy: the threshold should leave a geometrical receipt</h2>
+<p>If transport depends on the path or sequence through the threshold, a
+closed operational loop need not return every orientation and phase
+comparison to its initial reading even when the traveler returns to the
+same exterior address.</p>
+<p>For a closed route <span class="math inline">\(\gamma\)</span> that
+enters, traverses the interior, exits, and closes externally, define the
+holonomy</p>
+<p><span class="math display">\[
+H(\gamma)=
+\mathcal P\exp\!\left(-\oint_{\gamma}A\right).
+\]</span></p>
+<p>If</p>
+<p><span class="math display">\[
+H(\gamma)\neq I,
+\]</span></p>
+<p>the joined geometry is anholonomic: a protected comparison returns
+rotated, phase-shifted, permuted, or otherwise rebooked after the closed
+circuit.</p>
+<p>This is not decorative mathematics. It yields direct searches:</p>
+<ul>
+<li>carry a triad of mechanical orientations around a closed entry–exit
+route;</li>
+<li>compare independent optical, inertial, spin, and clock phases;</li>
+<li>reverse the route and entry order;</li>
+<li>test whether <span
+class="math inline">\(H(\gamma^{-1})=H(\gamma)^{-1}\)</span>;</li>
+<li>compose two routes and test whether</li>
+</ul>
+<p><span class="math display">\[
+H(\gamma_2\circ\gamma_1)
+=H(\gamma_2)H(\gamma_1).
+\]</span></p>
+<p>A reproducible non-identity holonomy would show that the threshold is
+doing more than opening a visually unusual room. It would identify the
+ordered geometrical operation imposed on retained comparisons.</p>
+<p>The simplest adjacency-only construction permits <span
+class="math inline">\(H=I\)</span>. The stronger circulation conjecture
+expects nontrivial holonomy when threshold phase-matching, orientation
+conversion, or rate partition is active.</p>
+<hr />
+<h2
+id="d.-the-cut-capacity-theorem-a-large-interior-owes-a-bottleneck-account">8D.
+The cut-capacity theorem: a large interior owes a bottleneck
+account</h2>
+<p>A small threshold can access a large internal network, but access
+capacity is not automatically unlimited.</p>
+<p>Let <span class="math inline">\(S\subset V\)</span> be the interior
+address set and <span class="math inline">\(\partial S\)</span> the
+threshold cut: edges with one endpoint inside and one outside. Assign
+each threshold edge a finite completion capacity <span
+class="math inline">\(c_e\)</span>—whole admitted transactions per
+exterior count. The cut capacity is</p>
+<p><span class="math display">\[
+C_{\partial S}=\sum_{e\in\partial S}c_e.
+\]</span></p>
+<p>For any conserved account routed through the declared threshold, the
+max-flow/min-cut bound gives</p>
+<p><span class="math display">\[
+\Phi_{\mathrm{in}\leftrightarrow\mathrm{out}}
+\le C_{\partial S}.
+\]</span></p>
+<p>This is a major consequence. Arbitrarily large intrinsic extent does
+not imply arbitrarily large exchange rate with the exterior. Unless the
+craft supplies additional boundary channels that exterior geometry fails
+to resolve, the doorway is a bandwidth bottleneck.</p>
+<h3 id="d.1-observable-implications">8D.1 Observable implications</h3>
+<ul>
+<li>Material crossing rate may saturate even when the interior appears
+empty.</li>
+<li>Communication bandwidth may depend on doorway state rather than
+internal separation.</li>
+<li>Added occupants or apparatus may increase threshold noise, latency,
+power, or phase error.</li>
+<li>Simultaneous crossings may interfere even without mechanical
+crowding.</li>
+<li>Closing the doorway may sharply reduce exterior coupling while
+leaving internal relations intact.</li>
+</ul>
+<h3 id="d.2-the-hidden-cut-alternative">8D.2 The hidden-cut
+alternative</h3>
+<p>If measured exchange exceeds the visible doorway’s capacity, then at
+least one of the following is true:</p>
+<ol type="1">
+<li>the capacity assigned to visible channels is wrong;</li>
+<li>the craft maintains additional threshold edges not resolved by
+exterior instruments;</li>
+<li>the relevant account does not cross the visible cut during operation
+because it is already retained internally;</li>
+<li>the declared system boundary is incomplete.</li>
+</ol>
+<p>No explanation may simply declare infinite portal capacity. The
+excess must identify its additional co-signing seats.</p>
+<h3 id="d.3-address-volume-versus-throughput">8D.3 Address volume versus
+throughput</h3>
+<p>Define internal address volume</p>
+<p><span class="math display">\[
+\operatorname{Vol}(S)=\sum_{v\in S}\mu(v),
+\]</span></p>
+<p>where <span class="math inline">\(\mu(v)\)</span> is the operational
+weight of an admitted internal address. The expansion ratio</p>
+<p><span class="math display">\[
+h(S)=\frac{C_{\partial S}}{\operatorname{Vol}(S)}
+\]</span></p>
+<p>measures coupling capacity per internal address volume. A very large
+interior reached through a modest threshold has small <span
+class="math inline">\(h(S)\)</span> unless hidden channels scale with
+the interior. This predicts increasing isolation as the interior census
+grows.</p>
+<hr />
+<h2
+id="e.-spectral-stability-why-the-interior-may-require-its-own-circulation">8E.
+Spectral stability: why the interior may require its own
+circulation</h2>
+<p>Let <span class="math inline">\(L_G=D-W\)</span> be the weighted
+graph Laplacian of the maintained completion network, where <span
+class="math inline">\(W\)</span> is the weighted adjacency matrix and
+<span class="math inline">\(D\)</span> its weighted degree matrix. Its
+second eigenvalue</p>
+<p><span class="math display">\[
+\lambda_2(L_G)
+\]</span></p>
+<p>is the algebraic connectivity: a measure of how strongly the network
+resists splitting into weakly joined sectors.</p>
+<p>A large internal fiber connected to the exterior only through a
+narrow cut generally drives the complete network’s <span
+class="math inline">\(\lambda_2\)</span> downward. The system becomes
+susceptible to phase drift, slow settlement, or separation between
+interior and exterior books. Cheeger-type bounds make the relationship
+explicit:</p>
+<p><span class="math display">\[
+\frac{h_G^2}{2d_{\max}}
+\lesssim \lambda_2(L_G)
+\lesssim 2h_G,
+\]</span></p>
+<p>for an appropriate weighted conductance <span
+class="math inline">\(h_G\)</span> and maximum weighted degree <span
+class="math inline">\(d_{\max}\)</span>.</p>
+<p>The physical reading is important: a huge interior cannot plausibly
+remain coherent merely because a small doorway touches it. It likely
+requires a strong <strong>internal</strong> circulation and settlement
+network. The threshold coordinates two already maintained organizations;
+it does not individually service every internal address from
+outside.</p>
+<h3 id="e.1-phase-locking-threshold">8E.1 Phase-locking threshold</h3>
+<p>For a coarse phase model</p>
+<p><span class="math display">\[
+\dot\phi_i=\omega_i+
+K\sum_j W_{ij}\sin(\phi_j-\phi_i),
+\]</span></p>
+<p>stable collective ordering requires coupling <span
+class="math inline">\(K\)</span> sufficient to overcome the dispersion
+of native rates <span class="math inline">\(\omega_i\)</span>. The exact
+threshold is architecture-dependent, but stability should improve with
+algebraic connectivity and degrade with rate spread. A schematic
+requirement is</p>
+<p><span class="math display">\[
+K\lambda_2(L_G)&gt;\Delta\omega_{\mathrm{eff}}.
+\]</span></p>
+<p>This is not claimed as the craft’s literal control law. It is a
+calculable family of stability conditions. If threshold accessibility or
+interior geometry changes with measured phase coherence, drive rate,
+thermal disorder, damage, or loading, the spectral model becomes
+testable.</p>
+<h3 id="e.2-failure-morphology">8E.2 Failure morphology</h3>
+<p>The model predicts several distinct failures:</p>
+<ul>
+<li><strong>loss of threshold lock:</strong> interior persists but
+becomes inaccessible;</li>
+<li><strong>fiber fragmentation:</strong> one interior separates into
+mutually inaccessible sectors;</li>
+<li><strong>metric drift:</strong> adjacency survives but edge prices
+change;</li>
+<li><strong>holonomy drift:</strong> repeated closed routes return
+different phase/orientation receipts;</li>
+<li><strong>closure failure:</strong> protected organizations cannot
+cross safely.</li>
+</ul>
+<p>Those are different events and should not be collapsed into “the
+portal failed.”</p>
+<hr />
+<h2 id="f.-dynamic-relational-metric-and-control-variables">8F. Dynamic
+relational metric and control variables</h2>
+<p>Let <span class="math inline">\(\chi\)</span> denote the measured
+craft state: circulation rates, phase order, twist/writhe partition,
+electrical and thermal accounts, material configuration, and threshold
+controls. The internal graph and its edge prices become</p>
+<p><span class="math display">\[
+G_{\mathrm{in}}=G_{\mathrm{in}}(\chi),
+\qquad
+w_e=w_e(\chi).
+\]</span></p>
+<p>The operational internal distance is therefore</p>
+<p><span class="math display">\[
+d_{\chi}(u,v)=
+\min_{P:u\leadsto v}
+\sum_{e\in P}w_e(\chi).
+\]</span></p>
+<p>This supplies two independent control modes:</p>
+<ol type="1">
+<li><strong>weight control:</strong> change <span
+class="math inline">\(w_e\)</span> while preserving adjacency;</li>
+<li><strong>topology control:</strong> add, remove, or re-route admitted
+edges.</li>
+</ol>
+<p>Weight control makes paths contract or expand operationally. Topology
+control changes what is adjacent and can produce sudden room appearance,
+disappearance, branching, or reordering without continuously deforming
+local walls.</p>
+<p>For a control excursion <span class="math inline">\(\chi(t)\)</span>,
+the geometry response is not one scalar. Record the response vector</p>
+<p><span class="math display">\[
+\mathcal R(\chi)=
+\big(
+D_{\mathrm{in}},
+\operatorname{Vol}_{\mathrm{in}},
+C_{\partial S},
+\lambda_2,
+H(\gamma),
+\rho_{\mathrm{clock}},
+P_{\mathrm{maint}}
+\big),
+\]</span></p>
+<p>where <span class="math inline">\(\rho_{\mathrm{clock}}\)</span> is
+the internal/external rate ratio and <span
+class="math inline">\(P_{\mathrm{maint}}\)</span> the measured
+maintenance billing rate.</p>
+<p>A real engineering theory must predict at least one signed derivative
+before changing the control:</p>
+<p><span class="math display">\[
+\frac{\partial \mathcal R_i}{\partial \chi_j}.
+\]</span></p>
+<p>Without that prospective control law, the framework remains an
+interpretive geometry rather than reverse engineering.</p>
+<hr />
+<h2 id="g.-finite-capacity-and-the-maintenance-ledger">8G. Finite
+capacity and the maintenance ledger</h2>
+<p>The mathematical fiber may be arbitrarily large. A physical fiber
+maintained by finite circulation cannot be assumed to be.</p>
+<p>For an architecture whose resolved costs can be assigned without
+double-counting, let each retained internal address <span
+class="math inline">\(v\)</span> require a minimum maintenance tariff
+<span class="math inline">\(p_v\ge0\)</span>, and each active edge <span
+class="math inline">\(e\)</span> require <span
+class="math inline">\(p_e\ge0\)</span>. The candidate additive bound
+is</p>
+<p><span class="math display">\[
+P_{\mathrm{maint}}
+\ge
+\sum_{v\in V_{\mathrm{in}}}p_v
++
+\sum_{e\in E_{\mathrm{in}}}p_e
++P_T,
+\]</span></p>
+<p>where <span class="math inline">\(P_T\)</span> is the threshold’s own
+billing rate. If one circulation jointly maintains many addresses so
+these terms cannot be assigned without double-counting, replace the sum
+by a measured global functional</p>
+<p><span class="math display">\[
+P_{\mathrm{maint}}=\mathcal P[V_{\mathrm{in}},E_{\mathrm{in}},T,\chi].
+\]</span></p>
+<p>Shared circulation may make the observed scaling sublinear, while
+congestion, error correction, or phase matching may make it superlinear.
+The additive expression is therefore a candidate resolved model, not a
+universal premise.</p>
+<p>Three scaling families should be distinguished experimentally:</p>
+<p><span class="math display">\[
+P_{\mathrm{maint}}\propto N,
+\qquad
+P_{\mathrm{maint}}\propto N^{2/3},
+\qquad
+P_{\mathrm{maint}}\propto \log N,
+\]</span></p>
+<p>representing, respectively, bulk-address cost, boundary-like cost,
+and strongly shared hierarchical maintenance. None is selected a
+priori.</p>
+<h3 id="g.1-added-mass-ledger">8G.1 Added-mass ledger</h3>
+<p>For an added retained body with rest-calibrated account <span
+class="math inline">\(E_0\)</span>, define measurable changes</p>
+<p><span class="math display">\[
+\Delta\mathcal B=
+(\Delta P_{\mathrm{maint}},
+\Delta C_{\partial S},
+\Delta\lambda_2,
+\Delta\rho_{\mathrm{clock}},
+\Delta\mathbf R_{\mathrm{support}},
+\Delta\mathbf I_{\mathrm{inertial}}).
+\]</span></p>
+<p>The conjecture does not require every component to be nonzero. It
+requires the complete ledger to contain the added organization
+somewhere. Repeated loading establishes which account carries the
+burden.</p>
+<h3 id="g.2-capacity-limit">8G.2 Capacity limit</h3>
+<p>Define the admitted operating region</p>
+<p><span class="math display">\[
+\mathcal A=
+\left\{
+\chi:
+\lambda_2&gt;\lambda_{\min},
+\ C_{\partial S}&gt;C_{\min},
+\ \mathcal E_{\mathrm{mis}}&lt;\mathcal E_{\mathrm{crit}},
+\ P_{\mathrm{maint}}&lt;P_{\max}
+\right\}.
+\]</span></p>
+<p>The interior remains stable only while <span
+class="math inline">\(\chi\in\mathcal A\)</span>. Its capacity is the
+largest address/occupancy census whose loaded state remains in that
+region. This replaces the vague question “how much can fit?” with four
+measurable failure boundaries.</p>
+<hr />
+<h2 id="h.-the-complete-strengthened-conjecture">8H. The complete
+strengthened conjecture</h2>
+<p>The proposed architecture can now be stated compactly.</p>
+<ol type="1">
+<li>The craft maintains a compact exterior base network <span
+class="math inline">\(B\)</span> and an extensive interior fiber <span
+class="math inline">\(F\)</span>.</li>
+<li>Exterior observation reports the quotient <span
+class="math inline">\(B\cong E/{\sim_{\mathrm{out}}}\)</span> and
+therefore does not bound the fiber’s intrinsic extent.</li>
+<li>The threshold implements a connection that maps custody from base to
+fiber while preserving the entrant’s whole-turn closure lattice and
+protected comparison norm.</li>
+<li>Closed entry–exit paths may carry measurable holonomy.</li>
+<li>The visible threshold imposes a finite cut-capacity bound unless
+additional completion channels are present.</li>
+<li>A large interior requires its own strongly connected circulation;
+spectral stability constrains phase disorder, loading, and damage.</li>
+<li>Craft controls may alter edge weights, graph topology, rate
+partition, or all three.</li>
+<li>Interior extent and occupancy remain finite in practice because
+maintenance power, cut capacity, algebraic connectivity, and phase
+mismatch define an admitted operating region.</li>
+<li>Every transition still closes angular-momentum, energy, momentum,
+support, and action-rate receipts over the complete declared
+boundary.</li>
+</ol>
+<p>This is no longer merely “perhaps space is different inside.” It is a
+candidate system architecture with distinct state variables, invariants,
+bottlenecks, stability criteria, and failure modes.</p>
+<hr />
+<h2 id="what-an-entrant-would-experience">9. What an entrant would
+experience</h2>
+<h3 id="at-a-stable-well-matched-threshold">9.1 At a stable,
+well-matched threshold</h3>
+<p>If the threshold preserves local constitution, phase continuity,
+orientation, and rate calibration, an entrant may experience nothing
+dramatic at the doorway. The startling observation arrives only after
+enough internal relations are sampled to contradict the exterior
+map.</p>
+<h3 id="optical-appearance">9.2 Optical appearance</h3>
+<p>Vision reconstructs direction and depth from completed optical
+comparisons. Once the observer’s exchanges close with the internal
+network, ordinary parallax, occlusion, focus, and motion cues can
+present a stable large room. No miniature image need be magnified. The
+visible surfaces participate in the internal adjacency book.</p>
+<p>Looking backward through the threshold is especially diagnostic. The
+exterior view may:</p>
+<ul>
+<li>preserve ordinary parallax, indicating a stable bidirectional
+map;</li>
+<li>appear at an anomalous scale;</li>
+<li>occupy a limited angular portal;</li>
+<li>change with observer position in a way no Euclidean aperture
+permits;</li>
+<li>fail to remain jointly visible with parts of the interior.</li>
+</ul>
+<p>Each behavior constrains <span class="math inline">\(T\)</span>.</p>
+<h3 id="locomotion-and-inertia">9.3 Locomotion and inertia</h3>
+<p>If local custody relations inside are regular, walking and object
+handling can feel ordinary. If the threshold or internal network changes
+rate partition or natural continuation, vestibular mismatch, loading
+changes, orientation shifts, nausea, or inertial anomalies may occur.
+Such symptoms are not proof of geometry; they are correlated channels to
+record.</p>
+<h3 id="communication">9.4 Communication</h3>
+<p>Two-way communication across the threshold tests whether exterior and
+interior events share stable completion addresses. Delay, bandwidth,
+phase, directionality, and loss may disclose whether the threshold
+supports continuous cross-network co-signing or only crossing
+events.</p>
+<h3 id="memory">9.5 Memory</h3>
+<p>Memory continuity is expected if the entrant’s retained neural
+organization crosses intact. Memory gaps would indicate either ordinary
+human factors, injury, rate/phase disruption, or failure of retained
+constitution. They should never be used casually to complete a preferred
+story.</p>
+<hr />
+<h2 id="why-familiar-explanations-do-not-yet-explain-it">10. Why
+familiar explanations do not yet explain it</h2>
+<h3 id="warped-spacetime">10.1 “Warped spacetime”</h3>
+<p>This can be a mathematical description of a non-Euclidean metric, but
+it leaves unanswered what physically maintains the metric, what crosses
+the threshold, and where the conservation receipts post. POAMS asks for
+the circulation beneath the geometry.</p>
+<h3 id="extra-dimensions">10.2 “Extra dimensions”</h3>
+<p>An unobserved ambient dimension can provide an embedding diagram, but
+an embedding space is not a mechanism. The relational construction needs
+no larger container. If an extra coordinate makes no distinct
+operational prediction, it is surplus scenery.</p>
+<h3 id="a-portal">10.3 “A portal”</h3>
+<p>Portal names the threshold function without explaining it. The POAMS
+task is to specify the address map, retained closure conditions, phase
+matching, and complete ledger.</p>
+<h3 id="quantum-effects">10.4 “Quantum effects”</h3>
+<p>This phrase supplies neither scale nor construction. Any microscopic
+contribution must identify a native circulation, a macroscopic retention
+mechanism, and a raw prospective discriminator. The craft-scale
+phenomenon cannot be purchased with a label borrowed from another
+framework.</p>
+<h3 id="perception">10.5 “Perception”</h3>
+<p>Perceptual alteration remains a necessary control explanation. It
+fails only when independent rigid, clocked, occupancy, and adjacency
+records establish the same incompatibility.</p>
+<hr />
+<h2 id="derived-consequences-of-the-construction">11. Derived
+consequences of the construction</h2>
+<p>The following consequences follow from the relational model, although
+their realization by any craft remains unestablished.</p>
+<h3 id="hull-size-does-not-price-interior-extent">11.1 Hull size does
+not price interior extent</h3>
+<p>Once a common embedding is denied, exterior diameter alone supplies
+no upper bound on internal diameter or capacity.</p>
+<h3 id="the-doorway-is-more-informative-than-the-walls">11.2 The doorway
+is more informative than the walls</h3>
+<p>The threshold must reconcile custody relations and preserve retained
+organization. Its state, geometry, materials, circulation, and response
+during crossings should carry more mechanistic information than an inert
+interior panel.</p>
+<h3 id="geometry-may-switch-without-local-deformation">11.3 Geometry may
+switch without local deformation</h3>
+<p>If the maintained adjacency graph changes, remote internal distances
+or connectivity can change even while every local ruler remains
+unchanged. A room can disappear from the reachable graph without being
+mechanically crushed.</p>
+<h3
+id="power-loss-may-alter-accessibility-rather-than-collapse-material">11.4
+Power loss may alter accessibility rather than collapse material</h3>
+<p>If craft power or circulation maintains <span
+class="math inline">\(T\)</span>, loss of maintenance may close the
+address relation. The internal organization might become unreachable,
+rebook elsewhere, or settle into another relation. Ordinary imagery of a
+large room physically imploding into the hull is not required.</p>
+<h3
+id="added-mass-need-not-change-exterior-volume-but-must-change-receipts">11.5
+Added mass need not change exterior volume but must change receipts</h3>
+<p>Placing matter in the interior need not enlarge the exterior hull. It
+must, however, affect some complete custody account—support, inertia,
+energy demand, circulation state, threshold tariff, or another
+measurable receipt. If nothing anywhere changes as unlimited matter is
+added, the declared boundary is incomplete or the account is wrong.</p>
+<h3 id="there-may-be-finite-address-capacity">11.6 There may be finite
+address capacity</h3>
+<p>The graph theorem permits arbitrary size mathematically; a physical
+craft will have finite maintaining circulation, phase tolerance, and
+settlement capacity. Crowding may first appear as threshold instability,
+rate drift, power change, geometry reconfiguration, or lost
+accessibility rather than Euclidean packing pressure.</p>
+<h3
+id="interior-position-may-be-craft-relative-rather-than-earth-relative">11.7
+Interior position may be craft-relative rather than Earth-relative</h3>
+<p>If the interior custody network is maintained primarily by the craft
+circulation, internal addresses may follow the craft without occupying
+corresponding paths through the exterior reconstruction. This offers a
+route to understanding reports of ordinary interior conditions during
+extraordinary exterior maneuvers, though no such performance follows
+without a complete inertia and energy account.</p>
+<hr />
+<h2 id="distinct-observational-signatures">12. Distinct observational
+signatures</h2>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 26%" />
+<col style="width: 26%" />
+<col style="width: 26%" />
+</colgroup>
+<thead>
+<tr>
+<th>Observation</th>
+<th style="text-align: right;">Pure adjacency expansion</th>
+<th style="text-align: right;">Rate-weighted expansion</th>
+<th style="text-align: right;">Perceptual account</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Multiple occupants agree on layout</td>
+<td style="text-align: right;">Yes</td>
+<td style="text-align: right;">Yes</td>
+<td style="text-align: right;">Possibly</td>
+</tr>
+<tr>
+<td>Rigid transported standards preserve size</td>
+<td style="text-align: right;">Yes</td>
+<td style="text-align: right;">Possibly, locally</td>
+<td style="text-align: right;">Yes</td>
+</tr>
+<tr>
+<td>Closed internal paths exceed hull bounds</td>
+<td style="text-align: right;">Yes</td>
+<td style="text-align: right;">Yes</td>
+<td style="text-align: right;">No instrument agreement expected</td>
+</tr>
+<tr>
+<td>Dissimilar clocks show common offset</td>
+<td style="text-align: right;">No requirement</td>
+<td style="text-align: right;">Expected</td>
+<td style="text-align: right;">No</td>
+</tr>
+<tr>
+<td>Chemistry/decay share rate shift</td>
+<td style="text-align: right;">No requirement</td>
+<td style="text-align: right;">Expected if universal</td>
+<td style="text-align: right;">No</td>
+</tr>
+<tr>
+<td>Cross-threshold ranging is non-Euclidean</td>
+<td style="text-align: right;">Expected</td>
+<td style="text-align: right;">Expected</td>
+<td style="text-align: right;">No</td>
+</tr>
+<tr>
+<td>Interior changes with craft state</td>
+<td style="text-align: right;">Possible</td>
+<td style="text-align: right;">Possible</td>
+<td style="text-align: right;">Possible</td>
+</tr>
+<tr>
+<td>Independent stored instruments agree</td>
+<td style="text-align: right;">Yes</td>
+<td style="text-align: right;">Yes</td>
+<td style="text-align: right;">No</td>
+</tr>
+</tbody>
+</table>
+<p>The table is deliberately unforgiving. “It looked huge” distinguishes
+almost nothing. Simultaneous occupancy, closed routes, independent
+clocks, transported standards, and bidirectional threshold measurements
+distinguish much more.</p>
+<hr />
+<h2 id="a-constructive-specimen-test">13. A constructive specimen
+test</h2>
+<p>If access is ever granted, the first objective is not to tour the
+interior. It is to determine whether the threshold joins two operational
+geometries.</p>
+<h3 id="passive-instrument-train">13.1 Passive instrument train</h3>
+<p>Use an articulated, recoverable train spanning both sides of the
+threshold:</p>
+<ul>
+<li>mechanically indexed segments;</li>
+<li>optical fiducials visible in both directions;</li>
+<li>redundant clocks of dissimilar construction;</li>
+<li>two-way optical and acoustic ranging;</li>
+<li>inertial and orientation records;</li>
+<li>load, tension, temperature, and electrical continuity
+measurements;</li>
+<li>synchronized exterior and interior imaging;</li>
+<li>local non-networked recording on every segment.</li>
+</ul>
+<p>No person crosses during the opening measurements.</p>
+<h3 id="the-decisive-geometry-record">13.2 The decisive geometry
+record</h3>
+<p>Construct independently:</p>
+<ol type="1">
+<li>an exterior hull metric from disclosed survey methods;</li>
+<li>an interior intrinsic metric from closed paths and triangulated
+adjacencies;</li>
+<li>a threshold correspondence from simultaneous bidirectional
+observations;</li>
+<li>a clock and rate ledger across the same events;</li>
+<li>a complete mass, support, power, thermal, and momentum record.</li>
+</ol>
+<p>The geometry claim survives only if the first three are individually
+repeatable yet reject one common Euclidean embedding after known
+distortions and hidden extent are excluded.</p>
+<h3 id="poams-specific-discriminator">13.3 POAMS-specific
+discriminator</h3>
+<p>Measure the craft’s accessible circulation and phase state before,
+during, and after controlled changes in threshold accessibility. The
+POAMS proposal gains standing only if a prospectively named circulation
+variable covaries with the geometry while ordinary confounds and total
+receipts remain controlled.</p>
+<p>Without that relation, the graph construction explains logical
+possibility but POAMS has not explained the craft.</p>
+<hr />
+<h2 id="mathematical-and-physical-debts">14. Mathematical and physical
+debts</h2>
+<p>This paper intentionally separates what is solved from what remains
+open.</p>
+<h3 id="solved-conditionally">Solved conditionally</h3>
+<ul>
+<li>A small exterior interface and arbitrarily large intrinsic interior
+are mathematically compatible.</li>
+<li>Local regularity on both sides does not require one global Euclidean
+embedding.</li>
+<li>A retained body can be represented as preserving internal
+constitution while changing environmental address.</li>
+<li>Metric volume is not itself a conserved account because it is
+derived from metric relations, not a physical substance.</li>
+</ul>
+<h3 id="proposed-but-not-derived">Proposed but not derived</h3>
+<ul>
+<li>A craft-scale circulation can maintain <span
+class="math inline">\(G_{\mathrm{in}}\)</span>, <span
+class="math inline">\(G_{\mathrm{out}}\)</span>, and <span
+class="math inline">\(T\)</span>.</li>
+<li>Whole-turn phase matching can re-address complex matter
+non-destructively.</li>
+<li>The craft instantiates a fibered completion system whose exterior
+appearance is a quotient of its full relational state.</li>
+<li>Threshold transport preserves a protected closure lattice and
+comparison norm.</li>
+<li>Nontrivial threshold transport produces measurable holonomy on
+closed entry–exit routes.</li>
+<li>Visible threshold capacity bounds exterior/interior exchange unless
+additional completion channels exist.</li>
+<li>Algebraic connectivity and phase dispersion constrain interior
+stability.</li>
+<li>Twist/writhe partition participates in the maintained geometry.</li>
+<li>Rate partition contributes to apparent interior extent.</li>
+</ul>
+<h3 id="entirely-open">Entirely open</h3>
+<ul>
+<li>Required materials and fabrication.</li>
+<li>Power, action, and angular-momentum scale.</li>
+<li>Threshold thickness and crossing cadence.</li>
+<li>Address capacity, cut capacity, spectral stability limits, and
+actual scaling of maintenance cost.</li>
+<li>Behavior under craft acceleration, damage, or power loss.</li>
+<li>Whether any recovered vehicle actually exhibits the reported
+geometry.</li>
+</ul>
+<p>This boundary is a strength. The proposal offers a new rigorous
+construction without pretending that logical possibility is already
+reverse engineering.</p>
+<hr />
+<h2 id="falsification-conditions">15. Falsification conditions</h2>
+<p>The account fails in progressively stronger senses if:</p>
+<ol type="1">
+<li>reported events reduce to hidden exterior extent, scale error,
+memory, or perception;</li>
+<li>independent instruments reconstruct one ordinary Euclidean
+interior;</li>
+<li>no stable internal adjacency or metric exists;</li>
+<li>geometry changes show no relation to any physical craft state or
+maintained organization;</li>
+<li>a claimed crossing produces unbalanced energy, momentum, or
+angular-momentum receipts after the complete boundary is measured;</li>
+<li>the proposed POAMS circulation variable is prospectively varied and
+the geometry does not respond as predicted;</li>
+<li>a simpler operational model explains every preserved record with
+fewer unsupported premises.</li>
+</ol>
+<p>The graph theorem itself will remain true. What would fail is its
+identification with the craft and, more specifically, the POAMS
+maintenance proposal.</p>
+<hr />
+<h2 id="the-proposition-offered-to-recovered-vehicle-teams">16. The
+proposition offered to recovered-vehicle teams</h2>
+<p>We do not ask a recovered-vehicle team to accept that a large room
+was hidden in a small hull, nor to accept “extra dimensions” because
+familiar ontology has no better noun.</p>
+<p>We offer a different construction:</p>
+<ol type="1">
+<li>Space is the projection of stable completed relations, not a
+container.</li>
+<li>Exterior and interior dimensions are reconstructed from different
+completion networks.</li>
+<li>A small threshold can join an arbitrarily large intrinsic network
+without contradiction.</li>
+<li>The craft need maintain the access relation and interior adjacency
+book, not pack metric volume into its hull.</li>
+<li>A crossing body persists by preserving its whole-turn internal
+constitution while its environmental custody is re-addressed.</li>
+<li>Every energetic and angular-momentum receipt must still close.</li>
+<li>The doorway, clock relations, closed internal paths, simultaneous
+occupancy, and craft circulation can distinguish this construction from
+perception, hidden extent, and inherited metric stories.</li>
+</ol>
+<p>In one sentence:</p>
+<blockquote>
+<p><strong>The craft is not a small container holding a large place; it
+is a maintained circulation whose threshold joins the observer to a
+larger relational geometry.</strong></p>
+</blockquote>
+<p>That is how the reported observation could be physically coherent.
+Whether recovered vehicles actually do this is a question for the
+records and the hardware.</p>
+<hr />
+<h2 id="provenance-ledger">17. Provenance ledger</h2>
+<h3 id="poams-native-premises-used">POAMS-native premises used</h3>
+<ul>
+<li>one substance: angular momentum / turning / rotational time;</li>
+<li>whole-turn closure and discrete completion addresses;</li>
+<li>space as observer projection from received completion
+relations;</li>
+<li>two-ended, co-signed exchange;</li>
+<li>the observer as retained census rather than container;</li>
+<li><span class="math inline">\(L=dS/d\theta\)</span> as the smooth rate
+representation;</li>
+<li>the Pope–Osborne orthogonal-turn premise, used only for the optional
+rate-weighted branch;</li>
+<li>twist/writhe vocabulary, used only as a candidate bookkeeping
+branch.</li>
+</ul>
+<h3 id="imported-mathematics-used-openly">Imported mathematics used
+openly</h3>
+<ul>
+<li>weighted graphs, shortest-path metrics, graph gluing, isomorphism,
+and diameter;</li>
+<li>fiber bundles and quotient spaces as relational bookkeeping
+structures;</li>
+<li>integer lattice automorphisms and norm-preserving maps;</li>
+<li>connections, ordered transport, and holonomy;</li>
+<li>network flow, cut capacity, graph Laplacians, algebraic
+connectivity, and Cheeger-type bounds;</li>
+<li>coupled-phase dynamics as a stability comparator;</li>
+<li>metric spaces and smooth manifold notation as far-field
+representations;</li>
+<li>conformal metric scaling as a descriptive comparator.</li>
+</ul>
+<p>These mathematical tools do not import particle, field, vacuum,
+spacetime-substance, or extra-dimensional ontology.</p>
+<h3 id="initiating-report">Initiating report</h3>
+<ul>
+<li>Private oral summary: recovered craft interiors have been described
+as larger than their exterior appearance.</li>
+<li>Exact source passages, witnesses, measurements, and custody records
+have not yet been incorporated.</li>
+</ul>
+<h3 id="governing-sources-for-the-next-revision">Governing sources for
+the next revision</h3>
+<ul>
+<li><code>GROUNDING.md</code></li>
+<li><code>POAMS-FOUNDATION-WALL.md</code></li>
+<li><code>poams-exhibits-public/the-rate-of-time.html</code></li>
+<li><code>poams-papers/how-pythagorean-geometry-replaces-einsteinian-relativity.html</code></li>
+<li><code>poams-engineering-public/ontological-translations.html</code></li>
+<li><code>poams-engineering-public/laboratory-safety-relational-continuation.html</code></li>
+<li>Jay Stratton’s relevant published passages when supplied in readable
+form</li>
+</ul>
+<hr />
+<h2 id="appendix-a-questions-earned-by-the-explanation">Appendix A —
+Questions earned by the explanation</h2>
+<p>Only after presenting the construction do we ask:</p>
+<ol type="1">
+<li>Was greater extent visual, traversed, ranged, mapped, or inferred
+from occupancy?</li>
+<li>Did multiple entrants occupy separated internal positions
+simultaneously?</li>
+<li>Were rigid objects carried across and recovered unchanged?</li>
+<li>Did any clocks, cameras, radios, lasers, or inertial instruments
+cross?</li>
+<li>Could the exterior be viewed from inside, and did parallax behave
+normally?</li>
+<li>Were closed internal routes mapped?</li>
+<li>Did the same layout recur?</li>
+<li>Did geometry depend on craft power state, occupancy, damage, or
+entry order?</li>
+<li>Did exterior support, mass, inertia, temperature, power, or
+vibration change when matter entered?</li>
+<li>What materials and active structures surround the threshold?</li>
+</ol>
+<p>These are not intake bureaucracy. They are direct discriminators
+among the construction’s branches.</p>
+<hr />
+<h2 id="appendix-b-compact-theorem-for-briefing-use">Appendix B —
+Compact theorem for briefing use</h2>
+<p>Let <span class="math inline">\(X_{\mathrm{out}}\)</span> and <span
+class="math inline">\(X_{\mathrm{in}}\)</span> be intrinsic metric
+spaces joined only by a threshold correspondence <span
+class="math inline">\(T\)</span>. The diameter of <span
+class="math inline">\(T\)</span> measured in <span
+class="math inline">\(X_{\mathrm{out}}\)</span> places no upper bound on
+<span
+class="math inline">\(\operatorname{diam}(X_{\mathrm{in}})\)</span>
+unless one adds the premise that <span
+class="math inline">\(X_{\mathrm{in}}\)</span> embeds isometrically
+inside the bounded exterior hull. Therefore a small exterior and a large
+operational interior are not mutually contradictory. The physical
+problem is to identify the organization that maintains <span
+class="math inline">\(X_{\mathrm{in}}\)</span> and <span
+class="math inline">\(T\)</span>, preserves entrants across <span
+class="math inline">\(T\)</span>, and closes every conserved
+receipt.</p>
+<hr />
+<h2 id="appendix-c-audience-and-program-calibration">Appendix C —
+Audience and program calibration</h2>
+<p>This paper is written for readers already experienced with difficult
+instrumentation, classified compartmentation, advanced aerospace
+studies, anomalous observations, and institutional scientific review.
+That expectation changes the required depth; it does not change the
+evidentiary standard.</p>
+<p>Primary public records establish the relevant caliber and program
+context:</p>
+<ul>
+<li>Stanford identifies Garry Nolan as the Rachford and Carlota A.
+Harris Professor in Pathology, with more than 350 research articles, 50
+U.S. patents, and pioneering high-dimensional measurement platforms
+including CyTOF, MIBI, and CODEX: <a
+href="https://med.stanford.edu/profiles/garry-nolan"
+class="uri">https://med.stanford.edu/profiles/garry-nolan</a></li>
+<li>Harvard identifies Avi Loeb as director of the Institute for Theory
+and Computation and head of the Galileo Project; the Galileo Project
+describes an instrument-centered search involving UAP and interstellar
+objects: <a href="https://astronomy.fas.harvard.edu/people/avi-loeb"
+class="uri">https://astronomy.fas.harvard.edu/people/avi-loeb</a> and <a
+href="https://galileo.hsites.harvard.edu/organization"
+class="uri">https://galileo.hsites.harvard.edu/organization</a></li>
+<li>CIA-released SRI records identify Harold Puthoff and Russell Targ as
+investigators in the SRI remote-viewing research program: <a
+href="https://www.cia.gov/readingroom/document/cia-rdp96-00791r000300030003-0"
+class="uri">https://www.cia.gov/readingroom/document/cia-rdp96-00791r000300030003-0</a></li>
+<li>DIA’s AAWSAP statement of objectives explicitly names lift,
+propulsion, control, power generation, spatial/temporal translation,
+materials, configuration, signature reduction, human interface, and
+human effects: <a
+href="https://www.dia.mil/FOIA/FOIA-Electronic-Reading-Room/FileId/237630/"
+class="uri">https://www.dia.mil/FOIA/FOIA-Electronic-Reading-Room/FileId/237630/</a></li>
+<li>The Department of Defense publicly established the UAP Task Force to
+detect, analyze, and catalog UAP potentially affecting national
+security: <a
+href="https://www.defense.gov/News/Releases/Release/Article/2314065/establishment-of-unidentified-aerial-phenomena-task-force/"
+class="uri">https://www.defense.gov/News/Releases/Release/Article/2314065/establishment-of-unidentified-aerial-phenomena-task-force/</a></li>
+<li>Congressional hearing records identify Jay Stratton as the leader of
+the 2020–2022 UAP Task Force and identify Luis Elizondo as a former
+senior Defense official associated with the preceding effort: <a
+href="https://www.congress.gov/118/meeting/house/117721/documents/HHRG-118-GO12-Transcript-20241113.pdf"
+class="uri">https://www.congress.gov/118/meeting/house/117721/documents/HHRG-118-GO12-Transcript-20241113.pdf</a></li>
+<li>NASA identifies Michael Gold as a member of its UAP Independent
+Study Team and records that, in prior NASA leadership roles, he jointly
+led creation and execution of the Artemis Accords: <a
+href="https://www.nasa.gov/general/nasa-announces-unidentified-aerial-phenomena-study-team-members/"
+class="uri">https://www.nasa.gov/general/nasa-announces-unidentified-aerial-phenomena-study-team-members/</a></li>
+</ul>
+<p>These credentials do not validate a recovered-craft claim or the
+present construction. They establish that the intended exchange is among
+technically accomplished people with serious institutional experience.
+The proper contribution is therefore neither credulity nor timidity. It
+is a novel construction stated strongly enough to be useful and
+precisely enough to be broken.</p>
+</main>
+<div class="footer"><strong>Normal Realism · POAMS</strong><br>Constructive geometry exhibit · 13 October 2026 · No recovered-craft measurement or physical-efficacy claim.</div>
+</body>
+</html>
