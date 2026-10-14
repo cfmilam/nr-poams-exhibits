@@ -16,12 +16,12 @@ body{margin:0;background:radial-gradient(circle at 50% -15%,rgba(208,173,80,.11)
 .topbar .series{color:var(--gold);text-transform:uppercase}.topbar .state{color:var(--mut)}
 .topbar a{color:var(--gold);text-decoration:none}
 .theme{border:1px solid var(--edge);border-radius:7px;background:var(--card);color:var(--gold);padding:6px 10px;cursor:pointer;font-size:15px}
-header{max-width:980px;margin:46px auto 0;padding:74px 24px 48px;border-bottom:1px solid var(--edge)}
+header{max-width:980px;margin:46px auto 0;padding:48px 24px 34px;border-bottom:1px solid var(--edge);text-align:center}
 .kicker{color:var(--gold);font:750 12px/1.2 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:.16em;text-transform:uppercase}
-h1{max-width:900px;margin:13px 0 10px;color:var(--gold);font-size:clamp(2.35rem,7vw,5rem);line-height:.98;letter-spacing:-.035em}
-.subtitle{max-width:800px;margin:20px 0;color:var(--fg);font-size:clamp(1.1rem,2.2vw,1.42rem);line-height:1.45}
+h1{max-width:900px;margin:10px 0 8px;color:var(--gold);font-size:clamp(1.75rem,3.4vw,2.35rem);line-height:1.16;letter-spacing:-.018em}
+.subtitle{max-width:800px;margin:12px auto;color:var(--fg);font-size:clamp(1rem,1.8vw,1.16rem);line-height:1.5}
 .status{display:inline-block;margin-top:13px;padding:8px 11px;border:1px solid color-mix(in srgb,var(--red) 58%,var(--edge));border-radius:6px;background:color-mix(in srgb,var(--red) 7%,var(--card));color:var(--red);font:750 11px/1.3 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:.07em;text-transform:uppercase}
-.thesis{max-width:880px;margin:34px 0 0;padding:21px 24px;border-left:4px solid var(--gold);background:linear-gradient(90deg,color-mix(in srgb,var(--gold) 11%,var(--card)),var(--card));border-radius:0 10px 10px 0;font-size:1.18rem;box-shadow:var(--shadow)}
+.thesis{max-width:880px;margin:24px auto 0;padding:18px 22px;border-left:4px solid var(--gold);background:linear-gradient(90deg,color-mix(in srgb,var(--gold) 11%,var(--card)),var(--card));border-radius:0 10px 10px 0;font-size:1.08rem;text-align:left;box-shadow:var(--shadow)}
 main{max-width:920px;margin:auto;padding:22px 24px 90px}
 h2{margin:3.2rem 0 1rem;padding-bottom:.45rem;border-bottom:1px solid var(--edge);color:var(--gold);font:700 clamp(1.34rem,3vw,1.75rem)/1.25 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 h3{margin:2rem 0 .55rem;color:var(--blue);font:700 1.08rem/1.35 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
@@ -29,6 +29,8 @@ p{margin:.78rem 0}
 strong{color:color-mix(in srgb,var(--blue) 78%,var(--fg))}
 em{color:color-mix(in srgb,var(--gold) 78%,var(--fg))}
 a{color:var(--blue)}
+a.uri{overflow-wrap:anywhere;word-break:break-word}
+mjx-container[display="true"]{max-width:100%;overflow-x:auto;overflow-y:hidden}
 ul,ol{padding-left:1.55rem}li{margin:.42rem 0}li::marker{color:var(--gold)}
 blockquote{margin:1.5rem 0;padding:1.1rem 1.3rem;border-left:4px solid var(--gold);background:var(--card);border-radius:0 9px 9px 0;font-size:1.12rem;box-shadow:var(--shadow)}
 blockquote p{margin:0}
@@ -37,21 +39,32 @@ hr{border:0;border-top:1px solid var(--edge);margin:2.7rem 0}
 code{padding:.1rem .3rem;border:1px solid var(--edge);border-radius:4px;background:var(--card);color:var(--green);font-size:.88em}
 table{width:100%;margin:1.2rem 0;border-collapse:collapse;font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 th,td{padding:10px 11px;border:1px solid var(--edge);vertical-align:top;text-align:left}th{background:var(--card2);color:var(--gold)}
+.prov{font-size:.82rem;color:var(--mut);border-left:3px solid var(--gold);padding:.6rem .9rem;background:color-mix(in srgb,var(--gold) 5%,var(--card));margin:1rem 0 1.4rem}
 main>p:first-of-type{padding:15px 18px;border:1px solid var(--edge);border-radius:9px;background:var(--card);color:var(--mut);font-size:.92rem}
 .footer{max-width:920px;margin:auto;padding:20px 24px 42px;border-top:1px solid var(--edge);color:var(--mut);font:12px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 @media(max-width:680px){body{font-size:16px}header{padding:54px 16px 36px}main{padding:14px 16px 65px}.topbar{padding:0 10px}.topbar .state{display:none}table{display:block;overflow-x:auto}.thesis{padding:17px 18px}}
 @media print{.topbar{display:none}body{background:#fff;color:#191919}header{margin-top:0}.theme{display:none}}
 </style>
+<!-- POAMS LISTEN BEGIN --><link rel="stylesheet" href="podcast-listen.css"><script defer src="podcast-listen.js"></script><!-- POAMS LISTEN END -->
 </head>
 <body>
 <div class="topbar"><a class="series" href="./index.html">← Return to Hub</a><span class="state">NR · POAMS · Rate Drive</span><button class="theme" onclick="document.body.classList.toggle('light')" aria-label="Toggle theme">☀︎ / ◐</button></div>
 <header>
   <div class="kicker">Hull Propulsion · Rate of Time</div>
   <h1>The Hull Is the Propulsion System</h1>
+<!-- POAMS LISTEN BEGIN -->
+<div class="poams-listen" data-podcast="55" data-podcast-title="The Hull Is the Propulsion System">
+<div class="pl-pills"><button class="pl-pill" type="button" aria-label="Audio: The Hull Is the Propulsion System" aria-expanded="false" aria-controls="pl-player-55">AUDIO</button><span class="pl-video pl-unavailable" aria-disabled="true" title="NotebookLM video link coming soon">VIDEO <small>Coming soon</small></span></div>
+<div id="pl-player-55" class="pl-player" hidden><button class="pl-play" type="button" aria-label="Play podcast" disabled>▶</button><input class="pl-seek" type="range" min="0" max="100" step="0.1" value="0" aria-label="Seek podcast" disabled><span class="pl-timer">0:00 / 0:00</span></div>
+<p class="pl-error" role="status" hidden></p><audio preload="none" src="https://audio.resonantmachines.us/podcasts/55/5fc6d6b3b6718a59b1a09b003582bc1a080c82e67bfd4bc669b4524aad711854.mp3"></audio>
+</div>
+<!-- POAMS LISTEN END -->
+
   <p class="subtitle">A rate-of-time and custody-transfer account of uniform heat, extreme displacement, and negligible onboard acceleration.</p>
   <div class="thesis"><strong>The hull does not push the vehicle through space.</strong> It controls the rate and exterior address at which the retained interior is permitted to continue.</div>
 </header>
 <main>
+<div class="prov reader-attribution">This exhibit is an extrapolation of the foundational work of N. Vivian “Viv” Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</div>
 <h2 id="abstract">Abstract</h2>
 <p>The reported combination is more informative than any single
 observation: a vehicle whose entire hull presents a nearly uniform high
