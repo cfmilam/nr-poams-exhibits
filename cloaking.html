@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Counterfactual Receipt Preservation</title>
+<script>window.MathJax={svg:{fontCache:'global'}};</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+:root{--bg:#080d14;--card:#101925;--card2:#152231;--edge:#2b3a4b;--fg:#e9eef4;--mut:#a8b3c0;--gold:#d7b45a;--cyan:#68d5d1;--blue:#72aeea;--green:#7bd49b;--red:#ed8077;--shadow:0 18px 55px rgba(0,0,0,.32)}
+body.light{--bg:#f7f7f2;--card:#fff;--card2:#edf3f5;--edge:#c9d4db;--fg:#20272d;--mut:#63717b;--gold:#896719;--cyan:#167b79;--blue:#296ca3;--green:#287c4b;--red:#ad4039;--shadow:0 15px 42px rgba(35,47,65,.12)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 50% -8%,color-mix(in srgb,var(--cyan) 14%,transparent),transparent 33rem),radial-gradient(circle at 85% 15%,color-mix(in srgb,var(--blue) 9%,transparent),transparent 26rem),var(--bg);color:var(--fg);font-family:Georgia,"Times New Roman",serif;font-size:17px;line-height:1.72;transition:.25s}
+.topbar{position:fixed;inset:0 0 auto;z-index:20;height:46px;display:flex;align-items:center;justify-content:space-between;padding:0 18px;background:color-mix(in srgb,var(--bg) 92%,transparent);border-bottom:1px solid color-mix(in srgb,var(--cyan) 25%,var(--edge));backdrop-filter:blur(12px);font:600 12px/1.2 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:.04em}.topbar .series{color:var(--gold);text-transform:uppercase}.topbar .state{color:var(--mut)}.topbar a{color:var(--gold);text-decoration:none}.theme{border:1px solid var(--edge);border-radius:7px;background:var(--card);color:var(--gold);padding:6px 10px;cursor:pointer;font-size:15px}
+header{max-width:980px;margin:46px auto 0;padding:55px 24px 38px;border-bottom:1px solid var(--edge);text-align:center}.kicker{color:var(--cyan);font:750 12px/1.2 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:.17em;text-transform:uppercase}h1{max-width:900px;margin:11px auto 9px;color:var(--gold);font-size:clamp(2.15rem,5.4vw,4rem);line-height:1.04;letter-spacing:-.03em}.subtitle{max-width:780px;margin:15px auto;color:var(--fg);font-size:clamp(1rem,2vw,1.2rem);line-height:1.5}.thesis{max-width:880px;margin:26px auto 0;padding:20px 23px;border-left:4px solid var(--cyan);background:linear-gradient(90deg,color-mix(in srgb,var(--cyan) 11%,var(--card)),var(--card));border-radius:0 11px 11px 0;font-size:1.1rem;text-align:left;box-shadow:var(--shadow)}
+main{max-width:920px;margin:auto;padding:25px 24px 92px}h2{margin:3.25rem 0 1rem;padding-bottom:.45rem;border-bottom:1px solid var(--edge);color:var(--gold);font:700 clamp(1.35rem,3vw,1.76rem)/1.25 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}h3{margin:2rem 0 .55rem;color:var(--cyan);font:700 1.08rem/1.35 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}p{margin:.8rem 0}strong{color:color-mix(in srgb,var(--cyan) 78%,var(--fg))}em{color:color-mix(in srgb,var(--gold) 78%,var(--fg))}a{color:var(--cyan)}ul,ol{padding-left:1.55rem}li{margin:.45rem 0}li::marker{color:var(--gold)}blockquote{margin:1.55rem 0;padding:1.12rem 1.35rem;border-left:4px solid var(--gold);background:var(--card);border-radius:0 9px 9px 0;font-size:1.12rem;box-shadow:var(--shadow)}blockquote p{margin:0}.math.display{display:block;margin:1.2rem 0;padding:14px 16px;overflow-x:auto;border:1px solid var(--edge);border-radius:9px;background:var(--card);text-align:center}.prov{font-size:.82rem;color:var(--mut);border-left:3px solid var(--gold);padding:.65rem .9rem;background:color-mix(in srgb,var(--gold) 5%,var(--card));margin:1rem 0 1.5rem}.status{margin:1.2rem 0;padding:13px 16px;border:1px solid color-mix(in srgb,var(--blue) 45%,var(--edge));border-radius:9px;background:color-mix(in srgb,var(--blue) 7%,var(--card));color:var(--mut);font:13px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.status strong{color:var(--blue)}
+.receipt-figure{margin:2rem 0;padding:22px;border:1px solid var(--edge);border-radius:14px;background:linear-gradient(145deg,var(--card),var(--card2));box-shadow:var(--shadow);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.receipt-figure h3{margin:0;text-align:center;color:var(--gold)}.figure-sub{text-align:center;color:var(--mut);font-size:.88rem}.scene{position:relative;height:310px;margin:18px 0;border:1px solid var(--edge);border-radius:11px;overflow:hidden;background:linear-gradient(180deg,#102234 0 57%,#17261e 57%)}body.light .scene{background:linear-gradient(180deg,#dcecf5 0 57%,#d8e5d1 57%)}.sun{position:absolute;left:7%;top:16%;width:48px;height:48px;border-radius:50%;background:#f4d26a;box-shadow:0 0 28px #e8bd48}.tree{position:absolute;left:16%;bottom:16%;font-size:64px;line-height:1}.target{position:absolute;left:48%;bottom:17%;width:80px;height:105px;border-radius:42px 42px 12px 12px;background:linear-gradient(135deg,#bd635b,#713c47);border:3px solid #e58c78;box-shadow:0 9px 25px rgba(0,0,0,.3)}.target::after{content:"OBJECT";position:absolute;inset:auto 0 18px;text-align:center;color:#fff;font-size:10px;font-weight:800;letter-spacing:.08em}.cloak-ring{position:absolute;left:calc(48% - 18px);bottom:calc(17% - 18px);width:116px;height:141px;border:4px dashed var(--cyan);border-radius:58px 58px 22px 22px;opacity:0;transition:.3s}.observer{position:absolute;right:7%;bottom:22%;font-size:55px;filter:grayscale(.35)}.ray{position:absolute;height:3px;transform-origin:left center;background:linear-gradient(90deg,var(--gold),var(--cyan));opacity:.9;transition:.3s}.r1{left:22%;top:34%;width:62%;transform:rotate(8deg)}.r2{left:22%;top:45%;width:61%;transform:rotate(-2deg)}.r3{left:22%;top:55%;width:61%;transform:rotate(-12deg)}.scatter{position:absolute;left:55%;top:31%;width:32%;height:35%;border-top:3px solid var(--red);border-bottom:3px solid var(--red);transform:skewY(-10deg);opacity:0;transition:.3s}.readout{position:absolute;right:2%;top:4%;width:185px;padding:8px 10px;border:1px solid var(--edge);border-radius:8px;background:color-mix(in srgb,var(--bg) 82%,transparent);color:var(--fg);font-size:11px;line-height:1.45}.readout b{color:var(--cyan)}.scene.object .scatter{opacity:1}.scene.object .r1,.scene.object .r2,.scene.object .r3{width:35%;background:var(--red)}.scene.cloaked .cloak-ring{opacity:1}.scene.cloaked .target{opacity:.22}.controls{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}.controls button{min-height:40px;padding:8px 14px;border:1px solid var(--edge);border-radius:8px;background:var(--bg);color:var(--fg);cursor:pointer;font-weight:700}.controls button[aria-pressed="true"]{border-color:var(--cyan);color:var(--cyan);box-shadow:0 0 0 2px color-mix(in srgb,var(--cyan) 18%,transparent)}.figure-caption{margin:14px 0 0;color:var(--mut);font-size:.84rem;line-height:1.5}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:1.25rem 0}.card{padding:15px;border:1px solid var(--edge);border-radius:9px;background:var(--card)}.card b{display:block;margin-bottom:5px;color:var(--cyan);font:700 .9rem/1.3 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.card span{color:var(--mut);font-size:.91rem}.gates{counter-reset:g}.gate{position:relative;margin:.8rem 0;padding:14px 14px 14px 52px;border:1px solid var(--edge);border-radius:9px;background:var(--card)}.gate::before{counter-increment:g;content:counter(g);position:absolute;left:15px;top:16px;display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--gold);color:var(--bg);font:bold 12px/1 sans-serif}.gate b{color:var(--cyan)}
+.receipt-table{width:100%;border-collapse:collapse;margin:1.2rem 0;font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.receipt-table th,.receipt-table td{padding:10px 11px;border:1px solid var(--edge);text-align:left;vertical-align:top}.receipt-table th{background:color-mix(in srgb,var(--cyan) 9%,var(--card));color:var(--cyan)}.receipt-table td{background:var(--card)}.receipt-table td:first-child{color:var(--gold);font-weight:700}.mission-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:1.2rem 0}.mission{padding:16px;border:1px solid var(--edge);border-radius:10px;background:linear-gradient(145deg,var(--card),var(--card2))}.mission b{display:block;color:var(--gold);font:700 .92rem/1.3 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.mission p{margin:.4rem 0 0;color:var(--mut);font-size:.93rem}.warning{margin:1.2rem 0;padding:14px 16px;border:1px solid color-mix(in srgb,var(--red) 50%,var(--edge));border-radius:9px;background:color-mix(in srgb,var(--red) 7%,var(--card))}.warning strong{color:var(--red)}
+.footer{max-width:920px;margin:auto;padding:20px 24px 42px;border-top:1px solid var(--edge);color:var(--mut);font:12px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}@media(max-width:680px){body{font-size:16px}header{padding:55px 16px 35px}main{padding:14px 16px 65px}.topbar{padding:0 10px}.topbar .state{display:none}.thesis{padding:17px 18px}.cards,.mission-grid{grid-template-columns:1fr}.receipt-table{display:block;overflow-x:auto;white-space:normal}.receipt-figure{padding:15px 10px}.scene{height:340px}.readout{right:4%;top:3%;width:160px}.observer{right:4%;bottom:15%}.target{left:42%}.cloak-ring{left:calc(42% - 18px)}.tree{left:5%}.ray{left:15%}}@media print{.topbar,.controls{display:none}body{background:#fff;color:#191919}header{margin-top:0}}
+</style>
+<link rel="stylesheet" href="reader-standard.css">
+<!-- POAMS LISTEN BEGIN --><link rel="stylesheet" href="podcast-listen.css"><script defer src="podcast-listen.js"></script><!-- POAMS LISTEN END -->
+</head>
+<body class="reader-standard">
+<div class="topbar"><a class="series" href="./index.html">← Return to Hub</a><span class="state">NR · POAMS · Address-Display Engineering</span><button class="theme" onclick="document.body.classList.toggle('light')" aria-label="Toggle theme">☀︎ / ◐</button></div>
+<header>
+  <div class="kicker">Cloaking</div>
+  <h1>Counterfactual Receipt Preservation</h1>
+<!-- POAMS LISTEN BEGIN -->
+<div class="poams-listen" data-podcast="57" data-podcast-title="Counterfactual Receipt Preservation">
+<div class="pl-pills"><button class="pl-pill" type="button" aria-label="Audio: Counterfactual Receipt Preservation" aria-expanded="false" aria-controls="pl-player-57">AUDIO</button><span class="pl-video pl-unavailable" aria-disabled="true" title="NotebookLM video link coming soon">VIDEO <small>Coming soon</small></span></div>
+<div id="pl-player-57" class="pl-player" hidden><button class="pl-play" type="button" aria-label="Play podcast" disabled>▶</button><input class="pl-seek" type="range" min="0" max="100" step="0.1" value="0" aria-label="Seek podcast" disabled><span class="pl-timer">0:00 / 0:00</span></div>
+<p class="pl-error" role="status" hidden></p><audio preload="none" src="https://audio.resonantmachines.us/podcasts/57/87312cd2073a5e2378066c0a2a0607a26b008b2889017d6f6648cf60e21f8389.mp3"></audio>
+</div>
+<!-- POAMS LISTEN END -->
+
+  <p class="subtitle">The engineering discipline behind a boundary that does not enter the observer’s picture.</p>
+  <div class="thesis"><strong>A cloak does not make an object absent.</strong> It prevents the object from becoming an address in the observer’s completed visual transaction. The observer receives the boundary record the unobstructed scene would have supplied.</div>
+</header>
+<main>
+<div class="prov reader-attribution">This exhibit is an extrapolation of the foundational work of N. Vivian “Viv” Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</div>
+
+<h2 id="abstract">Abstract</h2>
+<p>Conventional cloaking asks how light can be bent around an object and returned to its original course. That is a valid engineering strategy, but its usual description inherits a deeper assumption: a visible object occupies a container called space, light crosses that container, and the observer reconstructs whatever interrupted the route.</p>
+<p>Normal Realism begins with the completed exchange. Observationally projected space is the macrophysically resolved address display, not the route between addresses. An object becomes visible when its boundary participates in enough completed optical exchanges to enter that display. A cloak therefore need not abolish the object, hide it in another place, or deceive a detached mind. It must govern the boundary transactions so that the concealed boundary contributes no discriminating receipt while the surrounding scene continues to complete correctly.</p>
+<p>This yields a precise target: for a declared observer set, illumination class, bandwidth, and time window, the received record with the cloaked object present must be operationally indistinguishable from the record of the unobstructed reference scene. The cloak is successful only to the resolution at which that equality survives.</p>
+<div class="status"><strong>Status:</strong> constructive framework. Transformation optics, scattering cancellation, active camouflage, phased arrays, and wavefront reconstruction are established or developing extant technologies. The counterfactual-receipt formulation is the POAMS-native synthesis. It does not by itself supply a new material law or claim a demonstrated universal cloak.</div>
+
+<h2 id="visibility">1. Visibility is boundary participation</h2>
+<p>To see an object is not to receive the object itself. A source, the object boundary, the surrounding environment, and an observer participate in a chain of exchanges. The observer records direction, spectrum, phase relations, polarization, intensity, timing, motion, and parallax. From those completed relations the object is assigned a stable address in the visual display.</p>
+<p>The visible boundary is therefore an active term in the receipt. Remove or replace that term and the displayed address changes. This does not make the retained organization unreal. It means only that reality is not exhausted by one observer’s resolved optical book.</p>
+<blockquote><p>Cloaking is not the concealment of matter within space. It is the controlled omission of a boundary from an observer’s resolved address display.</p></blockquote>
+
+<h3 id="not-simulation">1.1 Not a simulation claim</h3>
+<p>The display is not a fictional overlay on a more real spatial stage. It is the macroscopic reality produced when many discrete exchanges are resolved together. The object, cloak, scene, and observer are all retained organizations within the same physical account. Cloaking changes which optical relations complete; it does not place the observer outside reality or turn nature into software.</p>
+
+<h2 id="counterfactual">2. The counterfactual receipt</h2>
+<p>Let <span class="math inline">\(R_0(o,\lambda,t)\)</span> be the calibrated record received by observer channel <span class="math inline">\(o\)</span> from the unobstructed scene, resolved by wavelength or frequency channel <span class="math inline">\(\lambda\)</span> and time <span class="math inline">\(t\)</span>. Let <span class="math inline">\(R_C\)</span> be the record with the object and cloak present. Define the residual</p>
+<p class="math display">\[\Delta R(o,\lambda,t)=R_C(o,\lambda,t)-R_0(o,\lambda,t).\]</p>
+<p>A cloak succeeds over a declared domain <span class="math inline">\(\Omega=O\times\Lambda\times T\)</span> when every predeclared discriminator <span class="math inline">\(D_j\)</span> remains below its calibrated threshold:</p>
+<p class="math display">\[\sup_{(o,\lambda,t)\in\Omega} D_j\!\left(\Delta R\right)\le\varepsilon_j\qquad\text{for all }j.\]</p>
+<p>This is not a metaphysical definition of perfect invisibility. It is an engineering receipt. The observer set <span class="math inline">\(O\)</span>, spectral band <span class="math inline">\(\Lambda\)</span>, duration <span class="math inline">\(T\)</span>, observables, and thresholds are frozen before the test. A cloak that works for one camera angle, one polarization, or one narrow band has achieved exactly that—and nothing broader.</p>
+
+<div class="receipt-figure" aria-label="Interactive diagram comparing an unobstructed scene, an exposed object, and a cloaked object whose outgoing receipts reproduce the unobstructed scene">
+  <h3>Which boundary enters the completed picture?</h3>
+  <p class="figure-sub">Switch among the three physical receipt states.</p>
+  <div class="scene" id="scene">
+    <div class="sun"></div><div class="tree" aria-hidden="true">♣</div>
+    <div class="target"></div><div class="cloak-ring"></div><div class="scatter"></div>
+    <div class="ray r1"></div><div class="ray r2"></div><div class="ray r3"></div>
+    <div class="observer" aria-hidden="true">◉</div>
+    <div class="readout" id="readout"><b>Reference receipt</b><br>The observer resolves the unobstructed scene.</div>
+  </div>
+  <div class="controls" role="group" aria-label="Receipt state">
+    <button type="button" data-state="reference" aria-pressed="true">Unobstructed</button>
+    <button type="button" data-state="object" aria-pressed="false">Object exposed</button>
+    <button type="button" data-state="cloaked" aria-pressed="false">Boundary cloaked</button>
+  </div>
+  <p class="figure-caption">The final state is an engineering objective, not a claim that this diagram supplies the mechanism. A successful cloak must restore all declared observer-facing receipts while its own support, heat, recoil, latency, and control remain physically accounted.</p>
+</div>
+
+<h2 id="mathematical-framework">3. A descriptive mathematical framework</h2>
+<div class="status"><strong>Mathematical status:</strong> the objects in this section organize a measurement and control program. They are definitions, decompositions and engineering constraints—not POAMS derivations of a cloak, a constitutive material law, or proof that address denial is physically realizable.</div>
+<p>Let the retained state at operational time <span class="math inline">\(t\)</span> be written schematically as</p>
+<p class="math display">\[X(t)=\bigl(X_E(t),X_P(t),X_B(t),X_O(t)\bigr),\]</p>
+<p>where <span class="math inline">\(X_E\)</span> is the evolving environment, <span class="math inline">\(X_P\)</span> the protected platform or object, <span class="math inline">\(X_B\)</span> the controllable cloak boundary, and <span class="math inline">\(X_O\)</span> the declared observer configuration. These are not substances inside a background container. They are bookkeeping labels for retained organizations and the exchange conditions under which receipts are completed.</p>
+<p>For observer address <span class="math inline">\(o\)</span> and sensing modality <span class="math inline">\(m\)</span>, define a receipt map</p>
+<p class="math display">\[R_o^{(m)}(t)=\mathcal H_o^{(m)}[X](t).\]</p>
+<p>The map <span class="math inline">\(\mathcal H_o^{(m)}\)</span> includes the physical exchange, sensor aperture, calibration, bandwidth, integration and declared reduction into a recorded observable. It must not silently include a classifier’s preferred answer. The three comparison ensembles are then</p>
+<p class="math display">\[R_{0,o}^{(m)}=\mathcal H_o^{(m)}[X_E,0,0,X_O],\qquad R_{P,o}^{(m)}=\mathcal H_o^{(m)}[X_E,X_P,0,X_O],\qquad R_{C,o}^{(m)}=\mathcal H_o^{(m)}[X_E,X_P,X_B(u),X_O],\]</p>
+<p>with <span class="math inline">\(u(t)\)</span> the boundary-control history. The zero entries mean “absent from the preparation,” not zero physical reality. The cloak objective is to make <span class="math inline">\(R_C\)</span> belong to the same calibrated receipt ensemble as <span class="math inline">\(R_0\)</span>, while preserving the protected organization and closing every support account.</p>
+
+<h3 id="projection-domain">3.1 The admitted projection domain</h3>
+<p>Collect the declared observers, modalities, frequency or wavelength channels, polarizations, waveforms and times into an admitted domain <span class="math inline">\(\Omega\)</span>. Let <span class="math inline">\(\Pi_\Omega\)</span> retain only those receipts. The compact objective is</p>
+<p class="math display">\[\Pi_\Omega R_C\;\overset{\varepsilon,\mathcal T}{\sim}\;\Pi_\Omega R_0,\]</p>
+<p>meaning that the two ensembles are indistinguishable within tolerance vector <span class="math inline">\(\varepsilon\)</span> under the frozen test family <span class="math inline">\(\mathcal T\)</span>. The notation does not mean exact equality everywhere. Enlarging <span class="math inline">\(\Omega\)</span>, tightening <span class="math inline">\(\varepsilon\)</span>, or strengthening <span class="math inline">\(\mathcal T\)</span> makes a strictly stronger claim.</p>
+
+<h3 id="joint-residual">3.2 The joint residual and distinguishability budget</h3>
+<p>Stack calibrated residuals across channels:</p>
+<p class="math display">\[\mathbf r(t)=\operatorname{col}_{o,m}\!\left[W_o^{(m)}\bigl(R_{C,o}^{(m)}(t)-R_{0,o}^{(m)}(t)\bigr)\right],\]</p>
+<p>where each <span class="math inline">\(W_o^{(m)}\)</span> performs declared unit conversion, whitening and relevance weighting. If the reference residual covariance is <span class="math inline">\(\Sigma_0\)</span>, a useful second-order diagnostic is</p>
+<p class="math display">\[J_2=\mathbf r^{\!*}\Sigma_0^{-1}\mathbf r.\]</p>
+<p>Small <span class="math inline">\(J_2\)</span> means the residual is small relative to calibrated reference variation under a covariance model. It does not prove invisibility: nonlinear classifiers may exploit higher-order, temporal or cross-domain structure. Accordingly, the operational score should be a family</p>
+<p class="math display">\[\mathfrak D=\left\{D_j\bigl(\mathbb P_C,\mathbb P_0\bigr):j\in\mathcal T\right\},\]</p>
+<p>where <span class="math inline">\(\mathbb P_C\)</span> and <span class="math inline">\(\mathbb P_0\)</span> are the measured joint receipt distributions. Candidate members include held-out classification advantage, likelihood-ratio performance, calibrated divergence measures and task-specific tracking error. No single scalar is entitled to stand for every observer.</p>
+
+<h3 id="boundary-operator">3.3 The boundary operator</h3>
+<p>At a useful engineering level, the cloak boundary may be represented by a time-dependent operator <span class="math inline">\(\mathcal B_u\)</span> acting on incident boundary receipts and internal support states:</p>
+<p class="math display">\[q_{\mathrm{out}}=\mathcal B_u\!\left(q_{\mathrm{in}},z_B\right)+\eta_B,\qquad z_B^{+}=\mathcal F_B(z_B,q_{\mathrm{in}},u).\]</p>
+<p>Here <span class="math inline">\(q_{\mathrm{in}}\)</span> and <span class="math inline">\(q_{\mathrm{out}}\)</span> collect the incident and posted boundary channels, <span class="math inline">\(z_B\)</span> is retained boundary state, and <span class="math inline">\(\eta_B\)</span> collects calibrated noise and unmodeled residuals. Passive redirection restricts <span class="math inline">\(\mathcal B_u\)</span> through reciprocity, dispersion and loss. Active reconstruction enlarges the operator class by spending support power and accepting sensing and control latency. Address denial would require a further physical selection rule; it cannot be obtained by renaming one term in this equation.</p>
+
+<h3 id="causal-control">3.4 Causality and counterfactual estimation</h3>
+<p>The controller may use only information physically available by the posting time:</p>
+<p class="math display">\[u(t)=\mathcal K_t\!\left(\{y_B(s),y_E(s),z_B(s):s\le t\}\right).\]</p>
+<p>The desired reference receipt <span class="math inline">\(R_0(t)\)</span> is counterfactual because the platform blocks or perturbs part of the scene that would have generated it. The controller must therefore estimate</p>
+<p class="math display">\[\widehat R_0(t+\delta)=\mathcal P_\delta\!\left(y_E^{\le t},y_B^{\le t};\mathcal M\right),\]</p>
+<p>using a declared predictive model <span class="math inline">\(\mathcal M\)</span> and physical lead time <span class="math inline">\(\delta\)</span>. The prediction error, not merely actuator error, belongs in the cloak residual. Unannounced scene events and active interrogation are therefore decisive tests: they expose any device that replays a plausible background instead of preserving the live counterfactual relation.</p>
+
+<h3 id="local-control">3.5 Controllable receipt space</h3>
+<p>Near a chosen operating state, define the local receipt-control Jacobian</p>
+<p class="math display">\[G_u=\frac{\partial\mathbf r}{\partial\mathbf u}.\]</p>
+<p>Its column space is the set of residual directions the available boundary controls can change to first order. If <span class="math inline">\(\mathbf r_P\)</span> is the exposed-platform residual, the locally irreducible component is approximately</p>
+<p class="math display">\[\mathbf r_{\perp}=\left(I-G_uG_u^{\dagger}\right)\mathbf r_P,\]</p>
+<p>where <span class="math inline">\(G_u^{\dagger}\)</span> is a regularized pseudoinverse under the declared noise and power metric. This is a diagnostic, not a derivation. It identifies which measured signatures lie outside the present actuator span, which controls are redundant, and where a new boundary degree of freedom would buy actual receipt authority.</p>
+
+<h3 id="ledger-vector">3.6 The conserved ledger vector</h3>
+<p>Let <span class="math inline">\(\mathbf Q\)</span> collect every conserved or explicitly stored account relevant to the run—angular momentum, energy, linear momentum, charge where applicable, retained excitation and the declared custody invariants. Over a test interval, require</p>
+<p class="math display">\[\mathbf Q_{\mathrm{in}}+\mathbf Q_{\mathrm{support}}=\mathbf Q_{\mathrm{out}}+\Delta\mathbf Q_{\mathrm{stored}}+\mathbf Q_{\mathrm{diss}}+\mathbf Q_{\mathrm{res}},\]</p>
+<p>with a calibrated uncertainty bound on the unexplained residual <span class="math inline">\(\mathbf Q_{\mathrm{res}}\)</span>. The equality is an accounting demand, not a material design. It prevents an observer-facing null from being purchased by unmeasured heating, recoil, charge accumulation, delayed radiation or environmental recruitment.</p>
+
+<h3 id="optimization">3.7 The engineering problem</h3>
+<p>A bounded cloak design can be posed as a constrained minimax problem:</p>
+<p class="math display">\[\min_{u\in\mathcal U}\;\max_{a\in\mathcal A}D_a(\mathbb P_C,\mathbb P_0)+\lambda_P P[u]+\lambda_H H[u]+\lambda_R\|\mathbf Q_{\mathrm{res}}\|,\]</p>
+<p>subject to actuator limits, causality, stability, protected-state custody and ledger closure. <span class="math inline">\(\mathcal A\)</span> is the frozen adversary capability envelope; <span class="math inline">\(P\)</span> and <span class="math inline">\(H\)</span> are measured power and heat costs; and the multipliers state the program’s trade priorities. Robust design replaces one expected observer with the worst admitted observer. Graceful degradation replaces an impossible global null with a declared hierarchy of receipts to preserve.</p>
+<p>This formulation makes incompleteness visible. POAMS does not yet derive <span class="math inline">\(\mathcal B_u\)</span>, <span class="math inline">\(\mathcal F_B\)</span>, an address-denial selector, or their physical scaling. What it contributes here is the ontological placement of the problem: the target is the completed receipt, the object and observer are both within the account, and every omitted observer-facing boundary term must reappear in a closed physical ledger.</p>
+
+<h2 id="three-architectures">4. Three architectures</h2>
+<div class="cards">
+  <div class="card"><b>Redirection</b><span>Guide incident exchanges around the protected boundary and return them to the observer-facing relation with their discriminating structure preserved.</span></div>
+  <div class="card"><b>Reconstruction</b><span>Measure the incoming scene and actively emit the outgoing boundary record the unobstructed scene would have produced.</span></div>
+  <div class="card"><b>Address denial</b><span>Prevent the concealed boundary from becoming an eligible seat in the declared optical transaction while preserving the surrounding completions.</span></div>
+</div>
+<p>The first two have clear extant analogues. The third is the most distinctly POAMS-native and the least established. Co-signing language alone does not create address denial: it requires a physical selector that admits the intended background relations while rejecting every identifying exchange with the protected boundary.</p>
+
+<h3 id="hybrid">4.1 A real device will probably be hybrid</h3>
+<p>Passive redirection is naturally fast but limited by geometry, dispersion, loss, and angle. Active reconstruction can adapt to a scene but pays in sensing, latency, power, aperture density, observer tracking, and detectable noise. Selective boundary suppression could reduce the reconstruction burden if a genuine discriminator exists. The practical machine is therefore likely to combine a passive shell, active boundary cells, and a feedback ledger that continuously compares emitted receipts with the counterfactual reference.</p>
+
+<h2 id="ledger">5. The cloak ledger</h2>
+<p>A cloak cannot delete an interaction from the universe. Incident exchanges that do not appear in the observer’s optical book must still settle somewhere. Absorption becomes heat or retained excitation. Redirection carries momentum and recoil. Active reconstruction consumes stored energy and exports entropy. Control measurements create their own exchanges. Every successful optical omission therefore leaves a physical support account.</p>
+<p>For a control volume enclosing the device, a complete run must reconcile</p>
+<p class="math display">\[\Delta L_{\mathrm{cloak}}+\Delta L_{\mathrm{object}}+L_{\mathrm{out}}-L_{\mathrm{in}}=L_{\mathrm{support}}+L_{\mathrm{residual}},\]</p>
+<p>where each term denotes the measured angular-momentum account of the named boundary participation over the run. Energy, linear momentum, polarization balance, stored excitation, heat, and timing require their corresponding operational records. The cloak is not allowed to call an unmeasured term “hidden” merely because the visual residual is small.</p>
+<blockquote><p>A cloak may remove a boundary from the picture. It may not remove that boundary from the physical books.</p></blockquote>
+
+<h2 id="observer">6. The observer belongs to the construction</h2>
+<p>There is no view from nowhere. A cloaking statement is incomplete until it names the observers whose transactions are being controlled. One stationary detector is one address class. A moving eye adds changing parallax and timing. Two separated eyes demand mutually consistent records. A crowd, a distributed aperture, or an interferometer occupies many observer addresses simultaneously.</p>
+<p>This is not a subjective loophole. It is a physical scaling law. As the admitted observer set grows, the boundary must satisfy more independent completion constraints. A cloak perfect for one retinal position may fail immediately under binocular vision; one that passes ordinary imaging may fail under polarization, thermal, radar, acoustic, gravitational, or recoil measurements.</p>
+
+<h3 id="self-occlusion">6.1 The cloak must also replace what the object blocks</h3>
+<p>Suppressing the object’s own scattering produces darkness, not transparency. The device must also supply the receipts that would have arrived from whatever lies behind the object. That background is generally angle-, time-, and spectrum-dependent. Universal cloaking therefore demands more than cancellation: it demands faithful counterfactual completion across every admitted observer relation.</p>
+
+<h2 id="sensor-network">7. The modern observer is a sensor network</h2>
+<p>For defense applications, “the observer” is rarely one human eye. It is a distributed, heterogeneous and increasingly autonomous sensor system: visible and infrared imagers, active radar, passive radio-frequency receivers, laser ranging, acoustic arrays, magnetic and chemical detectors, navigation receivers, overhead platforms, unattended ground sensors, and fusion software comparing their outputs across time.</p>
+<p>A platform may be unremarkable in one channel and conspicuous in the joint record. Reducing visible contrast while increasing thermal load is not counterfactual receipt preservation; it is signature migration. Defeating a radar threshold while leaving a repeatable communications, wake, vibration, polarization or timing correlation likewise moves the identifying boundary into another book.</p>
+
+<table class="receipt-table" aria-label="Counterfactual receipt requirements across sensing domains">
+<thead><tr><th>Receipt family</th><th>What identifies the boundary</th><th>Counterfactual requirement</th><th>Support account that remains</th></tr></thead>
+<tbody>
+<tr><td>Visible / near-IR</td><td>Contrast, edge, texture, parallax, glint, shadow and polarization</td><td>Restore the unobstructed angular radiance field over the admitted view</td><td>Absorption, emission, actuator power, heat and momentum</td></tr>
+<tr><td>Mid/long-wave IR</td><td>Temperature contrast, exhaust, friction, wake and transient cooling</td><td>Match the background radiance history, not merely its instantaneous temperature</td><td>Heat storage, transport, rejection location and delayed release</td></tr>
+<tr><td>Radar / RF</td><td>Amplitude, phase, delay, Doppler, polarization, harmonics and emissions</td><td>Preserve the reference channel response across waveform and aspect</td><td>Induced currents, reradiation, dissipation, active power and latency</td></tr>
+<tr><td>Acoustic / seismic</td><td>Tonal lines, broadband machinery noise, displacement and reflected sound</td><td>Restore the background pressure and ground-motion record</td><td>Reaction forces, damping heat and control noise</td></tr>
+<tr><td>Scene dynamics</td><td>Occlusion, displaced vegetation, dust, wake, tracks and missing background events</td><td>Preserve the lawful evolution of the scene the platform interrupts</td><td>Mechanical work and every disturbed environmental boundary</td></tr>
+<tr><td>Cross-domain fusion</td><td>Correlated residuals too weak to classify separately</td><td>Keep the joint residual distribution inside the reference ensemble</td><td>Synchronization, calibration, compute, communications and control provenance</td></tr>
+</tbody>
+</table>
+
+<h3 id="joint-observability">7.1 Joint observability is the real contest</h3>
+<p>Let <span class="math inline">\(R^{(m)}\)</span> denote the receipt in modality <span class="math inline">\(m\)</span>. Independent channel thresholds are necessary but insufficient. An adversary may classify the joint record even when every single residual appears harmless:</p>
+<p class="math display">\[D_{\mathrm{joint}}\!\left(\Delta R^{(1)},\ldots,\Delta R^{(M)}\right)\not\equiv\sum_m D_m\!\left(\Delta R^{(m)}\right).\]</p>
+<p>A procurement claim should therefore specify both per-channel bounds and an adversarial fusion test trained on raw synchronized data. The relevant question is not “Can one sensor see it?” but “Can any lawful combination of the admitted receipts distinguish platform-present from platform-absent trials?”</p>
+
+<h2 id="threat-model">8. Begin with a receipt threat model</h2>
+<p>Counterfactual preservation is impossible to evaluate without a declared observing adversary. The threat model is a physical specification, not a security label. It names the sensor locations and trajectories, apertures, waveforms, spectral coverage, integration time, processing latency, prior scene knowledge, environmental variability, collaboration among sensors, and the tolerated probability of classification.</p>
+<p>The reference scene must be equally explicit. A static laboratory image is the easiest case. A cloud deck, forest edge, ocean surface, urban canyon or desert boundary changes continuously and may contain moving shadows, wind-driven texture, clutter statistics and events that the protected platform would otherwise block. Preserving that scene requires either lawful transmission of those evolving relations or a reconstruction good enough to survive a knowledgeable observer.</p>
+
+<div class="warning"><strong>The counterfeit-background trap:</strong> replaying a plausible image is not the same as preserving the counterfactual receipt. A prerecorded scene fails when illumination changes, a third party moves behind the platform, two observers compare parallax, an active sensor issues an unanticipated waveform, or a fused classifier notices that the background is too perfect.</div>
+
+<h3 id="deception-boundary">8.1 Preservation, camouflage and deception</h3>
+<p>Three operational goals should not be mixed:</p>
+<ul>
+  <li><strong>Camouflage</strong> lowers contrast or classification confidence by resembling the environment.</li>
+  <li><strong>Deception</strong> deliberately supplies a false but useful address—a decoy, displaced signature or fabricated identity.</li>
+  <li><strong>Counterfactual receipt preservation</strong> aims to reproduce the record that would have existed had the protected boundary not participated.</li>
+</ul>
+<p>All can be valuable, but only the third is cloaking in the strict construction of this exhibit. The distinction matters to test design: deception is judged by the adversary’s wrong inference; preservation is judged against an independently measured absent-platform reference.</p>
+
+<h2 id="stack">9. A layered cloak architecture</h2>
+<p>A defense-relevant system should be treated as a closed-loop boundary instrument rather than a coating. One plausible architecture has six layers:</p>
+<ol>
+  <li><strong>Reference acquisition.</strong> Distributed apertures measure the scene relations that the platform will occlude or disturb.</li>
+  <li><strong>State estimation.</strong> A model predicts the counterfactual receipt at each admitted observer address, with uncertainty rather than a single ideal image.</li>
+  <li><strong>Boundary synthesis.</strong> Reconfigurable cells redirect, absorb, emit or phase-control the exchanges needed to approach that receipt.</li>
+  <li><strong>Residual sensing.</strong> Witness sensors measure what the boundary actually posts, including edges, seams and support emissions.</li>
+  <li><strong>Ledger closure.</strong> Power, heat, momentum, latency, storage and rejected exchanges are tracked as part of the control state.</li>
+  <li><strong>Graceful degradation.</strong> When the full receipt cannot be preserved, the controller chooses a declared lower objective rather than producing unstable or conspicuous artifacts.</li>
+</ol>
+<p>This stack shifts the design question from “What exotic shell makes an object disappear?” to “What boundary degrees of freedom are required to keep the observer-facing residual inside a measured reference ensemble?” That question can be attacked incrementally with existing materials, arrays and controls while the stronger POAMS address-denial hypothesis remains open.</p>
+
+<h3 id="latency">9.1 Latency is a spatial signature</h3>
+<p>A reconstruction that is optically accurate but late is not accurate. If the background changes on characteristic timescale <span class="math inline">\(T_s\)</span> and the cloak’s sensing-to-posting delay is <span class="math inline">\(T_d\)</span>, then moving observers and transient scenes convert delay into edge displacement, phase error and temporal decorrelation. The requirement is not simply <span class="math inline">\(T_d&lt;T_s\)</span>; the allowable delay is set by the predeclared residual budget and the fastest scene mode the threat model admits.</p>
+
+<h3 id="degrees">9.2 Degrees of freedom and capacity</h3>
+<p>A boundary cannot independently satisfy more receipt constraints than its controllable modes support. If <span class="math inline">\(N_b\)</span> is the effective number of boundary modes and <span class="math inline">\(N_r\)</span> the number of independent observer-channel constraints over the control interval, then <span class="math inline">\(N_b\gtrsim N_r\)</span> is a necessary design warning, not a sufficient theorem of success. Bandwidth, losses, coupling among cells, quantization, noise and conservation reduce the usable rank. Measuring that rank is more informative than counting metamaterial elements.</p>
+
+<h2 id="operations">10. Operational value without universal invisibility</h2>
+<p>The defense value begins well before a universal cloak. Counterfactual receipt preservation provides a disciplined way to identify which small set of receipts dominates detection in a specific mission window and to keep those receipts inside local clutter long enough to change the engagement geometry.</p>
+<div class="mission-grid">
+  <div class="mission"><b>Adaptive aperture management</b><p>Reduce glint, edge and polarization signatures around sensors, windows and communication apertures that cannot simply be covered.</p></div>
+  <div class="mission"><b>Transient signature control</b><p>Manage startup, maneuver, door-opening, launch-adjacent and cooling transients that reveal a platform more reliably than its steady state.</p></div>
+  <div class="mission"><b>Multispectral seam closure</b><p>Coordinate separate optical, thermal and RF treatments so that their boundaries do not create a fused identifying signature.</p></div>
+  <div class="mission"><b>Protected sensing</b><p>Permit the platform to observe while minimizing the new reciprocal receipts created by its own sensing and communications activity.</p></div>
+  <div class="mission"><b>Infrastructure continuity</b><p>Preserve the expected scene record around protected fixed assets, entrances, antenna fields or logistics nodes under known observation geometries.</p></div>
+  <div class="mission"><b>Counter-countermeasure design</b><p>Use the full receipt ledger to predict where an adaptive observer will look next when the primary signature channel is suppressed.</p></div>
+</div>
+<p>The objective is not theatrical disappearance. It is control of the adversary’s completed evidence under a stated sensing regime. A narrow, reliable reduction in joint observability may have more operational value than a spectacular visible-only demonstration.</p>
+
+<h2 id="range">11. A range campaign that can survive scrutiny</h2>
+<p>A credible program should advance through nested demonstrations, each preserving the raw records needed for independent replay:</p>
+<ol>
+  <li><strong>Boundary-cell metrology:</strong> characterize amplitude, phase, polarization, angular response, thermal load, switching latency, noise and failure behavior.</li>
+  <li><strong>Static single-channel scene:</strong> reproduce a calibrated absent-object receipt over one band and a small observer set.</li>
+  <li><strong>Dynamic counterfactual scene:</strong> introduce unannounced background motion, illumination changes and observer motion that cannot be solved by prerecorded replay.</li>
+  <li><strong>Multispectral fusion:</strong> synchronize visible, infrared, RF and support-ledger data; train independent red-team classifiers on raw trials.</li>
+  <li><strong>Platform integration:</strong> test seams, apertures, curvature, vibration, weather, fouling, damage, maintenance and power transients.</li>
+  <li><strong>Adaptive adversary:</strong> allow the observing team to choose new geometries and waveforms within a frozen capability envelope while denying the cloak controller advance knowledge of the sequence.</li>
+</ol>
+
+<h3 id="measures">11.1 Measures that belong in the contract</h3>
+<p>Useful program metrics include receiver-operating-characteristic curves, probability of detection and identification at fixed false-alarm rates, joint residual divergence from the absent-platform ensemble, protected solid angle, instantaneous and sustained bandwidth, scene-change latency, support power and heat, graceful-degradation time, calibration burden, fault visibility, and performance after damage. “Looks invisible” is not a metric.</p>
+<p>Every test should preserve four synchronized data products: the absent-platform reference, raw threat-sensor receipts, raw cloak witness receipts, and the complete support ledger. Processed imagery alone prevents later adversarial analysis and makes an impressive demonstration scientifically weak.</p>
+
+<h2 id="nothing">12. What “nothing there” must mean</h2>
+<p>A human observer saying “I cannot see it” is only the first gate. A scientific claim requires a frozen null model and adversarial instruments. The correct question is not whether the scene looks persuasive, but whether the complete record permits a classifier to distinguish the cloaked scene from the unobstructed reference better than the preregistered bound.</p>
+<p>The test must include the easiest ways a device accidentally announces itself: edge diffraction, specular glints, polarization rotation, spectral absorption, time delay, phase discontinuity, thermal load, actuator noise, scene lag, shadow mismatch, recoil, and observer-correlated adaptation.</p>
+
+<h2 id="experiment">13. The first decisive experiment</h2>
+<p>The first POAMS cloaking experiment should not chase a person-sized universal cloak. It should test one boundary cell under a narrow but complete receipt specification.</p>
+<div class="gates">
+  <div class="gate"><b>Freeze the reference.</b> Record a stable background with calibrated illumination. Declare observer apertures, bandwidth, polarization channels, time resolution, and nuisance envelope.</div>
+  <div class="gate"><b>Insert the adversarial object.</b> Use a boundary with known spectral, phase, polarization, thermal, and recoil signatures. Confirm that the test suite detects it with high power.</div>
+  <div class="gate"><b>Engage the cloak.</b> Permit only declared sensing and control paths. Record raw observer data and the device’s complete support ledger under a shared clock.</div>
+  <div class="gate"><b>Blind the classification.</b> Randomize reference, exposed, dummy-powered, and cloaked trials. Freeze the classifiers and thresholds before labels are revealed.</div>
+  <div class="gate"><b>Attack the claim.</b> Move the observer, change spectrum and polarization, introduce a scene transient, test a matched dummy, and inspect heat, recoil, latency, and out-of-band radiation.</div>
+</div>
+<p>A positive result is a bounded equality between the cloaked and unobstructed receipt ensembles, accompanied by a closed support account. A failure is informative: the surviving discriminator identifies which boundary relation still enters the picture.</p>
+
+<h3 id="kill">13.1 What would kill the stronger idea</h3>
+<p>If every successful device reduces to ordinary redirection or active scene reproduction, the POAMS formulation remains a useful accounting language but has supplied no new cloaking physics. The stronger address-denial proposal fails if no controllable boundary variable suppresses object-identifying completions independently of ordinary absorption, scattering, emission, and reconstruction. It also fails if claimed selectivity disappears under blinded near-match, phase-reversal, dummy-load, or observer-position controls.</p>
+
+<h2 id="scaling">14. The cloak surface</h2>
+<p>The relevant result is not a binary label but a measured performance surface:</p>
+<p class="math display">\[\mathcal C=\mathcal C(A,\Omega_O,\Lambda,\Theta,P,T_d,\epsilon),\]</p>
+<p>where <span class="math inline">\(A\)</span> is protected aperture, <span class="math inline">\(\Omega_O\)</span> the admitted observer solid angle, <span class="math inline">\(\Lambda\)</span> the spectral band, <span class="math inline">\(\Theta\)</span> the polarization and phase classes, <span class="math inline">\(P\)</span> available support power, <span class="math inline">\(T_d\)</span> tolerable delay, and <span class="math inline">\(\epsilon\)</span> the residual-discrimination budget.</p>
+<p>These variables trade against one another. Larger aperture, wider view, broader band, more observers, shorter delay, and tighter residuals generally demand more boundary degrees of freedom and a larger support tariff. A real program should publish this surface rather than advertise “invisibility” from one favorable photograph.</p>
+
+<h2 id="relation">15. The companion to <em>No Holes in Space</em></h2>
+<p><a href="./no-holes-in-space.html">No Holes in Space</a> establishes the conceptual inversion: projected space is the resolved address display rather than a material interval through which every transaction must travel. Cloaking turns that inversion into an engineering discipline. If the display is assembled from completed boundary relations, changing those relations changes what appears—without requiring the concealed organization to cease existing.</p>
+<p>The two exhibits therefore ask complementary questions:</p>
+<ul>
+  <li><strong>Portals:</strong> what boundary operation makes two selected addresses adjacent?</li>
+  <li><strong>Cloaking:</strong> what boundary operation prevents one retained organization from becoming a discriminating address while preserving the rest of the display?</li>
+</ul>
+<p>Both succeed or fail at the boundary. Both require exact observer-facing receipts and complete hidden-side conservation. Neither is licensed by vocabulary alone.</p>
+
+<h2 id="proposition">16. The proposition</h2>
+<blockquote><p>An object appears when its boundary becomes a stable participant in an observer’s completed address record. A cloak is a controlled boundary that withholds that identifying participation while preserving the counterfactual receipts of the unobstructed scene.</p></blockquote>
+<p>The device does not erase matter, remove a region from reality, or fool a mind floating outside the world. It constructs a different set of physical optical completions. The observer is part of those completions; the cloak is part of them; and the concealed object remains fully present in every non-optical account it continues to settle.</p>
+<p>The engineering question is therefore exact:</p>
+<p><strong>Which boundary receipts identify the object, how can each be lawfully replaced or denied, and where does the complete physical account close?</strong></p>
+</main>
+<div class="footer"><strong>Normal Realism · POAMS</strong><br>Counterfactual Receipt Preservation · 14 October 2026 · Constructive framework; no claim of demonstrated universal or address-denial cloaking.</div>
+<script>
+(()=>{const scene=document.getElementById('scene'),readout=document.getElementById('readout'),buttons=[...document.querySelectorAll('[data-state]')];const copy={reference:['Reference receipt','The observer resolves the unobstructed scene.'],object:['Object receipt','Scattering, occlusion and phase changes identify the inserted boundary.'],cloaked:['Counterfactual receipt','The retained object is present, but the observer-facing record matches the unobstructed scene.']};buttons.forEach(b=>b.addEventListener('click',()=>{const s=b.dataset.state;scene.className='scene'+(s==='reference'?'':' '+s);buttons.forEach(x=>x.setAttribute('aria-pressed',String(x===b)));readout.innerHTML='<b>'+copy[s][0]+'</b><br>'+copy[s][1]}))})();
+</script>
+</body>
+</html>
