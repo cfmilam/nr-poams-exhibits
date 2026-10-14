@@ -20,8 +20,9 @@ main{max-width:920px;margin:auto;padding:25px 24px 92px}h2{margin:3.25rem 0 1rem
 @media(max-width:680px){body{font-size:16px}header{padding:55px 16px 35px}main{padding:14px 16px 65px}.topbar{padding:0 10px}.topbar .state{display:none}.thesis{padding:17px 18px}.requirements{grid-template-columns:1fr}.address-figure{padding:16px 11px}.node{width:34px;height:34px;flex-basis:34px}.edge{min-width:9px}}
 @media print{.topbar{display:none}body{background:#fff;color:#191919}header{margin-top:0}.theme{display:none}}
 </style>
+<link rel="stylesheet" href="reader-standard.css">
 </head>
-<body>
+<body class="reader-standard">
 <div class="topbar"><a class="series" href="./index.html">← Return to Hub</a><span class="state">NR · POAMS · Addressable Geometry</span><button class="theme" onclick="document.body.classList.toggle('light')" aria-label="Toggle theme">☀︎ / ◐</button></div>
 <header>
   <div class="kicker">Portals</div>
@@ -57,6 +58,14 @@ main{max-width:920px;margin:auto;padding:25px 24px 92px}h2{margin:3.25rem 0 1rem
 <p>An optical address is formed from a completed receipt and therefore identifies the source as it participated in that receipt. A portal selector cannot merely point at the apparent image and assume that the destination remains in the same state. It must either renew the address through an active handshake or carry a lawful continuation rule from the received record to the destination’s current completion state.</p>
 <h3 id="not-coordinates">2.2 An address is not three coordinates</h3>
 <p>Coordinates belong to a chosen representation. A physical address must discriminate the intended endpoint from every competing endpoint under the actual boundary operation. It may require phase, winding class, relational ancestry, clock state, orientation, and a challenge-response receipt. “Go to <span class="math inline">\((x,y,z)\)</span>” is notation. “This endpoint and no other endpoint co-signed the boundary” is a physical address.</p>
+<h3 id="three-books">2.3 Three books must not be conflated</h3>
+<p>The proposal becomes sharper when three records are separated:</p>
+<ul>
+  <li><strong>The optical book</strong> orders received appearances. It supplies a historical read-address.</li>
+  <li><strong>The adjacency book</strong> records which endpoints can presently complete a transaction with which others. It supplies accessibility.</li>
+  <li><strong>The custody book</strong> records the continuing organization of the payload through the operation. It supplies identity and conservation.</li>
+</ul>
+<p>A telescope can refine the first book without altering the second. A newly opened channel can alter the second without transporting a payload. A destination-side event is not transport unless the third book joins it to the source-side preparation. A portal claim requires all three books to agree on one transaction.</p>
 
 <h2 id="construction">3. The direct-adjacency construction</h2>
 <p>Let <span class="math inline">\(G=(V,E,w)\)</span> be a discrete completion network. Vertices are retained completion addresses; edges are repeatable co-signed adjacencies; and <span class="math inline">\(w(e)&gt;0\)</span> is the operational tariff assigned to an edge. The ordinary distance between addresses <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> is the least accumulated tariff over permitted paths:</p>
@@ -66,6 +75,16 @@ main{max-width:920px;margin:auto;padding:25px 24px 92px}h2{margin:3.25rem 0 1rem
 <p>where <span class="math inline">\(\tau_{AB}\)</span> is the complete measured tariff for selecting, co-signing, preserving, and settling the boundary transaction. The augmented network is <span class="math inline">\(G'=G\cup\{e_{AB}\}\)</span>, so</p>
 <p class="math display">\[d_{G'}(A,B)\le \tau_{AB}.\]</p>
 <p>No theorem requires <span class="math inline">\(\tau_{AB}\)</span> to be independent of ordinary distance, aperture, payload, address complexity, or preparation history. Those are empirical scaling questions. The exact result is narrower and decisive: <strong>the length of the old route does not logically bound the tariff of a newly constructed adjacency.</strong></p>
+
+<h3 id="adjacency-theorem">3.1 The adjacency theorem—and its limit</h3>
+<p>For any connected weighted graph <span class="math inline">\(G\)</span> and addresses <span class="math inline">\(A,B\in V\)</span>, adjoining one positive-weight edge <span class="math inline">\(e_{AB}\)</span> changes their metric to</p>
+<p class="math display">\[d_{G'}(A,B)=\min\!\left(d_G(A,B),\tau_{AB}\right).\]</p>
+<p>This is a theorem about relational geometry, not a theorem that nature permits arbitrary edges. It proves that direct adjacency is mathematically coherent and that no intermediate vertex is logically required. Physics must still supply the edge, its endpoint rule, its tariff, and its failure conditions.</p>
+<h3 id="no-topological-hole">3.2 No topological hole is required</h3>
+<p>A wormhole picture begins with a continuous manifold and changes its topology so that two regions meet through a throat. The present construction begins earlier. The completion graph is primary; a smooth manifold is only a large-scale representation of stable adjacency. Adding <span class="math inline">\(e_{AB}\)</span> therefore does not punch a hole through a substance called space. It changes the primitive relation from which the apparent manifold is reconstructed.</p>
+<p>This distinction is experimentally meaningful. A manifold throat invites searches for a spatial tube, throat length, or continuous interior path. A completion edge instead predicts endpoint-local preparation and settlement signatures, a finite boundary capacity, and no obligation to expose intermediate spatial sections.</p>
+<h3 id="countermodels">3.3 What the graph construction does not distinguish</h3>
+<p>The same endpoint record can be imitated by several nonportal mechanisms: a hidden ordinary channel, a pre-positioned duplicate, coordinated clocks, a delayed release, an optical substitution, or destruction here followed by unrelated assembly there. Endpoint coincidence alone is therefore insufficient. The custody and isolation tests in Sections 7 and 8 are not administrative caution; they are what distinguish direct adjacency from its exact countermodels.</p>
 
 <div class="address-figure" role="img" aria-label="Comparison between ordinary projected transit through intermediate addresses and a direct boundary adjacency between endpoints A and B">
   <h3>The address is not the route</h3>
@@ -90,6 +109,12 @@ main{max-width:920px;margin:auto;padding:25px 24px 92px}h2{margin:3.25rem 0 1rem
 <h3 id="instantaneous">4.1 Direct is better than instantaneous</h3>
 <p>“Instantaneous” presumes one global simultaneity convention and invites a false promise of zero physical duration. A boundary may require preparation, phase acquisition, endpoint handshake, aperture formation, crossing, and settlement. Clocks at each endpoint can record those local operations. What the construction removes is not necessarily every duration; it removes the requirement that the duration scale with the displayed length of the intervening route.</p>
 <blockquote><p>Direct arrival means no intervening transit path. It does not mean no clock ticks, no energy bill, no ordering rule, or no failure mode.</p></blockquote>
+<h3 id="ledger-order">4.2 The ledger needs an order deeper than projected distance</h3>
+<p>Removing the ordinary spatial route does not remove transaction order. Let <span class="math inline">\(x\prec y\)</span> mean that completed receipt <span class="math inline">\(x\)</span> is an operational prerequisite of completed receipt <span class="math inline">\(y\)</span>. A portal posting from <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span> must satisfy</p>
+<p class="math display">\[\text{prepare}_A\prec\text{settle}_B,\]</p>
+<p>even when the two endpoints are distant in the optical projection. To prevent a self-authoring loop, no allowed chain may return the settlement as a prerequisite of its own preparation:</p>
+<p class="math display">\[\neg\!\left(\text{settle}_B\prec\cdots\prec\text{prepare}_A\right).\]</p>
+<p>A well-founded completion order would permit direct adjacency without permitting a transaction to manufacture its own antecedent. POAMS does not yet derive this ordering law for portals; a physical portal proposal owes it. The important point is that causality need not be identified with mileage through projected space, but it cannot simply be discarded.</p>
 
 <h2 id="hull">5. The hull becomes the portal machine</h2>
 <p><a href="./within-yet-beyond-the-hull.html">Inside Out</a> showed that a small exterior threshold can join a larger interior completion network without squeezing that network into the exterior hull. <a href="./the-hull-is-the-propulsion-system.html">Upside Down</a> then moved the active geometry into the hull itself. The portal is the same construction turned outward.</p>
@@ -102,11 +127,22 @@ main{max-width:920px;margin:auto;padding:25px 24px 92px}h2{margin:3.25rem 0 1rem
   <li>arrival is the settled re-expression of the retained cabin at the destination boundary.</li>
 </ul>
 <p>This language does not license disappearance and recreation by fiat. The engineering claim succeeds only if the retained organization has a continuous, auditable custody account across the transaction. If the body is destroyed here and an unrelated copy assembled there, the portal has failed the stated identity requirement.</p>
+<h3 id="custody-map">5.1 A closure-preserving transfer map</h3>
+<p>Let <span class="math inline">\(\mathcal R_A\)</span> denote the payload organization admitted at the entry boundary and <span class="math inline">\(\mathcal R_B\)</span> its destination-side expression. A portal requires a boundary map</p>
+<p class="math display">\[\Phi_{AB}:\mathcal R_A\longrightarrow\mathcal R_B\]</p>
+<p>that preserves every declared internal closure invariant <span class="math inline">\(I_k\)</span> not intentionally exchanged with the apparatus:</p>
+<p class="math display">\[I_k(\mathcal R_B)=I_k(\mathcal R_A)+\Delta I_k^{\mathrm{apparatus}}.\]</p>
+<p>The invariants include whole-turn census, angular-momentum partition, internal clock ratios, bonded adjacency, orientation where declared, stored records, and every boundary exchange needed to explain a difference. This formulation allows lawful translation while forbidding a hand-waved reset. A working device must state which invariants it preserves, which it transforms, and where each transformed amount is posted.</p>
+<h3 id="capacity">5.2 The aperture has capacity, not merely diameter</h3>
+<p>A visible opening is only the projected face of the operation. The engineering capacity is the number and complexity of retained relations that the boundary can preserve per completed turn. Two portals with equal apparent diameter may therefore have radically different payload limits. A useful capacity measure must count successful invariant-preserving closures, not cubic metres of imagined tunnel.</p>
 
 <h2 id="nature">6. What nature has and has not shown</h2>
-<p>Nature plainly constructs large, energetic, sharply organized boundaries in the sky. Some remain coherent, sort incoming relations, redirect circulation, open and close channels, and translate between distinct observational regimes. Those are important existence proofs for <em>boundary organization</em>. They break the habit of treating every energetic interface as a passive surface.</p>
-<p>They are not yet evidence that a macroscopic body has been transported between arbitrarily distant addresses. “Portal-like” describes an architectural resemblance, not a completed measurement claim. The useful inference is therefore disciplined:</p>
+<p>Nature demonstrably constructs large, energetic boundaries that do more than mark an edge. At magnetospheric shocks, solar reconnection regions, accretion boundaries, and auroral endpoints, measured matter and circulation are selectively admitted, excluded, redirected, heated, or reorganized according to the state of the boundary. These are natural demonstrations that an interface can actively govern completed relations rather than behave as a passive surface.</p>
+<p>None presently demonstrates transport between arbitrarily distant addresses. “Portal-like” describes an architectural resemblance, not a completed measurement claim. The architectural lesson is narrower but important: nature can build and maintain energetic boundary machinery. A portal program must add what those observations have not established—address selection, paired endpoint closure, and continuous payload custody.</p>
 <blockquote><p>Nature demonstrates that immense active boundaries are possible. The research question is whether boundary organization can be made address-selective and nonlocally co-signed.</p></blockquote>
+<h3 id="natural-program">6.1 The astronomical research program</h3>
+<p>The relevant natural candidates are not selected because they look circular in photographs. They are selected when independent records show a maintained boundary, repeatable state sorting, phase-qualified admission or rejection, channel opening and closure, and a conservation account spanning the event. The portal discriminator is stronger still: a paired endpoint occurrence whose identity follows the boundary address and cannot be reduced to propagation through the observed environment.</p>
+<p>That criterion turns “large energetic portals in the sky” into a testable hierarchy: boundary appearance; boundary dynamics; address selectivity; paired completion; custody transfer. Nature has plainly reached the early rungs. The upper rungs remain an observational and engineering program.</p>
 
 <h2 id="requirements">7. What a real portal owes</h2>
 <div class="requirements">
@@ -131,10 +167,26 @@ main{max-width:920px;margin:auto;padding:25px 24px 92px}h2{margin:3.25rem 0 1rem
   <li>signal vanishes under blinded address, phase, isolation, and dummy-load controls.</li>
 </ul>
 <p>Only after an address-selective transaction exists should the program enlarge aperture, retained complexity, or stored energy. The progression is receipt, adjacency, custody, payload—never spectacle first.</p>
+<h3 id="four-ledger-test">8.1 The four-ledger test</h3>
+<p>Every candidate run should produce four independently timestamped records:</p>
+<ol>
+  <li><strong>Preparation:</strong> what state and address challenge were frozen before the attempt.</li>
+  <li><strong>Boundary:</strong> what phase, winding, support, and energy operations occurred locally.</li>
+  <li><strong>Terminal:</strong> what destination-side event occurred, including raw detector output.</li>
+  <li><strong>Custody:</strong> which invariant or uniquely prepared record continued from source to destination.</li>
+</ol>
+<p>A source anomaly without a terminal receipt is a local effect. A terminal event without custody is communication or coincidence, not payload transfer. Custody without closed boundary energy is an incomplete account. The portal claim begins only when all four ledgers reconcile under blinded controls.</p>
+<h3 id="nulls">8.2 Nulls that would genuinely teach us something</h3>
+<p>If the effect follows ordinary shielding, separation, or propagation delay, the portal interpretation fails. If it follows a destination label stored locally rather than the remote challenge, address selection fails. If terminal counts appear but no source-side account closes, custody fails. If increasing retained complexity destroys the effect while scalar signals survive, the result may identify an information channel but not a transport aperture. Each null narrows the machine instead of being renamed success.</p>
 
 <h2 id="tariff">9. The energy question</h2>
 <p>The tariff may be enormous. It may scale with aperture area, payload complexity, projection mismatch, address entropy, boundary duration, or the circulation required to keep unwanted adjacencies closed. Astronomical structures may appear violently energetic because nature is maintaining vast boundaries, not because every elementary address transaction carries the same bill.</p>
 <p>No present POAMS theorem selects the scaling law. That ignorance is productive: energy is a measurable engineering variable rather than a metaphysical veto. A microscopic completion experiment can determine whether the tariff is zero, finite, prohibitive, thresholded, distance-dependent, or absent because the proposed operation does not exist.</p>
+<h3 id="tariff-function">9.1 The tariff surface</h3>
+<p>The quantity to measure is not one dramatic power number but a response surface</p>
+<p class="math display">\[\tau=\tau(A,\,C,\,T,\,M,\,\epsilon,\,\Delta),\]</p>
+<p>where <span class="math inline">\(A\)</span> is maintained aperture, <span class="math inline">\(C\)</span> is custody complexity, <span class="math inline">\(T\)</span> is boundary duration, <span class="math inline">\(M\)</span> is projection mismatch, <span class="math inline">\(\epsilon\)</span> is tolerated address error, and <span class="math inline">\(\Delta\)</span> is ordinary projected separation. None is assumed independent. The first useful result may be a threshold, divergence, or forbidden region rather than an efficient device.</p>
+<p>Five outcomes are physically distinct: <span class="math inline">\(\partial\tau/\partial\Delta\approx0\)</span> would support distance-insensitive addressing; growth with <span class="math inline">\(\Delta\)</span> would reveal a hidden relational cost; divergence with custody complexity would block macroscopic transport; an aperture threshold would identify collective boundary formation; and failure at every scale would close this construction as a physical route while leaving the geometry theorem intact.</p>
 
 <h2 id="proposition">10. The proposition</h2>
 <blockquote><p>Projected space is an address display, not a substance that must be punctured. A portal, if physically realizable, is a maintained boundary adjacency that reconciles two selected completion addresses as one conserved transaction. The traveler does not outrun light across the intervening distance because the intervening route is not traversed.</p></blockquote>
