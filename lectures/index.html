@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>POAMS Series A Lectures — Anthony D. Osborne</title>
+<title>POAMS Lectures — Anthony D. Osborne</title>
 <style>
 :root{--bg:#0b0b16;--fg:#e2e2ea;--muted:#9a9ab0;--gold:#c9a84c;--card:#11111f;--line:#29293d}
 :root.light{--bg:#faf8f2;--fg:#2a2a2a;--muted:#68635a;--gold:#8b6914;--card:#fff;--line:#d7d1c4}
@@ -12,6 +12,7 @@ main{max-width:880px;margin:0 auto;padding:4rem 1.5rem 5rem}h1{color:var(--gold)
 .subtitle{color:var(--muted);font-size:1.05rem;margin:0 0 2.5rem}.nav{margin-bottom:2rem}.nav a,a{color:var(--gold)}
 .lecture{display:block;margin:.75rem 0;padding:1rem 1.2rem;border:1px solid var(--line);border-radius:9px;background:var(--card);text-decoration:none;transition:border-color .2s,transform .2s}
 .lecture:hover{border-color:var(--gold);transform:translateY(-1px)}.lecture strong{display:block;color:var(--gold);font-size:1.04rem}.lecture span{display:block;color:var(--fg);margin-top:.2rem}
+.series{margin:2.75rem 0 .85rem;color:var(--fg);font-size:1.45rem}.series:first-of-type{margin-top:0}
 .syllabus{border-color:var(--gold);margin-bottom:2rem}.note{color:var(--muted);font-size:.9rem;margin-top:2rem;border-top:1px solid var(--line);padding-top:1.2rem}
 #theme{position:fixed;right:1rem;top:1rem;width:42px;height:42px;border:0;border-radius:8px;background:var(--gold);cursor:pointer;font-size:1.15rem}
 @media(max-width:600px){main{padding:3rem 1rem 4rem}.lecture{padding:.9rem 1rem}}
@@ -21,9 +22,10 @@ main{max-width:880px;margin:0 auto;padding:4rem 1.5rem 5rem}h1{color:var(--gold)
 <button id="theme" type="button" aria-label="Toggle light and dark theme">☀️</button>
 <main>
 <div class="nav"><a href="../">← Return to Hub</a></div>
-<h1>POAMS Series A Lectures</h1>
+<h1>POAMS Lectures</h1>
 <p class="subtitle">Dr. Anthony D. Osborne · Normal Realism and the Pope–Osborne Angular Momentum Synthesis</p>
 
+<h2 class="series" id="series-a">Series A</h2>
 <a class="lecture syllabus" href="poams-lectures-series-a-syllabus.pdf" target="_blank" rel="noopener"><strong>Series A Syllabus</strong><span>Course outline and lecture sequence</span></a>
 
 <a class="lecture" href="poams-lecture-1-introduction-and-historical-background-i.pdf" target="_blank" rel="noopener"><strong>Lecture 1</strong><span>Introduction and Historical Background I</span></a>
@@ -39,7 +41,15 @@ main{max-width:880px;margin:0 auto;padding:4rem 1.5rem 5rem}h1{color:var(--gold)
 <a class="lecture" href="poams-lecture-11-quantum-mechanics-and-the-discrete-nature-of-light-energy.pdf" target="_blank" rel="noopener"><strong>Lecture 11</strong><span>Quantum Mechanics and the Discrete Nature of Light-Energy</span></a>
 <a class="lecture" href="poams-lecture-12-the-discrete-nature-of-light-energy-from-the-normal-realist-perspective.pdf" target="_blank" rel="noopener"><strong>Lecture 12</strong><span>The Discrete Nature of Light-Energy from the Normal Realist Perspective</span></a>
 
-<p class="note">Primary Series A lecture documents by Dr. Anthony D. Osborne. PDFs open in a new tab.</p>
+<h2 class="series" id="series-b">Series B</h2>
+<a class="lecture syllabus" href="poams-lectures-series-b-syllabus.pdf" target="_blank" rel="noopener"><strong>Series B Syllabus</strong><span>Course outline for Lectures 13–24</span></a>
+
+<a class="lecture" href="poams-lecture-13-orbital-motion.pdf" target="_blank" rel="noopener"><strong>Lecture 13</strong><span>Orbital Motion</span></a>
+<a class="lecture" href="poams-lecture-14-the-pope-osborne-angular-momentum-synthesis.pdf" target="_blank" rel="noopener"><strong>Lecture 14</strong><span>The Pope–Osborne Angular Momentum Synthesis</span></a>
+<a class="lecture" href="poams-lecture-15-poams-and-the-two-body-problem.pdf" target="_blank" rel="noopener"><strong>Lecture 15</strong><span>POAMS and the Two-Body Problem</span></a>
+<a class="lecture" href="poams-lecture-16-poams-and-circular-orbital-motion.pdf" target="_blank" rel="noopener"><strong>Lecture 16</strong><span>POAMS and Circular Orbital Motion</span></a>
+
+<p class="note">Primary Series A and B lecture documents by Dr. Anthony D. Osborne. PDFs open in a new tab.</p>
 </main>
 <script>
 document.getElementById('theme').addEventListener('click',function(){document.documentElement.classList.toggle('light');this.textContent=document.documentElement.classList.contains('light')?'🌙':'☀️'});
