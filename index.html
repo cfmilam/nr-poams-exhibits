@@ -488,7 +488,8 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 }
 
 /* ─── Patents ────────────────────────────────────────────────────────── */
-.patent-list { list-style:none; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.7rem; }
+.patents-card { grid-column:1 / -1; }
+.patent-list { list-style:none; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.7rem; }
 .patent-list li { min-width:0; }
 .patent-link { display:flex; flex-direction:column; justify-content:space-between; gap:.55rem; height:100%; padding:.9rem 1rem; background:var(--bg2); border:1px solid var(--border); border-radius:9px; color:var(--fg); text-decoration:none; transition:background .2s,border-color .2s; }
 .patent-link:hover { background:var(--surface2); border-color:var(--gold); }
@@ -497,6 +498,7 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 .patent-title strong { color:var(--gold); font-weight:600; white-space:nowrap; }
 .patent-description { color:var(--fg); }
 .patent-meta { color:var(--fg2); font-size:.78rem; }
+@media(max-width:900px) { .patent-list { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media(max-width:600px) { .patent-list { grid-template-columns:1fr; } }
 
 /* ─── Footer ─────────────────────────────────────────────────────────── */
@@ -1106,7 +1108,6 @@ footer {
         </div>
       </div>
 
-      <div class="library-stack">
       <!-- Laboratory -->
       <div class="lib-card" id="engineering-card">
         <div class="lib-card-icon">⚙️</div>
@@ -1120,9 +1121,6 @@ footer {
           <li><a href="https://cfmilam.github.io/nr-poams-engineering/rate-of-time-material-state.html" target="_blank" rel="noopener">Rate-of-Time Material-State</a></li>
           <li><a href="https://cfmilam.github.io/nr-poams-engineering/mechanically-ordered-angular-momentum.html" target="_blank" rel="noopener">Mechanically Ordered Angular Momentum</a></li>
           <li><a href="https://cfmilam.github.io/nr-poams-engineering/generation-1-mechanical-rotor.html" target="_blank" rel="noopener">Generation-1 Mechanical Rotor</a> <span style="opacity:.6;font-size:.85em">&mdash; conditional two-site protocol; inert instrument prototype first</span></li>
-          <li><a href="https://cfmilam.github.io/nr-poams-engineering/electricity-complete-apparatus-response.html" target="_blank" rel="noopener">Electricity Complete-Apparatus Response</a></li>
-          <li><a href="https://cfmilam.github.io/nr-poams-engineering/persistent-winding-memory.html" target="_blank" rel="noopener">Persistent Winding Memory</a></li>
-          <li><a href="https://cfmilam.github.io/nr-poams-engineering/laboratory-safety-relational-continuation.html" target="_blank" rel="noopener">Laboratory Safety for Engineered Relational Continuation</a> <span style="opacity:.6;font-size:.85em">&mdash; remote operation, complete hazard books &amp; stop rules</span></li>
         </ul>
         <a class="lib-cta" href="https://cfmilam.github.io/nr-poams-engineering/" target="_blank" rel="noopener">Full experimental repository →</a>
       </div>
@@ -1147,7 +1145,6 @@ footer {
           <li><a class="patent-link" href="./provisionals/PROV-M.pdf" target="_blank" rel="noopener" type="application/pdf"><span class="patent-title"><strong>PROV-M</strong><span class="patent-description">Addressed Adjacency</span></span><span class="patent-meta">Filed PDF · 19 pages</span></a></li>
           <li><a class="patent-link" href="./provisionals/PROV-N.pdf" target="_blank" rel="noopener" type="application/pdf"><span class="patent-title"><strong>PROV-N</strong><span class="patent-description">Counterfactual Receipts</span></span><span class="patent-meta">Filed PDF · 21 pages</span></a></li>
         </ul>
-      </div>
       </div>
 
     </div>
