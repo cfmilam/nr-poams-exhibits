@@ -252,12 +252,12 @@
         "scripts/atomic_ledger.js": "858d497aad258f1070d0b347326bf1e81fdbd64fa5e132674abccb61b90d9908",
         "scripts/coulomb_calibrated.js": "f9b1ae9ddc4106332c78930558d0858f7cf767ed5302182f5298d01261b4c20d",
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e",
-        "scripts/correlated_atoms_results.json": "9e16940fd89faaed0a5f64f2148639927ffc70e93d5c40c29bb73aa8feff49e9",
         "scripts/all_element_results.json": "5b1fdf55be5c1df9239c52ff44b99eb8130e2fbe100436c63525adbfe6e22c09",
-        "scripts/all_element_table.csv": "d25261961d1de944576532f448474c11dc54821e59dc7927b48328e80916ebe2",
-        "scripts/atomic_ledger_results.json": "c776664df187d7e52751eec395f241885512cb5d839f3c3912abca6fbd791a24",
         "scripts/atomic_count_partitions.csv": "d63bf11f83e20716adbee1f9de225d160394f07c261ef86c077612b9f44180e0",
+        "scripts/all_element_table.csv": "d25261961d1de944576532f448474c11dc54821e59dc7927b48328e80916ebe2",
+        "scripts/correlated_atoms_results.json": "9e16940fd89faaed0a5f64f2148639927ffc70e93d5c40c29bb73aa8feff49e9",
         "scripts/whole_atom_helium_radial.csv": "cae40df76b1a88f3ffb57d4b374b7c69d8beee0d8c716179ee62802c64fd252f",
+        "scripts/atomic_ledger_results.json": "c776664df187d7e52751eec395f241885512cb5d839f3c3912abca6fbd791a24",
         "scripts/all_element_state_index.json": "401fb05aa063496baaffac3639b96bcf773dc615cf893aa7cf38e4293a03cb93",
         "scripts/whole_atom_results.json": "dd79474356ec0e68fd4aed5ab374f59ca6b4eeb01cbfb6ac2aec44d174f8f51c",
         "scripts/whole_atom_handoff.json": "08a06f2d6c3c7e18a9fa69fd3ab2f1fb9ce36a52d724ab24a18e7533fb105858"
@@ -505,13 +505,13 @@
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e",
-        "scripts/water_reproducible_prediction_results.json": "1b20ae9ffd7c3aafc93de231a229824dc932e75fa471e0b5fede98ba558ec1a1",
         "scripts/water_q_relaxation_results.json": "a863cd3627c02b35dbe0955f276bd51cbad1bf8067d1517d042cda2b778d785e",
-        "scripts/all_element_table.csv": "d25261961d1de944576532f448474c11dc54821e59dc7927b48328e80916ebe2",
-        "scripts/molecular_reentry_results.json": "9494e5dfe275831248ca664676edb6e44158cd52352551d6753f3a81fa144623",
-        "scripts/all_element_state_index.json": "401fb05aa063496baaffac3639b96bcf773dc615cf893aa7cf38e4293a03cb93",
         "scripts/water_equilibrium_reference_results.json": "656d89ceefa94f5f8d449f2d2864dc18281e01c3dd89cc56ded19b912dda6e7c",
-        "scripts/whole_atom_handoff.json": "08a06f2d6c3c7e18a9fa69fd3ab2f1fb9ce36a52d724ab24a18e7533fb105858"
+        "scripts/molecular_reentry_results.json": "9494e5dfe275831248ca664676edb6e44158cd52352551d6753f3a81fa144623",
+        "scripts/water_reproducible_prediction_results.json": "1b20ae9ffd7c3aafc93de231a229824dc932e75fa471e0b5fede98ba558ec1a1",
+        "scripts/all_element_state_index.json": "401fb05aa063496baaffac3639b96bcf773dc615cf893aa7cf38e4293a03cb93",
+        "scripts/whole_atom_handoff.json": "08a06f2d6c3c7e18a9fa69fd3ab2f1fb9ce36a52d724ab24a18e7533fb105858",
+        "scripts/all_element_table.csv": "d25261961d1de944576532f448474c11dc54821e59dc7927b48328e80916ebe2"
       }
     },
     {
@@ -1134,19 +1134,19 @@
     },
     {
       "order": 56,
-      "title": "No Holes in Space",
+      "title": "Direct Arrival",
       "sources": [
         "no-holes-in-space.html"
       ],
       "approved": true,
-      "audio_url": "https://audio.resonantmachines.us/podcasts/56/baab1fc5ad3bbb7efcca728551889c92c5067128d45c054af0df64a0c43104dd.mp3",
-      "audio_sha256": "baab1fc5ad3bbb7efcca728551889c92c5067128d45c054af0df64a0c43104dd",
-      "source_content_sha256": "60bbca7494c223dbd66c9e563cb98ba2255b74a5ef13de15506f618a6b09aca3",
+      "audio_url": "https://audio.resonantmachines.us/podcasts/56/a1e934f22aff349d363859c6e0642e8a96818a6c3f1f45259f0735c05ea4d1c4.mp3",
+      "audio_sha256": "a1e934f22aff349d363859c6e0642e8a96818a6c3f1f45259f0735c05ea4d1c4",
+      "source_content_sha256": "b56fabf92b1b110fdd30aea30b27e52176a32873e25e151c232934c5e8894448",
       "script_source_sha256": {
-        "no-holes-in-space.html": "a81627365e98736e1bd54b4608aca4455c0a6ce4b86d1ef3cd948af9848dddac"
+        "no-holes-in-space.html": "68623d198f4f82d435b26176f2321a545753c1c07208d261e8e8398ba847485b"
       },
       "source_sha256": {
-        "no-holes-in-space.html": "d5e15fdef2e44e038ab8f94d83e2cf2599f3a49733138006e87c7b2dbce5cce4"
+        "no-holes-in-space.html": "a646fff1460f3f20a75c5e1a959e5a7d5b57629477dd917fc925ac2da74cb556"
       },
       "source_dependency_sha256": {}
     },
@@ -1157,14 +1157,14 @@
         "cloaking.html"
       ],
       "approved": true,
-      "audio_url": "https://audio.resonantmachines.us/podcasts/57/6b3d7214a2f2f886dba8565d05c00f277f9457e701cb9784552b6794814e532a.mp3?v=6b3d7214a2f2f886dba8565d05c00f277f9457e701cb9784552b6794814e532a",
-      "audio_sha256": "6b3d7214a2f2f886dba8565d05c00f277f9457e701cb9784552b6794814e532a",
-      "source_content_sha256": "ab7fae541099b75bf6339a63d4302ed4830d11a35b1e60afa59f536f69e7613a",
+      "audio_url": "https://audio.resonantmachines.us/podcasts/57/a60660776a8a74475b8c5e6bea78baa4584ce3ec1e171c76a99c86c730d39637.mp3?v=a60660776a8a74475b8c5e6bea78baa4584ce3ec1e171c76a99c86c730d39637",
+      "audio_sha256": "a60660776a8a74475b8c5e6bea78baa4584ce3ec1e171c76a99c86c730d39637",
+      "source_content_sha256": "d54d621da40713b7516e11121abe37af8b3b64f7f3c527aa90df848603c83362",
       "script_source_sha256": {
-        "cloaking.html": "c07d3c87c405e6de95c0fc6dcf1c3f0aebb9d11d1ac1b993eb8a76aa4d58846e"
+        "cloaking.html": "bb535bdce57aed1b52126b7b8f6663f0af88837bf1968b7875ab328ae9137a6f"
       },
       "source_sha256": {
-        "cloaking.html": "964dd1a05fdda4d2f42f41484e9e4ddefa310182d5efe916a71996eb43222893"
+        "cloaking.html": "742e202eb7928f820a35c1a9d23fac2957a2793b24de1268737291eb1b6b072c"
       },
       "source_dependency_sha256": {}
     }
