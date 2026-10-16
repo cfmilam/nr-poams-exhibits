@@ -46,10 +46,14 @@ th,td{padding:10px 11px;border:1px solid var(--edge);vertical-align:top;text-ali
 .case-grid>section,.protocol-grid>section{padding:14px 15px;border:1px solid var(--edge);border-radius:9px;background:var(--card)}
 .case-grid h4,.protocol-grid h4{margin:0 0 .45rem;color:var(--blue);font:750 12px/1.3 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:.055em;text-transform:uppercase}
 .case-grid ul,.protocol-grid ul{margin:.35rem 0 .1rem;padding-left:1.2rem;font-size:.94rem;line-height:1.55}
+.outcome-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:1.15rem 0}
+.outcome-grid>section{padding:15px 16px;border:1px solid var(--edge);border-radius:9px;background:var(--card)}
+.outcome-grid h3{margin:0 0 .5rem;color:var(--blue);font:750 12px/1.35 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:.04em;text-transform:uppercase}
+.outcome-grid p{margin:.35rem 0;font-size:.94rem;line-height:1.58}
 .lift-rule{margin:1.1rem 0;padding:14px 16px;border-left:4px solid var(--green);border-radius:0 8px 8px 0;background:color-mix(in srgb,var(--green) 7%,var(--card));font-size:.95rem}
 main>p:first-of-type{padding:15px 18px;border:1px solid var(--edge);border-radius:9px;background:var(--card);color:var(--mut);font-size:.92rem}
 .footer{max-width:920px;margin:auto;padding:20px 24px 42px;border-top:1px solid var(--edge);color:var(--mut);font:12px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-@media(max-width:680px){body{font-size:16px}header{padding:54px 16px 36px}main{padding:14px 16px 65px}.topbar{padding:0 10px}.topbar .state{display:none}table{display:block;overflow-x:auto}.thesis{padding:17px 18px}.case-grid,.protocol-grid{grid-template-columns:1fr}.recognition{padding:17px 16px}}
+@media(max-width:680px){body{font-size:16px}header{padding:54px 16px 36px}main{padding:14px 16px 65px}.topbar{padding:0 10px}.topbar .state{display:none}table{display:block;overflow-x:auto}.thesis{padding:17px 18px}.case-grid,.protocol-grid,.outcome-grid{grid-template-columns:1fr}.recognition{padding:17px 16px}}
 @media print{.topbar{display:none}body{background:#fff;color:#191919}header{margin-top:0}.theme{display:none}}
 </style>
 <!-- POAMS LISTEN BEGIN --><link rel="stylesheet" href="podcast-listen.css"><script defer src="podcast-listen.js"></script><!-- POAMS LISTEN END -->
@@ -63,7 +67,7 @@ main>p:first-of-type{padding:15px 18px;border:1px solid var(--edge);border-radiu
 <div class="poams-listen" data-podcast="55" data-podcast-title="The Hull Is the Propulsion System">
 <div class="pl-pills"><button class="pl-pill" type="button" aria-label="Audio: The Hull Is the Propulsion System" aria-expanded="false" aria-controls="pl-player-55">AUDIO</button><a class="pl-video" href="https://notebook.google.com/notebook/5e3575eb-2027-46fd-a02b-41fc22dc81bc" target="_blank" rel="noopener noreferrer" aria-label="Video in NotebookLM: The Hull Is the Propulsion System (opens in a new tab)">VIDEO</a></div>
 <div id="pl-player-55" class="pl-player" hidden><button class="pl-play" type="button" aria-label="Play podcast" disabled>▶</button><input class="pl-seek" type="range" min="0" max="100" step="0.1" value="0" aria-label="Seek podcast" disabled><span class="pl-timer">0:00 / 0:00</span></div>
-<p class="pl-error" role="status" hidden></p><audio preload="none" src="https://audio.resonantmachines.us/podcasts/55/1d92e54107341ef52e29692bf1905a470b6860217a0ef440fce1faf7c9ed5ae0.mp3?v=1d92e54107341ef52e29692bf1905a470b6860217a0ef440fce1faf7c9ed5ae0"></audio>
+<p class="pl-error" role="status" hidden></p><audio preload="none" src="https://audio.resonantmachines.us/podcasts/55/490819a6a695c5fce5a7f897f0cc689802db3e4b57941ddb60f78350a7959f37.mp3?v=490819a6a695c5fce5a7f897f0cc689802db3e4b57941ddb60f78350a7959f37"></audio>
 </div>
 <!-- POAMS LISTEN END -->
 
@@ -910,6 +914,142 @@ close during them.</strong></p>
 </blockquote>
 <p>That is the proposed propulsion principle.</p>
 <hr />
+<section class="boundary-engineering" aria-labelledby="penetration-matched-laminated-boundary">
+<h2 id="penetration-matched-laminated-boundary">14. Penetration-matched
+laminated boundary</h2>
+<div class="recognition">
+<div class="grade">Prospective architecture · ordinary electromagnetic baseline · not an achieved device</div>
+<p><strong>A hull need not be made from a bulk active medium.</strong> If
+only material within the drive’s penetration depth participates, material
+deeper than that scale adds mass and loss without adding proportional
+controlled response. The design answer is a measured laminate, not a
+favored element or an unexplained layered artifact.</p>
+</div>
+<p>In the proposed construction, each phase-responsive lamina has a
+thickness <span class="math inline">\(t_a\)</span> selected from the
+measured penetration law at the operating frequency, temperature, bias,
+orientation, and load. Adjacent laminae are separated by genuine
+electrically insulating, low-loss dielectric layers that interrupt
+unwanted transverse current and eddy-current loops while allowing the
+drive to address every active layer. A metallic spacer is not an
+insulator merely because it is weakly magnetic or carries a surface
+oxide.</p>
+<p>For an ordinary good conductor driven electromagnetically, the
+baseline skin depth is <span class="math display">\[
+\delta(\omega)=\sqrt{\frac{2\rho_e}{\omega\mu}},
+\]</span></p>
+<p>where <span class="math inline">\(\rho_e\)</span> is electrical
+resistivity, <span class="math inline">\(\omega\)</span> the angular
+drive frequency, and <span class="math inline">\(\mu\)</span> the
+relevant permeability. A first design target is therefore <span
+class="math inline">\(t_a\lesssim\delta\)</span>, followed by direct
+field and phase mapping. This is an electromagnetic baseline, not a
+POAMS material law. Any proposed non-electromagnetic coupling owes its
+own measured penetration relation and cannot be invoked merely to escape
+ordinary screening.</p>
+<p>Every lamina must expose a named physical degree of freedom—for
+example collective magnetization precession, polarization current,
+mechanical circulation, or another directly measured
+angular-momentum-bearing state. Its local amplitude and phase must be
+read against a common timing reference. Layer count is useful only if
+the additional layers actually join one controlled mode rather than
+becoming independently heated, screened, or detuned sheets.</p>
+<p>The decisive comparison holds total active mass fixed and tests:</p>
+<ul>
+<li>bulk and single-layer articles;</li>
+<li>the proposed active/dielectric laminate;</li>
+<li>all-dielectric and all-conductive controls;</li>
+<li>detuned, phase-scrambled, and orientation-reversed states;</li>
+<li>absorbed-energy-matched heating and ordinary-force controls; and</li>
+<li>layer-resolved penetration, phase error, dissipation, cross-coupling,
+and mechanical reaction.</li>
+</ul>
+<div class="lift-rule"><strong>Acceptance rule.</strong> Increased
+response per unit active mass is retained only if deeper laminae are
+shown to participate coherently, a preregistered scaling rule survives
+the controls, and the complete energy, momentum, angular-momentum, heat,
+and reaction ledger closes. A stack that merely shields its deeper
+layers or produces ordinary eddy-current, dielectric, thermal, acoustic,
+or mechanical effects is a conventional or null result.</div>
+</section>
+<hr />
+<section class="hazard-analysis" aria-labelledby="murphys-law">
+<h2 id="murphys-law">15. Murphy’s Law</h2>
+<div class="recognition">
+<div class="grade">Prospective hazard analysis · ordinary lightning physics first · no historical attribution</div>
+<p><strong>In an airborne lightning strike the hull may become an
+unintended conductive participant in a cloud, atmosphere, and Earth
+charge network while its distributed sectors are maintaining a
+qualified boundary state.</strong></p>
+</div>
+<p>The relevant failure is not merely damage to avionics, and coherence
+is not treated as charge draining from a battery. A strike is a violent,
+broadband, low-impedance exterior relation. It can load, detune, clamp,
+or disorder the commanded boundary state. The aircraft need not form a
+literal continuous short to soil: entry and exit attachment,
+intracloud closure, or a vehicle-triggered discharge can impose the
+uncommanded transaction.</p>
+<div class="outcome-grid">
+<section>
+<h3 id="contained-surface-event">15.1 Contained surface event</h3>
+<p>Strike current enters and exits through a separate outer path while
+the whole-hull phase state remains inside its qualified envelope. The
+event can produce attachment damage, broadband emission, heating,
+induced current, sensor disturbance, and temporary drive loading without
+commanding a new exterior address.</p>
+</section>
+<section>
+<h3 id="custody-pinning">15.2 Custody pinning</h3>
+<p>The discharge establishes a dominant temporary relation among hull,
+atmosphere, cloud, and Earth. Translation is inhibited until that
+relation clears and the boundary state is requalified. A discharge
+channel attached to the prior address must terminate, close anew, or
+prevent re-addressing while attached; it cannot be assumed to follow as
+an unexamined elastic connection.</p>
+</section>
+<section>
+<h3 id="whole-hull-phase-lock-loss">15.3 Whole-hull phase-lock loss</h3>
+<p>A sufficiently strong impulse, mode distortion, drive saturation, or
+phase slip takes the distributed state outside its qualified envelope.
+The safe response is one globally ordered transition into neutral.
+Continued operation by independently drifting sectors risks incompatible
+continuation states, differential loading, structural shear, arcing, and
+uncontrolled motion.</p>
+</section>
+</div>
+<h3 id="lightning-consequences">15.4 Consequences and safe response</h3>
+<p>The first regime is principally a surface-damage and temporary-load
+event. The second can interrupt or clamp translation even though the
+hull and energy source remain functional. The third removes the common
+boundary operation proposed to protect the interior from differential
+loading. A clean global abort may be survivable; an asynchronous
+sector-by-sector collapse during an address transition may be
+catastrophic.</p>
+<p>A conventional conductive enclosure does not by itself settle the
+problem. It may protect the cabin electrically while shorting, detuning,
+or disordering an active hull mode. A prospective vehicle therefore
+requires a lightning-diversion skin functionally separated from the
+phase-maintenance network; isolated drive and return paths; passive surge
+handling; attachment-current and distributed phase-slip sensors; a
+whole-hull coherence monitor; and a hardware interlock that freezes
+address changes whenever coherence leaves its qualified envelope.</p>
+<p>During a strike, the controller suspends translation, rejects every
+local slip—including a local whole-turn slip—as an address command,
+preserves the last qualified exterior state when physically available,
+records the complete event, and transfers authority to conventional
+stabilization until both boundary state and exterior metrology pass
+their stored checks again.</p>
+<p>If translation must be continuously maintained, loss of coherence may
+restore ordinary gravitational and aerodynamic custody before active
+recovery can occur. A vehicle optimized around boundary translation may
+have little conventional lift or glide reserve. Its energy source may
+remain intact while one corrupted control variable disables the entire
+machine. For an early vehicle, or one operating in an unfamiliar
+atmospheric and electrical environment, an unmodeled impedance, charge
+structure, moisture condition, or discharge spectrum could therefore
+defeat an otherwise extraordinary prototype.</p>
+</section>
+<hr />
 <h2 id="sources">Sources</h2>
 <ol type="1">
 <li><a
@@ -935,6 +1075,6 @@ Chromak, “Airborne Corner Reflector,” U.S. Patent 2,463,517, filed 30 June
 1945 and issued 8 March 1949</a>.</li>
 </ol>
 </main>
-<div class="footer"><strong>Normal Realism · POAMS</strong><br>Rate-drive propulsion exhibit · 13 October 2026 · Prospective recognition protocol added 15 October 2026.</div>
+<div class="footer"><strong>Normal Realism · POAMS</strong><br>Rate-drive propulsion exhibit · 13 October 2026 · Prospective recognition protocol and boundary-engineering additions updated 15 October 2026.</div>
 </body>
 </html>

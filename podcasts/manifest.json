@@ -14,12 +14,12 @@
       "audio_sha256": "1da74f9c44f5388d6dea56ceef34544724833e325e2e7cf4e123b1f66021e093",
       "source_content_sha256": "d0323430147082c2ab6d4e477d8858c9639d6f03f6763248998206e8edae5222",
       "script_source_sha256": {
-        "the-designers-reading.html": "85ea84548cb20243f06c0c274831f8d915d93f89c11766643ebfa7224749e9d3",
-        "the-world-is-language.html": "a3db8d92817240fd999bd8d1457cd9a8f13b1c715c5aaf2f57f14617ad970896"
+        "the-world-is-language.html": "a3db8d92817240fd999bd8d1457cd9a8f13b1c715c5aaf2f57f14617ad970896",
+        "the-designers-reading.html": "85ea84548cb20243f06c0c274831f8d915d93f89c11766643ebfa7224749e9d3"
       },
       "source_sha256": {
-        "the-designers-reading.html": "3bc99848e9e2a6feb56c8c8bb58d8c12df5f409134e71896d3ef868e437d2880",
-        "the-world-is-language.html": "01f7e8c11df268bea82a6958e400debddca7ac60a582b5ef6bfecf2c9db1d9f5"
+        "the-world-is-language.html": "01f7e8c11df268bea82a6958e400debddca7ac60a582b5ef6bfecf2c9db1d9f5",
+        "the-designers-reading.html": "3bc99848e9e2a6feb56c8c8bb58d8c12df5f409134e71896d3ef868e437d2880"
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
@@ -253,14 +253,14 @@
         "scripts/coulomb_calibrated.js": "f9b1ae9ddc4106332c78930558d0858f7cf767ed5302182f5298d01261b4c20d",
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e",
         "scripts/correlated_atoms_results.json": "9e16940fd89faaed0a5f64f2148639927ffc70e93d5c40c29bb73aa8feff49e9",
-        "scripts/all_element_table.csv": "d25261961d1de944576532f448474c11dc54821e59dc7927b48328e80916ebe2",
         "scripts/all_element_results.json": "5b1fdf55be5c1df9239c52ff44b99eb8130e2fbe100436c63525adbfe6e22c09",
+        "scripts/all_element_table.csv": "d25261961d1de944576532f448474c11dc54821e59dc7927b48328e80916ebe2",
+        "scripts/atomic_ledger_results.json": "c776664df187d7e52751eec395f241885512cb5d839f3c3912abca6fbd791a24",
+        "scripts/atomic_count_partitions.csv": "d63bf11f83e20716adbee1f9de225d160394f07c261ef86c077612b9f44180e0",
+        "scripts/whole_atom_helium_radial.csv": "cae40df76b1a88f3ffb57d4b374b7c69d8beee0d8c716179ee62802c64fd252f",
         "scripts/all_element_state_index.json": "401fb05aa063496baaffac3639b96bcf773dc615cf893aa7cf38e4293a03cb93",
         "scripts/whole_atom_results.json": "dd79474356ec0e68fd4aed5ab374f59ca6b4eeb01cbfb6ac2aec44d174f8f51c",
-        "scripts/atomic_ledger_results.json": "c776664df187d7e52751eec395f241885512cb5d839f3c3912abca6fbd791a24",
-        "scripts/whole_atom_helium_radial.csv": "cae40df76b1a88f3ffb57d4b374b7c69d8beee0d8c716179ee62802c64fd252f",
-        "scripts/whole_atom_handoff.json": "08a06f2d6c3c7e18a9fa69fd3ab2f1fb9ce36a52d724ab24a18e7533fb105858",
-        "scripts/atomic_count_partitions.csv": "d63bf11f83e20716adbee1f9de225d160394f07c261ef86c077612b9f44180e0"
+        "scripts/whole_atom_handoff.json": "08a06f2d6c3c7e18a9fa69fd3ab2f1fb9ce36a52d724ab24a18e7533fb105858"
       }
     },
     {
@@ -505,13 +505,13 @@
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e",
-        "scripts/water_equilibrium_reference_results.json": "656d89ceefa94f5f8d449f2d2864dc18281e01c3dd89cc56ded19b912dda6e7c",
-        "scripts/all_element_table.csv": "d25261961d1de944576532f448474c11dc54821e59dc7927b48328e80916ebe2",
-        "scripts/whole_atom_handoff.json": "08a06f2d6c3c7e18a9fa69fd3ab2f1fb9ce36a52d724ab24a18e7533fb105858",
-        "scripts/all_element_state_index.json": "401fb05aa063496baaffac3639b96bcf773dc615cf893aa7cf38e4293a03cb93",
+        "scripts/water_reproducible_prediction_results.json": "1b20ae9ffd7c3aafc93de231a229824dc932e75fa471e0b5fede98ba558ec1a1",
         "scripts/water_q_relaxation_results.json": "a863cd3627c02b35dbe0955f276bd51cbad1bf8067d1517d042cda2b778d785e",
+        "scripts/all_element_table.csv": "d25261961d1de944576532f448474c11dc54821e59dc7927b48328e80916ebe2",
         "scripts/molecular_reentry_results.json": "9494e5dfe275831248ca664676edb6e44158cd52352551d6753f3a81fa144623",
-        "scripts/water_reproducible_prediction_results.json": "1b20ae9ffd7c3aafc93de231a229824dc932e75fa471e0b5fede98ba558ec1a1"
+        "scripts/all_element_state_index.json": "401fb05aa063496baaffac3639b96bcf773dc615cf893aa7cf38e4293a03cb93",
+        "scripts/water_equilibrium_reference_results.json": "656d89ceefa94f5f8d449f2d2864dc18281e01c3dd89cc56ded19b912dda6e7c",
+        "scripts/whole_atom_handoff.json": "08a06f2d6c3c7e18a9fa69fd3ab2f1fb9ce36a52d724ab24a18e7533fb105858"
       }
     },
     {
@@ -1121,14 +1121,14 @@
         "the-hull-is-the-propulsion-system.html"
       ],
       "approved": true,
-      "audio_url": "https://audio.resonantmachines.us/podcasts/55/1d92e54107341ef52e29692bf1905a470b6860217a0ef440fce1faf7c9ed5ae0.mp3?v=1d92e54107341ef52e29692bf1905a470b6860217a0ef440fce1faf7c9ed5ae0",
-      "audio_sha256": "1d92e54107341ef52e29692bf1905a470b6860217a0ef440fce1faf7c9ed5ae0",
-      "source_content_sha256": "32da72fc6e6ece2fce76cf943d078bbb6ac8cb3ae9b1624d4c33a6bd27e27a0f",
+      "audio_url": "https://audio.resonantmachines.us/podcasts/55/490819a6a695c5fce5a7f897f0cc689802db3e4b57941ddb60f78350a7959f37.mp3?v=490819a6a695c5fce5a7f897f0cc689802db3e4b57941ddb60f78350a7959f37",
+      "audio_sha256": "490819a6a695c5fce5a7f897f0cc689802db3e4b57941ddb60f78350a7959f37",
+      "source_content_sha256": "10cad802f27460afed33027c3d586e95dcaee2c6bca77d57bd6b1daa97705d2f",
       "script_source_sha256": {
-        "the-hull-is-the-propulsion-system.html": "baf50f37344fafa284e9e347ec3f3e09b487c54e46c09670644e408347efc793"
+        "the-hull-is-the-propulsion-system.html": "eaeec78a4b0989d0d26d6cf45e9ccad7a5b919a78cd55070e6fbdad914e1bc61"
       },
       "source_sha256": {
-        "the-hull-is-the-propulsion-system.html": "5eb7652fd7992f5cf66c2d25ab5b2c1ebf3c5935b9f1e6418ac614b3aaa1ab50"
+        "the-hull-is-the-propulsion-system.html": "9f3f9ecdf45ae78947657c39b263fb243720a7740ed705f2cc9feebe351578fa"
       },
       "source_dependency_sha256": {}
     },
