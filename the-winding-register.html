@@ -81,7 +81,7 @@ body{padding-top:72px !important;}
 <div class="poams-listen" data-podcast="50" data-podcast-title="The Winding Register">
 <div class="pl-pills"><button class="pl-pill" type="button" aria-label="Audio: The Winding Register" aria-expanded="false" aria-controls="pl-player-50">AUDIO</button><a class="pl-video" href="https://notebook.google.com/notebook/e213ba30-2316-43e1-b251-0de40fa095e4" target="_blank" rel="noopener noreferrer" aria-label="Video in NotebookLM: The Winding Register (opens in a new tab)">VIDEO</a></div>
 <div id="pl-player-50" class="pl-player" hidden><button class="pl-play" type="button" aria-label="Play podcast" disabled>▶</button><input class="pl-seek" type="range" min="0" max="100" step="0.1" value="0" aria-label="Seek podcast" disabled><span class="pl-timer">0:00 / 0:00</span></div>
-<p class="pl-error" role="status" hidden></p><audio preload="none" src="https://audio.resonantmachines.us/podcasts/50/bff932d32c6f1921896e8b61bb3813c005dc941bc4c65525f3c5c5fdd21c7c0a.mp3"></audio>
+<p class="pl-error" role="status" hidden></p><audio preload="none" src="https://audio.resonantmachines.us/podcasts/50/0cbb2e5a5aa5f8683cba1d2acd9d0034c1accff4b6c79fead27c4123d62196cd.mp3"></audio>
 </div>
 <!-- POAMS LISTEN END -->
 
@@ -137,6 +137,18 @@ body{padding-top:72px !important;}
 <h2>8 · Retention is not yet memory</h2>
 <p><strong>Status update · 29 September 2026.</strong> A reduced winding count is a predictive state only when every admitted future write, hold, read and reset behavior factors through it. Untouched and write–erase histories may share the same count while differing in age, fatigue or later accessibility.</p>
 <p>A demonstrated memory requires distinguishable retained code states, physical write paths, a measured hold/error law, calibrated readout and decoder, and explicit overwrite, erase, reset and saturation scope. Replay is provenance, not another occurrence. A write edge does not imply its inverse; a finite same-sense register must saturate, export or possess a separately receipted reset. These requirements precede any gate or computation claim.</p>
+</section>
+
+<section id="bounded-posting-register">
+<h2>9 · An exact count result for a retained remainder</h2>
+<p>There is a concrete native operation between “the integers are physical” and a complete arithmetic machine. Supply a calibrated axial input $x_i\in[-1,1]$, retain the previous mismatch $r_{i-1}$, and post the whole sign that minimizes the next mismatch:</p>
+<div class="eq">$$\begin{aligned}z_i&=r_{i-1}+x_i,\\s_i&=\operatorname{sign}_+(z_i),\\r_i&=z_i-s_i,\end{aligned}$$</div>
+<p>where $\operatorname{sign}_+(0)=+1$. If $|r_0|\le1$, then $|r_i|\le1$ for every permitted input sequence. From $r_0=0$, the complete signed prefix obeys</p>
+<div class="eq">$$\left|\sum_{i=1}^{N}s_i-\sum_{i=1}^{N}x_i\right|\le1.$$</div>
+<p>The remainder is an axial projection of retained whole circulation, not a fractional closed object. The mathematics is familiar error-feedback quantization; the POAMS construction attaches its physical accounts. The transverse input must leave through a measured port or accumulate in a finite store. Reset exports the old remainder. An independently measured stored account is required: computing it from the same input and output counts cannot verify the conservation claim.</p>
+<p>For a constant reduced control ratio $x=p/q$, the ideal recurrence has period $2q/\gcd(p+q,2q)$. That period comes from the selected ratio, not a newly derived microscopic modulus. Finite physical precision, retention and sensing remain construction requirements.</p>
+<p>There is also a sharp composition limit. One shared bounded store can hide source-sign-weighted transfers even when its final total returns to zero. Routing prepared tags into two genuinely separate stores strengthens the sequential count theorem; sorting the data afterward does not create those stores. Neither result supplies a Bell source or a radix carry gate. What it does supply is a useful discriminator: a qualified retained converter has a bounded prefix error, while a memoryless device with the same average need not.</p>
+<p><a href="./horizon-bell-contextuality-delayed-choice.html#bounded-posting">Count law, pair-account boundary and the separate scalar construction →</a></p>
 </section>
 
 </main>

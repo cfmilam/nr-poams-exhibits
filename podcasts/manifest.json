@@ -92,14 +92,14 @@
         "coherent-completion-kernel.html"
       ],
       "approved": true,
-      "audio_url": "https://audio.resonantmachines.us/podcasts/05/c5c15114535557436e2ce9196d2e5cd78018bc1c40aa4366016e4d49f67cddcc.mp3",
-      "audio_sha256": "c5c15114535557436e2ce9196d2e5cd78018bc1c40aa4366016e4d49f67cddcc",
-      "source_content_sha256": "3aa5ffb035a5b168e273a77921e854fe0cf252299dc8ae77f8df2db4b141225f",
+      "audio_url": "https://audio.resonantmachines.us/podcasts/05/3dfc46d0e3e9ef260a22be333b872ece33e1c8a9e759035136c7c47619692e09.mp3",
+      "audio_sha256": "3dfc46d0e3e9ef260a22be333b872ece33e1c8a9e759035136c7c47619692e09",
+      "source_content_sha256": "91a2463a2fcde880cb4541ed7dbf7bc1cf38cb53b0d1f3a4137a9e188deb5241",
       "script_source_sha256": {
-        "coherent-completion-kernel.html": "e783d4224bde0d707ec66199fc585d13efa7cd35237a569cf513878252617350"
+        "coherent-completion-kernel.html": "a5090dfbc2c08b636b9caceb7d0897a9e6a3a8efb9d7c3e650475af868fc1d0c"
       },
       "source_sha256": {
-        "coherent-completion-kernel.html": "59abbff71d6c75ff2436071b0fd9812da939974980de927fb9b4da1f0f84f324"
+        "coherent-completion-kernel.html": "df27c85e9e8905f88037ba85116569394674e9af2a8dfe02a8ffd00ec7a8c0e4"
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
@@ -252,15 +252,15 @@
         "scripts/atomic_ledger.js": "858d497aad258f1070d0b347326bf1e81fdbd64fa5e132674abccb61b90d9908",
         "scripts/coulomb_calibrated.js": "f9b1ae9ddc4106332c78930558d0858f7cf767ed5302182f5298d01261b4c20d",
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e",
-        "scripts/all_element_results.json": "5b1fdf55be5c1df9239c52ff44b99eb8130e2fbe100436c63525adbfe6e22c09",
-        "scripts/atomic_count_partitions.csv": "d63bf11f83e20716adbee1f9de225d160394f07c261ef86c077612b9f44180e0",
-        "scripts/all_element_table.csv": "d25261961d1de944576532f448474c11dc54821e59dc7927b48328e80916ebe2",
         "scripts/correlated_atoms_results.json": "9e16940fd89faaed0a5f64f2148639927ffc70e93d5c40c29bb73aa8feff49e9",
-        "scripts/whole_atom_helium_radial.csv": "cae40df76b1a88f3ffb57d4b374b7c69d8beee0d8c716179ee62802c64fd252f",
-        "scripts/atomic_ledger_results.json": "c776664df187d7e52751eec395f241885512cb5d839f3c3912abca6fbd791a24",
-        "scripts/all_element_state_index.json": "401fb05aa063496baaffac3639b96bcf773dc615cf893aa7cf38e4293a03cb93",
+        "scripts/all_element_results.json": "5b1fdf55be5c1df9239c52ff44b99eb8130e2fbe100436c63525adbfe6e22c09",
         "scripts/whole_atom_results.json": "dd79474356ec0e68fd4aed5ab374f59ca6b4eeb01cbfb6ac2aec44d174f8f51c",
-        "scripts/whole_atom_handoff.json": "08a06f2d6c3c7e18a9fa69fd3ab2f1fb9ce36a52d724ab24a18e7533fb105858"
+        "scripts/atomic_ledger_results.json": "c776664df187d7e52751eec395f241885512cb5d839f3c3912abca6fbd791a24",
+        "scripts/all_element_table.csv": "d25261961d1de944576532f448474c11dc54821e59dc7927b48328e80916ebe2",
+        "scripts/whole_atom_handoff.json": "08a06f2d6c3c7e18a9fa69fd3ab2f1fb9ce36a52d724ab24a18e7533fb105858",
+        "scripts/atomic_count_partitions.csv": "d63bf11f83e20716adbee1f9de225d160394f07c261ef86c077612b9f44180e0",
+        "scripts/all_element_state_index.json": "401fb05aa063496baaffac3639b96bcf773dc615cf893aa7cf38e4293a03cb93",
+        "scripts/whole_atom_helium_radial.csv": "cae40df76b1a88f3ffb57d4b374b7c69d8beee0d8c716179ee62802c64fd252f"
       }
     },
     {
@@ -505,13 +505,13 @@
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e",
+        "scripts/whole_atom_handoff.json": "08a06f2d6c3c7e18a9fa69fd3ab2f1fb9ce36a52d724ab24a18e7533fb105858",
+        "scripts/all_element_table.csv": "d25261961d1de944576532f448474c11dc54821e59dc7927b48328e80916ebe2",
         "scripts/water_q_relaxation_results.json": "a863cd3627c02b35dbe0955f276bd51cbad1bf8067d1517d042cda2b778d785e",
         "scripts/water_equilibrium_reference_results.json": "656d89ceefa94f5f8d449f2d2864dc18281e01c3dd89cc56ded19b912dda6e7c",
-        "scripts/molecular_reentry_results.json": "9494e5dfe275831248ca664676edb6e44158cd52352551d6753f3a81fa144623",
         "scripts/water_reproducible_prediction_results.json": "1b20ae9ffd7c3aafc93de231a229824dc932e75fa471e0b5fede98ba558ec1a1",
-        "scripts/all_element_state_index.json": "401fb05aa063496baaffac3639b96bcf773dc615cf893aa7cf38e4293a03cb93",
-        "scripts/whole_atom_handoff.json": "08a06f2d6c3c7e18a9fa69fd3ab2f1fb9ce36a52d724ab24a18e7533fb105858",
-        "scripts/all_element_table.csv": "d25261961d1de944576532f448474c11dc54821e59dc7927b48328e80916ebe2"
+        "scripts/molecular_reentry_results.json": "9494e5dfe275831248ca664676edb6e44158cd52352551d6753f3a81fa144623",
+        "scripts/all_element_state_index.json": "401fb05aa063496baaffac3639b96bcf773dc615cf893aa7cf38e4293a03cb93"
       }
     },
     {
@@ -843,14 +843,14 @@
         "horizon-bell-contextuality-delayed-choice.html"
       ],
       "approved": true,
-      "audio_url": "https://audio.resonantmachines.us/podcasts/41/56c6d57bc4c62223bc143ea95701f0528cf793c07dfd4c09dd5a4cdf2c282c19.mp3",
-      "audio_sha256": "56c6d57bc4c62223bc143ea95701f0528cf793c07dfd4c09dd5a4cdf2c282c19",
-      "source_content_sha256": "9718b53feec9ccfe64922f37fd35da4d8259fe6fdd2952fd372bc66cb1f2e91e",
+      "audio_url": "https://audio.resonantmachines.us/podcasts/41/131c1b7d049c53ecde307a96d1ff3e84e4cafa97767498824ce021c576aef0c7.mp3",
+      "audio_sha256": "131c1b7d049c53ecde307a96d1ff3e84e4cafa97767498824ce021c576aef0c7",
+      "source_content_sha256": "3825f0a94e04cf4b40fbaf9e1cbc959dbc7832877a7c6c14949f12a6b5cbf140",
       "script_source_sha256": {
-        "horizon-bell-contextuality-delayed-choice.html": "fee818864d877f2c7f6bd3b3cb6e53b81a5804b889c6cbf5d05f4ab91d76c094"
+        "horizon-bell-contextuality-delayed-choice.html": "de8fec696dbe136764b65208fa2983a6bbf088b1df8bde15b536a52f4762e399"
       },
       "source_sha256": {
-        "horizon-bell-contextuality-delayed-choice.html": "2cc9f57c1070cf1129e2a1ded2eab652cca7c1da0c7f7b455b52ccd59f95f23c"
+        "horizon-bell-contextuality-delayed-choice.html": "516fda05519f101a63e0e2eca90ceadc11232ee39184a321bc0569be6d5c4c94"
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
@@ -983,14 +983,14 @@
         "poams-memory.html"
       ],
       "approved": true,
-      "audio_url": "https://audio.resonantmachines.us/podcasts/48/50f521020c51a46ed4934713a54c3db28317b7bc0c6717fae058cbee412b8e00.mp3",
-      "audio_sha256": "50f521020c51a46ed4934713a54c3db28317b7bc0c6717fae058cbee412b8e00",
-      "source_content_sha256": "c7332b390b2527e0ee70326aba3fca2411aaae6b708e80606ddfe5bd9a298f16",
+      "audio_url": "https://audio.resonantmachines.us/podcasts/48/1e2f06f57600323d993949e871297dd8752dcc3bc7bed9d03aef2b83c453d770.mp3",
+      "audio_sha256": "1e2f06f57600323d993949e871297dd8752dcc3bc7bed9d03aef2b83c453d770",
+      "source_content_sha256": "784be1181611b6616a9c64b1ce1245146116838a4c95096fe078e00882bab5c2",
       "script_source_sha256": {
-        "poams-memory.html": "3bec1ea8c22f36b82905c1ae0a230d43a853ac1c870c83a5cd5e161fca0ff0cb"
+        "poams-memory.html": "31e03fedbef10c3050e4b4f3bea13528d7428ecd901d42547588f172a25c9e35"
       },
       "source_sha256": {
-        "poams-memory.html": "2b20a41518fbeeef26ae09fcb891c720d7d8eac2eab626117ef92fdfe808370e"
+        "poams-memory.html": "c0c264a2353ccc01a2d871f2d615c2bef8858a6adb9945ed228c38ac3faae3b3"
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
@@ -1003,14 +1003,14 @@
         "computation-as-completion.html"
       ],
       "approved": true,
-      "audio_url": "https://audio.resonantmachines.us/podcasts/49/8cd12468071c49347488e732427ed2d7a4ed47cdb1259f6cf13e648881d39a6a.mp3",
-      "audio_sha256": "8cd12468071c49347488e732427ed2d7a4ed47cdb1259f6cf13e648881d39a6a",
-      "source_content_sha256": "d2ef6b2979507f97e41edea9a3baa3f156954e876e996885af75fc9ca8f305bf",
+      "audio_url": "https://audio.resonantmachines.us/podcasts/49/e58f1b1cfc9b40ded3d7f073bdb8f8c55dfe44c05c50ce100991ee9cf7c1e10a.mp3",
+      "audio_sha256": "e58f1b1cfc9b40ded3d7f073bdb8f8c55dfe44c05c50ce100991ee9cf7c1e10a",
+      "source_content_sha256": "90f1339211bc145957c22b88bf98c26a65b45229957af6729b23c81fbcf6dbd4",
       "script_source_sha256": {
-        "computation-as-completion.html": "f0e6f7dd3509cea7b4a799072a60b7560f7da5363f712714af17e87515c75ddf"
+        "computation-as-completion.html": "4bdb646c2722867fe238bdd3fb8febbb87a42dc706eaef98a9618ccd357a2e98"
       },
       "source_sha256": {
-        "computation-as-completion.html": "9436994dc779fcf1ad3665bf296c7842b4320f1cafe2e71041a79f35732b2085"
+        "computation-as-completion.html": "153a9f5f801b571b104aa20e420a20b03d73d61dc90354f06520260bf8486146"
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
@@ -1023,14 +1023,14 @@
         "the-winding-register.html"
       ],
       "approved": true,
-      "audio_url": "https://audio.resonantmachines.us/podcasts/50/bff932d32c6f1921896e8b61bb3813c005dc941bc4c65525f3c5c5fdd21c7c0a.mp3",
-      "audio_sha256": "bff932d32c6f1921896e8b61bb3813c005dc941bc4c65525f3c5c5fdd21c7c0a",
-      "source_content_sha256": "df68c7cf20c84ec527b8c56b84c67599448512633f1dfd5ceb58c01f16fb3238",
+      "audio_url": "https://audio.resonantmachines.us/podcasts/50/0cbb2e5a5aa5f8683cba1d2acd9d0034c1accff4b6c79fead27c4123d62196cd.mp3",
+      "audio_sha256": "0cbb2e5a5aa5f8683cba1d2acd9d0034c1accff4b6c79fead27c4123d62196cd",
+      "source_content_sha256": "4893e7d2fa8756827f8fb899449f5e5878b9e6c21bd60b2e7be2373f4ba86ae7",
       "script_source_sha256": {
-        "the-winding-register.html": "fe8a8beb072d1c1602817699c6e7e899a15a7f8267ec9d152f9fa76c586e3e7e"
+        "the-winding-register.html": "e5fd2016f752eccaee5e2b81fb850a02bdf3d574f62bc5c22f571dccdda40418"
       },
       "source_sha256": {
-        "the-winding-register.html": "0347ddf5d4feaf26c9ff47c2bb86fc4f8ca593a00fb4480f34aabc54311290b2"
+        "the-winding-register.html": "cf7b18f978c7992251daf36ed18c199b73215c315532a0d028d16581e6bddf1d"
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
@@ -1139,14 +1139,14 @@
         "no-holes-in-space.html"
       ],
       "approved": true,
-      "audio_url": "https://audio.resonantmachines.us/podcasts/56/a1e934f22aff349d363859c6e0642e8a96818a6c3f1f45259f0735c05ea4d1c4.mp3",
-      "audio_sha256": "a1e934f22aff349d363859c6e0642e8a96818a6c3f1f45259f0735c05ea4d1c4",
-      "source_content_sha256": "b56fabf92b1b110fdd30aea30b27e52176a32873e25e151c232934c5e8894448",
+      "audio_url": "https://audio.resonantmachines.us/podcasts/56/cfb50ea7a5287bfc87158ee8674b53f03584bcede3b93bc6cb084a8bba0bee5f.mp3",
+      "audio_sha256": "cfb50ea7a5287bfc87158ee8674b53f03584bcede3b93bc6cb084a8bba0bee5f",
+      "source_content_sha256": "fd255751f73ca20e684125d6d1ed565e2cf9b33cd67e7aa986766a9f6f58b083",
       "script_source_sha256": {
-        "no-holes-in-space.html": "68623d198f4f82d435b26176f2321a545753c1c07208d261e8e8398ba847485b"
+        "no-holes-in-space.html": "078bef25b00bf8c203809525071510efd80793a7625f8a75bc4a1785be680d59"
       },
       "source_sha256": {
-        "no-holes-in-space.html": "a646fff1460f3f20a75c5e1a959e5a7d5b57629477dd917fc925ac2da74cb556"
+        "no-holes-in-space.html": "6d18faf91826db86205285030dadf4839be341308946cea19b739d3453a45a4e"
       },
       "source_dependency_sha256": {}
     },
@@ -1157,14 +1157,14 @@
         "cloaking.html"
       ],
       "approved": true,
-      "audio_url": "https://audio.resonantmachines.us/podcasts/57/a60660776a8a74475b8c5e6bea78baa4584ce3ec1e171c76a99c86c730d39637.mp3?v=a60660776a8a74475b8c5e6bea78baa4584ce3ec1e171c76a99c86c730d39637",
-      "audio_sha256": "a60660776a8a74475b8c5e6bea78baa4584ce3ec1e171c76a99c86c730d39637",
-      "source_content_sha256": "d54d621da40713b7516e11121abe37af8b3b64f7f3c527aa90df848603c83362",
+      "audio_url": "https://audio.resonantmachines.us/podcasts/57/eee8eae9ea2f96c84aecbb91ed7803bd88b9e16c2d36495fb7109733000cfe2b.mp3?v=eee8eae9ea2f96c84aecbb91ed7803bd88b9e16c2d36495fb7109733000cfe2b",
+      "audio_sha256": "eee8eae9ea2f96c84aecbb91ed7803bd88b9e16c2d36495fb7109733000cfe2b",
+      "source_content_sha256": "1119c2573d0999c6cb17c95f814c9c80f28b4d57f6465ca7f9ee8143567b686d",
       "script_source_sha256": {
-        "cloaking.html": "bb535bdce57aed1b52126b7b8f6663f0af88837bf1968b7875ab328ae9137a6f"
+        "cloaking.html": "98a9d696a99376a2553173d07aca99adb6bde012fae29a196c18cf466df0a0cb"
       },
       "source_sha256": {
-        "cloaking.html": "742e202eb7928f820a35c1a9d23fac2957a2793b24de1268737291eb1b6b072c"
+        "cloaking.html": "b8eb4bf5a30dd78ef8515eee4342694a902c484abec031907c983f35f9f6440a"
       },
       "source_dependency_sha256": {}
     }
