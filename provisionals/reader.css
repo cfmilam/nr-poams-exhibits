@@ -1,0 +1,29 @@
+:root{color-scheme:dark;--bg:#0d0d18;--card:#151521;--edge:#303044;--fg:#e5e5ee;--muted:#aaaabd;--gold:#d0ad50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:var(--gold);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+.skip-link{position:absolute;top:-80px;left:16px;z-index:10;padding:8px 14px;background:var(--card)}
+.skip-link:focus{top:12px}
+.reader-nav{max-width:1240px;margin:auto;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px;border-bottom:1px solid var(--edge);font-size:13px}
+.reader-nav a{text-decoration:none}
+.reader-nav .family{color:var(--muted)}
+.reader-header{max-width:1000px;margin:auto;padding:30px 24px 24px;text-align:center}
+.reader-header .eyebrow{margin:0 0 8px;color:var(--gold);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+h1{margin:0;font:500 clamp(1.75rem,4vw,2.7rem)/1.2 Georgia,"Times New Roman",serif;letter-spacing:-.015em;text-wrap:balance}
+.document-meta{margin:10px 0 16px;color:var(--muted);font-size:13px}
+.reader-header .poams-listen{margin:0 auto 16px}
+.reader-header .pl-pills{gap:10px}
+.reader-header .pl-pill,.reader-header .pl-video{min-height:40px;padding:9px 20px}
+.reader-header .pl-pending{background:#1c2b2b;color:#b9c9c7;border-color:#4c6864;cursor:default}
+.reader-header .pl-pending small{font-size:10px;letter-spacing:0;text-transform:none;font-weight:400}
+.document-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 22px;font-size:13px}
+.document-actions a{display:inline-flex;align-items:center;min-height:32px}
+.document-shell{max-width:1240px;margin:0 auto;padding:0 24px}
+.pdf-reader{display:block;width:100%;height:calc(100dvh - 290px);min-height:620px;border:1px solid var(--edge);border-radius:8px;background:#292929}
+.reader-help{margin:10px 0 0;text-align:center;color:var(--muted);font-size:12px}
+.reader-pagination{max-width:1240px;margin:0 auto;padding:24px;display:flex;align-items:center;justify-content:space-between;gap:20px;font-size:13px}
+.reader-pagination a{padding:6px 0;text-decoration:none}
+.reader-pagination .position{color:var(--muted);white-space:nowrap}
+@media(max-width:600px){.reader-nav{padding:14px 16px}.reader-nav .family{font-size:11px}.reader-header{padding:26px 16px 20px}.document-shell{padding:0 10px}.pdf-reader{height:75dvh;min-height:440px}.reader-pagination{padding:20px 16px;gap:10px;font-size:12px}.reader-header .pl-pill,.reader-header .pl-video{min-height:44px}}
+@media print{body{background:#fff;color:#111}.reader-nav,.poams-listen,.reader-pagination,.reader-help{display:none}.reader-header{padding:10px}.pdf-reader{min-height:80vh}a{color:#111}}

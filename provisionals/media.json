@@ -1,0 +1,108 @@
+{
+  "provisionals": [
+    {
+      "id": "PROV-A",
+      "title": "Radius Management",
+      "pages": 46,
+      "document_label": "Assembled PDF",
+      "video": "https://notebook.google.com/notebook/18d956f8-998b-483f-9aaf-d225e9a07820",
+      "audio": "https://audio.resonantmachines.us/provisionals/PROV-A/cceaf1d171938b5b7d64650b23eccad482b164e7eba7533cca94be5f6a3f9f7a.mp3"
+    },
+    {
+      "id": "PROV-B",
+      "title": "Transportation",
+      "pages": 37,
+      "document_label": "Assembled PDF",
+      "video": "https://notebook.google.com/notebook/4bfec960-6a77-45d0-9f88-32b5617f635a",
+      "audio": "https://audio.resonantmachines.us/provisionals/PROV-B/aafd12fbd564574f27802a1f600cc1d11714068b8331991bee9a8465b177bb0b.mp3"
+    },
+    {
+      "id": "PROV-C",
+      "title": "Instruments & Metrology",
+      "pages": 32,
+      "document_label": "Assembled PDF",
+      "video": "https://notebook.google.com/notebook/3e1a4ed4-eb66-4d9b-a553-d8cee9d8d4d0",
+      "audio": "https://audio.resonantmachines.us/provisionals/PROV-C/6909e4cb2dc9caa90cf4031cadd798fcba95116c404c4951f634406e5759a9b2.mp3"
+    },
+    {
+      "id": "PROV-D",
+      "title": "Energy Storage",
+      "pages": 33,
+      "document_label": "Assembled PDF",
+      "video": "https://notebook.google.com/notebook/d3e0fe01-04f0-4076-9d46-cf1e08103511",
+      "audio": "https://audio.resonantmachines.us/provisionals/PROV-D/6f51fccea763be3d04ab3e766168f30d561da4e6d2c7c92b2038c31db624a6be.mp3"
+    },
+    {
+      "id": "PROV-E",
+      "title": "Media & Arrays",
+      "pages": 35,
+      "document_label": "Assembled PDF",
+      "video": "https://notebook.google.com/notebook/09fe1f7a-911d-4607-ab72-0351961b13c5",
+      "audio": "https://audio.resonantmachines.us/provisionals/PROV-E/c445eda189484aac1185c0ba67a3f3b33f5437593704ee071d4ebefe8d4ef87c.mp3"
+    },
+    {
+      "id": "PROV-F",
+      "title": "Memory & Signaling",
+      "pages": 35,
+      "document_label": "Assembled PDF",
+      "video": "https://notebook.google.com/notebook/851e5b86-68e6-4860-9e28-5ac74e2e8b62",
+      "audio": "https://audio.resonantmachines.us/provisionals/PROV-F/a27ef7eab982545eb0831e8cfa9d2ba09231c3104cb3166371bdb6687e477151.mp3"
+    },
+    {
+      "id": "PROV-G",
+      "title": "Time-Rate Management",
+      "pages": 48,
+      "document_label": "Assembled PDF",
+      "video": "https://notebook.google.com/notebook/654a591e-b19e-4725-aa36-2963ff1dfe70",
+      "audio": "https://audio.resonantmachines.us/provisionals/PROV-G/75b33503734802aff4be9bb80bc9ba4e246997e8f0cc47c9144c218388a4aac4.mp3"
+    },
+    {
+      "id": "PROV-H",
+      "title": "Computation",
+      "pages": 33,
+      "document_label": "Assembled PDF",
+      "video": "https://notebook.google.com/notebook/5ccc7e76-5118-4c67-b69b-5f84b5ab5e88",
+      "audio": "https://audio.resonantmachines.us/provisionals/PROV-H/2916ecbc8768b2501301400a50a795185460b4edd38efb657c533e1e00b1a80d.mp3"
+    },
+    {
+      "id": "PROV-I",
+      "title": "Molecular Design",
+      "pages": 31,
+      "document_label": "Assembled PDF",
+      "video": "https://notebook.google.com/notebook/ddd87373-9d31-4fc0-b9b3-c70cb36bf364",
+      "audio": "https://audio.resonantmachines.us/provisionals/PROV-I/09e20b9d97076f2eb2adc2ea6a729d583eb9e91343b424c2fe4b3062c4abf16c.mp3"
+    },
+    {
+      "id": "PROV-K",
+      "title": "Relational Interiors",
+      "pages": 21,
+      "document_label": "Filed PDF",
+      "video": "https://notebook.google.com/notebook/3e8e3fa5-eb29-4d52-9328-1b13537d66d7",
+      "audio": "https://audio.resonantmachines.us/provisionals/PROV-K/503c5cad1a4158fa4e979315e9de424cfae771e87bb541035d931aa38ffe74db.mp3"
+    },
+    {
+      "id": "PROV-L",
+      "title": "Boundary Translation",
+      "pages": 20,
+      "document_label": "Filed PDF",
+      "video": "https://notebook.google.com/notebook/5d1cf89f-3e91-4b63-811c-d6f74093889f",
+      "audio": "https://audio.resonantmachines.us/provisionals/PROV-L/fb0112cc4e7a78a38f312880912baf80c26d0446ceefef52fa03c4d86f8b4770.mp3"
+    },
+    {
+      "id": "PROV-M",
+      "title": "Addressed Adjacency",
+      "pages": 19,
+      "document_label": "Filed PDF",
+      "video": "https://notebook.google.com/notebook/15bd6cf2-efd6-43aa-9892-f50ccaf1b341",
+      "audio": "https://audio.resonantmachines.us/provisionals/PROV-M/e1f36f2a9a179dc34381948a99339cddbb7ec174905c8f5624b8b7746ec6cc0a.mp3"
+    },
+    {
+      "id": "PROV-N",
+      "title": "Counterfactual Receipts",
+      "pages": 21,
+      "document_label": "Filed PDF",
+      "video": "https://notebook.google.com/notebook/8edfc8db-7f48-4738-812b-3c054fe8a759",
+      "audio": "https://audio.resonantmachines.us/provisionals/PROV-N/9271b0f0232aba04ef14151ab1582a3e88ac09985f89f316649da4a804ba74ab.mp3"
+    }
+  ]
+}

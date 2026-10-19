@@ -1,0 +1,136 @@
+{
+  "schema": 1,
+  "status": "approved",
+  "episodes": [
+    {
+      "id": "PROV-A",
+      "order": 1,
+      "title": "Radius Management",
+      "approved": true,
+      "source_pdf": "provisionals/PROV-A.pdf",
+      "source_pdf_sha256": "c997b3c7220ced81ed502c32cfbc7e5f515b81cdbaea51d667837040363a6fec",
+      "audio_url": "https://audio.resonantmachines.us/provisionals/PROV-A/cceaf1d171938b5b7d64650b23eccad482b164e7eba7533cca94be5f6a3f9f7a.mp3",
+      "audio_sha256": "cceaf1d171938b5b7d64650b23eccad482b164e7eba7533cca94be5f6a3f9f7a"
+    },
+    {
+      "id": "PROV-B",
+      "order": 2,
+      "title": "Transportation",
+      "approved": true,
+      "source_pdf": "provisionals/PROV-B.pdf",
+      "source_pdf_sha256": "a7e82fc08c6b368a4a52d69679e18e268e9fc595cf52923f9fe922881f56e080",
+      "audio_url": "https://audio.resonantmachines.us/provisionals/PROV-B/aafd12fbd564574f27802a1f600cc1d11714068b8331991bee9a8465b177bb0b.mp3",
+      "audio_sha256": "aafd12fbd564574f27802a1f600cc1d11714068b8331991bee9a8465b177bb0b"
+    },
+    {
+      "id": "PROV-C",
+      "order": 3,
+      "title": "Instruments & Metrology",
+      "approved": true,
+      "source_pdf": "provisionals/PROV-C.pdf",
+      "source_pdf_sha256": "9cacca8d7cc3dbd60a7e456ca6caacafd69b383cadb9023b10a12a414d7726d0",
+      "audio_url": "https://audio.resonantmachines.us/provisionals/PROV-C/6909e4cb2dc9caa90cf4031cadd798fcba95116c404c4951f634406e5759a9b2.mp3",
+      "audio_sha256": "6909e4cb2dc9caa90cf4031cadd798fcba95116c404c4951f634406e5759a9b2"
+    },
+    {
+      "id": "PROV-D",
+      "order": 4,
+      "title": "Energy Storage",
+      "approved": true,
+      "source_pdf": "provisionals/PROV-D.pdf",
+      "source_pdf_sha256": "4dc7b698e7394bb050c0f2a572011906f92694e5ace99fa4f4c44b5e21d38941",
+      "audio_url": "https://audio.resonantmachines.us/provisionals/PROV-D/6f51fccea763be3d04ab3e766168f30d561da4e6d2c7c92b2038c31db624a6be.mp3",
+      "audio_sha256": "6f51fccea763be3d04ab3e766168f30d561da4e6d2c7c92b2038c31db624a6be"
+    },
+    {
+      "id": "PROV-E",
+      "order": 5,
+      "title": "Media & Arrays",
+      "approved": true,
+      "source_pdf": "provisionals/PROV-E.pdf",
+      "source_pdf_sha256": "4c116d4e2be262345caa945d96ce77268c17462b5b9f634f22c658b3922e17a3",
+      "audio_url": "https://audio.resonantmachines.us/provisionals/PROV-E/c445eda189484aac1185c0ba67a3f3b33f5437593704ee071d4ebefe8d4ef87c.mp3",
+      "audio_sha256": "c445eda189484aac1185c0ba67a3f3b33f5437593704ee071d4ebefe8d4ef87c"
+    },
+    {
+      "id": "PROV-F",
+      "order": 6,
+      "title": "Memory & Signaling",
+      "approved": true,
+      "source_pdf": "provisionals/PROV-F.pdf",
+      "source_pdf_sha256": "5de7e3458a81c43a4025355c54c1944ee57e40e159f092623035399a6eb2ee90",
+      "audio_url": "https://audio.resonantmachines.us/provisionals/PROV-F/a27ef7eab982545eb0831e8cfa9d2ba09231c3104cb3166371bdb6687e477151.mp3",
+      "audio_sha256": "a27ef7eab982545eb0831e8cfa9d2ba09231c3104cb3166371bdb6687e477151"
+    },
+    {
+      "id": "PROV-G",
+      "order": 7,
+      "title": "Time-Rate Management",
+      "approved": true,
+      "source_pdf": "provisionals/PROV-G.pdf",
+      "source_pdf_sha256": "f29a1e4c195094d424bcb99712babaf43a6fffa77f40007e7a9431866ea1398a",
+      "audio_url": "https://audio.resonantmachines.us/provisionals/PROV-G/75b33503734802aff4be9bb80bc9ba4e246997e8f0cc47c9144c218388a4aac4.mp3",
+      "audio_sha256": "75b33503734802aff4be9bb80bc9ba4e246997e8f0cc47c9144c218388a4aac4"
+    },
+    {
+      "id": "PROV-H",
+      "order": 8,
+      "title": "Computation",
+      "approved": true,
+      "source_pdf": "provisionals/PROV-H.pdf",
+      "source_pdf_sha256": "675d464bb6e85f4a54f918635ce91e392ce5134e6bfce46df551f5d4b9a3c6d5",
+      "audio_url": "https://audio.resonantmachines.us/provisionals/PROV-H/2916ecbc8768b2501301400a50a795185460b4edd38efb657c533e1e00b1a80d.mp3",
+      "audio_sha256": "2916ecbc8768b2501301400a50a795185460b4edd38efb657c533e1e00b1a80d"
+    },
+    {
+      "id": "PROV-I",
+      "order": 9,
+      "title": "Molecular Design",
+      "approved": true,
+      "source_pdf": "provisionals/PROV-I.pdf",
+      "source_pdf_sha256": "7c96881816622cc25c7d1faf6eae44e73bd88844a38f302eb75f89d41d5dab84",
+      "audio_url": "https://audio.resonantmachines.us/provisionals/PROV-I/09e20b9d97076f2eb2adc2ea6a729d583eb9e91343b424c2fe4b3062c4abf16c.mp3",
+      "audio_sha256": "09e20b9d97076f2eb2adc2ea6a729d583eb9e91343b424c2fe4b3062c4abf16c"
+    },
+    {
+      "id": "PROV-K",
+      "order": 10,
+      "title": "Relational Interiors",
+      "approved": true,
+      "source_pdf": "provisionals/PROV-K.pdf",
+      "source_pdf_sha256": "052abfee86af11cfda94c7b6a63cb2facaa6cb5e29d7204a067cde168c7ba074",
+      "audio_url": "https://audio.resonantmachines.us/provisionals/PROV-K/503c5cad1a4158fa4e979315e9de424cfae771e87bb541035d931aa38ffe74db.mp3",
+      "audio_sha256": "503c5cad1a4158fa4e979315e9de424cfae771e87bb541035d931aa38ffe74db"
+    },
+    {
+      "id": "PROV-L",
+      "order": 11,
+      "title": "Boundary Translation",
+      "approved": true,
+      "source_pdf": "provisionals/PROV-L.pdf",
+      "source_pdf_sha256": "ca411abea0dc0bd2d4319926ddb37445f8570ed169ff8e102ce3f90d1ea7d37b",
+      "audio_url": "https://audio.resonantmachines.us/provisionals/PROV-L/fb0112cc4e7a78a38f312880912baf80c26d0446ceefef52fa03c4d86f8b4770.mp3",
+      "audio_sha256": "fb0112cc4e7a78a38f312880912baf80c26d0446ceefef52fa03c4d86f8b4770"
+    },
+    {
+      "id": "PROV-M",
+      "order": 12,
+      "title": "Addressed Adjacency",
+      "approved": true,
+      "source_pdf": "provisionals/PROV-M.pdf",
+      "source_pdf_sha256": "588120e8535ebe9827502a6bdf25d99e60c283f5db361033132501e3ec4a172d",
+      "audio_url": "https://audio.resonantmachines.us/provisionals/PROV-M/e1f36f2a9a179dc34381948a99339cddbb7ec174905c8f5624b8b7746ec6cc0a.mp3",
+      "audio_sha256": "e1f36f2a9a179dc34381948a99339cddbb7ec174905c8f5624b8b7746ec6cc0a"
+    },
+    {
+      "id": "PROV-N",
+      "order": 13,
+      "title": "Counterfactual Receipts",
+      "approved": true,
+      "source_pdf": "provisionals/PROV-N.pdf",
+      "source_pdf_sha256": "ddec5949fdcf3247c6a98409bb23fd9ecbffcd7ea3e69ffc8634d9f0540a9fdd",
+      "audio_url": "https://audio.resonantmachines.us/provisionals/PROV-N/9271b0f0232aba04ef14151ab1582a3e88ac09985f89f316649da4a804ba74ab.mp3",
+      "audio_sha256": "9271b0f0232aba04ef14151ab1582a3e88ac09985f89f316649da4a804ba74ab"
+    }
+  ]
+}
