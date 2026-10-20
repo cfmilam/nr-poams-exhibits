@@ -21,6 +21,9 @@ main{max-width:920px;margin:auto;padding:25px 24px 92px}h2{margin:3.25rem 0 1rem
 @media print{.topbar{display:none}body{background:#fff;color:#191919}header{margin-top:0}.theme{display:none}}
 </style>
 <link rel="stylesheet" href="reader-standard.css">
+<link rel="stylesheet" href="direct-arrival-model.css">
+<script defer src="direct-arrival-model-core.js"></script>
+<script defer src="direct-arrival-model.js"></script>
 <!-- POAMS LISTEN BEGIN --><link rel="stylesheet" href="podcast-listen.css"><script defer src="podcast-listen.js"></script><!-- POAMS LISTEN END -->
 </head>
 <body class="reader-standard">
@@ -37,6 +40,7 @@ main{max-width:920px;margin:auto;padding:25px 24px 92px}h2{margin:3.25rem 0 1rem
 <!-- POAMS LISTEN END -->
 
 <p class="subtitle">A constructive account of direct arrival without a faster-than-light journey.</p>
+<p><a href="#synthetic-model">Explore the interactive two-ledger model ↓</a></p>
   <div class="thesis"><strong>A portal is not a tunnel bored through space.</strong> Observationally projected space is the macrophysically resolved user interface—the address display—not the physical route between addresses. If two distant completion addresses can be joined by one maintained boundary transaction, nothing crosses the displayed interval.</div>
 </header>
 <main>
@@ -111,6 +115,53 @@ main{max-width:920px;margin:auto;padding:25px 24px 92px}h2{margin:3.25rem 0 1rem
   </div>
   <p class="figure-caption">The second line is not established physics. It is the precise operation a portal program must construct and measure.</p>
 </div>
+
+<section aria-labelledby="synthetic-model">
+<h3 id="synthetic-model">3.4 Try it: two ledgers, one exchange</h3>
+<p>A new adjacency becomes more concrete when it changes the state of the connected organizations. This working model gives each of two six-node graphs its own stored amplitudes and phases. A source operation turns only node A0. The same reversible rule then evolves every active edge, including the shared A0–B0 connection; the receiver’s response follows from that evolution.</p>
+<div class="model-guide">
+<p><strong>Run three comparisons:</strong></p>
+<ol>
+  <li><strong>Connected:</strong> leave the exchange edge enabled, select <em>Turn A +¼ cycle</em>, then <em>Evolve 10 steps</em>. The phase operation initially changes only A; subsequent exchanges redistribute the account between A and B. Try the opposite phase after a reset.</li>
+  <li><strong>Disconnected:</strong> select <em>Reset</em>, disable the exchange edge, turn A, and evolve again. B continues its own local evolution, but its difference from the unpulsed comparison stays zero. Reset first so that an earlier transfer is not mistaken for a new response.</li>
+  <li><strong>Reversed:</strong> reset, enable the edge, turn A, and evolve. Use <em>Undo last operation</em> to reverse individual evolution steps and then the original phase operation. The inverse acts on the current state; it does not restore a saved picture.</li>
+</ol>
+<p>Node radius shows stored weight; each spoke shows phase. The combined account starts at <strong>2 model units</strong>. The receiver readout compares B with an independently stored run that receives the same edge settings but no A phase operations. These comparisons distinguish coupled evolution from a copied display, and new influence from previously retained state.</p>
+</div>
+<section id="portal-lab" aria-label="Synthetic coupled-ledger experiment">
+  <p><strong>Change A’s phase. Let both graphs evolve.</strong><br><span class="hint">Separate stored states · one reversible exchange rule · dimensionless model units.</span></p>
+  <div class="controls">
+    <button disabled id="pl-plus" class="primary">Turn A +¼ cycle</button><button disabled id="pl-minus">Turn A −¼ cycle</button>
+    <button disabled id="pl-step">Evolve 10 steps</button><button disabled id="pl-run">Run</button><button disabled id="pl-undo">Undo last operation</button><button disabled id="pl-reset">Reset</button>
+  </div>
+  <div class="controls"><label><input id="pl-link" type="checkbox" checked disabled> Enable shared exchange edge</label><span class="hint" id="pl-tick">Step 0</span></div>
+  <div class="graphs">
+    <div class="graph"><h3>Ledger A · source</h3><svg id="pl-a" viewBox="0 0 220 195" role="img" aria-label="Six-node source graph; radii show weights and spokes show phase"></svg><div class="number" id="pl-qa">1.000000</div><div class="hint">stored account · model units</div></div>
+    <div class="graph"><h3>Ledger B · receiver</h3><svg id="pl-b" viewBox="0 0 220 195" role="img" aria-label="Six-node receiver graph; radii show weights and spokes show phase"></svg><div class="number" id="pl-qb">1.000000</div><div class="hint">stored account · model units</div></div>
+  </div>
+  <div class="link" id="pl-bridge">A0 ↔ B0 · explicit coupling assumption</div>
+  <div class="readouts">
+    <div><strong id="pl-response">+0.000000</strong><span>B change versus an identical run without the A pulses</span></div>
+    <div><strong id="pl-total">2.000000</strong><span>combined account · starts at 2</span></div>
+    <div><strong id="pl-error">0.0e+0</strong><span>absolute conservation error · floating point</span></div>
+  </div>
+  <div class="status" id="pl-status" aria-live="polite">Start with “Turn A +¼ cycle”, then “Evolve 10 steps”. B is not edited by the pulse.</div>
+  <div class="plot"><span class="hint">Receiver response to A’s interventions · model units versus evolution step</span><svg id="pl-trace" viewBox="0 0 640 150" preserveAspectRatio="none" role="img" aria-label="Receiver account difference against the unpulsed comparison"></svg></div>
+  <div class="log" id="pl-log">Waiting for an operation.</div>
+  <p class="hint">To test independence: Reset → disable the exchange edge → turn A → evolve. B still has its own local dynamics, but no response to your A intervention.</p>
+  <noscript><p>The model requires JavaScript. The three comparisons and the exchange rule below remain readable without it.</p></noscript>
+  <details><summary>The rule and what this demonstrates</summary>
+    <p>Each vertex stores an independent complex pair (real, imaginary). Every active edge uses the same finite update:</p>
+    <p><code>a′ = cos(θ)a − i sin(θ)b<br>b′ = cos(θ)b − i sin(θ)a</code></p>
+    <p>This conserves |a|² + |b|². Reverse the edge order and negate every angle to undo evolution. A pulse rotates only node A0; it never writes B. The receiver’s subsequent response is computed from the evolving state, not from a stored answer or copy command.</p>
+    <p>Opposite source phases are different preparations, not inverse histories. Their response magnitudes need not match because phase also changes interference within the source graph. Use <em>Undo last operation</em> for the inverse of an operation already performed.</p>
+    <p>The thin ring lines are internal edges. The exchange edge connects A0 and B0. A reference simulation starts identically and receives the same edge settings but no A pulses. “B change” is the difference between those two histories.</p>
+    <p>Angles (.035 internal half-step; .085 exchange) and the graph are illustrative choices, not measured parameters. These are dimensionless coarse-grained amplitudes, not integer closure counts, measured energy, or a native derivation of angular momentum. Nodes and execution steps are discrete; amplitudes use floating-point complex numbers.</p>
+    <p>The model adopts the <a href="https://cfmilam.github.io/nr-poams-engineering/direct-arrival-research.html#physical-and-mathematical-receipt">research program’s two-mode exchange rule</a>. The exchange edge is an explicit assumption; the response is its computed consequence. Establishing such a retained interaction physically is a separate research question. With no coupling, source-only updates cannot change the receiver.</p>
+  </details>
+</section>
+<p class="prov">Interactive addition · 19 October 2026. The edge, graph and update angles are declared model inputs; the account is dimensionless. This demonstrates the consequences of an assumed interaction, not its physical existence or payload transport. The current audio edition does not include this interactive addition.</p>
+</section>
 
 <h2 id="c">4. Why this does not mean outrunning light</h2>
 <p>The measured light-speed rule governs the relation between local projected motion and local rate. In the adopted Pope–Osborne orthogonal-turn premise, internal count and projected motion are two calibrated components of one local turn. A portal cannot demand an ordinary worldline whose local spatial component exceeds that closure.</p>

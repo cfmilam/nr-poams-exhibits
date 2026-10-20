@@ -1,0 +1,16 @@
+/* Direct Arrival: scoped interactive model, 19 October 2026. */
+#portal-lab{--text:var(--fg);--muted:var(--mut);--border:var(--edge);font-family:var(--font-body,system-ui);color:var(--text,#202838);line-height:1.5;max-width:880px;margin:auto}
+#portal-lab *{box-sizing:border-box}#portal-lab p{margin:.45rem 0 .9rem}#portal-lab .hint{color:var(--muted,#657084);font-size:13px}
+#portal-lab .controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:12px 0}
+#portal-lab button{font:inherit;font-size:13px;border:1px solid var(--border,#ccd4e0);background:var(--card,#fff);color:inherit;border-radius:8px;min-height:42px;padding:7px 12px;cursor:pointer}
+#portal-lab button.primary{background:var(--blue);color:var(--bg);border-color:var(--blue)}#portal-lab button:focus-visible{outline:3px solid var(--violet);outline-offset:2px}#portal-lab button:disabled{opacity:.45;cursor:default}
+#portal-lab label{display:flex;gap:8px;align-items:center;font-size:14px;min-height:42px}#portal-lab input{width:18px;height:18px}
+#portal-lab .graphs{display:grid;grid-template-columns:1fr 1fr;gap:12px}#portal-lab .graph{border:1px solid var(--border,#ccd4e0);border-radius:12px;padding:12px;text-align:center;background:var(--card,#f7f9fc)}
+#portal-lab .graph h3{font-size:15px;margin:0}#portal-lab .graph svg{width:100%;max-width:260px;height:auto;display:block;margin:auto}#portal-lab .number{font-size:23px;font-variant-numeric:tabular-nums;font-weight:650}
+#portal-lab .link{margin:8px 0;padding:7px;text-align:center;font-size:13px;border-top:2px solid var(--violet);border-bottom:2px solid var(--violet)}#portal-lab .link.off{border-style:dashed;color:var(--muted,#657084)}
+#portal-lab .readouts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}#portal-lab .readouts div{padding:10px;background:var(--card,#f7f9fc);border-radius:8px}#portal-lab .readouts strong{display:block;font-size:18px;font-variant-numeric:tabular-nums}#portal-lab .readouts span{font-size:12px;color:var(--muted,#657084)}
+#portal-lab .plot svg{display:block;width:100%;height:150px}#portal-lab .log{font:12px var(--font-mono,monospace);white-space:pre-wrap;overflow-wrap:anywhere;padding:10px;background:var(--card,#f7f9fc);border:1px solid var(--border,#ccd4e0);border-radius:8px;min-height:75px}
+#portal-lab details{font-size:13px;margin-top:12px}#portal-lab summary{cursor:pointer;padding:8px 0}#portal-lab code{font-size:12px;overflow-wrap:anywhere}#portal-lab .status{min-height:44px;font-size:14px}
+@media(max-width:460px){#portal-lab .graphs{gap:7px}#portal-lab .graph{padding:8px 3px}#portal-lab .graph h3{font-size:13px}#portal-lab .number{font-size:20px}#portal-lab .readouts{grid-template-columns:1fr 1fr}#portal-lab .readouts div:last-child{grid-column:1/-1}#portal-lab button{flex:1 1 auto}}
+#synthetic-model{scroll-margin-top:66px}#portal-lab button,#portal-lab input{touch-action:manipulation}#portal-lab .hint{line-height:1.5}
+@media print{#portal-lab .controls,#portal-lab .status,#portal-lab .log{display:none}#portal-lab .graphs{break-inside:avoid}#portal-lab{--text:#191919;--muted:#555;--border:#bbb;--card:#fff;color:#191919}.model-guide{break-inside:avoid}}
