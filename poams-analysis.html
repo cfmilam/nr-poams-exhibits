@@ -507,6 +507,8 @@
 
         <p><strong>The conditional native derivation:</strong> conservation, the full closure condition and the branch boundary play different roles. The ratified <a href="https://github.com/cfmilam/nr-poams-engineering/blob/gh-pages/nbody/NCENTRE-CLOSURE-DERIVATION.md">n-centre closure derivation, §§1–4</a>, supplies P1–P5; none is silently replaced by a foreign force ontology.</p>
 
+        <p><strong>Source lineage:</strong> Osborne explicitly separates conservation from an equation of motion in <a href="./lectures/poams-lecture-13-orbital-motion.pdf#page=6">Lecture 13, p. 6</a>, and <a href="./lectures/poams-lecture-14-the-pope-osborne-angular-momentum-synthesis.pdf#page=8">Lecture 14, p. 8</a>. For fixed mass and a nonzero conserved orbital vector, planarity and equal-area timing follow. The radial law, its branch-selection conditions and its coefficient require their own stated inputs.</p>
+
         <p><strong>Step 1: Angular Momentum Conservation</strong></p>
         <ul>
             <li>Starting point: dL/dt = 0 (angular momentum is conserved)</li>
@@ -525,7 +527,7 @@
         <p><strong>Step 3: Bertrand's Theorem (Only Two Possibilities)</strong></p>
         <ul>
             <li>In the ideal isolated, regular central family write $\mathbf A=-H(r)\hat{\mathbf r}$</li>
-            <li>The ratified closure premise requires <strong>every stable bounded natural orbit</strong> in that family to close. Under the <a href="https://arxiv.org/abs/1008.0559">Bertrand theorem's conditions</a>, two radial branches remain. A single closed orbit is insufficient.</li>
+            <li>The ratified closure premise requires <strong>every bounded non-collision natural orbit</strong> in that stable central family to close. Under the <a href="https://arxiv.org/abs/1008.0559">Bertrand theorem's conditions</a>, two radial branches remain. A single closed orbit is insufficient.</li>
             <li>Either H(r) ∝ r (acceleration proportional to distance)</li>
             <li>Or H(r) ∝ 1/r² (inverse square relationship)</li>
         </ul>
@@ -616,8 +618,8 @@
             <li>Specific orbital angular momentum $\ell=L_o/m=rv$ = $2.96205\times10^9\;\mathrm{m^2/s}$</li>
         </ul>
 
-        <p><strong>Calculating the Preferred Orbit:</strong>
-        Using the mass's existing angular momentum, we calculate where it "wants" to orbit:</p>
+        <p><strong>Calculating the Same-Angular-Momentum Circular Reference:</strong>
+        The held state supplies the orbital angular momentum. Within the chosen inverse-square law, this fixes a circular reference radius; the actual trajectory after release also depends on energy and initial conditions.</p>
 
         <p><strong>G-prime Calculation:</strong></p>
         <ul>
@@ -629,17 +631,26 @@
         <p><strong>Comparison with Standard G:</strong></p>
         <ul>
             <li>$G/G'\approx289.291$ for the declared inputs</li>
-            <li>$G'$ encodes the held circular state; $G$ is the reference coefficient in this example</li>
+            <li>$G'$ encodes the prescribed circular motion; $G$ is the reference Newton-pair coefficient in this example. Neither definition establishes the proposed state-dependent physical coupling $\mathcal G$ discussed in §10.</li>
             <li>The mismatch quantifies the POAMS constraint in this model, not a new independent measurement of either coefficient</li>
         </ul>
 
-        <p><strong>The Natural Orbit Parameters:</strong>
-        Based on its conserved angular momentum, the mass's natural (force-free) orbit is:</p>
+        <p><strong>The Circular Reference Parameters:</strong>
+        With $\mu=GM$ fixed and $\ell=L_o/m$, the same-angular-momentum circle has:</p>
         <ul>
-            <li><strong>Formal force-free radius</strong>: $r_{\rm ff}=\ell^2/(GM)=L_o^2/(m^2GM)$, or <span data-audit="equator-radius-km">22.01936</span> km from the centre</li>
-            <li><strong>Formal orbital speed</strong>: $v_{\rm ff}=\ell/r_{\rm ff}\approx134.5203$ km/s; the product $r_{\rm ff}v_{\rm ff}=rv$ closes exactly before rounding</li>
-            <li>This radius is bookkeeping, not a navigable path; what matters is its <strong>direction</strong> — the natural orbit lies far <em>inside</em>, and the ground holds the mass off it</li>
+            <li><strong>Formal circular reference radius</strong>: $r_c=\ell^2/(GM)=L_o^2/(m^2GM)$, or <span data-audit="equator-radius-km">22.01936</span> km from the centre</li>
+            <li><strong>Formal circular speed</strong>: $v_c=\ell/r_c\approx134.5203$ km/s; the product $r_cv_c=rv$ closes exactly before rounding</li>
+            <li>This interior reference is a point-centre comparison, not a path through the extended Earth or the destination of a released body.</li>
         </ul>
+
+        <h2 id="same-angular-momentum-circle">The Circle Is an Energy Reference</h2>
+        <p>For the fixed inverse-square pair strength $\mu&gt;0$ and nonzero $\ell$, the specific orbital energy and its radial bookkeeping term are:</p>
+        <div class="equation">$$\begin{gathered}\varepsilon=\frac12\dot r^2+V_{\rm eff}(r),\\[4pt] V_{\rm eff}(r)=\frac{\ell^2}{2r^2}-\frac{\mu}{r}.\end{gathered}$$</div>
+        <p>$V_{\rm eff}$ is the effective potential of this mathematical chart, not a field or second substance. Its minimum at fixed $\ell$ gives the circle:</p>
+        <div class="equation">$$r_c=\frac{\ell^2}{\mu},\qquad \varepsilon_c=-\frac{\mu^2}{2\ell^2}.$$</div>
+        <p>A bound ellipse at the same $\ell$ has that radius as its <strong>semilatus rectum</strong> $p$, with semimajor axis $a$ and eccentricity $0\le e&lt;1$:</p>
+        <div class="equation">$$\begin{gathered}p=r_c=a(1-e^2),\\[4pt] e^2=1+\frac{2\varepsilon\ell^2}{\mu^2},\\[4pt] r_{\rm peri}=\frac{p}{1+e},\quad r_{\rm apo}=\frac{p}{1-e}.\end{gathered}$$</div>
+        <p>The circle is the minimum-energy member at fixed angular momentum, not an automatic destination. Removing a support preserves the instantaneous position and velocity unless an impulse is supplied; it does not dispose of the excess orbital energy. Any settlement into the circle must book the energy transfer or boundary work explicitly, as in the <a href="./spin-orbit-settlement-ledger.html">Spin–Orbit Settlement Ledger</a>. Osborne notes the non-uniqueness of a general orbit at given angular momentum in <a href="./lectures/poams-lecture-16-poams-and-circular-orbital-motion.pdf#page=4">Lecture 16, p. 4</a>; <a href="./lectures/poams-lecture-15-poams-and-the-two-body-problem.pdf#page=5">Lecture 15, pp. 5–8</a>, supplies the conditional energy/conic sequence.</p>
 
         <p><strong>The calculated support magnitude:</strong></p>
         <ul>
@@ -647,8 +658,10 @@
             <li>$F=m(GM/r^2-v^2/r)=$ <strong><span data-audit="equator-force">9.78582</span> N</strong> for these inputs; no exact 9.81 N measurement is claimed</li>
         </ul>
 
+        <p>Here positive signed support is radially outward. A prescribed circular state faster than its local free circular reference instead requires an inward constraint. A radial support can be nonzero while $\mathbf r\times\mathbf F_{\rm support}=0$: zero torque preserves orbital angular momentum but does not calculate the scale reading. <a href="./lectures/poams-lecture-16-poams-and-circular-orbital-motion.pdf#page=3">Lecture 16, pp. 3–5</a>, provides the held-state coefficient and circular comparison.</p>
+
         <blockquote>
-            <p><strong>POAMS interpretation:</strong> weight is the measured constraint required to hold a body off its natural orbit, not an in-vacuo attraction. The formal interior radius is a ledger comparison, not a proposed path through Earth. Its conversion to a local support magnitude here uses the displayed, idealized constraint law.</p>
+            <p><strong>POAMS interpretation:</strong> weight records the constraint preventing free continuation, not an in-vacuo attraction. The formal interior circle is a ledger comparison; the displayed support follows from the local difference between prescribed and free acceleration in the idealized model.</p>
         </blockquote>
 
         <h1 id="script-g">10. Script G: The Variable Newton-Pair Factor</h1>

@@ -86,6 +86,7 @@ button:disabled{opacity:.45;cursor:not-allowed}
 <p class="pl-error" role="status" hidden></p><audio preload="none" src="https://audio.resonantmachines.us/podcasts/32/31203cc901a91f44a56e2253f6eb65016ae6a36c413ccecafbaf6652483b64ad.mp3"></audio>
 </div>
 <!-- POAMS LISTEN END -->
+<p class="audio-edition-note" role="note">Audio edition: this recording predates the 20 October 2026 source clarifications. The written page is current; audio refresh is deferred.</p>
 
 <p class="nr-provenance" style="font-size:0.8em;font-style:italic;opacity:0.72;line-height:1.5;margin:0.5em 0 1em;text-align:center">This exhibit is an extrapolation of the foundational work of N. Vivian “Viv” Pope &amp; Dr. Anthony D. Osborne, PhD, in the philosophy of Normal Realism (NR) and the mathematics of the Pope Osborne Angular Momentum Synthesis (POAMS).</p>
 
@@ -100,6 +101,7 @@ button:disabled{opacity:.45;cursor:not-allowed}
 <h2>A · Orbit From Observables</h2>
 <p><b>Within the isolated inverse-square family</b>, apoapsis radius and speed plus periapsis radius determine the ellipse's size, eccentricity and period. They do not determine its orientation, epoch, or the two partners' barycentric shares. The sliders are example inputs, not newly acquired measurements. Changing them generally changes the inferred ledger invariant.</p>
 <div class="eqbox">$$h=r_a v_a=r_p v_p,\qquad v_0=\frac{v_a+v_p}{2},\qquad r_0=\frac{2r_a r_p}{r_a+r_p}=\frac{b^2}{a},\qquad \beta=\frac1{r_0},\qquad \mu=h v_0=\frac{h^2}{r_0}.$$</div>
+<p id="circular-reference">The reference $r_0$ is the ellipse's <b>semilatus rectum</b>, $a(1-e^2)=h^2/\mu$, and the radius of the circle with the same specific angular momentum at fixed $\mu$. It is not the ellipse's constant or mean radius. Energy and initial state select the actual radial excursion; releasing a constraint does not circularize the orbit. Reaching the same-$h$ circle requires an explicit energy-transfer account: see <a href="./poams-analysis.html#same-angular-momentum-circle">the energy calculation</a> and the <a href="./spin-orbit-settlement-ledger.html">Spin–Orbit Settlement Ledger</a>.</p>
 <p class="note">Here $h$ is specific orbital angular momentum, <em>not</em> Planck's constant. The radial law is additional content: its POAMS warrant is the <a href="https://github.com/cfmilam/nr-poams-engineering/blob/gh-pages/nbody/NCENTRE-CLOSURE-DERIVATION.md">ratified P1–P5 pair derivation</a>, not conservation alone. <b>Record-unit bridge:</b> radii and clock intervals are displayed in metres and seconds; $\mu$ is often written $GM$ in conventional records, but neither $G$ nor a central mass is an input here.</p>
 <div class="card panel">
   <div class="controls">
@@ -112,7 +114,7 @@ button:disabled{opacity:.45;cursor:not-allowed}
     <p class="note">Require $r_a\ge r_p$. Equal radii give a circle. The speed belongs to the named apoapsis; reversed radii are rejected, not silently exchanged.</p>
     <div class="readout" id="outA" aria-live="polite"></div>
   </div>
-  <div><canvas id="orbitCanvas" width="340" height="340" role="img" aria-label="Conditional ellipse with apoapsis, periapsis and the right-hand focus"></canvas><p class="note">Dashed segment: natural radius $r_0$ at the focus. Axes are an illustrative orientation.</p></div>
+  <div><canvas id="orbitCanvas" width="340" height="340" role="img" aria-label="Conditional ellipse with apoapsis, periapsis and the right-hand focus"></canvas><p class="note">Dashed segment: semilatus rectum $r_0$ from the focus, also the same-angular-momentum circular reference. Axes are an illustrative orientation.</p></div>
 </div>
 
 <h2>B · Intrinsic Spin and the Coupling Sign</h2>
@@ -202,6 +204,7 @@ button:disabled{opacity:.45;cursor:not-allowed}
 <li><b>Max Franks and Anthony Osborne</b>, <em>An Extrapolation of the Mathematics Related to An Angular Momentum Synthesis of “Gravitational” and “Electrostatic” Forces</em>, supplied QMC Exhibit III manuscript: apsis algebra Eqs. 17–21, p. 7; spin proposal Eqs. 45–55, pp. 12–13; future work and rest-energy expressions, §7 p. 15; proposed Lagrangian, Appendix A Eq. 62, p. 17. These locators refer to the supplied 20-page version; it is not represented as a validated navigation implementation.</li>
 <li><a href="https://github.com/cfmilam/nr-poams-engineering/blob/gh-pages/nbody/NCENTRE-CLOSURE-DERIVATION.md">The n-Centre Closure Derivation</a>, ratified 2026-09-09: premises §1, radial law §3, all-centre chart and reciprocal stepping §4, controlled channel scope and updated Galilean evidence §5.</li>
 <li><b>N. V. Pope and A. D. Osborne</b>, <em>Light-Speed, Gravitation and Quantum Instantaneity</em> (2007): the immediate two-ended interpretation. See the source route in <a href="./the-receiver-keys-the-exchange.html">The Receiver Keys the Exchange</a>.</li>
+<li><b>Anthony D. Osborne</b>, Series B <a href="./lectures/poams-lecture-14-the-pope-osborne-angular-momentum-synthesis.pdf#page=8">Lecture 14, p. 8</a>: conservation does not select a radial law; <a href="./lectures/poams-lecture-15-poams-and-the-two-body-problem.pdf#page=5">Lecture 15, pp. 5–8</a>: the conditional energy and conic derivation; <a href="./lectures/poams-lecture-16-poams-and-circular-orbital-motion.pdf#page=4">Lecture 16, pp. 4–5</a>: circular references and the non-uniqueness of a general orbit at fixed angular momentum.</li>
 <li><a href="https://archive.ymsc.tsinghua.edu.cn/pacm_paperurl/20170108202943351490867">H. Bruns, “Über die Integrale des Vielkörper-Problems,”</a> <em>Acta Mathematica</em> 11 (1887), 25–96. <b>H. Poincaré</b>, <em>Les méthodes nouvelles de la mécanique céleste</em>, Vol. I (1892), ch. V, “Non-existence des intégrales uniformes”: restricted mathematical nonintegrability results, not ontology tests.</li>
 <li><a href="https://doi.org/10.1038/338237a0">J. Laskar, “A numerical experiment on the chaotic behaviour of the Solar System,”</a> <em>Nature</em> 338 (1989), 237–238: source of the quoted numerical Lyapunov scale.</li>
 </ol>
@@ -236,7 +239,7 @@ function computeA(){
   catch(e){A=null;$('outA').textContent=e.message;$('outC').textContent='Correct Panel A before propagating.';$('runBtn').disabled=true;drawAll();return;}
   $('outA').innerHTML=row('periapsis speed vₚ',(A.vp/1e3).toFixed(3)+' km/s')+
     row('natural velocity v₀',(A.v0/1e3).toFixed(3)+' km/s')+
-    row('natural radius r₀',(A.r0/1e6).toFixed(3)+' ×10⁶ m')+
+    row('semilatus rectum r₀',(A.r0/1e6).toFixed(3)+' ×10⁶ m')+
     row('specific AM h',(A.h/1e9).toFixed(4)+' ×10⁹ m²/s')+
     row('β = 1/r₀',(A.beta*1e6).toFixed(5)+' ×10⁻⁶ m⁻¹')+
     row('invariant μ = h v₀',(A.mu/1e14).toFixed(5)+' ×10¹⁴ m³/s²')+
