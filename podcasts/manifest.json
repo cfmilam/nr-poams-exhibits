@@ -14,12 +14,12 @@
       "audio_sha256": "1da74f9c44f5388d6dea56ceef34544724833e325e2e7cf4e123b1f66021e093",
       "source_content_sha256": "d0323430147082c2ab6d4e477d8858c9639d6f03f6763248998206e8edae5222",
       "script_source_sha256": {
-        "the-world-is-language.html": "a3db8d92817240fd999bd8d1457cd9a8f13b1c715c5aaf2f57f14617ad970896",
-        "the-designers-reading.html": "85ea84548cb20243f06c0c274831f8d915d93f89c11766643ebfa7224749e9d3"
+        "the-designers-reading.html": "85ea84548cb20243f06c0c274831f8d915d93f89c11766643ebfa7224749e9d3",
+        "the-world-is-language.html": "a3db8d92817240fd999bd8d1457cd9a8f13b1c715c5aaf2f57f14617ad970896"
       },
       "source_sha256": {
-        "the-world-is-language.html": "01f7e8c11df268bea82a6958e400debddca7ac60a582b5ef6bfecf2c9db1d9f5",
-        "the-designers-reading.html": "3bc99848e9e2a6feb56c8c8bb58d8c12df5f409134e71896d3ef868e437d2880"
+        "the-designers-reading.html": "3bc99848e9e2a6feb56c8c8bb58d8c12df5f409134e71896d3ef868e437d2880",
+        "the-world-is-language.html": "01f7e8c11df268bea82a6958e400debddca7ac60a582b5ef6bfecf2c9db1d9f5"
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
@@ -214,16 +214,34 @@
       "approved": true,
       "audio_url": "https://audio.resonantmachines.us/podcasts/11/c809b7848cfa60158c82b66edd402d0f4e1a060bd856919c29f9edddf828d4b9.mp3",
       "audio_sha256": "c809b7848cfa60158c82b66edd402d0f4e1a060bd856919c29f9edddf828d4b9",
-      "source_content_sha256": "5a777be05cd3991f11e7cb7125379d3c0bdd5c23e4c128453b0ee207683cdd52",
+      "source_content_sha256": "a1267034fd8f36476caf8ce31092f22addbb8af9176f6e6251c1c1f5a90bb3e9",
       "script_source_sha256": {
         "inertia.html": "52084c023aec9fa7d74b8c24e336863b8ab0e45f1016eb6d44cff585146e8df3"
       },
       "source_sha256": {
-        "inertia.html": "5bbed56b15429d3416555fdab7a1379d18a4c1c0d350b366c905ac2930e700dd"
+        "inertia.html": "a2f1c24b4ab293d37fd9a63a4428dbd6b1e75264914847978d925175a594eee2"
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e",
         "scripts/inertia_operator_results.json": "641bf977de980c38c9e6fe1e292fab2462815e3f30ead6c8d7aa77201ef901c4"
+      },
+      "source_adoption": {
+        "kind": "reviewed-material-source-adoption",
+        "receipt_sha256": "cf12577ea9a660e58bc68508f89052a26def8ef9523fc99d9566c6ac3f751561",
+        "original_source_receipt_sha256": "612447e80723121517316236209316f0f8fc624c2434c3a9122585cf1596e958",
+        "old_semantic_sha256": "5a777be05cd3991f11e7cb7125379d3c0bdd5c23e4c128453b0ee207683cdd52",
+        "reviewed_semantic_sha256": "a1267034fd8f36476caf8ce31092f22addbb8af9176f6e6251c1c1f5a90bb3e9",
+        "source_review_sha256": "9b78441bd82d347e1df5c77df18ebca755063d58ce24be3f07c6e8890c369eb1",
+        "listener_review_sha256": "c3731ae08dce1305e9f20814d23de7cdf4f9ec2829a5a6714f11bf72cf3ad4bb",
+        "script_sha256": "9ca13615798b399d468095afd82286e8c37edb9241786aca86616d19c252a484",
+        "audio_sha256": "c809b7848cfa60158c82b66edd402d0f4e1a060bd856919c29f9edddf828d4b9",
+        "model": "gpt-5.6-sol",
+        "voices": {
+          "Hope": "tnSpp4vdxKPjI9w0GnoV",
+          "Jon": "Cz0K1kOv9tD8l0b5Qu53"
+        },
+        "tempo": 1.1,
+        "pitch_semitones": 0
       }
     },
     {
@@ -252,15 +270,15 @@
         "scripts/atomic_ledger.js": "858d497aad258f1070d0b347326bf1e81fdbd64fa5e132674abccb61b90d9908",
         "scripts/coulomb_calibrated.js": "f9b1ae9ddc4106332c78930558d0858f7cf767ed5302182f5298d01261b4c20d",
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e",
-        "scripts/correlated_atoms_results.json": "9e16940fd89faaed0a5f64f2148639927ffc70e93d5c40c29bb73aa8feff49e9",
-        "scripts/all_element_results.json": "5b1fdf55be5c1df9239c52ff44b99eb8130e2fbe100436c63525adbfe6e22c09",
         "scripts/whole_atom_results.json": "dd79474356ec0e68fd4aed5ab374f59ca6b4eeb01cbfb6ac2aec44d174f8f51c",
-        "scripts/atomic_ledger_results.json": "c776664df187d7e52751eec395f241885512cb5d839f3c3912abca6fbd791a24",
-        "scripts/all_element_table.csv": "d25261961d1de944576532f448474c11dc54821e59dc7927b48328e80916ebe2",
-        "scripts/whole_atom_handoff.json": "08a06f2d6c3c7e18a9fa69fd3ab2f1fb9ce36a52d724ab24a18e7533fb105858",
-        "scripts/atomic_count_partitions.csv": "d63bf11f83e20716adbee1f9de225d160394f07c261ef86c077612b9f44180e0",
         "scripts/all_element_state_index.json": "401fb05aa063496baaffac3639b96bcf773dc615cf893aa7cf38e4293a03cb93",
-        "scripts/whole_atom_helium_radial.csv": "cae40df76b1a88f3ffb57d4b374b7c69d8beee0d8c716179ee62802c64fd252f"
+        "scripts/correlated_atoms_results.json": "9e16940fd89faaed0a5f64f2148639927ffc70e93d5c40c29bb73aa8feff49e9",
+        "scripts/whole_atom_helium_radial.csv": "cae40df76b1a88f3ffb57d4b374b7c69d8beee0d8c716179ee62802c64fd252f",
+        "scripts/all_element_results.json": "5b1fdf55be5c1df9239c52ff44b99eb8130e2fbe100436c63525adbfe6e22c09",
+        "scripts/atomic_ledger_results.json": "c776664df187d7e52751eec395f241885512cb5d839f3c3912abca6fbd791a24",
+        "scripts/atomic_count_partitions.csv": "d63bf11f83e20716adbee1f9de225d160394f07c261ef86c077612b9f44180e0",
+        "scripts/whole_atom_handoff.json": "08a06f2d6c3c7e18a9fa69fd3ab2f1fb9ce36a52d724ab24a18e7533fb105858",
+        "scripts/all_element_table.csv": "d25261961d1de944576532f448474c11dc54821e59dc7927b48328e80916ebe2"
       }
     },
     {
@@ -354,15 +372,33 @@
       "approved": true,
       "audio_url": "https://audio.resonantmachines.us/podcasts/17/00635b264163090e1cf6bd896f495faac1d90fe021cf794f5110b85da648922b.mp3",
       "audio_sha256": "00635b264163090e1cf6bd896f495faac1d90fe021cf794f5110b85da648922b",
-      "source_content_sha256": "5ce2e8914a23e0ea753c47ea7c67f8aa86cdc60871f841cbd6c22a4bd920a5fd",
+      "source_content_sha256": "1bfac37ac2fca869ac7357eb45df0260d942008ffc382bcd7786e6b09a487047",
       "script_source_sha256": {
         "newton-from-tangled-trapped-rate-depletion.html": "fb9148eb822ccbc335cb70058c4f11923f55a4c4408b5bad8e5c018e7d8faee0"
       },
       "source_sha256": {
-        "newton-from-tangled-trapped-rate-depletion.html": "aa9203879ae10fb81476cd2523420e3afda4660b67239ea46cc4ee79419cc20b"
+        "newton-from-tangled-trapped-rate-depletion.html": "219945f8eaef92df71d89004881463b5090a00060a42bc655789b4a4644562f9"
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      },
+      "source_adoption": {
+        "kind": "reviewed-material-source-adoption",
+        "receipt_sha256": "24af04f1c38826d8a0aa5a031353eaec35a31558ced743b07182109eee3e9808",
+        "original_source_receipt_sha256": "ee2fcd0abf55d3e689db84ddd5424a75cb4c70f72e9de33a476acf1f61a5130f",
+        "old_semantic_sha256": "5ce2e8914a23e0ea753c47ea7c67f8aa86cdc60871f841cbd6c22a4bd920a5fd",
+        "reviewed_semantic_sha256": "1bfac37ac2fca869ac7357eb45df0260d942008ffc382bcd7786e6b09a487047",
+        "source_review_sha256": "e4b2e392701a17b81ffca91e1969a7a456b3a5b039d98a9461bdfc548562cbd1",
+        "listener_review_sha256": "bca17177c629f4025adf474785439ebe02b439f53d025ecddf75683c7b79ec53",
+        "script_sha256": "0b6afb989f83ab2be4a9418274aa30492ceeaf5051ae11fbcde1f9b531fd15b6",
+        "audio_sha256": "00635b264163090e1cf6bd896f495faac1d90fe021cf794f5110b85da648922b",
+        "model": "gpt-5.6-sol",
+        "voices": {
+          "Hope": "tnSpp4vdxKPjI9w0GnoV",
+          "Jon": "Cz0K1kOv9tD8l0b5Qu53"
+        },
+        "tempo": 1.1,
+        "pitch_semitones": 0
       }
     },
     {
@@ -505,13 +541,13 @@
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e",
-        "scripts/whole_atom_handoff.json": "08a06f2d6c3c7e18a9fa69fd3ab2f1fb9ce36a52d724ab24a18e7533fb105858",
-        "scripts/all_element_table.csv": "d25261961d1de944576532f448474c11dc54821e59dc7927b48328e80916ebe2",
-        "scripts/water_q_relaxation_results.json": "a863cd3627c02b35dbe0955f276bd51cbad1bf8067d1517d042cda2b778d785e",
-        "scripts/water_equilibrium_reference_results.json": "656d89ceefa94f5f8d449f2d2864dc18281e01c3dd89cc56ded19b912dda6e7c",
-        "scripts/water_reproducible_prediction_results.json": "1b20ae9ffd7c3aafc93de231a229824dc932e75fa471e0b5fede98ba558ec1a1",
         "scripts/molecular_reentry_results.json": "9494e5dfe275831248ca664676edb6e44158cd52352551d6753f3a81fa144623",
-        "scripts/all_element_state_index.json": "401fb05aa063496baaffac3639b96bcf773dc615cf893aa7cf38e4293a03cb93"
+        "scripts/water_equilibrium_reference_results.json": "656d89ceefa94f5f8d449f2d2864dc18281e01c3dd89cc56ded19b912dda6e7c",
+        "scripts/all_element_state_index.json": "401fb05aa063496baaffac3639b96bcf773dc615cf893aa7cf38e4293a03cb93",
+        "scripts/water_reproducible_prediction_results.json": "1b20ae9ffd7c3aafc93de231a229824dc932e75fa471e0b5fede98ba558ec1a1",
+        "scripts/whole_atom_handoff.json": "08a06f2d6c3c7e18a9fa69fd3ab2f1fb9ce36a52d724ab24a18e7533fb105858",
+        "scripts/water_q_relaxation_results.json": "a863cd3627c02b35dbe0955f276bd51cbad1bf8067d1517d042cda2b778d785e",
+        "scripts/all_element_table.csv": "d25261961d1de944576532f448474c11dc54821e59dc7927b48328e80916ebe2"
       }
     },
     {
@@ -665,15 +701,33 @@
       "approved": true,
       "audio_url": "https://audio.resonantmachines.us/podcasts/32/31203cc901a91f44a56e2253f6eb65016ae6a36c413ccecafbaf6652483b64ad.mp3",
       "audio_sha256": "31203cc901a91f44a56e2253f6eb65016ae6a36c413ccecafbaf6652483b64ad",
-      "source_content_sha256": "736ba7634e0c52bfd7d1446faef6d7e4892613e5343616b8505048ff0a308f5d",
+      "source_content_sha256": "39f1cf49187e4c0db92065aa22718b77051b5feb05b97774b84aadb51fe89ea2",
       "script_source_sha256": {
         "navigation-engine.html": "e8076b9130f13f288ecbbc498954cb19a2d0c28bc702b3951d5a3d5586f05760"
       },
       "source_sha256": {
-        "navigation-engine.html": "2a489b01ae69bc8fd94e29aafa8886065e6207072d2bb33f8a924cd9f8447791"
+        "navigation-engine.html": "ab2952c162751744be85e16bcbc7c5075ab11b3b71d9262f68292d914ab4b1e7"
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      },
+      "source_adoption": {
+        "kind": "reviewed-material-source-adoption",
+        "receipt_sha256": "332b6b7f897af74b187c5855d1617e6c1b4ebfd8b12f3c515be7c7aa7db21be6",
+        "original_source_receipt_sha256": "aa8c14c6956bceb074986eb20c31a840c1df631ac536f9ed9541d2be87faf7a1",
+        "old_semantic_sha256": "736ba7634e0c52bfd7d1446faef6d7e4892613e5343616b8505048ff0a308f5d",
+        "reviewed_semantic_sha256": "39f1cf49187e4c0db92065aa22718b77051b5feb05b97774b84aadb51fe89ea2",
+        "source_review_sha256": "c323371bac9cd12517cffe596f6f2560e05cc42f9b951cbcb2402a98073af09f",
+        "listener_review_sha256": "64fb63e329467df889d62c91a6730708ee2a857ac3c1a4438bf16fdd85d57356",
+        "script_sha256": "698a3a9bb6809a0d544b258b922c478b27a974af466b295897560dddd8fe5b66",
+        "audio_sha256": "31203cc901a91f44a56e2253f6eb65016ae6a36c413ccecafbaf6652483b64ad",
+        "model": "gpt-5.6-sol",
+        "voices": {
+          "Hope": "tnSpp4vdxKPjI9w0GnoV",
+          "Jon": "Cz0K1kOv9tD8l0b5Qu53"
+        },
+        "tempo": 1.1,
+        "pitch_semitones": 0
       }
     },
     {
@@ -805,15 +859,33 @@
       "approved": true,
       "audio_url": "https://audio.resonantmachines.us/podcasts/39/2044da104f769f3dbf768106e50393d97ac220bb617a4eecebd70a061d427191.mp3",
       "audio_sha256": "2044da104f769f3dbf768106e50393d97ac220bb617a4eecebd70a061d427191",
-      "source_content_sha256": "2d29a5d75985c305d647d97e70ed265d95de5bcf6396f567622c9c8855ce4b0d",
+      "source_content_sha256": "43ddf1117a0f86e1d3055df1482329939a367d40af96eac8e6e0606d6f47bb5f",
       "script_source_sha256": {
         "the-poams-brilliant-vortex-atom.html": "0e162bcd4ba4040796d7af3b3f39931f38f9db7b73777ec706a57ef1b8820e12"
       },
       "source_sha256": {
-        "the-poams-brilliant-vortex-atom.html": "74d8db3327a580d2fffdd337f651af8fd532668bf2928d59832aff732a36804a"
+        "the-poams-brilliant-vortex-atom.html": "e983a8c34e8765d61c64c9d46b1434f37570e9e329d0196dc38b5f9c7119610d"
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      },
+      "source_adoption": {
+        "kind": "reviewed-material-source-adoption",
+        "receipt_sha256": "bb4ef01cc9b6deb855cf2541a9a0d9db8e94c56aa8bd7a1aa995f64eb8d0afa7",
+        "original_source_receipt_sha256": "f9d4351b9e11ecae1ba4a3af758c416892f097ff6bff7b10fdc372d90a27e979",
+        "old_semantic_sha256": "2d29a5d75985c305d647d97e70ed265d95de5bcf6396f567622c9c8855ce4b0d",
+        "reviewed_semantic_sha256": "43ddf1117a0f86e1d3055df1482329939a367d40af96eac8e6e0606d6f47bb5f",
+        "source_review_sha256": "f76bc969711377f929063baa75f091d346da941a894bb4081e73e2d6b7777d87",
+        "listener_review_sha256": "6389ca9fdfb8db9d9909e0ffcf7b72f8d4ad91b88d4d732e9ad5bd8b96adb352",
+        "script_sha256": "44c7ac48ace2f24ebf73bfb3e928060103ab0b8b1c44579e9bad661d180ec075",
+        "audio_sha256": "2044da104f769f3dbf768106e50393d97ac220bb617a4eecebd70a061d427191",
+        "model": "gpt-5.6-sol",
+        "voices": {
+          "Hope": "tnSpp4vdxKPjI9w0GnoV",
+          "Jon": "Cz0K1kOv9tD8l0b5Qu53"
+        },
+        "tempo": 1.1,
+        "pitch_semitones": 0
       }
     },
     {
@@ -865,15 +937,33 @@
       "approved": true,
       "audio_url": "https://audio.resonantmachines.us/podcasts/42/8aacae1cdc12932bf8a41683b728e9d42d9e857b3c77d9c92e74cef1548ac83c.mp3",
       "audio_sha256": "8aacae1cdc12932bf8a41683b728e9d42d9e857b3c77d9c92e74cef1548ac83c",
-      "source_content_sha256": "ffc55ed4a29740f50cad749181d572bca6924b5e35f466d4a10c75fb8d460365",
+      "source_content_sha256": "30738c9917090136d4e267f5a35cd66222ffe85a6a0086fddf66815501efa777",
       "script_source_sha256": {
         "the-poams-brilliant-vortex-atom.html": "0e162bcd4ba4040796d7af3b3f39931f38f9db7b73777ec706a57ef1b8820e12"
       },
       "source_sha256": {
-        "the-poams-brilliant-vortex-atom.html": "74d8db3327a580d2fffdd337f651af8fd532668bf2928d59832aff732a36804a"
+        "the-poams-brilliant-vortex-atom.html": "e983a8c34e8765d61c64c9d46b1434f37570e9e329d0196dc38b5f9c7119610d"
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      },
+      "source_adoption": {
+        "kind": "reviewed-material-source-adoption",
+        "receipt_sha256": "f484648e055090ef0a24e1e0e1b9d51576ab6c7ff0113b0e830d6101b102ef8b",
+        "original_source_receipt_sha256": "03883cc52ec1d28eeaf9c754049527265895c90ebd322893d3e1a888da1dc971",
+        "old_semantic_sha256": "ffc55ed4a29740f50cad749181d572bca6924b5e35f466d4a10c75fb8d460365",
+        "reviewed_semantic_sha256": "30738c9917090136d4e267f5a35cd66222ffe85a6a0086fddf66815501efa777",
+        "source_review_sha256": "d2ce0514abfb6385612f02dc65fafb13aa3610466fc3ca8bd67f116ed111649f",
+        "listener_review_sha256": "0b07cc8b9beb952829c6c725a09356ecb7a27d3a9d2aa529a7493c07d9ce6e16",
+        "script_sha256": "ab325394d585699fa38230aea8f64c47710ea84afd8418a7a06dc253a206f8ba",
+        "audio_sha256": "8aacae1cdc12932bf8a41683b728e9d42d9e857b3c77d9c92e74cef1548ac83c",
+        "model": "gpt-5.6-sol",
+        "voices": {
+          "Hope": "tnSpp4vdxKPjI9w0GnoV",
+          "Jon": "Cz0K1kOv9tD8l0b5Qu53"
+        },
+        "tempo": 1.1,
+        "pitch_semitones": 0
       }
     },
     {
@@ -1045,15 +1135,33 @@
       "approved": true,
       "audio_url": "https://audio.resonantmachines.us/podcasts/51/33409a962dc1954e56d6132ac94d48922e9e93776454ead60c512c27e96b9f90.mp3",
       "audio_sha256": "33409a962dc1954e56d6132ac94d48922e9e93776454ead60c512c27e96b9f90",
-      "source_content_sha256": "1b393bdca973189a0da5a5c7eb346d83177274d77b6c17dcbd703778e2ae41da",
+      "source_content_sha256": "5f6a222d25c7217cc8bac6681ba932b40672b45b859bfe975b966ba736d6eac1",
       "script_source_sha256": {
         "the-poams-brilliant-vortex-atom.html": "0e162bcd4ba4040796d7af3b3f39931f38f9db7b73777ec706a57ef1b8820e12"
       },
       "source_sha256": {
-        "the-poams-brilliant-vortex-atom.html": "74d8db3327a580d2fffdd337f651af8fd532668bf2928d59832aff732a36804a"
+        "the-poams-brilliant-vortex-atom.html": "e983a8c34e8765d61c64c9d46b1434f37570e9e329d0196dc38b5f9c7119610d"
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      },
+      "source_adoption": {
+        "kind": "reviewed-material-source-adoption",
+        "receipt_sha256": "b3c3260d94865beab92982b585ac195482d2e10c34500ba9f81d7ddc1bc376f0",
+        "original_source_receipt_sha256": "4d2b9b98a1ebe0480c8532c83bba466b1b6a7aa91780d108caf2fabeed8b4843",
+        "old_semantic_sha256": "1b393bdca973189a0da5a5c7eb346d83177274d77b6c17dcbd703778e2ae41da",
+        "reviewed_semantic_sha256": "5f6a222d25c7217cc8bac6681ba932b40672b45b859bfe975b966ba736d6eac1",
+        "source_review_sha256": "8376b7d4479d371e63fae13eb624cdcd672ceccede1a7b3861631b90b012f8d1",
+        "listener_review_sha256": "434658c293591b2c31cd5830ae71ca02d9816674e079b2c87e230da6004afa56",
+        "script_sha256": "1391a6c14327ee654ad1316b549915534bad0a420338fca4ebcdb2bcf9208f09",
+        "audio_sha256": "33409a962dc1954e56d6132ac94d48922e9e93776454ead60c512c27e96b9f90",
+        "model": "gpt-5.6-sol",
+        "voices": {
+          "Hope": "tnSpp4vdxKPjI9w0GnoV",
+          "Jon": "Cz0K1kOv9tD8l0b5Qu53"
+        },
+        "tempo": 1.1,
+        "pitch_semitones": 0
       }
     },
     {
@@ -1139,16 +1247,19 @@
         "no-holes-in-space.html"
       ],
       "approved": true,
-      "audio_url": "https://audio.resonantmachines.us/podcasts/56/cfb50ea7a5287bfc87158ee8674b53f03584bcede3b93bc6cb084a8bba0bee5f.mp3",
-      "audio_sha256": "cfb50ea7a5287bfc87158ee8674b53f03584bcede3b93bc6cb084a8bba0bee5f",
-      "source_content_sha256": "fd255751f73ca20e684125d6d1ed565e2cf9b33cd67e7aa986766a9f6f58b083",
+      "audio_url": "https://audio.resonantmachines.us/podcasts/56/89f8dfb819f674b2bf55e697caabef961bbbb35a0e31dc868a8fe49f03c88600.mp3",
+      "audio_sha256": "89f8dfb819f674b2bf55e697caabef961bbbb35a0e31dc868a8fe49f03c88600",
+      "source_content_sha256": "797b5be529a6eae10ab61f4d012833d6bdefa7a2f82ac23a99a5d86332007606",
       "script_source_sha256": {
-        "no-holes-in-space.html": "078bef25b00bf8c203809525071510efd80793a7625f8a75bc4a1785be680d59"
+        "no-holes-in-space.html": "ea34ae2e2b5835a8104a2106d9edbaabe74a0d6c19d3162ba0a02a70a653da1b"
       },
       "source_sha256": {
-        "no-holes-in-space.html": "6d18faf91826db86205285030dadf4839be341308946cea19b739d3453a45a4e"
+        "no-holes-in-space.html": "52ee27723d8122c3e7091439ba880aeca48493b794ad5882d1cbeb7a90dc3a85"
       },
-      "source_dependency_sha256": {}
+      "source_dependency_sha256": {
+        "direct-arrival-model.js": "a4c7dd588026fee273d5f7bc54ff51d8fce3eb919aa2304720d9bbe7776ee6e9",
+        "direct-arrival-model-core.js": "be3f381ae1e85e170078bf0ace54114ec92d09bce29919bae6f373365d8b784c"
+      }
     },
     {
       "order": 57,
