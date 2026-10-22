@@ -166,6 +166,8 @@ body {
 .creed-cell p em { color:var(--blue); font-style:normal; }
 .creed-cell code { font-family:'SF Mono',ui-monospace,Menlo,monospace; font-size:0.8rem; color:var(--gold2); background:var(--surface); padding:0.05em 0.35em; border-radius:4px; }
 .foundation-pills { display:flex; flex-wrap:wrap; gap:0.5rem 0.75rem; justify-content:center; margin:1rem auto 0; }
+.foundation-feature { flex-basis:100%; margin-top:0.65rem; padding-top:1.1rem; position:relative; }
+.foundation-feature::before { content:""; position:absolute; top:0; left:50%; transform:translateX(-50%); width:180px; height:1px; background:linear-gradient(to right,transparent,var(--gold),transparent); opacity:0.4; }
 .action-note { margin-top:1.4rem; padding:clamp(1.2rem,3vw,2rem); text-align:left; background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); }
 .action-note h3 { font-family:'Inter',sans-serif; font-size:1.08rem; font-weight:600; color:var(--fg); line-height:1.4; margin-bottom:1rem; }
 .action-note p { font-size:0.95rem; color:var(--fg2); margin-bottom:0.9rem; }
@@ -555,19 +557,6 @@ footer {
   letter-spacing: 0.08em;
   margin-bottom: 1.5rem;
 }
-.footer-links {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-.footer-links a {
-  font-size: 0.82rem;
-  color: var(--fg2);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.footer-links a:hover { color: var(--gold); }
 
 /* ─── Divider ─────────────────────────────────────────────────────────── */
 .divider {
@@ -603,7 +592,10 @@ footer {
   <nav class="foundation-pills" aria-label="Ontology foundations">
     <a class="step-link" href="./the-designers-reading.html" target="_blank" rel="noopener">The Logos</a>
     <a class="step-link" href="./the-world-is-language.html" target="_blank" rel="noopener">The World Is Language</a>
-    <a class="step-link" href="./the-rules-of-persistence.html" target="_blank" rel="noopener">The Rules of Persistence</a>
+    <a class="step-link" href="./poams-analysis.html" target="_blank" rel="noopener">POAMS Historical Framework</a>
+    <div class="foundation-feature">
+      <a class="step-link" href="./the-rules-of-persistence.html" target="_blank" rel="noopener">The Rules of Persistence</a>
+    </div>
   </nav>
 </section>
 
@@ -1216,7 +1208,7 @@ const obs = new IntersectionObserver((entries) => {
 steps.forEach(s => obs.observe(s));
 }
 
-/* Count unique linked local HTML documents, including the footer overview.
+/* Count unique linked local HTML documents, including the foundation links.
    Repeated destinations and fragments count once; PDFs/external archives do not.
    Keep the no-JavaScript fallback (currently 82) synchronized when adding pages. */
 function updateExhibitCount() {
@@ -1301,12 +1293,6 @@ wide open.</em></p>
       <strong>N. Vivian “Viv” Pope</strong> &ensp;&amp;&ensp; <strong>Dr. Anthony D. Osborne, PhD</strong>
     </div>
     <div class="footer-tagline">Normal Realism &nbsp;·&nbsp; Pope–Osborne Angular Momentum Synthesis</div>
-    <div class="footer-links">
-      <a href="https://cfmilam.github.io/nr-poams-papers/" target="_blank" rel="noopener">Papers Archive</a>
-      <a href="https://cfmilam.github.io/nr-poams-books/" target="_blank" rel="noopener">Books</a>
-      <a href="https://cfmilam.github.io/nr-poams-engineering/" target="_blank" rel="noopener">Engineering</a>
-      <a href="./poams-analysis.html" target="_blank" rel="noopener">POAMS Analysis Exhibit</a>
-    </div>
   </div>
 </footer>
 </body>
