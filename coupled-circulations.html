@@ -1,0 +1,928 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coupled Circulations — POAMS</title>
+<script>
+/* Paper reader preference; leaves the corpus's fixed-theme keys untouched. */
+(() => {
+  'use strict';
+  const key = 'poams-exhibit-theme';
+  const root = document.documentElement;
+  let initial = 'dark';
+  try {
+    const saved = localStorage.getItem(key);
+    if (saved === 'light' || saved === 'dark') initial = saved;
+  } catch (_) { /* Reading and switching still work without browser storage. */ }
+  root.dataset.theme = initial;
+  document.addEventListener('DOMContentLoaded', () => {
+    const button = document.getElementById('paper-theme-toggle');
+    const update = () => {
+      const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      button.textContent = next === 'light' ? 'Light mode' : 'Dark mode';
+      button.setAttribute('aria-label', `Switch to ${next} mode`);
+    };
+    button.hidden = false;
+    button.addEventListener('click', () => {
+      root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      try { localStorage.setItem(key, root.dataset.theme); } catch (_) {}
+      update();
+    });
+    update();
+  });
+})();
+</script>
+<link rel="stylesheet" href="./exhibit-presentation.css">
+<link rel="stylesheet" href="./reader-standard.css">
+<style>
+/* Paper-only layout glue; shared corpus typography and colors remain authoritative. */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; }
+a { text-underline-offset: .18em; }
+h2, h3, [id] { scroll-margin-top: 64px; }
+.standard-exhibit #poams-hub-nav {
+  align-items: center;
+  padding: 0 16px;
+}
+#poams-hub-nav a {
+  min-width: 0;
+  text-decoration: none;
+  padding: 5px 8px;
+  border-radius: 6px;
+}
+#poams-hub-nav a:hover { background: rgba(212,175,55,.1); }
+#poams-hub-nav .phn-center {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+}
+#poams-hub-nav .phn-pos { color: var(--muted); }
+.hero .eyebrow { color: var(--muted); text-transform: uppercase; }
+.hero .provenance { margin-top: 1rem; font-weight: 400; }
+.hero .provenance strong { font-weight: 400; }
+.paper-contents {
+  margin: 0 0 1.4rem;
+  padding: .85rem 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--reader-inset);
+}
+summary { cursor: pointer; color: var(--gold); font-weight: 600; }
+#TOC ul { list-style: none; padding-left: 1.2rem; }
+#TOC > ul { padding-left: 0; }
+#TOC li { margin: .4rem 0; }
+#TOC a { text-decoration: none; }
+#TOC a:hover { text-decoration: underline; }
+.panel ul, .panel ol { padding-left: 1.45rem; }
+.panel li { margin: .45rem 0; }
+.panel > :last-child { margin-bottom: 0; }
+.table-scroll {
+  margin: 1rem 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overscroll-behavior-x: contain;
+}
+table { width: 100%; border-collapse: collapse; }
+th, td {
+  padding: .7rem .85rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+  overflow-wrap: break-word;
+}
+th { color: var(--gold); font-weight: 600; background: var(--reader-inset); }
+tr:last-child td { border-bottom: 0; }
+tr:nth-child(even) td { background: rgba(255,255,255,.018); }
+.math.display {
+  display: block;
+  padding: .85rem .75rem;
+  margin: 1.1rem 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--reader-inset);
+  overscroll-behavior-x: contain;
+}
+math[display="block"] {
+  width: max-content;
+  min-width: 100%;
+  margin: .1em 0;
+  font-size: 1.1em;
+}
+code { font-family: 'SFMono-Regular', Menlo, Consolas, monospace; font-size: .9em; overflow-wrap: anywhere; }
+pre { overflow-x: auto; background: var(--reader-inset); }
+blockquote { margin-left: 0; padding-left: 1.2rem; border-left: 3px solid var(--gold); color: var(--muted); }
+footer {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1.2rem 1rem 2rem;
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+}
+.skip-link { position: fixed; top: -60px; left: 8px; z-index: 10001; }
+.skip-link:focus { top: 6px; padding: 6px; background: var(--reader-card); }
+@media (max-width: 640px) {
+  .standard-exhibit #poams-hub-nav { padding: 0 4px; gap: 0; font-size: 11px; }
+  #poams-hub-nav a { padding: 5px 4px; }
+  #poams-hub-nav .phn-pos { display: none; }
+  .hero .eyebrow { font-size: 10px; letter-spacing: .07em; }
+  .paper-contents { padding: .8rem 1rem; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* Opt-in paper reader override. Shared corpus assets remain byte-identical. */
+html[data-theme]:has(body.coupled-circulations) { color-scheme: dark !important; }
+html[data-theme="light"]:has(body.coupled-circulations) { color-scheme: light !important; }
+html[data-theme] body.reader-standard.coupled-circulations {
+  --paper-bg: #0d0d18;
+  --paper-card: #1c1c30;
+  --paper-inset: #10101d;
+  --paper-fg: #e8e8f0;
+  --paper-muted: #aaaabd;
+  --paper-gold: #d4af37;
+  --paper-blue: #5bc8f5;
+  --paper-border: #303046;
+  --paper-nav: rgba(13,13,24,.96);
+  --bg: var(--paper-bg) !important;
+  --text: var(--paper-fg) !important;
+  --muted: var(--paper-muted) !important;
+  --gold: var(--paper-gold) !important;
+  --line: var(--paper-border) !important;
+  --reader-bg: var(--paper-bg) !important;
+  --reader-card: var(--paper-card) !important;
+  --reader-inset: var(--paper-inset) !important;
+  --reader-fg: var(--paper-fg) !important;
+  --reader-muted: var(--paper-muted) !important;
+  --reader-gold: var(--paper-gold) !important;
+  --reader-blue: var(--paper-blue) !important;
+  --reader-border: var(--paper-border) !important;
+  color-scheme: dark !important;
+  background: var(--paper-bg) !important;
+  color: var(--paper-fg) !important;
+}
+html[data-theme="light"] body.reader-standard.coupled-circulations {
+  --paper-bg: #ffffff;
+  --paper-card: #fffdf8;
+  --paper-inset: #f6f4ee;
+  --paper-fg: #2a2a2a;
+  --paper-muted: #6f6655;
+  --paper-gold: #806008;
+  --paper-blue: #075f91;
+  --paper-border: #ded8ca;
+  --paper-nav: rgba(255,255,255,.96);
+  color-scheme: light !important;
+}
+body.reader-standard.coupled-circulations #poams-hub-nav {
+  background: var(--paper-nav) !important;
+  border-bottom-color: var(--paper-border) !important;
+}
+body.reader-standard.coupled-circulations #poams-hub-nav a { color: var(--paper-gold) !important; }
+body.reader-standard.coupled-circulations #poams-hub-nav .phn-title { color: var(--paper-fg) !important; }
+body.reader-standard.coupled-circulations .hero .provenance { color: var(--paper-muted) !important; }
+.coupled-circulations .reader-actions { display: flex; justify-content: flex-end; margin: -.75rem 0 .75rem; }
+.coupled-circulations #paper-theme-toggle {
+  min-height: 36px;
+  padding: .4rem .75rem;
+  border: 1px solid var(--paper-border);
+  border-radius: 8px;
+  color: var(--paper-fg);
+  background: var(--paper-card);
+  cursor: pointer;
+}
+.coupled-circulations #paper-theme-toggle:hover { border-color: var(--paper-gold); }
+.coupled-circulations #paper-theme-toggle[hidden] { display: none; }
+@media print {
+  html[data-theme]:has(body.coupled-circulations) { color-scheme: light !important; }
+  html[data-theme] body.reader-standard.coupled-circulations {
+    --paper-bg: #ffffff;
+    --paper-card: #ffffff;
+    --paper-inset: #ffffff;
+    --paper-fg: #2a2a2a;
+    --paper-muted: #514a3e;
+    --paper-gold: #655000;
+    --paper-blue: #075f91;
+    --paper-border: #b5b5b5;
+    color-scheme: light !important;
+    padding: 0 !important;
+  }
+  body.coupled-circulations #poams-hub-nav,
+  body.coupled-circulations .reader-actions,
+  body.coupled-circulations .skip-link { display: none !important; }
+}
+</style>
+</head>
+<body class="reader-standard standard-exhibit coupled-circulations">
+<a class="skip-link" href="#paper">Skip to paper</a>
+<nav id="poams-hub-nav" aria-label="Exhibit navigation">
+  <a href="./index.html#the-quantum">← <span>Completion</span></a>
+  <a class="phn-center" href="./index.html"><span class="phn-title">Return to Hub</span><span class="phn-pos">NR · POAMS · EXHIBIT SERIES</span></a>
+  <a href="./time-rope.html"><span>Time-Rope</span> →</a>
+</nav>
+<header class="hero">
+  <div class="reader-actions"><button id="paper-theme-toggle" type="button" hidden>Light mode</button></div>
+  <div class="eyebrow">Gravitation and Cosmology · Completion</div>
+  <h1>Coupled Circulations</h1>
+  <p class="subtitle" id="two-ended-reclosure-from-an-admitted-exchange-to-complete-new-circulations">Two-ended
+reclosure: from an admitted exchange to complete new circulations</p>
+  <p class="provenance"><strong>24 October 2026 · POAMS circulation research ·
+Reviewed paper</strong></p>
+</header>
+<main id="paper">
+<details class="paper-contents"><summary>Contents</summary><nav id="TOC" role="doc-toc">
+<ul>
+<li><a
+href="#two-ended-reclosure-from-an-admitted-exchange-to-complete-new-circulations"
+id="toc-two-ended-reclosure-from-an-admitted-exchange-to-complete-new-circulations">Two-ended
+reclosure: from an admitted exchange to complete new circulations</a>
+<ul>
+<li><a href="#the-result-in-plain-language"
+id="toc-the-result-in-plain-language">The result in plain
+language</a></li>
+<li><a href="#what-was-supplied-and-what-was-solved"
+id="toc-what-was-supplied-and-what-was-solved">1. What was supplied, and
+what was solved</a></li>
+<li><a href="#an-admitted-edge-has-a-determined-momentum-posting"
+id="toc-an-admitted-edge-has-a-determined-momentum-posting">2. An
+admitted edge has a determined momentum posting</a></li>
+<li><a href="#the-source-and-its-weak-boundary-mismatch"
+id="toc-the-source-and-its-weak-boundary-mismatch">3. The source and its
+weak boundary mismatch</a></li>
+<li><a href="#two-admitted-edges-complete-reorientation-without-recoil"
+id="toc-two-admitted-edges-complete-reorientation-without-recoil">4. Two
+admitted edges: complete reorientation without recoil</a></li>
+<li><a href="#one-admitted-edge-circulation-energy-becomes-recoil"
+id="toc-one-admitted-edge-circulation-energy-becomes-recoil">5. One
+admitted edge: circulation energy becomes recoil</a></li>
+<li><a
+href="#reclosure-constrains-admission-but-does-not-finish-selecting-it"
+id="toc-reclosure-constrains-admission-but-does-not-finish-selecting-it">6.
+Reclosure constrains admission, but does not finish selecting
+it</a></li>
+<li><a href="#the-missing-law-must-specify-joint-admissions"
+id="toc-the-missing-law-must-specify-joint-admissions">7. The missing
+law must specify joint admissions</a></li>
+<li><a href="#the-native-question-remaining"
+id="toc-the-native-question-remaining">8. The native question
+remaining</a></li>
+<li><a href="#challenge-result-and-reading-status"
+id="toc-challenge-result-and-reading-status">9. Challenge result and
+reading status</a></li>
+</ul></li>
+</ul>
+</nav></details>
+<article aria-label="Reviewed paper">
+<section class="panel" aria-labelledby="the-result-in-plain-language">
+<h2 id="the-result-in-plain-language">The result in plain language</h2>
+<p><strong>We have advanced from varying the price of a fixed history to
+constructing complete histories after an exchange.</strong> Both
+circulations respond; their next binding events, clock intervals,
+momenta and orientations are solved. The source is not held fixed while
+the probe changes.</p>
+<p>The task is native: determine how a completed exchange changes two
+retained circulations, their clock tariffs and their next permitted
+returns. Given the declared endpoint addresses, fixed rest-tariff norms
+and complete event-moment conditions, the nonzero momentum posting is
+determined. Different admitted completion graphs give different next
+circulation states:</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable comparison table"><table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Admitted operation</th>
+<th>Circulation response</th>
+<th>Recoil and internal energy</th>
+<th>Return clock</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Neither cross edge</td>
+<td>No change</td>
+<td>No change</td>
+<td>Original square return</td>
+</tr>
+<tr>
+<td>Both matched cross edges</td>
+<td>The two circulation axes exchange</td>
+<td>No source recoil; internal energies unchanged</td>
+<td>Original square return</td>
+</tr>
+<tr>
+<td>One cross edge, in a permitted return sector</td>
+<td>Both axes become parallel; each loses its opposed transverse
+component</td>
+<td>Equal and opposite recoil draws from internal energy</td>
+<td>A new return period</td>
+</tr>
+</tbody>
+</table></div>
+<p>This is a <strong>closed conditional event construction</strong>.
+Repeating the two-edge exchange gives an alternating orientation change,
+not a continuing turn of the circulation axis. The next missing physical
+content is a <strong>joint completion-admission and sequencing
+rule</strong>. An average weight for each edge is not enough: two fully
+reclosed branch mixtures with the same edge marginals and mean
+angular-momentum vector have different internal-energy and recoil
+accounts. Their mean unit-orientation vectors and their orientation
+distributions are not the same.</p>
+<p>The result is a finite accounting construction. No experiment was performed.</p>
+</section>
+<section class="panel" aria-labelledby="what-was-supplied-and-what-was-solved">
+<h2 id="what-was-supplied-and-what-was-solved">1. What was supplied, and
+what was solved</h2>
+<p>The governing grounding and foundation wall require a circulation
+operation with complete accounts and explicit extensions. This
+construction uses:</p>
+<ul>
+<li>The adopted local clock and same-account energy–momentum tariffs. We
+do not reopen their normalization.</li>
+<li>The finite free action and central maximum-separation binding of the
+total-account source.</li>
+<li>The binding-complete action interpretation of energy and circulation
+pricing.</li>
+<li>Two equal-source copies with explicit orientations, endpoint
+identities and a specified one-time cross-boundary admission graph.</li>
+</ul>
+<p>The last item is a <strong>declared boundary condition</strong>, not
+a primitive-derived admission law. Both signs of the completion
+multiplier are allowed. This supplies a precise mathematical update, not
+a derived material realization of the return boundary or its readiness
+condition.</p>
+<p>The outputs are completed momentum postings, post-event circulation
+states, subsequent constant-tariff segments, return-boundary times and
+multipliers, orientation and clock-account changes, and reciprocal
+energy–momentum–angular balances. No desired rate law or fitted coupling
+coefficient is inserted.</p>
+<p>The finite curves are the already adopted resolved, mesoscopic
+representation. They do not establish an integer microscopic action
+census, carried endpoint-frame return, or an isolated stable elementary
+RPCC state. “Reclosure” below means the stated <strong>labelled relative
+positions and momenta return</strong>, with any center motion separately
+retained.</p>
+<h3 id="native-objects-and-mathematical-representation">Native objects
+and mathematical representation</h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable comparison table"><table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Symbol or construction</th>
+<th>Meaning in this paper</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Retained organization A or B</td>
+<td>A resolved circulation with two endpoint accounts</td>
+<td>Candidate organization, not a primitive particle ontology</td>
+</tr>
+<tr>
+<td>x=(t, <strong>x</strong>)</td>
+<td>Observer comparison address attached to an endpoint record</td>
+<td>Representation, not an ambient stage</td>
+</tr>
+<tr>
+<td>τ and E</td>
+<td>Local turn-clock parameter and its energy tariff</td>
+<td>Adopted clock and boundary-transfer premises</td>
+</tr>
+<tr>
+<td>p=(E, <strong>p</strong>), p²=1</td>
+<td>One energy–momentum account and its fixed rest-turn tariff</td>
+<td>Same-account norm, not a second substance</td>
+</tr>
+<tr>
+<td>J=r×k</td>
+<td>Angular momentum resolved by the retained address cycle</td>
+<td>Circulation bookkeeping in this representation</td>
+</tr>
+<tr>
+<td>x∧p</td>
+<td>Six event moments, including three spatial angular entries and three
+time/energy first moments</td>
+<td>Explicit strengthened conservation condition</td>
+</tr>
+<tr>
+<td>Constant-tariff segments and return-boundary update</td>
+<td>A finite calculation of admitted address histories</td>
+<td>Chosen resolved model; material admission remains open</td>
+</tr>
+<tr>
+<td>Signed λ</td>
+<td>Multiplier that posts the completed constraint once</td>
+<td>Mathematical posting coefficient, not a force carrier</td>
+</tr>
+</tbody>
+</table></div>
+<p>The quadratic pairing, exterior product, exact algebra and coordinate
+changes are mathematical tools. Their use does not assert a physical
+void, an independent medium, or that a familiar mathematical
+representation has been derived from whole-turn discreteness. The
+rest-clock and tariff premises remain adopted inputs. Converting the
+prose does not erase that provenance.</p>
+</section>
+<section class="panel" aria-labelledby="an-admitted-edge-has-a-determined-momentum-posting">
+<h2 id="an-admitted-edge-has-a-determined-momentum-posting">2. An
+admitted edge has a determined momentum posting</h2>
+<p>Use c=1. An event address is x=(t, <strong>x</strong>) in the
+declared observer comparison chart; it is not a point in an assumed
+physical void. Write the clock pairing as
+p·q=p⁰q⁰−<strong>p</strong>·<strong>q</strong>. The adopted
+energy–momentum tariff is p=(E, <strong>p</strong>). At fixed endpoint
+addresses x and y, put ξ=x−y. With no extra retained recipient,</p>
+<div class="math display"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>p</mi><mo>′</mo></msup><mo>=</mo><mi>p</mi><mo>+</mo><mi>δ</mi><mo>,</mo><mspace width="2.0em"></mspace><msup><mi>q</mi><mo>′</mo></msup><mo>=</mo><mi>q</mi><mo>−</mo><mi>δ</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+p&#39;=p+\delta,\qquad q&#39;=q-\delta.
+</annotation></semantics></math></div>
+<p>This candidate conserves the complete six-component event-moment
+account x∧p+y∧q. Its spatial entries encode resolved angular momentum;
+its time–space entries encode the time/energy first moment. The full
+six-component condition is stronger than spatial angular-momentum
+conservation alone and is explicitly part of the candidate. It
+requires</p>
+<div class="math display"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ξ</mi><mo>∧</mo><mi>δ</mi><mo>=</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\xi\wedge\delta=0.
+</annotation></semantics></math></div>
+<p>For a nonzero ξ with ξ²&lt;0 in the clock pairing, this makes δ=λξ.
+Keeping both endpoint rest-tariff norms unchanged gives</p>
+<div class="math display"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>λ</mi><mi>p</mi><mo>⋅</mo><mi>ξ</mi><mo>+</mo><msup><mi>λ</mi><mn>2</mn></msup><msup><mi>ξ</mi><mn>2</mn></msup><mo>=</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><mo>−</mo><mn>2</mn><mi>λ</mi><mi>q</mi><mo>⋅</mo><mi>ξ</mi><mo>+</mo><msup><mi>λ</mi><mn>2</mn></msup><msup><mi>ξ</mi><mn>2</mn></msup><mo>=</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+2\lambda p\cdot\xi+\lambda^2\xi^2=0,
+\qquad
+-2\lambda q\cdot\xi+\lambda^2\xi^2=0.
+</annotation></semantics></math></div>
+<p>The identity is always an allowed posting. A distinct nonzero posting
+exists in this class only when (p+q)·ξ=0 <strong>and</strong> p·ξ≠0;
+then</p>
+<div class="math display"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><menclose notation="box"><mrow><mi>δ</mi><mo>=</mo><mi>−</mi><mfrac><mrow><mn>2</mn><mi>p</mi><mo>⋅</mo><mi>ξ</mi></mrow><msup><mi>ξ</mi><mn>2</mn></msup></mfrac><mspace width="0.167em"></mspace><mi>ξ</mi><mi>.</mi></mrow></menclose><mspace width="2.0em"></mspace><mtext mathvariant="normal">(1)</mtext></mrow><annotation encoding="application/x-tex">
+\boxed{\delta=-\frac{2p\cdot\xi}{\xi^2}\,\xi.}
+\qquad\text{(1)}
+</annotation></semantics></math></div>
+<p>There is no continuous “fraction of the posting” left at the same
+fixed endpoint addresses and rest-tariff norms. If δ is the nonzero
+solution and someone replaces it by fδ, the first rest-tariff-norm
+defect is</p>
+<div class="math display"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>f</mi><mi>δ</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo>−</mo><msup><mi>p</mi><mn>2</mn></msup><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>f</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><msup><mi>δ</mi><mn>2</mn></msup><mi>.</mi><mspace width="2.0em"></mspace><mtext mathvariant="normal">(2)</mtext></mrow><annotation encoding="application/x-tex">
+(p+f\delta)^2-p^2=f(f-1)\delta^2.
+\qquad\text{(2)}
+</annotation></semantics></math></div>
+<p>Only f=0 or 1 survives for a nonzero transfer with δ²&lt;0. If p·ξ=0,
+both nominal roots coincide at zero: calling an edge admitted does not
+force a change. The checks reject fractional postings and separately
+preserve this zero-mismatch control.</p>
+<p>Equation (1) is the predecessor’s central completion, now embedded in
+two full bound systems. It determines <strong>what an admitted event
+does</strong>, not <strong>whether it happens</strong>. An identity
+update remains allowed. Conservation of each declared resolved edge is
+also a restriction on this construction; more general joint recipients
+are not claimed to have been exhausted.</p>
+<h3 id="joint-action-and-corner-accounting">Joint action and corner
+accounting</h3>
+<p>For each admitted edge, treat Dₑ as fixed boundary data
+<strong>during the endpoint variation</strong>, and include once</p>
+<div class="math display"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mrow><mi mathvariant="normal">j</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">t</mi><mo mathvariant="normal">,</mo><mi mathvariant="normal">e</mi></mrow></msub><mo>=</mo><mi>−</mi><mfrac><msub><mi>λ</mi><mi>e</mi></msub><mn>2</mn></mfrac><mo stretchy="false" form="prefix">(</mo><msubsup><mi>ξ</mi><mi>e</mi><mn>2</mn></msubsup><mo>+</mo><msubsup><mi>D</mi><mi>e</mi><mn>2</mn></msubsup><mo stretchy="false" form="postfix">)</mo><mi>.</mi><mspace width="2.0em"></mspace><mtext mathvariant="normal">(3)</mtext></mrow><annotation encoding="application/x-tex">
+S_{\mathrm{joint,e}}=-\frac{\lambda_e}{2}(\xi_e^2+D_e^2).
+\qquad\text{(3)}
+</annotation></semantics></math></div>
+<p>On the constraint ξ²=−D² the value is zero, but its endpoint
+variation is −λξ·(δx−δy). This cancels the free-action corner variation
+δ·(δx−δy) exactly. Dropping (3) because its value vanishes fails the
+corner condition. Substituting Dₑ²=−ξₑ² as a function of the varied
+endpoints <em>before</em> taking the variation also erases the posting:
+the whole term would then be identically zero. A later completed edge
+may have a different registered boundary value Dₑ, but choosing and
+retaining that value belongs to the still-unsupplied admission
+operation.</p>
+<p>The two cross edges are distinct, explicitly specified postings in
+one four-endpoint operation. They are not a doubling of one receipt. The
+joint term represents their return constraint; it introduces no carrier
+substance or unposted store.</p>
+</section>
+<section class="panel" aria-labelledby="the-source-and-its-weak-boundary-mismatch">
+<h2 id="the-source-and-its-weak-boundary-mismatch">3. The source and its
+weak boundary mismatch</h2>
+<p>Each retained circulation is represented by two endpoint accounts,
+each with calibrated rest-turn tariff 1, and a maximum relative
+comparison-address separation R. Here R&gt;0, a&gt;0 and E&gt;0; the
+initial center separation D is positive. The displayed formulas use c=1
+and normalized endpoint rest-turn tariff 1. At a balanced-address rest
+preparation,</p>
+<div class="math display"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>E</mi><mn>2</mn></msup><mo>=</mo><mn>1</mn><mo>+</mo><mn>2</mn><msup><mi>a</mi><mn>2</mn></msup><mo>,</mo><mspace width="2.0em"></mspace><mi>r</mi><mo>=</mo><mi>R</mi><mover><mi>x</mi><mo accent="true">̂</mo></mover><mo>,</mo><mspace width="2.0em"></mspace><mi>k</mi><mo>=</mo><mi>a</mi><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mover><mi>x</mi><mo accent="true">̂</mo></mover><mo>+</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><mo stretchy="false" form="prefix">|</mo><mi>t</mi><mo stretchy="false" form="prefix">|</mo><mo>=</mo><mn>1</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>t</mi><mo>⋅</mo><mover><mi>x</mi><mo accent="true">̂</mo></mover><mo>=</mo><mn>0</mn><mi>.</mi><mspace width="2.0em"></mspace><mtext mathvariant="normal">(4)</mtext></mrow><annotation encoding="application/x-tex">
+E^2=1+2a^2,\qquad
+r=R\hat x,\qquad
+k=a(-\hat x+t),\qquad |t|=1,\quad t\cdot\hat x=0.
+\qquad\text{(4)}
+</annotation></semantics></math></div>
+<p>Its endpoint energy–momentum accounts are (E,k) and (E,−k); total
+energy is 2E and resolved circulation is J=r×k. Constant-tariff address
+increments give r(t)=r+2kt/E. At a return boundary with r·k&lt;0, the
+next positive boundary time is solved, not prescribed:</p>
+<div class="math display"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>t</mi><mo>=</mo><mi>−</mi><mfrac><mrow><mi>E</mi><mspace width="0.167em"></mspace><mi>r</mi><mo>⋅</mo><mi>k</mi></mrow><msup><mi>k</mi><mn>2</mn></msup></mfrac><mo>,</mo><mspace width="2.0em"></mspace><msup><mi>k</mi><mo>′</mo></msup><mo>=</mo><mi>k</mi><mo>−</mo><mn>2</mn><mfrac><mrow><mi>k</mi><mo>⋅</mo><msup><mi>r</mi><mo>′</mo></msup></mrow><msup><mi>R</mi><mn>2</mn></msup></mfrac><msup><mi>r</mi><mo>′</mo></msup><mi>.</mi><mspace width="2.0em"></mspace><mtext mathvariant="normal">(5)</mtext></mrow><annotation encoding="application/x-tex">
+\Delta t=-\frac{E\,r\cdot k}{k^2},\qquad
+k&#39; = k-2\frac{k\cdot r&#39;}{R^2}r&#39;.
+\qquad\text{(5)}
+</annotation></semantics></math></div>
+<p>For (4), four segments make a square and return both position and
+momentum:</p>
+<div class="math display"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mn>0</mn></msub><mo>=</mo><mfrac><mrow><mn>2</mn><mi>E</mi><mi>R</mi></mrow><mi>a</mi></mfrac><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>τ</mi><mn>0</mn></msub><mo>=</mo><mfrac><msub><mi>T</mi><mn>0</mn></msub><mi>E</mi></mfrac><mo>=</mo><mfrac><mrow><mn>2</mn><mi>R</mi></mrow><mi>a</mi></mfrac><mi>.</mi><mspace width="2.0em"></mspace><mtext mathvariant="normal">(6)</mtext></mrow><annotation encoding="application/x-tex">
+T_0=\frac{2ER}{a},\qquad
+\tau_0=\frac{T_0}{E}=\frac{2R}{a}.
+\qquad\text{(6)}
+</annotation></semantics></math></div>
+<p>Prepare centers c_A=−D ẑ/2 and c_B=+D ẑ/2 and tangents</p>
+<div class="math display"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>t</mi><mi>A</mi></msub><mo>=</mo><mi>C</mi><mover><mi>y</mi><mo accent="true">̂</mo></mover><mo>+</mo><mi>S</mi><mover><mi>z</mi><mo accent="true">̂</mo></mover><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>t</mi><mi>B</mi></msub><mo>=</mo><mi>C</mi><mover><mi>y</mi><mo accent="true">̂</mo></mover><mo>−</mo><mi>S</mi><mover><mi>z</mi><mo accent="true">̂</mo></mover><mo>,</mo></mrow><annotation encoding="application/x-tex">
+t_A=C\hat y+S\hat z,\qquad t_B=C\hat y-S\hat z,
+</annotation></semantics></math>
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>=</mo><mfrac><mrow><mn>1</mn><mo>−</mo><msup><mi>ϵ</mi><mn>2</mn></msup></mrow><mrow><mn>1</mn><mo>+</mo><msup><mi>ϵ</mi><mn>2</mn></msup></mrow></mfrac><mo>,</mo><mspace width="2.0em"></mspace><mi>S</mi><mo>=</mo><mfrac><mrow><mn>2</mn><mi>ϵ</mi></mrow><mrow><mn>1</mn><mo>+</mo><msup><mi>ϵ</mi><mn>2</mn></msup></mrow></mfrac><mi>.</mi><mspace width="2.0em"></mspace><mtext mathvariant="normal">(7)</mtext></mrow><annotation encoding="application/x-tex">
+C=\frac{1-\epsilon^2}{1+\epsilon^2},\qquad
+S=\frac{2\epsilon}{1+\epsilon^2}.
+\qquad\text{(7)}
+</annotation></semantics></math></div>
+<p>The small parameter ε is a prepared angular mismatch. It does not
+specify a momentum posting. At a registered boundary, the possible cross
+edges connect A+ to B+ and A− to B−. Their ξ vectors both equal
+(0,0,0,−D); their total momenta are orthogonal to ξ, so (1) is
+applicable. Cross and internal corner receipts are additive when the
+completion shares a vertex with the preceding binding event.</p>
+<p>The principal example retains the saved source values a=4/7, E=9/7,
+R=1, giving T₀=9/2 and τ₀=7/2. The verification also uses weaker
+mismatches, reversed mismatch, slower and faster sources, and a larger
+radius.</p>
+</section>
+<section class="panel" aria-labelledby="two-admitted-edges-complete-reorientation-without-recoil">
+<h2 id="two-admitted-edges-complete-reorientation-without-recoil">4. Two
+admitted edges: complete reorientation without recoil</h2>
+<p>Equation (1) gives</p>
+<div class="math display"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>δ</mi><msub><mi mathvariant="bold-italic">𝒑</mi><mrow><mi>A</mi><mo>+</mo></mrow></msub><mo>=</mo><mi>−</mi><mn>2</mn><mi>a</mi><mi>S</mi><mover><mi>z</mi><mo accent="true">̂</mo></mover><mo>,</mo><mspace width="2.0em"></mspace><mi>δ</mi><msub><mi mathvariant="bold-italic">𝒑</mi><mrow><mi>A</mi><mo>−</mo></mrow></msub><mo>=</mo><mi>+</mi><mn>2</mn><mi>a</mi><mi>S</mi><mover><mi>z</mi><mo accent="true">̂</mo></mover><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\delta\mathbf p_{A+}=-2aS\hat z,\qquad
+\delta\mathbf p_{A-}=+2aS\hat z,
+</annotation></semantics></math>
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>λ</mi><mo>+</mo></msub><mo>=</mo><mfrac><mrow><mn>2</mn><mi>a</mi><mi>S</mi></mrow><mi>D</mi></mfrac><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>λ</mi><mo>−</mo></msub><mo>=</mo><mi>−</mi><mfrac><mrow><mn>2</mn><mi>a</mi><mi>S</mi></mrow><mi>D</mi></mfrac><mi>.</mi><mspace width="2.0em"></mspace><mtext mathvariant="normal">(8)</mtext></mrow><annotation encoding="application/x-tex">
+\lambda_+=\frac{2aS}{D},\qquad \lambda_-=-\frac{2aS}{D}.
+\qquad\text{(8)}
+</annotation></semantics></math></div>
+<p>The opposite multiplier signs are essential to the declared two-edge
+operation. A physical realization must supply both; the algebra does not
+supply that realization.</p>
+<p>Both sources keep their total energy and zero center momentum,
+while</p>
+<div class="math display"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>J</mi><mi>A</mi></msub><mo>=</mo><mi>a</mi><mi>R</mi><mo stretchy="false" form="prefix">(</mo><mi>C</mi><mover><mi>z</mi><mo accent="true">̂</mo></mover><mo>−</mo><mi>S</mi><mover><mi>y</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="postfix">)</mo><mo>↦</mo><msub><mi>J</mi><mi>B</mi></msub><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>J</mi><mi>B</mi></msub><mo>↦</mo><msub><mi>J</mi><mi>A</mi></msub><mi>.</mi><mspace width="2.0em"></mspace><mtext mathvariant="normal">(9)</mtext></mrow><annotation encoding="application/x-tex">
+J_A=aR(C\hat z-S\hat y)\longmapsto J_B,
+\qquad J_B\longmapsto J_A.
+\qquad\text{(9)}
+</annotation></semantics></math></div>
+<p>The solved post-event trajectories are new oriented square cycles.
+Each returns after T₀, with local clock accumulation τ₀ and the same
+<strong>integrated energy–momentum monopole</strong>. Its resolved
+circulation first moments change; the full spatially resolved receipt is
+not unchanged. For |ε|&lt;1, the axis-rotation magnitude is 4|arctan ε|.
+About the common +x radial axis, the signed rotation is −4 arctan ε for
+A and +4 arctan ε for B; ΔJ_A=2aRS ŷ and ΔJ_B=−ΔJ_A. At ε=1/10,
+ΔJ_A,y=160/707 in these units.</p>
+<p>This demonstrates a finite orientation change with no transfer of the
+balanced-rest energy tariff. It does <strong>not</strong> identify the
+change with an arbitrary first-work-null comparison probe, so it neither
+proves nor directly refutes MCAR.</p>
+<h3 id="repetition-alternates-it-does-not-accumulate">Repetition
+alternates; it does not accumulate</h3>
+<p>The same fully specified operation applied again at the next common
+square return exchanges the axes back. Its momentum map is an
+involution. The two cycles alternate; they do not continue rotating by
+the first calculated angle on every turn. Multiplying a one-shot angle
+by an assumed event frequency would create a continuing axis turn that
+this update does not produce.</p>
+<p>The event posting is independent of D. Its multiplier scales as 1/D
+only because ξ scales with D; their product does not. This is a
+consequence of the declared event operation, not a derived
+distance-dependent law for the rate or readiness of completions.</p>
+</section>
+<section class="panel" aria-labelledby="one-admitted-edge-circulation-energy-becomes-recoil">
+<h2 id="one-admitted-edge-circulation-energy-becomes-recoil">5. One
+admitted edge: circulation energy becomes recoil</h2>
+<p>Admit only A+↔︎B+. Both endpoints react. The resulting source momenta
+and angular momenta are</p>
+<div class="math display"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mi>A</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>E</mi><mo>,</mo><mi>−</mi><mn>2</mn><mi>a</mi><mi>S</mi><mover><mi>z</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>P</mi><mi>B</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>E</mi><mo>,</mo><mi>+</mi><mn>2</mn><mi>a</mi><mi>S</mi><mover><mi>z</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="postfix">)</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">
+P_A=(2E,-2aS\hat z),\qquad P_B=(2E,+2aS\hat z),
+</annotation></semantics></math>
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>J</mi><mi>A</mi><mo>′</mo></msubsup><mo>=</mo><msubsup><mi>J</mi><mi>B</mi><mo>′</mo></msubsup><mo>=</mo><mi>a</mi><mi>R</mi><mi>C</mi><mover><mi>z</mi><mo accent="true">̂</mo></mover><mi>.</mi><mspace width="2.0em"></mspace><mtext mathvariant="normal">(10)</mtext></mrow><annotation encoding="application/x-tex">
+J_A&#39;=J_B&#39;=aRC\hat z.
+\qquad\text{(10)}
+</annotation></semantics></math></div>
+<p>The opposed transverse angular components exchange away. In the
+original comparison chart, each endpoint still has energy E, and each
+complete source still has energy 2E. But each source’s rest-turn energy
+is now 2e, where</p>
+<div class="math display"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mo>=</mo><msqrt><mrow><msup><mi>E</mi><mn>2</mn></msup><mo>−</mo><msup><mi>a</mi><mn>2</mn></msup><msup><mi>S</mi><mn>2</mn></msup></mrow></msqrt><mi>.</mi><mspace width="2.0em"></mspace><mtext mathvariant="normal">(11)</mtext></mrow><annotation encoding="application/x-tex">
+e=\sqrt{E^2-a^2S^2}.
+\qquad\text{(11)}
+</annotation></semantics></math></div>
+<p>The total amount moved from retained rest-turn energy into reciprocal
+center motion is</p>
+<div class="math display"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><menclose notation="box"><mrow><msub><mi>K</mi><mrow><mi mathvariant="normal">r</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">c</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">l</mi></mrow></msub><mo>=</mo><mn>4</mn><mo stretchy="false" form="prefix">(</mo><mi>E</mi><mo>−</mo><mi>e</mi><mo stretchy="false" form="postfix">)</mo><mo>≥</mo><mn>0</mn><mi>.</mi></mrow></menclose><mspace width="2.0em"></mspace><mtext mathvariant="normal">(12)</mtext></mrow><annotation encoding="application/x-tex">
+\boxed{K_{\mathrm{recoil}}=4(E-e)\geq0.}
+\qquad\text{(12)}
+</annotation></semantics></math></div>
+<p>It is strictly positive for S≠0 and zero at S=0. It is not energy
+lost from the full two-source system. The complete original-chart energy
+remains 4E. For small S, K_recoil=2a²S²/E+O(S⁴): the orientation change
+is first order, while this recoil allocation begins at second order.</p>
+<p>The balanced-address parameter is defined by the adopted clock
+pairing along the energy-weighted center address. No separate retained
+oscillator at that center has been constructed. The two clock-account
+statements are</p>
+<div class="math display"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi>d</mi><msub><mi>τ</mi><mrow><mi mathvariant="normal">b</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">l</mi></mrow></msub></mrow><mrow><mi>d</mi><mi>t</mi></mrow></mfrac><mo>=</mo><mfrac><mi>e</mi><mi>E</mi></mfrac><mo>,</mo><mspace width="2.0em"></mspace><mfrac><mrow><mi>d</mi><msub><mi>τ</mi><mrow><mi mathvariant="normal">e</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">d</mi></mrow></msub></mrow><mrow><mi>d</mi><msub><mi>τ</mi><mrow><mi mathvariant="normal">b</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">l</mi></mrow></msub></mrow></mfrac><mo>=</mo><mfrac><mn>1</mn><mi>e</mi></mfrac><mi>.</mi><mspace width="2.0em"></mspace><mtext mathvariant="normal">(13)</mtext></mrow><annotation encoding="application/x-tex">
+\frac{d\tau_{\mathrm{bal}}}{dt}=\frac eE,
+\qquad
+\frac{d\tau_{\mathrm{end}}}{d\tau_{\mathrm{bal}}}=\frac1e.
+\qquad\text{(13)}
+</annotation></semantics></math></div>
+<p>Their product remains 1/E. A changed <em>whole-cycle return
+period</em> must not be confused with a changed endpoint local
+turn-clock rate in the original chart.</p>
+<p>This is a change of resolved circulation and joint projected motion,
+not a derivation of retained twist conversion or of the universal
+co-sense settlement rule. There is no damping or unrecorded heat. The
+map is reversible; the missing transverse organization is present in the
+changed joint motion and state.</p>
+<h3 id="solving-the-new-return">Solving the new return</h3>
+<p>The relative momentum after this event is a(−x̂+C ŷ), while the common
+constituent drift within A is −aS ẑ and within B is +aS ẑ. Equations (5)
+give the new step duration and turn angle:</p>
+<div class="math display"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>t</mi><mo>=</mo><mfrac><mrow><mi>E</mi><mi>R</mi></mrow><mrow><mi>a</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><msup><mi>C</mi><mn>2</mn></msup><mo stretchy="false" form="postfix">)</mo></mrow></mfrac><mo>,</mo><mspace width="2.0em"></mspace><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mi mathvariant="normal">Δ</mi><mo>=</mo><mfrac><mrow><msup><mi>C</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn></mrow><mrow><msup><mi>C</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn></mrow></mfrac><mo>,</mo><mspace width="2.0em"></mspace><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mi mathvariant="normal">Δ</mi><mo>=</mo><mfrac><mrow><mn>2</mn><mi>C</mi></mrow><mrow><msup><mi>C</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn></mrow></mfrac><mi>.</mi><mspace width="2.0em"></mspace><mtext mathvariant="normal">(14)</mtext></mrow><annotation encoding="application/x-tex">
+\Delta t=\frac{ER}{a(1+C^2)},\qquad
+\cos\Delta=\frac{C^2-1}{C^2+1},\qquad
+\sin\Delta=\frac{2C}{C^2+1}.
+\qquad\text{(14)}
+</annotation></semantics></math></div>
+<p>For 0&lt;C≤1, Δ=2 arctan(1/C). A labelled return after N segments
+with m windings requires</p>
+<div class="math display"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><menclose notation="box"><mrow><mi>C</mi><mo>=</mo><mrow><mi mathvariant="normal">cot</mi><mo>&#8289;</mo></mrow><mfrac><mrow><mi>π</mi><mi>m</mi></mrow><mi>N</mi></mfrac></mrow></menclose><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>T</mi><mi>N</mi></msub><mo>=</mo><mfrac><mrow><mi>N</mi><mi>E</mi><mi>R</mi></mrow><mrow><mi>a</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><msup><mi>C</mi><mn>2</mn></msup><mo stretchy="false" form="postfix">)</mo></mrow></mfrac><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>τ</mi><mi>N</mi></msub><mo>=</mo><mfrac><mrow><mi>N</mi><mi>R</mi></mrow><mrow><mi>a</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><msup><mi>C</mi><mn>2</mn></msup><mo stretchy="false" form="postfix">)</mo></mrow></mfrac><mi>.</mi><mspace width="2.0em"></mspace><mtext mathvariant="normal">(15)</mtext></mrow><annotation encoding="application/x-tex">
+\boxed{C=\cot\frac{\pi m}{N}},\qquad
+T_N=\frac{NER}{a(1+C^2)},\qquad
+\tau_N=\frac{NR}{a(1+C^2)}.
+\qquad\text{(15)}
+</annotation></semantics></math></div>
+<p>The balanced comparison address can change: relative reclosure does
+not erase its displacement. The history records include it and preserve
+the complete event-moment account, including its time/energy
+first-moment components.</p>
+<h3 id="an-exact-triangular-return">An exact triangular return</h3>
+<p>Choose C=1/√3, S=√(2/3), so N=3 and m=1. Both initially prepared
+sources are still square cycles. After the single-edge event,
+<strong>both become exact triangular cycles</strong> in their respective
+moving balanced-address rest charts.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable comparison table"><table>
+<thead>
+<tr>
+<th>Quantity</th>
+<th style="text-align: right;">Before</th>
+<th style="text-align: right;">After one edge</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Source energy in original chart</td>
+<td style="text-align: right;">18/7</td>
+<td style="text-align: right;">18/7</td>
+</tr>
+<tr>
+<td>Source rest-turn energy squared</td>
+<td style="text-align: right;">324/49</td>
+<td style="text-align: right;">844/147</td>
+</tr>
+<tr>
+<td>Source center momentum along z</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">∓8√6/21</td>
+</tr>
+<tr>
+<td>Source angular-momentum magnitude squared</td>
+<td style="text-align: right;">16/49</td>
+<td style="text-align: right;">16/147</td>
+</tr>
+<tr>
+<td>Complete relative-return time in original chart</td>
+<td style="text-align: right;">9/2</td>
+<td style="text-align: right;">81/16</td>
+</tr>
+<tr>
+<td>Endpoint local turn-clock accumulation per return</td>
+<td style="text-align: right;">7/2</td>
+<td style="text-align: right;">63/16</td>
+</tr>
+<tr>
+<td>Balanced-address clock-parameter rate squared</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">211/243</td>
+</tr>
+</tbody>
+</table></div>
+<p>The new return takes <strong>12.5% longer</strong>. The
+balanced-address clock-parameter rate is approximately 0.931833. Total
+recoil energy is approximately 0.350573, in the declared model’s energy
+units—not instrument records or a predicted laboratory magnitude. Exact
+arithmetic in Q(√2,√3) checks the complete common-chart histories;
+square roots needed only for displayed rest-clock values are evaluated
+separately.</p>
+<p>Admitting only the complementary edge A−↔︎B− produces the
+<strong>opposite radial recoil</strong> with the same reclosed internal
+cycles, angular magnitudes and clocks. Closure alone does not choose
+inward versus outward recoil in this preparation. The endpoint admission
+choice is consequential physics.</p>
+</section>
+<section class="panel" aria-labelledby="reclosure-constrains-admission-but-does-not-finish-selecting-it">
+<h2
+id="reclosure-constrains-admission-but-does-not-finish-selecting-it">6.
+Reclosure constrains admission, but does not finish selecting it</h2>
+<p>At the rational preparation ε=1/10, C=99/101. The one-edge
+relative-step rotation has trace</p>
+<div class="math display"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">tr</mi><mo>&#8289;</mo></mrow><mi>R</mi><mo>=</mo><mn>2</mn><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mi mathvariant="normal">Δ</mi><mo>=</mo><mi>−</mi><mfrac><mn>400</mn><mn>10001</mn></mfrac><mi>.</mi><mspace width="2.0em"></mspace><mtext mathvariant="normal">(16)</mtext></mrow><annotation encoding="application/x-tex">
+\operatorname{tr}R=2\cos\Delta=-\frac{400}{10001}.
+\qquad\text{(16)}
+</annotation></semantics></math></div>
+<p>This rotation has no finite order. To see this without a
+floating-point near-return test, define C₀(t)=2, C₁(t)=t and
+Cₙ(t)=tCₙ₋₁(t)−Cₙ₋₂(t). For n≥1 these are monic integer polynomials and
+Cₙ(2 cos Δ)=2 cos(nΔ). A finite-order rotation would make its rational
+trace a root of a monic integer polynomial Cₙ(t)−2, hence an integer.
+Equation (16) is not one. The executable also checks 128 explicit
+nonreturning steps, but the polynomial argument—not a finite search—is
+the no-return proof.</p>
+<p>Thus, <strong>within the frozen four-graph menu</strong>, strict
+finite relative reclosure at this preparation admits neither edge or
+both edges, but rejects either single-edge outcome. Conditional on
+requiring a nonzero admitted response, that selects the paired
+completion for this preparation. It is a genuine use of closure, not
+merely an accounting identity.</p>
+<p>It is not a universal selector. The triangular preparation admits
+both one-edge alternatives as well as the paired and identity branches.
+More generally, the sectors</p>
+<div class="math display"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>=</mo><mn>4</mn><mi>k</mi><mo>−</mo><mn>1</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>m</mi><mo>=</mo><mi>k</mi><mo>,</mo><mspace width="1.0em"></mspace><mi>C</mi><mo>=</mo><mrow><mi mathvariant="normal">cot</mi><mo>&#8289;</mo></mrow><mfrac><mrow><mi>π</mi><mi>k</mi></mrow><mrow><mn>4</mn><mi>k</mi><mo>−</mo><mn>1</mn></mrow></mfrac><mspace width="2.0em"></mspace><mtext mathvariant="normal">(17)</mtext></mrow><annotation encoding="application/x-tex">
+N=4k-1,\quad m=k,\quad C=\cot\frac{\pi k}{4k-1}
+\qquad\text{(17)}
+</annotation></semantics></math></div>
+<p>give arbitrarily weak one-edge changes that still return exactly.
+High-precision finite propagation verifies N=3, 7, 31, 127 and 511. As
+the tilt decreases, the full return requires more segments. The
+calculated closure residuals are below 3×10⁻⁷⁶ at 80-digit
+precision.</p>
+<p>Nearby angles accumulate a return-phase error; at a fixed N-sector
+its derivative with respect to C is −2N/(1+C²). There is no attraction
+toward the sector. Bounded circular reflection is not an isolated stable
+RPCC selector, and generic absence of an exact finite return is not a
+claim of material instability. No laboratory precision or integer
+quantization was used to select these sectors.</p>
+</section>
+<section class="panel" aria-labelledby="the-missing-law-must-specify-joint-admissions">
+<h2 id="the-missing-law-must-specify-joint-admissions">7. The missing
+law must specify joint admissions</h2>
+<p>At the same triangular preparation, compare two <em>mathematical
+mixtures of closed histories</em>:</p>
+<ul>
+<li><strong>Correlated:</strong> weight 1/2 on neither edge, 1/2 on
+both.</li>
+<li><strong>Exclusive:</strong> weight 1/2 on the plus edge alone, 1/2
+on the minus edge alone.</li>
+</ul>
+<p>Each edge has the same marginal weight 1/2 in both constructions. The
+mean source energy, mean source momentum and mean angular-momentum
+vector also agree. Yet:</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable comparison table"><table>
+<thead>
+<tr>
+<th>Source-A account after completion</th>
+<th style="text-align: right;">Correlated</th>
+<th style="text-align: right;">Exclusive</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mean center momentum</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>Mean squared center momentum</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">128/147</td>
+</tr>
+<tr>
+<td>Mean squared resolved angular momentum</td>
+<td style="text-align: right;">16/49</td>
+<td style="text-align: right;">16/147</td>
+</tr>
+<tr>
+<td>Rest-turn energy squared in each branch</td>
+<td style="text-align: right;">324/49</td>
+<td style="text-align: right;">844/147</td>
+</tr>
+</tbody>
+</table></div>
+<p>The clock norm of the mean energy–momentum account is not the mean of
+each branch’s clock norm. This is precisely why the mean readout misses
+the internal-energy partition. All branches conserve the same full
+two-source energy, momentum and six-component event-moment account. They
+can be compared at a common comparison time 81/2: nine square periods or
+eight triangular periods, with center positions still retained.</p>
+<p>These weights are not a newly asserted stochastic law. They exhibit
+what an admission rule must resolve. Specifying only an average edge
+exposure or matching the mean angular-momentum vector cannot determine
+the response’s energy and circulation content. A unit-orientation
+readout already distinguishes these mixtures: the mean unit vector has
+squared length 1/3 in the correlated mixture and 1 in the exclusive
+mixture. Only the direction obtained by normalizing their nonzero mean
+angular-momentum vector agrees. The rule must select <strong>which
+endpoint completions occur together</strong> and how the next admitted
+state depends on the previous one.</p>
+<p>The full post-event whole-closure receipts are different. This is not
+a counterexample to WCE-1’s use of complete receipts; it identifies the
+missing operation that produces those receipts before an unaddressed
+price can be assigned.</p>
+<h3 id="reset-is-a-full-state-question">Reset is a full-state
+question</h3>
+<p>After the first plus-edge triangular return, a second plus-edge
+completion restores the original endpoint momenta and source rest-turn
+energies. It does not restore separation. Starting at D=6,</p>
+<div class="math display"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mrow><mi mathvariant="normal">a</mi><mi mathvariant="normal">f</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">r</mi></mrow></msub><mo>−</mo><msub><mi>D</mi><mrow><mi mathvariant="normal">b</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">f</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">e</mi></mrow></msub><mo>=</mo><mfrac><mn>9</mn><mn>2</mn></mfrac><mi>S</mi><mo>=</mo><mfrac><mn>3</mn><mn>2</mn></mfrac><msqrt><mn>6</mn></msqrt><mi>.</mi><mspace width="2.0em"></mspace><mtext mathvariant="normal">(18)</mtext></mrow><annotation encoding="application/x-tex">
+D_{\mathrm{after}}-D_{\mathrm{before}}=\frac92S=\frac32\sqrt6.
+\qquad\text{(18)}
+</annotation></semantics></math></div>
+<p>The recoil excursion remains in the boundary state. A restored
+momentum list is not a free cyclic reset or an energy-producing cycle.
+No physical admission apparatus or its preparation/reset work has been
+modeled or priced as zero.</p>
+</section>
+<section class="panel" aria-labelledby="the-native-question-remaining">
+<h2 id="the-native-question-remaining">8. The native question
+remaining</h2>
+<p>The construction advances one question: <strong>how can a co-signed
+completion change the circulation and clock account of both retained
+organizations while leaving no unposted balance?</strong></p>
+<ol type="1">
+<li>A declared completed edge has a determined nonzero momentum
+posting.</li>
+<li>Both organizations can return in their new states; neither is held
+fixed while the other responds.</li>
+<li>Orientation, return period, retained rest-turn energy and projected
+joint motion can be reconciled in one account.</li>
+<li>Reclosure eliminates some edge combinations but leaves distinct
+closed alternatives in other preparations.</li>
+<li>Repetition and correlations between admissions matter. A single
+event does not determine an accumulated orientation history.</li>
+</ol>
+<p>The prior whole-closure exposure rule, WCE-1, concerns stationary
+comparisons that do not address individual internal phases. Here the
+operation deliberately names endpoint phase addresses and cross edges.
+That distinction remains: this packet does not derive the move from an
+addressed completion to an unaddressed whole-closure account. Nor does
+it derive the earlier linear partner-comparison rule, MCAR. Neither
+prior rule is silently promoted or altered by this calculation.</p>
+<h3 id="exact-remaining-construction">Exact remaining construction</h3>
+<p>Construct <strong>joint readiness and succession from the retained
+circulation state</strong>: which endpoints can co-sign together, which
+resulting state is retained, how the next admissible address is reached,
+and where every recipient or reset entry is posted. Then compose those
+finite completions and read out the accumulated clock and orientation
+history. The outcome must follow from that operation; no inherited
+formula or selected coefficient is its destination.</p>
+<p>The finite update is specified conditionally. A complete native
+physical law still needs its readiness and succession operation, the
+material meaning of the return constraint, and a justified bridge from
+resolved address histories to retained whole-turn organization. No new
+universal postulate is claimed here.</p>
+</section>
+<section class="panel" aria-labelledby="challenge-result-and-reading-status">
+<h2 id="challenge-result-and-reading-status">9. Challenge result and
+reading status</h2>
+<p><strong>The finite numerical examples survive the challenge.</strong>
+A separate implementation reconstructed all six stored bound cycles,
+covering twenty free segments and their twenty completed return
+postings, with no use of the predecessor’s arithmetic helpers. The
+challenge produced <strong>105 checks: 33 exact and 72 at 80-digit
+precision</strong>. The original 487-check packet is preserved
+unchanged.</p>
+<p>The equations and examples carry the complete event-moment condition,
+fixed boundary data, zero-mismatch control and distinct clock-account
+definitions explicitly. No unresolved in-scope mathematical finding
+remains in this reviewed paper. The readiness, realization and whole-turn
+interpretation questions in <a href="#the-native-question-remaining">§8</a>
+remain physical construction work, not solved results.</p>
+<p>This was an <strong>author-performed challenge audit</strong>, not an
+independent external review. It supplies mathematical scrutiny, not physical
+evidence or experimental authorization.</p></section>
+</article>
+</main>
+<footer>Normal Realism → POAMS · Coupled Circulations · Reviewed conditional construction</footer>
+</body>
+</html>

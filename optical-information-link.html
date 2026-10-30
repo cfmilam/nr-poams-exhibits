@@ -24,6 +24,23 @@ html{scroll-behavior:smooth;scroll-padding-top:100px}*{box-sizing:border-box}bod
 
 <link rel="stylesheet" href="./reader-standard.css?v=20261011a">
 <style>
+/* Native, page-local reading switch. No change to the shared corpus theme or scripts. */
+.exhibit-theme-control{display:inline-flex;align-items:center;gap:.35rem;white-space:nowrap;cursor:pointer;border:1px solid var(--line);border-radius:5px;padding:.35rem .65rem;background:var(--surface);color:var(--ink);font-size:.77rem}
+.exhibit-theme-control input{width:1em;height:1em;margin:0;accent-color:var(--green)}
+.exhibit-theme-control:focus-within{outline:3px solid var(--gold);outline-offset:3px}
+@media screen{
+html:has(body.reader-standard.optical-link #exhibitThemeToggle:checked),
+body.reader-standard.optical-link:has(#exhibitThemeToggle:checked){
+ color-scheme:light!important;
+ --reader-bg:#f5f4f0!important;--reader-card:#fff!important;--reader-inset:#edece7!important;
+ --reader-fg:#22242b!important;--reader-muted:#555b66!important;--reader-border:#c7c9cf!important;
+ --surface:#fff!important;--ink:#22242b!important;--muted:#555b66!important;--line:#c7c9cf!important;
+ --gold:#735700!important;--reader-gold:#735700!important;--green:#256d3a!important;--blue:#005d88!important;--reader-blue:#005d88!important;--red:#a52a28!important;
+ background:var(--reader-bg)!important;color:var(--reader-fg)!important;
+}
+body.reader-standard.optical-link:has(#exhibitThemeToggle:checked) #poams-hub-nav{background:var(--reader-bg)!important;border-bottom-color:var(--line)!important}
+body.reader-standard.optical-link:has(#exhibitThemeToggle:checked) #poams-hub-nav a{color:var(--gold)!important}
+}
 /* Print-only local exception: the shared reading theme remains untouched. */
 @media print{
  html:has(body.optical-link){color-scheme:light!important;background:#fff!important}
@@ -43,7 +60,7 @@ html{scroll-behavior:smooth;scroll-padding-top:100px}*{box-sizing:border-box}bod
 </head>
 <body class="reader-standard optical-link">
 <a class="skip" href="#main">Skip to exhibit</a>
-<header class="topbar" id="poams-hub-nav"><div class="topinner"><a class="brand" href="./index.html">← Return to Hub</a><nav class="toplinks" aria-label="Quick navigation"><a class="hide-mid" href="#construction">Construction</a><a class="hide-small" href="#explore">Explore</a><a href="#engineering">Engineering spec</a><button id="printButton" type="button" class="hide-small">Print / PDF</button></nav></div></header>
+<header class="topbar" id="poams-hub-nav"><div class="topinner"><a class="brand" href="./index.html">← Return to Hub</a><nav class="toplinks" aria-label="Quick navigation"><a class="hide-mid" href="#construction">Construction</a><a class="hide-small" href="#explore">Explore</a><a href="#engineering">Engineering spec</a><button id="printButton" type="button" class="hide-small">Print / PDF</button><label class="exhibit-theme-control no-print"><input id="exhibitThemeToggle" type="checkbox" role="switch" aria-label="Light mode">Light</label></nav></div></header>
 <main id="main" class="wrap">
 <header class="hero">
 <div class="eyebrow">Engineering exhibit · 30 October 2026</div>
