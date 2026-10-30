@@ -1,0 +1,2510 @@
+{
+  "edition": "2026-10-30",
+  "status": "CURRENT_ENGINEERING_DEFINITION_DEPENDENCY_MAP",
+  "scope": "Engineering definitions, exact retained tables and declared imported mathematics, not a newly executable runtime. Administrative loader/hash checks and publication entry points are excluded by exact symbol name, with their purposes recorded. Final raw adapter and current 821-case tables control all old component semantic interfaces.",
+  "static_imports": [
+    {
+      "requester": "dressed-guide-successor/model.py",
+      "module": "math",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-guide-successor/model.py",
+      "module": "fractions",
+      "symbols": [
+        "Fraction"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-guide-successor/model.py",
+      "module": "numpy",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "declared_imported_math_library",
+      "target": "Imported numerical matrix arithmetic used by the readable representation; not a material premise."
+    },
+    {
+      "requester": "dressed-guide-apparatus-join-r1/model.py",
+      "module": "pathlib",
+      "symbols": [
+        "Path"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-guide-apparatus-join-r1/model.py",
+      "module": "fractions",
+      "symbols": [
+        "Fraction"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-guide-apparatus-join-r1/model.py",
+      "module": "functools",
+      "symbols": [
+        "cache"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-guide-apparatus-join-r1/model.py",
+      "module": "importlib.util",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-guide-apparatus-join-r1/model.py",
+      "module": "json",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-guide-apparatus-join-r1/model.py",
+      "module": "math",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-guide-apparatus-join-r1/model.py",
+      "module": "precision_budget",
+      "symbols": [
+        "bounds"
+      ],
+      "resolution": "included_reference_module",
+      "target": "dressed-guide-apparatus-join-r1/precision_budget.py"
+    },
+    {
+      "requester": "dressed-guide-apparatus-join-r1/registry.py",
+      "module": "model",
+      "symbols": [
+        "*"
+      ],
+      "resolution": "included_reference_module",
+      "target": "dressed-guide-apparatus-join-r1/model.py"
+    },
+    {
+      "requester": "dressed-guide-apparatus-join-r1/registry.py",
+      "module": "bisect",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-guide-apparatus-join-r1/native.py",
+      "module": "model",
+      "symbols": [
+        "*"
+      ],
+      "resolution": "included_reference_module",
+      "target": "dressed-guide-apparatus-join-r1/model.py"
+    },
+    {
+      "requester": "dressed-guide-apparatus-join-r1/compiled_modes.py",
+      "module": "model",
+      "symbols": [
+        "*"
+      ],
+      "resolution": "included_reference_module",
+      "target": "dressed-guide-apparatus-join-r1/model.py"
+    },
+    {
+      "requester": "dressed-guide-apparatus-join-r1/compiled_modes.py",
+      "module": "native",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "included_reference_module",
+      "target": "dressed-guide-apparatus-join-r1/native.py"
+    },
+    {
+      "requester": "dressed-guide-apparatus-join-r1/compiled_modes.py",
+      "module": "numpy",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "declared_imported_math_library",
+      "target": "Imported numerical matrix arithmetic used by the readable representation; not a material premise."
+    },
+    {
+      "requester": "dressed-guide-apparatus-join-r1/acquisition.py",
+      "module": "model",
+      "symbols": [
+        "*"
+      ],
+      "resolution": "included_reference_module",
+      "target": "dressed-guide-apparatus-join-r1/model.py"
+    },
+    {
+      "requester": "dressed-guide-apparatus-join-r1/root_seams.py",
+      "module": "model",
+      "symbols": [
+        "*"
+      ],
+      "resolution": "included_reference_module",
+      "target": "dressed-guide-apparatus-join-r1/model.py"
+    },
+    {
+      "requester": "dressed-guide-apparatus-join-r1/root_seams.py",
+      "module": "registry",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "included_reference_module",
+      "target": "dressed-guide-apparatus-join-r1/registry.py"
+    },
+    {
+      "requester": "dressed-guide-apparatus-join-r1/root_seams.py",
+      "module": "acquisition",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "included_reference_module",
+      "target": "dressed-guide-apparatus-join-r1/acquisition.py"
+    },
+    {
+      "requester": "dressed-guide-apparatus-join-r1/precision_budget.py",
+      "module": "pathlib",
+      "symbols": [
+        "Path"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-guide-apparatus-join-r1/precision_budget.py",
+      "module": "fractions",
+      "symbols": [
+        "Fraction"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-guide-apparatus-join-r1/precision_budget.py",
+      "module": "sys",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-guide-apparatus-join-r1/precision_budget.py",
+      "module": "precision",
+      "symbols": [
+        "pi_bounds",
+        "exp_negative_bounds",
+        "sqrt_up",
+        "dec"
+      ],
+      "resolution": "included_reference_module",
+      "target": "input-metric-correction/precision.py"
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/registry.py",
+      "module": "fractions",
+      "symbols": [
+        "Fraction"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/registry.py",
+      "module": "functools",
+      "symbols": [
+        "cache"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/registry.py",
+      "module": "itertools",
+      "symbols": [
+        "product"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/registry.py",
+      "module": "sources",
+      "symbols": [
+        "endpoint"
+      ],
+      "resolution": "included_reference_module",
+      "target": "dressed-guide-endpoint-union-r1/sources.py"
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/registry.py",
+      "module": "route",
+      "symbols": [
+        "*"
+      ],
+      "resolution": "included_reference_module",
+      "target": "dressed-guide-endpoint-union-r1/route.py"
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/registry.py",
+      "module": "additive",
+      "symbols": [
+        "additions",
+        "fm"
+      ],
+      "resolution": "included_reference_module",
+      "target": "dressed-guide-endpoint-union-r1/additive.py"
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/route.py",
+      "module": "pathlib",
+      "symbols": [
+        "Path"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/route.py",
+      "module": "fractions",
+      "symbols": [
+        "Fraction"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/route.py",
+      "module": "json",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/route.py",
+      "module": "sources",
+      "symbols": [
+        "endpoint",
+        "guide"
+      ],
+      "resolution": "included_reference_module",
+      "target": "dressed-guide-endpoint-union-r1/sources.py"
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/returns.py",
+      "module": "fractions",
+      "symbols": [
+        "Fraction"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/returns.py",
+      "module": "route",
+      "symbols": [
+        "*"
+      ],
+      "resolution": "included_reference_module",
+      "target": "dressed-guide-endpoint-union-r1/route.py"
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/returns.py",
+      "module": "sources",
+      "symbols": [
+        "guide"
+      ],
+      "resolution": "included_reference_module",
+      "target": "dressed-guide-endpoint-union-r1/sources.py"
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/returns.py",
+      "module": "registry",
+      "symbols": [
+        "body_id",
+        "route_field"
+      ],
+      "resolution": "included_reference_module",
+      "target": "dressed-guide-endpoint-union-r1/registry.py"
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/acquisition.py",
+      "module": "fractions",
+      "symbols": [
+        "Fraction"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/acquisition.py",
+      "module": "sources",
+      "symbols": [
+        "guide",
+        "endpoint"
+      ],
+      "resolution": "included_reference_module",
+      "target": "dressed-guide-endpoint-union-r1/sources.py"
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/acquisition.py",
+      "module": "census",
+      "symbols": [
+        "census",
+        "BASE"
+      ],
+      "resolution": "included_reference_module",
+      "target": "dressed-guide-endpoint-union-r1/census.py"
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/acquisition.py",
+      "module": "route",
+      "symbols": [
+        "endpoint",
+        "final_head_pose",
+        "final_flag_pose"
+      ],
+      "resolution": "included_reference_module",
+      "target": "dressed-guide-endpoint-union-r1/route.py"
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/native.py",
+      "module": "fractions",
+      "symbols": [
+        "Fraction"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/native.py",
+      "module": "route",
+      "symbols": [
+        "*"
+      ],
+      "resolution": "included_reference_module",
+      "target": "dressed-guide-endpoint-union-r1/route.py"
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/native.py",
+      "module": "registry",
+      "symbols": [
+        "route_field",
+        "body_id",
+        "dimer",
+        "thermal_address"
+      ],
+      "resolution": "included_reference_module",
+      "target": "dressed-guide-endpoint-union-r1/registry.py"
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/native.py",
+      "module": "additive",
+      "symbols": [
+        "additions"
+      ],
+      "resolution": "included_reference_module",
+      "target": "dressed-guide-endpoint-union-r1/additive.py"
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/native.py",
+      "module": "acquisition",
+      "symbols": [
+        "held_heads",
+        "descriptor_copies"
+      ],
+      "resolution": "included_reference_module",
+      "target": "dressed-guide-endpoint-union-r1/acquisition.py"
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/target.py",
+      "module": "sources",
+      "symbols": [
+        "guide",
+        "endpoint"
+      ],
+      "resolution": "included_reference_module",
+      "target": "dressed-guide-endpoint-union-r1/sources.py"
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/target.py",
+      "module": "acquisition",
+      "symbols": [
+        "contract"
+      ],
+      "resolution": "included_reference_module",
+      "target": "dressed-guide-endpoint-union-r1/acquisition.py"
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/target.py",
+      "module": "census",
+      "symbols": [
+        "census"
+      ],
+      "resolution": "included_reference_module",
+      "target": "dressed-guide-endpoint-union-r1/census.py"
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/sources.py",
+      "module": "pathlib",
+      "symbols": [
+        "Path"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/sources.py",
+      "module": "importlib.util",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/sources.py",
+      "module": "sys",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/sources.py",
+      "module": "hashlib",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/sources.py",
+      "module": "json",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/additive.py",
+      "module": "fractions",
+      "symbols": [
+        "Fraction"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/additive.py",
+      "module": "functools",
+      "symbols": [
+        "cache"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/additive.py",
+      "module": "pathlib",
+      "symbols": [
+        "Path"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/additive.py",
+      "module": "json",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/additive.py",
+      "module": "route",
+      "symbols": [
+        "endpoint",
+        "vertices",
+        "DOCK"
+      ],
+      "resolution": "included_reference_module",
+      "target": "dressed-guide-endpoint-union-r1/route.py"
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/census.py",
+      "module": "fractions",
+      "symbols": [
+        "Fraction"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/census.py",
+      "module": "pathlib",
+      "symbols": [
+        "Path"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/census.py",
+      "module": "functools",
+      "symbols": [
+        "cache"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/census.py",
+      "module": "json",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/census.py",
+      "module": "sys",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/census.py",
+      "module": "additive",
+      "symbols": [
+        "additions"
+      ],
+      "resolution": "included_reference_module",
+      "target": "dressed-guide-endpoint-union-r1/additive.py"
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/census.py",
+      "module": "precision",
+      "symbols": [
+        "pi_bounds",
+        "exp_negative_bounds",
+        "sqrt_up",
+        "dec"
+      ],
+      "resolution": "included_reference_module",
+      "target": "input-metric-correction/precision.py"
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/exclusion.py",
+      "module": "fractions",
+      "symbols": [
+        "Fraction"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/exclusion.py",
+      "module": "collections",
+      "symbols": [
+        "defaultdict"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/exclusion.py",
+      "module": "itertools",
+      "symbols": [
+        "combinations",
+        "product"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/exclusion.py",
+      "module": "json",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/exclusion.py",
+      "module": "pathlib",
+      "symbols": [
+        "Path"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/exclusion.py",
+      "module": "registry",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "included_reference_module",
+      "target": "dressed-guide-endpoint-union-r1/registry.py"
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/exclusion.py",
+      "module": "route",
+      "symbols": [
+        "*"
+      ],
+      "resolution": "included_reference_module",
+      "target": "dressed-guide-endpoint-union-r1/route.py"
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/exclusion.py",
+      "module": "additive",
+      "symbols": [
+        "additions"
+      ],
+      "resolution": "included_reference_module",
+      "target": "dressed-guide-endpoint-union-r1/additive.py"
+    },
+    {
+      "requester": "seed-complete-integration-r1/atlas.py",
+      "module": "fractions",
+      "symbols": [
+        "Fraction"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "seed-complete-integration-r1/geometry.py",
+      "module": "fractions",
+      "symbols": [
+        "Fraction"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "seed-complete-integration-r1/geometry.py",
+      "module": "atlas",
+      "symbols": [
+        "tree_center",
+        "bridge",
+        "VECTOR"
+      ],
+      "resolution": "included_reference_module",
+      "target": "seed-complete-integration-r1/atlas.py"
+    },
+    {
+      "requester": "seed-complete-integration-r1/census.py",
+      "module": "pathlib",
+      "symbols": [
+        "Path"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "seed-complete-integration-r1/census.py",
+      "module": "math",
+      "symbols": [
+        "pi",
+        "exp",
+        "sqrt"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "seed-complete-integration-r1/census.py",
+      "module": "fractions",
+      "symbols": [
+        "Fraction"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "seed-complete-integration-r1/census.py",
+      "module": "json",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "seed-complete-integration-r1/census.py",
+      "module": "atlas",
+      "symbols": [
+        "bridge"
+      ],
+      "resolution": "included_reference_module",
+      "target": "seed-complete-integration-r1/atlas.py"
+    },
+    {
+      "requester": "seed-growth-walk/angle_tapes.py",
+      "module": "fractions",
+      "symbols": [
+        "Fraction"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "seed-growth-walk/angle_tapes.py",
+      "module": "math",
+      "symbols": [
+        "factorial",
+        "acos",
+        "pi"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "seed-growth-walk/geometry.py",
+      "module": "fractions",
+      "symbols": [
+        "Fraction"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "seed-shaping-physical-join/atlas.py",
+      "module": "fractions",
+      "symbols": [
+        "Fraction"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "seed-shaping-physical-join/atlas.py",
+      "module": "math",
+      "symbols": [
+        "ceil"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "seed-shaping-efficient/compile_word.py",
+      "module": "fractions",
+      "symbols": [
+        "Fraction"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "seed-shaping-efficient/compile_word.py",
+      "module": "functools",
+      "symbols": [
+        "lru_cache"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "seed-shaping-efficient/compile_word.py",
+      "module": "math",
+      "symbols": [
+        "factorial"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "seed-shaping-efficient/compile_word.py",
+      "module": "json",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "seed-shaping-efficient/compile_word.py",
+      "module": "pathlib",
+      "symbols": [
+        "Path"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "seed-shaping-efficient/compile_word.py",
+      "module": "check",
+      "symbols": [
+        "w",
+        "phase_coefficients"
+      ],
+      "resolution": "included_reference_module",
+      "target": "seed-shaping-efficient/check.py"
+    },
+    {
+      "requester": "seed-shaping-efficient/check.py",
+      "module": "fractions",
+      "symbols": [
+        "Fraction"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "seed-shaping-efficient/check.py",
+      "module": "math",
+      "symbols": [
+        "comb",
+        "factorial",
+        "ceil",
+        "floor",
+        "sqrt",
+        "exp",
+        "pi",
+        "log2"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "seed-shaping-efficient/check.py",
+      "module": "json",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "seed-shaping-efficient/check.py",
+      "module": "hashlib",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "seed-shaping-efficient/check.py",
+      "module": "pathlib",
+      "symbols": [
+        "Path"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "seed-shaping-efficient/check.py",
+      "module": "numpy",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "declared_imported_math_library",
+      "target": "Imported numerical matrix arithmetic used by the readable representation; not a material premise."
+    },
+    {
+      "requester": "seed-shaping-efficient/optimize.py",
+      "module": "math",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "seed-shaping-efficient/optimize.py",
+      "module": "json",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "seed-shaping-efficient/optimize.py",
+      "module": "pathlib",
+      "symbols": [
+        "Path"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "seed-shaping-efficient/optimize.py",
+      "module": "packet_census_branch",
+      "symbols": [
+        "counts"
+      ],
+      "resolution": "included_reference_module",
+      "target": "seed-shaping-efficient/packet_census_branch.py"
+    },
+    {
+      "requester": "seed-shaping-efficient/packet_census_branch.py",
+      "module": "json",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "seed-shaping-efficient/packet_census_branch.py",
+      "module": "math",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "rate-spine-apparatus-join/registry.py",
+      "module": "fractions",
+      "symbols": [
+        "Fraction"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "rate-spine-apparatus-join/registry.py",
+      "module": "geometry",
+      "symbols": [
+        "*"
+      ],
+      "resolution": "included_reference_module",
+      "target": "rate-spine-apparatus-join/geometry.py"
+    },
+    {
+      "requester": "rate-spine-apparatus-join/registry.py",
+      "module": "ledger",
+      "symbols": [
+        "census",
+        "fm"
+      ],
+      "resolution": "included_reference_module",
+      "target": "rate-spine-apparatus-join/ledger.py"
+    },
+    {
+      "requester": "rate-spine-apparatus-join/registry.py",
+      "module": "functools",
+      "symbols": [
+        "cache"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "rate-spine-apparatus-join/geometry.py",
+      "module": "fractions",
+      "symbols": [
+        "Fraction"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "rate-spine-apparatus-join/geometry.py",
+      "module": "itertools",
+      "symbols": [
+        "product"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "rate-spine-apparatus-join/bindings.py",
+      "module": "fractions",
+      "symbols": [
+        "Fraction"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "rate-spine-apparatus-join/bindings.py",
+      "module": "itertools",
+      "symbols": [
+        "product"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "rate-spine-apparatus-join/bindings.py",
+      "module": "geometry",
+      "symbols": [
+        "*"
+      ],
+      "resolution": "included_reference_module",
+      "target": "rate-spine-apparatus-join/geometry.py"
+    },
+    {
+      "requester": "rate-spine-apparatus-join/bindings.py",
+      "module": "ledger",
+      "symbols": [
+        "fm",
+        "census"
+      ],
+      "resolution": "included_reference_module",
+      "target": "rate-spine-apparatus-join/ledger.py"
+    },
+    {
+      "requester": "rate-spine-apparatus-join/ledger.py",
+      "module": "pathlib",
+      "symbols": [
+        "Path"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "rate-spine-apparatus-join/ledger.py",
+      "module": "fractions",
+      "symbols": [
+        "Fraction"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "rate-spine-apparatus-join/ledger.py",
+      "module": "json",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "rate-spine-apparatus-join/ledger.py",
+      "module": "sys",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "rate-spine-apparatus-join/ledger.py",
+      "module": "functools",
+      "symbols": [
+        "cache"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "rate-spine-apparatus-join/ledger.py",
+      "module": "geometry",
+      "symbols": [
+        "operands",
+        "bridge",
+        "initial_partition"
+      ],
+      "resolution": "included_reference_module",
+      "target": "rate-spine-apparatus-join/geometry.py"
+    },
+    {
+      "requester": "rate-spine-apparatus-join/ledger.py",
+      "module": "precision",
+      "symbols": [
+        "pi_bounds",
+        "exp_negative_bounds",
+        "dec",
+        "sqrt_up"
+      ],
+      "resolution": "included_reference_module",
+      "target": "input-metric-correction/precision.py"
+    },
+    {
+      "requester": "rate-spine-apparatus-join/target.py",
+      "module": "math",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "rate-spine-apparatus-join/target.py",
+      "module": "cmath",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "rate-spine-apparatus-join/target.py",
+      "module": "json",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "rate-spine-apparatus-join/target.py",
+      "module": "pathlib",
+      "symbols": [
+        "Path"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "rate-spine-apparatus-join/target.py",
+      "module": "geometry",
+      "symbols": [
+        "WORDS",
+        "FLAGS",
+        "SETTINGS",
+        "STATUS",
+        "raw_fields",
+        "HEAD0",
+        "HEAD1"
+      ],
+      "resolution": "included_reference_module",
+      "target": "rate-spine-apparatus-join/geometry.py"
+    },
+    {
+      "requester": "rate-spine-apparatus-join/target.py",
+      "module": "ledger",
+      "symbols": [
+        "census"
+      ],
+      "resolution": "included_reference_module",
+      "target": "rate-spine-apparatus-join/ledger.py"
+    },
+    {
+      "requester": "union-native-acquisition-successor/model.py",
+      "module": "pathlib",
+      "symbols": [
+        "Path"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "union-native-acquisition-successor/model.py",
+      "module": "fractions",
+      "symbols": [
+        "Fraction"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "union-native-acquisition-successor/model.py",
+      "module": "decimal",
+      "symbols": [
+        "Decimal",
+        "localcontext",
+        "ROUND_CEILING"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "union-native-acquisition-successor/model.py",
+      "module": "hashlib",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "union-native-acquisition-successor/model.py",
+      "module": "json",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "union-native-acquisition-successor/geometry.py",
+      "module": "fractions",
+      "symbols": [
+        "Fraction"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "union-native-acquisition-successor/geometry.py",
+      "module": "itertools",
+      "symbols": [
+        "combinations",
+        "product"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "union-native-acquisition-successor/geometry.py",
+      "module": "model",
+      "symbols": [
+        "observer_stock",
+        "CONTACTS",
+        "CM",
+        "fm",
+        "Q"
+      ],
+      "resolution": "included_reference_module",
+      "target": "union-native-acquisition-successor/model.py"
+    },
+    {
+      "requester": "union-native-acquisition-successor/atlas.py",
+      "module": "fractions",
+      "symbols": [
+        "Fraction"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "union-native-acquisition-successor/atlas.py",
+      "module": "itertools",
+      "symbols": [
+        "product",
+        "combinations"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "union-native-acquisition-successor/atlas.py",
+      "module": "model",
+      "symbols": [
+        "*"
+      ],
+      "resolution": "included_reference_module",
+      "target": "union-native-acquisition-successor/model.py"
+    },
+    {
+      "requester": "union-native-acquisition-successor/atlas.py",
+      "module": "geometry",
+      "symbols": [
+        "plus",
+        "point",
+        "front",
+        "exact"
+      ],
+      "resolution": "included_reference_module",
+      "target": "union-native-acquisition-successor/geometry.py"
+    },
+    {
+      "requester": "union-native-acquisition-successor/atlas.py",
+      "module": "relay",
+      "symbols": [
+        "courier_point",
+        "courier_stages",
+        "courier_id",
+        "staging",
+        "packet_paths",
+        "rho"
+      ],
+      "resolution": "included_reference_module",
+      "target": "union-native-acquisition-successor/relay.py"
+    },
+    {
+      "requester": "union-native-acquisition-successor/atlas.py",
+      "module": "binding",
+      "symbols": [
+        "load"
+      ],
+      "resolution": "included_reference_module",
+      "target": "union-native-acquisition-successor/binding.py"
+    },
+    {
+      "requester": "union-native-acquisition-successor/atlas.py",
+      "module": "collections",
+      "symbols": [
+        "Counter"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "union-native-acquisition-successor/native.py",
+      "module": "dataclasses",
+      "symbols": [
+        "dataclass",
+        "field"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "union-native-acquisition-successor/native.py",
+      "module": "model",
+      "symbols": [
+        "token",
+        "CARGO",
+        "costs"
+      ],
+      "resolution": "included_reference_module",
+      "target": "union-native-acquisition-successor/model.py"
+    },
+    {
+      "requester": "union-native-acquisition-successor/UNA65.py",
+      "module": "model",
+      "symbols": [
+        "scalar",
+        "obsbit",
+        "HEADS"
+      ],
+      "resolution": "included_reference_module",
+      "target": "union-native-acquisition-successor/model.py"
+    },
+    {
+      "requester": "union-native-acquisition-successor/courier.py",
+      "module": "model",
+      "symbols": [
+        "scalar",
+        "bits",
+        "fm",
+        "costs"
+      ],
+      "resolution": "included_reference_module",
+      "target": "union-native-acquisition-successor/model.py"
+    },
+    {
+      "requester": "union-native-acquisition-successor/courier.py",
+      "module": "relay",
+      "symbols": [
+        "courier_id",
+        "staging",
+        "rho"
+      ],
+      "resolution": "included_reference_module",
+      "target": "union-native-acquisition-successor/relay.py"
+    },
+    {
+      "requester": "union-native-acquisition-successor/relay.py",
+      "module": "fractions",
+      "symbols": [
+        "Fraction"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "union-native-acquisition-successor/relay.py",
+      "module": "pathlib",
+      "symbols": [
+        "Path"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "union-native-acquisition-successor/relay.py",
+      "module": "json",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "union-native-acquisition-successor/relay.py",
+      "module": "model",
+      "symbols": [
+        "HERE",
+        "ROOT",
+        "BASE_NAME",
+        "HEADS",
+        "scalar",
+        "sha"
+      ],
+      "resolution": "included_reference_module_with_declared_integrity_exclusions",
+      "target": "union-native-acquisition-successor/model.py"
+    },
+    {
+      "requester": "union-native-acquisition-successor/binding.py",
+      "module": "pathlib",
+      "symbols": [
+        "Path"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "union-native-acquisition-successor/binding.py",
+      "module": "importlib.util",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "union-native-acquisition-successor/binding.py",
+      "module": "sys",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "union-native-acquisition-successor/binding.py",
+      "module": "json",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "union-native-acquisition-successor/binding.py",
+      "module": "model",
+      "symbols": [
+        "ROOT",
+        "BASE_NAME",
+        "base_pins",
+        "sha"
+      ],
+      "resolution": "included_reference_module_with_declared_integrity_exclusions",
+      "target": "union-native-acquisition-successor/model.py"
+    },
+    {
+      "requester": "dressed-union-record-target/adapter.py",
+      "module": "types",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-union-record-target/adapter.py",
+      "module": "fractions",
+      "symbols": [
+        "Fraction"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-union-record-target/wire.py",
+      "module": "gzip",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-union-record-target/wire.py",
+      "module": "hashlib",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-union-record-target/wire.py",
+      "module": "json",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-union-record-target/wire.py",
+      "module": "math",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-union-record-target/wire.py",
+      "module": "os",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-union-record-target/wire.py",
+      "module": "zlib",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-union-record-target/wire.py",
+      "module": "pathlib",
+      "symbols": [
+        "Path"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-union-record-target/law.py",
+      "module": "fractions",
+      "symbols": [
+        "Fraction"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-union-record-target/law.py",
+      "module": "functools",
+      "symbols": [
+        "cache"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "dressed-union-record-target/law.py",
+      "module": "math",
+      "symbols": [
+        "isqrt"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "input-metric-correction/precision.py",
+      "module": "fractions",
+      "symbols": [
+        "Fraction"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "input-metric-correction/precision.py",
+      "module": "decimal",
+      "symbols": [
+        "Decimal",
+        "localcontext",
+        "ROUND_CEILING",
+        "ROUND_FLOOR"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "input-metric-correction/precision.py",
+      "module": "math",
+      "symbols": [
+        "isqrt"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "optical-transport-successor/assembly.py",
+      "module": "pathlib",
+      "symbols": [
+        "Path"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "optical-transport-successor/assembly.py",
+      "module": "fractions",
+      "symbols": [
+        "Fraction"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "optical-transport-successor/assembly.py",
+      "module": "collections",
+      "symbols": [
+        "Counter"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "optical-transport-successor/assembly.py",
+      "module": "itertools",
+      "symbols": [
+        "product"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "optical-transport-successor/assembly.py",
+      "module": "importlib.util",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "optical-transport-successor/assembly.py",
+      "module": "math",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "optical-transport-successor/assembly.py",
+      "module": "json",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "optical-transport-successor/inputs/local-factory/generator.py",
+      "module": "itertools",
+      "symbols": [
+        "product",
+        "permutations"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "optical-transport-successor/inputs/local-factory/generator.py",
+      "module": "fractions",
+      "symbols": [
+        "Fraction"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    },
+    {
+      "requester": "optical-transport-successor/inputs/local-factory/generator.py",
+      "module": "math",
+      "symbols": [
+        "module"
+      ],
+      "resolution": "python_standard_library",
+      "target": null
+    }
+  ],
+  "dynamic_module_bindings": [
+    {
+      "requester": "dressed-guide-apparatus-join-r1/model.py",
+      "alias": "opt",
+      "target": "optical-transport-successor/assembly.py"
+    },
+    {
+      "requester": "dressed-guide-apparatus-join-r1/model.py",
+      "alias": "core",
+      "target": "dressed-guide-successor/model.py"
+    },
+    {
+      "requester": "optical-transport-successor/assembly.py",
+      "alias": "b",
+      "target": "optical-transport-successor/inputs/local-factory/generator.py"
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/sources.py",
+      "alias": "endpoint[geometry]",
+      "target": "rate-spine-apparatus-join/geometry.py"
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/sources.py",
+      "alias": "endpoint[ledger]",
+      "target": "rate-spine-apparatus-join/ledger.py"
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/sources.py",
+      "alias": "endpoint[registry]",
+      "target": "rate-spine-apparatus-join/registry.py"
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/sources.py",
+      "alias": "endpoint[bindings]",
+      "target": "rate-spine-apparatus-join/bindings.py"
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/sources.py",
+      "alias": "endpoint[target]",
+      "target": "rate-spine-apparatus-join/target.py"
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/sources.py",
+      "alias": "guide[model]",
+      "target": "dressed-guide-apparatus-join-r1/model.py"
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/sources.py",
+      "alias": "guide[precision_budget]",
+      "target": "dressed-guide-apparatus-join-r1/precision_budget.py"
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/sources.py",
+      "alias": "guide[registry]",
+      "target": "dressed-guide-apparatus-join-r1/registry.py"
+    },
+    {
+      "requester": "dressed-guide-endpoint-union-r1/sources.py",
+      "alias": "guide[acquisition]",
+      "target": "dressed-guide-apparatus-join-r1/acquisition.py"
+    },
+    {
+      "requester": "union-native-acquisition-successor/binding.py",
+      "alias": "load()[sources]",
+      "target": "dressed-guide-endpoint-union-r1/sources.py"
+    },
+    {
+      "requester": "union-native-acquisition-successor/binding.py",
+      "alias": "load()[route]",
+      "target": "dressed-guide-endpoint-union-r1/route.py"
+    },
+    {
+      "requester": "union-native-acquisition-successor/binding.py",
+      "alias": "load()[registry]",
+      "target": "dressed-guide-endpoint-union-r1/registry.py"
+    },
+    {
+      "requester": "union-native-acquisition-successor/binding.py",
+      "alias": "load()[returns]",
+      "target": "dressed-guide-endpoint-union-r1/returns.py"
+    },
+    {
+      "requester": "union-native-acquisition-successor/binding.py",
+      "alias": "load()[exclusion]",
+      "target": "dressed-guide-endpoint-union-r1/exclusion.py"
+    },
+    {
+      "requester": "union-native-acquisition-successor/binding.py",
+      "alias": "load()[acquisition]",
+      "target": "dressed-guide-endpoint-union-r1/acquisition.py"
+    },
+    {
+      "requester": "dressed-union-record-target/adapter.py",
+      "alias": "load_module(verified,wire)",
+      "target": "dressed-union-record-target/wire.py"
+    },
+    {
+      "requester": "dressed-union-record-target/adapter.py",
+      "alias": "load_module(verified,law)",
+      "target": "dressed-union-record-target/law.py"
+    }
+  ],
+  "excluded_symbols": [
+    {
+      "source": "dressed-guide-apparatus-join-r1/compiled_modes.py",
+      "symbol": "run",
+      "reason": "Integrity, filesystem publication or diagnostic entry point; not a physical/math operation."
+    },
+    {
+      "source": "dressed-guide-apparatus-join-r1/compiled_modes.py",
+      "symbol": "checks",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "dressed-guide-apparatus-join-r1/acquisition.py",
+      "symbol": "classify",
+      "reason": "Pre-native semantic classifier superseded by the delivered final adapter.inspect path."
+    },
+    {
+      "source": "dressed-guide-endpoint-union-r1/target.py",
+      "symbol": "semantic_classify",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "dressed-guide-endpoint-union-r1/target.py",
+      "symbol": "contract",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "dressed-guide-endpoint-union-r1/sources.py",
+      "symbol": "check_manifest",
+      "reason": "Integrity, filesystem publication or diagnostic entry point; not a physical/math operation."
+    },
+    {
+      "source": "dressed-guide-endpoint-union-r1/exclusion.py",
+      "symbol": "run",
+      "reason": "Integrity, filesystem publication or diagnostic entry point; not a physical/math operation."
+    },
+    {
+      "source": "seed-complete-integration-r1/census.py",
+      "symbol": "rd",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "seed-complete-integration-r1/census.py",
+      "symbol": "counts",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "seed-shaping-physical-join/atlas.py",
+      "symbol": "workspace",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "seed-shaping-efficient/compile_word.py",
+      "symbol": "fixture",
+      "reason": "Integrity, filesystem publication or diagnostic entry point; not a physical/math operation."
+    },
+    {
+      "source": "seed-shaping-efficient/check.py",
+      "symbol": "check",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "seed-shaping-efficient/check.py",
+      "symbol": "jacobi_sequence",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "seed-shaping-efficient/check.py",
+      "symbol": "gray_walsh",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "seed-shaping-efficient/check.py",
+      "symbol": "benchmark",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "seed-shaping-efficient/check.py",
+      "symbol": "cg_by_ladder",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "seed-shaping-efficient/check.py",
+      "symbol": "rational_certificates",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "seed-shaping-efficient/check.py",
+      "symbol": "main",
+      "reason": "Integrity, filesystem publication or diagnostic entry point; not a physical/math operation."
+    },
+    {
+      "source": "seed-shaping-efficient/optimize.py",
+      "symbol": "main",
+      "reason": "Integrity, filesystem publication or diagnostic entry point; not a physical/math operation."
+    },
+    {
+      "source": "rate-spine-apparatus-join/target.py",
+      "symbol": "target",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "union-native-acquisition-successor/model.py",
+      "symbol": "sha",
+      "reason": "Integrity, filesystem publication or diagnostic entry point; not a physical/math operation."
+    },
+    {
+      "source": "union-native-acquisition-successor/model.py",
+      "symbol": "base_pins",
+      "reason": "Integrity, filesystem publication or diagnostic entry point; not a physical/math operation."
+    },
+    {
+      "source": "dressed-union-record-target/adapter.py",
+      "symbol": "run",
+      "reason": "Integrity, filesystem publication or diagnostic entry point; not a physical/math operation."
+    },
+    {
+      "source": "input-metric-correction/precision.py",
+      "symbol": "evaluated",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "optical-transport-successor/assembly.py",
+      "symbol": "full_census",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "optical-transport-successor/inputs/local-factory/generator.py",
+      "symbol": "containing_cells",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "optical-transport-successor/inputs/local-factory/generator.py",
+      "symbol": "owner",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "optical-transport-successor/inputs/local-factory/generator.py",
+      "symbol": "tetrahedra",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "optical-transport-successor/inputs/local-factory/generator.py",
+      "symbol": "det",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "optical-transport-successor/inputs/local-factory/generator.py",
+      "symbol": "station_role",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "optical-transport-successor/inputs/local-factory/generator.py",
+      "symbol": "role",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "optical-transport-successor/inputs/local-factory/generator.py",
+      "symbol": "optical_edges",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "optical-transport-successor/inputs/local-factory/generator.py",
+      "symbol": "control_edges",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "optical-transport-successor/inputs/local-factory/generator.py",
+      "symbol": "vertex_id",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "optical-transport-successor/inputs/local-factory/generator.py",
+      "symbol": "factory_reference",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "optical-transport-successor/inputs/local-factory/generator.py",
+      "symbol": "census",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "optical-transport-successor/inputs/local-factory/generator.py",
+      "symbol": "moving_pose",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "optical-transport-successor/inputs/local-factory/generator.py",
+      "symbol": "local_work_neighbors",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "optical-transport-successor/inputs/local-factory/generator.py",
+      "symbol": "work_ports",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "optical-transport-successor/inputs/local-factory/generator.py",
+      "symbol": "owned_braces",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "optical-transport-successor/inputs/local-factory/generator.py",
+      "symbol": "weighted_parts",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "optical-transport-successor/inputs/local-factory/generator.py",
+      "symbol": "primitive_dimer",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "optical-transport-successor/inputs/local-factory/generator.py",
+      "symbol": "primitive_endpoint",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "optical-transport-successor/inputs/local-factory/generator.py",
+      "symbol": "cargo_pose",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "optical-transport-successor/inputs/local-factory/generator.py",
+      "symbol": "ribbon_vertices",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "optical-transport-successor/inputs/local-factory/generator.py",
+      "symbol": "ribbon_edges",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "optical-transport-successor/inputs/local-factory/generator.py",
+      "symbol": "ribbon_vertex_id",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "optical-transport-successor/inputs/local-factory/generator.py",
+      "symbol": "ribbon_neighbors",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "optical-transport-successor/inputs/local-factory/generator.py",
+      "symbol": "weighted_remainder",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "optical-transport-successor/inputs/local-factory/generator.py",
+      "symbol": "atlas_parts",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "optical-transport-successor/inputs/local-factory/generator.py",
+      "symbol": "atlas_dimer",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "optical-transport-successor/inputs/local-factory/generator.py",
+      "symbol": "atlas_block_id",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "optical-transport-successor/inputs/local-factory/generator.py",
+      "symbol": "atlas_endpoint",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "optical-transport-successor/inputs/local-factory/generator.py",
+      "symbol": "mounted_remainders",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "optical-transport-successor/inputs/local-factory/generator.py",
+      "symbol": "atlas_census",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "optical-transport-successor/inputs/local-factory/generator.py",
+      "symbol": "extra_incident",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "optical-transport-successor/inputs/local-factory/generator.py",
+      "symbol": "contact_atlas",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    },
+    {
+      "source": "optical-transport-successor/inputs/local-factory/generator.py",
+      "symbol": "grid_remainder_atlas",
+      "reason": "Outside retained current symbol selection: diagnostic, historical whole-device account, or replaced by final literal table/adapter."
+    }
+  ],
+  "literal_data_file": "normative-support-data.json.gz",
+  "literal_data_bindings": [
+    {
+      "source": "dressed-guide-successor/TARGET.json",
+      "source_selector": [
+        "bounds"
+      ],
+      "table_index": 0
+    },
+    {
+      "source": "optical-record-target/TARGET.json",
+      "source_selector": [
+        "schedule",
+        "strata"
+      ],
+      "table_index": 1
+    },
+    {
+      "source": "seed-complete-integration-r1/receipts.json",
+      "source_selector": [
+        "q_hot_seed"
+      ],
+      "table_index": 2
+    },
+    {
+      "source": "seed-complete-integration-r1/receipts.json",
+      "source_selector": [
+        "seed_P_star"
+      ],
+      "table_index": 3
+    },
+    {
+      "source": "seed-complete-integration-r1/receipts.json",
+      "source_selector": [
+        "seed_capacity_excluding_observer"
+      ],
+      "table_index": 4
+    },
+    {
+      "source": "seed-complete-integration-r1/receipts.json",
+      "source_selector": [
+        "seed_coherent_prefix"
+      ],
+      "table_index": 5
+    },
+    {
+      "source": "seed-complete-integration-r1/receipts.json",
+      "source_selector": [
+        "seed_energy_excluding_observer"
+      ],
+      "table_index": 6
+    },
+    {
+      "source": "seed-complete-integration-r1/receipts.json",
+      "source_selector": [
+        "stock_union"
+      ],
+      "table_index": 7
+    },
+    {
+      "source": "dressed-guide-apparatus-join-r1/receipts.json",
+      "source_selector": [
+        "P_star"
+      ],
+      "table_index": 8
+    },
+    {
+      "source": "dressed-guide-apparatus-join-r1/receipts.json",
+      "source_selector": [
+        "annex"
+      ],
+      "table_index": 9
+    },
+    {
+      "source": "dressed-guide-apparatus-join-r1/receipts.json",
+      "source_selector": [
+        "capacity_upper_k0"
+      ],
+      "table_index": 10
+    },
+    {
+      "source": "dressed-guide-apparatus-join-r1/receipts.json",
+      "source_selector": [
+        "export"
+      ],
+      "table_index": 11
+    },
+    {
+      "source": "dressed-guide-apparatus-join-r1/receipts.json",
+      "source_selector": [
+        "guide"
+      ],
+      "table_index": 12
+    },
+    {
+      "source": "dressed-guide-apparatus-join-r1/receipts.json",
+      "source_selector": [
+        "inlet_energy_upper_k0"
+      ],
+      "table_index": 13
+    },
+    {
+      "source": "dressed-guide-apparatus-join-r1/receipts.json",
+      "source_selector": [
+        "observer_dimers"
+      ],
+      "table_index": 14
+    },
+    {
+      "source": "dressed-guide-apparatus-join-r1/receipts.json",
+      "source_selector": [
+        "physical_dimers"
+      ],
+      "table_index": 15
+    },
+    {
+      "source": "dressed-guide-apparatus-join-r1/receipts.json",
+      "source_selector": [
+        "precision_bounds"
+      ],
+      "table_index": 16
+    },
+    {
+      "source": "dressed-guide-apparatus-join-r1/receipts.json",
+      "source_selector": [
+        "seed"
+      ],
+      "table_index": 17
+    },
+    {
+      "source": "optical-complete-interface-r1/receipts.json",
+      "source_selector": [
+        2,
+        "P_star"
+      ],
+      "table_index": 18
+    },
+    {
+      "source": "optical-complete-interface-r1/receipts.json",
+      "source_selector": [
+        2,
+        "capacity_upper_k0"
+      ],
+      "table_index": 19
+    },
+    {
+      "source": "optical-complete-interface-r1/receipts.json",
+      "source_selector": [
+        2,
+        "inlet_energy_upper_k0"
+      ],
+      "table_index": 20
+    },
+    {
+      "source": "optical-complete-interface-r1/receipts.json",
+      "source_selector": [
+        2,
+        "observer_bits"
+      ],
+      "table_index": 21
+    },
+    {
+      "source": "optical-complete-interface-r1/receipts.json",
+      "source_selector": [
+        2,
+        "observer_dimers"
+      ],
+      "table_index": 22
+    },
+    {
+      "source": "optical-complete-interface-r1/receipts.json",
+      "source_selector": [
+        2,
+        "physical_dimers"
+      ],
+      "table_index": 23
+    },
+    {
+      "source": "optical-complete-interface-r1/receipts.json",
+      "source_selector": [
+        2,
+        "precision_bounds"
+      ],
+      "table_index": 24
+    },
+    {
+      "source": "seed-growth-walk/CONTRACT.json",
+      "source_selector": [
+        "stock"
+      ],
+      "table_index": 25
+    },
+    {
+      "source": "seed-shaping-efficient/optimized-packet-receipts.json",
+      "source_selector": [
+        "stock"
+      ],
+      "table_index": 26
+    },
+    {
+      "source": "seed-shaping-physical-join/receipts.json",
+      "source_selector": [
+        "stock"
+      ],
+      "table_index": 27
+    },
+    {
+      "source": "seed-complete-integration-r1/receipts.json",
+      "source_selector": [
+        "detector"
+      ],
+      "table_index": 28
+    },
+    {
+      "source": "seed-complete-integration-r1/receipts.json",
+      "source_selector": [
+        "connector"
+      ],
+      "table_index": 29
+    },
+    {
+      "source": "seed-complete-integration-r1/receipts.json",
+      "source_selector": [
+        "stock_union"
+      ],
+      "table_index": 30
+    },
+    {
+      "source": "dressed-guide-endpoint-union-r1/CONTRACT.json",
+      "source_selector": [
+        "cases"
+      ],
+      "table_index": 31
+    },
+    {
+      "source": "dressed-guide-endpoint-union-r1/CONTRACT.json",
+      "source_selector": [
+        "raw_acquisition"
+      ],
+      "table_index": 32
+    },
+    {
+      "source": "union-native-acquisition-successor/CONTRACT.json",
+      "source_selector": [
+        "whole_receipts"
+      ],
+      "table_index": 33
+    }
+  ],
+  "existing_data_bindings": {
+    "union-native-acquisition-successor/selected-r1-final/RETURN-INTERFACE.json": "return-interface.json[data]",
+    "union-native-acquisition-successor/selected-r1-final/ROUTE.json": "endpoint-route.json[data]",
+    "union-native-acquisition-successor/RAW-INTERFACE.json": "acquisition-raw-interface.json[data]",
+    "union-native-acquisition-successor/RAW-SCHEMA.json": "acquisition-raw-schema.json[data]",
+    "union-native-acquisition-successor/TOKENS.json": "acquisition-tokens.json.gz[data]",
+    "union-native-acquisition-successor/EVENTS.json": "acquisition-events.json.gz[data]",
+    "union-native-acquisition-successor/RECEIPTS.json": "complete-accounts.json[data.per_fresh_attempt]"
+  },
+  "administrative_interfaces": {
+    "sources.check_manifest / model.base_pins / sha": "Integrity/custody checks only. Source bytes and selected-value hashes are recorded in this appendix; private input manifests are intentionally not delivered.",
+    "sources.guide[target]": "The old 72-case semantic classifier is not retained. The final prepared-cases table and dressed-union-record-target adapter/law give the current 821-case contract.",
+    "seed-shaping-efficient.optimize.point": "Parameter evaluator only. Final selected point is kappa=3,b=23,r=12,p=48 and ready_width=584, not defaults or any earlier whole-device claim.",
+    "seed-shaping-physical-join.atlas.workspace": "Replaced by actual free-scratch/original-M physical factor routing in seed-complete-integration-r1 atlas/fields, as specified in section 4.2. The early head-field scratch alias is not retained."
+  },
+  "verification": {
+    "status": "PASS_DEPENDENCY_DEFINITION_CHECKS_NOT_EXECUTABLE_OR_PHYSICAL_VALIDATION",
+    "reference_modules": 48,
+    "static_import_edges": 183,
+    "dynamic_bindings": 20,
+    "current_literal_support_tables": 34,
+    "explicit_symbol_exclusions": 58,
+    "retained_function_bodies_AST_equal_to_source": 455,
+    "physical_top_level_initializations": [
+      {
+        "source": "dressed-guide-apparatus-join-r1/native.py",
+        "offsets": {
+          "cursor": [
+            1047,
+            128
+          ],
+          "fault_loaded": [
+            1175,
+            128
+          ],
+          "program": [
+            1303,
+            384
+          ],
+          "position": [
+            1687,
+            128
+          ],
+          "grip": [
+            1815,
+            1024
+          ],
+          "mailbox": [
+            2839,
+            256
+          ],
+          "inlet_cursor": [
+            3095,
+            128
+          ],
+          "audit": [
+            3223,
+            256
+          ],
+          "status": [
+            3479,
+            64
+          ]
+        },
+        "roles": 9,
+        "address_start": 1047,
+        "address_end_exclusive": 3543,
+        "initialized_cells": 2496,
+        "source_AST_equal": true
+      },
+      {
+        "source": "seed-complete-integration-r1/fields.py",
+        "offsets": {
+          "cursor": [
+            1047,
+            128
+          ],
+          "fault_loaded": [
+            1175,
+            128
+          ],
+          "program": [
+            1303,
+            384
+          ],
+          "position": [
+            1687,
+            128
+          ],
+          "grip": [
+            1815,
+            1024
+          ],
+          "mailbox": [
+            2839,
+            256
+          ],
+          "inlet_cursor": [
+            3095,
+            128
+          ],
+          "audit": [
+            3223,
+            256
+          ],
+          "status": [
+            3479,
+            64
+          ]
+        },
+        "roles": 9,
+        "address_start": 1047,
+        "address_end_exclusive": 3543,
+        "initialized_cells": 2496,
+        "source_AST_equal": true
+      }
+    ],
+    "literal_support_selections_equal_to_source": 34,
+    "convolution_small_exact_coefficients": 350,
+    "matched_finish_bad_amplitude_abs": 3.469446951953614e-18,
+    "F3_full_four_state_word_matrix_error": 4.444764553885773e-16,
+    "matched_finish_varphi": 1.9564457250617036,
+    "matched_finish_phi": 0.7747218041259991,
+    "fixed_phase_correction_radians_mod_2pi": 1.183435424731897,
+    "missing_dependencies": [],
+    "spine_physical_functions_retained": true
+  }
+}

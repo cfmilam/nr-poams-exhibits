@@ -1,0 +1,1346 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="An integrated POAMS optical-information link: the physical idea, finite construction, decisive record test, and complete conditional engineering specification.">
+<title>An Optical-Information Link · POAMS Engineering Exhibit</title>
+<style>
+:root{--paper:#f6f3e9;--surface:#fffdf7;--ink:#172d2a;--muted:#52635b;--line:#d2d9cc;--green:#18594c;--gold:#915d17;--soft:#e6ece2;--blue:#2d6281;--red:#9d4334;--night:#132b29;--nightInk:#eff5e9;--shadow:0 14px 40px #172d2a0a;--sans:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;--serif:Georgia,"Times New Roman",serif}
+html{scroll-behavior:smooth;scroll-padding-top:100px}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.7}a{color:var(--green);text-underline-offset:.22em}a:hover{text-decoration-thickness:2px}button,input,select{font:inherit}button,select{cursor:pointer}button{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:5px;padding:.6rem .9rem}button:hover{border-color:var(--green)}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:4px}button[aria-pressed=true]{background:var(--green);color:#fff;border-color:var(--green)}p{margin:.85em 0 1.1em}h1,h2,h3,h4{line-height:1.17;letter-spacing:-.025em}h1,h2{font-family:var(--serif);font-weight:normal}h1{font-size:clamp(3rem,7.6vw,6.2rem);max-width:990px;margin:.35em 0 .32em}h2{font-size:clamp(2rem,4.4vw,3.15rem);margin:0 0 .7em}h3{font-size:1.23rem;margin:1.6em 0 .5em}h4{font-size:1.04rem;margin:1.4em 0 .5em}ul,ol{padding-left:1.35rem}li{margin:.5rem 0}strong{font-weight:700}small,.small{font-size:.83rem}sup,sub{line-height:0}.skip{position:absolute;left:1rem;top:-5rem;background:var(--surface);padding:.7rem;z-index:200}.skip:focus{top:1rem}.topbar{background:var(--paper);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:30;backdrop-filter:blur(10px)}.topinner{max-width:1320px;padding:.8rem 2rem;margin:auto;display:flex;align-items:center;gap:1.2rem;justify-content:space-between}.brand{text-decoration:none;font-size:.73rem;letter-spacing:.17em;font-weight:750}.toplinks{display:flex;gap:1.25rem;align-items:center;font-size:.78rem}.toplinks a{text-decoration:none}.toplinks button{padding:.35rem .65rem;font-size:.77rem}.wrap{max-width:1240px;margin:0 auto;padding:0 2rem}.eyebrow{color:var(--green);font-weight:750;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase}.hero{padding:4rem 0 3rem}.hero .dek{font-family:var(--serif);font-size:clamp(1.23rem,2.1vw,1.65rem);max-width:890px;line-height:1.5}.hero-meta{display:flex;gap:1rem;flex-wrap:wrap;color:var(--muted);font-size:.8rem;padding:1.2rem 0}.hero-meta span+span:before{content:'·';margin-right:1rem}.status{border-left:3px solid var(--gold);padding:.65rem 1.2rem;max-width:900px;font-size:.91rem;color:var(--muted)}.status strong{color:var(--ink)}.pill{display:inline-block;padding:.2rem .65rem;border:1px solid var(--line);border-radius:100px;font-size:.7rem;letter-spacing:.04em;font-weight:650}.actions{display:flex;gap:.8rem;flex-wrap:wrap;margin:1.6rem 0}.action{padding:.72rem 1rem;border:1px solid var(--green);border-radius:4px;text-decoration:none;font-size:.85rem}.action.primary{background:var(--green);color:#fff}.hero-art{background:var(--night);border-radius:10px;padding:1.2rem 1.5rem;color:var(--nightInk);margin:2.2rem 0 0}.art-head{display:flex;justify-content:space-between;gap:1rem;font-size:.72rem;color:#b9cfbd;letter-spacing:.08em;text-transform:uppercase}.hero-art svg{width:100%;height:auto;display:block}.hero-art .hero-mobile{display:none}.hero-art figcaption{font-size:.77rem;line-height:1.5;color:#bacdc0;border-top:1px solid #ffffff23;padding-top:.9rem}.metrics{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:2.2rem 0 0}.metric{padding:1.4rem 1.2rem;border-right:1px solid var(--line)}.metric:first-child{padding-left:0}.metric:last-child{border:0}.metric strong{font-family:var(--serif);font-size:2.2rem;font-weight:normal;display:block;line-height:1.2}.metric span{font-size:.74rem;line-height:1.4;display:block;margin-top:.5rem;color:var(--muted)}.contents{padding:1rem 0 2.7rem;display:grid;grid-template-columns:1fr 3fr;gap:2rem}.contents h2{font-family:var(--sans);font-weight:650;font-size:.85rem;margin:.4rem 0}.contents nav{display:grid;grid-template-columns:repeat(3,1fr);gap:.55rem 1.1rem}.contents a{font-size:.81rem;text-decoration:none}.contents a span{color:var(--gold);font-variant-numeric:tabular-nums;margin-right:.5rem}section.major{padding:4rem 0;border-top:1px solid var(--line)}.sectionhead{display:grid;grid-template-columns:90px 1fr;gap:1.3rem}.number{font-family:var(--serif);font-size:3.4rem;line-height:1;color:var(--gold);opacity:.75}.sectionhead .lead{font-family:var(--serif);font-size:1.25rem;max-width:850px}.sectionbody{margin-left:110px}.columns{display:grid;grid-template-columns:1fr 1fr;gap:2rem}.three{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.card{background:var(--surface);border:1px solid var(--line);border-radius:7px;padding:1.4rem;box-shadow:var(--shadow)}.card h3{margin-top:0}.card p:last-child{margin-bottom:0}.callout{padding:1.2rem 1.4rem;background:var(--soft);border-left:3px solid var(--green);margin:1.4rem 0}.callout.gold{border-color:var(--gold)}.muted{color:var(--muted)}.kicker{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:750}.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:6px;margin:1.2rem 0}table{width:100%;border-collapse:collapse;font-size:.85rem;line-height:1.55;text-align:left}th,td{padding:.8rem .9rem;vertical-align:top;border-bottom:1px solid var(--line)}th{font-size:.73rem;letter-spacing:.035em;background:var(--soft);font-weight:700}tr:last-child td{border-bottom:0}td:first-child{font-weight:600}td code{white-space:normal}code,pre,.mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.85em}code{overflow-wrap:anywhere}pre{background:var(--soft);padding:1.1rem;overflow:auto;line-height:1.65;border:1px solid var(--line);border-radius:4px}blockquote{border-left:3px solid var(--gold);padding:.2rem 1.2rem;margin:1.3rem 0;font-family:var(--serif);font-size:1.22rem}.equation{background:var(--surface);border:1px solid var(--line);border-radius:5px;padding:1rem 1.2rem;margin:1.1rem 0;font-family:var(--serif);font-size:1.13rem;text-align:center;overflow-x:auto}.formula-note{font-family:var(--sans);font-size:.75rem;color:var(--muted);margin-top:.6rem}.explorer{background:var(--surface);border:1px solid var(--line);border-radius:8px;overflow:hidden;margin:1.5rem 0}.explorer-header{padding:1.1rem 1.3rem;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:1rem;align-items:center}.explorer-header h3{margin:0}.stage-nav{padding:1rem;display:grid;grid-template-columns:repeat(6,1fr);gap:.4rem;background:var(--soft)}.stage-nav button{font-size:.74rem;padding:.65rem .25rem}.stage-panel{display:grid;grid-template-columns:1.2fr 1fr;gap:1.5rem;padding:1.5rem}.stage-panel svg{width:100%;height:auto}.stage-copy h4{font-family:var(--serif);font-size:1.6rem;margin-top:0}.stage-copy p{font-size:.87rem}.mini-label{font-size:.7rem;letter-spacing:.07em;text-transform:uppercase;font-weight:700;color:var(--green)}.stage-step{color:var(--gold);font-size:.75rem;font-weight:650}.legend{display:flex;gap:1rem;flex-wrap:wrap;font-size:.72rem;color:var(--muted);margin:.8rem 0}.legend span:before{content:'';display:inline-block;width:.65rem;height:.65rem;border-radius:50%;margin-right:.4rem;background:var(--green)}.legend span.work:before{background:var(--gold)}.legend span.record:before{background:var(--blue)}.interactive-grid{display:grid;grid-template-columns:300px 1fr}.controls{padding:1.3rem;background:var(--soft);border-right:1px solid var(--line)}.control{margin:0 0 1.2rem}.control label{display:block;font-size:.77rem;font-weight:650;margin-bottom:.45rem}.control select{padding:.6rem;width:100%;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:4px;font-size:.85rem}.control input[type=range]{width:100%;accent-color:var(--green)}.range-caption{font-size:.74rem;display:flex;justify-content:space-between;color:var(--muted)}.checklabel{display:flex!important;align-items:center;gap:.5rem}.checklabel input{accent-color:var(--green)}.visual{padding:1.4rem;min-width:0}.visual svg{width:100%;height:auto;display:block}.outputs{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:.9rem 0}.output{background:var(--soft);border-radius:5px;padding:.7rem .9rem;font-size:.74rem}.output strong{font-family:var(--serif);font-size:1.7rem;display:block;font-weight:normal;line-height:1.3}.joint{font-size:.75rem}.joint th,.joint td{padding:.5rem}.joint td{font-variant-numeric:tabular-nums}.notes{padding:.9rem 1.3rem;border-top:1px solid var(--line);font-size:.77rem;color:var(--muted)}.receipt-flow{list-style:none;padding:0;counter-reset:flow}.receipt-flow li{counter-increment:flow;border-bottom:1px solid var(--line);padding:1rem 0 1rem 3rem;position:relative}.receipt-flow li:before{content:counter(flow,decimal-leading-zero);position:absolute;left:0;top:1rem;color:var(--gold);font-size:.8rem;font-weight:700}.receipt-flow li:last-child{border:0}.receipt-flow strong{display:block}.receipt-flow p{margin:.2rem 0;font-size:.86rem}.barrow{display:grid;grid-template-columns:190px 1fr 80px;align-items:center;gap:1rem;font-size:.78rem;margin:1rem 0}.bartrack{height:14px;background:var(--soft);border-radius:3px;overflow:hidden}.barfill{height:100%;background:var(--green);min-width:2px}.barfill.gold{background:var(--gold)}.barfill.blue{background:var(--blue)}.fail{color:var(--red)}.pass{color:var(--green)}.statlab{border:1px solid var(--line);background:var(--surface);padding:1.3rem;border-radius:6px;margin:1.4rem 0}.statlab input{width:100%;accent-color:var(--green)}.stat-result{font-family:var(--serif);font-size:1.25rem;margin:.6rem 0}.spec-intro{background:var(--night);color:var(--nightInk);padding:2rem;border-radius:8px;margin:1.5rem 0}.spec-intro .eyebrow{color:#bfcda8}.spec-intro a{color:#e4be74}.spec-intro h3{font-family:var(--serif);font-size:1.8rem;margin:.3rem 0}.spec-controls{display:flex;gap:1rem;flex-wrap:wrap;margin:1.3rem 0}.spec-content{font-size:.88rem;line-height:1.75}.spec-content h1{font-size:2.3rem;margin:1rem 0}.spec-content h2{font-family:var(--sans);font-weight:700;font-size:1.5rem;margin:2.5rem 0 1rem;line-height:1.3}.spec-content h3{font-size:1.13rem;line-height:1.4;margin-top:1.8rem}.spec-content h4{font-size:1rem}.spec-content table{font-size:.78rem;display:block;overflow-x:auto}.spec-content td,.spec-content th{padding:.6rem .7rem}.spec-content li{margin:.6rem 0}.spec-content pre{font-size:.73rem;white-space:pre-wrap;overflow-wrap:anywhere}.spec-content p,.spec-content li{overflow-wrap:anywhere}.spec-content blockquote{font-size:1rem}.spec-group{border-top:1px solid var(--line);padding:0}.spec-group>summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;padding:1.2rem .2rem;font-weight:700;font-size:1rem}.spec-group>summary::-webkit-details-marker{display:none}.spec-group>summary:after{content:'+';font-size:1.2rem;color:var(--gold);margin-left:1rem}.spec-group[open]>summary:after{content:'−'}.spec-group>div{padding:0 .2rem 1.4rem}.source-list{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.source{border:1px solid var(--line);border-radius:5px;padding:1rem;background:var(--surface);font-size:.77rem}.source strong{display:block;margin-bottom:.4rem}.hash{font-family:ui-monospace,monospace;font-size:.66rem;overflow-wrap:anywhere;color:var(--muted)}.closing{background:var(--night);color:var(--nightInk);padding:3rem;border-radius:8px;margin:1.8rem 0}.closing h3{font-family:var(--serif);font-size:2rem;margin-top:0}.closing p{max-width:850px}.closing .kicker{color:#d9b26b}footer{border-top:1px solid var(--line);margin-top:2rem;padding:2rem 0 3rem;color:var(--muted);font-size:.77rem}.footer-inner{display:flex;justify-content:space-between;gap:2rem}.attribution{max-width:850px}.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}[hidden]{display:none!important}body.dark{--paper:#112624;--surface:#19302d;--ink:#e9eee2;--muted:#adbfaf;--line:#3b5146;--green:#a5d0b0;--gold:#d9b26b;--soft:#223d35;--blue:#8bb8d1;--red:#e99c8a;--night:#091c1a}body.dark button[aria-pressed=true],body.dark .action.primary{color:#142c21}body.dark .hero-art{border:1px solid var(--line)}body.dark .art-head,body.dark .hero-art figcaption{color:#bdcfbf}
+@media(max-width:1000px){.toplinks .hide-mid{display:none}.sectionhead{grid-template-columns:60px 1fr}.sectionbody{margin-left:80px}.stage-nav{grid-template-columns:repeat(3,1fr)}.interactive-grid{grid-template-columns:240px 1fr}.contents{grid-template-columns:1fr}.contents nav{grid-template-columns:repeat(3,1fr)}.three{grid-template-columns:1fr}.hero{padding-top:3rem}.metric strong{font-size:1.8rem}}
+@media(max-width:700px){body{font-size:15px}.topinner{padding:.75rem 1rem}.toplinks{gap:.8rem}.toplinks .hide-small{display:none}.wrap{padding:0 1rem}.hero{padding-top:2rem}h1{font-size:3.2rem}.hero .dek{font-size:1.2rem}.hero-meta{gap:.5rem}.hero-meta span+span:before{margin-right:.5rem}.hero-art{padding:1rem .5rem}.art-head{padding:0 .5rem;font-size:.59rem}.hero-art .hero-wide{display:none}.hero-art .hero-mobile{display:block}.hero-art figcaption{padding:.8rem .5rem 0}.metrics{grid-template-columns:1fr 1fr}.metric{padding:1rem!important;border-bottom:1px solid var(--line)}.metric:nth-child(2){border-right:0}.metric:nth-child(n+3){border-bottom:0}.metric strong{font-size:1.8rem}.contents{gap:.6rem;padding-bottom:1.8rem}.contents nav{grid-template-columns:1fr 1fr}.sectionhead{grid-template-columns:1fr;gap:.7rem}.number{font-size:1.6rem}.sectionbody{margin:0}section.major{padding:2.7rem 0}.sectionhead .lead{font-size:1.15rem}.columns,.stage-panel,.interactive-grid,.source-list{grid-template-columns:1fr}.controls{border-right:0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:1rem}.control{margin:0}.stage-panel{padding:1rem}.stage-nav{padding:.7rem}.explorer-header{align-items:start;flex-direction:column;gap:.3rem}.visual{padding:1rem}.barrow{grid-template-columns:1fr 72px;gap:.5rem}.bartrack{grid-column:1;grid-row:auto}.barrow>span:first-child{grid-column:1/-1}.barrow>strong{grid-column:2}.stat-result{font-size:1.1rem}.spec-intro{padding:1.4rem}.closing{padding:1.5rem}.closing h3{font-size:1.7rem}.footer-inner{flex-direction:column;gap:1rem}table{font-size:.77rem}th,td{padding:.65rem}.spec-content{font-size:.84rem}.spec-content h2{font-size:1.3rem}.spec-content h1{font-size:1.8rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+@media print{:root,body.dark{--paper:#fff;--surface:#fff;--ink:#000;--muted:#333;--line:#bbb;--green:#174d3b;--gold:#725011;--soft:#f3f3f3}body{font-size:10pt;background:#fff;color:#000}.topbar,.contents,.actions,.spec-controls,.controls,.stage-nav,.statlab,.no-print{display:none!important}.wrap{max-width:none;padding:0}.hero{padding:0}h1{font-size:35pt}h2{font-size:23pt}.hero-art,.spec-intro,.closing{background:#f0f2ee!important;color:#000!important;break-inside:avoid}.hero-art svg{background:#132b29}.hero-art figcaption,.art-head,.spec-intro .eyebrow,.spec-intro a,.closing .kicker{color:#333}.sectionbody{margin:0}.sectionhead{grid-template-columns:40px 1fr}.number{font-size:24pt}section.major{padding:1.8rem 0}.card,.callout,.equation,figure,.tablewrap{break-inside:avoid;box-shadow:none}details>div{display:block!important}details>summary{page-break-after:avoid}.spec-group>summary:after{display:none}.spec-content table{display:table;font-size:8pt}.spec-content h2{font-size:15pt}.spec-content h3{font-size:12pt}.spec-content pre{font-size:7pt}.spec-content a{text-decoration:none;color:inherit}.interactive-grid{display:block}.visual{max-width:600px;margin:auto}.hero-meta{font-size:8pt}.footer-inner{font-size:8pt}.source-list{gap:.5rem}.source{padding:.7rem}.spec-group{break-inside:auto}a{color:#174d3b}.metric strong{font-size:22pt}}
+
+/* Integrated specification: local MathML, narrow-screen tables and print. */
+.spec-toc ol{display:grid;grid-template-columns:1fr 1fr;gap:.45rem 1.5rem;padding:1rem 0;list-style:none}.spec-toc li{margin:0;font-size:.8rem}.spec-toc a{text-decoration:none}.spec-group>div{min-width:0}.spec-content table{max-width:100%}.math-display{display:block;max-width:100%;overflow-x:auto;overflow-y:hidden;padding:1rem .2rem;font-size:1.06rem}.math-display math{min-width:max-content;margin:auto}.spec-content .sourceCode{max-width:100%}.download-links{display:flex;gap:.65rem 1.2rem;flex-wrap:wrap}.download-links a{font-size:.82rem}.spec-group:target>summary{color:var(--gold)}
+@media(max-width:700px){.spec-toc ol{grid-template-columns:1fr}.math-display{font-size:.97rem}.spec-content table{display:block;width:100%;max-width:100%;overflow-x:auto}.spec-content td,.spec-content th{overflow-wrap:anywhere}.spec-content table code{font-size:.82em}.spec-group>summary{font-size:.92rem}.spec-content .math-display math{margin-left:0}}
+@media print{.spec-toc{display:none}.math-display{overflow:visible;font-size:10pt;padding:.5rem 0}.spec-content .math-display math{min-width:0;max-width:100%;margin:auto}.spec-content table{display:table;table-layout:fixed;width:100%}.spec-content td,.spec-content th{overflow-wrap:anywhere;word-break:normal}.spec-content tr{break-inside:avoid}.download-links{display:block}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to exhibit</a>
+<header class="topbar"><div class="topinner"><a class="brand" href="./index.html">NR · POAMS</a><nav class="toplinks" aria-label="Quick navigation"><a class="hide-mid" href="#construction">Construction</a><a class="hide-small" href="#explore">Explore</a><a href="#engineering">Engineering spec</a><button id="themeButton" type="button" aria-pressed="false" aria-label="Use dark reading theme">Dark</button><button id="printButton" type="button" class="hide-small">Print / PDF</button></nav></div></header>
+<main id="main" class="wrap">
+<header class="hero">
+<div class="eyebrow">Engineering exhibit · 30 October 2026</div>
+<h1>One source.<br>An entire optical link.</h1>
+<p class="dek">Carry angular information through a finite guide, compare its relative phase at the far end, return the original source—and account for every operation that makes the result readable.</p>
+<div class="hero-meta"><span>Normal Realism / POAMS</span><span>Integrated construction</span><span>Full engineering specification</span></div>
+<p class="status"><strong>The result: a complete, independently reviewed conditional paper candidate.</strong> Its finite material types, control laws and acquisition premises are explicit. Physical material realization and useful measured optical performance remain to be established.</p>
+<div class="actions"><a class="action primary" href="#construction">Follow the construction ↓</a><a class="action" href="#engineering">Read the full specification</a></div>
+<figure class="hero-art">
+<div class="art-head"><span>The same source, all the way through</span><span>Architectural schematic · not to scale</span></div>
+<svg class="hero-wide" viewBox="0 0 1100 280" role="img" aria-labelledby="heroTitle heroDesc"><title id="heroTitle">One original source connects the entire information link</title><desc id="heroDesc">The source feeds a 1,024-edge guided route with cladding. An angular analyzer retains all three components, a paid two-arm phase instrument compares relative phase, and source return plus completion receipts feed a final record.</desc>
+<defs><linearGradient id="heroGlow" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#d6b96a"/><stop offset=".5" stop-color="#b4dec4"/><stop offset="1" stop-color="#78b3cf"/></linearGradient><marker id="heroArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10" fill="#c4d8c0"/></marker></defs>
+<path d="M95 130H510" stroke="#24483c" stroke-width="70" fill="none" stroke-linecap="round"/><path d="M95 130H510" stroke="url(#heroGlow)" stroke-width="4" fill="none"/>
+<g stroke="#567c61" stroke-width="1.5"><path d="M200 130V78M240 130V78M280 130V78M320 130V78M360 130V78M400 130V78M440 130V78M480 130V78M200 130V182M240 130V182M280 130V182M320 130V182M360 130V182M400 130V182M440 130V182M480 130V182"/></g>
+<g fill="#94b699"><circle cx="200" cy="78" r="4"/><circle cx="240" cy="78" r="4"/><circle cx="280" cy="78" r="4"/><circle cx="320" cy="78" r="4"/><circle cx="360" cy="78" r="4"/><circle cx="400" cy="78" r="4"/><circle cx="440" cy="78" r="4"/><circle cx="480" cy="78" r="4"/><circle cx="200" cy="182" r="4"/><circle cx="240" cy="182" r="4"/><circle cx="280" cy="182" r="4"/><circle cx="320" cy="182" r="4"/><circle cx="360" cy="182" r="4"/><circle cx="400" cy="182" r="4"/><circle cx="440" cy="182" r="4"/><circle cx="480" cy="182" r="4"/></g>
+<circle cx="95" cy="130" r="28" fill="#183b32" stroke="#d6b96a" stroke-width="2"/><ellipse cx="95" cy="130" rx="16" ry="9" fill="none" stroke="#d6b96a" stroke-width="2" transform="rotate(-30 95 130)"/><path d="M510 130H565" stroke="#c4d8c0" stroke-width="2" marker-end="url(#heroArrow)"/>
+<rect x="578" y="96" width="74" height="68" rx="8" fill="#1b3d34" stroke="#a4caaa"/><path d="M593 148l15-35 14 35 14-35" fill="none" stroke="#b4dec4" stroke-width="2"/><path d="M652 130H696" stroke="#c4d8c0" stroke-width="2" marker-end="url(#heroArrow)"/>
+<path d="M706 130L754 83H823L871 130M706 130L754 177H823L871 130" fill="none" stroke="#b4dec4" stroke-width="2.5"/><rect x="769" y="68" width="39" height="30" rx="5" fill="#614d26" stroke="#d6b96a"/><text x="788" y="89" fill="#f2dba4" font-size="17" text-anchor="middle" font-family="Georgia">φ</text><path d="M871 130H940" stroke="#c4d8c0" stroke-width="2" marker-end="url(#heroArrow)"/><rect x="954" y="94" width="70" height="72" rx="7" fill="#1d3c3c" stroke="#78b3cf"/><g stroke="#9fc8dc" stroke-width="2"><path d="M969 111H1008M969 124H1008M969 137H1008M969 150H991"/></g>
+<path d="M891 176V220H95V166" stroke="#d6b96a" stroke-width="1.5" stroke-dasharray="5 5" fill="none" marker-end="url(#heroArrow)"/>
+<g fill="#eff5e9" font-size="15" text-anchor="middle" font-family="system-ui,sans-serif"><text x="95" y="49">Source</text><text x="340" y="42">Guided transport</text><text x="615" y="49">Angular readout</text><text x="788" y="42">Relative phase</text><text x="989" y="49">Record</text></g><g fill="#b4c7b8" font-size="12" text-anchor="middle" font-family="system-ui,sans-serif"><text x="340" y="115">1,024 actual route edges</text><text x="340" y="157">nonzero transverse contacts</text><text x="615" y="187">third component retained</text><text x="788" y="204">paid tag + recombination</text><text x="490" y="248">Original-source return · both work accounts · completion receipts · independent clock</text></g>
+</svg><svg class="hero-mobile" viewBox="0 0 350 480" role="img" aria-labelledby="mobileHeroTitle mobileHeroDesc"><title id="mobileHeroTitle">The complete source and record chain</title><desc id="mobileHeroDesc">A vertical architectural schematic: prepare source, guide it over 1,024 edges, analyze angular information, compare relative phase, and acquire the record. The original source returns through the accounted chain.</desc><path d="M88 55V408" stroke="#a7c9b2" stroke-width="2"/><path d="M57 412H28V55H60" stroke="#d6b96a" stroke-width="1.5" stroke-dasharray="4 5" fill="none"/><g fill="#1d4036" stroke="#a7c9b2" stroke-width="1.5"><circle cx="88" cy="55" r="23"/><rect x="65" y="112" width="46" height="75" rx="12"/><rect x="65" y="226" width="46" height="42" rx="6"/><path d="M88 300l26 27-26 27-26-27z"/><rect x="65" y="390" width="46" height="46" rx="5"/></g><g fill="none" stroke="#d6b96a" stroke-width="2"><ellipse cx="88" cy="55" rx="14" ry="8" transform="rotate(-25 88 55)"/><path d="M88 121V177M77 139H99M77 156H99"/><path d="M75 254l9-18 9 18 8-18"/></g><text x="88" y="333" text-anchor="middle" fill="#e7c178" font-size="21" font-family="Georgia">φ</text><g stroke="#9fc8dc" stroke-width="2"><path d="M75 402H101M75 413H101M75 424H93"/></g><g fill="#eff5e9" font-size="15" font-family="system-ui,sans-serif"><text x="135" y="53">Prepare one source</text><text x="135" y="137">Guided transport</text><text x="135" y="243">Angular readout</text><text x="135" y="321">Relative phase</text><text x="135" y="405">Complete record</text></g><g fill="#b9cdbf" font-size="11" font-family="system-ui,sans-serif"><text x="135" y="72">Retain the reference</text><text x="135" y="157">1,024 actual route edges</text><text x="135" y="173">Nonzero cladding contacts</text><text x="135" y="262">All three components retained</text><text x="135" y="340">Paid tags + recombination</text><text x="135" y="424">Every intended attempt</text><text x="175" y="465" text-anchor="middle">Return, work and completion remain in the account.</text></g></svg><figcaption>The drawing compresses the architecture. It does not depict a measured trajectory, an intrinsic optical carrier, or a passive glass fiber. The construction is a controlled sequence of finite circulation and exchange operations.</figcaption></figure>
+<div class="metrics"><div class="metric"><strong>1,024</strong><span>edges on the actual source-to-terminal guided route</span></div><div class="metric"><strong>3</strong><span>angular components retained; two independently addressable bright inputs</span></div><div class="metric"><strong>821</strong><span>prepared cases in the fixed complete-record target</span></div><div class="metric"><strong>0.9371%</strong><span>conditional ceiling for the specified forbidden attempted event</span></div></div>
+</header>
+<div class="contents"><h2>Inside this exhibit</h2><nav aria-label="Exhibit contents"><a href="#possibility"><span>01</span> The possibility</a><a href="#construction"><span>02</span> The construction</a><a href="#explore"><span>03</span> Explore the readout</a><a href="#accounts"><span>04</span> Energy & custody</a><a href="#test"><span>05</span> The decisive test</a><a href="#resources"><span>06</span> Resources & scale</a><a href="#engineering"><span>07</span> Full engineering spec</a><a href="#consequence"><span>08</span> What this opens</a><a href="#provenance"><span>09</span> Evidence & provenance</a></nav></div>
+<section class="major" id="possibility"><div class="sectionhead"><div class="number">01</div><div><div class="eyebrow">The possibility</div><h2>Information has to survive<br>the whole apparatus.</h2><p class="lead">A useful link is more than a transfer equation. The signal has to be prepared, guided, interrogated and returned—and its readable outcome must belong to the signal that actually entered.</p></div></div><div class="sectionbody">
+<div class="columns"><div><p>POAMS begins with one physical substance: organized angular momentum. A source, its guide, its controls and its records are different arrangements of that substance, exchanging and retaining circulation. The engineering question is concrete: can a finite organization carry coherent angular information along a guided route and reveal a controllable relative-phase response at its destination?</p><p>This candidate answers that question on paper with one joined construction. It keeps the same original source and arbitrary retained reference throughout. A favorable endpoint cannot be substituted for a failed transfer, and a requested operation cannot be counted as a completed one.</p></div><div class="card"><div class="kicker">The engineering advance</div><h3>A link with a complete account</h3><p>Preparation, guidance, angular analysis, paid phase comparison, source return, heat, work, controller stock and acquisition all fit one finite specification.</p><p>The imported finite-spin and operator mathematics is the representation. The proposed circulation types and native completion rules are the conditional physical content. The raw-record comparison is where a future realization would meet the claim.</p></div></div>
+<blockquote>One source supplies transported energy, coherent angular information and the later phase comparison. One complete record decides what happened.</blockquote>
+<p>The word <em>optical</em> names this integrated guided, angular and relative-phase information operation. It does not identify an intrinsic optical oscillation, a wavelength, passive bandwidth, silica, or a fabricated fiber. Those require additional material and SI performance evidence.</p>
+</div></section>
+<section class="major" id="construction"><div class="sectionhead"><div class="number">02</div><div><div class="eyebrow">The construction</div><h2>Six stages. No fresh signal<br>between them.</h2><p class="lead">Follow the same original source through the guide and into the record. Select a stage to see the operation, the retained account and the consequence.</p></div></div><div class="sectionbody">
+<div class="explorer" id="routeExplorer"><div class="explorer-header"><h3>The complete attempt</h3><span class="pill">Architectural explainer · not a simulator</span></div><div class="stage-nav" role="group" aria-label="Select an engineering stage"><button type="button" data-stage="0" aria-pressed="true">1 · Prepare</button><button type="button" data-stage="1" aria-pressed="false">2 · Guide</button><button type="button" data-stage="2" aria-pressed="false">3 · Analyze</button><button type="button" data-stage="3" aria-pressed="false">4 · Compare phase</button><button type="button" data-stage="4" aria-pressed="false">5 · Return</button><button type="button" data-stage="5" aria-pressed="false">6 · Acquire</button></div><div class="stage-panel"><div><svg id="stageDiagram" viewBox="0 0 500 315" role="img" aria-labelledby="stageTitle stageDesc"><title id="stageTitle">Preparation and retained source</title><desc id="stageDesc">A schematic showing the selected operation within the complete source and record chain.</desc><rect x="24" y="34" width="452" height="220" rx="12" fill="var(--soft)"/><path d="M65 142H435" stroke="var(--line)" stroke-width="3"/><g id="stageNodes"></g><path d="M425 170V219H75V170" stroke="var(--gold)" stroke-width="1.5" stroke-dasharray="5 5" fill="none"/><text x="250" y="242" font-size="11" text-anchor="middle" fill="var(--muted)">RETENTION + RETURN + COMPLETION</text><text id="stageTag" x="250" y="81" text-anchor="middle" font-family="Georgia" font-size="22" fill="var(--ink)">The original source</text><text id="stageDetail" x="250" y="284" text-anchor="middle" font-size="11" fill="var(--muted)">Paid local preparation; one fixed whole-input boundary.</text></svg><div class="legend"><span>Source / signal</span><span class="work">Work / return</span><span class="record">Readable receipts</span></div></div><div class="stage-copy" aria-live="polite" aria-atomic="true"><div class="stage-step" id="stageNumber">STAGE 1 / 6</div><h4 id="stageHeading">Prepare one source</h4><p id="stageBody">A fixed whole-system inlet supplies the original source and finite reference banks. Paid local controls prepare the six bright angular states ±X, ±Y and ±Z. A blank diverts the same seed's energy into a retained source-side dump.</p><div class="mini-label">What stays in the account</div><p id="stageAccount">Frames, reference correlations, complementary factors, preparation labels and all failed or warm sectors. Nothing is replaced by a success-selected input.</p><div class="mini-label">What this enables</div><p id="stageMeaning">Independent angular choices without a source-dependent receiver preparation or readiness side channel.</p></div></div></div>
+<div class="columns"><div><h3>Why a tree can carry a coherent packet</h3><p>Each traversed edge changes two physical work pairs. On a tree, every arrival at the same vertex has the same retained edge-work word; reverse travel undoes the corresponding change. Thus interference belongs to the <strong>joint signal-and-work state</strong>. Tracing out work generally removes bare-position coherence, so the work is kept.</p><p>The guide is a finite comb: 6,144 axial signal sites, four transverse leaves at each site, 30,720 total sites and 30,719 nonzero contacts. The used transport route spans 1,024 edges with 1,280 axial updates. Its finite loader and catcher are actual local operations, not a freely supplied ideal packet.</p></div><div><h3>Why the third component matters</h3><p>The two bright angular components supply the prepared information alphabet. Transport acts identically on all three components of the triplet, with any retained reference. The third component, complement states, blank states and failures remain in the physical domain.</p><p>Two guided <em>positional</em> bands are not two polarizations. Guidance concerns where the dressed signal/work organization can remain; angular readout concerns which source organization was prepared and analyzed.</p></div></div>
+<div class="callout"><strong>What makes this one system:</strong> after angular analysis and the full nine-state cold SWAP, the actual retained source reaches the endpoint through 52 paid same-source handoffs and returns to its original berth. The guided route, endpoint comparison and receipt-courier routes are distinct parts of the architecture—not interchangeable edge counts.</div>
+</div></section>
+<section class="major" id="explore"><div class="sectionhead"><div class="number">03</div><div><div class="eyebrow">Explore the ideal readout</div><h2>Change the operation.<br>Watch the predicted record.</h2><p class="lead">Angular preparation and paid relative-phase tags control different parts of one ideal joint record. This explainer evaluates the exact ideal law; it does not generate experimental data.</p></div></div><div class="sectionbody">
+<div class="equation">p<sub>R</sub> = ½ [1 − cos φ] &nbsp; · &nbsp; φ = [ (−1)<sup>r</sup> n + 4q ] π/8<div class="formula-note">n = completed phase tags · r = reversal (0 or 1) · q = quadrature offset (0 or 1) · p<sub>L</sub> = 1 − p<sub>R</sub></div></div>
+<div class="explorer"><div class="explorer-header"><h3>Paid phase, same signal</h3><span class="pill">Ideal conditional formula · no noise simulation</span></div><div class="interactive-grid"><div class="controls"><div class="control"><label for="sourceState">Bright source preparation</label><select id="sourceState"><option value="+Z">+Z · circular +</option><option value="-Z">−Z · circular −</option><option value="+X">+X · coherent bright pair</option><option value="-X">−X · coherent bright pair</option><option value="+Y">+Y · quadrature bright pair</option><option value="-Y">−Y · quadrature bright pair</option></select></div><div class="control"><label for="analyzerAxis">Angular analyzer</label><select id="analyzerAxis"><option value="Z">Z axis</option><option value="X">X axis</option><option value="Y">Y axis</option></select></div><div class="control"><label for="tagCount">Completed phase tags: <output id="tagValue" for="tagCount">0</output></label><input id="tagCount" type="range" min="0" max="31" step="1" value="0"><div class="range-caption"><span>0 tags</span><span>31 tags</span></div></div><div class="control"><label for="quadrature">Paid quadrature</label><select id="quadrature"><option value="0">q = 0 · cosine</option><option value="1">q = 1 · quarter-turn offset</option></select></div><div class="control"><label class="checklabel" for="reverseTags"><input id="reverseTags" type="checkbox"> Reverse tag sense (r = 1)</label></div><div class="control"><button type="button" id="resetReadout">Reset ideal example</button></div></div><div class="visual"><svg id="phasePlot" viewBox="0 0 580 295" role="img" aria-labelledby="phaseTitle phaseDesc"><title id="phaseTitle">Ideal right-output probability versus completed phase tags</title><desc id="phaseDesc">A deterministic plot of one half times one minus the cosine of the paid relative phase. The highlighted point reflects the selected integer completed tag count from 0 to 31. The smooth curve only guides the eye between those discrete counts.</desc><g id="plotGrid"></g><path id="phaseCurve" d="" fill="none" stroke="var(--green)" stroke-width="3"/><path id="phaseMarkerLine" d="" stroke="var(--gold)" stroke-width="1.5" stroke-dasharray="4 4"/><circle id="phaseMarker" cx="50" cy="235" r="6" fill="var(--gold)" stroke="var(--surface)" stroke-width="2"/></svg><p class="small muted" id="phaseDomain">The model is defined at integer completed tag counts, 0–31. The smooth curve only guides the eye between those counts.</p><div class="outputs" aria-live="polite"><div class="output">Ideal left output<strong id="pLeft">100.00%</strong></div><div class="output">Ideal right output<strong id="pRight">0.00%</strong></div></div><div class="tablewrap"><table class="joint"><caption class="sr-only">Ideal joint angular and endpoint probabilities</caption><thead><tr><th>Angular record</th><th>Left L</th><th>Right R</th></tr></thead><tbody><tr><td>+</td><td id="jointPlusL">100.00%</td><td id="jointPlusR">0.00%</td></tr><tr><td>−</td><td id="jointMinusL">0.00%</td><td id="jointMinusR">0.00%</td></tr><tr><td>Third component</td><td>0 for this bright input</td><td>Retained in full model</td></tr></tbody></table></div><p class="small muted" id="phaseExplanation" aria-live="polite">Zero paid relative phase returns the bright signal to L. This deterministic ideal category distinguishes the construction from a phase-independent half/half alternative.</p></div></div><div class="notes"><strong>Scope of the controls.</strong> The explainer offers ideal angular/phase combinations for understanding the formula. The frozen 821-case target is <em>not</em> their Cartesian product: its 770 bright phase cases cycle 21 angular controls. No sampled counts, error bars or measurements are shown. The factorized ideal law follows the scalar endpoint pullback on the qualified sector; noisy records are not assumed independent.</div></div>
+<div class="columns"><div><h3>Phase is a paid operation</h3><p>The tags act on actual occupancy of a signal alternative. Their count is the number acknowledged as completed, not the number requested by a controller. The inverse splitter recombines those alternatives; it does not erase an arbitrary coherent state.</p><p>Sixteen tags return the ideal fringe to the same phase. At q = 0, reversal leaves the cosine probability unchanged; q = 1 reveals the sine-sign reversal. A free dwell of the equal-total-energy organization does not supply this driven relative phase.</p></div><div><h3>Blank and interrupted routes remain records</h3><p>A charged work ticket cannot create the signal in a blank source. A separating guide CUT and the guide ROUNDTRIP control feed the endpoint's <strong>EMPTY</strong> sector. The local endpoint's completed <strong>D</strong> blank is a different outcome.</p><p>Those controls are retained in the actual target, alongside missing, partial, noncode, late and failed attempts. The bright-input explainer does not reinterpret those states as one of the two successful outputs.</p></div></div>
+</div></section>
+<section class="major" id="accounts"><div class="sectionhead"><div class="number">04</div><div><div class="eyebrow">Energy and custody</div><h2>The work is part<br>of the signal's account.</h2><p class="lead">A receipt at the endpoint is incomplete if it counts only terminal energy. Arrival includes both physical work pairs—and the retained source still has to come home.</p></div></div><div class="sectionbody">
+<div class="equation">ΔE<sub>terminal</sub> + ΔE<sub>work A</sub> + ΔE<sub>work B</sub> = k<sub>A</sub><div class="formula-note">At the specified witness: 7k₀/8 at the terminal + k₀/8 in aggregate work = k₀ delivered across the complete boundary.</div></div>
+<div class="columns"><div><h3>Local rates, exact joint exchange</h3><p>The contact exchanges an arbitrary angular triplet between unequal source and destination tariffs while its two work gaps follow their actual local rates. The full exchange lies on an equal-total-energy shell. No coherent battery tuned to an unknown difference is supplied for free.</p><p>The material qualification is exact <em>within</em> each local shared-rate spine and allows a stated stationary interval <em>between</em> spines. Arbitrary differential mismatch breaks the exchange identity; it is not silently absorbed into the error budget.</p></div><div><h3>Return is a physical route</h3><p>The final acquisition requires real local acknowledgments. Two complete 107,666-dimer couriers provide 128 newly paid motion hops; 69 packet transfers use distinct retained banks and 4,416 receiver words. Spent couriers remain at staging.</p><p>Original home berths remain occupied after return. Cargo and token fields freeze at docking; completion receipts freeze only after the late return acknowledgments and local scratch clearance. There is no remote erasure or fictitious intermediate owner.</p></div></div>
+<div class="three"><div class="card"><div class="kicker">Source</div><h3>No replacement</h3><p>The same source survives angular readout, full cold SWAP, endpoint handoff and return with the original retained-reference domain.</p></div><div class="card"><div class="kicker">Apparatus</div><h3>No hidden reset</h3><p>Supports, heat packs, controllers, failed states, reference banks and purifiers stay in the complete inventory.</p></div><div class="card"><div class="kicker">Record</div><h3>No command-as-event</h3><p>Completed-event writers and their dependency paths determine what the observer may read.</p></div></div>
+<h3>One finite clock capture: UNA-65</h3><p>The independent clock continues through preparation and failure. An accepted OFFER captures its 65-bit count in one admitted native event, with ties rejected and no late overwrite. This is the explicit <strong>UNA-65 branch premise</strong>: 207 named scalar operands, 828 dimers and a 38-dimer positive bank, with a complete code/complement action and energy/angular-momentum account.</p><p>UNA-65 is not a sequential copy of a changing counter, a clock hold, or a claim that arbitrary unitary matrices are physically implementable. Its fixed rule and independent failure conditions are part of the full specification below. The final clock seal occurs even when no successful OFFER ever occurs.</p>
+</div></section>
+<section class="major" id="test"><div class="sectionhead"><div class="number">05</div><div><div class="eyebrow">The decisive record test</div><h2>Count every intended attempt.<br>Keep the outcome that occurred.</h2><p class="lead">The target is frozen at 821 cases, 80,000 attempts per case and 65,680,000 intended attempts in all. Its comparison rule has a defined opportunity to fail.</p></div></div><div class="sectionbody">
+<div class="columns"><div><ol class="receipt-flow"><li><strong>Prepare a qualified whole kit</strong><p>The initial boundary is before all preparation: one joint apparatus/reference condition and exactly 674 independent pure clock factors.</p></li><li><strong>Attempt the declared case</strong><p>The roster contains 770 bright phase cases, 48 guide controls and three original-source blanks. Missing attempts remain in the denominator.</p></li><li><strong>Acquire physical observands</strong><p>Read 1,811 scalar outputs on 7,244 distinct output dimers, including source/code diagnostics, 64 event diagnoses and the offered-count latch.</p></li><li><strong>Apply the fixed classifier</strong><p>Actual occurrence, code and dependency checks precede classification. Wrong-valid settings/count/STOP keep their category and count forbidden when acquisition passes; an actual-n/tag mismatch is acquisition-invalid.</p></li><li><strong>Compare all indicators</strong><p>Use 17,241 simultaneous indicators, 0.01 slack and the stated independent-kit or per-history conditional qualification.</p></li></ol></div><div><h3>Three bounds, three meanings</h3><div class="barrow"><span>Specified forbidden event</span><div class="bartrack"><div class="barfill" style="width:7.808892584%"></div></div><strong>0.9371%</strong></div><div class="barrow"><span>General complete-record TV</span><div class="bartrack"><div class="barfill gold" style="width:80.249868933%"></div></div><strong>9.6300%</strong></div><div class="barrow"><span>Predecoder density half-trace</span><div class="bartrack"><div class="barfill blue" style="width:96.83599479%"></div></div><strong>11.6203%</strong></div><p class="small muted">Common display scale: 0–12%. These are conditional upper bounds, not observed rates or interchangeable quality measures.</p><div class="callout gold"><strong>Why the first is smaller.</strong> For an event annihilated by the ideal construction, the coherent error contribution may be squared. General record probabilities use the coherent error linearly. The input half-trace discrepancy stays linear in both.</div><p class="small">A sub-1% ceiling on the named forbidden event is therefore not a sub-1% bound on every record error, an arbitrary channel, or postdecoder quantum fidelity.</p></div></div>
+<div class="tablewrap"><table><caption class="sr-only">Prospective comparison parameters</caption><thead><tr><th>Comparison</th><th>Frozen quantity</th><th>Interpretation</th></tr></thead><tbody><tr><td>Forbidden-event compatibility</td><td>0.019370671101</td><td>Theoretical ceiling + 0.01 statistical slack.</td></tr><tr><td>Individual-category compatibility</td><td>0.106299842720</td><td>General record-TV ceiling + 0.01 slack; not full empirical-TV certification.</td></tr><tr><td>Family-tail enclosure</td><td>&lt; 0.003881</td><td>Exact rational bound for all 17,241 indicators under the required repetition law.</td></tr><tr><td>Structural archive validity</td><td>Zero structural issues</td><td>Any nonempty structural-issues list disqualifies admissible complete-record use regardless of descriptive counts.</td></tr></tbody></table></div>
+<div class="statlab"><div class="kicker">Understand the decision boundary</div><label for="eventRate">Illustrative forbidden frequency: <strong id="eventRateLabel">1.50%</strong></label><input id="eventRate" type="range" min="0" max="400" step="1" value="150"><div class="range-caption"><span>0%</span><span>4%</span></div><p id="eventDecision" class="stat-result" aria-live="polite">Inside the event compatibility band—not a sub-1% empirical certificate.</p><p class="small muted">This slider changes a hypothetical frequency, not a record archive. Other category tests, structural checks, source custody and all physical qualifications still apply. A 1.5% forbidden frequency can be compatible with this target.</p></div>
+<h3>A concrete discriminator</h3><p>With zero phase tags in the deterministic L case, the ideal joint category differs by 0.5 from a phase-independent half/half alternative. That separation exceeds the 0.106299842720 category band. The fixed response is therefore testable; the target does not merely tolerate any curve.</p>
+<p>Repeated operation requires independent, freshly qualified whole kits or a separately established per-history conditional law. A kit ID, a one-shot marginal guarantee, synthetic test files or a matching checksum cannot establish physical independence, input qualification or instrument provenance.</p>
+</div></section>
+<section class="major" id="resources"><div class="sectionhead"><div class="number">06</div><div><div class="eyebrow">Resource and performance specification</div><h2>Finite is an achievement.<br>Efficient is the next one.</h2><p class="lead">The construction makes its resource obligations explicit. Its conservative sufficient account is enormous; it is a mathematical construction point, not a practical bill of materials.</p></div></div><div class="sectionbody">
+<div class="tablewrap"><table><caption class="sr-only">Complete construction resource counts</caption><thead><tr><th>Complete resource boundary</th><th>Exact amount</th><th>What it counts</th></tr></thead><tbody><tr><td>Dimers / fresh attempt</td><td class="mono">31,007,572,988,523</td><td>Full source, formed apparatus, guide, work, supports, cold stock, heat, observer and return.</td></tr><tr><td>Native posts / fresh attempt</td><td class="mono">25,577,373,557,351,935,515</td><td>Conservative all-native operation upper account.</td></tr><tr><td>Dimers / no-reuse campaign</td><td class="mono">2,036,577,393,886,190,640,000</td><td>65,680,000 separately qualified fresh kits.</td></tr><tr><td>Native posts / no-reuse campaign</td><td class="mono">1,679,921,895,246,875,124,625,200,000</td><td>Same frozen target, with no unearned hardware reuse.</td></tr><tr><td>Observer</td><td class="mono">43,146 dimers</td><td>Includes new diagnostics while retaining all 674 exact pure clock factors.</td></tr></tbody></table></div>
+<div class="columns"><div><h3>The scales are independently defined</h3><p>Energy/work scale k₀, length scale a₀ and the counted reference-time scale have fixed independent operational definitions. They are not adjusted after seeing the desired fringe, nor chosen to make the link look optical in hertz, metres or bits per second.</p><p>The exact post count is consequently not an SI latency. A large positive work capacity is not measured dissipation. A dimer census is not a count of manufacturable commercial components.</p></div><div><h3>The efficiency objective is concrete</h3><p>Reduce the qualified preparation stock, controller cost and native operation count while preserving the same-source interface, full-sector dynamics, exact rate organization, causal acquisition and stated total error budget.</p><p>Any improved version must be recomposed and repriced as a whole. A lower component estimate cannot simply replace the complete-system total or donate a fresh error allowance to a later stage.</p></div></div>
+<div class="callout"><strong>Technology consequence of a successful realization:</strong> repeatable control of an angular/relative-phase guided link would support a new information-handling element. Useful throughput, link budget, lifetime, fabrication tolerance and energy per operation must then be established on a realizable, reduced-resource version.</div>
+</div></section>
+<section class="major" id="engineering"><div class="sectionhead"><div class="number">07</div><div><div class="eyebrow">The full engineering specification</div><h2>From physical primitives<br>to the final decision rule.</h2><p class="lead">The specification below is included in the page itself: state spaces, update laws, inventories, geometry, timing, tolerances, acquisition, statistics, qualifications and failure conditions.</p></div></div><div class="sectionbody">
+<div class="spec-intro"><div class="eyebrow">Version 1 · integrated paper construction · 30 October 2026</div><h3>A complete conditional system specification</h3><p>This is the engineering specification of the reviewed finite candidate, not a fabrication-ready design for an identified material. Supplied constitutive types are named and testable; physical species, SI dimensions and measured operating performance are not invented.</p><div class="download-links"><a href="./optical-information-link/ENGINEERING-SPEC.md" download>Engineering specification · Markdown</a><a href="./optical-information-link/engineering-data.zip" download>Complete engineering archive · ZIP, 5.6 MB</a><a href="./optical-information-link/ENGINEERING-MANIFEST.json">File inventory &amp; SHA-256 manifest</a><a href="./optical-information-link/SOURCE-MAP.md">Scientific source map</a></div><p class="small">The archive includes the complete specification and exact guide, preparation, acquisition, output and resource tables. Large integer counts are preserved as decimal strings; the narrative and figures load entirely offline.</p></div>
+<div class="spec-controls"><button id="expandSpec" type="button">Expand all sections</button><button id="collapseSpec" type="button">Collapse all sections</button><span class="small muted">All sections are included offline. Print / PDF expands them automatically.</span></div>
+<div class="spec-content" id="specContent">
+<!-- ENGINEERING_SPEC_START -->
+<h1 id="spec-heading-poams-optical-information-link--complete-conditional-engineering-specification">POAMS optical-information link — complete conditional engineering specification</h1>
+<p><strong>Edition 1 · 30 October 2026</strong><br />
+<strong>Design class:</strong> finite, actively guided circulation-information link with a prepared relational angular source, guided transport, angular analysis, energy-conserving relative-phase endpoint, source return and complete attempted-record acquisition.</p>
+<p>This specification turns the completed paper construction into one engineering reference: what is supplied, where each operation occurs, what it changes, what remains, and what the final record must contain. It specifies a <strong>conditional finite device</strong>, not a fabricated fiber or a measured optical system. Its geometry is in independently defined comparison coordinates; no meter, hertz, watt, optical wavelength, vendor component or fabrication process is assigned without a material and calibration receipt.</p>
+<nav class="spec-toc" aria-label="Engineering specification sections"><ol><li><a href="#spec-1">1. Scope, status and how to use the specification</a></li><li><a href="#spec-2">2. Parameter and symbol registry</a></li><li><a href="#spec-3">3. Full physical state and supplied material types</a></li><li><a href="#spec-4">4. Source manufacture and angular preparation</a></li><li><a href="#spec-5">5. Guide geometry and conserved local operation</a></li><li><a href="#spec-6">6. Guide loader, update word, catcher and controls</a></li><li><a href="#spec-7">7. Same-source endpoint, driven phase and complete return</a></li><li><a href="#spec-8">8. Native controls, causal receipts and immutable custody</a></li><li><a href="#spec-9">9. UNA-65 atomic OFFER and independent sealing</a></li><li><a href="#spec-10">10. Complete acquired alphabet and strict record schema</a></li><li><a href="#spec-11">11. One complete error account</a></li><li><a href="#spec-12">12. Frozen prospective comparison</a></li><li><a href="#spec-13">13. Full resources, capacities and retained output inventory</a></li><li><a href="#spec-14">14. Material and SI engineering determination register</a></li><li><a href="#spec-15">15. Failure and acceptance requirements</a></li><li><a href="#spec-16">16. Exact engineering companions</a></li></ol></nav><details class="spec-group" id="spec-1" open><summary>1. Scope, status and how to use the specification</summary><div><p>The design carries the same original signal and its retained reference through the chain</p>
+<p><strong>source manufacture → local angular preparation → launch → 1,024-edge guided transfer → angular analysis → full cold SWAP → relative-phase endpoint → return of the same source → finite acquired record</strong>.</p>
+<p>The engineering claim is closed within the declared material, state, native-operation, clock and readout domains. The result is not a passive-fiber passband, intrinsic optical carrier, generic quantum channel below 1% error, indefinitely reusable streaming device or ready-to-order laboratory bill of materials.</p>
+<p>The adopted research authority is the final <code>paper-completion/REPORT.md</code> in source collection <code>fiber-optics-integrated-program-2026-10-29</code>, together with its conjunctive native, raw-record and final-goal conditions. This document is <strong>new exposition of that version</strong>, not an amendment to its operators, qualified input domain or tests. Where earlier module descriptions give a smaller census, older observer, preliminary error formula or author-stage approval flag, the final assembled values here apply. Mechanism details are inherited only where the final composition retains them. In particular, the optional two-use thermal-stock branch is <strong>not</strong> used.</p>
+<p>There are three companion layers:</p>
+<ol type="1">
+<li><strong>This technical appendix:</strong> human-readable state, operators, schedules, geometry, accounts, readout, comparison and residual material determinations.</li>
+<li><strong>Curated engineering data:</strong> <a href="./optical-information-link/data/README.md">engineering data guide</a> contains the exact 2,049 guide phase words, 821 prepared cases, input/output IDs, UNA-65 operands, event/courier schedules, contacts and rational resource accounts, wrapped as derivative references. Large JSON tables use <code>.json.gz</code> compression. These are not a newly approved executable or physical measurements.</li>
+<li><strong>Source-bound replay:</strong> the separately sealed original executable, its external entry hash and its trusted-runtime/no-concurrent-mutation domain remain authoritative for source-bound record replay. The downloadable engineering references describe the exact finite construction; they do not replace that executable.</li>
+</ol>
+<p>All source references below are relative to the source collection. <a href="./optical-information-link/SOURCE-MAP.md">SOURCE-MAP.md</a> gives sections and SHA-256 receipts. The source map identifies each scientific definition and its version; the archive contains the engineering references listed in §16.</p>
+<h3 id="spec-heading-11-provenance-classes">1.1 Provenance classes</h3>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>What it means in this design</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Native physical vocabulary</td>
+<td>Circulation, angular momentum, co-signed closure, phase, whole completion, retained exchange and reaction accounts</td>
+</tr>
+<tr>
+<td>Imported mathematical representation</td>
+<td>Finite spin/tensor spaces, projectors, unitary/Born calculus, angular addition, spectral estimates and finite concentration mathematics</td>
+</tr>
+<tr>
+<td>Explicit constitutive/type premise</td>
+<td>Positive native contact catalogue; common-coordinate inverse-length rate matching; finite correlated formed-body geometry; bounded completion and local custody; event-indexed thermal law; UNA-65 atomic capture</td>
+</tr>
+<tr>
+<td>Derived conditional consequence</td>
+<td>Guided packet estimate; same-source intertwining; terminal-plus-work energy; phase probabilities; conserved accounts; error and statistical bounds</td>
+</tr>
+<tr>
+<td>Unestablished empirical qualification</td>
+<td>Actual occurrence of the material types, initial joint-state accuracy, clock and digitizer performance, whole-kit independence, SI scales and useful operation</td>
+</tr>
+</tbody>
+</table>
+<p>Calling a support “LCR,” a word “observed,” or a record “sealed” supplies no physical receipt. The physical meaning is the specific operation and retained factors below.</p>
+</div></details>
+<details class="spec-group" id="spec-2" open><summary>2. Parameter and symbol registry</summary><div><p>Unless stated otherwise, the following are fixed design values, not fitted measurements. A dimensionless ratio is not an SI calibration.</p>
+<table>
+<thead>
+<tr>
+<th>Symbol / name</th>
+<th>Meaning and fixed value or domain</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>k0 = κ</code></td>
+<td>Positive reference circulation/work tariff; independently defined same-account work unit; SI value unassigned</td>
+</tr>
+<tr>
+<td><code>a0</code></td>
+<td>Positive comparison-length unit; separately calibrated by geometry comparisons; SI value unassigned</td>
+</tr>
+<tr>
+<td>Reference time</td>
+<td>Independently referenced native completion-count scale; no seconds/post value is assigned</td>
+</tr>
+<tr>
+<td><code>h = Pt + 3 Pq = 2I + L1·L2</code></td>
+<td>Full nine-state dimer tariff: singlet 0, triplet 1, quintet 3</td>
+</tr>
+<tr>
+<td><code>J=L1+L2</code></td>
+<td>Dimer total angular momentum in the imported spin-one-pair representation</td>
+</tr>
+<tr>
+<td><code>s, t_m, q_m</code></td>
+<td>Complete singlet, three triplet and five quintet states; all remain physical</td>
+</tr>
+<tr>
+<td><code>b=ss</code>, <code>a=(tt)J=0</code></td>
+<td>Two-dimer scalar work words; not single-dimer or angular signal states</td>
+</tr>
+<tr>
+<td><code>u=(a,b)</code>, <code>v=(b,a)</code></td>
+<td>Four-dimer scalar code words, equal tariff <code>2k0</code>, total angular momentum zero</td>
+</tr>
+<tr>
+<td><code>R=Q=65,536</code></td>
+<td>Axial and meridian angular-reference bank sizes; this <code>Q</code> is not mechanical resolution</td>
+</tr>
+<tr>
+<td><code>Z=2R+1=131,073</code>, <code>X=2Q=131,072</code></td>
+<td>Primary axial-with-source and meridian triplet counts</td>
+</tr>
+<tr>
+<td><code>N=Z+X=262,145</code></td>
+<td>Primary angular census; full primary plus copy census <code>2N=524,290</code></td>
+</tr>
+<tr>
+<td><code>b_M=20</code></td>
+<td>Scalar bits representing <code>M=-N,…,N</code>; 80 full dimers</td>
+</tr>
+<tr>
+<td><code>n_rot=n_read=512</code>, <code>n_port=128</code></td>
+<td>Finite symmetric-sweep compilation counts</td>
+</tr>
+<tr>
+<td><code>N_z=6,144</code>, <code>V=30,720</code>, <code>E=30,719</code></td>
+<td>Backbone sites, full guide vertices, tree contacts</td>
+</tr>
+<tr>
+<td><code>z_source=2,560</code>, <code>z_terminal=3,584</code></td>
+<td>Axial source/capture stations; separation 1,024 edges</td>
+</tr>
+<tr>
+<td><code>S=12,800</code>, <code>T=17,920</code></td>
+<td>Guide registry vertex IDs corresponding to those axial stations</td>
+</tr>
+<tr>
+<td><code>M=512</code>, <code>d=512</code>, <code>S_run=1,280</code></td>
+<td>Envelope cells, translated cells and guided updates; notation distinguished from source <code>S</code></td>
+</tr>
+<tr>
+<td><code>s_ax=2/5</code>, <code>θ_ax=asin(2/5)</code></td>
+<td>Axial matching sine and angle</td>
+</tr>
+<tr>
+<td><code>β=π/2</code>, <code>ℓ=10^-6</code></td>
+<td>Leaf phase and nonzero transverse matching angle</td>
+</tr>
+<tr>
+<td><code>w</code>, 32-bit phase grid</td>
+<td><code>θ=2πw/2^32</code>, integer <code>w</code>; 2,049 installed guide words</td>
+</tr>
+<tr>
+<td><code>r_v∈[4/5,4/3]</code></td>
+<td>Stationary support length/rate parameter fixed before preparation</td>
+</tr>
+<tr>
+<td><code>k_v=κ/r_v∈[3κ/4,5κ/4]</code></td>
+<td>Guide signal tariff; each owned work dimer has tariff <code>k_v/2</code></td>
+</tr>
+<tr>
+<td>Guide witness</td>
+<td><code>k_v/κ=3/4+((37v) mod 65)/128</code>, except IDs 12,800, 17,915, 17,920 are prequalified at 1</td>
+</tr>
+<tr>
+<td><code>m_v=1+2deg(v)</code></td>
+<td>Owned signal/work dimers per guide support: 3, 11 or 13; actual total 153,596</td>
+</tr>
+<tr>
+<td><code>N_v=h(signal_v)+(1/2)Σowned h(work)</code></td>
+<td>Conserved support load, <code>0≤N_v≤21</code>; canonical loaded sector has every <code>N_v=1</code></td>
+</tr>
+<tr>
+<td><code>L0=√3/2</code></td>
+<td>Guide comparison reference loop length; not an optical wavelength</td>
+</tr>
+<tr>
+<td><code>B_guide=6,553,600κ</code></td>
+<td>Positive ordinary guide-contact strain/activation envelope</td>
+</tr>
+<tr>
+<td>Mechanical <code>Q_G=2^42</code>, <code>Q_BD=2^43</code></td>
+<td>Finite residual-coordinate resolutions of source-factory families; their <code>B=100Q^4κ</code> remains paid</td>
+</tr>
+<tr>
+<td>Outer held skin <code>1/256</code></td>
+<td>Cross-body finite-pose allowance; not independent microscopic displacement at every endpoint</td>
+</tr>
+<tr>
+<td>Native local service radius 16</td>
+<td>Qualified bounded reciprocal-custody domain in comparison coordinates, not continuous travel speed</td>
+</tr>
+<tr>
+<td>Endpoint <code>r_A=1</code>, <code>r_B∈[4/5,4/3]</code></td>
+<td>Two three-owner supports; witness <code>r_B=8/7</code>, <code>k_B=7κ/8</code></td>
+</tr>
+<tr>
+<td>Endpoint <code>n=0,…,31</code></td>
+<td>Actual requested tag count in five acquired bits; completed count uses six separate bits</td>
+</tr>
+<tr>
+<td><code>q∈{0,1}</code>, <code>reverse∈{0,1}</code></td>
+<td>Optional <code>π/2</code> quadrature and sign reversal; positive reverse tag is <code>15π/8</code></td>
+</tr>
+<tr>
+<td><code>ζ_service=10^-15</code>, <code>ζ_bulk=10^-8</code></td>
+<td>Uniform qualified primitive/service errors, not observed manufacture tolerances</td>
+</tr>
+<tr>
+<td><code>d_in=10^-5</code></td>
+<td>One initial <strong>joint density half-trace</strong> bound before all preparation, including arbitrary reference</td>
+</tr>
+<tr>
+<td><code>q_halt=10^-4</code></td>
+<td>One entire-program marked-halt allowance</td>
+</tr>
+<tr>
+<td><code>d_dec=10^-5</code></td>
+<td>One complete classical-record total-variation decoder allowance</td>
+</tr>
+<tr>
+<td>674 exact <code>C</code> factors</td>
+<td>Independent pure observer factors IDs <code>0…667</code> and <code>684…689</code>; every other factor/purifier belongs to <code>A</code></td>
+</tr>
+<tr>
+<td><code>P*=1,504,551,385,726,580,037</code></td>
+<td>Final pre-OFFER native post upper bound</td>
+</tr>
+<tr>
+<td>Fault denominator</td>
+<td><code>10,000P*=15,045,513,857,265,800,370,000</code></td>
+</tr>
+<tr>
+<td>Strict OFFER cutoff</td>
+<td><code>16P*+4=24,072,822,171,625,280,596</code></td>
+</tr>
+<tr>
+<td>Observer suffix</td>
+<td>74,886 posts after <code>16P*</code>; cutoff-to-final interval is 74,882 posts</td>
+</tr>
+<tr>
+<td>Final cursor</td>
+<td><code>16P*+74,886=24,072,822,171,625,355,478&lt;2^65</code></td>
+</tr>
+<tr>
+<td>Total posts / fresh attempt</td>
+<td><code>17P*+74,886=25,577,373,557,351,935,515</code></td>
+</tr>
+<tr>
+<td>Scalar output census</td>
+<td>1,811 scalar occurrences, on 7,244 distinct output dimers</td>
+</tr>
+<tr>
+<td>Prepared cases / repeats</td>
+<td>821 cases × 80,000 intended attempts = 65,680,000</td>
+</tr>
+<tr>
+<td>Simultaneous indicators / slack</td>
+<td>17,241 and <code>η=0.01</code></td>
+</tr>
+</tbody>
+</table>
+<p>The source collection defines further <em>local</em> indices, endpoint ordinals, contact metadata, cold exponents and program-loop variables. They are fully enumerated in the companion field/contact/ROM data and generator references; none is a free fit parameter.</p>
+</div></details>
+<details class="spec-group" id="spec-3"><summary>3. Full physical state and supplied material types</summary><div><h3 id="spec-heading-31-dimer-space-scalar-words-and-complements">3.1 Dimer space, scalar words and complements</h3>
+<p>A physical dimer is the entire nine-state object, not a selected two-state approximation. <code>h</code> has sectors <code>0,1,3</code> with multiplicities <code>1,3,5</code>. All source, work, frame, record and service operations specify what happens on their full complements. A wrong work word, quintet, noncode register, extra excitation, incomplete contact or failed cold preparation remains in the physical inventory and accounts.</p>
+<p>On a four-dimer scalar bit, <code>u=(a,b)</code> and <code>v=(b,a)</code> have equal energy and zero total angular momentum. A code-X exchanges them and is identity elsewhere. Code-controlled X/CNOT and finite carry operations retain their named controls and noncode complements. A scalar ternary snapshot has the isometry</p>
+<pre><code>u ⊗ 00 → u ⊗ 00
+v ⊗ 00 → v ⊗ 01
+x ⊗ 00 → x ⊗ 10   for every orthogonal noncode x.</code></pre>
+<p>The original <code>x</code> is retained. Outcome <code>11</code> is invalid, not another valid source value. Such a snapshot is an admitted native readout operation with a paid positive implementation; it is not a software classification magically acting on an unmeasured body.</p>
+<h3 id="spec-heading-32-what-is-supplied">3.2 What is supplied</h3>
+<p>The conditional material catalogue supplies:</p>
+<ul>
+<li>finite nine-state circulation dimers and scalar cold/release organizations;</li>
+<li>positive local scalar/angular contacts and their inverse-address partners;</li>
+<li>formed contacts with specified partner/type/port metadata, reference frames, positive activation, outlet and strain accounts;</li>
+<li>complete rigid/correlated born body templates, not independently movable microscopic points;</li>
+<li>common-coordinate LCR supports with exactly matched owned work rates;</li>
+<li>complete 107,666-dimer controller/courier bodies, 4,096 scalar fields, immutable fault stock and bounded native cadence;</li>
+<li>complete finite local heat packs, untouched passive purifiers and a specified collision opportunity roster;</li>
+<li>the separate independent clock and UNA-65 atomic capture law.</li>
+</ul>
+<p>A large positive stiffness or resource count does not derive the physical existence of these types. A specimen either meets its independently specified domain or lies outside this device claim. Unlisted matter dynamics cannot be purchased with a small error-budget term.</p>
+<h3 id="spec-heading-33-one-input-boundary">3.3 One input boundary</h3>
+<p>Before <strong>any</strong> factory work, the complete nonclock state <code>A</code> and reference <code>R_ref</code> must satisfy</p>
+<p><span class="math-display" tabindex="0" aria-label="Mathematical equation; scroll horizontally if needed"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>ρ</mi><mrow><mi>A</mi><mo>,</mo><msub><mi>R</mi><mrow><mi mathvariant="normal">r</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">f</mi></mrow></msub></mrow></msub><mo>,</mo><msub><mi>σ</mi><mrow><mi>A</mi><mo>,</mo><msub><mi>R</mi><mrow><mi mathvariant="normal">r</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">f</mi></mrow></msub></mrow></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo stretchy="false" form="postfix">‖</mo><mi>ρ</mi><mo>−</mo><mi>σ</mi><msub><mo stretchy="false" form="postfix">‖</mo><mn>1</mn></msub><mo>≤</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>5</mn></mrow></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">D(\rho_{A,R_{\mathrm{ref}}},\sigma_{A,R_{\mathrm{ref}}})=\frac12\Vert\rho-\sigma\Vert_1\le10^{-5}.</annotation></semantics></math></span></p>
+<p>Exactly 674 pure independent clock/control factors <code>C</code> are tensor-independent as qualified. New supports, heads, records, work banks, settings, scratch, heat packs, apparatus clocks other than the exact <code>C</code>, and every purifier belong to <code>A</code>. There is no second perfect inlet after the source factory, no per-head closeness coupon and no success-selected requalification.</p>
+<h3 id="spec-heading-34-cold-positive-and-heat-stock">3.4 Cold, positive and heat stock</h3>
+<p>For a raw initially singlet primary of tariff <code>t</code>, a six-dimer pack includes the primary, positive-H transpose copy and compensating pairs. Its inlet bound is <code>6t</code>, full capacity <code>24t</code>, nominal warm coefficient <code>3e^-32+5e^-96</code>; release/presentation/guard costs 2,049 posts and conservatively <code>2049πζ_service</code>.</p>
+<p>For a charged arrival pair of two dimers at <code>t=k_v/2</code>,</p>
+<p><span class="math-display" tabindex="0" aria-label="Mathematical equation; scroll horizontally if needed"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mi>c</mi></msub><mo>=</mo><mi>t</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>h</mi><mn>1</mn></msub><mo>+</mo><msub><mi>h</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mn>3</mn><mi>t</mi><mo stretchy="false" form="prefix">(</mo><mi>I</mi><mo>−</mo><mo stretchy="false" form="prefix">|</mo><mi>a</mi><mo stretchy="false" form="postfix">⟩</mo><mo stretchy="false" form="prefix">⟨</mo><mi>a</mi><mo stretchy="false" form="postfix">|</mo><mo stretchy="false" form="postfix">)</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">H_c=t(h_1+h_2)+3t(I-\lvert a\rangle\langle a\rvert),</annotation></semantics></math></span></p>
+<p>has gap at least <code>t</code>, maximum <code>9t</code>, and nominal bad weight at most <code>80e^-64</code>. Its 16-dimer complete module shares the two actual work outputs with the guide roster and adds 14 retained factors. The added preparation inlet is <code>9k_v</code>, capacity <code>75k_v/2</code>, and 2,049 posts plus the corresponding service error. All 30,719 guide arrival pairs are actually supplied and charged.</p>
+<p>An LCR support's three scalar outputs each use a complete 26-dimer factory; the 84-dimer internal support includes their outputs/remainders plus its positive control/ticket. Internal inlet <code>147κ</code>, capacity <code>592κ</code>, 6,211 preparation posts and <code>6149πζ_service</code> do <strong>not</strong> include the separate member feet, root contacts or owned signal/work energy.</p>
+<p>For an eligible local material pair <code>lo,hi</code> of fixed gap <code>Δ&gt;0</code>, the heat primary is two complete dimers with <code>H_b=(Δ/2)(h1+h2)</code>. The scalar ground is <code>s</code>, and scalar <code>a</code> has energy <code>Δ</code>. The full involution exchanges <code>|hi,s&gt;</code> and <code>|lo,a&gt;</code> and is identity on the entire complement. It commutes with complete energy and angular momentum; in particular <code>|lo,s,ψ&gt;</code> is fixed for every allowed angular/reference state <code>ψ</code>. Eight additional passive-dual/positive-compensation dimers make a complete ten-dimer pack with inlet <code>6Δ</code> and capacity <code>24Δ</code>.</p>
+<p>Every selected occurrence uses the declared local owner and actual pair gap, not an upper envelope substituted into its Hamiltonian. The final construction uses fresh allocated packs; it does not import the optional two-use savings. Thermal opportunities occur only at specified idle/isolation windows with affected generators OFF, including periodic windows after <code>2^20</code> owner nonthermal posts. Thermal posts do not recursively create thermal posts. This is an event-indexed finite environment, not an arbitrary ambient continuous bath.</p>
+<h3 id="spec-heading-35-formed-contact-strain-and-exact-finite-shape-comparisons">3.5 Formed-contact strain and exact finite shape comparisons</h3>
+<p>Within each qualified born frame, use the inherited reciprocal-length response c_e=c_e(0)/λ_e and binding tariff</p>
+<p>U_e=B[(1/λ_e−1)²−1], with detached U_e=0.</p>
+<p>The nonnegative binding convention U_e+B, positive activation/outlet stock and complete invalid-sector rejection tariff retain the energy that a signed potential alone could conceal. Rest-frame variants apply the same declared polynomial to residual coordinates after subtracting the body's actual born frame. They do not freely refit the shape response for a new body.</p>
+<p>The original ordinary-contact family has a finite coordinate residual alphabet, fixed partner/port/orientation/occupancy metadata, positive lengths, registered handedness and rigid-block relations. Later current G/B/D/connector and endpoint/guide instances supply their explicitly finer Q grids and born correlated templates, not arbitrary continuum motion. The actual rest vector between every printed endpoint pair determines λ and the finite energy difference. An absolute squared displacement bound, such as 192 for new endpoints, pays capacity; it is not a substitute lower-gap proof.</p>
+<p>Every material move updates its actual local master/copy geometry records under the same guarded map, with real activation, release, recoil and thermal/outlet terms. Four noncoplanar anchors and retained orientation determine an actual body pose rather than merely a count of bodies. A fixed common rigid change of chart does not create a new physical orientation resource. Independent endpoint drift, changed residual polynomial, wrong partner or unlisted deformation is not covered by the exact correlated-body qualification.</p>
+</div></details>
+<details class="spec-group" id="spec-4"><summary>4. Source manufacture and angular preparation</summary><div><h3 id="spec-heading-41-one-fixed-relational-seed">4.1 One fixed relational seed</h3>
+<p>Two axial banks have <code>R=65,536</code> triplet dimers each, two meridian banks have <code>Q=65,536</code> each, and the source is one further axial triplet. The primary counts are <code>Z=131,073</code>, <code>X=131,072</code>, <code>N=262,145</code>. Reference-description axes are <code>z,z,x,x</code>; they do not supply an unaccounted absolute physical axis.</p>
+<p>Write the reference vector as <code>|b_seed&gt;=|Z,Z&gt;_z |X,X&gt;_x=Σ a_(J,M,μ)|J,M,μ&gt;</code>. The actual admitted target is the total-angular-momentum-zero retained purification</p>
+<p><code>|Ω_seed&gt;=Σ_(J,M,μ) a_(J,M,μ) [Σ_m (−1)^(J−m)|J,m,μ&gt;_primary |J,−m&gt;_copy /√(2J+1)] |M&gt;_scalar</code>.</p>
+<p>There are 524,290 physical angular dimers plus the same original 80 scalar M constituents. Full primary/copy energy is <code>2Nk0</code>, capacity <code>6Nk0</code>; M contributes <code>2b_M k0</code> and capacity <code>12b_M k0</code>. The source is part of the joint state from the start. Its reduced triplet state is <code>I3/3</code>; it is not appended afterward to an allegedly still-pure independent bank.</p>
+<p>The linear mathematical intertwiner <code>V U=(U⊗I_copy,M)V</code> holds for scalar primary operations in the admitted invariant total-J sector. It proves joint-reference comparisons. It is not an extra physical encoder or source-dependent purification.</p>
+<h3 id="spec-heading-42-actual-manufacture-and-factor-routing">4.2 Actual manufacture and factor routing</h3>
+<p>The complete source factory uses one G word, 33 B/B† words, 16 prepared-bank phases and the actual ready predicate on 564 newly supplied free work bits plus the original M20. The fixed ordering is G, B, followed by sixteen repetitions of</p>
+<p><code>good phase → B† → transfer Pz to D → prepared-ready phase → transfer Pz back to B → B</code>,</p>
+<p>then the fixed known phase. The first fifteen phase pairs are ordinary π pairs; the final pair is the following fixed matched pair of the adopted shaping word. The exact word is constructively defined; the 6,449,012,345-bit shaping tape is not claimed to have been materialized or executed.</p>
+<p><strong>The matched pair and its fixed phase.</strong> Set α=asin(1/√409), ℓ=15, θ=(2ℓ+1)α=31α. In the ordered good/bad comparison basis, define</p>
+<p>cos ϕ = −cot θ cot(2α),</p>
+<p>z = cos α[sin α exp(iϕ) sin θ + cos α cos θ],</p>
+<p>exp(iφ) = 1−cos θ/z.</p>
+<p>Choose ϕ in [0,π] and the displayed unit-modulus exp(iφ). Here ϕ=1.9564457250617036 rad and φ=0.7747218041259991 rad. The time order is the good-subspace phase ϕ, the actual B†, the prepared-ready phase φ, and B; equivalently S_(B init)(φ) S_good(ϕ). Re(z)=cos θ/2 ensures |exp(iφ)|=1 and makes the residual bad amplitude exactly zero in the ideal α reference problem. If cos θ=0, omit the final pair rather than divide by zero.</p>
+<p>For the phase convention S_P(χ)=I+[exp(iχ)−1]P and each ordinary pair implemented in that same order, the fifteen ordinary pairs contribute (−1)^15 relative to the usual positive rotation. Define</p>
+<p>u = sin α exp(iϕ) sin θ + cos α cos θ,</p>
+<p>a_good = exp(iϕ) sin θ + [exp(iφ)−1] sin α·u,</p>
+<p>exp(iγ_finish) = [(−1)^15 a_good]⁻¹.</p>
+<p>Thus γ_finish=1.183435424731897 rad modulo 2π. This is the explicit final scalar phase correction for the 33-call shaping word, not a fitted phase. The independently retained G growth corrections are already in G, and each B† is the inverse of the actual entire B payload; none is applied twice. For the compact-band approximate B construction, use these same fixed α-reference phases; the truncation/finish mismatch is part of the stated bounded allowance, not a claim that its actual amplitude is exactly 1/√409.</p>
+<p>G owns the same 524,290 target angular dimers. Borrowed B and D primaries are subtracted once, not recreated. The original targets are Pz: source <code>sa.data(1)</code> then <code>sa</code> and <code>ra</code> axial frames; Px: <code>sm</code> and <code>rm</code> meridian frames; copies: the prescribed <code>sa</code>/<code>sm</code> slots and root factor in their retained coupling order; M: the original root slots grouped four per bit.</p>
+<p>A 1,071-vertex, 1,070-edge connector tree joins G/B/D and the four optical annexes without identifying distinct roots. It routes 393,218 initial G→B/D factor movements, 4,194,336 Pz interchanges and 524,370 final placements: <strong>5,111,924 complete actual dimer movements</strong>. Every movement releases the real mounts, carries that complete factor/reaction/reference through named local custody, vacates the source and attaches the destination. It is not a free permutation of semantic labels. Both loaded delivery and empty-controller return are charged.</p>
+<p>All transported angular targets have the same born endpoint vector <code>(1/32,−1/32,1/32)</code> with squared length <code>3/1024</code>. Their mount lengths and body IDs are explicit. The connector's angular neighborhoods and actual free scalar work remain separate. Exact scalar source sequences, source-factory formulas, full body generators and adopted section references are in the source map; the giant finite word is specified by its generator rather than an impractical printed tape.</p>
+<h3 id="spec-heading-42a-constructive-source-words-and-coefficient-specification">4.2A Constructive source words and coefficient specification</h3>
+<p>The source program is finite even where it is too large to print as a gate tape. Its constructive definitions are part of the engineering specification, not a request for a later unspecified preparation mechanism.</p>
+<p><strong>G, maximal-bank singlet growth.</strong> For each bank length L, grow F=1,…,L−1, giving 262,143 total steps. The local angular sum C_F=2F+J_new·F_old has comparison eigenvalues 3F,2F−1,F−1. With p_F=(2F+3)/[3(2F+1)], use β_F=acos(1−1/(2p_F)). The exact local fresh-pair phase and grown-top phase map the old-bank singlet plus fresh microscopic singlet to the grown-bank singlet with a known retained phase correction.</p>
+<p>On the full two-dimer local contact, P1=L(3I−L)/2 and P3=L(L−I)/6. A nine-dimer mobile body—new angular dimer plus two four-dimer term bits—uses root probabilities (1/2,1/8,3/8,0) and the actual first-F-leaf position loader. Its full leaf operation selects the P1 or P3 reflection at its locally occupied leaf, is identity on absent/noncode/wrong-species sectors, and acts on at most 15 external dimers (21 including its switched mode/ticket). No second coherent address register or remote leaf oracle is supplied.</p>
+<p>For the full involution U_F=T†P_F†D_FP_FT, the local root/term00 block is A_F=C_F/(4F). Sixteen actual U_F queries alternate with a 17-phase palindrome. The supplied table <a href="./optical-information-link/data/growth-phase-words.u64le.gz">growth-phase-words.u64le.gz</a> contains every row F=1,…,131,072. Each row has twelve little-endian unsigned 64-bit entries: nine symmetric θ words, β, negative γ and middle-wrap parity. Angles use the 60-bit full-turn grid, and θ/β are even. The fixed correction is</p>
+<p>γ_word = [(2Σ_(j&lt;8)θ_j + θ_8 + β + 2^59)/2 + parity·2^59] mod 2^60.</p>
+<p>The middle-wrap parity is part of the actual finite word. It cannot be dropped as an “irrelevant” global sign when that word participates coherently in the seed. Both bank growths reuse the appropriate actual F rows with their named bank control. Every erroneous/off-root state remains in the full physical operation; the comparison telescopes along ideal prefixes rather than reprojecting a noisy bank.</p>
+<p><strong>B, coefficient shaping.</strong> For the retained phase convention Z=X+1, N=Z+X and 1≤M≤J≤N, the nonnegative coefficient probability is exactly</p>
+<p>w_JM = (2J+1)(J−1)!(J+M)!(2Z)!(2X)! / [(N+J+1)!(N−J)!(M−1)!²(J+1)!(J−M)!4^X],</p>
+<p>with recurrence w_(J,M+1)/w_JM=(J+M+1)(J−M)/M². All outside coefficients vanish. Thus the finite scalar compiler uses exact factorial/rational recurrences, not an arbitrary fitted amplitude table or an absolute-value replacement of signs.</p>
+<p>The fixed compact bands are J=181269…189460 (8,192 labels), M=129025…133120 (4,096 labels). The target tail union is below 2.614×10^-14 and is charged, not removed by measured postselection. For each J, let p^T_J be the sum over retained M. The conditional M amplitudes are √(w_JM/p^T_J); the actual success-flag rotation has amplitude √[D p^T_J/((2J+1)409)], where D=(2Z+1)(2X+1) is the dimension of the product of the two maximal-spin primary banks. Its success arm is √(τ/409)Ω_T and its reject arm remains physical. The fixed 33-call finish uses α0=asin(1/√409); normalization, discarded-target comparison and finish mismatch have the stated bounded allowance, not a claimed unconditioned exact Ω output.</p>
+<p><strong>Exact clock amplitudes.</strong> Let c_t be the coefficient of x^t in (1+x+⋯+x^(L_clock−1))^r. Its complete finite definition is</p>
+<p>c_t = Σ_(k=0)^min(r,⌊t/L_clock⌋) (−1)^k binom(r,k) binom(t−kL_clock+r−1,r−1)</p>
+<p>for 0≤t≤r(L_clock−1), and c_t=0 outside that support. With Z_clock=Σ_(t=0)^(T_clock−1)c_t², prepare Σ_t c_t/√Z_clock |t⟩ in the enclosing 25-bit word; all t≥T_clock have zero ideal amplitude. The actual binary preparation tree uses exact integer weights c_t²: at each node, the right-child probability is its weight sum divided by the total node weight (zero if the whole node is zero). <code>tree_levels</code>, <code>theta_interval</code> and <code>gray_interval_word</code> implement its rationally isolated finite rotations, and the full physical operation retains its noncode/unused complement. These are amplitudes of a declared clock-control state, not random samples of an asserted distribution.</p>
+<p>The selected constructive shaping clock is <strong>mixed radix</strong> κ_clock=3, b=23, T_clock=25,165,824, convolution rectangles r=12, L_clock=2,097,152, scalar angle precision p=48. This κ_clock is not the work scale κ. Register t=a+2^b h uses b low bits and two high bits. Controlled low powers plus the actual [h≥s] predicates execute T_clock−1 real walks per forward clock block. The finite Fourier factorization is F_3 on h, explicit twiddle phases a·c/T_clock, then F_(2^b) on a; unused binary states retain their prescribed complement.</p>
+<p>The F_3 operation is explicitly the following <strong>time-ordered</strong> six-operation word on high-register labels 0,1,2, leaving label 3 untouched:</p>
+<p>phase₂(π) → R₁₂(π/4) → phase₁(π) → phase₂(3π/2) → R₀₁(arccos(1/√3)) → R₁₂(π/4).</p>
+<p>Here phase_j(χ) multiplies label j by exp(iχ), and R_ab(χ) has ordered a,b block [[cos χ,−sin χ],[sin χ,cos χ]]. Their product is the positive-sign F_3 matrix (F_3)_(j,k)=exp(2πijk/3)/√3, with identity on label 3. The nontrivial angle is isolated by the same rational compiler using probability 2/3; it is not an unspecified Fourier oracle. For output k=c+3d, the exact identity (a+2^b h)(c+3d)/(3·2^b)=hc/3+ac/T_clock+ad/2^b+hd fixes the twiddle sign and digit order. The finite phase tapes, masks and complement extensions remain paid.</p>
+<p>Across the 33 B/B† words there are 1,660,944,318 actual walk calls, 1,650 copied physical power blocks and 570,812,820,996 scalar payload pulses, each with its applicable positive switching account. The packet pose precision is 52 bits; it cannot be replaced by the 48-bit scalar angle precision. The complete ideal synthesis upper is 0.0008987847, included in the final whole-source error rather than added a second time.</p>
+<p>The immutable two-positive-tape program has exactly 6,449,012,345 scalar bits. It is specified by the finite coefficient/threshold/Gray-angle compiler; it is not claimed to be materialized here. The 584 logical work bits include the original M20 and 564 physically separate supplied work bits. The 16 prepared-ready reflections use all 584 actual inputs, giving 18,688 uses with 78,938,112 paid ready-route posts. The 400-bit outer-phase cartridge has actual 50-bit forward/inverse phase tapes; 3,300 delivered bits use 13,200 full scalar SWAPs. Native history remains forward on every payload adjoint.</p>
+<p>The companion readable normative source functions include the actual selected compiler and growth indexing, while the source map locates the complete current derivations and certificate. Source program counts are not extra stock to add twice to the final bill: the final integrated census already includes their physical supply, routing, heat, controls and retained copies.</p>
+<h3 id="spec-heading-43-local-angular-operations">4.3 Local angular operations</h3>
+<p>For source or receiver dimer <code>s</code> and one frame dimer <code>f</code>, use <code>P=Pt(s)Pt(f)</code> and <code>A=J_s·J_f</code>. The two complete local generators are</p>
+<p><code>L=P(A+2I)</code>, <code>Q₂=P(2A²+A−I)</code>.</p>
+<p>They are positive on all 81 two-dimer states, rotational scalars and individually commute with <code>h_s,h_f</code>. Their triplet×triplet eigenvalues are respectively <code>(0,1,3)</code> and <code>(5,0,2)</code>; they are zero outside that sector. The quadratic contact is an explicit constitutive operation, not a claim that bilinear exchange implements its own square.</p>
+<p>For a K-dimer co-sense frame, the joint-reference comparison errors are <code>|t|/√K</code> for L and <code>√5|t|/√K</code> for Q₂. Each finite average is implemented by positive symmetric sweeps, not a free collective pulse. With <code>n</code> sweeps their full-space compilation bounds are <code>(3|t|)^3/(3n²)</code> and <code>(5|t|)^3/(3n²)</code>.</p>
+<p>Source commands arrive only after common readiness; they remain local. All choices share a padded horizon and launch address. No command-dependent success, retry or early timing message reaches the receiver before the data contact.</p>
+<table>
+<thead>
+<tr>
+<th>Source command</th>
+<th style="text-align: right;">Q₂ meridian angle</th>
+<th style="text-align: right;">Subsequent L axial time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+Z</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>−Z</td>
+<td style="text-align: right;">π</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>+X</td>
+<td style="text-align: right;">π/2</td>
+<td style="text-align: right;">π/4</td>
+</tr>
+<tr>
+<td>−X</td>
+<td style="text-align: right;">π/2</td>
+<td style="text-align: right;">3π/4</td>
+</tr>
+<tr>
+<td>+Y</td>
+<td style="text-align: right;">π/2</td>
+<td style="text-align: right;">π/2</td>
+</tr>
+<tr>
+<td>−Y</td>
+<td style="text-align: right;">π/2</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>blank</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0, with actual full source↔︎local-singlet dump SWAP</td>
+</tr>
+</tbody>
+</table>
+<p>The blank stores source energy and correlations in its source-side dump. It does not choose a new globally prepared blank state.</p>
+<p>Receiver analysis is Z: no rotation; Y: Q₂ angle π/2; X: L time π/4 then Q₂ angle π/2. It then runs the circular instrument, unless READ is deliberately omitted with the same reserved horizon. Six bright inputs plus blank against X/Y/Z give 21 ordinary angular cases; three +Z/omit-READ cases complete 24 original controls.</p>
+<h3 id="spec-heading-44-circular-instrument-and-angular-retention">4.4 Circular instrument and angular retention</h3>
+<p>The receiver uses its finite axial bank, the scalar phase circuit on two four-dimer bits, classification, then the <strong>actual inverse</strong> phase circuit. The collective comparison spectrum is <code>3, 2−1/R, 1−1/R</code> on the qualified maximal-frame branches, zero on singlet/quintet data. The circuit uses H on both bits, controlled times π/2 and π, then the positive-sign four-point Fourier transform. It assigns integer phase codes 3, 2, 1; classifier code 3 is plus, 1 or 2 minus, 0 reject.</p>
+<p>The full record uses <code>r0=(a,b,b)</code>, <code>r1=(b,a,b)</code>, <code>rr=(b,b,a)</code> on six dimers, and a four-dimer completion word W. The root classifier is a bounded full-space scalar involution on 18 dimers, or 22 including the actual READ bit. Phase inverses use positive <code>3I−L</code> and the paid scalar phase corrections, not modulo-2π inversion of a noninteger spectrum. All workspace and reference recoil remain.</p>
+<p>The pointer comparison bound is</p>
+<p><code>√[2/((R+1)(2R+1))]+3π/R+81π³/(4n_read²)</code>.</p>
+<p>Completed plus, minus and reject are <code>(v,r0)</code>, <code>(v,r1)</code>, <code>(v,rr)</code>; omit-READ is <code>(u,r0)</code>. The third triplet component is retained and uses the real angular effect, not a fabricated two-level probability. All other records remain unavailable or unexpected.</p>
+</div></details>
+<details class="spec-group" id="spec-5"><summary>5. Guide geometry and conserved local operation</summary><div><h3 id="spec-heading-51-finite-comb-supports-and-contacts">5.1 Finite comb, supports and contacts</h3>
+<p>There are 6,144 backbone vertices <code>(0,0,z)</code> and four leaves <code>(±1,0,z),(0,±1,z)</code> at each station. Leaves have no axial or mutual edges. The result is a tree with 30,720 signal vertices and 30,719 contacts, not an isotropic glass cylinder. All four transverse contacts are nonzero. Positional update bands are not polarizations: all three triplet angular components are transported identically.</p>
+<p>The tree is rooted at axial station 2,560. At each edge <code>u→v</code>, four work dimers form upstream-owned pair A at tariff <code>k_u/2</code> per dimer and downstream-owned pair B at <code>k_v/2</code>. <strong>Both complete pairs are mounted on the arrival side.</strong> Every support owns its signal plus two work dimers per incident edge, with at most 13 owned dimers. Total owned membership is <code>V+4E=153,596</code>.</p>
+<p>Each vertex has an 84-dimer scalar support and the paid member endpoints/feet, four root contacts, WORK frame and distinct RIBBON caddy. Frame braces and cross-frame comparisons are counted separately; common names do not identify physical roots. The born body atlas, complete caddy endpoints, head interiors, endpoint ports and finite-pose exclusions are specified by rational generators. One full courier has 107,666 dimers, not merely a plotted anchor. The finite-pose proof does not claim a continuous swept volume through intervening material.</p>
+<h3 id="spec-heading-52-exact-local-rate-matching">5.2 Exact local rate matching</h3>
+<p>The LCR-m support fixes one common stationary coordinate <code>r_v</code>; signal length is <code>r_vL0</code>, owned work length <code>2r_vL0</code>, tariffs <code>κ/r_v</code> and <code>κ/(2r_v)</code>. This is an exact material/type relation. It is not obtained by making a spring arbitrarily stiff.</p>
+<p>The complete energy is</p>
+<p><code>H_free=Σ_v[f_v(q_v)+κN_v/r_v(q_v)]+all independent service bodies</code>.</p>
+<p><code>N_v=h(signal_v)+½Σowned h(work)</code> commutes with every permitted edge K, Pt tag, guard and presence operation. On the canonical loaded packet every <code>N_v=1</code>; failed/wrong-work/full loading sectors retain their actual <code>0…21</code> load. No projection replaces N by 1 in a failed state.</p>
+<p>For this guide's ordinary positive envelope <code>B=6,553,600κ</code>, maximum angular load is <code>26.25κ</code>. A fixed-N residual-shape gap is at least <code>B−10.5κ</code>; a cross-sector envelope instead uses <code>B−26.25κ</code>. Both exceed B/2 in the admitted finite residual model. The lower-gap proof comes from that model and its fixed rest-frame polynomial, not from body size or a loose upper displacement bound.</p>
+<p>If independent work-rate errors produce <code>d_lock=k_u+g_B−k_v−g_A</code>, then <code>||[K,H_actual]||=|d_lock|/2</code>. Every nonzero <code>d_lock</code> is outside exact matching; exact energy pinching would remove the desired transition. There is no open tolerance to arbitrary within-spine drift. Different <strong>stationary spines</strong> in the stated interval are allowed.</p>
+<h3 id="spec-heading-53-full-six-dimer-exchange">5.3 Full six-dimer exchange</h3>
+<p>Define three active columns in each direction:</p>
+<pre><code>L_m = |t_m,s; b_A,a_B&gt;
+R_m = |s,t_m; a_A,b_B&gt;
+T_e = Σ_m |R_m&gt;&lt;L_m|
+K_e = (P_L+P_R−T_e−T_e†)/2.</code></pre>
+<p>K is a rank-three positive projector on the full <code>9^6=531,441</code> physical space. Its kernel—including wrong work, extra loading and quintets—is retained. It commutes with full local energy and all total-AM components in the LCR domain.</p>
+<p>The actual phase-flat guided gate is</p>
+<p><code>Ĝ_e(θ)=exp(+iθPt(u)) exp(+iθPt(v)) exp(−2iθK_e)</code>.</p>
+<p>The two Pt tags are indispensable: the K exponential's local block phase is not a common global phase. Each positive angle is compiled modulo 2π. For a base 32-bit word w the three words are <code>2w,−w,−w mod 2^32</code>; this correlated arithmetic gives the intended edge angle. On mixed enable sectors the actual phases remain, e.g. one enabled endpoint can retain its Pt phase even while exchange is disabled.</p>
+<h3 id="spec-heading-54-retained-work-is-the-coherence-construction">5.4 Retained work is the coherence construction</h3>
+<p>For vertex x, let <code>w(x)</code> be spent exactly on the unique root→x path and ready elsewhere. The isometry</p>
+<p><code>J|x,m&gt;=|triplet m at x; singlets elsewhere&gt;⊗|w(x)&gt;</code></p>
+<p>intertwines each local physical gate with <code>exp(iθX_e)⊗I_triplet</code>. It holds for any finite sequence and arbitrary retained reference. Reverse crossings restore the traversed edge word; every walk ending at x has the same w(x). Recombination therefore requires no work erasure, projection, new battery or discarded path record.</p>
+<p>The <strong>joint</strong> signal/work packet is coherent. Tracing out work generally destroys bare position coherence; no contrary reduced-state claim is made. A successful catcher leaves the common spent word at the terminal. Cycles are excluded: two different paths around a cycle can retain orthogonal work histories at the same position and invalidate the one-word-per-vertex reduction.</p>
+<h3 id="spec-heading-55-energy-and-angular-momentum-at-a-cut">5.5 Energy and angular momentum at a cut</h3>
+<p>At a completed OFF crossing,</p>
+<p><span class="math-display" tabindex="0" aria-label="Mathematical equation; scroll horizontally if needed"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi mathvariant="normal">Δ</mi><msub><mi>E</mi><mrow><mrow><mi mathvariant="normal">s</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">l</mi></mrow><mo>,</mo><mi>u</mi></mrow></msub><mo>,</mo><mi mathvariant="normal">Δ</mi><msub><mi>E</mi><mrow><mrow><mi mathvariant="normal">s</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">l</mi></mrow><mo>,</mo><mi>v</mi></mrow></msub><mo>,</mo><mi mathvariant="normal">Δ</mi><msub><mi>E</mi><mi>A</mi></msub><mo>,</mo><mi mathvariant="normal">Δ</mi><msub><mi>E</mi><mi>B</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>−</mi><msub><mi>k</mi><mi>u</mi></msub><mo>,</mo><mi>+</mi><msub><mi>k</mi><mi>v</mi></msub><mo>,</mo><mi>+</mi><msub><mi>k</mi><mi>u</mi></msub><mo>,</mo><mi>−</mi><msub><mi>k</mi><mi>v</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">\left(\Delta E_{\mathrm{signal},u},\Delta E_{\mathrm{signal},v},\Delta E_A,\Delta E_B\right)=\left(-k_u,+k_v,+k_u,-k_v\right).</annotation></semantics></math></span></p>
+<p>The arrival side containing both work pairs receives <code>k_u</code>. For a complete rooted subtree its gained energy operator is <code>k_u Π_subtree⊗I_triplet</code>; scalar work carries no hidden angular sink. The carried triplet carries its true angular representation, and the source partner remains retained outside.</p>
+<p>Support load and good scalar state return at a completed boundary and hence contribute zero <strong>change</strong>, not zero stock. During an active switch the positive contact, F, tickets, interaction, recoil and outlets must also be counted. The simple OFF-cut formula is not an unfinished-switch account.</p>
+</div></details>
+<details class="spec-group" id="spec-6"><summary>6. Guide loader, update word, catcher and controls</summary><div><h3 id="spec-heading-61-finite-compact-packet">6.1 Finite compact packet</h3>
+<p>Use 512 cells with normalized envelope</p>
+<p><span class="math-display" tabindex="0" aria-label="Mathematical equation; scroll horizontally if needed"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mi>j</mi></msub><mo>=</mo><mfrac><mrow><msup><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mn>3</mn></msup><mo stretchy="false" form="prefix">(</mo><mi>π</mi><mi>j</mi><mi>/</mi><mn>513</mn><mo stretchy="false" form="postfix">)</mo></mrow><msqrt><mrow><mn>5</mn><mo>⋅</mo><mn>513</mn><mi>/</mi><mn>16</mn></mrow></msqrt></mfrac><mo>,</mo><mspace width="2.0em"></mspace><mi>j</mi><mo>=</mo><mn>1</mn><mo>,</mo><mi>…</mi><mo>,</mo><mn>512</mn><mo>,</mo></mrow><annotation encoding="application/x-tex">f_j=\frac{\sin^3(\pi j/513)}{\sqrt{5\cdot513/16}},\qquad j=1,\ldots,512,</annotation></semantics></math></span></p>
+<p>and spinor <code>v0=(√0.7,i√0.3)</code>, packet <code>ψ_j=(−1)^(j−1)f_j v0</code>. These two entries are positional components of one full triplet, not two polarizations.</p>
+<p>The 1,024 positive site weights alternate <code>√0.7 f_j</code> and <code>√0.3 f_j</code>. Starting with the actual source at station 2,560, execute 1,023 adjacent gates with</p>
+<p><span class="math-display" tabindex="0" aria-label="Mathematical equation; scroll horizontally if needed"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mi>j</mi></msub><mo>=</mo><mrow><mi mathvariant="normal">atan2</mi><mo>&#8289;</mo></mrow><mspace width="-0.167em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><msqrt><mrow><munder><mo>∑</mo><mrow><mi>l</mi><mo>&gt;</mo><mi>j</mi></mrow></munder><msubsup><mi>w</mi><mi>l</mi><mn>2</mn></msubsup></mrow></msqrt><mo>,</mo><msub><mi>w</mi><mi>j</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">\theta_j=\operatorname{atan2}\!\left(\sqrt{\sum_{l&gt;j}w_l^2},w_j\right).</annotation></semantics></math></span></p>
+<p>The sequential i-phases produce the exact packet. The catcher uses the translated edges in reverse with positive inverse angle <code>2π−θ_j</code>. Loaded support is 2,560…3,583; target support is 3,584…4,607. The complete finite backbone has sufficient 1,280-cell guards for the finite support cone; no tail is discarded to obtain a nominal answer.</p>
+<h3 id="spec-heading-62-one-update-and-count">6.2 One update and count</h3>
+<p>Run 1,280 updates, each in this order:</p>
+<ol type="1">
+<li>Backbone even matching at <code>asin(2/5)</code>.</li>
+<li>Backbone odd matching at the same angle.</li>
+<li>All-leaf Pt phase <code>exp(−iπPt/2)</code>.</li>
+<li>Four successive transverse matchings at <code>ℓ=10^-6</code>.</li>
+</ol>
+<p>Every physical gate executes on blanks as well as bright inputs. A deterministic scheduler never reads the signal's position. The fixed 2,049×32-bit guide ROM contains all loader words and update constants; there are 2,049 separate cold word bodies rather than a renamed enormous head. <a href="./optical-information-link/data/guide-rom.json">guide-rom.json</a> is the exact ordered integer array.</p>
+<h3 id="spec-heading-63-derived-guided-and-transport-bounds">6.3 Derived guided and transport bounds</h3>
+<p>Let <code>b=4sin(asin(0.4)/2)</code>, <code>r=(b+√2)/2</code>, <code>g=(√2−b)/2</code>, <code>a=4ℓ</code>. For <code>a&lt;g</code>, the finite-open guided projector satisfies</p>
+<p><code>e_P≤ra/[g(g−a)]</code>, <code>rank P=6,144</code>.</p>
+<p>At the witness <code>e_P&lt;5.00924×10^-5</code>, uniformly for every integer update; bare-core cladding probability is below <code>4e_P²&lt;1.00370×10^-8</code>. This is a guide-subsystem comparison, not the final apparatus failure probability.</p>
+<p>With <code>t=e_P²/(1+√(1−e_P²))</code>,</p>
+<p><code>δ_eff=2t+a²/2+2ae_P+e_P²</code>,</p>
+<p>and the core-to-comb evolution discrepancy is at most <code>2√2e_P+1280δ_eff&lt;0.000148630</code>. The compact packet axial bound is</p>
+<p><code>ε_ax=3π/[√10(M+1)]+d(1+2s_ax²)π⁶√(369/5)/[192(1−s_ax²)^(3/2)(M+1)³]&lt;0.006089405</code>.</p>
+<p>After the actual 32-bit words and bulk/switch/presence services, the isolated transport core norm bound is <code>0.00690570077622</code>. It is not substituted for the full assembled <code>ε≈0.09618</code>. The numerical finite-word capture probability <code>0.9999929107044572</code> is a synthetic diagnostic, not a measured delivery efficiency or the guaranteed complete-device probability.</p>
+<h3 id="spec-heading-64-delivered-controls-and-physical-presence">6.4 Delivered controls and physical presence</h3>
+<ul>
+<li><strong>PASS:</strong> complete loader/run/catcher, then terminal presence, angular port and instrument.</li>
+<li><strong>Source BLANK:</strong> actual upstream source/dump SWAP. K annihilates a blank even with arbitrary charged work; presence is ideally 0.</li>
+<li><strong>Guide CUT:</strong> actual delivered CUT word zeroes every occurrence of the compiled axial K at station 2,560, including loader/run/inverse. Positive wrappers/padding and Pt tags remain. No leaf path bypasses the cut. Presence is ideally 0.</li>
+<li><strong>Guide ROUNDTRIP:</strong> execute the complete finite word followed by its positive inverse in exact reverse order <strong>before</strong> presence. The signal and work return to the source; native histories do not reverse or reset. It is not also delivered to the endpoint.</li>
+</ul>
+<p>The terminal presence pointer has four actual dimers and generator <code>Pt(T)⊗D</code>, where <code>D=(|u&gt;−|v&gt;)(&lt;u|−&lt;v|)/2</code>. A paid positive π operation writes occupancy without reading or replacing angular information. Source, port, angular instrument and all failed complements remain part of one account.</p>
+</div></details>
+<details class="spec-group" id="spec-7"><summary>7. Same-source endpoint, driven phase and complete return</summary><div><h3 id="spec-heading-71-the-exact-borrowed-source">7.1 The exact borrowed source</h3>
+<p>After the guide port and angular readout, a full equal-tariff <strong>9×9 dimer SWAP</strong> transfers the actual receiver data into the qualified cold receiver <code>ra,r1,slot24</code>. On the nominal singlet recipient,</p>
+<p><code>ρ_BX⊗|s&gt;&lt;s|_C → |s&gt;&lt;s|_B⊗ρ_CX</code>.</p>
+<p>The post-SWAP C is the endpoint source. The newly emptied B is not. C's immutable ID is <code>('ra',('d',6,0,2,0))</code>; its born endpoints are <code>(89,−77,229441)/64</code> and <code>(91,−79,229443)/64</code>, and its tariff remains <code>k_A=k0</code>. Arbitrary source/reference correlations follow this same full factor.</p>
+<p>Outgoing transport releases nine real original mounts and installs nineteen at the endpoint. Return reverses those mount obligations; 112 thermal release/return windows are paid. The R1 route has 43 vertices, 42 edges and 85 complete caddies. Source movement uses 24 route edges plus two local pickup/docking guards per direction, charged as 26 units each: <strong>52 priced source units</strong>. No retired old endpoint route is reused by name.</p>
+<h3 id="spec-heading-72-local-converter-energy">7.2 Local converter energy</h3>
+<p>Spine A owns <code>S,WA0,WA1</code>; spine B owns <code>T,WB0,WB1</code>. Their stationary rates are <code>k_A=k0</code>, <code>k_B=k0/r_B</code>, with <code>r_B=8/7</code> at the witness. The same full rank-three exchange K acts on scalar-work-dressed L/R triplet columns. Both complete work pairs lie beyond the local arrival cut.</p>
+<p>R changes energies by <code>(-k_A,+k_B,+k_A,−k_B)</code> in <code>(S,T,WA,WB)</code>. At the witness, terminal <code>7k0/8</code> plus net work <code>k0/8</code> equals the original <code>k0</code>. Terminal energy alone is not the delivered-energy account.</p>
+<p>A local post-guide blank is a paid controlled full <code>S↔︎D</code> SWAP. It puts the actually arriving source and its reference in D while S/T are singlets; it is distinct from absence of any arriving excitation.</p>
+<h3 id="spec-heading-73-phase-protocol">7.3 Phase protocol</h3>
+<p>For FRINGE execute <code>U(π/2)</code>, n actual acknowledged tags <code>exp(−iγPt(T))</code>, optional quadrature <code>qπ/2</code>, then <code>U(3π/2)</code>, where <code>U(θ)=exp(−iθK)</code>, forward <code>γ=π/8</code>, reverse positive angle <code>15π/8</code>. The right probability is</p>
+<p><span class="math-display" tabindex="0" aria-label="Mathematical equation; scroll horizontally if needed"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>R</mi></msub><mo>=</mo><mfrac><mrow><mn>1</mn><mo>−</mo><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mspace width="-0.167em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>1</mn><msup><mo stretchy="false" form="postfix">)</mo><mrow><mi mathvariant="normal">r</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">v</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">e</mi></mrow></msup><mfrac><mrow><mi>n</mi><mi>π</mi></mrow><mn>8</mn></mfrac><mo>+</mo><mfrac><mrow><mi>q</mi><mi>π</mi></mrow><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mn>2</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">p_R=\frac{1-\cos\!\left((-1)^{\mathrm{reverse}}\frac{n\pi}{8}+\frac{q\pi}{2}\right)}2.</annotation></semantics></math></span></p>
+<p>The last operation <strong>recombines/interferes</strong> L and R; it does not erase their coherence or reset work. Free OFF dwell does not create a new relative phase because the complete dressed-column energies are equal. This is driven relative phase of the same signal/work object, not an intrinsic carrier.</p>
+<table>
+<thead>
+<tr>
+<th>Endpoint setting</th>
+<th>Ideal result for an arriving bright signal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FRINGE</td>
+<td>L probability <code>1−p_R</code>, R probability <code>p_R</code></td>
+</tr>
+<tr>
+<td>CUT</td>
+<td>L with probability 1; both exchange actions absent, installed supplies/tags retained</td>
+</tr>
+<tr>
+<td>NO_FIRST</td>
+<td>L/R each 1/2, independent of tag setting</td>
+</tr>
+<tr>
+<td>TRANSFER</td>
+<td>R with probability 1; one positive π exchange, <code>n=q=reverse=0</code></td>
+</tr>
+<tr>
+<td>Local blank</td>
+<td>D with probability 1</td>
+</tr>
+<tr>
+<td>No signal from guide/source</td>
+<td>EMPTY with probability 1; D remains unoccupied</td>
+</tr>
+</tbody>
+</table>
+<p>Tags alias modulo 16. Reversal leaves the q=0 fringe even and reverses the quadrature sine. These are prospective consequences of the specified finite controls.</p>
+<p>For the qualified canonical bright input, endpoint effect pulls back to <code>p_z I_triplet</code>. Therefore the ideal joint law with previous angular outcome y is <code>Pr(y,z)=q_y p_z</code> even with arbitrary retained angular/reference entanglement. The noisy output need not factorize; its deviation uses the <strong>linear</strong> record-TV bound. Generic third-component inputs use the actual angular effect, not the registered two-bright table.</p>
+<h3 id="spec-heading-74-endpoint-program-and-return">7.4 Endpoint program and return</h3>
+<p>The finite controller holds the actual blank, quadrature, direction, five n bits, three mode bits, six completed-count bits and two STOP bits. It checks type/arrival, executes blank and selected first mixer, then 31 fixed tag slots. Each tag slot computes <code>i&lt;n</code> reversibly, uses the literal enable word, performs or pads the tag, and increments the separate count <strong>only after its completion ACK</strong>. Optional quadrature and final mixer follow. Ten actual flag opcodes complete before STOP becomes <code>(1,0)</code>. No requested n or cursor is substituted for the completed count.</p>
+<p>The maximum schedule is 45 data invocations: one blank, two exchange, 31 tags, one quadrature, ten flags. Each invocation has a 19-ticket positive bank, 40 positive π switch slots, 32 data posts and 64 guard posts: 1,376 posts. The logical-angle maximum is <code>573π/8</code>. The separate padded control program has 4,096 scalar slots (the explicit comparator/carry requirement is at most 3,170), each paid for 32 native posts and its service error. Cold preparation and source movement are additional.</p>
+<p>Return releases nineteen endpoint source mounts, restores the original nine mounts and retains the same source, reactions and correlations. No cold reset is required or claimed. The 40 flag constituents are carried by two complete heads in loads 24 and 16. Endpoint head feet are released before motion. Four measurement heads carrying 24/22/24/16 external constituents remain held in the observer bays. They are distinct from the four empty controllers that must complete their home returns. Spent work, source, flags, pointer phase workspace, controllers and heat are retained through the final seal.</p>
+</div></details>
+<details class="spec-group" id="spec-8"><summary>8. Native controls, causal receipts and immutable custody</summary><div><h3 id="spec-heading-81-actual-controller-fields">8.1 Actual controller fields</h3>
+<p>The guide's complete 4,096-field heads retain disjoint algorithm/native/cargo/fault roles. The working guide program uses 180-bit time/deadline fields, 32-bit phase words and fixed reversible comparison/carry logic; no 128-bit counter is silently substituted for the longer schedule. A 4,096-operation scalar block bounds two 180-bit ripple passes, four 32-bit phase passes, four 128-bit cursor/fault comparisons and the actual route/CUT compilation/audit work. Each scalar slot costs 32 native posts, not one free classical instruction.</p>
+<p>All 24 cargo descriptors are 64-bit actual fields. Guide descriptors 0…15 use fields 1815…2838; descriptors 16…23 use 512…1023. These are disjoint from algorithm fields 0…511, reserved 1024…1046 and lifecycle fields. The actual physical lookup appears in the guide-native companion, not in a diagram's label.</p>
+<p>The endpoint controller's key fields are:</p>
+<table>
+<thead>
+<tr>
+<th>Fields</th>
+<th>Physical role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0…127</td>
+<td>Native cursor</td>
+</tr>
+<tr>
+<td>128…255</td>
+<td>Working fault word; immutable initial copy is separately retained</td>
+</tr>
+<tr>
+<td>256…639</td>
+<td>Program</td>
+</tr>
+<tr>
+<td>640…767</td>
+<td>Position</td>
+</tr>
+<tr>
+<td>768…2303</td>
+<td>24×64 grip descriptors</td>
+</tr>
+<tr>
+<td>2304…2559</td>
+<td>Mailbox</td>
+</tr>
+<tr>
+<td>2560…2687</td>
+<td>Inlet</td>
+</tr>
+<tr>
+<td>2688…2943</td>
+<td>Audit</td>
+</tr>
+<tr>
+<td>2944…3007</td>
+<td>Status</td>
+</tr>
+<tr>
+<td>3064…3191</td>
+<td>Endpoint 128-bit actual bay token</td>
+</tr>
+<tr>
+<td>3200…3210</td>
+<td>Blank, quadrature, direction, n0…n4, mode0…mode2</td>
+</tr>
+<tr>
+<td>3211…3216</td>
+<td>Actual completed-tag count</td>
+</tr>
+<tr>
+<td>3217…3218</td>
+<td>STOP0,STOP1</td>
+</tr>
+<tr>
+<td>3219</td>
+<td>Actual enabled-tag word exposed to its formed opcode</td>
+</tr>
+<tr>
+<td>3220…3263</td>
+<td>Iteration, borrow/carry and reversible mode/completion scratch</td>
+</tr>
+<tr>
+<td>3264…3391</td>
+<td>Frozen global deadline</td>
+</tr>
+<tr>
+<td>3520…3530</td>
+<td>Immutable incoming setting copy</td>
+</tr>
+<tr>
+<td>Later assigned ranges</td>
+<td>Final successor event/scratch/baton/handshake allocations; see acquisition-fields data</td>
+</tr>
+</tbody>
+</table>
+<p>The final successor's field file is controlling where it explicitly allocates previously reserved fields. Guide pre-existing completed/prepared fields 3851…3874 are not overwritten. New final handshake words 3880…3882 remain separate from the freeze of acquisition-visible words. A field declared reserved in an earlier component is not automatically free; final lifetimes and actual constituents govern.</p>
+<h3 id="spec-heading-82-four-physical-128-bit-tokens">8.2 Four physical 128-bit tokens</h3>
+<p>Tokens use least-significant-bit-first encoding with namespace 0x554e4131:</p>
+<table>
+<thead>
+<tr>
+<th>Bits</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0…31</td>
+<td>Fixed namespace</td>
+</tr>
+<tr>
+<td>32…63</td>
+<td>Body number 1,2,3,4 for the actual held head</td>
+</tr>
+<tr>
+<td>64…95</td>
+<td>Native head generation 0 or 1; distinct from attempt-envelope generation</td>
+</tr>
+<tr>
+<td>96…100</td>
+<td>Actual ACK-counted occupied external constituents</td>
+</tr>
+<tr>
+<td>101</td>
+<td>STOP/release completed</td>
+</tr>
+<tr>
+<td>102</td>
+<td>Actual occupied reciprocal hold at the assigned bay</td>
+</tr>
+<tr>
+<td>103…127</td>
+<td>All 25 bits fixed zero</td>
+</tr>
+</tbody>
+</table>
+<p>Each starts from its original paid cold factory, tests valid zero code and performs paid header X operations. Each literal constituent pickup follows the existing grip/reciprocal-port completion, then increments the token count. Complete cargo lists have sizes 24/22/24/16. STOP/release and occupied bits require the physical completion events, not requested commands. The source token freezes after docking; its final copied bits alone cannot establish actual head identity without the typed custody/port relation.</p>
+<p>There are exactly 512 once-only descriptor destination copies <strong>after accepted OFFER</strong>. Additionally, 512 ternary source diagnoses retain the counterexample in which a noncode source leaves a destination apparently zero. Source complement 10, output N and pair 11 remain failure. Destination, original source diagnosis and the full fixed token convention must all agree.</p>
+<h3 id="spec-heading-83-sixty-four-event-observands">8.3 Sixty-four event observands</h3>
+<table>
+<thead>
+<tr>
+<th>Events</th>
+<th>Actual completed operation or condition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0…30</td>
+<td>Enabled endpoint tag completion ACK; expected i&lt;actual n</td>
+</tr>
+<tr>
+<td>31…40</td>
+<td>Ten flag-operation completions, independent of whether the measured flag is 0 or 1</td>
+</tr>
+<tr>
+<td>41</td>
+<td>STOP operation after all required flag completions/count relation</td>
+</tr>
+<tr>
+<td>42</td>
+<td>Same original source restored, acknowledged by actual local receipt path</td>
+</tr>
+<tr>
+<td>43</td>
+<td>Endpoint's 16 exposed feet released</td>
+</tr>
+<tr>
+<td>44</td>
+<td>Guide's 72 exposed eligible feet released</td>
+</tr>
+<tr>
+<td>45</td>
+<td>Guide angular/full cold-SWAP and OFF dependency before endpoint borrow</td>
+</tr>
+<tr>
+<td>46…49</td>
+<td>Four distinct empty controllers returned to their actual home berths</td>
+</tr>
+<tr>
+<td>50…53</td>
+<td>Four actual occupied bay holds, with valid tokens/cargo</td>
+</tr>
+<tr>
+<td>54…57</td>
+<td>Acquisition-visible fields frozen after late return receipts and scratch uncompute</td>
+</tr>
+<tr>
+<td>58</td>
+<td>Local preoffer conjunction of real held bays and required completion/custody relations</td>
+</tr>
+<tr>
+<td>59</td>
+<td>Actual OFFER accepted</td>
+</tr>
+<tr>
+<td>60</td>
+<td>Acquisition started</td>
+</tr>
+<tr>
+<td>61</td>
+<td>Acquisition completed successfully</td>
+</tr>
+<tr>
+<td>62</td>
+<td>Independent final clock seal</td>
+</tr>
+<tr>
+<td>63</td>
+<td>Reserved, never written; expected zero</td>
+</tr>
+</tbody>
+</table>
+<p>Every ordinary event begins zero on the nominal cold branch, has one named completed-address writer and remains immutable afterward. Its full source/output word and physical dependency graph appear in <a href="./optical-information-link/data/acquisition-events.json.gz">acquisition-events.json.gz</a>. Cold/fault/input errors are retained in the single error account, not eliminated by a logical induction.</p>
+<p>The good-path implication comes from the acyclic graph: a receipt is written only at the completed address or after its actual adjacent predecessor packet. Induction establishes that a valid event58 implies the named operations. The converse requires the explicit bounded-progress domain; eventual fairness is not enough to meet a finite cutoff.</p>
+<h3 id="spec-heading-84-receipt-couriers-and-local-packets">8.4 Receipt couriers and local packets</h3>
+<p>The four empty return controllers are guide dga(17921,1), dga(17922,1) and endpoint rsj(1,0), rsj(1,1). They are not the four spent measurement heads. Source return and endpoint return ACKs follow actual stationary neighboring owners. Guide home returns have no intermediate stationary mailboxes: two separately supplied full 107,666-dimer receipt couriers carry those receipts.</p>
+<p>Each guide receipt courier makes a 64-hop tour from its staging berth through the original empty-delivery corridor to the exterior port and back. Total: 128 new whole-body hops. The original returned controllers remain at home; couriers never enter an occupied home berth and remain spent at staging through seal. Staging anchors are (−15/2,−4,7173/2) and (−17/2,−17/4,7173/2) in comparison coordinates.</p>
+<p>There are 69 actual local packet transfers using a 64-bit packet: namespace16 (0x4e41), operation-class8, body-index8, generation8, hop-ordinal16, completed1, inverse-address1 and six zero reserves. A valid copy requires the named actual incoming reciprocal port, predecessor, code and ordinal; wrong ports, absent predecessors, stale ordinals, noncode and halt cannot advance a valid chain.</p>
+<p>Three disjoint retained 64-bit baton banks prevent mailbox reuse from erasing history. Across transfers, 4,416 distinct receiver words retain their packet/ordinal through seal. Local reciprocal ACK clears only reversible comparison scratch while its inputs remain; no remote reverse-cleanup oracle is assumed. A failed ACK/clear inhibits the dependent receipt.</p>
+<p>Each packet transaction has a 1,024-scalar-slot microsequence: code checks, copies, equality/conjunction, ordinal/carry, inverse/ACK and guards. Each slot has its distinct local heat pack. Courier hops pay 128 custody posts, 512 scalar guard slots and 513 complete local heat packs. Literal paths, owners, port IDs, program/fault loading, schedule and retained histories are in the ACK data, not inferred from endpoint proximity.</p>
+</div></details>
+<details class="spec-group" id="spec-9"><summary>9. UNA-65 atomic OFFER and independent sealing</summary><div><h3 id="spec-heading-91-why-an-atomic-counted-event-is-specified">9.1 Why an atomic counted event is specified</h3>
+<p>Reading 65 changing bits in sequence does not measure one instantaneous count across carry. Holding the independent clock until an apparatus is ready would defeat the cutoff. The design therefore adopts the fixed finite native operation <strong>UNA-65</strong>, an explicit additional branch premise, rather than either behavior.</p>
+<p>The actual complete operation has <strong>207 scalar operands / 828 dimers</strong>, plus a distinct 38-dimer positive bank. The 140-word simultaneous payload label is not its complete arity. <a href="./optical-information-link/data/acquisition-una65.json">acquisition-una65.json</a> lists every source, cutoff, latch, readiness, handshake and output operand.</p>
+<p>Important address ranges are:</p>
+<table>
+<thead>
+<tr>
+<th>Operand</th>
+<th>Physical observer dimers / source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>65-bit independent counter</td>
+<td>0…259, four dimers per bit</td>
+</tr>
+<tr>
+<td>65-bit immutable cutoff</td>
+<td>260…519</td>
+</tr>
+<tr>
+<td>OPEN</td>
+<td>660…663</td>
+</tr>
+<tr>
+<td>ARRIVED</td>
+<td>664…667</td>
+</tr>
+<tr>
+<td>SEALED</td>
+<td>684…687</td>
+</tr>
+<tr>
+<td>New 65-bit latch</td>
+<td>3042…3301</td>
+</tr>
+<tr>
+<td>New latch-present</td>
+<td>3302…3305</td>
+</tr>
+<tr>
+<td>New preoffer-ready</td>
+<td>7914…7917</td>
+</tr>
+<tr>
+<td>New offer-event source</td>
+<td>7918…7921</td>
+</tr>
+<tr>
+<td>Head FINAL/OFFERED/inverse</td>
+<td>Actual guide head dga(17920,0) ready-primary dimers 15520…15531</td>
+</tr>
+</tbody>
+</table>
+<h3 id="spec-heading-92-complete-bijection-guards-and-cost">9.2 Complete bijection, guards and cost</h3>
+<p>For every code value n,x in 0…2^65−1, the operation exchanges disjoint matched blocks:</p>
+<pre><code>(n, latch=x, ARRIVED=0, present=0,
+ head FINAL/OFFERED/inverse=1/0/0,
+ offer-event=0, event-output=00)
+↔
+(n, latch=x XOR n, ARRIVED=1, present=1,
+ head FINAL/OFFERED/inverse=0/1/1,
+ offer-event=1, event-output=01).</code></pre>
+<p>Read-only readiness, OPEN and SEALED guards must have their specified valid values. All unmatched code sectors and every noncode/failed-readiness sector have the full identity extension on the capture payload; the separate independent clock still advances. The involution S satisfies S=S†=S^-1, so K=(I−S)/2 is positive, norm 1 and scalar/AM-invariant.</p>
+<p>Forward dispatch additionally requires zero latch, no previous offer, exact final-ready completion, correct held-bay/port guards and current counter <strong>strictly below cutoff</strong>. The reciprocal is available only at the retained inverse address, not as a forward retry. The count source is nondemolition. Later counter increments never redispatch S or overwrite the captured latch.</p>
+<p>The dedicated positive bank has 38 dimers, inlet 55k0, full ON/halted capacity 174k0; it is not borrowed from a nominal spare reserve. One π service error and 32 dispatch/guard posts are charged. These bookkeeping slots do not turn the indivisible admitted native capture into a continuous interruptible implementation. Uniform capture deviation is bounded by πζ_service on the full retained domain, while preserving the separate counter projectors/cadence.</p>
+<h3 id="spec-heading-93-priority-failed-attempts-and-one-seal">9.3 Priority, failed attempts and one seal</h3>
+<p>At a simultaneous cutoff/OFFER, cutoff closes OPEN first; the tie is rejected. The clock is never held by preparation, acquisition or failure. Accepted capture records the one instantaneous native count in all lanes, not a file timestamp or an interpolated time.</p>
+<p>After cutoff, the observer executes its prescribed acquisition suffix whether or not an offer arrived. It copies the original 38 snapshots and 512 descriptors once, then 512 source ternary diagnoses and 59 ordinary event snapshots. Events 59…62 write their actual native-transition outputs; reserved63 stays zero. There is exactly <strong>one</strong> final seal at the final cursor.</p>
+<p>A failure midway through acquisition leaves event61 zero, but the independent clock still seals at its fixed final cursor. Event62 and SEALED can therefore be one in an unavailable record. Event61 is a success comparison, <strong>not the seal-firing guard</strong>. Invalid/noncode new A diagnostics cannot hold the C clock; their code-X takes its complement while the clock seal proceeds. A late completion or offer is retained separately and cannot replace the original attempted row.</p>
+<h3 id="spec-heading-94-independent-una-65-failure-conditions">9.4 Independent UNA-65 failure conditions</h3>
+<p>The premise fails if any of these occur in its intended domain: lane skew across a carry; clock hold caused by preparation/offer/failure; accepted cutoff tie; second accepted offer; subsequent latch overwrite; wrong cursor source port; noncode accepted as valid; unaccounted energy/AM transfer; or inability to realize the fixed bounded joint native completion. Producing a desirable number does not validate the operation.</p>
+</div></details>
+<details class="spec-group" id="spec-10"><summary>10. Complete acquired alphabet and strict record schema</summary><div><h3 id="spec-heading-101-output-census">10.1 Output census</h3>
+<p>Each scalar occurrence is an observation of a named four-dimer output word. The complete ordered output mapping is <a href="./optical-information-link/data/output-order.json.gz">output-order.json.gz</a>; physical inputs remain a separate ordered list of 170 factors and four actual held heads.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th style="text-align: right;">Scalar occurrences</th>
+<th style="text-align: right;">Full output dimers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Original 38 ternary snapshots</td>
+<td style="text-align: right;">76</td>
+<td style="text-align: right;">304</td>
+</tr>
+<tr>
+<td>W/R three bits plus present</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">16</td>
+</tr>
+<tr>
+<td>Four 128-bit descriptor destinations</td>
+<td style="text-align: right;">512</td>
+<td style="text-align: right;">2,048</td>
+</tr>
+<tr>
+<td>Four×128 ternary source diagnoses</td>
+<td style="text-align: right;">1,024</td>
+<td style="text-align: right;">4,096</td>
+</tr>
+<tr>
+<td>64 ternary event diagnoses</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">512</td>
+</tr>
+<tr>
+<td>Atomic offered count</td>
+<td style="text-align: right;">65</td>
+<td style="text-align: right;">260</td>
+</tr>
+<tr>
+<td>Offer-count present</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr>
+<td>Literal SEALED</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>1,811</strong></td>
+<td style="text-align: right;"><strong>7,244 distinct dimers</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Retained phase8 work is not an added phase sensor. No caller-supplied lifecycle Boolean, expected-ID table, archive filename or final cursor supplies a missing observation.</p>
+<h3 id="spec-heading-102-the-original-38-words">10.2 The original 38 words</h3>
+<p>The exact order is:</p>
+<ol type="1">
+<li>source_setting0, source_setting1, source_setting2;</li>
+<li>receiver_setting0, receiver_setting1, READ;</li>
+<li>PRESENCE, CUT, ROUNDTRIP;</li>
+<li>endpoint.S_t, S_q, T_t, T_q, D_t, D_q, A_a, A_b, B_a, B_b;</li>
+<li>endpoint.blank, quadrature, direction, n0,n1,n2,n3,n4, mode0,mode1,mode2;</li>
+<li>endpoint.completed0,…,completed5, STOP0,STOP1.</li>
+</ol>
+<p>Each word has two observed scalar bits: 00=u, 01=v, 10=retained source complement, 11=invalid. Each individual scalar itself has observed alphabet integer 0, integer 1, or literal "N" for noncode; N is not coerced to zero.</p>
+<h3 id="spec-heading-103-wr-and-endpoint-categories">10.3 W/R and endpoint categories</h3>
+<p>W/R bits are read in their <strong>printed order</strong>, not reinterpreted with an integer endianness. With present=1, valid words map 001→positive, 010→negative, 011→none, 100→omit_READ; 101 is complement and 000 with present=0 denotes absence, neither an available angular result.</p>
+<p>The ten endpoint flags, in order (S_t,S_q,T_t,T_q,D_t,D_q,A_a,A_b,B_a,B_b), define:</p>
+<table>
+<thead>
+<tr>
+<th>Endpoint category</th>
+<th>Ten-bit pattern</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>L</td>
+<td>1 0 0 0 0 0 0 1 1 0</td>
+</tr>
+<tr>
+<td>R</td>
+<td>0 0 1 0 0 0 1 0 0 1</td>
+</tr>
+<tr>
+<td>D</td>
+<td>0 0 0 0 1 0 0 1 1 0</td>
+</tr>
+<tr>
+<td>EMPTY</td>
+<td>0 0 0 0 0 0 0 1 1 0</td>
+</tr>
+<tr>
+<td>other</td>
+<td>Any other <strong>code-valid</strong> ten-bit pattern</td>
+</tr>
+</tbody>
+</table>
+<p>There are 20 available joint categories: four angular outcomes × five endpoint categories, plus one unavailable/other category. “other” is a retained acquired pattern and forbidden; it is not silently thrown away. D is the local blank containing the arrived source; EMPTY means the endpoint received none, and its original source energy remains in the appropriate upstream control account.</p>
+<h3 id="spec-heading-104-strict-jsonl-envelope">10.4 Strict JSONL envelope</h3>
+<p>A delivered row has <strong>exactly</strong> the keys:</p>
+<pre><code>v, slot, kit, attempt, generation, case, provider,
+input_refs, head_refs, observands</code></pre>
+<p>For intended slot i: v=1, kit=i, attempt=0, generation=0, case=i mod 821. Integers must be actual JSON integers, not booleans or floats. Provider has exactly version,ref, with version UNA65-1 and reference [i,0,0,"observer"]. Input/head arrays contain exactly 170 and four ordered references [i,0,0,physical_id].</p>
+<p>Each scalar occurrence has exactly ref,value, ref [i,0,0,[dimer0,dimer1,dimer2,dimer3]] and value 0, 1 or N. Observands has exactly original_words, W_R, descriptor_destinations, descriptor_source_snapshots, event_snapshots, offer_count, offer_count_present, seal. Singleton fields are single occurrences, not one-element lists. All references are compared with the fixed native registry.</p>
+<p>The envelope names the declared interface; it neither establishes a physical digitizer nor proves fresh independent kits. Physical occurrence provenance is a separate obligation, and the original archive is retained.</p>
+<h3 id="spec-heading-105-classification-order-and-all-attempt-denominator">10.5 Classification order and all-attempt denominator</h3>
+<ol type="1">
+<li>Begin every one of 65,680,000 intended slots as unavailable and forbidden.</li>
+<li>Enforce exact envelope, scalar alphabets, physical reference/order/provider identity and one delivery per slot. Duplicate/reused/off-roster deliveries cannot win by last-record selection.</li>
+<li>Decode all 38 ternary words and W/R. Any missing/malformed/noncode/incompatible output or reference remains unavailable+forbidden.</li>
+<li>Compare all 512 token source/destination values and all 128 bits of each token, including all reserve bits and actual cargo counts.</li>
+<li>Decode actual n from acquired endpoint words. Require tag events0…30 to match i&lt;actual n, events31…62 to be one, event63 zero. Require present=1, valid atomic count below strict cutoff, SEALED=1, completed acquisition and retained custody.</li>
+<li>If these independent acquisition checks pass, retain the acquired angular/endpoint category. Compare actual original/guide/endpoint controls, actual STOP and completed count with the prepared case; a wrong but valid value also marks the combined forbidden event.</li>
+<li>Mark any category whose ideal support is zero, including code-valid endpoint “other,” forbidden.</li>
+</ol>
+<p>Crucially, wrong-valid STOP or completed count <strong>can retain an acquired category plus forbidden</strong> when acquisition itself passes. Actual n versus observed tag-pattern inconsistency is acquisition-invalid. Coherently wrong n, count and tags relative to the scheduled case remains category+forbidden. Requested controls never fill missing observations.</p>
+<p>Missing, partial, stopped, late, ties, warm/fault, malformed, noncode, duplicate, orphan and reuse records stay accounted. There is no successful-offer denominator or favorable retry. Nonempty structural_issues is a <strong>separate admissibility failure</strong>, even if the descriptive counts fit the numerical bands. Original archives and issue fields must remain attached to any result.</p>
+</div></details>
+<details class="spec-group" id="spec-11"><summary>11. One complete error account</summary><div><h3 id="spec-heading-111-fixed-qualifications-and-final-values">11.1 Fixed qualifications and final values</h3>
+<p>Use one good-map telescope over all source manufacture, angular controls, guide, material/cold/heat, endpoint, controllers, return, acquisition and native additions. The final coherent norm and nominal hot union are</p>
+<p>ε ≤ 0.0961797078150192322826746794044…,</p>
+<p>q_hot ≤ 1.34904794450741465030673538983×10^-7.</p>
+<p>Service and bulk domain bounds remain 10^-15 and 10^-8. The final native addition contributes 1,646,728π service angle, 65,830,064 preoffer posts, 57,248 observer suffix posts and all its new stock; it does not consume an unused reserve as free work or earn a new probability allowance.</p>
+<p>The final three claims are distinct:</p>
+<table>
+<thead>
+<tr>
+<th>Quantity</th>
+<th>Formula</th>
+<th style="text-align: right;">Final upward bound</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Specified ideal-forbidden attempted event</td>
+<td>ε²+d_in+q_hot+q_halt+d_dec</td>
+<td style="text-align: right;"><strong>0.009370671101</strong></td>
+</tr>
+<tr>
+<td>General complete classical-record TV</td>
+<td>ε+d_in+q_hot+q_halt+d_dec</td>
+<td style="text-align: right;"><strong>0.096299842720</strong></td>
+</tr>
+<tr>
+<td>Predecoder same-factor whole-density half trace</td>
+<td>d_in+ε+2√(q_hot+q_halt)</td>
+<td style="text-align: right;"><strong>0.116203193747704796439…</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Only an ideal-annihilating event permits squaring coherent amplitude error. The joint density input bound enters <strong>linearly</strong>, not inside an amplitude square. The whole-custody statement keeps the actual physical purifiers on the same factors and uses a square-root bad-component allowance; it is not a ket bound or a postdecoder quantum fidelity claim.</p>
+<p>The linear nominal hot/halt union at the reduced-record boundary requires the passive tag purifiers to remain untouched by later operations. Retaining coherent purifiers and then assuming their amplitudes are merely probabilities would give a different claim. No new stage or success-selected subensemble resets this accounting.</p>
+<h3 id="spec-heading-112-interpretation-and-limiting-cases">11.2 Interpretation and limiting cases</h3>
+<p>The 0.9370671101% number applies to the defined union of ideal-zero outcomes and attempted-operation failures under all qualifications. It does <strong>not</strong> mean every category, arbitrary input channel or retained physical state is accurate to better than 1%.</p>
+<p>Blank/CUT/ROUNDTRIP have exact ideal dark behavior under their named operations; physical deviations still inherit the full attempted-event account. Removing the first endpoint mixer yields 1/2 independently of tags, while the phase panel retains the deterministic zero-tag and transfer cases. The leaf perturbation is nonzero; setting it to zero would give a different guide without the stated transverse construction. Independent within-spine detuning lies outside exact matching; freely fitting a detuning function to observed fringes is not allowed.</p>
+</div></details>
+<details class="spec-group" id="spec-12"><summary>12. Frozen prospective comparison</summary><div><h3 id="spec-heading-121-exactly-821-prepared-cases">12.1 Exactly 821 prepared cases</h3>
+<p><a href="./optical-information-link/data/prepared-cases.json.gz">prepared-cases.json.gz</a> gives every exact case and expected control word:</p>
+<ul>
+<li><strong>770 PHASE cases:</strong> the registered endpoint phase/control roster, cycling the 21 bright original angular controls by j mod 21.</li>
+<li><strong>48 GUIDE_CONTROL cases:</strong> every one of the 24 original angular controls under CUT and ROUNDTRIP, each with the fixed quiet endpoint word.</li>
+<li><strong>3 ORIGINAL_BLANK cases:</strong> original pre-launch blank against the three analysis bases, guide PASS, same quiet endpoint word.</li>
+</ul>
+<p>This is not a full Cartesian angular×phase experiment. The exact 21-bit prepared case field names the initial case; it does not manufacture actual A controls from an ideal metadata label.</p>
+<p>For the registered angular q vector and endpoint probabilities p, the ideal joint cell is q_y p_z. The admitted timing/custody coordinates have fixed support conditions but no invented distribution within a timing band. Source data and phase selection are fixed independently of outcomes.</p>
+<h3 id="spec-heading-122-counts-concentration-and-exact-test">12.2 Counts, concentration and exact test</h3>
+<p>Every case has 80,000 intended attempts. There are 20 available joint-cell indicators plus the combined forbidden event per case, giving 821×21=17,241 nonredundant indicators. Unavailable is already included in the forbidden event. With slack η=1/100, 2nη²=16.</p>
+<p>The finite exact rational family-tail certificate is</p>
+<p>2·17,241 / Σ_(j=0)^100 16^j/j! &lt; 0.003881.</p>
+<p>The evaluated value is approximately 0.0038804378946694926, below the declared 0.01 family level. The finite positive series is a lower bound for e^16; its reciprocal therefore gives a rigorous upper tail enclosure. The exact rational numerator and denominator are in complete-accounts data.</p>
+<p>A case is numerically compatible only when its forbidden fraction is at most</p>
+<p>0.009370671101+0.01 = <strong>0.019370671101</strong>,</p>
+<p>and every category fraction is within its exact ideal interval expanded by</p>
+<p>0.096299842720+0.01 = <strong>0.106299842720</strong>.</p>
+<p>Then enforce the separate structural admissibility gate. A comparison result remains an uncertified descriptive reduction until physical occurrence, actual digitization, full decoder qualification and repetition premises have their receipts.</p>
+<p>Concentration requires <strong>independently qualified complete fresh kits</strong>, or a separately justified per-history conditional record law. One-shot marginals, unique IDs or a fresh-looking filename do not establish that premise. Shared latent faults can invalidate concentration while leaving individual marginal bounds unchanged.</p>
+<p>This is a compatibility test, not observed sub-1% performance certification: a 1.5% forbidden frequency can pass. Categorywise bands are not a full empirical-TV certificate: ideal quarters shifted to .35,.35,.15,.15 have TV 0.2 although each category shifts only 0.1. The target is nevertheless discriminating: zero-tag deterministic L in case0 differs by 0.5 in its joint cell from a phase-independent half/half alternative, well beyond the category band.</p>
+<h3 id="spec-heading-123-executable-identity-and-archive-custody">12.3 Executable identity and archive custody</h3>
+<p>The sealed original target has TARGET SHA-256 fc812b86f4e90d38b6a15c4c5284010b8d1d6f4f9e0c024b0178504133e60d3b and externally pinned entry SHA-256 b722c5ddd50994982cc523353b6923a55e1ad3f4991d00f6819b3b511e9e7c75.</p>
+<p>The original entry verifies source bytes before compiling the real adapter, checks the actual source/entry again afterward, and makes a final archive-identity read immediately before returning. Archive identity includes resolved path/device/inode/size/hash; source identity is bytes. This is bounded integrity under trusted runtime/filesystem and no concurrent mutation, not a hostile-race, atomic-snapshot or self-authenticating-code theorem. Hashes do not turn synthetic records into physical provenance. The curated exhibit data and any explanatory classifier are derivative references, not replacements for that exact entry.</p>
+</div></details>
+<details class="spec-group" id="spec-13"><summary>13. Full resources, capacities and retained output inventory</summary><div><h3 id="spec-heading-131-whole-system-bill-of-quantities">13.1 Whole-system bill of quantities</h3>
+<p>These are sufficient <strong>upper accounts</strong>, not necessary lower bounds, a fabrication quote, physical dissipation or measured power.</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th style="text-align: right;">Per fresh attempt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Complete physical dimers</td>
+<td style="text-align: right;"><strong>31,007,572,988,523</strong></td>
+</tr>
+<tr>
+<td>Complete independent observer</td>
+<td style="text-align: right;"><strong>43,146</strong> dimers</td>
+</tr>
+<tr>
+<td>Exact independent pure C</td>
+<td style="text-align: right;">674 factors</td>
+</tr>
+<tr>
+<td>Pre-OFFER native posts P*</td>
+<td style="text-align: right;">1,504,551,385,726,580,037</td>
+</tr>
+<tr>
+<td>All native posts, including observer</td>
+<td style="text-align: right;"><strong>25,577,373,557,351,935,515</strong></td>
+</tr>
+<tr>
+<td>Final cursor</td>
+<td style="text-align: right;">24,072,822,171,625,355,478</td>
+</tr>
+<tr>
+<td>Actual input word factors</td>
+<td style="text-align: right;">170</td>
+</tr>
+<tr>
+<td>Held measurement heads</td>
+<td style="text-align: right;">4, full 107,666-dimer bodies</td>
+</tr>
+<tr>
+<td>Acquired output dimers</td>
+<td style="text-align: right;">7,244 distinct</td>
+</tr>
+</tbody>
+</table>
+<p>The final additive acquisition bill is:</p>
+<table>
+<thead>
+<tr>
+<th>New family</th>
+<th style="text-align: right;">Dimers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Observer extension</td>
+<td style="text-align: right;">40,104</td>
+</tr>
+<tr>
+<td>44 ordinary contacts</td>
+<td style="text-align: right;">169,136</td>
+</tr>
+<tr>
+<td>Eight complete raw support packs</td>
+<td style="text-align: right;">48</td>
+</tr>
+<tr>
+<td>Two complete receipt couriers</td>
+<td style="text-align: right;">215,332</td>
+</tr>
+<tr>
+<td>823,477 fresh ten-dimer heat packs</td>
+<td style="text-align: right;">8,234,770</td>
+</tr>
+<tr>
+<td><strong>Total addition</strong></td>
+<td style="text-align: right;"><strong>8,659,390</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The observer's new physical ranges are ready primaries 3042…9185; scalar remainders 9186…42977; cadence 42978…42999; modes 43000…43107; UNA positive bank 43108…43145. All are A, not additional exact C.</p>
+<h3 id="spec-heading-132-complete-positive-inlet-and-capacity">13.2 Complete positive inlet and capacity</h3>
+<p>The per-kit positive inlet bound in k0 units is exactly</p>
+<pre><code>1240810646036703567801522499374518385920239088876587792841370232215 / 4.</code></pre>
+<p>The full capacity bound, including active and halted interaction sectors, in k0 units is</p>
+<pre><code>19820215732868705230648580000241451461210988412447063837033573535839 / 16.</code></pre>
+<p>These include positive supplies, supports, programs, purifiers, work, heat, native controls and every retained failed sector. A completed good-path net energy balance cannot cancel installed positive capacity. Negative-time/negative-energy services, signed reserve credits and discarded failed stores are not permitted.</p>
+<p>For the guide-only edge/vertex assembly, conservative transport+record primitive stock is 2,734,080 dimers before full material/controllers/preparation, with 205,607,945,504 posts. That is a <strong>subassembly</strong> number, not the whole-device bill. Its smaller alternative capsule census is not imported into the final qualified construction. The same distinction applies to any source, instrument or endpoint subtotal.</p>
+<h3 id="spec-heading-133-complete-no-reuse-campaign">13.3 Complete no-reuse campaign</h3>
+<table>
+<thead>
+<tr>
+<th>Quantity</th>
+<th style="text-align: right;">65,680,000 fresh attempts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Complete physical dimers</td>
+<td style="text-align: right;"><strong>2,036,577,393,886,190,640,000</strong></td>
+</tr>
+<tr>
+<td>Native posts</td>
+<td style="text-align: right;"><strong>1,679,921,895,246,875,124,625,200,000</strong></td>
+</tr>
+<tr>
+<td>Independently pure C factors</td>
+<td style="text-align: right;">44,268,320,000</td>
+</tr>
+<tr>
+<td>Nonclock A dimers</td>
+<td style="text-align: right;">2,036,577,393,841,922,320,000</td>
+</tr>
+</tbody>
+</table>
+<p>Exact campaign inlet and capacity are the per-kit rationals multiplied by 65,680,000 and are provided in <a href="./optical-information-link/data/complete-accounts.json">complete-accounts.json</a>. No time in seconds follows from these counts. Fresh-kit repetition is finite provisioned operation, not a promised indefinitely reusable physical fiber.</p>
+<h3 id="spec-heading-134-what-remains-after-one-attempt">13.4 What remains after one attempt</h3>
+<p>The final physical output includes the original source in its returned berth with its actual state/reference, its source-side partner/copy/M stock, spent guide/endpoint work, all three angular components and recoil, measured pointers/phase workspace, four held measurement heads and cargo, distinct returned empty controllers, spent receipt couriers at staging, original/new receipt and baton banks, active or halted switches/tickets, all used/unused heat stock, formation/contact/outlet records, fault fields, purifiers and unreturned/failed bodies. A missing body is a failed custody outcome, not a vanished resource.</p>
+<p>Good work-return or positive-switch return is not a full reset. Every uncomputation reverses only the named reversible scratch with retained inputs. It never deletes a measurement, history, purifier or consumed reference. The next attempt consumes a separately qualified kit unless a new complete reset/reuse law is derived and reviewed.</p>
+</div></details>
+<details class="spec-group" id="spec-14"><summary>14. Material and SI engineering determination register</summary><div><p>The finite laws and dimensionless choices above are assigned. Their actual material realization and useful engineering performance are not.</p>
+<table>
+<thead>
+<tr>
+<th>Determination still required</th>
+<th>Fixed role / independent qualification</th>
+<th>What cannot substitute</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Physical circulation/material family</td>
+<td>Realize the full dimer/scalar/contact catalogue with its complete complements and retained conservation accounts</td>
+<td>A familiar particle, glass or vendor label</td>
+</tr>
+<tr>
+<td>Work scale k0</td>
+<td>Independent same-account finite work/translation-tariff calibration</td>
+<td>Choosing k0 after the fringe to manufacture optical frequency</td>
+</tr>
+<tr>
+<td>Length scale a0</td>
+<td>Independent reciprocal geometry/rest-frame comparisons</td>
+<td>Reading drawing pixels as micrometers</td>
+</tr>
+<tr>
+<td>Reference time / cadence</td>
+<td>Independent actual native completion-count comparison across the whole horizon</td>
+<td>File timestamps, final cursor, or offer-induced clock hold</td>
+</tr>
+<tr>
+<td>LCR matching and isolation</td>
+<td>Exact common-coordinate ownership relations, stationary interval and scalar shape/load behavior</td>
+<td>Unmeasured small detuning fitted to output</td>
+</tr>
+<tr>
+<td>Formed-body geometry</td>
+<td>Complete finite coordinates, partner/port/rest relations and correlated body domain</td>
+<td>Arbitrary independent microscopic jitter or continuous swept-volume assumptions</td>
+</tr>
+<tr>
+<td>Cold joint input</td>
+<td>One full A/reference half-trace bound before preparation with retained purifiers</td>
+<td>Marginal coldness, a pure-looking output or success-selected runs</td>
+</tr>
+<tr>
+<td>Thermal family</td>
+<td>Fixed gap/pair kernel, local opportunity count, OFF windows and retained passive tags</td>
+<td>An unspecified ambient bath or unpriced heat sink</td>
+</tr>
+<tr>
+<td>Native completion and UNA-65</td>
+<td>Fixed finite local cadence, reciprocal custody, atomic count, priority and full error domain</td>
+<td>A general universal-unitary assumption or sampled sequential bits</td>
+</tr>
+<tr>
+<td>Actual digitization</td>
+<td>Fixed map from actual occurrences to the exact alphabet, complete classical decoder TV, missing/noncode/partial handling</td>
+<td>Names, hashes, expected output arrays or a provider-qualified Boolean</td>
+</tr>
+<tr>
+<td>Repetition</td>
+<td>Whole-kit independence or a justified per-history record law</td>
+<td>Unique kit identifiers or one-shot marginal probability bounds</td>
+</tr>
+<tr>
+<td>Practical resources and SI performance</td>
+<td>New version-correct reduction of stock/posts and measured bandwidth/latency/energy/length</td>
+<td>Multiplying a dimensionless phase by an assumed carrier frequency</td>
+</tr>
+</tbody>
+</table>
+<p>Thus no fiber diameter, jacket, refractive-index profile, attenuation in dB/km, operating wavelength, bandwidth, bit rate, receiver noise floor, clock oscillator model, detector electronics, temperature in kelvin, cryostat, laser, connector, laboratory supply or vendor part is assigned by this paper. Those are not blank fields to fill arbitrarily: each must be chosen against the fixed native observable and material law and then carry its own engineering and measurement qualification. The theoretical positive inlet/capacity is not a wall-plug energy or heat-load estimate.</p>
+</div></details>
+<details class="spec-group" id="spec-15"><summary>15. Failure and acceptance requirements</summary><div><p>The conditional construction is accepted as this version only when the following conjunction is preserved:</p>
+<ol type="1">
+<li><strong>Same source:</strong> exact source/copy/M targets, complete prepared seed, local command ordering, same guide/receiver factor, full SWAP, actual ra24 endpoint and actual return. No replacement signal.</li>
+<li><strong>Same physical domain:</strong> full nine-state dimers, three angular components, exact support membership/rate law, complete positive local operators and noncode/wrong-loading complements.</li>
+<li><strong>Same material and geometry:</strong> formed correlated body templates, all actual contacts/ports/feet/rest vectors, scalar isolation, actual finite vacancy/custody routes and local service radius. No zero-cost reshaping, compressed controller or unproved transport between apparently nearby points.</li>
+<li><strong>Same complete accounts:</strong> source, terminal, both work pairs, retained transverse/support energy, positive ON/halted stores, heat, reactions, programs, return/reset/failure and every purifier.</li>
+<li><strong>Same control/clock:</strong> named finite native catalogue and fields, one P* horizon/fault denominator, bounded progress, local packets and actual acknowledgments, exactly one atomic counted OFFER and unconditional final seal.</li>
+<li><strong>Same record:</strong> 170 original factors, 38 words, four held heads, 1,811 scalar outputs/7,244 dimers, exact token/reserve/event relations, correct D versus EMPTY and all intended attempts retained.</li>
+<li><strong>Same error definitions:</strong> one initial joint half-trace, exactly 674 independent pure C factors, full-domain service/bulk bounds, one halt and one complete decoder bound; event, record-TV and predecoder density not conflated.</li>
+<li><strong>Same comparison:</strong> 821-case roster, 80,000 attempts per case, fixed simultaneous indicators/slack, requisite repetition premise, separate structural admissibility, original archives and exact externally pinned source-bound entry.</li>
+</ol>
+<p>Every detailed native-author/crosswalk, physical-review, accounts-review, raw-author/review, inherited adopted and final-goal condition remains conjunctive; this short register cannot waive a source condition. Changing an operation, physical domain, stock, geometry, timing, records or claimed performance creates a new version needing its corresponding proof and review.</p>
+<h3 id="spec-heading-engineering-consequence">Engineering consequence</h3>
+<p>The construction shows how one finite, explicitly supplied circulation organization could carry relational angular information over a guided route, expose a paid phase-dependent endpoint result, and retain a causally complete failure-inclusive record without replacing its source or losing its energy and angular-momentum accounts. It gives a concrete mathematical target for material and resource engineering. The next useful engineering advance is not a stronger label for this result, but a realizable qualified type and a version-correct reduction of its very large supply and execution requirements.</p>
+</div></details>
+<details class="spec-group" id="spec-16"><summary>16. Exact engineering companions</summary><div><p>The downloadable derivative engineering archive includes:</p>
+<ul>
+<li>all 2,049 guide ROM integers and guide native field/mode/CUT bindings;</li>
+<li>all 821 prepared cases with original/guide/endpoint control words and ideal category laws;</li>
+<li>all 170 input references, four held-head references, 1,811 ordered scalar output references and complete raw schema;</li>
+<li>all 207 named UNA-65 scalar operands and complete matched/unmatched/complement rules;</li>
+<li>all four exact 128-bit token bodies, source/destination/snapshot references and initial/final bit patterns;</li>
+<li>all 64 event sources, outputs, writers and completion dependencies;</li>
+<li>actual receipt-courier paths, 69 transfer sequences, 128 courier-hop schedules and physical ownership;</li>
+<li>source, endpoint-route, root and acquisition contact/rest data, native field lifetimes and heat-atlas ownership;</li>
+<li>exact final per-kit/campaign resource rationals, errors and statistical constants;</li>
+<li>dependency-linked current geometry, complete retained annex BOM/endpoint generators, preparation/compiler and final-classifier definitions, explicit module bindings, exact retained support tables and a section/hash provenance map.</li>
+</ul>
+<p>All data companions are explicitly <strong>derivative reference material</strong>, not a new sealed runtime or physical data. The original source collection is unchanged. Arithmetic and mapping checks for this appendix are recorded in <a href="./optical-information-link/DATA-VERIFICATION.json">DATA-VERIFICATION.json</a>; they verify the exposition and byte-derived data, not physical material, hardware or observations.</p>
+<h3 id="spec-heading-161-dependency-and-exact-number-reading-contract">16.1 Dependency and exact-number reading contract</h3>
+<p><a href="./optical-information-link/data/normative-functions.json.gz">normative-functions.json.gz</a> contains the retained current source definitions, including the optical annex <code>stats</code>, <code>roles</code>, <code>caps</code>, <code>ordinary_contacts</code> and <code>atlas_point</code> geometry/BOM family, their local-factory geometric utilities, the guide spine feet, endpoint ledgers, acquisition model/relay/atlas and the final raw classifier. <a href="./optical-information-link/data/NORMATIVE-DEPENDENCIES.json">NORMATIVE-DEPENDENCIES.json</a> resolves local imports and dynamic aliases; <a href="./optical-information-link/data/normative-support-data.json.gz">normative-support-data.json.gz</a> supplies exact retained values for the source selectors those definitions use. A source hash by itself is not an engineering definition. The module and literal-value bindings provide the definitions here; the hashes establish their provenance. Only named integrity/publication/diagnostic or superseded semantic symbols are excluded, with their reasons listed. In particular, <code>spine_foot_ref</code> and <code>spine_foot</code> are physical definitions and are retained.</p>
+<p>These are readable engineering references, not a newly sealed executable. They describe component functions in their declared namespace; use the final complete-account tables, actual 821-case roster and final adapter whenever a component's inherited wrapper or earlier subtotal differs. The original 72/770-case semantic classifiers and historical target wrappers are not the final acquisition protocol. No private input manifest or historical repair bundle is needed to interpret the delivered current definitions.</p>
+<p><strong>Exact integer handling is mandatory.</strong> Native cursor, token, resource and campaign values exceed 2^53−1. Read numeric JSON integers with an arbitrary-precision parser (for example Python's ordinary <code>json.load</code>, whose integer values are Python <code>int</code>), and rational/decimal strings with exact arithmetic. Ordinary JavaScript <code>JSON.parse</code> converts numeric tokens to <code>Number</code> and can silently round them before a reviver runs; use a lossless parser instead. A web-distribution derivative may encode large integers as decimal strings; convert those strings directly to arbitrary-precision integers, never through <code>Number</code>. Preserve original source bytes and source hashes separately from any derivative encoding. This table-reader rule does <strong>not</strong> relax or change the final raw-record grammar: fields required to be actual JSON integers remain actual integers in raw acquisition records.</p>
+</div></details>
+<!-- ENGINEERING_SPEC_END -->
+</div>
+</div></section>
+<section class="major" id="consequence"><div class="sectionhead"><div class="number">08</div><div><div class="eyebrow">Technological consequence</div><h2>The paper path is closed.<br>The material question is next.</h2><p class="lead">This result is valuable because it identifies a complete thing to realize—and a fixed way for that realization to fail.</p></div></div><div class="sectionbody">
+<div class="three"><div class="card"><div class="kicker">Established here</div><h3>Conditional construction</h3><p>One finite system connects preparation, long-route guidance, angular response, paid relative phase and complete acquisition under declared premises.</p></div><div class="card"><div class="kicker">The next engineering frontier</div><h3>Realization and reduction</h3><p>Identify physical types satisfying the specified operations and domains; reduce conservative resource costs without changing the claim by omission.</p></div><div class="card"><div class="kicker">Nature's decision</div><h3>Receipted operation</h3><p>Use independently qualified inputs, actual digitization and complete raw records to confront the frozen predictions and their alternatives.</p></div></div>
+<div class="closing"><div class="kicker">The program in one sentence</div><h3>Build the account as carefully as the link.</h3><p>The same-source construction makes a direct promise about a finite set of records. If a realizable apparatus satisfies its explicit qualifications, its angular information, phase response, energy transfer and completion history must obey the joined bounds. A reproducible contradiction changes the claim; a reproducible success opens the path to useful control.</p><p class="small">Paper closure does not grant laboratory spending, construction or publication authority. Those are separate decisions following the appropriate design and resource review.</p></div>
+</div></section>
+<section class="major" id="provenance"><div class="sectionhead"><div class="number">09</div><div><div class="eyebrow">Evidence and provenance</div><h2>What supports the claim.</h2><p class="lead">The current integrated conclusion rests on adopted, version-bound source packages and independent reviews. Mathematical checks and file custody support the paper result; they are not physical trials.</p></div></div><div class="sectionbody">
+<div class="tablewrap"><table><caption class="sr-only">Provenance categories</caption><thead><tr><th>Ingredient</th><th>Status</th><th>Role</th></tr></thead><tbody><tr><td>Circulation, closure and angular-momentum accounts</td><td>POAMS-native organizing content</td><td>Physical interpretation of source, work, reference, support and completion.</td></tr><tr><td>Local material, geometry, thermal and progress laws; UNA-65</td><td>Declared conditional constitutive premises</td><td>Supply specific finite operations and their domains; not universal deductions or measurements.</td></tr><tr><td>Finite-spin spaces, operators and error inequalities</td><td>Imported mathematics</td><td>Transparent representation and proof tools; no imported ontology is claimed by the notation.</td></tr><tr><td>Exact counts, classification and rational tail enclosure</td><td>Specified calculation / data-reduction rules</td><td>Make the target independently checkable and hold every intended attempt in scope.</td></tr><tr><td>Physical material and measured link performance</td><td>Not established</td><td>No M0/M1 operating record is claimed by this exhibit.</td></tr></tbody></table></div>
+<div class="source-list"><div class="source"><strong>Native construction manifest</strong><span class="hash">45a7f5dd9daee5b74355f6f792c8f1895327a9adb7fccbb6f90febf653508171</span></div><div class="source"><strong>Independent physical/native review</strong><span class="hash">783daf3aa7e243021ad841228284915a7d030729af67568b9c50cb758df84d41</span></div><div class="source"><strong>Independent accounts/control review</strong><span class="hash">52b6a3aba9bcdca86c2c37d9fb111df689ae88677b749be05d1da63e13d0373a</span></div><div class="source"><strong>Frozen raw-target manifest</strong><span class="hash">d8c386c2284ee5ead45cece5aba4c54f6c905cf696fd1b97ef741ee76a3d74da</span></div><div class="source"><strong>Independent raw/statistical review</strong><span class="hash">a964d85c5c34ba4b2e9d5ebaf22c33e4464fe553199910adfe3a8a57479e5740</span></div><div class="source"><strong>Final assembled-goal review</strong><span class="hash">d19faa378dae8008606ed955643c13cc500c07effc69cfd35fc6de865038b69b</span></div></div>
+<p class="small muted">The parent completion receipt verified all 591 initial source inputs and the exact 33-member immediate predecessor unchanged. The complete source mapping and version conditions are supplied in the engineering specification. Older author-stage flags remain historical flags; final approval derives from the explicit subsequent adoption and completion receipts.</p>
+<p class="small">Related foundations: <a href="./the-rate-of-time.html">The Rate of Time</a> · <a href="./mass-as-trapped-rate.html">Mass as Trapped Rate</a> · <a href="./the-receiver-keys-the-exchange.html">The Receiver Keys the Exchange</a>. Those exhibits provide conceptual context, not substitute performance certificates for this construction.</p>
+</div></section>
+</main>
+<footer><div class="wrap footer-inner"><div class="attribution">This exhibit extends the foundational work of N. Vivian “Viv” Pope and Dr. Anthony D. Osborne in Normal Realism and the Pope Osborne Angular Momentum Synthesis. The integrated engineering construction and its explicit branch premises are subsequent research.<br><strong>Prepared 30 October 2026 · Public exhibit edition · No physical trial reported.</strong></div><div><a href="#main">Back to top ↑</a><br><a href="./index.html">Exhibit hub</a></div></div></footer>
+<script>
+'use strict';
+const $=id=>document.getElementById(id);
+const stages=[
+{title:'Prepare one source',tag:'The original source',detail:'Paid local preparation; one fixed whole-input boundary.',body:"A fixed whole-system inlet supplies the original source and finite reference banks. Paid local controls prepare the six bright angular states ±X, ±Y and ±Z. A blank diverts the same seed's energy into a retained source-side dump.",account:'Frames, reference correlations, complementary factors, preparation labels and all failed or warm sectors. Nothing is replaced by a success-selected input.',meaning:'Independent angular choices without a source-dependent receiver preparation or readiness side channel.'},
+{title:'Guide the dressed packet',tag:'Joint signal + retained work',detail:'1,024 route edges inside a 30,720-site finite comb.',body:'A finite loader prepares a joint signal/work packet. The embedded comb has 6,144 axial sites and four nonzero transverse leaves per axial site. Positive local operations transport the packet to a finite catcher.',account:'Every edge-work word, all three angular components, transverse contacts and arbitrary retained reference. The captured endpoint has one common spent work word.',meaning:'A qualified coherent guided route with finite-open confinement; not a passive material passband.'},
+{title:'Read angular information',tag:'Three components remain physical',detail:'Finite reference recoil and full nine-state cold SWAP.',body:'A selected X, Y or Z analyzer acts through paid local contacts and a finite reference. Actual addressed classification writes the completed angular record. The full cold SWAP retains the actual source for the endpoint sequence.',account:'The third angular branch, all complement states, reference recoil, held scalar records and original correlations.',meaning:'A phase-sensitive angular record without deleting the unprepared component or supplying a fresh endpoint signal.'},
+{title:'Compare relative phase',tag:'One signal, two alternatives',detail:'Completed tags determine phase; recombination reads it.',body:'The same original source is handed to the endpoint. Its alternatives include their canonical physical work. A paid occupancy-conditioned tag advances relative phase; the inverse splitter recombines those alternatives.',account:'Terminal energy plus both work pairs; actual acknowledged tags, source presence, blank sectors and endpoint control states.',meaning:'The fixed law pR = [1 − cos(( (−1)^r n + 4q )π/8)]/2 on the qualified bright sector.'},
+{title:'Return and settle',tag:'Custody closes locally',detail:'52 source handoffs; separate receipt-courier tours.',body:'The source returns to its original berth. Four distinct empty head returns, released feet and late acknowledgments are settled through actual finite local routes. Two complete couriers carry the guide return receipts.',account:'Spent work, occupied home berths, retained baton banks, cold/heat stock, courier bodies and local scratch clearance.',meaning:'A completed return is an event with a physical dependency path, not a history Boolean or an inferred reverse trajectory.'},
+{title:'Acquire the whole attempt',tag:'No missing attempt disappears',detail:'1,811 scalar outputs on 7,244 distinct output dimers.',body:'Source/code diagnoses and 64 event observands accompany the original scalar records. UNA-65 captures the independent offered clock count in one declared finite event. The final clock seal also covers failed or absent OFFER.',account:'All intended missing, noncode, halt, failed, partial, late and tie attempts. Code-valid wrong settings remain their acquired category plus forbidden when acquisition passes.',meaning:'One exact classifier and all-attempt comparison bind physical observands to the fixed target.'}
+];
+const ns='http://www.w3.org/2000/svg';
+function svgEl(tag,attrs,text){const e=document.createElementNS(ns,tag);for(const [k,v] of Object.entries(attrs||{}))e.setAttribute(k,v);if(text!==undefined)e.textContent=text;return e;}
+function setStage(i){const s=stages[i];document.querySelectorAll('[data-stage]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.stage)===i)));$('stageNumber').textContent=`STAGE ${i+1} / 6`;$('stageHeading').textContent=s.title;$('stageBody').textContent=s.body;$('stageAccount').textContent=s.account;$('stageMeaning').textContent=s.meaning;$('stageTitle').textContent=s.title;$('stageDesc').textContent=s.detail;$('stageTag').textContent=s.tag;$('stageDetail').textContent=s.detail;const g=$('stageNodes');g.replaceChildren();['Seed','Guide','Angular','Phase','Return','Record'].forEach((label,j)=>{let x=65+j*74;g.append(svgEl('circle',{cx:x,cy:142,r:j===i?23:17,fill:j===i?'var(--green)':'var(--surface)',stroke:j===i?'var(--gold)':'var(--line)','stroke-width':j===i?3:1.5}));g.append(svgEl('text',{x,y:147,'text-anchor':'middle','font-size':13,fill:j===i?(document.body.classList.contains('dark')?'#142c21':'#fff'):'var(--muted)'},j+1));g.append(svgEl('text',{x,y:184,'text-anchor':'middle','font-size':10,fill:'var(--ink)'},label));});}
+document.querySelectorAll('[data-stage]').forEach(b=>b.addEventListener('click',()=>setStage(Number(b.dataset.stage))));
+const grid=$('plotGrid');for(let j=0;j<=4;j++){let y=235-j*50;grid.append(svgEl('path',{d:`M50 ${y}H550`,stroke:'var(--line)','stroke-width':1}));grid.append(svgEl('text',{x:40,y:y+4,'text-anchor':'end','font-size':11,fill:'var(--muted)'},`${j*25}%`));}for(const n of [0,8,16,24,31]){let x=50+n/31*500;grid.append(svgEl('text',{x,y:258,'text-anchor':'middle','font-size':11,fill:'var(--muted)'},String(n)));}grid.append(svgEl('text',{x:300,y:283,'text-anchor':'middle','font-size':11,fill:'var(--muted)'},'Completed phase-tag count n'));grid.append(svgEl('text',{x:50,y:20,'font-size':11,fill:'var(--muted)'},'Ideal right-output probability'));
+const pct=p=>(Math.max(0,Math.min(1,p))*100).toFixed(2)+'%';
+function updateReadout(){const n=Number($('tagCount').value),q=Number($('quadrature').value),r=$('reverseTags').checked?1:0,sgn=r?-1:1;const p=Math.max(0,Math.min(1,(1-Math.cos((sgn*n+4*q)*Math.PI/8))/2));const state=$('sourceState').value,axis=$('analyzerAxis').value;let angular=state[1]===axis?(state[0]==='+'?1:0):.5;$('tagValue').value=n;$('tagValue').textContent=n;$('pLeft').textContent=pct(1-p);$('pRight').textContent=pct(p);$('jointPlusL').textContent=pct(angular*(1-p));$('jointPlusR').textContent=pct(angular*p);$('jointMinusL').textContent=pct((1-angular)*(1-p));$('jointMinusR').textContent=pct((1-angular)*p);let d='';for(let x=0;x<=310;x++){let c=x/10,pr=(1-Math.cos((sgn*c+4*q)*Math.PI/8))/2;d+=`${x?'L':'M'}${50+c/31*500},${235-pr*200} `;}$('phaseCurve').setAttribute('d',d);let px=50+n/31*500,py=235-p*200;$('phaseMarker').setAttribute('cx',px);$('phaseMarker').setAttribute('cy',py);$('phaseMarkerLine').setAttribute('d',`M${px} 235V${py}`);let sentence=n===0&&q===0?'Zero paid relative phase returns the bright signal to L. This deterministic ideal category distinguishes the construction from a phase-independent half/half alternative.':q===0?'The cosine quadrature is unchanged by reversing the tag sense. The ideal fringe repeats every sixteen completed tags.':'The quarter-turn offset exposes the sine quadrature: reversing tag sense changes its sign. This is a paid relative-phase response, not an intrinsic carrier frequency.';$('phaseExplanation').textContent=sentence;}
+['sourceState','analyzerAxis','tagCount','quadrature','reverseTags'].forEach(id=>$(id).addEventListener('input',updateReadout));$('resetReadout').addEventListener('click',()=>{$('sourceState').value='+Z';$('analyzerAxis').value='Z';$('tagCount').value='0';$('quadrature').value='0';$('reverseTags').checked=false;updateReadout();});
+function updateEvent(){let rate=Number($('eventRate').value)/10000;$('eventRateLabel').textContent=(rate*100).toFixed(2)+'%';let ok=rate<=.019370671101;$('eventDecision').textContent=ok?'Inside the event compatibility band—not a sub-1% empirical certificate.':'Outside the event compatibility band: this hypothetical event frequency fails that comparison.';$('eventDecision').className='stat-result '+(ok?'pass':'fail');}$('eventRate').addEventListener('input',updateEvent);
+$('themeButton').addEventListener('click',()=>{const on=document.body.classList.toggle('dark');$('themeButton').setAttribute('aria-pressed',String(on));$('themeButton').setAttribute('aria-label',on?'Use light reading theme':'Use dark reading theme');$('themeButton').textContent=on?'Light':'Dark';const current=document.querySelector('[data-stage][aria-pressed=true]');setStage(Number(current.dataset.stage));});
+document.querySelectorAll('.spec-toc a').forEach(a=>a.addEventListener('click',()=>{const d=document.querySelector(a.getAttribute('href'));if(d)d.open=true;}));
+const specDetails=()=>document.querySelectorAll('#specContent details');$('expandSpec').addEventListener('click',()=>specDetails().forEach(d=>d.open=true));$('collapseSpec').addEventListener('click',()=>specDetails().forEach(d=>d.open=false));let beforePrint=[];window.addEventListener('beforeprint',()=>{beforePrint=Array.from(specDetails()).map(d=>d.open);specDetails().forEach(d=>d.open=true);});window.addEventListener('afterprint',()=>{specDetails().forEach((d,i)=>d.open=beforePrint[i]??true);});$('printButton').addEventListener('click',()=>window.print());
+setStage(0);updateReadout();updateEvent();
+</script>
+</body>
+</html>

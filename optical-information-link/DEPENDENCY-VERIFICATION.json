@@ -1,0 +1,112 @@
+{
+  "status": "PASS_DEPENDENCY_DEFINITION_CHECKS_NOT_EXECUTABLE_OR_PHYSICAL_VALIDATION",
+  "reference_modules": 48,
+  "static_import_edges": 183,
+  "dynamic_bindings": 20,
+  "current_literal_support_tables": 34,
+  "explicit_symbol_exclusions": 58,
+  "retained_function_bodies_AST_equal_to_source": 455,
+  "physical_top_level_initializations": [
+    {
+      "source": "dressed-guide-apparatus-join-r1/native.py",
+      "offsets": {
+        "cursor": [
+          1047,
+          128
+        ],
+        "fault_loaded": [
+          1175,
+          128
+        ],
+        "program": [
+          1303,
+          384
+        ],
+        "position": [
+          1687,
+          128
+        ],
+        "grip": [
+          1815,
+          1024
+        ],
+        "mailbox": [
+          2839,
+          256
+        ],
+        "inlet_cursor": [
+          3095,
+          128
+        ],
+        "audit": [
+          3223,
+          256
+        ],
+        "status": [
+          3479,
+          64
+        ]
+      },
+      "roles": 9,
+      "address_start": 1047,
+      "address_end_exclusive": 3543,
+      "initialized_cells": 2496,
+      "source_AST_equal": true
+    },
+    {
+      "source": "seed-complete-integration-r1/fields.py",
+      "offsets": {
+        "cursor": [
+          1047,
+          128
+        ],
+        "fault_loaded": [
+          1175,
+          128
+        ],
+        "program": [
+          1303,
+          384
+        ],
+        "position": [
+          1687,
+          128
+        ],
+        "grip": [
+          1815,
+          1024
+        ],
+        "mailbox": [
+          2839,
+          256
+        ],
+        "inlet_cursor": [
+          3095,
+          128
+        ],
+        "audit": [
+          3223,
+          256
+        ],
+        "status": [
+          3479,
+          64
+        ]
+      },
+      "roles": 9,
+      "address_start": 1047,
+      "address_end_exclusive": 3543,
+      "initialized_cells": 2496,
+      "source_AST_equal": true
+    }
+  ],
+  "literal_support_selections_equal_to_source": 34,
+  "convolution_small_exact_coefficients": 350,
+  "matched_finish_bad_amplitude_abs": 3.469446951953614e-18,
+  "F3_full_four_state_word_matrix_error": 4.444764553885773e-16,
+  "matched_finish_varphi": 1.9564457250617036,
+  "matched_finish_phi": 0.7747218041259991,
+  "fixed_phase_correction_radians_mod_2pi": 1.183435424731897,
+  "missing_dependencies": [],
+  "spine_physical_functions_retained": true
+}

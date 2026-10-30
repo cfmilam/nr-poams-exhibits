@@ -1,0 +1,385 @@
+{
+  "source_root": "fiber-optics-integrated-program-2026-10-29",
+  "files": [
+    {
+      "path": "dressed-guide-apparatus-join-r1/NATIVE.json",
+      "bytes": 45468,
+      "sha256": "f66b40c78d67106c686f683c9107753940f21df0243d0d3f44de1ff1a9321f7f"
+    },
+    {
+      "path": "dressed-guide-apparatus-join-r1/ROM.json",
+      "bytes": 28303,
+      "sha256": "12ebde4c8c058633dc2acf8b513f1c836ccffd7d0ebfb5ce892a7a155153c4d2"
+    },
+    {
+      "path": "dressed-guide-apparatus-join-r1/ROOT-SEAMS.json",
+      "bytes": 290221,
+      "sha256": "4516002a9f06b17473903b22c0658b1f08dc8b6849fcd7801d517dd5c5f8d42e"
+    },
+    {
+      "path": "dressed-guide-apparatus-join-r1/acquisition.py",
+      "bytes": 4519,
+      "sha256": "c34ab27e7e74e24ed916178295dfd31a64dec33072f8f938ddb399c112411a09"
+    },
+    {
+      "path": "dressed-guide-apparatus-join-r1/compiled_modes.py",
+      "bytes": 2576,
+      "sha256": "19ab31128ec725902d668c6e5a6fc6b67a4b83a560a2d6c70e4d7077363d0c42"
+    },
+    {
+      "path": "dressed-guide-apparatus-join-r1/model.py",
+      "bytes": 14062,
+      "sha256": "83fa349fcbc5d51c1a746ad4ad84a2d409241485815658e50364943660197652"
+    },
+    {
+      "path": "dressed-guide-apparatus-join-r1/native.py",
+      "bytes": 8649,
+      "sha256": "01c0d72c785400be97f59abf3b0cc1d0dc2456cdd403a70bb267c2cc85fa1d47"
+    },
+    {
+      "path": "dressed-guide-apparatus-join-r1/precision_budget.py",
+      "bytes": 2105,
+      "sha256": "fb3fc0eb1156e0d848279b99a1a077eeccf0e0330375cf9d6f6ef559563dd2e4"
+    },
+    {
+      "path": "dressed-guide-apparatus-join-r1/receipts.json",
+      "bytes": 5276,
+      "sha256": "e546a7afb461460d323b5e5695d6b4b4bfa8b408fd16b9b31e8fc7c429e80626"
+    },
+    {
+      "path": "dressed-guide-apparatus-join-r1/registry.py",
+      "bytes": 6617,
+      "sha256": "9533ed2efc16190b8bb5ffc2466bfd4e70d3fd615f0e524d108d03e77ca8a89a"
+    },
+    {
+      "path": "dressed-guide-apparatus-join-r1/root_seams.py",
+      "bytes": 4649,
+      "sha256": "ec28bc34a4c8b7aa4eef61d7fabf117adf8e5b73e339da84950311e13208048a"
+    },
+    {
+      "path": "dressed-guide-endpoint-union-r1/CONTRACT.json",
+      "bytes": 2587977,
+      "sha256": "292135043f3bc2e300ca9dc13f4f99d2c71c34afb282b3333ff75a71489caf3f"
+    },
+    {
+      "path": "dressed-guide-endpoint-union-r1/RETURN-INTERFACE.json",
+      "bytes": 176520,
+      "sha256": "a3be1b6cf7cdf7e1786238c1e07f6d2d041a67fd5c147ee4807dfcf368951cdb"
+    },
+    {
+      "path": "dressed-guide-endpoint-union-r1/ROOT-CONTACTS.json",
+      "bytes": 7399,
+      "sha256": "c89299b78f80834797a93191feb10c0c15bde1b87f054c6e3bf50d8c751f98e5"
+    },
+    {
+      "path": "dressed-guide-endpoint-union-r1/ROUTE.json",
+      "bytes": 25142,
+      "sha256": "abc718954a400a8e44195f88b895a54e4e0477623ced54273b8c7e6cac9bbf70"
+    },
+    {
+      "path": "dressed-guide-endpoint-union-r1/SOURCE-CONTACTS.json",
+      "bytes": 11773,
+      "sha256": "c4497b3e787174d8e73513ec5b501aa0b0b441ecf6df03abaef2f2fc1b6aeeea"
+    },
+    {
+      "path": "dressed-guide-endpoint-union-r1/acquisition.py",
+      "bytes": 4071,
+      "sha256": "3feaa051f4b44d466edd7f40b764ce2f6277df4e60052e573bef4cd343c5d0e3"
+    },
+    {
+      "path": "dressed-guide-endpoint-union-r1/additive.py",
+      "bytes": 5844,
+      "sha256": "8a91ed8547620c708be18a4b13c648c6f835694ecc58f3b50bfe94f619096c3d"
+    },
+    {
+      "path": "dressed-guide-endpoint-union-r1/census.py",
+      "bytes": 3423,
+      "sha256": "935c35e52f0ed5d2b025a993b2c42f6d80e46b1fb8a821785843fc6908396685"
+    },
+    {
+      "path": "dressed-guide-endpoint-union-r1/exclusion.py",
+      "bytes": 6147,
+      "sha256": "8fa038b19b17f73e2bf94945edd12470132c8ae0f0adaf94f0c8d8b76b9b40f5"
+    },
+    {
+      "path": "dressed-guide-endpoint-union-r1/native.py",
+      "bytes": 7536,
+      "sha256": "0e84f49e374e9119f271830022cb90904563b8c9248451328853faa9647db7f2"
+    },
+    {
+      "path": "dressed-guide-endpoint-union-r1/registry.py",
+      "bytes": 7781,
+      "sha256": "40460c94486a86fe57083b5da07e5952e3940cd56fe73905b9dc29cdb7f06d1e"
+    },
+    {
+      "path": "dressed-guide-endpoint-union-r1/returns.py",
+      "bytes": 6717,
+      "sha256": "7c30a3bb2164555e865c994dc4e37f9e72b855c2c6112971beac1062f0ed78c3"
+    },
+    {
+      "path": "dressed-guide-endpoint-union-r1/route.py",
+      "bytes": 7789,
+      "sha256": "97d117664b78c991aff3ee594aa5b9f49a90f1e9dacded96f7ea2fdc93cb6f69"
+    },
+    {
+      "path": "dressed-guide-endpoint-union-r1/sources.py",
+      "bytes": 1903,
+      "sha256": "15c3f21dd70b2d8196b3cfd88d9ed1cd934c398aef406fe11f7a84a8be50c1e0"
+    },
+    {
+      "path": "dressed-guide-endpoint-union-r1/target.py",
+      "bytes": 5767,
+      "sha256": "8ab0b871bd0e1502563498d0734694760782c27288c52229232972cca0f83326"
+    },
+    {
+      "path": "dressed-guide-successor/TARGET.json",
+      "bytes": 1939,
+      "sha256": "0e33c533af551860a46fa1e2ee65df83557c23c04f312ecc7247b65b7068a27b"
+    },
+    {
+      "path": "dressed-guide-successor/model.py",
+      "bytes": 6799,
+      "sha256": "fe3bc7cad654a566b8e87ba0ab13d758cd9a035dadc016b23a81274838931219"
+    },
+    {
+      "path": "dressed-union-record-target/TARGET.json",
+      "bytes": 21592,
+      "sha256": "fc812b86f4e90d38b6a15c4c5284010b8d1d6f4f9e0c024b0178504133e60d3b"
+    },
+    {
+      "path": "dressed-union-record-target/adapter.py",
+      "bytes": 12505,
+      "sha256": "dd235d6f1c1942f4dfc823e533239a036fdd925aa0dc9178748b38eebbfadf40"
+    },
+    {
+      "path": "dressed-union-record-target/law.py",
+      "bytes": 6539,
+      "sha256": "422e9f49fea9ea7e4fb37d4850b169f320367c727a696f77f37c3f787f43abd5"
+    },
+    {
+      "path": "dressed-union-record-target/wire.py",
+      "bytes": 6895,
+      "sha256": "b204c6472a10f8d02b80d89b4422b64481556596b3b25ac0ff7df95ec9cd057f"
+    },
+    {
+      "path": "input-metric-correction/precision.py",
+      "bytes": 2925,
+      "sha256": "36865bc451a7852f265e4005a13ea3d60c69c16fcc9ab6a24389956378829fd5"
+    },
+    {
+      "path": "optical-complete-interface-r1/receipts.json",
+      "bytes": 30482,
+      "sha256": "3d256128e3d34a64faea4276fb3b22ae7426ec52c9a175d85733dadb6e790bdc"
+    },
+    {
+      "path": "optical-record-target/TARGET.json",
+      "bytes": 11415,
+      "sha256": "7b71518723ef6a369f779c127fbdc7a77f21e6738b2b3f97cff1219d6b748011"
+    },
+    {
+      "path": "optical-transport-successor/assembly.py",
+      "bytes": 25582,
+      "sha256": "cbca7729ab8e0f3382c7d24b38b59e46a6099184b42c28001e2c1bccf6e8c3c3"
+    },
+    {
+      "path": "optical-transport-successor/inputs/local-factory/generator.py",
+      "bytes": 26018,
+      "sha256": "a4f221bf86ce08f69d7d6312f7ca3ee60fb4118aa05ba648e3ab6d8a39b5369d"
+    },
+    {
+      "path": "rate-spine-apparatus-join/bindings.py",
+      "bytes": 3463,
+      "sha256": "3cad362f9ac9decffe223a036870c9bf1a7b69999404f334428e8f9e620b6281"
+    },
+    {
+      "path": "rate-spine-apparatus-join/geometry.py",
+      "bytes": 6160,
+      "sha256": "b4db023288f8d6f2976f77c0f6c642dcff1cae89dfc23b3eaa3ea43ada0e0aa9"
+    },
+    {
+      "path": "rate-spine-apparatus-join/ledger.py",
+      "bytes": 7658,
+      "sha256": "70e78093641baaf41b6c08e852db48bb3ceb4e3bf3e9f8959b9fa161f84059df"
+    },
+    {
+      "path": "rate-spine-apparatus-join/registry.py",
+      "bytes": 3639,
+      "sha256": "07fe0f69128274dfcdae0536df0cf100109654bbed6afa46e4e3c6e1a7d8a67e"
+    },
+    {
+      "path": "rate-spine-apparatus-join/target.py",
+      "bytes": 6675,
+      "sha256": "545ef611d279eb052fa398d8a8a11c1919f8dd8756d24c33b6a61aaae6598898"
+    },
+    {
+      "path": "seed-complete-integration-r1/atlas.py",
+      "bytes": 4831,
+      "sha256": "7ea1bdb2d0464194f7e072124b66d622f6c7a9fc912509fa5ec3989f800a2eab"
+    },
+    {
+      "path": "seed-complete-integration-r1/census.py",
+      "bytes": 9974,
+      "sha256": "5b02a723247e51946af8c183e84f60557f8203ef56f1df13a37406f06a54ac3b"
+    },
+    {
+      "path": "seed-complete-integration-r1/fields.py",
+      "bytes": 2297,
+      "sha256": "57e596e82acbe81f8ea171bea9374913c4a72474cb5c1bea464387029b0a7565"
+    },
+    {
+      "path": "seed-complete-integration-r1/geometry.py",
+      "bytes": 6829,
+      "sha256": "8ecb2c5caa5ecda6171b07dcf8805b094e6f319dbdeb39c83dbc51d5ffb20bab"
+    },
+    {
+      "path": "seed-complete-integration-r1/receipts.json",
+      "bytes": 4849,
+      "sha256": "128c8fc60ce4da3b89ceb98eb71f812febac83a3737eb3de5c9eb7229a293127"
+    },
+    {
+      "path": "seed-growth-walk/CONTRACT.json",
+      "bytes": 3764,
+      "sha256": "9ee6fc6f52803cc1b6ca9aa7a24c7237e07eeb3835d6b4b6e7c022e22fc50769"
+    },
+    {
+      "path": "seed-growth-walk/angle_tapes.py",
+      "bytes": 2213,
+      "sha256": "b60d062c98517f2f60fb3ff5d082aa1c3223d87d2e2ad7949ab5b3fd8ea75bc2"
+    },
+    {
+      "path": "seed-growth-walk/geometry.py",
+      "bytes": 1219,
+      "sha256": "5a0200ceda5ddb51b6d2180240103a5f5b3e95629afe3e4deec85df11ccb16de"
+    },
+    {
+      "path": "seed-shaping-efficient/check.py",
+      "bytes": 10521,
+      "sha256": "b13ca0a7ad845877eb35f0ff93f4034b9fa495a6333fb287b1bfdf5ed9b57cac"
+    },
+    {
+      "path": "seed-shaping-efficient/compile_word.py",
+      "bytes": 5226,
+      "sha256": "0c471571cf1f8ef99b1a11a1441122b99f15e38dd14b3c6c23f178653336989c"
+    },
+    {
+      "path": "seed-shaping-efficient/optimize.py",
+      "bytes": 4838,
+      "sha256": "a324bd8a24c69acac7c062ffd37adc6fca407aa4f221ed4e3905bd26ad46ee7e"
+    },
+    {
+      "path": "seed-shaping-efficient/optimized-packet-receipts.json",
+      "bytes": 2717,
+      "sha256": "9ed4e355401059546bd68ac0099e558b863f20c6ddb97a04e8e8033cb3a60e9d"
+    },
+    {
+      "path": "seed-shaping-efficient/packet_census_branch.py",
+      "bytes": 9363,
+      "sha256": "165388fe2a28cd370c7972d113fbeb8cdf2741a8365eeceb6cc4db7288cf31af"
+    },
+    {
+      "path": "seed-shaping-physical-join/atlas.py",
+      "bytes": 4009,
+      "sha256": "f6f65e9b0cf9a5405ab011083a83d7eb78aafbaf721335e495eecd9c731b577c"
+    },
+    {
+      "path": "seed-shaping-physical-join/receipts.json",
+      "bytes": 4755,
+      "sha256": "5401249b148854520f2e2c1058f0d2028493bb411d1dbe146907088b9c7873f3"
+    },
+    {
+      "path": "union-native-acquisition-successor/ACK-CARRIERS.json",
+      "bytes": 27243567,
+      "sha256": "f87672783de7dc1b887fa335c38fa95c7a6d91a506967164eb6a5352446fa6d6"
+    },
+    {
+      "path": "union-native-acquisition-successor/CONTACTS.json",
+      "bytes": 37006,
+      "sha256": "0139601275948b71cdd5e812e810029c31f4ef2eeb03439d4dd63acbc2fdc3d7"
+    },
+    {
+      "path": "union-native-acquisition-successor/CONTRACT.json",
+      "bytes": 7537,
+      "sha256": "4662768968c7ee6b2f2e3a4da2f0886120d67393756fb42689793952407a6bec"
+    },
+    {
+      "path": "union-native-acquisition-successor/EVENTS.json",
+      "bytes": 7658064,
+      "sha256": "c91b2ef0cb94c9fbac7049588fa55f0d6b0fe5685cf7d929de7e543c3f76d2bb"
+    },
+    {
+      "path": "union-native-acquisition-successor/FIELDS.json",
+      "bytes": 3053,
+      "sha256": "2bab510c29692ee3bfef7e62078db310d51b7ecb0872a8b2176fda428ed54d69"
+    },
+    {
+      "path": "union-native-acquisition-successor/HEAT-ATLAS.json",
+      "bytes": 219871,
+      "sha256": "0a4858fdd8dd9d8649c7a38c51a01fd9bf56f3ff90092adfe22fdabd1d67c451"
+    },
+    {
+      "path": "union-native-acquisition-successor/RAW-INTERFACE.json",
+      "bytes": 80921,
+      "sha256": "294eb4e0b09d988516b8e6eb82cf93743aa54e39854ca612dfd3d0e242759062"
+    },
+    {
+      "path": "union-native-acquisition-successor/RAW-SCHEMA.json",
+      "bytes": 3675,
+      "sha256": "e968f3e3b803faae1eb3ed2f3c02c0f7a8d8ae2920112faa872b5e825035363d"
+    },
+    {
+      "path": "union-native-acquisition-successor/RECEIPTS.json",
+      "bytes": 1733,
+      "sha256": "09698581cc72ccaef48d5d7b42aafccc8de7a754afec0d3ab514c5d79110808c"
+    },
+    {
+      "path": "union-native-acquisition-successor/TOKENS.json",
+      "bytes": 896046,
+      "sha256": "acf304cb08483d5f05b6684f04f5b966c24ce6c833ba0163b2ebdfa5ddda026c"
+    },
+    {
+      "path": "union-native-acquisition-successor/UNA65.json",
+      "bytes": 70434,
+      "sha256": "cb17834d51dbe365c888170f36ca3e5b03d6b4299ff2e02b24ed69fdb444bbbf"
+    },
+    {
+      "path": "union-native-acquisition-successor/UNA65.py",
+      "bytes": 3857,
+      "sha256": "451e9c7ee10348670486f2f7de712a5e96470278285c9f725e1bf3afd87eab77"
+    },
+    {
+      "path": "union-native-acquisition-successor/atlas.py",
+      "bytes": 7380,
+      "sha256": "97e719b6364ff958ac2759f918e2efafba0f5823db4686affbe345a54b854695"
+    },
+    {
+      "path": "union-native-acquisition-successor/binding.py",
+      "bytes": 1246,
+      "sha256": "05b4bd458b2af5f723d5c66902eb08040bd7e3d70febd42ba0a38a6fb314068f"
+    },
+    {
+      "path": "union-native-acquisition-successor/courier.py",
+      "bytes": 3257,
+      "sha256": "6b59c8117c8cd961b3d6d3b3f73844cd783896940292ed88686ad35c84b184f5"
+    },
+    {
+      "path": "union-native-acquisition-successor/geometry.py",
+      "bytes": 3105,
+      "sha256": "e91cf0d5e5ccf48fe8f12ddf3fc72cc28b025798e6759f75abb3a4ea1b9d866b"
+    },
+    {
+      "path": "union-native-acquisition-successor/model.py",
+      "bytes": 17762,
+      "sha256": "4ef07e5ea9255c3c478d3eb6f450472b044dadf60e6af146f34949e26786293b"
+    },
+    {
+      "path": "union-native-acquisition-successor/native.py",
+      "bytes": 9320,
+      "sha256": "d89f05312108f97f99130188a5bcc92be9a5cbf499df0175a775c7241d9217b5"
+    },
+    {
+      "path": "union-native-acquisition-successor/relay.py",
+      "bytes": 10158,
+      "sha256": "6b8fc4483448c4ce6a8d54af0d2d0d9abfe576a92cc58d4f6a8ce45ac46105c0"
+    }
+  ]
+}

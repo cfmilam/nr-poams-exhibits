@@ -1,0 +1,25 @@
+{
+  "source_root": "fiber-optics-integrated-program-2026-10-29",
+  "source": "seed-growth-walk/phase-words.u64le",
+  "source_sha256": "0d511126555ee0e0c1ad72c77c580505f5fc314bce7b256bab760ee485a4bcff",
+  "uncompressed_bytes": 12582912,
+  "rows": 131072,
+  "entries_per_row": 12,
+  "encoding": "little-endian unsigned 64 bit",
+  "columns": [
+    "theta0",
+    "theta1",
+    "theta2",
+    "theta3",
+    "theta4",
+    "theta5",
+    "theta6",
+    "theta7",
+    "theta8",
+    "beta",
+    "negative_gamma",
+    "middle_wrap_parity"
+  ],
+  "angle_grid_bits": 60,
+  "status": "EXACT_ADOPTED_PROGRAM_BYTES_NOT_PHYSICAL_EXECUTION"
+}

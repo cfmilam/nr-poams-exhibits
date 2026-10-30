@@ -1,0 +1,163 @@
+{
+  "edition": "2026-10-30",
+  "status": "DERIVATIVE_EXHIBIT_ENGINEERING_REFERENCE",
+  "integer_encoding": "Integers whose magnitude exceeds 2^53-1 are decimal strings in this derivative reference; preserve with arbitrary-precision integer arithmetic. Exact rationals remain strings. This encoding does not alter the separately defined raw-record JSON type contract.",
+  "source_spec_sha256": "def64905a24dc5e1ae3221d4f74b5b0494f6e3e56d06c7325078644df05ddd3a",
+  "files": [
+    {
+      "path": "DATA-VERIFICATION.json",
+      "bytes": 1373,
+      "sha256": "ecfce56d85adc02bfe813b230daa90372053c7ebbe40ec4e36736b842f5ff68e"
+    },
+    {
+      "path": "DEPENDENCY-VERIFICATION.json",
+      "bytes": 2423,
+      "sha256": "f214237e477502e827f4caf8fbf004221f05b19dc6ab79b5eab6e04cebdbaba6"
+    },
+    {
+      "path": "ENGINEERING-SPEC.md",
+      "bytes": 84184,
+      "sha256": "406c7d1bb8a743ce5fecf1bde0e82f19c08d98d9c5f394dc17fc607f05440f56"
+    },
+    {
+      "path": "SOURCE-MAP.json",
+      "bytes": 13359,
+      "sha256": "d6ffb57ffcea17c46cb70558e380b46c7c1ca54b8b74ea94962c525e86004284"
+    },
+    {
+      "path": "SOURCE-MAP.md",
+      "bytes": 10016,
+      "sha256": "0eb77d15dace0ce6576be502c575cb89ec40a83f65caad0d20488f8f96fff5b5"
+    },
+    {
+      "path": "data/GROWTH-PHASE-RECEIPT.json",
+      "bytes": 623,
+      "sha256": "62deeccc2a4edc86241e09f457ea36e349e5e95f332e3b899b8b0f7313f41122"
+    },
+    {
+      "path": "data/NORMATIVE-DEPENDENCIES.json",
+      "bytes": 72758,
+      "sha256": "139fa330a17449d867db442bea0d175e637fed4ee216cc8b0bc0aab98667e6e8"
+    },
+    {
+      "path": "data/README.md",
+      "bytes": 2955,
+      "sha256": "036e457720eec7a250723ca469b96fa77af8505e9af92a45b80b72f4c1ff5760"
+    },
+    {
+      "path": "data/SOURCE-MAP.json",
+      "bytes": 13584,
+      "sha256": "f477e7011e4ef0ceda3cbb27637ad7c5ce8726745a022bc9e04db61a7f03504d"
+    },
+    {
+      "path": "data/acquisition-ack-carriers.json.gz",
+      "bytes": 351474,
+      "sha256": "cceae008ba21c50ce9b35a4f48a855b1cda7d7e644d23209dc37f1a0b7f38e1f"
+    },
+    {
+      "path": "data/acquisition-contacts.json",
+      "bytes": 21213,
+      "sha256": "f00ab1ba61d52b314b2f64c0774e2724ad8fbe620179cb1176b92dd0b19bc8fb"
+    },
+    {
+      "path": "data/acquisition-events.json.gz",
+      "bytes": 145996,
+      "sha256": "973259d8b42a143288619ebda149fc212602b8641a06da014b556868996d589d"
+    },
+    {
+      "path": "data/acquisition-fields.json",
+      "bytes": 2266,
+      "sha256": "0b4562a4468d6499008cd1331459dfe8ae1620ccc1a30f4aa1a6daeafbbbb21d"
+    },
+    {
+      "path": "data/acquisition-heat-atlas.json",
+      "bytes": 133466,
+      "sha256": "fd15dc808edc4708a6f4dc8365eec94f635c5cac85da711f219b2a9fd68c15dd"
+    },
+    {
+      "path": "data/acquisition-raw-interface.json",
+      "bytes": 31320,
+      "sha256": "e1b41d57615dc9a28969731e5f6bcdf3ce2e5b9185b72c81a3ff0ac95eed6b5c"
+    },
+    {
+      "path": "data/acquisition-raw-schema.json",
+      "bytes": 3561,
+      "sha256": "41f4bea8f5b79ae21eaa65fc59655ed0c02e88a8de4b808e5722382262763920"
+    },
+    {
+      "path": "data/acquisition-tokens.json.gz",
+      "bytes": 25597,
+      "sha256": "26aaf4a28547106ea37eb95d951811f9dcf91837e95ea721b674b85013e187fd"
+    },
+    {
+      "path": "data/acquisition-una65.json",
+      "bytes": 24949,
+      "sha256": "6318a8047fe20718d7c767e040443f06a91e6b577fdb4eb6788fc9fd7873698a"
+    },
+    {
+      "path": "data/complete-accounts.json",
+      "bytes": 3519,
+      "sha256": "42e07c3d2f3815b8092b71c1f6f975037f2d5ec0e99a74e10a48883befa59522"
+    },
+    {
+      "path": "data/endpoint-root-contacts.json",
+      "bytes": 4733,
+      "sha256": "5abd4eb1dc6fd6cb659236f4cd9b9122d077def5777432d64570a8314e0c0550"
+    },
+    {
+      "path": "data/endpoint-route.json",
+      "bytes": 13823,
+      "sha256": "461aa1f3521d4290bd3bf720f60fc18faf9aa6e64e70b621c2a281bd1680fccd"
+    },
+    {
+      "path": "data/growth-phase-words.u64le.gz",
+      "bytes": 5286536,
+      "sha256": "30aee7893d998886d271a17503f5f4b281e2ad16910e905b2a311e08dfc4ed76"
+    },
+    {
+      "path": "data/guide-native-fields.json",
+      "bytes": 17969,
+      "sha256": "06ee3a89918ab0765ed2f379b9098c5475bc22339f4382b64c3b7cee123c3450"
+    },
+    {
+      "path": "data/guide-rom.json",
+      "bytes": 22489,
+      "sha256": "b49c26ec06e852ffe203380de0fb8152accd5e084d382c0ec92ffe6771545ed4"
+    },
+    {
+      "path": "data/guide-root-contacts.json",
+      "bytes": 85670,
+      "sha256": "4beeda12d00b73575880c9a173fb1bd4f97ccfdd71ccbabd1282af81cfda80ca"
+    },
+    {
+      "path": "data/normative-functions.json.gz",
+      "bytes": 84918,
+      "sha256": "7829e718880d8874f58d1835438737562082fe5b4503f9fe8f62464151ee6237"
+    },
+    {
+      "path": "data/normative-support-data.json.gz",
+      "bytes": 54335,
+      "sha256": "232df468048d55162a2f41792581e881d90e8a30a70cd13615d14152b831407d"
+    },
+    {
+      "path": "data/output-order.json.gz",
+      "bytes": 30961,
+      "sha256": "246132c65847c1b9c5480bad01bc69a34ea0deaaec07cc24af8eb8ad14460a36"
+    },
+    {
+      "path": "data/prepared-cases.json.gz",
+      "bytes": 19283,
+      "sha256": "e769607d62e75ddb201ce00531852c8021996d0900c168226e3856f6d192896a"
+    },
+    {
+      "path": "data/return-interface.json",
+      "bytes": 85524,
+      "sha256": "c2b552153a75703f856491010ed0a1cb3805ba417602881f5d416d11d95a34e5"
+    },
+    {
+      "path": "data/source-contact-roster.json",
+      "bytes": 4187,
+      "sha256": "b0a7b9e7c598b782ff58c595606680a5350e59ca6ce54cacfce5a0c441b5915f"
+    }
+  ]
+}
