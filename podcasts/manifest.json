@@ -1278,6 +1278,32 @@
         "cloaking.html": "b8eb4bf5a30dd78ef8515eee4342694a902c484abec031907c983f35f9f6440a"
       },
       "source_dependency_sha256": {}
+    },
+    {
+      "order": 58,
+      "title": "An Optical-Information Link",
+      "sources": [
+        "optical-information-link.html"
+      ],
+      "approved": true,
+      "audio_sha256": "57f966fdbecb7ac9bb2fcbc90bd9f6360c34a6e93fe9ea59ad97d60e7e8e0d5c",
+      "source_content_sha256": "a80b7508f1a32e1f00de6f43559bae0ce2d55589a9cd029e6596337fec35b763",
+      "script_source_sha256": {
+        "optical-information-link.html": "c02fb6eceac73c8f7a95207e65c0bacb6b0e1971726df6247ed565bba73e0e96"
+      },
+      "source_sha256": {
+        "optical-information-link.html": "1236ffb84bd56da6a38ba8a81652a68682cc36fb91abac7d25640ce0cd72eb2f"
+      },
+      "source_dependency_sha256": {
+        "optical-information-link/DATA-VERIFICATION.json": "ecfce56d85adc02bfe813b230daa90372053c7ebbe40ec4e36736b842f5ff68e",
+        "optical-information-link/ENGINEERING-MANIFEST.json": "dfcd22c149e7eaee78b67e96208a06b96230975d46d2127a1d71a2ba931f0fc7",
+        "optical-information-link/data/NORMATIVE-DEPENDENCIES.json": "139fa330a17449d867db442bea0d175e637fed4ee216cc8b0bc0aab98667e6e8",
+        "optical-information-link/data/acquisition-una65.json": "6318a8047fe20718d7c767e040443f06a91e6b577fdb4eb6788fc9fd7873698a",
+        "optical-information-link/data/complete-accounts.json": "42e07c3d2f3815b8092b71c1f6f975037f2d5ec0e99a74e10a48883befa59522",
+        "optical-information-link/data/guide-rom.json": "b49c26ec06e852ffe203380de0fb8152accd5e084d382c0ec92ffe6771545ed4",
+        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      },
+      "audio_url": "https://audio.resonantmachines.us/podcasts/58/57f966fdbecb7ac9bb2fcbc90bd9f6360c34a6e93fe9ea59ad97d60e7e8e0d5c.mp3?v=57f966fdbecb7ac9bb2fcbc90bd9f6360c34a6e93fe9ea59ad97d60e7e8e0d5c"
     }
   ]
 }
