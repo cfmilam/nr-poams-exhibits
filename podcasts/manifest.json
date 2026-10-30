@@ -1304,6 +1304,24 @@
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
       },
       "audio_url": "https://audio.resonantmachines.us/podcasts/58/57f966fdbecb7ac9bb2fcbc90bd9f6360c34a6e93fe9ea59ad97d60e7e8e0d5c.mp3?v=57f966fdbecb7ac9bb2fcbc90bd9f6360c34a6e93fe9ea59ad97d60e7e8e0d5c"
+    },
+    {
+      "order": 59,
+      "title": "Coupled Circulations",
+      "sources": [
+        "coupled-circulations.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/59/bcc80010f3db2d3c1deada4dd59ae9dc94f89c84ab686e1c5946954fea22e746.mp3",
+      "audio_sha256": "bcc80010f3db2d3c1deada4dd59ae9dc94f89c84ab686e1c5946954fea22e746",
+      "source_content_sha256": "53c7e5feae0f1b3aec32ced9e541784991645f51e122af81aa4dee7f8655f367",
+      "script_source_sha256": {
+        "coupled-circulations.html": "8b7212e9983ef5a229587fda79de8361e9cc4bcc77852b731651b21f9c0226fa"
+      },
+      "source_sha256": {
+        "coupled-circulations.html": "bdda4c864b051305e3eab78615325bf999a19a12493b9fe89484cb558d54e4fb"
+      },
+      "source_dependency_sha256": {}
     }
   ]
 }
