@@ -1312,14 +1312,14 @@
         "coupled-circulations.html"
       ],
       "approved": true,
-      "audio_url": "https://audio.resonantmachines.us/podcasts/59/bcc80010f3db2d3c1deada4dd59ae9dc94f89c84ab686e1c5946954fea22e746.mp3",
-      "audio_sha256": "bcc80010f3db2d3c1deada4dd59ae9dc94f89c84ab686e1c5946954fea22e746",
-      "source_content_sha256": "53c7e5feae0f1b3aec32ced9e541784991645f51e122af81aa4dee7f8655f367",
+      "audio_url": "https://audio.resonantmachines.us/podcasts/59/1ee60fca86a190a8280d83f587d3a68149068fc5e06000b5587e7c6001c3713d.mp3",
+      "audio_sha256": "1ee60fca86a190a8280d83f587d3a68149068fc5e06000b5587e7c6001c3713d",
+      "source_content_sha256": "a0ae22903edfa25c4943b01383e1346e7e4ad5b53fd4eb1591bef91247f188c3",
       "script_source_sha256": {
-        "coupled-circulations.html": "8b7212e9983ef5a229587fda79de8361e9cc4bcc77852b731651b21f9c0226fa"
+        "coupled-circulations.html": "b75e0db0243bf76d33bc28e85d5082df93b845e56627c61da88db228c571eef5"
       },
       "source_sha256": {
-        "coupled-circulations.html": "bdda4c864b051305e3eab78615325bf999a19a12493b9fe89484cb558d54e4fb"
+        "coupled-circulations.html": "46d7edeb3d288b6ce8fe6e6a14305cc27298ca248ab246562cfeb24bdbe3f9de"
       },
       "source_dependency_sha256": {}
     }
