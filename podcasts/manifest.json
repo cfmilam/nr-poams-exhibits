@@ -1287,12 +1287,12 @@
       ],
       "approved": true,
       "audio_sha256": "57f966fdbecb7ac9bb2fcbc90bd9f6360c34a6e93fe9ea59ad97d60e7e8e0d5c",
-      "source_content_sha256": "a80b7508f1a32e1f00de6f43559bae0ce2d55589a9cd029e6596337fec35b763",
+      "source_content_sha256": "504673eb8f7d04c0d21f5b9565c0038d2e569b9ac121dc5aa16de4acff895739",
       "script_source_sha256": {
         "optical-information-link.html": "c02fb6eceac73c8f7a95207e65c0bacb6b0e1971726df6247ed565bba73e0e96"
       },
       "source_sha256": {
-        "optical-information-link.html": "8e5913ebfde3ab7cf10f39d3787f7f670d7c043dd7298dabad464115752a4d05"
+        "optical-information-link.html": "83410928cb50c7bd3b1e780f756993f23333c983250406b4616aeddf246baadb"
       },
       "source_dependency_sha256": {
         "optical-information-link/DATA-VERIFICATION.json": "ecfce56d85adc02bfe813b230daa90372053c7ebbe40ec4e36736b842f5ff68e",
@@ -1300,10 +1300,27 @@
         "optical-information-link/data/NORMATIVE-DEPENDENCIES.json": "139fa330a17449d867db442bea0d175e637fed4ee216cc8b0bc0aab98667e6e8",
         "optical-information-link/data/acquisition-una65.json": "6318a8047fe20718d7c767e040443f06a91e6b577fdb4eb6788fc9fd7873698a",
         "optical-information-link/data/complete-accounts.json": "42e07c3d2f3815b8092b71c1f6f975037f2d5ec0e99a74e10a48883befa59522",
-        "optical-information-link/data/guide-rom.json": "b49c26ec06e852ffe203380de0fb8152accd5e084d382c0ec92ffe6771545ed4",
-        "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+        "optical-information-link/data/guide-rom.json": "b49c26ec06e852ffe203380de0fb8152accd5e084d382c0ec92ffe6771545ed4"
       },
-      "audio_url": "https://audio.resonantmachines.us/podcasts/58/57f966fdbecb7ac9bb2fcbc90bd9f6360c34a6e93fe9ea59ad97d60e7e8e0d5c.mp3?v=57f966fdbecb7ac9bb2fcbc90bd9f6360c34a6e93fe9ea59ad97d60e7e8e0d5c"
+      "audio_url": "https://audio.resonantmachines.us/podcasts/58/57f966fdbecb7ac9bb2fcbc90bd9f6360c34a6e93fe9ea59ad97d60e7e8e0d5c.mp3?v=57f966fdbecb7ac9bb2fcbc90bd9f6360c34a6e93fe9ea59ad97d60e7e8e0d5c",
+      "source_adoption": {
+        "kind": "reviewed-material-source-adoption",
+        "receipt_sha256": "611c47a8f0f4a90b5d0e10d19f021c80f16749154281734da70927630459fd1c",
+        "original_source_receipt_sha256": "4a8faa3b5d39cb76d052004e528a1498212fb348679e8ad488bef409e72e574d",
+        "old_semantic_sha256": "a80b7508f1a32e1f00de6f43559bae0ce2d55589a9cd029e6596337fec35b763",
+        "reviewed_semantic_sha256": "504673eb8f7d04c0d21f5b9565c0038d2e569b9ac121dc5aa16de4acff895739",
+        "source_review_sha256": "6e226f35de90f28aad76cb24ceefb4e7644d146795321c8f77078c716c8f45a4",
+        "listener_review_sha256": "0d518135478748ca3f3fd5b7bd4e3ffa9ad0a134d2a444d90a54fbb76e577e5e",
+        "script_sha256": "c118d18324e858ca116c2d954760aabf90d3df0910f3fe4d09afeefc9afd4ae6",
+        "audio_sha256": "57f966fdbecb7ac9bb2fcbc90bd9f6360c34a6e93fe9ea59ad97d60e7e8e0d5c",
+        "model": "gpt-5.6-sol",
+        "voices": {
+          "Hope": "tnSpp4vdxKPjI9w0GnoV",
+          "Jon": "Cz0K1kOv9tD8l0b5Qu53"
+        },
+        "tempo": 1.1,
+        "pitch_semitones": 0
+      }
     },
     {
       "order": 59,
