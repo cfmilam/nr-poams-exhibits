@@ -4,7 +4,7 @@
   "episodes": [
     {
       "order": 1,
-      "title": "The Logos · The World Is Language",
+      "title": "The Logos \u00b7 The World Is Language",
       "sources": [
         "the-designers-reading.html",
         "the-world-is-language.html"
@@ -147,7 +147,7 @@
     },
     {
       "order": 8,
-      "title": "The Spin–Orbit Settlement Ledger",
+      "title": "The Spin\u2013Orbit Settlement Ledger",
       "sources": [
         "spin-orbit-settlement-ledger.html"
       ],
@@ -425,7 +425,7 @@
     },
     {
       "order": 19,
-      "title": "Landé",
+      "title": "Land\u00e9",
       "sources": [
         "lande-from-twist-writhe.html"
       ],
@@ -652,7 +652,7 @@
     },
     {
       "order": 30,
-      "title": "The Spin–Orbit Settlement Ledger",
+      "title": "The Spin\u2013Orbit Settlement Ledger",
       "sources": [
         "spin-orbit-settlement-ledger.html#galaxy-case"
       ],
@@ -1295,12 +1295,13 @@
         "optical-information-link.html": "83410928cb50c7bd3b1e780f756993f23333c983250406b4616aeddf246baadb"
       },
       "source_dependency_sha256": {
-        "optical-information-link/DATA-VERIFICATION.json": "ecfce56d85adc02bfe813b230daa90372053c7ebbe40ec4e36736b842f5ff68e",
-        "optical-information-link/ENGINEERING-MANIFEST.json": "dfcd22c149e7eaee78b67e96208a06b96230975d46d2127a1d71a2ba931f0fc7",
+        "optical-information-link/DATA-VERIFICATION.json": "f8b7ed15c97970fb28c9e557c7fa5a7cdb2f5810df561ce63b02aedce2415476",
+        "optical-information-link/ENGINEERING-MANIFEST.json": "fa7856bc29408277cd166aadbc94de4aea1c2398c80f8cba4793d043d73931a4",
         "optical-information-link/data/NORMATIVE-DEPENDENCIES.json": "139fa330a17449d867db442bea0d175e637fed4ee216cc8b0bc0aab98667e6e8",
         "optical-information-link/data/acquisition-una65.json": "6318a8047fe20718d7c767e040443f06a91e6b577fdb4eb6788fc9fd7873698a",
         "optical-information-link/data/complete-accounts.json": "42e07c3d2f3815b8092b71c1f6f975037f2d5ec0e99a74e10a48883befa59522",
-        "optical-information-link/data/guide-rom.json": "b49c26ec06e852ffe203380de0fb8152accd5e084d382c0ec92ffe6771545ed4"
+        "optical-information-link/data/guide-rom.json": "b49c26ec06e852ffe203380de0fb8152accd5e084d382c0ec92ffe6771545ed4",
+        "podcast-listen.js": "5a4a6628d673aa9bdcbd4e11c44839816ad618a81bd9a1b1f72a066f82f2fb3e"
       },
       "audio_url": "https://audio.resonantmachines.us/podcasts/58/57f966fdbecb7ac9bb2fcbc90bd9f6360c34a6e93fe9ea59ad97d60e7e8e0d5c.mp3?v=57f966fdbecb7ac9bb2fcbc90bd9f6360c34a6e93fe9ea59ad97d60e7e8e0d5c",
       "source_adoption": {
