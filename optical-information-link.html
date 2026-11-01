@@ -7,63 +7,332 @@
 <meta name="description" content="If POAMS is correct, glass, light and information share one root. An exchange-centered optical-information model and the conditional RCM-1 clock-memory test.">
 <title>The Glass, the Light, and the Record · POAMS</title>
 <script>
+/* Paper reader preference; leaves the corpus's fixed-theme keys untouched. */
 (() => {
   'use strict';
   const key = 'poams-exhibit-theme';
   const root = document.documentElement;
-  try { const saved = localStorage.getItem(key); if (saved === 'light' || saved === 'dark') root.dataset.theme = saved; } catch (_) {}
+  let initial = 'dark';
+  try {
+    const saved = localStorage.getItem(key);
+    if (saved === 'light' || saved === 'dark') initial = saved;
+  } catch (_) { /* Reading and switching still work without browser storage. */ }
+  root.dataset.theme = initial;
   document.addEventListener('DOMContentLoaded', () => {
     const button = document.getElementById('paper-theme-toggle');
-    const update = () => { const next = root.dataset.theme === 'dark' ? 'light' : 'dark'; button.textContent = next === 'light' ? 'Light mode' : 'Dark mode'; button.setAttribute('aria-label', 'Switch to ' + next + ' mode'); };
+    const update = () => {
+      const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      button.textContent = next === 'light' ? 'Light mode' : 'Dark mode';
+      button.setAttribute('aria-label', `Switch to ${next} mode`);
+    };
     button.hidden = false;
-    button.addEventListener('click', () => { root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark'; try { localStorage.setItem(key, root.dataset.theme); } catch (_) {} update(); });
+    button.addEventListener('click', () => {
+      root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      try { localStorage.setItem(key, root.dataset.theme); } catch (_) {}
+      update();
+    });
     update();
-    const printButton = document.getElementById('printButton');
-    printButton.hidden = false;
-    printButton.addEventListener('click', () => window.print());
-    let prior = [];
-    window.addEventListener('beforeprint', () => { prior = Array.from(document.querySelectorAll('details')).map(d => d.open); document.querySelectorAll('details').forEach(d => { d.open = true; }); });
-    window.addEventListener('afterprint', () => { document.querySelectorAll('details').forEach((d,i) => { d.open = prior[i] === undefined ? d.open : prior[i]; }); });
   });
 })();
 </script>
+<script>
+/* Preserve the published exhibit's Print / PDF behavior independently of the house theme script. */
+document.addEventListener('DOMContentLoaded', () => {
+  const printButton = document.getElementById('printButton');
+  printButton.hidden = false;
+  printButton.addEventListener('click', () => window.print());
+  let prior = [];
+  window.addEventListener('beforeprint', () => {
+    prior = Array.from(document.querySelectorAll('details')).map(d => d.open);
+    document.querySelectorAll('details').forEach(d => { d.open = true; });
+  });
+  window.addEventListener('afterprint', () => {
+    document.querySelectorAll('details').forEach((d, i) => { d.open = prior[i] === undefined ? d.open : prior[i]; });
+  });
+});
+</script>
+<link rel="stylesheet" href="./exhibit-presentation.css">
+<link rel="stylesheet" href="./reader-standard.css">
 <style>
-/* Self-contained reader: the pinned exhibit's paper palette, theme preference,
-   header convention and reader hierarchy; no external CSS, fonts or scripts. */
-:root{color-scheme:dark;--bg:#0d0d18;--card:#1c1c30;--inset:#10101d;--ink:#e8e8f0;--muted:#aaaabd;--gold:#d4af37;--blue:#5bc8f5;--line:#303046;--nav:rgba(13,13,24,.97);--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
-:root[data-theme="light"]{color-scheme:light;--bg:#fff;--card:#fffdf8;--inset:#f6f4ee;--ink:#2a2a2a;--muted:#6f6655;--gold:#806008;--blue:#075f91;--line:#ded8ca;--nav:rgba(255,255,255,.97)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:19px/1.75 Georgia,"Times New Roman",serif}a{color:var(--blue);text-underline-offset:.2em}a:hover{text-decoration-thickness:2px}button,summary,a{touch-action:manipulation}button{font:500 .8rem var(--sans);color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:7px;padding:.55rem .8rem;cursor:pointer;min-height:38px}button:hover{border-color:var(--gold)}:focus-visible{outline:3px solid var(--blue);outline-offset:4px}[hidden]{display:none!important}
-#poams-hub-nav{position:sticky;top:0;z-index:10;background:var(--nav);border-bottom:1px solid var(--line);font:.8rem/1.3 var(--sans)}.topinner{max-width:1120px;margin:auto;padding:.65rem 1.2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}.toplinks{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap}.topbar a{color:var(--gold);text-decoration:none}.brand{white-space:nowrap}.skip-link{position:fixed;left:8px;top:-90px;z-index:20}.skip-link:focus{top:8px;background:var(--card);padding:.6rem}
-.wrap{max-width:1000px;margin:auto;padding:0 2rem}.hero{padding-top:4.5rem;padding-bottom:2rem;text-align:center}.eyebrow,.section-number{font:.73rem/1.5 var(--sans);text-transform:uppercase;letter-spacing:.12em;color:var(--gold)}h1{font:500 clamp(2.3rem,6vw,4rem)/1.12 Georgia,serif;letter-spacing:-.035em;margin:.8rem 0 1.5rem}h2{font:500 clamp(1.8rem,3vw,2.4rem)/1.2 Georgia,serif;margin:.6rem 0 1.4rem}h3{font:600 1.12rem/1.4 var(--sans);margin:2rem 0 .6rem;color:var(--gold)}h4{font:600 1rem/1.4 var(--sans)}p{margin:.9rem 0 1.2rem}.dek{font-size:1.23rem;line-height:1.6;max-width:750px;margin:0 auto;color:var(--muted)}.hero-meta{font:.75rem/1.6 var(--sans);color:var(--muted);margin:1.6rem 0}.status-banner{border:1px solid var(--line);border-left:4px solid var(--gold);background:var(--inset);padding:1rem 1.25rem;font:.88rem/1.65 var(--sans);text-align:left;margin:1.8rem 0}.status-banner p{margin:.3rem 0}.status-banner strong{color:var(--gold)}
-main{padding-bottom:3rem!important}.contents{border:1px solid var(--line);border-radius:8px;padding:1rem 1.3rem;background:var(--card);font:.9rem/1.6 var(--sans)}.contents strong{font-weight:600;color:var(--gold)}.contents ol{padding-left:1.4rem;margin:.6rem 0}.contents li{padding:.2rem 0}.major{padding:3.5rem 0 1rem;border-bottom:1px solid var(--line)}[id]{scroll-margin-top:90px}.lead{font-size:1.15rem;color:var(--muted)}blockquote{margin:1.8rem 0;padding:.2rem 0 .2rem 1.3rem;border-left:3px solid var(--gold);font-size:1.2rem}blockquote p{margin:.4rem 0}.callout{padding:1.1rem 1.3rem;border:1px solid var(--line);border-radius:8px;background:var(--inset);margin:1.5rem 0}.callout>:first-child{margin-top:0}.callout>:last-child{margin-bottom:0}.thesis{border-left:4px solid var(--gold)}.small,.caption{font:.82rem/1.6 var(--sans);color:var(--muted)}.ref{font:.72rem var(--sans);white-space:nowrap}li{margin:.45rem 0}.steps{padding-left:1.4rem}.steps strong{color:var(--gold)}
-.table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:8px;margin:1.4rem 0;overscroll-behavior-x:contain}table{width:100%;border-collapse:collapse;font:.85rem/1.55 var(--sans)}th,td{padding:.8rem .85rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}th{color:var(--gold);background:var(--inset);font-weight:600}tr:last-child td,tr:last-child th{border-bottom:0}caption{caption-side:top;text-align:left;padding:.8rem;background:var(--card);font-weight:600}td.numeric{font-variant-numeric:tabular-nums;white-space:nowrap}.wide-table{min-width:640px}.score-table{min-width:560px}.score-table th,.score-table td{text-align:center;padding:.6rem}.formula{overflow-x:auto;background:var(--inset);border:1px solid var(--line);border-radius:8px;padding:1rem 1.2rem;font:1rem/1.7 var(--sans);margin:1.3rem 0}.formula .line{display:block;white-space:nowrap}.terms{display:grid;grid-template-columns:7.5rem 1fr;gap:.6rem 1rem;font:.9rem/1.65 var(--sans)}.terms dt{color:var(--gold)}.terms dd{margin:0}.bounds td:first-child{min-width:180px}.bounds .numeric{white-space:normal;overflow-wrap:anywhere}.schedule td:first-child{font-weight:700;color:var(--gold)}.bin{font:600 1.1rem/1.4 var(--sans);color:var(--gold)}
-code{font:.81em/1.5 "SFMono-Regular",Menlo,Consolas,monospace;overflow-wrap:anywhere}details{padding:1rem 0;border-top:1px solid var(--line)}summary{cursor:pointer;font:600 .95rem/1.5 var(--sans);color:var(--gold)}details>div{padding-top:.5rem}.source-list{padding-left:1.2rem}.source-list li{margin:1rem 0}.path{display:block;margin:.4rem 0;overflow-wrap:anywhere}.hash{font: .7rem/1.5 ui-monospace,monospace;color:var(--muted);overflow-wrap:anywhere}.sources td{overflow-wrap:anywhere}.sources{table-layout:fixed}.companion-links{display:flex;gap:.7rem 1.2rem;flex-wrap:wrap;font:.9rem/1.5 var(--sans)}footer{max-width:1000px;margin:auto;padding:2rem;text-align:center;border-top:1px solid var(--line);font:.8rem/1.7 var(--sans);color:var(--muted)}footer strong{color:var(--gold)}
-@media(max-width:700px){body{font-size:18px}.wrap{padding:0 1.1rem}.hero{padding-top:2.5rem}.topinner{padding:.55rem .7rem;align-items:flex-start}.toplinks{gap:.35rem}.hide-small{display:none}.topbar button{font-size:.7rem;padding:.4rem .55rem}.brand{font-size:.7rem;padding-top:.6rem}.major{padding-top:2.5rem}.terms{grid-template-columns:1fr;gap:.15rem}.terms dd{margin-bottom:.7rem}.table-scroll{margin-left:0;margin-right:0}th,td{padding:.6rem}.status-banner{padding:.9rem}.sources{table-layout:auto}.source-table{min-width:600px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-@media print{html[data-theme]{color-scheme:light;--bg:#fff;--card:#fff;--inset:#fff;--ink:#222;--muted:#555;--gold:#655000;--blue:#075f91;--line:#aaa}body{font-size:10.5pt;line-height:1.5}.topbar,.skip-link,.contents{display:none}.wrap{max-width:none;padding:0}.hero{padding-top:0}h1{font-size:30pt}h2{font-size:20pt}h3{break-after:avoid}.major{padding-top:1.6rem}.table-scroll{overflow:visible}.wide-table,.score-table,.source-table{min-width:0}table{font-size:8pt}tr{break-inside:avoid}.formula{font-size:9pt}.formula .line{white-space:normal}.sources{table-layout:fixed}.callout{break-inside:avoid}a{color:inherit}footer{padding:1rem 0}.status-banner{font-size:9pt}}
+/* Paper-only layout glue; shared corpus typography and colors remain authoritative. */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; }
+a { text-underline-offset: .18em; }
+h2, h3, [id] { scroll-margin-top: 64px; }
+.standard-exhibit #poams-hub-nav {
+  align-items: center;
+  padding: 0 16px;
+}
+#poams-hub-nav a {
+  min-width: 0;
+  text-decoration: none;
+  padding: 5px 8px;
+  border-radius: 6px;
+}
+#poams-hub-nav a:hover { background: rgba(212,175,55,.1); }
+#poams-hub-nav .phn-center {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+}
+#poams-hub-nav .phn-pos { color: var(--muted); }
+.hero .eyebrow { color: var(--muted); text-transform: uppercase; }
+.hero .provenance { margin-top: 1rem; font-weight: 400; }
+.hero .provenance strong { font-weight: 400; }
+.paper-contents {
+  margin: 0 0 1.4rem;
+  padding: .85rem 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--reader-inset);
+}
+summary { cursor: pointer; color: var(--gold); font-weight: 600; }
+#TOC ul { list-style: none; padding-left: 1.2rem; }
+#TOC > ul { padding-left: 0; }
+#TOC li { margin: .4rem 0; }
+#TOC a { text-decoration: none; }
+#TOC a:hover { text-decoration: underline; }
+.panel ul, .panel ol { padding-left: 1.45rem; }
+.panel li { margin: .45rem 0; }
+.panel > :last-child { margin-bottom: 0; }
+.table-scroll {
+  margin: 1rem 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overscroll-behavior-x: contain;
+}
+table { width: 100%; border-collapse: collapse; }
+th, td {
+  padding: .7rem .85rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+  overflow-wrap: break-word;
+}
+th { color: var(--gold); font-weight: 600; background: var(--reader-inset); }
+tr:last-child td { border-bottom: 0; }
+tr:nth-child(even) td { background: rgba(255,255,255,.018); }
+.math.display {
+  display: block;
+  padding: .85rem .75rem;
+  margin: 1.1rem 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--reader-inset);
+  overscroll-behavior-x: contain;
+}
+math[display="block"] {
+  width: max-content;
+  min-width: 100%;
+  margin: .1em 0;
+  font-size: 1.1em;
+}
+code { font-family: 'SFMono-Regular', Menlo, Consolas, monospace; font-size: .9em; overflow-wrap: anywhere; }
+pre { overflow-x: auto; background: var(--reader-inset); }
+blockquote { margin-left: 0; padding-left: 1.2rem; border-left: 3px solid var(--gold); color: var(--muted); }
+footer {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1.2rem 1rem 2rem;
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+}
+.skip-link { position: fixed; top: -60px; left: 8px; z-index: 10001; }
+.skip-link:focus { top: 6px; padding: 6px; background: var(--reader-card); }
+@media (max-width: 640px) {
+  .standard-exhibit #poams-hub-nav { padding: 0 4px; gap: 0; font-size: 11px; }
+  #poams-hub-nav a { padding: 5px 4px; }
+  #poams-hub-nav .phn-pos { display: none; }
+  .hero .eyebrow { font-size: 10px; letter-spacing: .07em; }
+  .paper-contents { padding: .8rem 1rem; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* Opt-in paper reader override. Shared corpus assets remain byte-identical. */
+html[data-theme]:has(body.coupled-circulations) { color-scheme: dark !important; }
+html[data-theme="light"]:has(body.coupled-circulations) { color-scheme: light !important; }
+html[data-theme] body.reader-standard.coupled-circulations {
+  --paper-bg: #0d0d18;
+  --paper-card: #1c1c30;
+  --paper-inset: #10101d;
+  --paper-fg: #e8e8f0;
+  --paper-muted: #aaaabd;
+  --paper-gold: #d4af37;
+  --paper-blue: #5bc8f5;
+  --paper-border: #303046;
+  --paper-nav: rgba(13,13,24,.96);
+  --bg: var(--paper-bg) !important;
+  --text: var(--paper-fg) !important;
+  --muted: var(--paper-muted) !important;
+  --gold: var(--paper-gold) !important;
+  --line: var(--paper-border) !important;
+  --reader-bg: var(--paper-bg) !important;
+  --reader-card: var(--paper-card) !important;
+  --reader-inset: var(--paper-inset) !important;
+  --reader-fg: var(--paper-fg) !important;
+  --reader-muted: var(--paper-muted) !important;
+  --reader-gold: var(--paper-gold) !important;
+  --reader-blue: var(--paper-blue) !important;
+  --reader-border: var(--paper-border) !important;
+  color-scheme: dark !important;
+  background: var(--paper-bg) !important;
+  color: var(--paper-fg) !important;
+}
+html[data-theme="light"] body.reader-standard.coupled-circulations {
+  --paper-bg: #ffffff;
+  --paper-card: #fffdf8;
+  --paper-inset: #f6f4ee;
+  --paper-fg: #2a2a2a;
+  --paper-muted: #6f6655;
+  --paper-gold: #806008;
+  --paper-blue: #075f91;
+  --paper-border: #ded8ca;
+  --paper-nav: rgba(255,255,255,.96);
+  color-scheme: light !important;
+}
+body.reader-standard.coupled-circulations #poams-hub-nav {
+  background: var(--paper-nav) !important;
+  border-bottom-color: var(--paper-border) !important;
+}
+body.reader-standard.coupled-circulations #poams-hub-nav a { color: var(--paper-gold) !important; }
+body.reader-standard.coupled-circulations #poams-hub-nav .phn-title { color: var(--paper-fg) !important; }
+body.reader-standard.coupled-circulations .hero .provenance { color: var(--paper-muted) !important; }
+.coupled-circulations .reader-actions { display: flex; justify-content: flex-end; margin: -.75rem 0 .75rem; }
+.coupled-circulations #paper-theme-toggle {
+  min-height: 36px;
+  padding: .4rem .75rem;
+  border: 1px solid var(--paper-border);
+  border-radius: 8px;
+  color: var(--paper-fg);
+  background: var(--paper-card);
+  cursor: pointer;
+}
+.coupled-circulations #paper-theme-toggle:hover { border-color: var(--paper-gold); }
+.coupled-circulations #paper-theme-toggle[hidden] { display: none; }
+@media print {
+  html[data-theme]:has(body.coupled-circulations) { color-scheme: light !important; }
+  html[data-theme] body.reader-standard.coupled-circulations {
+    --paper-bg: #ffffff;
+    --paper-card: #ffffff;
+    --paper-inset: #ffffff;
+    --paper-fg: #2a2a2a;
+    --paper-muted: #514a3e;
+    --paper-gold: #655000;
+    --paper-blue: #075f91;
+    --paper-border: #b5b5b5;
+    color-scheme: light !important;
+    padding: 0 !important;
+  }
+  body.coupled-circulations #poams-hub-nav,
+  body.coupled-circulations .reader-actions,
+  body.coupled-circulations .skip-link { display: none !important; }
+}
 </style>
+<style id="optical-layout">
+/* Content-specific glue only. The preceding CC stylesheet is copied byte-for-byte. */
+.optical-link #poams-hub-nav .phn-center { flex-direction: row; flex-wrap: nowrap; gap: .5rem; }
+.optical-link #poams-hub-nav > a:first-child { justify-self: start; }
+.optical-link .reader-actions { gap: .5rem; }
+.optical-link #printButton {
+  min-height: 36px; padding: .4rem .75rem; border: 1px solid var(--paper-border);
+  border-radius: 8px; color: var(--paper-fg); background: var(--paper-card); cursor: pointer;
+}
+.optical-link #printButton:hover { border-color: var(--paper-gold); }
+.optical-link #printButton[hidden] { display: none; }
+.optical-link .status-banner {
+  border-color: var(--paper-border); border-left-color: var(--paper-gold);
+  background: var(--paper-inset);
+}
+body.reader-standard.optical-link .hero .status-banner p,
+.optical-link .status-banner p {
+  max-width: none; margin: .3rem 0; text-align: left !important; color: var(--paper-fg);
+}
+.optical-link .status-banner strong { color: var(--paper-gold); }
+.optical-link .paper-contents > strong { color: var(--paper-gold); }
+.optical-link .paper-contents ol { margin: .6rem 0; padding-left: 1.4rem; }
+.optical-link .section-number {
+  font-size: .7rem !important; letter-spacing: .12em; text-transform: uppercase; color: var(--paper-muted);
+}
+.optical-link .lead { color: var(--paper-muted); }
+.optical-link .callout {
+  margin: 1.1rem 0; padding: .85rem 1rem; border: 1px solid var(--paper-border);
+  border-radius: 8px; background: var(--paper-inset);
+}
+.optical-link .callout.thesis { border-left: 3px solid var(--paper-gold); }
+.optical-link .callout > :first-child { margin-top: 0; }
+.optical-link .callout > :last-child { margin-bottom: 0; }
+.optical-link .small, .optical-link .caption { font-size: 12.5px !important; color: var(--paper-muted); }
+.optical-link .ref { font-size: .8em; white-space: nowrap; }
+.optical-link caption {
+  caption-side: top; text-align: left; padding: .7rem .85rem; font-weight: 600;
+  background: var(--paper-inset); color: var(--paper-fg);
+}
+.optical-link tr:last-child th { border-bottom: 0; }
+.optical-link td.numeric { font-variant-numeric: tabular-nums; }
+.optical-link .bounds .numeric { overflow-wrap: anywhere; }
+.optical-link .score-table th, .optical-link .score-table td { text-align: center; padding: .6rem; }
+.optical-link .formula .line { display: block; white-space: nowrap; }
+.optical-link .terms { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: .6rem 1rem; }
+.optical-link .terms dt, .optical-link .bin { color: var(--paper-gold); }
+.optical-link .terms dd { margin: 0; }
+.optical-link details { margin: 1rem 0; padding: .85rem 0; border-top: 1px solid var(--paper-border); }
+.optical-link details > div { padding-top: .5rem; }
+.optical-link .path { display: block; margin: .4rem 0; overflow-wrap: anywhere; }
+.optical-link .hash { font: .75rem/1.5 ui-monospace, monospace; color: var(--paper-muted); overflow-wrap: anywhere; }
+.optical-link .sources { table-layout: fixed; }
+.optical-link .sources td { overflow-wrap: anywhere; }
+.optical-link .companion-links { display: flex; flex-wrap: wrap; gap: .7rem 1.2rem; }
+@media (max-width: 640px) {
+  .optical-link #poams-hub-nav .phn-center { gap: 0; }
+  .optical-link .terms { grid-template-columns: minmax(0, 1fr); gap: .15rem; }
+  .optical-link .terms dd { margin-bottom: .7rem; }
+}
+@media print {
+  .optical-link .paper-contents { display: none; }
+  .optical-link .table-scroll { overflow: visible; }
+  .optical-link .table-scroll table { min-width: 0; font-size: 8pt; }
+  .optical-link .formula .line { white-space: normal; }
+  .optical-link tr { break-inside: avoid; }
+}
+</style>
+<!-- POAMS LISTEN BEGIN --><link rel="stylesheet" href="podcast-listen.css"><script defer src="podcast-listen.js"></script><!-- POAMS LISTEN END -->
 </head>
-<body class="reader-standard standard-exhibit optical-link">
+<body class="reader-standard standard-exhibit coupled-circulations optical-link">
 <a class="skip-link" href="#main">Skip to the exhibit</a>
-<header class="topbar" id="poams-hub-nav"><div class="topinner"><a class="brand" href="./index.html">← Return to Hub</a><nav class="toplinks" aria-label="Quick navigation"><a class="hide-small" href="#construction">The model</a><a href="#test">The acid test</a><a class="hide-small" href="#engineering">Companions</a><button id="printButton" type="button" hidden>Print / PDF</button><button id="paper-theme-toggle" type="button" hidden>Light mode</button></nav></div></header>
-<div class="wrap">
+<nav id="poams-hub-nav" aria-label="Quick navigation">
+<a href="./index.html">← Return to Hub</a>
+<div class="phn-center"><a href="#construction">The model</a><a href="#test">The acid test</a></div>
+<a href="#engineering">Companions</a>
+</nav>
 <header class="hero">
+<div class="reader-actions"><button id="printButton" type="button" hidden>Print / PDF</button><button id="paper-theme-toggle" type="button" hidden>Light mode</button></div>
 <p class="eyebrow">An optical-information link · Normal Realism / POAMS</p>
 <h1>The glass, the light,<br>and the record.</h1>
-<p class="dek">If POAMS is correct, the guide and the information it appears to carry have one root. The task is to turn that account into a construction—and a question that a completed record can decide.</p>
-<p class="hero-meta">1 November 2026 · Rewritten exhibit · Private review draft</p>
-<div class="status-banner" role="note" aria-label="Research status"><p><strong>RCM-1: acquisition-ready ON PAPER only.</strong> The integrated link is a conditional paper result. AP-RCM and AP-M remain conditional availability hypotheses. J1–J4 are OPEN; no N2; no physical validation. The t=10 transfer and count thresholds remain undecided; CT1 computation is parked.</p><p>We have not established a working physical optical fiber.</p></div>
-</header>
+<!-- POAMS LISTEN BEGIN -->
+<div class="poams-listen" data-podcast="58" data-podcast-title="An Optical-Information Link">
+<div class="pl-pills"><button class="pl-pill" type="button" aria-label="Audio: An Optical-Information Link" aria-expanded="false" aria-controls="pl-player-58">AUDIO</button><a class="pl-video" href="https://notebook.google.com/notebook/f0cf9987-ca6a-4af4-b0cf-8a54bb7a3790" target="_blank" rel="noopener noreferrer" aria-label="Video in NotebookLM: An Optical-Information Link (opens in a new tab)">VIDEO</a></div>
+<div id="pl-player-58" class="pl-player" hidden><button class="pl-play" type="button" aria-label="Play podcast" disabled>▶</button><input class="pl-seek" type="range" min="0" max="100" step="0.1" value="0" aria-label="Seek podcast" disabled><span class="pl-timer">0:00 / 0:00</span></div>
+<p class="pl-error" role="status" hidden></p><audio preload="none" src="https://audio.resonantmachines.us/podcasts/58/57f966fdbecb7ac9bb2fcbc90bd9f6360c34a6e93fe9ea59ad97d60e7e8e0d5c.mp3?v=57f966fdbecb7ac9bb2fcbc90bd9f6360c34a6e93fe9ea59ad97d60e7e8e0d5c"></audio>
 </div>
-<main class="wrap" id="main">
-<nav class="contents" aria-label="Exhibit contents"><strong>Inside this exhibit</strong><ol><li><a href="#preamble">The exchange comes first</a></li><li><a href="#construction">One integrated link, three distinct bounds</a></li><li><a href="#reassessment">What the computational wall taught us</a></li><li><a href="#test">The acid test: RCM-1</a></li><li><a href="#provenance">Status, sources and engineering companions</a></li></ol></nav>
-<section class="major" id="preamble" aria-labelledby="preamble-title">
+<!-- POAMS LISTEN END -->
+<p class="subtitle">If POAMS is correct, the guide and the information it appears to carry have one root. The task is to turn that account into a construction—and a question that a completed record can decide.</p>
+<p class="provenance">1 November 2026 · Rewritten exhibit · Private review draft</p>
+<div class="record-note status-banner" role="note" aria-label="Research status"><p><strong>RCM-1: acquisition-ready ON PAPER only.</strong> The integrated link is a conditional paper result. AP-RCM and AP-M remain conditional availability hypotheses. J1–J4 are OPEN; no N2; no physical validation. The t=10 transfer and count thresholds remain undecided; CT1 computation is parked.</p><p>We have not established a working physical optical fiber.</p></div>
+</header>
+<main id="main">
+<nav class="paper-contents" id="TOC" aria-label="Exhibit contents"><strong>Inside this exhibit</strong><ol><li><a href="#preamble">The exchange comes first</a></li><li><a href="#construction">One integrated link, three distinct bounds</a></li><li><a href="#reassessment">What the computational wall taught us</a></li><li><a href="#test">The acid test: RCM-1</a></li><li><a href="#provenance">Status, sources and engineering companions</a></li></ol></nav>
+<article aria-label="Exhibit">
+<section class="panel" id="preamble" aria-labelledby="preamble-title">
 <p class="section-number">01 · The physical idea</p><h2 id="preamble-title">The exchange comes first.</h2>
 <p class="lead">The adopted working picture places a completed exchange—not a travelling passenger—at the center of the calculation.</p>
 <p>Within the POAMS account under test, light is whole exchanges of action <i>h</i> between accumulators. Sender, receiver and apparatus belong inside the same optical projection. Relative phase, persistent clock memory and retained records supply the distinctions the calculation must preserve. The rule for forgetting is exact: <strong>forget nothing that a future admitted operation could still distinguish.</strong> The accepted representation gives that picture mathematical form through persistent-clock dynamics, clock kernels of rank at most three, and a six-term source decomposition. Its acceptance is conditional on the declared laws, not a measurement of the ontology. <a class="ref" href="#src-preamble">[A]</a> <a class="ref" href="#src-exchange">[E]</a></p>
 <h3>Action—not cargo</h3>
 <p>In this account, the accumulator and the light are not two substances. One is retained organization; the other is its completed exchange. Transfer from one accumulator to another means a change between participating accounts, not an extra object transporting something across an independent stage.</p>
-<div class="formula" aria-label="Whole-turn action"><span class="line">For the declared unit winding: L = ħ; &nbsp; ∮L dθ = 2πħ = h.</span></div>
+<div class="math display formula" aria-label="Whole-turn action"><span class="line">For the declared unit winding: L = ħ; &nbsp; ∮L dθ = 2πħ = h.</span></div>
 <p>The exchange is whole; its possible connections can nevertheless have different relative phases. Action <i>h</i> is neither an energy in joules nor an elapsed time in seconds. A source rate and an exchange law are still needed. <a class="ref" href="#src-fundamentals">[F]</a></p>
 <h3>Two-slit puts the whole apparatus in the picture</h3>
 <p>The foundational question is not which opening a little passenger used. It is: <em>what completed source–receiver connections does this arrangement permit, and with what relative weights?</em> The source, both openings, receiver and any distinguishing records participate in the answer.</p>
@@ -77,18 +346,18 @@ code{font:.81em/1.5 "SFMono-Regular",Menlo,Consolas,monospace;overflow-wrap:anyw
 <p>Two-slit makes the obligation vivid: preserve relative phase and retained distinguishability. Derive the exchange and its observable timing relations first; let the computational representation follow. <a class="ref" href="#src-preamble">[B]</a></p>
 <div class="callout thesis"><h3>The organizing claim under test</h3><p><strong>If POAMS is correct, the glass is light too:</strong> retained organization and propagating light, ultimately information, share one root. The “carry” and what is “carried” are the same; neither is cargo carried across a separate void. Their spatial appearance is optically projected information—turnings, “non-things in a non-void,” in the owner’s formulation.</p><p>This is why the program matters beyond a better engineered fiber. It brings the observer into the observed and asks the whole account to face a concrete test. The thesis is the POAMS account under test, not an established empirical fact. RCM-1 below tests one specified memory ingredient; it cannot by itself establish the whole ontology. <a class="ref" href="#src-preamble">[C]</a></p></div>
 </section>
-<section class="major" id="construction" aria-labelledby="construction-title">
+<section class="panel" id="construction" aria-labelledby="construction-title">
 <p class="section-number">02 · The construction</p><h2 id="construction-title">One source, through the whole link.</h2>
 <p class="lead">The integrated paper model joins preparation, guided transport, readout, paid phase comparison, return and recorded acquisition. It never repairs a failed transfer by substituting a freshly prepared endpoint signal.</p>
 <ol class="steps"><li><strong>Prepared source.</strong> Supply the original source and its arbitrary retained reference within the declared joint initial-state boundary.</li><li><strong>Guided transport.</strong> Follow a finite 1,024-edge route with nonzero transverse cladding. Coherent angular information remains in the qualified joint model; the third angular component is retained.</li><li><strong>Angular readout and full cold SWAP.</strong> Record the angular result and retain the actual source for the endpoint sequence, with its reference and complement states.</li><li><strong>Paid relative-phase comparison.</strong> Act on the same signal. Include terminal energy and both work accounts: at the specified witness, 7k₀/8 + k₀/8 = k₀.</li><li><strong>Source return.</strong> Close the source, apparatus and return accounts, including two complete receipt couriers for the return acknowledgments.</li><li><strong>Recorded acquisition.</strong> Use actual source/code diagnostics and completed-event receipts. The independent clock seals failed attempts as well as successful ones; a requested command or history Boolean is not a completion receipt.</li></ol>
 <p>This is an <strong>actively guided</strong> construction. It does not derive an intrinsic optical carrier or a passive fiber passband. Its finite material types, preparation, controls, thermal accounts, clocks and acquisition laws are supplied conditional operations. Imported finite-spin, operator and concentration mathematics is the declared representation—not evidence that those material organizations have been realized. <a class="ref" href="#src-link">[L]</a></p>
 <h3>Three bounds; three different questions</h3>
-<div class="table-scroll"><table class="bounds"><caption>Conditional bounds of the integrated link model</caption><thead><tr><th scope="col">Question</th><th scope="col">Bound</th><th scope="col">What it does—and does not—say</th></tr></thead><tbody><tr><th scope="row">Combined ideal-forbidden attempted event</th><td class="numeric">0.009370671101</td><td>The squared coherent error applies to this specified ideal-annihilating event, including prescribed ideal-zero outcomes and attempted-operation failures. It is not a sub-1% bound on every record probability or an arbitrary channel.</td></tr><tr><th scope="row">General complete classical-record total variation</th><td class="numeric">0.096299842720</td><td>A general complete-record distribution bound. Here coherent error enters linearly, not squared.</td></tr><tr><th scope="row">Predecoder same-factor whole-density half trace</th><td class="numeric">0.116203193747704796439…</td><td>A retained physical-custody bound before decoding, not postdecoder fidelity.</td></tr></tbody></table></div>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable comparison table"><table class="bounds"><caption>Conditional bounds of the integrated link model</caption><thead><tr><th scope="col">Question</th><th scope="col">Bound</th><th scope="col">What it does—and does not—say</th></tr></thead><tbody><tr><th scope="row">Combined ideal-forbidden attempted event</th><td class="numeric">0.009370671101</td><td>The squared coherent error applies to this specified ideal-annihilating event, including prescribed ideal-zero outcomes and attempted-operation failures. It is not a sub-1% bound on every record probability or an arbitrary channel.</td></tr><tr><th scope="row">General complete classical-record total variation</th><td class="numeric">0.096299842720</td><td>A general complete-record distribution bound. Here coherent error enters linearly, not squared.</td></tr><tr><th scope="row">Predecoder same-factor whole-density half trace</th><td class="numeric">0.116203193747704796439…</td><td>A retained physical-custody bound before decoding, not postdecoder fidelity.</td></tr></tbody></table></div>
 <p>The three quantities cannot be interchanged. Their common qualifications apply before preparation and across the joined construction, with no fresh-input or success-selected error allowance between stages. Finite formation, launch/capture, deformation, heat, work, controller, return and failed-state accounts remain part of the claim.</p>
 <details><summary>The integrated link’s separate complete-record target</summary><div><p>The frozen link target contains 821 prepared cases and 80,000 intended attempts per case: 65,680,000 attempts. The fixed readout has 1,811 scalar outputs on 7,244 distinct output dimers. Missing, noncode, failed, partial, late and tie records remain failures; successful offers do not define a smaller favorable denominator.</p><p>The prospective event compatibility threshold is <strong>0.019370671101</strong>; individual category thresholds are <strong>0.106299842720</strong>. These are compatibility tests, not empirical sub-1% failure certification or full empirical total-variation certification. Any nonempty <code>structural_issues</code> disqualifies admissible complete-record use, even when descriptive counts fit the numerical bands.</p><p>The sufficient account is 31,007,572,988,523 dimers and 25,577,373,557,351,935,515 native posts per fresh attempt. These are conservative finite upper accounts, not necessary lower bounds, physical dissipation, SI estimates or practical hardware. They are not the RCM-1 schedule. <a class="ref" href="#src-link">[L]</a></p></div></details>
 <p>The achieved result is bounded paper completion of this supplied-type candidate. Material realization, useful SI performance, practical resource reduction and measured operation remain unestablished.</p>
 </section>
-<section class="major" id="reassessment" aria-labelledby="reassessment-title">
+<section class="panel" id="reassessment" aria-labelledby="reassessment-title">
 <p class="section-number">03 · The reassessment</p><h2 id="reassessment-title">A smaller description must remember enough.</h2>
 <p class="lead">The full-state calculation met a computational wall. The important question was what the attempted method required—not what nature was obliged to calculate.</p>
 <p>The stopped rank-1024 global-state method and its accumulated full-state norm criterion remain stopped in their own scope. Their failure is not a lower bound on receiver error. Writing the receiver readout as an observable was not a new solution: the model already had a full-trace population readout and joint apparatus accounts. <a class="ref" href="#src-fundamentals">[F]</a></p>
@@ -104,7 +373,7 @@ code{font:.81em/1.5 "SFMono-Regular",Menlo,Consolas,monospace;overflow-wrap:anyw
 <p>The full-size CT1 solver remains parked. At the frozen t=10 candidate, both opposite-helicity transfer tests still require <code>|g−| ≥ 4e−6</code>, and the actual useful-count test still requires <code>p ≥ 1e−8</code>. Those thresholds remain undecided; positive subthreshold lower bounds are inconclusive, not failures.</p>
 <p>The diagnosis nevertheless supplied a narrower question with a complete nominal full-size paper proof: does a second encounter retain the same clock’s phase record, or act as though the clock had been independently renewed? That is RCM-1. It is a separately posed diagnostic, not a shortcut declaring the whole transport problem solved.</p>
 </section>
-<section class="major" id="test" aria-labelledby="test-title">
+<section class="panel" id="test" aria-labelledby="test-title">
 <p class="section-number">04 · The acid test</p><h2 id="test-title">RCM-1: meet the same clock twice.</h2>
 <p class="lead">The decisive contrast is persistent same-contact memory versus accounted independent renewal. The test asks for a receiver record—not an inferred hidden clock trajectory.</p>
 <h3>The separate diagnostic word</h3>
@@ -113,23 +382,23 @@ code{font:.81em/1.5 "SFMono-Regular",Menlo,Consolas,monospace;overflow-wrap:anyw
 <p>The M and H control rows add a separate premise, <strong>AP-M</strong>: controllable clock SWAP/export and independent fresh clock stock, without renewing order, changing phase or introducing a hidden return interaction. AP-M is not implied by AP-RCM. Neither availability premise is physically established.</p>
 <h3>Four pointers, one frozen score</h3>
 <p>Each trial keeps both rails and records the central pointers in scoring order <code>TOTAL_C, DARK_C, TOTAL_D, DARK_D</code>. DARK is the actual recorded dark observable, not a manufactured background. In the phase instrument, the DARK recording coupling precedes TOTAL; both occur after the prescribed joint exchange.</p>
-<div class="table-scroll"><table class="score-table"><caption>The total C9 score map, applied to every physical phase pointer</caption><tbody><tr><th scope="row">Raw label ℓ</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr><tr><th scope="row">s(ℓ)</th><td>0</td><td>+1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>−1</td></tr></tbody></table></div>
-<div class="formula"><span class="line">kᵢ = s(T_C) − s(D_C) + s(T_D) − s(D_D)</span><span class="line">Yᵢ = kᵢ/√2; &nbsp; rⱼ = Σᵢkᵢ/(n√2).</span><span class="line">Full-domain norm: 2√2. &nbsp; Range width: 4√2.</span></div>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable comparison table"><table class="score-table"><caption>The total C9 score map, applied to every physical phase pointer</caption><tbody><tr><th scope="row">Raw label ℓ</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr><tr><th scope="row">s(ℓ)</th><td>0</td><td>+1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>−1</td></tr></tbody></table></div>
+<div class="math display formula"><span class="line">kᵢ = s(T_C) − s(D_C) + s(T_D) − s(D_D)</span><span class="line">Yᵢ = kᵢ/√2; &nbsp; rⱼ = Σᵢkᵢ/(n√2).</span><span class="line">Full-domain norm: 2√2. &nbsp; Range width: 4√2.</span></div>
 <p>The map is deterministic over all 6,561 four-pointer tuples. Labels 2–7 retain their distinct raw identities even though their arithmetic scores are zero. There is no clipping, rail averaging, selected-event denominator, unreadable-to-zero substitution or replacement of actual DARK. Nonnominal labels do not alone force inconclusive when full certificates remain valid; missing, ambiguous or unreadable observations do.</p>
 <h3>The exact prediction and the two bins</h3>
-<div class="formula"><span class="line">Persistent prediction: a = 1/32.</span><span class="line">Renewal prediction: b = β = (15 − 2√3 − √2 − √6)/288.</span><span class="line">25/960 &lt; β &lt; 26/960; &nbsp; 1/32 − β &gt; 1/240.</span></div>
-<div class="table-scroll"><table><caption>Frozen primary bins, inclusive at both endpoints</caption><thead><tr><th scope="col">Persistent-compatible</th><th scope="col">Renewal-not-excluded</th></tr></thead><tbody><tr><td class="bin">[29/960, 31/960]</td><td class="bin">[24/960, 27/960]</td></tr><tr><td>Compatible with the persistent prediction under the certificates and its required controls.</td><td>The conservative renewal envelope is not excluded under the certificates and its required controls.</td></tr></tbody></table></div>
+<div class="math display formula"><span class="line">Persistent prediction: a = 1/32.</span><span class="line">Renewal prediction: b = β = (15 − 2√3 − √2 − √6)/288.</span><span class="line">25/960 &lt; β &lt; 26/960; &nbsp; 1/32 − β &gt; 1/240.</span></div>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable comparison table"><table><caption>Frozen primary bins, inclusive at both endpoints</caption><thead><tr><th scope="col">Persistent-compatible</th><th scope="col">Renewal-not-excluded</th></tr></thead><tbody><tr><td class="bin">[29/960, 31/960]</td><td class="bin">[24/960, 27/960]</td></tr><tr><td>Compatible with the persistent prediction under the certificates and its required controls.</td><td>The conservative renewal envelope is not excluded under the certificates and its required controls.</td></tr></tbody></table></div>
 <p>The gap is not a license to classify by <code>r &gt; 28/960</code>. Use exact algebraic arithmetic or certified outward representation intervals. An interval must be wholly inside a bin to receive that primary label; an interval spanning bins or only partly overlapping one is inconclusive. An interval disjoint from both rejects both frozen envelopes or the posing/error conditions. A singleton at a bin endpoint belongs to that inclusive bin.</p>
 <h3>The error certificate is part of the claim</h3>
-<div class="formula" aria-label="RCM-1 sufficient error certificate"><span class="line">E = 4√2·D_prep + 2√2·δ_word + e_pointer + e_stat ≤ 1/960.</span></div>
+<div class="math display formula" aria-label="RCM-1 sufficient error certificate"><span class="line">E = 4√2·D_prep + 2√2·δ_word + e_pointer + e_stat ≤ 1/960.</span></div>
 <dl class="terms"><dt>D_prep</dt><dd>Half trace-norm distance of the full jointly supplied state from nominal, including the retained references, clocks, apparatus, scored pointers and archive stock.</dd><dt>δ_word</dt><dd>Unhalved diamond distance of the complete ordered channel through protected pointer recording, including full fault/complement action and reference correlations.</dd><dt>e_pointer</dt><dd>A uniform absolute decoder/calibration bias bound for the actual bounded score, obtained independently of the discriminator—not a fitted background.</dd><dt>e_stat</dt><dd>The frozen fixed-sample sampling bound, with cross-trial independence justified. Correlations within a trial are allowed.</dd></dl>
 <p>The four-pointer, two-rail norm is <strong>2√2, not 2</strong>. That correction changes the sufficient certificate, not the nominal prediction, bins or CT1 thresholds. The default ceilings are <code>D ≤ √2/30720</code>, <code>δ ≤ √2/15360</code>, <code>e_pointer ≤ 1/3840</code> and <code>e_stat = 1/3840</code>. Each boundary contribution is 1/3840. No attained certificate is claimed. <a class="ref" href="#src-freeze">[Z]</a></p>
 <p>The default finite sufficiency figure is <strong>3,774,873,600 trials per row</strong>, or 37,748,736,000 nominal slots across ten rows. This is finite mathematical sufficiency, not practical capacity, throughput or acquisition readiness. The statistical family failure bound is at most 1/1000; adding admissible certificate failure bounds gives at most 1/500, or at most 1/1000 for deterministic certificates. The total error guarantee holds on the simultaneous good event, not on every random sample without exception. These probabilities concern the conditional procedure, not the truth of POAMS.</p>
 <p>A representation interval encloses the exact recorded mean; it is not enlarged a second time by error already included in the bins. A missing global preparation, channel, decoder or independence certificate makes the protocol inapplicable—not an invitation to fit the bound from its answer. <a class="ref" href="#src-protocol">[P §§3–7]</a></p>
 <h3 id="schedule">The ten-row schedule</h3>
 <p>H_P denotes persistent clocks; H_R denotes accounted independent renewal. In addition to <i>a</i> and <i>b</i> above, the exact constants are:</p>
-<div class="formula"><span class="line">c = (2 + √3)/96</span><span class="line">d = (1 + √2)(2 + √3 + √2)/288</span><span class="line">t = (7 + √2)/96.</span></div>
-<div class="table-scroll"><table class="wide-table schedule"><caption>Required rows; no outcome-driven selection</caption><thead><tr><th scope="col">ID</th><th scope="col">Scheduled posing</th><th scope="col">H_P</th><th scope="col">H_R</th><th scope="col">Purpose</th></tr></thead><tbody>
+<div class="math display formula"><span class="line">c = (2 + √3)/96</span><span class="line">d = (1 + √2)(2 + √3 + √2)/288</span><span class="line">t = (7 + √2)/96.</span></div>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable comparison table"><table class="wide-table schedule"><caption>Required rows; no outcome-driven selection</caption><thead><tr><th scope="col">ID</th><th scope="col">Scheduled posing</th><th scope="col">H_P</th><th scope="col">H_R</th><th scope="col">Purpose</th></tr></thead><tbody>
 <tr><th scope="row">N</th><td>Two contacts, u_minus, φ = π/2</td><td>a</td><td>b</td><td>Decisive frozen bins</td></tr>
 <tr><th scope="row">Q</th><td>Same two contacts, φ = 0</td><td>−c</td><td>−d</td><td>Detuned quadrature; separate predictions</td></tr>
 <tr><th scope="row">V</th><td>Vacuum source, two contacts, φ = π/2</td><td>0</td><td>0</td><td>Negative coherence; retain nonzero individual DARK</td></tr>
@@ -149,7 +418,7 @@ code{font:.81em/1.5 "SFMono-Regular",Menlo,Consolas,monospace;overflow-wrap:anyw
 <div class="callout"><p><strong>Inconclusive—never passage.</strong> Missing or corrupt records, unavailable controls, failed AP-RCM/AP-M conditions, invalid certificates, excessive error, incomplete schedules, failed custody or unjustified statistics do not count as a successful test. Retain every adverse record. Controls may not be used to rescale N or tune angles, clock preparation, phase, decoder, DARK, error allowance or bins.</p></div>
 <h3 id="falsifiers">What would falsify the frozen signatures?</h3>
 <p>The register below uses admissible outward representation intervals Iⱼ and the frozen bins B_P and B_R. It summarizes the adopted protocol; all qualification and control rules above remain conjunctive. <a class="ref" href="#src-protocol">[P §8]</a></p>
-<div class="table-scroll"><table class="wide-table"><caption>Falsifier and invalidity register</caption><thead><tr><th scope="col">Entry</th><th scope="col">Observation or condition</th><th scope="col">Consequence</th></tr></thead><tbody>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable comparison table"><table class="wide-table"><caption>Falsifier and invalidity register</caption><thead><tr><th scope="col">Entry</th><th scope="col">Observation or condition</th><th scope="col">Consequence</th></tr></thead><tbody>
 <tr><th scope="row">F-P</th><td>I_N ⊆ [24/960, 27/960]</td><td>Persistent same-contact prediction excluded; conservative renewal envelope not excluded, subject to its controls.</td></tr>
 <tr><th scope="row">F-R</th><td>I_N ⊆ [29/960, 31/960]</td><td>Accounted independent-clock renewal envelope excluded; persistence compatible, not established universally.</td></tr>
 <tr><th scope="row">F-B</th><td>I_N disjoint from B_P ∪ B_R</td><td>Both frozen envelopes rejected or posing/error premises fail. Includes singleton 28/960 and any singleton above 31/960 or below 24/960.</td></tr>
@@ -170,10 +439,10 @@ code{font:.81em/1.5 "SFMono-Regular",Menlo,Consolas,monospace;overflow-wrap:anyw
 <p>Raw originals, failed slots and explicit tombstones remain in append-only custody. Exact integer score sums, outward representation intervals, separate budget terms and all control dispositions belong in the reduction receipt. Hashes bind documentary bytes; they do not measure a physical state or establish preparation, independence or calibration. <a class="ref" href="#src-protocol">[P §9]</a></p>
 <div class="callout thesis"><p><strong>A persistent-bin outcome would test clock memory, not validate the whole fiber.</strong> Even a fully qualified compatible result would not validate all CT1 gates, shifted-clock transport, source reuse, useful flux or the entire POAMS ontology. What it could supply is a sharply delimited comparison of the contact-memory ingredient that the reassessment identified.</p></div>
 </section>
-<section class="major" id="provenance" aria-labelledby="provenance-title">
+<section class="panel" id="provenance" aria-labelledby="provenance-title">
 <p class="section-number">05 · Status and provenance</p><h2 id="provenance-title">A paper construction, a frozen question.</h2>
 <p>The sequence is now explicit: a bounded integrated link on paper; an adopted exchange-record representation; a diagnosis of persistent memory coupled to recombining histories; and RCM-1, with a complete nominal full-size proof and an adopted acquisition protocol. Each result has its own scope.</p>
-<div class="status-banner"><p><strong>Conditionality that governs the exhibit</strong></p><p>RCM-1 is acquisition-ready ON PAPER only. AP-RCM/AP-M are conditional availability hypotheses. The t=10 transfer and count thresholds are undecided and CT1 computation is parked. J1–J4 remain OPEN; no N2; no physical validation. The integrated link model is a conditional paper result.</p><p><strong>We have not established a working physical optical fiber.</strong></p><p>The ontological thesis remains “If POAMS is correct…”—the account and its acid test, never an established empirical fact. “Acquisition-ready ON PAPER” is not practical capacity, attained calibration, tested acquisition software, physical readiness or laboratory authorization.</p></div>
+<div class="record-note status-banner"><p><strong>Conditionality that governs the exhibit</strong></p><p>RCM-1 is acquisition-ready ON PAPER only. AP-RCM/AP-M are conditional availability hypotheses. The t=10 transfer and count thresholds are undecided and CT1 computation is parked. J1–J4 remain OPEN; no N2; no physical validation. The integrated link model is a conditional paper result.</p><p><strong>We have not established a working physical optical fiber.</strong></p><p>The ontological thesis remains “If POAMS is correct…”—the account and its acid test, never an established empirical fact. “Acquisition-ready ON PAPER” is not practical capacity, attained calibration, tested acquisition software, physical readiness or laboratory authorization.</p></div>
 <p>CCK complex states/channels, trace and diamond norms, and concentration mathematics are openly adopted mathematical tools. Clock-conditioned angular exchange and tariffs are candidate-specific adopted inputs. Scoring, schedules and custody rules are operational definitions. No raw physical measurement or calibration is reported here. The adopted review conditions remain conjunctive in their original scopes; this exposition does not replace or weaken them.</p>
 <h3 id="engineering">Engineering companions</h3>
 <p>The companion links retain their existing public-relative addresses. The data package describes the integrated transport/account construction; it is not an RCM-1 acquisition record or a physical validation receipt.</p>
@@ -183,7 +452,7 @@ code{font:.81em/1.5 "SFMono-Regular",Menlo,Consolas,monospace;overflow-wrap:anyw
 <ul class="source-list"><li><a href="https://cfmilam.github.io/nr-poams-papers/refraction-in-optic-fibres.html">N. Vivian Pope, <cite>Refraction in Optic Fibres</cite></a> — the foundational fibre account referenced by the telecommunications exhibit.</li><li><a href="./the-two-slit-experiment.html">The Two-Slit Experiment</a> — the whole source–apparatus–receiver relation, phase and distinguishing records.</li><li><a href="./poams-telecommunications.html">POAMS Telecommunications, §5: “Refraction as rate—the fibre ledger”</a> — the related public exposition. The current page has no section-5 anchor; follow its fifth numbered heading.</li></ul>
 <p>The preamble’s source reconstruction is supplied by the pinned fundamentals reassessment and owner-directed preamble. These reading links are genealogy, not additional physical evidence or a claim that Pope derived the subsequent engineering or RCM-1 protocol.</p>
 <details open><summary>Decision records and exact source identities</summary><div><p class="small">Paths are workspace-relative documentary references, not claims that private research records are publicly hosted. P denotes <code>poams-review/work/fiber-optics-integrated-program-2026-10-29/</code>. All source pins were checked before this rewrite; SHA-256 identifies bytes, not physical truth.</p>
-<div class="table-scroll"><table class="sources source-table"><caption>Controlling sources for this exhibit</caption><thead><tr><th scope="col">Reference and scope</th><th scope="col">Exact path and SHA-256</th></tr></thead><tbody>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable comparison table"><table class="sources source-table"><caption>Controlling sources for this exhibit</caption><thead><tr><th scope="col">Reference and scope</th><th scope="col">Exact path and SHA-256</th></tr></thead><tbody>
 <tr id="src-preamble"><th scope="row">A–D · Owner-directed preamble</th><td><code class="path">P/exhibit-rewrite-20261101/PREAMBLE-SOURCES.md</code><span class="hash">35f876b4634889428b78fc782728a66b779633dc34c46c08bb6d534234a54ccc</span></td></tr>
 <tr id="src-link"><th scope="row">L · Bounded integrated link</th><td><code class="path">P/paper-completion/REPORT.md</code><span class="hash">72091388ee95d998af0e717272ea6dc703b5228d9d8660c3b388c046cb4880db</span></td></tr>
 <tr id="src-fundamentals"><th scope="row">F · Conceptual reassessment</th><td><code class="path">P/FUNDAMENTALS-REASSESSMENT-20261031.md</code><span class="hash">bdaba3ec029a030492c6ff30982819256c86952a529b06ed51cf4c03eb88ea7a</span></td></tr>
@@ -196,6 +465,7 @@ code{font:.81em/1.5 "SFMono-Regular",Menlo,Consolas,monospace;overflow-wrap:anyw
 </tbody></table></div></div></details>
 <div class="callout thesis"><h3>What this could open</h3><p>The technological question is whether controllable exchange, relative phase and retained memory can become a useful information link with a complete physical account. The ontological question is whether the guide, signal, apparatus and observer can be understood as organizations of the same turning activity. This program puts both questions into working form, while keeping the next discriminator exact: meet the same clock twice, preserve the accounts, and compare the completed record.</p></div>
 </section>
+</article>
 </main>
 <footer><p><strong>Normal Realism → Pope–Osborne Angular Momentum Synthesis (POAMS)</strong></p><p>This exhibit extends the foundational work of N. Vivian “Viv” Pope and Dr. Anthony D. Osborne. The integrated engineering construction, exchange-record reductions and RCM-1 branch premises are subsequent research.</p><p>1 November 2026 · Private rewrite for independent review and owner ratification · No physical trial reported.</p><p><a href="#main">Back to the exhibit ↑</a> · <a href="./index.html">Exhibit hub</a></p></footer>
 </body>
