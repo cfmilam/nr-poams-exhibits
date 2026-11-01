@@ -25,6 +25,8 @@
     },
     "specification_math_typeset_without_numerical_change": 6,
     "source_spec_sha256": "def64905a24dc5e1ae3221d4f74b5b0494f6e3e56d06c7325078644df05ddd3a",
-    "exhibit_spec_sha256": "406c7d1bb8a743ce5fecf1bde0e82f19c08d98d9c5f394dc17fc607f05440f56"
+    "exhibit_spec_sha256": "406c7d1bb8a743ce5fecf1bde0e82f19c08d98d9c5f394dc17fc607f05440f56",
+    "exhibit_spec_successor_sha256": "1082fdeb9898bb311bc800769da6792ef075fc48bb9bcfa8c8d61bac34b27c66",
+    "successor_note": "2026-11-01 successor spec integrates RCM-1 sections; technical body reversibly byte-identical to the spec these checks ran against (406c7d1b...); data checks unchanged, not re-run."
   }
 }

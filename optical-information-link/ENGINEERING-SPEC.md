@@ -1,11 +1,66 @@
 # POAMS optical-information link — complete conditional engineering specification
 
-**Edition 1 · 30 October 2026**  
-**Design class:** finite, actively guided circulation-information link with a prepared relational angular source, guided transport, angular analysis, energy-conserving relative-phase endpoint, source return and complete attempted-record acquisition.
+**Edition 2 — STAGED SUCCESSOR DRAFT · 1 November 2026 · FIBER-SYNTH-R9A-1**  
+**Status:** engineering companion for integration and independent review; not published, not a build authorization.  
+**Design class:** retained conditional finite optical-information-link construction, governed by the adopted exchange-record representation; RCM-1 is the next separately scoped prospective contact-memory qualification target.
 
-This specification turns the completed paper construction into one engineering reference: what is supplied, where each operation occurs, what it changes, what remains, and what the final record must contain. It specifies a **conditional finite device**, not a fabricated fiber or a measured optical system. Its geometry is in independently defined comparison coordinates; no meter, hertz, watt, optical wavelength, vendor component or fabrication process is assigned without a material and calibration receipt.
+This successor preserves the complete Edition 1 technical baseline in §§1–16, including its numerical definitions, finite apparatus accounts, exact data references and acquired-record grammar. Added scope labels and a dated next-step annotation distinguish that baseline from the current program. Section 0 supplies the governing interpretation; §17 supplies the adopted, separately conditional RCM-1 protocol; §18 binds sources and read-only manifests. No predecessor artifact has been rewritten.
+
+## 0. Governing exchange-record frame and present status
+
+**PROSPECTIVE / CONDITIONAL — the representation is adopted for the declared mathematical candidate; its physical realization remains unestablished.**
+
+### 0.1 The POAMS account under test
+
+**If POAMS is correct**, the glass, the retained source and receiver, and what is described as propagating light are organizations of the same angular-momentum activity: the carry and the carried have the same root. This is the organizing POAMS account under test, not an established physical property of an engineered fiber. A completed exchange changes participating accounts; the account does not introduce a further object carrying substance across an independent stage. Sender, receiver, guide, clocks, phase references and recording apparatus all remain inside the relation being modeled. The observer is part of the observed account, not an uncharged readout outside it.
+
+For the declared unit winding, completed action is **h = 2πħ**. Action is neither energy nor elapsed duration. Relative phases belong to unresolved alternatives, not fractional completed objects or measured hidden trajectories. Two-slit motivates retaining the entire apparatus and its distinguishing records; it does not derive source laws, couplings, probabilities or useful communication performance. A null proper-time interpretation does not remove the participating clocks, establish global simultaneity or imply instantaneous communication.
+
+The engineering question is operational: which permitted sender intervention changes the receiver's completed record relative to its clock and references? Spatial drawings represent the required relations without making geometry, material constraints or paid apparatus disappear. Complex states, tensor products, channels and Born readout remain openly adopted mathematical inputs. The CT1 contact law is candidate-specific, not deduced from the ontology.
+
+### 0.2 What the adopted representation permits a calculation to forget
+
+Within the supplied CCK/CT1 laws, the adopted persistent-clock form is
+
+    U^t = Σ_q |q+t⟩⟨q| ⊗ V_q(t).
+
+The original ordered contacts remain. A site's repeated history has a three-component record interface and Gram kernel of rank at most three; its initial clock label persists through every revisit. This is mathematical contraction, not clock replacement, reset or export. The restricted-sector edge factorization applies only in the nominal magnetic-deficit-at-most-two sector; arbitrary old/fault stock still requires the original gate. The six-term source reduction is six positive **population** contractions for the actual mixed source, retaining both rails and longitudinal reaction weight; two branches have known nonreacting dynamics and four remain coupled. It is not a pure-bright source substitution or a full-state bound for every input.
+
+**Prospective/conditional representation requirement:** merge descriptions only after proving equality of probabilities for every admitted future operation and requested record. A retained record may be summed out after its last relevant contact, or after an equivalent future-effect sufficiency proof. Equality of today's receiver marginal is insufficient. A computational contraction does not erase the physical recipient, energy, angular-momentum, work, reset or custody account.
+
+**Prospective/conditional readout requirement:** coherence averages amplitudes; population averages full populations. Squaring the former does not generally give the latter. Preserve actual TOTAL and actual DARK, references, old recipients, finite boundaries and joint-error domains; full clock-sensitive records retain off-diagonal blocks and coherent 9/10 programs retain shifted cross blocks. Do not infer p=|g|².
+
+The adopted computational diagnosis is persistent site-labelled clock memory coupled to reacting and recombining order/spatial histories through an interference-sensitive functional. Identical diagonal populations can give later counts **1/10 vs 9/10**. Three labels per clock do not give three global features. This diagnoses the declared CT1 law and stopped methods, not undecidability, a universal algorithmic lower bound or physical failure. No scalable global contraction or threshold-decisive optical enclosure follows.
+
+### 0.3 Separate the three versioned objects
+
+| Object | Conditional meaning | What it does not establish |
+|---|---|---|
+| 30 October integrated supplied-type link, §§1–16 | Reviewed finite paper construction: source → guided transport → readout/SWAP → paid phase comparison → return → attempted-record acquisition | Material identity, working fiber, passive passband, practical SI performance or reusable service |
+| CT1 t=10 transfer/count decision | Both opposite-helicity tests still require `|g−| ≥ 4e−6`; the actual useful-count test still requires `p ≥ 1e−8` | Thresholds are undecided, not failed merely because positive lower bounds are subthreshold; full-size computation stays PARKED |
+| RCM-1, §17 | Separately posed same-bank repeated-contact memory discriminator, acquisition-ready ON PAPER | No CT1 amendment, long-path transfer, shifted-clock transport, source reuse, useful flux, universal ontology validation or J closure |
+
+The original three link bounds remain distinct and unchanged: **0.009370671101** for the ideal-forbidden attempted event; **0.096299842720** for general complete classical-record TV; **0.116203193747704796439…** for predecoder same-factor whole-density half trace (§11). They are not the RCM-1 `1/960` mean-error certificate and must not be pooled with it.
+
+**Notation namespaces:** in §§1–16, `h = Pt + 3 Pq = 2I + L1·L2` is the inherited dimensionless dimer tariff, not the action h = 2πħ. Likewise the baseline's N, Q, source-bank sizes, 674 clock factors, UNA-65 alphabet, 821-case schedule and resource totals are not the distinct RCM-1 inventory, C9 pointers or ten-row schedule. Their repeated letters never authorize mixing accounts or budgets.
+
+### 0.4 Binding current boundary
+
+RCM-1 is acquisition-ready ON PAPER only; AP-RCM/AP-M are conditional
+availability hypotheses; the t=10 transfer and count thresholds are undecided
+and the CT1 computation is parked; J1–J4 remain open; no N2; no physical
+validation; the integrated link model is a conditional paper result ("We have
+not established a working physical optical fiber"). The ontological thesis is
+presented as the POAMS account and its acid test — "If POAMS is correct…" —
+never as an established empirical fact.
+
+**Every design requirement, imperative, checklist, schedule and acceptance rule in this document is PROSPECTIVE / CONDITIONAL.** None is a claim that a material, calibration, control, acquisition system or physical experiment exists or has passed. “Must,” “retain” and “require” state conditions for a future separately authorized realization, not instructions to build or run now. Empty checklist boxes mean OPEN, not optional.
+
+The 30 October paper authority in §§1–16 governs that retained baseline only. Current exchange representation and RCM-1 status are supplied by the later pinned decisions in §18; all their inherited conditions remain conjunctive in their original scopes. The R8Z freeze completed the pointer-score/certificate paper work that R8Y had left for a later freeze. This document commissions no successor paper task, laboratory design, purchasing, build, computation restart or acquisition. It grants no spending or publication authority.
 
 ## 1. Scope, status and how to use the specification
+
+**PROSPECTIVE / CONDITIONAL — retained 30 October supplied-type baseline; not the RCM-1 protocol.**
 
 The design carries the same original signal and its retained reference through the chain
 
@@ -18,10 +73,10 @@ The adopted research authority is the final `paper-completion/REPORT.md` in sour
 There are three companion layers:
 
 1. **This technical appendix:** human-readable state, operators, schedules, geometry, accounts, readout, comparison and residual material determinations.
-2. **Curated engineering data:** [engineering data guide](data/README.md) contains the exact 2,049 guide phase words, 821 prepared cases, input/output IDs, UNA-65 operands, event/courier schedules, contacts and rational resource accounts, wrapped as derivative references. Large JSON tables use `.json.gz` compression. These are not a newly approved executable or physical measurements.
+2. **Curated engineering data:** [engineering data guide](/Users/cfmacbook/.openclaw/workspace/poams-exhibits-public/optical-information-link/data/README.md) contains the exact 2,049 guide phase words, 821 prepared cases, input/output IDs, UNA-65 operands, event/courier schedules, contacts and rational resource accounts, wrapped as derivative references. Large JSON tables use `.json.gz` compression. These are not a newly approved executable or physical measurements.
 3. **Source-bound replay:** the separately sealed original executable, its external entry hash and its trusted-runtime/no-concurrent-mutation domain remain authoritative for source-bound record replay. The downloadable engineering references describe the exact finite construction; they do not replace that executable.
 
-All source references below are relative to the source collection. [SOURCE-MAP.md](SOURCE-MAP.md) gives sections and SHA-256 receipts. The source map identifies each scientific definition and its version; the archive contains the engineering references listed in §16.
+All source references below are relative to the source collection. [SOURCE-MAP.md](/Users/cfmacbook/.openclaw/workspace/poams-exhibits-public/optical-information-link/SOURCE-MAP.md) gives sections and SHA-256 receipts. The source map identifies each scientific definition and its version; the archive contains the engineering references listed in §16.
 
 ### 1.1 Provenance classes
 
@@ -36,6 +91,8 @@ All source references below are relative to the source collection. [SOURCE-MAP.m
 Calling a support “LCR,” a word “observed,” or a record “sealed” supplies no physical receipt. The physical meaning is the specific operation and retained factors below.
 
 ## 2. Parameter and symbol registry
+
+**PROSPECTIVE / CONDITIONAL — retained 30 October supplied-type baseline; not the RCM-1 protocol.**
 
 Unless stated otherwise, the following are fixed design values, not fitted measurements. A dimensionless ratio is not an SI calibration.
 
@@ -92,6 +149,8 @@ Unless stated otherwise, the following are fixed design values, not fitted measu
 The source collection defines further *local* indices, endpoint ordinals, contact metadata, cold exponents and program-loop variables. They are fully enumerated in the companion field/contact/ROM data and generator references; none is a free fit parameter.
 
 ## 3. Full physical state and supplied material types
+
+**PROSPECTIVE / CONDITIONAL — retained 30 October supplied-type baseline; not the RCM-1 protocol.**
 
 ### 3.1 Dimer space, scalar words and complements
 
@@ -162,6 +221,8 @@ Every material move updates its actual local master/copy geometry records under 
 
 ## 4. Source manufacture and angular preparation
 
+**PROSPECTIVE / CONDITIONAL — retained 30 October supplied-type baseline; not the RCM-1 protocol.**
+
 ### 4.1 One fixed relational seed
 
 Two axial banks have `R=65,536` triplet dimers each, two meridian banks have `Q=65,536` each, and the source is one further axial triplet. The primary counts are `Z=131,073`, `X=131,072`, `N=262,145`. Reference-description axes are `z,z,x,x`; they do not supply an unaccounted absolute physical axis.
@@ -217,7 +278,7 @@ The source program is finite even where it is too large to print as a gate tape.
 
 On the full two-dimer local contact, P1=L(3I−L)/2 and P3=L(L−I)/6. A nine-dimer mobile body—new angular dimer plus two four-dimer term bits—uses root probabilities (1/2,1/8,3/8,0) and the actual first-F-leaf position loader. Its full leaf operation selects the P1 or P3 reflection at its locally occupied leaf, is identity on absent/noncode/wrong-species sectors, and acts on at most 15 external dimers (21 including its switched mode/ticket). No second coherent address register or remote leaf oracle is supplied.
 
-For the full involution U_F=T†P_F†D_FP_FT, the local root/term00 block is A_F=C_F/(4F). Sixteen actual U_F queries alternate with a 17-phase palindrome. The supplied table [growth-phase-words.u64le.gz](data/growth-phase-words.u64le.gz) contains every row F=1,…,131,072. Each row has twelve little-endian unsigned 64-bit entries: nine symmetric θ words, β, negative γ and middle-wrap parity. Angles use the 60-bit full-turn grid, and θ/β are even. The fixed correction is
+For the full involution U_F=T†P_F†D_FP_FT, the local root/term00 block is A_F=C_F/(4F). Sixteen actual U_F queries alternate with a 17-phase palindrome. The supplied table [growth-phase-words.u64le.gz](/Users/cfmacbook/.openclaw/workspace/poams-exhibits-public/optical-information-link/data/growth-phase-words.u64le.gz) contains every row F=1,…,131,072. Each row has twelve little-endian unsigned 64-bit entries: nine symmetric θ words, β, negative γ and middle-wrap parity. Angles use the 60-bit full-turn grid, and θ/β are even. The fixed correction is
 
 γ_word = [(2Σ_(j<8)θ_j + θ_8 + β + 2^59)/2 + parity·2^59] mod 2^60.
 
@@ -293,6 +354,8 @@ Completed plus, minus and reject are `(v,r0)`, `(v,r1)`, `(v,rr)`; omit-READ is 
 
 ## 5. Guide geometry and conserved local operation
 
+**PROSPECTIVE / CONDITIONAL — retained 30 October supplied-type baseline; not the RCM-1 protocol.**
+
 ### 5.1 Finite comb, supports and contacts
 
 There are 6,144 backbone vertices `(0,0,z)` and four leaves `(±1,0,z),(0,±1,z)` at each station. Leaves have no axial or mutual edges. The result is a tree with 30,720 signal vertices and 30,719 contacts, not an isotropic glass cylinder. All four transverse contacts are nonzero. Positional update bands are not polarizations: all three triplet angular components are transported identically.
@@ -356,6 +419,8 @@ Support load and good scalar state return at a completed boundary and hence cont
 
 ## 6. Guide loader, update word, catcher and controls
 
+**PROSPECTIVE / CONDITIONAL — retained 30 October supplied-type baseline; not the RCM-1 protocol.**
+
 ### 6.1 Finite compact packet
 
 Use 512 cells with normalized envelope
@@ -379,7 +444,7 @@ Run 1,280 updates, each in this order:
 3. All-leaf Pt phase `exp(−iπPt/2)`.
 4. Four successive transverse matchings at `ℓ=10^-6`.
 
-Every physical gate executes on blanks as well as bright inputs. A deterministic scheduler never reads the signal's position. The fixed 2,049×32-bit guide ROM contains all loader words and update constants; there are 2,049 separate cold word bodies rather than a renamed enormous head. [guide-rom.json](data/guide-rom.json) is the exact ordered integer array.
+Every physical gate executes on blanks as well as bright inputs. A deterministic scheduler never reads the signal's position. The fixed 2,049×32-bit guide ROM contains all loader words and update constants; there are 2,049 separate cold word bodies rather than a renamed enormous head. [guide-rom.json](/Users/cfmacbook/.openclaw/workspace/poams-exhibits-public/optical-information-link/data/guide-rom.json) is the exact ordered integer array.
 
 ### 6.3 Derived guided and transport bounds
 
@@ -409,6 +474,8 @@ After the actual 32-bit words and bulk/switch/presence services, the isolated tr
 The terminal presence pointer has four actual dimers and generator `Pt(T)⊗D`, where `D=(|u>−|v>)(<u|−<v|)/2`. A paid positive π operation writes occupancy without reading or replacing angular information. Source, port, angular instrument and all failed complements remain part of one account.
 
 ## 7. Same-source endpoint, driven phase and complete return
+
+**PROSPECTIVE / CONDITIONAL — retained 30 October supplied-type baseline; not the RCM-1 protocol.**
 
 ### 7.1 The exact borrowed source
 
@@ -458,6 +525,8 @@ The maximum schedule is 45 data invocations: one blank, two exchange, 31 tags, o
 Return releases nineteen endpoint source mounts, restores the original nine mounts and retains the same source, reactions and correlations. No cold reset is required or claimed. The 40 flag constituents are carried by two complete heads in loads 24 and 16. Endpoint head feet are released before motion. Four measurement heads carrying 24/22/24/16 external constituents remain held in the observer bays. They are distinct from the four empty controllers that must complete their home returns. Spent work, source, flags, pointer phase workspace, controllers and heat are retained through the final seal.
 
 ## 8. Native controls, causal receipts and immutable custody
+
+**PROSPECTIVE / CONDITIONAL — retained 30 October supplied-type baseline; not the RCM-1 protocol.**
 
 ### 8.1 Actual controller fields
 
@@ -529,7 +598,7 @@ There are exactly 512 once-only descriptor destination copies **after accepted O
 | 62 | Independent final clock seal |
 | 63 | Reserved, never written; expected zero |
 
-Every ordinary event begins zero on the nominal cold branch, has one named completed-address writer and remains immutable afterward. Its full source/output word and physical dependency graph appear in [acquisition-events.json.gz](data/acquisition-events.json.gz). Cold/fault/input errors are retained in the single error account, not eliminated by a logical induction.
+Every ordinary event begins zero on the nominal cold branch, has one named completed-address writer and remains immutable afterward. Its full source/output word and physical dependency graph appear in [acquisition-events.json.gz](/Users/cfmacbook/.openclaw/workspace/poams-exhibits-public/optical-information-link/data/acquisition-events.json.gz). Cold/fault/input errors are retained in the single error account, not eliminated by a logical induction.
 
 The good-path implication comes from the acyclic graph: a receipt is written only at the completed address or after its actual adjacent predecessor packet. Induction establishes that a valid event58 implies the named operations. The converse requires the explicit bounded-progress domain; eventual fairness is not enough to meet a finite cutoff.
 
@@ -547,11 +616,13 @@ Each packet transaction has a 1,024-scalar-slot microsequence: code checks, copi
 
 ## 9. UNA-65 atomic OFFER and independent sealing
 
+**PROSPECTIVE / CONDITIONAL — retained 30 October supplied-type baseline; not the RCM-1 protocol.**
+
 ### 9.1 Why an atomic counted event is specified
 
 Reading 65 changing bits in sequence does not measure one instantaneous count across carry. Holding the independent clock until an apparatus is ready would defeat the cutoff. The design therefore adopts the fixed finite native operation **UNA-65**, an explicit additional branch premise, rather than either behavior.
 
-The actual complete operation has **207 scalar operands / 828 dimers**, plus a distinct 38-dimer positive bank. The 140-word simultaneous payload label is not its complete arity. [acquisition-una65.json](data/acquisition-una65.json) lists every source, cutoff, latch, readiness, handshake and output operand.
+The actual complete operation has **207 scalar operands / 828 dimers**, plus a distinct 38-dimer positive bank. The 140-word simultaneous payload label is not its complete arity. [acquisition-una65.json](/Users/cfmacbook/.openclaw/workspace/poams-exhibits-public/optical-information-link/data/acquisition-una65.json) lists every source, cutoff, latch, readiness, handshake and output operand.
 
 Important address ranges are:
 
@@ -602,9 +673,11 @@ The premise fails if any of these occur in its intended domain: lane skew across
 
 ## 10. Complete acquired alphabet and strict record schema
 
+**PROSPECTIVE / CONDITIONAL — retained 30 October supplied-type baseline; not the RCM-1 protocol.**
+
 ### 10.1 Output census
 
-Each scalar occurrence is an observation of a named four-dimer output word. The complete ordered output mapping is [output-order.json.gz](data/output-order.json.gz); physical inputs remain a separate ordered list of 170 factors and four actual held heads.
+Each scalar occurrence is an observation of a named four-dimer output word. The complete ordered output mapping is [output-order.json.gz](/Users/cfmacbook/.openclaw/workspace/poams-exhibits-public/optical-information-link/data/output-order.json.gz); physical inputs remain a separate ordered list of 170 factors and four actual held heads.
 
 | Field | Scalar occurrences | Full output dimers |
 |---|---:|---:|
@@ -681,6 +754,8 @@ Missing, partial, stopped, late, ties, warm/fault, malformed, noncode, duplicate
 
 ## 11. One complete error account
 
+**PROSPECTIVE / CONDITIONAL — retained 30 October supplied-type baseline; not the RCM-1 protocol.**
+
 ### 11.1 Fixed qualifications and final values
 
 Use one good-map telescope over all source manufacture, angular controls, guide, material/cold/heat, endpoint, controllers, return, acquisition and native additions. The final coherent norm and nominal hot union are
@@ -711,9 +786,11 @@ Blank/CUT/ROUNDTRIP have exact ideal dark behavior under their named operations;
 
 ## 12. Frozen prospective comparison
 
+**PROSPECTIVE / CONDITIONAL — retained 30 October supplied-type baseline; not the RCM-1 protocol.**
+
 ### 12.1 Exactly 821 prepared cases
 
-[prepared-cases.json.gz](data/prepared-cases.json.gz) gives every exact case and expected control word:
+[prepared-cases.json.gz](/Users/cfmacbook/.openclaw/workspace/poams-exhibits-public/optical-information-link/data/prepared-cases.json.gz) gives every exact case and expected control word:
 
 - **770 PHASE cases:** the registered endpoint phase/control roster, cycling the 21 bright original angular controls by j mod 21.
 - **48 GUIDE_CONTROL cases:** every one of the 24 original angular controls under CUT and ROUNDTRIP, each with the fixed quiet endpoint word.
@@ -754,6 +831,8 @@ The sealed original target has TARGET SHA-256 fc812b86f4e90d38b6a15c4c5284010b8d
 The original entry verifies source bytes before compiling the real adapter, checks the actual source/entry again afterward, and makes a final archive-identity read immediately before returning. Archive identity includes resolved path/device/inode/size/hash; source identity is bytes. This is bounded integrity under trusted runtime/filesystem and no concurrent mutation, not a hostile-race, atomic-snapshot or self-authenticating-code theorem. Hashes do not turn synthetic records into physical provenance. The curated exhibit data and any explanatory classifier are derivative references, not replacements for that exact entry.
 
 ## 13. Full resources, capacities and retained output inventory
+
+**PROSPECTIVE / CONDITIONAL — retained 30 October supplied-type baseline; not the RCM-1 protocol.**
 
 ### 13.1 Whole-system bill of quantities
 
@@ -811,7 +890,7 @@ For the guide-only edge/vertex assembly, conservative transport+record primitive
 | Independently pure C factors | 44,268,320,000 |
 | Nonclock A dimers | 2,036,577,393,841,922,320,000 |
 
-Exact campaign inlet and capacity are the per-kit rationals multiplied by 65,680,000 and are provided in [complete-accounts.json](data/complete-accounts.json). No time in seconds follows from these counts. Fresh-kit repetition is finite provisioned operation, not a promised indefinitely reusable physical fiber.
+Exact campaign inlet and capacity are the per-kit rationals multiplied by 65,680,000 and are provided in [complete-accounts.json](/Users/cfmacbook/.openclaw/workspace/poams-exhibits-public/optical-information-link/data/complete-accounts.json). No time in seconds follows from these counts. Fresh-kit repetition is finite provisioned operation, not a promised indefinitely reusable physical fiber.
 
 ### 13.4 What remains after one attempt
 
@@ -820,6 +899,8 @@ The final physical output includes the original source in its returned berth wit
 Good work-return or positive-switch return is not a full reset. Every uncomputation reverses only the named reversible scratch with retained inputs. It never deletes a measurement, history, purifier or consumed reference. The next attempt consumes a separately qualified kit unless a new complete reset/reuse law is derived and reviewed.
 
 ## 14. Material and SI engineering determination register
+
+**PROSPECTIVE / CONDITIONAL — retained 30 October supplied-type baseline; not the RCM-1 protocol.**
 
 The finite laws and dimensionless choices above are assigned. Their actual material realization and useful engineering performance are not.
 
@@ -842,6 +923,8 @@ Thus no fiber diameter, jacket, refractive-index profile, attenuation in dB/km, 
 
 ## 15. Failure and acceptance requirements
 
+**PROSPECTIVE / CONDITIONAL — retained 30 October supplied-type baseline; not the RCM-1 protocol.**
+
 The conditional construction is accepted as this version only when the following conjunction is preserved:
 
 1. **Same source:** exact source/copy/M targets, complete prepared seed, local command ordering, same guide/receiver factor, full SWAP, actual ra24 endpoint and actual return. No replacement signal.
@@ -859,7 +942,11 @@ Every detailed native-author/crosswalk, physical-review, accounts-review, raw-au
 
 The construction shows how one finite, explicitly supplied circulation organization could carry relational angular information over a guided route, expose a paid phase-dependent endpoint result, and retain a causally complete failure-inclusive record without replacing its source or losing its energy and angular-momentum accounts. It gives a concrete mathematical target for material and resource engineering. The next useful engineering advance is not a stronger label for this result, but a realizable qualified type and a version-correct reduction of its very large supply and execution requirements.
 
+**Successor scope annotation (1 November; prospective/conditional):** the preceding next-step language is retained from Edition 1, not the current sequence. RCM-1 is now the named next prospective engineering step (§17), beginning with qualification/feasibility of AP-RCM **and** AP-M under a separate bounded commission. The original material/resource obligations remain open; no construction or operation is authorized.
+
 ## 16. Exact engineering companions
+
+**PROSPECTIVE / CONDITIONAL — retained 30 October supplied-type baseline; not the RCM-1 protocol.**
 
 The downloadable derivative engineering archive includes:
 
@@ -874,13 +961,285 @@ The downloadable derivative engineering archive includes:
 - exact final per-kit/campaign resource rationals, errors and statistical constants;
 - dependency-linked current geometry, complete retained annex BOM/endpoint generators, preparation/compiler and final-classifier definitions, explicit module bindings, exact retained support tables and a section/hash provenance map.
 
-All data companions are explicitly **derivative reference material**, not a new sealed runtime or physical data. The original source collection is unchanged. Arithmetic and mapping checks for this appendix are recorded in [DATA-VERIFICATION.json](DATA-VERIFICATION.json); they verify the exposition and byte-derived data, not physical material, hardware or observations.
+All data companions are explicitly **derivative reference material**, not a new sealed runtime or physical data. The original source collection is unchanged. Arithmetic and mapping checks for this appendix are recorded in [DATA-VERIFICATION.json](/Users/cfmacbook/.openclaw/workspace/poams-exhibits-public/optical-information-link/DATA-VERIFICATION.json); they verify the exposition and byte-derived data, not physical material, hardware or observations.
 
 
 ### 16.1 Dependency and exact-number reading contract
 
-[normative-functions.json.gz](data/normative-functions.json.gz) contains the retained current source definitions, including the optical annex `stats`, `roles`, `caps`, `ordinary_contacts` and `atlas_point` geometry/BOM family, their local-factory geometric utilities, the guide spine feet, endpoint ledgers, acquisition model/relay/atlas and the final raw classifier. [NORMATIVE-DEPENDENCIES.json](data/NORMATIVE-DEPENDENCIES.json) resolves local imports and dynamic aliases; [normative-support-data.json.gz](data/normative-support-data.json.gz) supplies exact retained values for the source selectors those definitions use. A source hash by itself is not an engineering definition. The module and literal-value bindings provide the definitions here; the hashes establish their provenance. Only named integrity/publication/diagnostic or superseded semantic symbols are excluded, with their reasons listed. In particular, `spine_foot_ref` and `spine_foot` are physical definitions and are retained.
+[normative-functions.json.gz](/Users/cfmacbook/.openclaw/workspace/poams-exhibits-public/optical-information-link/data/normative-functions.json.gz) contains the retained current source definitions, including the optical annex `stats`, `roles`, `caps`, `ordinary_contacts` and `atlas_point` geometry/BOM family, their local-factory geometric utilities, the guide spine feet, endpoint ledgers, acquisition model/relay/atlas and the final raw classifier. [NORMATIVE-DEPENDENCIES.json](/Users/cfmacbook/.openclaw/workspace/poams-exhibits-public/optical-information-link/data/NORMATIVE-DEPENDENCIES.json) resolves local imports and dynamic aliases; [normative-support-data.json.gz](/Users/cfmacbook/.openclaw/workspace/poams-exhibits-public/optical-information-link/data/normative-support-data.json.gz) supplies exact retained values for the source selectors those definitions use. A source hash by itself is not an engineering definition. The module and literal-value bindings provide the definitions here; the hashes establish their provenance. Only named integrity/publication/diagnostic or superseded semantic symbols are excluded, with their reasons listed. In particular, `spine_foot_ref` and `spine_foot` are physical definitions and are retained.
 
 These are readable engineering references, not a newly sealed executable. They describe component functions in their declared namespace; use the final complete-account tables, actual 821-case roster and final adapter whenever a component's inherited wrapper or earlier subtotal differs. The original 72/770-case semantic classifiers and historical target wrappers are not the final acquisition protocol. No private input manifest or historical repair bundle is needed to interpret the delivered current definitions.
 
 **Exact integer handling is mandatory.** Native cursor, token, resource and campaign values exceed 2^53−1. Read numeric JSON integers with an arbitrary-precision parser (for example Python's ordinary `json.load`, whose integer values are Python `int`), and rational/decimal strings with exact arithmetic. Ordinary JavaScript `JSON.parse` converts numeric tokens to `Number` and can silently round them before a reviver runs; use a lossless parser instead. A web-distribution derivative may encode large integers as decimal strings; convert those strings directly to arbitrary-precision integers, never through `Number`. Preserve original source bytes and source hashes separately from any derivative encoding. This table-reader rule does **not** relax or change the final raw-record grammar: fields required to be actual JSON integers remain actual integers in raw acquisition records.
+
+
+## 17. RCM-1 — next prospective engineering step, acquisition-ready ON PAPER
+
+**PROSPECTIVE / CONDITIONAL — all availability and qualification evidence below remains OPEN; no build authorization is implied.**
+
+The pinned R8Y decision selected RCM-1; the later R8Z decision adopted the complete on-paper freeze with binding conditions. The next engineering work, if separately commissioned, is a bounded physical-feasibility/qualification question addressing **both AP-RCM and AP-M**, not execution of this schedule. No material platform, SI cadence, apparatus architecture or procurement list is selected here.
+
+The nominal persistent-clock prediction is exactly **1/32**. The accounted independent-renewal alternative is **β = (15−2√3−√2−√6)/288**, with **25/960 < β < 26/960** and separation **> 1/240**. The frozen bins are **[29/960, 31/960]** (persistent-compatible) and **[24/960, 27/960]** (renewal-not-excluded). A persistent-bin outcome would test this contact-memory prediction only; it would not validate the whole fiber or establish POAMS ontology.
+
+The adopted balanced four-pointer observable has full-domain norm **2√2**, not 2, and range length **4√2**. Its sufficient certificate is exactly
+
+    4√2·D_prep + 2√2·δ_word + e_pointer + e_stat ≤ 1/960.
+
+Default ceilings are **D ≤ √2/30720**, **δ ≤ √2/15360**, **e_pointer ≤ 1/3840**, and **e_stat = 1/3840**. The four boundary contributions are each 1/3840. The old norm-2 certificate is not valid for this full-domain balanced row. No calibration certificate is claimed attained.
+
+Sections 17.1–17.9 retain PROTOCOL §§2–10, with engineering status labels, resolved read-only schema reference, empty preflight checkboxes and explicit source-section references. Their formulas, control predictions, recorded alphabets, counts and classification rules are unchanged. Bare R8Y-T references identify that predecessor theory, not a new derivation. R8Z adoption controls the protocol's dated author-stage review wording; see §18 and ENGINEERING-NOTES.
+
+### 17.1 Preparation, words, read order and retained accounts
+
+**PROSPECTIVE / CONDITIONAL — frozen PROTOCOL §2; no attained qualification or execution.**
+
+Use a fixed source-bank address d=+1, center −8 e_z, central mode q=+e_z; receiver is readdressed to that SAME bank/mode. This chooses an existing diagnostic address, not a CT1 direction-success claim. The normalized 125-site Fourier profile and balanced C/D source remain. Input is (vac+u_minus)/sqrt(2), u_minus=(x−i y)/sqrt(2), orders u_plus=(x+i y)/sqrt(2), scalar clocks chi=(0+1+2)/sqrt(3), hard-Q nominal code, initially vacuum carriers/outlets and the complete original source selector. Old source references, flags and longitudinal reaction weight are retained. No population premeasurement is inserted.
+
+At each site the existing contact has the exact full-domain action
+
+    G_C = sum_q |q><q| exp[−i theta_q (S_CA−I)],
+    G_D = sum_q |q><q| exp[−i theta_(q+1) (S_DBs−I)],
+    theta=(pi/4,pi/6,pi/8).
+
+The generator is zero on carrier vacuum/quintet complements. Define F=product_sites G_D G_C; the nominal word is W_P=F F with the SAME clock retained across encounters. No transport, clock advance X_T, cyclic order permutation, edge matching, Q change, mixer, singlet or outlet operation occurs between them. Unselected operations are identity in this separate program, not deleted from a purported CT1 cycle. All physical spectators remain.
+
+Use distinct fresh receiver selector/phase/pointer stocks. On each receiving rail/mode apply CF1: relative phase to R1p; Uj=exp[−i pi(B+B†)/4]; then record actual D_dark into the existing f=0 phase pointer; then record D into f=1 phase pointer. BOTH couplings occur AFTER Uj. D=E−N_R and D_dark=D(I−Pact), with full spectral couplings Urec(O)=sum_m Pi_m(O) X_pointer^m on C9. Their spectra are −1,0,1; their commutation justifies retaining both ordered records. R0p is retained, not repurposed. Population pointers remain separate and inactive in these phase histories. Retain all unused modes and inactive slots.
+
+Archive the complete data/history including correlations; retain program P and A/OFF bits separately. Final externally commanded OFF swap lies OUTSIDE the A-controlled U_prog; protect archived results from later contact. Read pointer labels from the protected archive, not by probing carrier/order/clock states between contacts. Do not attempt to measure or erase a hidden q trajectory. The unchanged sufficient one-shot account in R8Y-T §4.5 has 1,098,500 contact letters, 1,134,997 apparatus/contact/history letters, 72,230,874 archive letters, L=73,365,871, 73,365,872 strokes with OFF, and 146,084,149 listed factors before idle CT1 stock. Whole-Q exchange still charges all E factors. These counts are not microscopic prices, practicality or new experiment funding. Control rows with extra swaps/phase stocks require their own explicit additional supplied recipients and strokes; no old slack is spent.
+
+**Prospective/conditional archive-symbol clarification (R8Y-T §4.5):** X is one supplied CT1-type data module with `m=73042072` elementary factors; Y is an independent matched fresh archive, with one C9 history factor for each. The retained cyclic program P and the scalar A/OFF-token bits are separate. The complete X/data-history SWAP into Y transfers arbitrary correlations, leaves X in independently supplied blank stock and charges m+1 recipients even when whole-Q uses one primitive letter. The listed diagnostic factor convention is `2m+5=146084149`; full-Q uses `E=811200`. These are the original conditional listed counts, not a microscopic implementation, a reset service or a physical witness. In §17.4, N=274625 is the RCM full-box site count; it is not the N of §2. The added M/H clock exports stay outside X/Y and protected.
+
+### 17.2 Total deterministic score — retain every label
+
+**PROSPECTIVE / CONDITIONAL — frozen PROTOCOL §3; no attained qualification or execution.**
+
+For EVERY physical C9 phase pointer freeze this exact map:
+
+| Raw label ell | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+|---|---|---|---|---|---|---|---|---|---|
+| s(ell) | 0 | +1 | 0 | 0 | 0 | 0 | 0 | 0 | −1 |
+
+Labels 2–7 remain distinct raw records; zero is an arithmetic score, not vacuum, a reset, erasure or missing-event code. Nonblank input pointers are not automatically relabeled or cyclically unwrapped. They evolve under the original cyclic law and their outputs receive this table; their deviation from nominal blank stock is covered by the joint preparation/word certificates. No raw label, including actual DARK, is deleted. Nonnominal labels alone do not force inconclusive if the full certificates remain valid. No such certificates are claimed here.
+
+For scheduled trial i at the central matched receiver mode record (T_C,D_C,T_D,D_D), where D means actual DARK, not a manufactured background. Define
+
+    k_i=s(T_C)−s(D_C)+s(T_D)−s(D_D),
+    Y_i=k_i/sqrt(2),    r_j=(sum_i k_i)/(n sqrt(2)).
+
+Both rails are measured in the SAME trial; no independence between rails or between TOTAL/DARK is assumed. k_i is an integer in [−4,4]. Noncentral receiving phase pointers have coefficient zero in r but their recorded labels remain in raw custody. Source/inactive/population pointers and all other quantum recipients remain in physical archival custody; do not invent labels for unread factors or add a premeasurement. For malformed, unreadable, missing or multiply assigned labels retain the raw bytes and an explicit error/tombstone; the whole comparison is INCONCLUSIVE. Never replace an unreadable label by score zero. Trial weights are exactly 1/n; no renormalization on surviving, bright or selected events; no universal −1/8 subtraction; no p=|g|² inference.
+
+Exact sums are integers and r lies in Q(sqrt(2)); use rational-pair algebra and exact sign comparisons, never binary64 for a decision. An outward arithmetic/calibration representation interval I_j must enclose r_j; if exact algebra is used it is a singleton. e_pointer is a bound on the physical decoder/calibration bias, not a fitted background subtracted from r. Do NOT inflate I_j by the already budgeted total error a second time and compare that inflated interval to the same error-expanded bins.
+
+### 17.3 Full-domain budget and required certificates
+
+**PROSPECTIVE / CONDITIONAL — frozen PROTOCOL §4; no attained qualification or execution.**
+
+For each row j, and each trial i (or a pre-certified row-average bound justified with the same identity), certify:
+
+- D_prep: half trace-norm distance of the full jointly supplied state from the declared nominal state, including both rails, source selector/reference/flag, all clocks/order/Q/outlets, old apparatus, receiving phase and four scored pointers, commands, archive/OFF stock and any environmental reference needed for the channel model. Marginal fidelity and blank-pointer counts alone are insufficient. For renewal rows include fresh independent clocks and retained export stock.
+- delta_word: UNHALVED diamond distance for the full ordered channel from preparation boundary through protected retained pointer record, including selectors, phase, routing, all contacts, clock/identity spectators, recording, archive and OFF/protection. Calibration-decoder error below is outside this cut; do not double count. Include leakage/fault action on the FULL domain and reference correlations. A telescoping sum is allowed only for certified complete channels with stated domains, correlated environments and multiplicities; nominal gate tests alone are insufficient.
+- e_pointer: uniform absolute bias between the mean of the actual bounded decoded Y and the ideal physical-pointer score Y on the same post-word state, including label confusion, electronics, drift, saturation, phase convention and arithmetic conversion. A certified joint four-label total-variation error eta gives e_pointer <= 4sqrt(2) eta; if per-pointer mismatch probabilities eta_a are valid, e_pointer <= sqrt(2) sum_a eta_a. These are sufficient conversion bounds, not measured performance. The decoder MUST be frozen from disjoint calibration records, cover every label, retain raw outputs and never condition on success.
+- e_stat: the fixed-sample bounded-observation certificate in PROTOCOL §6. Independence is a premise to justify, not a consequence of fresh-stock labels or a clock reset. Within-trial correlations are allowed; unqualified cross-trial correlations invalidate this certificate.
+
+The exact feasible allocation region is D>=0, delta>=0, e_pointer>=0, e_stat>=0 and 4sqrt(2)D+2sqrt(2)delta+e_pointer+e_stat<=1/960. Physical distances also obey D<=1, delta<=2. For finite default sampling e_stat>0 is required; the e_stat=0 mathematical face does not offer finite stochastic acquisition. One boundary allocation is
+
+    D = sqrt(2)/30720,
+    delta = sqrt(2)/15360,
+    e_pointer = 1/3840,
+    e_stat = 1/3840,
+
+whose four contributions are exactly 1/3840. Default run contracts require values no larger than these. The broader region is proved but is not permission to change this default allocation or sample count after records. A different prospective allocation requires a separately sealed revision before acquisition and review, without changing bins.
+
+Every certificate must identify its domain, operational witness/calibration route, disjoint source records, mathematical conversion, uncertainty/failure probability, validity period, drift limits, before/after evidence and independent reviewer. A statement of a distance bound is not its attainment. State/process tomography or an independently established structural preparation/channel proof may suffice in principle; marginal calibration cannot be promoted into a global bound. Establishment may be impractically costly: this paper supplies no physical witness implementation or hardware certification. If those certificates cannot be supplied, this protocol is inapplicable, not a route to fitting them from the discriminator.
+
+### 17.4 Frozen schedule: ten rows, no optional outcome-driven selection
+
+**PROSPECTIVE / CONDITIONAL — frozen PROTOCOL §5; no attained qualification or execution.**
+
+The following are required logical record/control rows. Each uses the same full inventory and actual four-pointer score unless explicitly changing the input/reference/word. Source/receiver stock is independent and fresh per row occurrence. phi is receiver phase; input sign reversal is physical relative to the retained reference, not a global handedness relabel. No contact-angle detuning is introduced: Q is the existing phi=0 quadrature detuning.
+
+Let a=1/32, b=beta=(15−2sqrt(3)−sqrt(2)−sqrt(6))/288, c=(2+sqrt(3))/96, d=(1+sqrt(2))(2+sqrt(3)+sqrt(2))/288, and t=(7+sqrt(2))/96. These are exact fixed constants.
+
+| ID | Scheduled posing | Ideal H_P | Ideal H_R | Use |
+|---|---|---|---|---|
+| N | Two contacts, u_minus, phi=pi/2 | a | b | Decisive frozen bins |
+| Q | Same two contacts, phi=0 | −c | −d | Detuned quadrature; separate predictions |
+| V | Vacuum source, two contacts, phi=pi/2 | 0 | 0 | Negative coherence, retain nonzero individual DARK |
+| I | No contacts/identity, same matched bank, phi=pi/2 | 1/8 | 1/8 | Endpoint normalization/route |
+| S | Two contacts, input/reference u_plus, phi=pi/2 | 1/8 | 1/8 | Saturated-order control |
+| O | ONE contact, u_minus, phi=pi/2 | t | t | Identical first-contact alternative |
+| R | N with minus relative source coherence | −a | −b | Physical sign reversal |
+| M | Fresh-clock SWAP/export BETWEEN contacts | b | b | Accounted renewal-mimic control |
+| H | Same added swap slots, SWAP then SWAP back BEFORE second contact | a | b | Sham identity routing/export control |
+| Z | Incoherent half-vacuum source mixture, both preparation records retained | 0 | 0 | Dephased negative control |
+
+For M, the first clock and correlations are transferred into an independently supplied chi stock via an exact full C3 swap; the fresh original chi enters the second contact, order NOT renewed. Perform at every site to preserve the literal full-box program; charge N=274625 fresh C3 factors, N swaps, command/routing/history and archive recipients in addition to the baseline. For H use those same fresh factors and two swaps per site with no intervening contact; the two swaps compose to identity on arbitrary inputs. Under H_R the baseline alternative still independently renews at the second encounter; the sham does not negate that model. Z can be prepared by an independent equiprobable classical source-sign bit, retaining that bit and both classes; the unconditioned ensemble has zero coherence, with no conditional selection.
+
+A sufficient control-account extension is explicit: keep every baseline slot charged (use identity letters for omitted contacts in I/O); extend the finite cyclic program by N swap letters for M and 2N for H. Their added clock factors remain protected OUTSIDE X/Y after the baseline archive, with no reset, reuse or tracing claim. Their control uses the same finite P factor with enlarged dimension L+N or L+2N; final OFF still occurs outside the A-controlled word. No extra scalar swap ancilla is needed in this declared mathematical primitive. Physical routing/compilation, extraction logs and any additional apparatus require independent fully charged receipts; these are not claimed included by a primitive count. For the ten-row schedule, the sufficient named one-shot listed-factor inventory is n*[10*(2m+5)+2N] = 5516565323710464000 factors and the charged listed-stroke count is n*[10*73,365,872+3N] = 2772578957524992000, before untouched CT1 spectators and implementation-specific calibration/readout apparatus. No stock reuse, original CT1 B/K funding or service guarantee is assumed. These enormous finite paper bounds are not practical hardware claims.
+
+**AP-M is an additional conditional control obligation**, not a consequence of AP-RCM: controllable scalar-clock swapping/export plus independent fresh chi stock without order renewal, phase change or hidden return interaction. H needs the same slots. The mathematical mimic is derived, not physically available. If M/H or another required control cannot be implemented/certified, the full scheduled comparison is INCONCLUSIVE. No physical run or enlarged control availability is authorized by this freeze.
+
+Schedule n blocks. In block b=1,...,n, execute all ten IDs in table order cyclically rotated by (b−1) mod 10. A run manifest gives exact IDs/addresses/stocks/times before any observation; no adaptive ordering or grouping by favorable outcome. This deterministic balance does not prove independence or remove drift. Record before/after disjoint calibrations and continuous setting/timing/environment logs; the certificates must cover every time. No additional sample is substituted for a failed/missing trial. A safety/receipt abort is allowed and must be fully logged; an incomplete fixed schedule is inconclusive and grants no rerun authority.
+
+### 17.5 Exact statistics plan, counts and intervals
+
+**PROSPECTIVE / CONDITIONAL — frozen PROTOCOL §6; no attained qualification or execution.**
+
+Default e_stat=1/3840; n=256*3840^2=3,774,873,600 trials PER row; ten rows require 37,748,736,000 nominal trial slots. This is a finite sufficient, deliberately variance-free PAPER schedule, not a practical throughput or resource claim. No trials are generated by this task. Each trial gives Y in [−2sqrt(2),2sqrt(2)]; within-trial correlations do not enter the concentration premise.
+
+For independent bounded trials in a row, not necessarily identically distributed, let mbar be the average of their means. Hoeffding gives
+
+    Pr(|r−mbar| > e_stat) <= 2 exp(−n e_stat^2/16) = 2 exp(−16).
+
+Thus the ten-row family probability is <=20 exp(−16)<20/2^16=5/16384<1/1000, using exp(1)>2. We freeze alpha_stat=1/1000. The mean interval is [r−1/3840,r+1/3840], with exact algebraic endpoints; it feeds the budget, not an additional enlargement of the decision bins. No estimated variance, optional stopping, normal approximation, continuity correction, floating p-value or unplanned subgroup is used. Missing trials never reduce n. If actual independence cannot be justified, this precise statistics plan does not apply; no unreviewed effective-sample-size repair is permitted.
+
+All preparation/word/decoder certificates together must be deterministic valid bounds or carry a simultaneous failure bound alpha_cert<=1/1000 derived from DISJOINT calibration information. Union bound gives total comparison error probability <=1/500; deterministic certificates improve it to <=1/1000. These probabilities quantify the conditional sampling/certification procedure, not confidence that AP-RCM or POAMS is physically true. The absolute bound <=1/960 holds on that simultaneous good event, not on every finite random sample without exception.
+
+### 17.6 Deterministic classification and control disposition
+
+**PROSPECTIVE / CONDITIONAL — frozen PROTOCOL §7; no attained qualification or execution.**
+
+Let B_P=[29/960,31/960] and B_R=[24/960,27/960], inclusive. The forbidden shortcut r>28/960 is NOT a classification rule. All comparisons use exact integers/algebraic numbers or certified outward intervals. The rule is total:
+
+1. Any missing/raw-corrupt record, missing/invalid certificate, E>1/960, incomplete schedule, failed AP-RCM/AP-M condition, failed custody or unqualified statistics: INCONCLUSIVE/INADMISSIBLE, never passage and not a physical falsification of either model.
+2. For an admissible N interval I_N: I_N subset B_P gives the primary label PERSISTENT-COMPATIBLE; I_N subset B_R gives RENEWAL-NOT-EXCLUDED; I_N disjoint from their union gives REJECT-BOTH-FROZEN-ENVELOPES (or posing/error conditions); every other interval gives INCONCLUSIVE. In particular, an interval partly outside a bin but touching it is not wholly outside, and any interval spanning bins is inconclusive. A singleton exactly on a bin endpoint belongs to that inclusive bin.
+3. Evaluate common controls V,I,S,O,M,Z using their target±1/960, inclusively. Entire outward intervals must be contained for control compatibility; disjoint is a control discrepancy; overlap without containment is inconclusive. A common-control discrepancy makes the physical posing/error claim fail (or reveals shared-model error); do not promote the primary label to passage. Preserve the primary bin label as an arithmetic observation and report the full comparison INCONCLUSIVE/CONTROL-DISCREPANCY.
+4. Evaluate Q,R,H separately for each hypothesis against its table target±1/960. Do not force the persistent prediction as a precondition for testing renewal. Persistent-bin qualification requires those controls compatible with H_P; renewal-bin qualification requires compatibility with H_R. If a corresponding control is disjoint while all common and independent certification conditions hold, that model's full signature is falsified. If N already excludes the other model, report BOTH FROZEN SIGNATURES REJECTED (or an unrecognized posing/error failure). Partial overlap gives inconclusive. No unique replacement theory is identified.
+
+These controls are independent tests, not estimators used to rescale N or tune theta, chi, phase, decoder, dark baseline, error allowance or bins. In a pre-qualified exact representation I_N={r}, the primary rule is exactly R8Y-C6; interval refinement may improve arithmetic only, never acquire new data or fit physics.
+
+### 17.7 Falsifier register
+
+**PROSPECTIVE / CONDITIONAL — frozen PROTOCOL §8; no attained qualification or execution.**
+
+All physical consequences below require the independent certificates and complete controls; otherwise the consequence is inconclusive/inadmissible. A finite valid inference has the confidence scope of PROTOCOL §6.
+
+| Entry | Exact observation or condition | Consequence |
+|---|---|---|
+| F-P | I_N subset [24/960,27/960] | Persistent same-contact prediction excluded; conservative renewal envelope not excluded, subject to its controls |
+| F-R | I_N subset [29/960,31/960] | Accounted independent-clock renewal envelope excluded; persistence compatible, not established universally |
+| F-B | I_N disjoint from B_P union B_R | Both frozen envelopes rejected OR posing/error premises fail; includes singleton 28/960 and any singleton >31/960 or <24/960 |
+| F-PC | Admissible I_N disjoint from B_P but not necessarily from B_R | Persistent envelope excluded; full classification still follows PROTOCOL §7 |
+| F-RC | Admissible I_N disjoint from B_R but not necessarily from B_P | Conservative renewal envelope excluded; no identification of every alternative |
+| F-Q | I_Q disjoint from [−c−1/960,−c+1/960] or [−d−1/960,−d+1/960] | Reject the corresponding P or R quadrature signature, not the shared contact existence by fiat |
+| F-REV | I_R disjoint from [−a±1/960] (P) or [−b±1/960] (R) | Reject that model's reversal signature; inspect phase convention/setting receipts |
+| F-SHAM | I_H disjoint from [a±1/960] (P) or [b±1/960] (R) | Sham routing/identity or corresponding model fails; no unrecorded swap cancellation claim |
+| F-NULL | V or Z disjoint from [−1/960,1/960] | Shared zero-coherence/decoder/posing control discrepancy; no persistence passage |
+| F-ID | I or S disjoint from [119/960,121/960] | Shared endpoint normalization/saturated-order/route discrepancy; no fitted efficiency correction |
+| F-ONE | O disjoint from [t−1/960,t+1/960] | Shared first-contact law or posing fails; cannot discriminate persistence by first contact alone |
+| F-MIMIC | M disjoint from [b−1/960,b+1/960] | Accounted fresh-clock mimic/independence/readout/control fails; its conservative coarse envelope is inside B_R, but B_R membership alone is not exact mimic agreement |
+| F-AP | Unavoidable extra contact/clock advance; altered organization/tariff; nonseparable return; unqualified stocks/exports/protection | AP-RCM or AP-M inapplicable: inconclusive, not a failure of persistence under a different word |
+| F-INC | Missing controls; interval touches/straddles a bin without containment; intervals span both bins; E>1/960; missing record/independence | INCONCLUSIVE, never passage; preserve all adverse records |
+
+### 17.8 Receipt schema and custody (normative)
+
+**PROSPECTIVE / CONDITIONAL — frozen PROTOCOL §9; no attained qualification or execution.**
+
+The machine-readable shape is [record-schema.json](/Users/cfmacbook/.openclaw/workspace/poams-review/work/fiber-optics-integrated-program-2026-10-29/rcm1-freeze-20261101/research/record-schema.json); it is normative together with the cross-record semantic rules below. A shape-valid JSON object is not evidence that its physical claims hold. An acquisition packet, if separately authorized, MUST contain the following linked records. UTF-8 JSON metadata uses integer or numerator/denominator strings and algebraic-coefficient arrays; never NaN/Infinity. Binary raw assets are referenced by exact bytes, SHA-256 and immutable location. Hashes are documentary custody, not external preregistration or physical certification.
+
+- **Run manifest:** protocol/source/code hashes; version/date; operator and independent reviewer identities; specimen/full inventory and site/rail/mode map; declared material/geometry/wiring/orientation/environment; source-bank q and d; all timing windows and instrument clock calibration; complete ordered word and control-row schedule; initial-state and stock/recipient IDs; decoder/calibration IDs; chosen four budget bounds and confidence certificates; n/stopping rule; authorization reference; append-only raw/archive locations; storage capacity/retention and replication plan; intended M0/M1/M2/M3 grade (this paper has none).
+- **Stock/account manifest:** each full data module, reference/flag/phase/pointer/command/history/Q/outlet/archive factor; fresh vs retained identity and preparation receipt; linked parent/recipient IDs for every swap/export; full complement/inverse version; timing/phase controls; final OFF-token and protected-support receipt; M/H added clocks and stroke inventory. Retain quantum recipients without claiming that a hash measures their state.
+- **Trial schedule row:** unique run/block/row/trial ID, scheduled order and time, fixed settings/input/phi/word/central mode, exact stock and archive IDs, before/after calibrations and budget-coverage IDs. Preserve cancelled and unstarted slots as tombstones; no reusable trial ID.
+- **Raw trial receipt:** acquisition start/end and all phase/contact/record/archive/OFF timing marks; commanded AND observed settings; raw instrument bytes/units and all calibration transforms; all 500 receiving phase-pointer outputs (125 modes, two rails, two f slots), indexed by bank/mode/rail/f, read after archival protection; each has a label 0…8 or explicit unreadable/missing status and raw payload; the central four are scored, all other receiving output labels retained without selection; source/inactive/population pointers are linked as retained-unread physical factors, not assigned fabricated zero labels; central T_C,D_C,T_D,D_D links; initial nominal-blank certificate, never silently assumed blank; simultaneous alarms/saturation/dropouts; command/history/archive/OFF/protection logs; all retained old-output links; no hidden exclusion. Do not measure a phase-sensitive carrier/clock mid-word to fill metadata.
+- **Reduction receipt:** raw hashes and decoder/version; nine-label histograms for every scored pointer; 9^4=6561 joint four-pointer cells per row (all zero cells representable); every trial's four labels, k_i and Y_i; n_expected, n_present, n_missing; exact integer K=sum k_i and r=K/(n sqrt(2)); outward representation interval; statistical interval; separate systematic and sampling budget terms; all common/model-specific control classifications; primary bin and full disposition; no dark replacement, renormalization or undisclosed correction.
+- **Custody chain:** append-only chunk ordinal, parent hash, byte count, SHA-256, creator/time, complete ordered chunk manifest and seal; read-only raw originals plus a separately identified derived tree; reviewer rehash/reduction log and independent replay plan. Seal protocol, schedule, decoder and calibration before first trial; seal chunks on close; seal complete raw manifest before opening the analysis; every failed/aborted receipt and every scheduled tombstone stays. No external upload, message or public preregistration is performed here.
+
+Cross-record semantic requirements: scheduled IDs form exactly the frozen ten-row block sequence; no duplicates or unlisted substitutions; every one of the 500 active receiving phase-pointer IDs has exactly one final observation per completed trial; every other pointer factor has a retained-unread custody link; the four scored IDs resolve in order to central TOTAL_C,DARK_C,TOTAL_D,DARK_D; all raw assets and certificate references resolve and rehash; all interval endpoints are real with lower<=upper; every joint histogram sums to the full scheduled n only when complete; its marginals match the nine-label histograms and its integer score sum matches K. Missing slots have explicit tombstones and invalidate the full comparison. Source/date/time claims, budget bounds and independence require genuine receipts, not schema conformance.
+
+Only the 500 receiving phase-pointer outputs are scheduled for label extraction; source/inactive/population pointer states are retained unread. The raw output labels must be read only after their last prescribed recording interaction and protected archival handoff. The phase instrument's ordered DARK then TOTAL couplings are part of the word; later observation of their commuting scalar registers is not a reset. Readout/extraction errors fall inside the declared channel/decoder cut. Direct observation of the unscored retained quantum apparatus is NOT required and is NOT licensed to destroy its coherence before final comparison.
+
+### 17.9 AP-RCM / AP-M preflight checklist with invalidators
+
+**PROSPECTIVE / CONDITIONAL — frozen PROTOCOL §10; no attained qualification or execution.**
+
+Every item needs a signed, disjoint evidence reference before this protocol applies; a checkmark without a source does not certify it.
+
+| Prospective / conditional obligation — all OPEN | Invalidating condition |
+|---|---|
+| [ ] Existing G_CA/G_DBs available twice at fixed theta, same organization | Addressing changes generator, angle tariff, carrier grade or order |
+| [ ] Identity spectators during separate no-transport word | Unavoidable edge/order/outlet contacts, clock X_T advance, Cyc_S, singlet or Q operation |
+| [ ] Same physical clock remains between baseline encounters | Hidden fresh-clock replacement, trace/reset, unaccounted drift or uncontrollable evolution |
+| [ ] Receiver addresses same bank/matched mode using distinct stocks | Nonseparable return/route interaction, unmatched overlap, reuse/erasure of source reference or flag |
+| [ ] All 125 sites, both rails and full inventory retained | Small-specimen substitution, dropped boundaries/rail or assumed empty fault complement |
+| [ ] Supplied full source, half-vacuum coherence and joint references | Pure-bright substitution, population premix, marginal refresh, altered chi or phase-reference preparation |
+| [ ] CF1 joint exchange and actual DARK/TOTAL four-pointer record | Wrong read order, constant background subtraction, independent re-prepared DARK, changed flag law |
+| [ ] Full-domain calibration/preparation/word certificates within PROTOCOL §4 | Uncertified leakage, bad old pointer state, drift, unsupported local-to-global fidelity inference |
+| [ ] Statistics and complete schedule | Unjustified independence, outcome-driven stopping, loss/exclusion or replacement trials |
+| [ ] One-shot archive, OFF and protection with all recipients charged | Active P swapped away, OFF inside nonunitary control construction, later recontact, free reset or unfunded stock |
+| [ ] AP-M: independent chi clock swap/export without order renewal | Missing fresh/export stock, residual correlation, unintended phase/organization change, order replacement; H double swap not identity |
+| [ ] Conservation and apparatus accounts | Unposted angular momentum/tariff/Q change, omitted drive/control/routing recipient or inferred microscopic/monetary price |
+
+Availability is still UNKNOWN. Satisfying these obligations in a future separately authorized realization would only qualify that realization, not prove a universal law or the complete CT1 material mechanism.
+
+### 17.10 Additional pre-build gates carried by the adopted freeze
+
+**PROSPECTIVE / CONDITIONAL — every gate OPEN; R8Z-C1–C12 and R8Y-C1–C12 remain conjunctive, with their inherited conditions in their original scopes.**
+
+- [ ] **Independent evidence and authority:** identify the separate bounded commission, accountable reviewer and explicit authorization reference before any physical design/resourcing/build/operation. This staged rewrite is not that reference; the paper → review/frozen target → design/resourcing → separate green light → construction/operation order remains governing.
+- [ ] **Inherited disjoint qualification controls:** retain the CF1 original C1-zero, tag/dephasing, wrong/incoherent-stock, external-reference, marginal-refresh, dark/complement and old-pointer controls. They are not replaced by the ten comparison rows or declared passed by their nominal arithmetic. Q/R/H hypothesis-dependent outcomes are not forced to the persistent prediction as a preflight test.
+- [ ] **Complete certificates:** identify signed disjoint evidence, cut/domain, before/after drift coverage, simultaneous uncertainty, reviewer and validity period for every preparation, ordered-word, decoder and across-trial-independence premise. No local-to-global extrapolation from marginal tests; no missing law may be fitted from the discriminator.
+- [ ] **AP-RCM and AP-M independently qualified:** no inference from the availability of baseline contacts to swap/export capability. Missing M/H implementation or certification makes the full scheduled comparison inconclusive. No small-specimen substitution qualifies the full frozen inventory.
+- [ ] **Conservation and complete supply:** retain source, terminal, order reaction, clock exports, transverse/outlet, work, control, routing, archive, OFF, reset/failure and environmental accounts; charge all added recipients and repeated occurrences. These are conditional mathematical accounts, not measured microscopic or monetary prices.
+- [ ] **Custody implementation:** demonstrate cross-record semantic validation and independent replay against the pinned shape plus PROTOCOL §§4–10. Do not label this document or the paper fixture battery a tested acquisition pipeline. Preserve source data and all derived versions separately.
+
+**Finite mathematical sufficiency, not practical capacity:** the fixed **3,774,873,600 trials per row** and **37,748,736,000 nominal slots** make the conditional concentration statement finite. Neither those counts nor the large listed-factor/stroke accounts establish manufacturing, storage, throughput, wall time, thermal loading, independent stock supply or useful engineering capacity. No conversion to seconds, watts or cost is assigned.
+
+The paper battery is not physical verification: the adopted original abstract contract had zero mismatches across 75 fixtures, while 32 unchanged-fixture/default-contract mismatches were safely inconclusive and all 75 fixtures were inadmissible as literal acquisition packets. Do not restate this as “75/75 frozen-protocol pass.” Nonnominal scoring is an explicitly frozen R8Y-C6-permitted choice, not a map-independent oracle or all-fault immunity. No general fault-state simulation, physical attainability of synthetic fixtures or attained error bound follows.
+
+**Present stopping condition:** RCM-1 remains acquisition-ready ON PAPER only. All preflight evidence, physical availability, global qualification, stock supply, independence, protected readout, material identity and practical capacity are unestablished. CT1 stays PARKED; J1–J4 OPEN; no N2; no physical validation. No experiment, source factory, reset service or automatic repeat is authorized.
+
+## 18. Exact source, schema and read-only manifest contract
+
+**PROSPECTIVE / CONDITIONAL — provenance and derivative-reference custody; hashes establish bytes, not physical truth or external preregistration.**
+
+The workspace root is `/Users/cfmacbook/.openclaw/workspace`. Every relative source path in the following table is rooted there. Paths identify the exact existing read-only inputs; staged prose is a derivative, not a newly sealed runtime. Source decisions, not a source's older author-stage “review pending” banner, determine adopted status.
+
+### 18.1 Source/version receipt
+
+| Workspace-relative source | Bytes | SHA-256 |
+|---|---:|---|
+| `poams-review/work/fiber-optics-integrated-program-2026-10-29/exhibit-rewrite-20261101/PREAMBLE-SOURCES.md` | 5007 | `35f876b4634889428b78fc782728a66b779633dc34c46c08bb6d534234a54ccc` |
+| `poams-exhibits-public/optical-information-link/ENGINEERING-SPEC.md` | 84184 | `406c7d1bb8a743ce5fecf1bde0e82f19c08d98d9c5f394dc17fc607f05440f56` |
+| `poams-exhibits-public/optical-information-link/SOURCE-MAP.md` | 10016 | `0eb77d15dace0ce6576be502c575cb89ec40a83f65caad0d20488f8f96fff5b5` |
+| `poams-review/work/fiber-optics-integrated-program-2026-10-29/paper-completion/REPORT.md` | 9849 | `72091388ee95d998af0e717272ea6dc703b5228d9d8660c3b388c046cb4880db` |
+| `poams-review/work/fiber-optics-integrated-program-2026-10-29/FUNDAMENTALS-REASSESSMENT-20261031.md` | 5971 | `bdaba3ec029a030492c6ff30982819256c86952a529b06ed51cf4c03eb88ea7a` |
+| `poams-review/work/fiber-optics-integrated-program-2026-10-29/exchange-record-representation-20261031/DECISION.md` | 7348 | `d3523b5a3178efe3f4651f597beb05f88a3a1f88595a690d9817b4e632320302` |
+| `poams-review/work/fiber-optics-integrated-program-2026-10-29/candidate-reassessment-20261101/DECISION.md` | 7340 | `53db8763358d20fd8952181fa70533b7c0b2873b5997e4b6893242264391fb2b` |
+| `poams-review/work/fiber-optics-integrated-program-2026-10-29/rcm1-freeze-20261101/DECISION.md` | 7387 | `3837b26af97daaeb478ba8ee10cd177e4b75df078d5d91d21e8b4ed64beb8ea8` |
+| `poams-review/work/fiber-optics-integrated-program-2026-10-29/rcm1-freeze-20261101/research/PROTOCOL.md` | 35264 | `4f576e694276e4971e814ab2d8c33b24cec0f46d7129f65b6fd87ab88b58449d` |
+| `GROUNDING.md` | 56677 | `134c1003a9bbad61020489e95fbbee3674574f13a49d8dcf573bfc0e5d5c2569` |
+| `POAMS-FOUNDATION-WALL.md` | 12216 | `3e74192f2e8907611461c8c710ff9b3d27e755d9fd58d4854ae47b191d5a5e0b` |
+| `poams-review/work/fiber-optics-integrated-program-2026-10-29/exhibit-rewrite-20261101/PINS.json` | 3458 | `2a2e8429577e779c5e9f5f8ea047149b6f494cf8906d260f6ec90c565ea17140` |
+| `ops/chief-of-staff/dispatch-20261101-exhibit-rewrite.md` | 7083 | `160ba337a4ecf705ab9288388281b1cc7b71ab4209727f8de01c9c16b33ec338` |
+| `poams-review/work/fiber-optics-integrated-program-2026-10-29/candidate-reassessment-20261101/review/ADOPTION.md` | 15025 | `101c5f579a87d7a687c1e5a9b3707e0d8ec0dabc69aaab035c2ce2ce509f9ad4` |
+| `poams-review/work/fiber-optics-integrated-program-2026-10-29/rcm1-freeze-20261101/review/ADOPTION.md` | 13249 | `6bc356befbe5639efc8a1889d294cfa75333499b491b2aafd0af751349850cc2` |
+| `poams-review/work/fiber-optics-integrated-program-2026-10-29/rcm1-freeze-20261101/REVIEW-TARGETS.json` | 3021 | `2f0edae78208e2d031be44a04829553904fafad69bae4bb1b4a18adb4ede4bf9` |
+| `poams-review/work/fiber-optics-integrated-program-2026-10-29/rcm1-freeze-20261101/research/record-schema.json` | 22884 | `1c669cff16b8297c28e015f663f834049cbda35e05d6e191e5f4924548de3148` |
+| `poams-review/work/fiber-optics-integrated-program-2026-10-29/rcm1-freeze-20261101/research/protocol.json` | 3020 | `cca4ce42e7d8b130d792fb7fe4444e9a151675f82d89a2b11e340222410c33d1` |
+| `poams-review/work/fiber-optics-integrated-program-2026-10-29/candidate-reassessment-20261101/research/THEORY.md` | 48525 | `b621f6d02ecc184b26f0b03c505657667c8b1dbc32931d95d5c2dc742fdae8bb` |
+
+R8Y/R8Z ADOPTION files are supplemental bindings verified through their pinned DECISION hashes. R8Y-T is verified through the pinned PROTOCOL §12 and used only for the archive-symbol clarification in §17.1. The RCM REVIEW-TARGETS manifest is verified through R8Z; all 17 members were rehashed, including the receipt schema and machine-readable protocol. This is identity verification, not a fresh review or execution of every member. All 16 rewrite pins, including those outside the engineering content, were checked before substantive reliance.
+
+The RCM JSON shape defines seven linked record types: `run_manifest`, `stock_manifest`, `schedule_row`, `raw_trial`, `reduction`, `custody`, and `certificate`. Shape alone cannot prove cross-record completeness, exact arithmetic, timing, conservation, availability or genuine evidence. Section 17.8 and PROTOCOL §§4–10 supply the semantic obligations. The old `data/acquisition-raw-schema.json` and §10 JSONL envelope remain the **30 October UNA-65 baseline only**, not a substitute for the RCM schema.
+
+### 18.2 Existing engineering data and manifests — READ-ONLY and unchanged
+
+The original archive, source maps, data and verification receipts continue to describe Edition 1. All links below target existing read-only artifacts; none is regenerated or extended to certify this staged successor.
+
+| Existing workspace-relative artifact | Bytes | SHA-256 |
+|---|---:|---|
+| [poams-exhibits-public/optical-information-link/ENGINEERING-MANIFEST.json](/Users/cfmacbook/.openclaw/workspace/poams-exhibits-public/optical-information-link/ENGINEERING-MANIFEST.json) | 5534 | `dfcd22c149e7eaee78b67e96208a06b96230975d46d2127a1d71a2ba931f0fc7` |
+| [poams-exhibits-public/optical-information-link/SOURCE-MAP.md](/Users/cfmacbook/.openclaw/workspace/poams-exhibits-public/optical-information-link/SOURCE-MAP.md) | 10016 | `0eb77d15dace0ce6576be502c575cb89ec40a83f65caad0d20488f8f96fff5b5` |
+| [poams-exhibits-public/optical-information-link/SOURCE-MAP.json](/Users/cfmacbook/.openclaw/workspace/poams-exhibits-public/optical-information-link/SOURCE-MAP.json) | 13359 | `d6ffb57ffcea17c46cb70558e380b46c7c1ca54b8b74ea94962c525e86004284` |
+| [poams-exhibits-public/optical-information-link/DATA-VERIFICATION.json](/Users/cfmacbook/.openclaw/workspace/poams-exhibits-public/optical-information-link/DATA-VERIFICATION.json) | 1373 | `ecfce56d85adc02bfe813b230daa90372053c7ebbe40ec4e36736b842f5ff68e` |
+| [poams-exhibits-public/optical-information-link/DEPENDENCY-VERIFICATION.json](/Users/cfmacbook/.openclaw/workspace/poams-exhibits-public/optical-information-link/DEPENDENCY-VERIFICATION.json) | 2423 | `f214237e477502e827f4caf8fbf004221f05b19dc6ab79b5eab6e04cebdbaba6` |
+| [poams-exhibits-public/optical-information-link/data/README.md](/Users/cfmacbook/.openclaw/workspace/poams-exhibits-public/optical-information-link/data/README.md) | 2955 | `036e457720eec7a250723ca469b96fa77af8505e9af92a45b80b72f4c1ff5760` |
+| [poams-exhibits-public/optical-information-link/data/SOURCE-MAP.json](/Users/cfmacbook/.openclaw/workspace/poams-exhibits-public/optical-information-link/data/SOURCE-MAP.json) | 13584 | `f477e7011e4ef0ceda3cbb27637ad7c5ce8726745a022bc9e04db61a7f03504d` |
+| [poams-exhibits-public/optical-information-link/data/NORMATIVE-DEPENDENCIES.json](/Users/cfmacbook/.openclaw/workspace/poams-exhibits-public/optical-information-link/data/NORMATIVE-DEPENDENCIES.json) | 72758 | `139fa330a17449d867db442bea0d175e637fed4ee216cc8b0bc0aab98667e6e8` |
+| [poams-exhibits-public/optical-information-link/engineering-data.zip](/Users/cfmacbook/.openclaw/workspace/poams-exhibits-public/optical-information-link/engineering-data.zip) | 5603615 | `c7c707d3cc91c293f88366be25b149809d10238875f06fcf5b70741faf2003d5` |
+
+All 31 listed ENGINEERING-MANIFEST members match their existing byte sizes and hashes. The entire existing companion tree contains 33 files; this rewrite neither modifies those files nor copies that tree into staging. The old manifest, DATA-VERIFICATION `exhibit_spec_sha256`, and archive bind the **84,184-byte Edition 1 specification**, SHA-256 `406c7d1bb8a743ce5fecf1bde0e82f19c08d98d9c5f394dc17fc607f05440f56`; they do not bind this Edition 2 draft. SOURCE-MAP remains the baseline's map, with this §18 as the staged successor's additive source ledger. Integration must resolve any new derivative package/manifest under separate authority without relabeling the old seal.
+
+The exact-number reading discipline of §16.1 continues unchanged: preserve arbitrary-precision integers, rational strings and algebraic coefficients; never round a decision through ordinary JavaScript Number or binary64. Read-only derivative table encoding does not change actual JSON-integer requirements in the baseline raw grammar. RCM exact integer K and algebraic r/intervals use their own pinned schema and arithmetic contract.
+
+No live runtime or acquisition software is supplied by this prose. No data regeneration, audio generation, audio-host claim, media-manifest change, publication, git operation or public-repository write is part of this staged engineering delivery. Parent integration and independent review remain outstanding.
