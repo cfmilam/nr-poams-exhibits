@@ -30,7 +30,12 @@ for index, row in enumerate(ROWS):
         raise FileNotFoundError(f"Missing original {ident}.pdf")
     title = escape(row["title"])
     label = escape(row["document_label"])
-    video = escape(row["video"], quote=True)
+    video = escape(row["video"], quote=True) if row["video"] else None
+    video_pill = (f'<a class="pl-video" href="{video}" target="_blank" rel="noopener noreferrer" '
+                  f'aria-label="Video in NotebookLM: {ident}, {title} (opens in a new tab)">VIDEO</a>'
+                  if video else
+                  '<button class="pl-video pl-pending" type="button" disabled '
+                  'aria-label="Video not yet available">VIDEO <small>Coming soon</small></button>')
     audio_pill, audio_panel = audio_control(row)
     playback = '<script defer src="../podcast-listen.js"></script>' if row["audio"] else ""
     previous = (f'<a rel="prev" href="{ROWS[index-1]["id"]}.html">← {ROWS[index-1]["id"]}</a>'
@@ -56,7 +61,7 @@ for index, row in enumerate(ROWS):
 <h1>{title}</h1>
 <p class="document-meta">{label} · {row["pages"]} pages</p>
 <div class="poams-listen" data-provisional="{ident}">
-<div class="pl-pills">{audio_pill}<a class="pl-video" href="{video}" target="_blank" rel="noopener noreferrer" aria-label="Video in NotebookLM: {ident}, {title} (opens in a new tab)">VIDEO</a></div>
+<div class="pl-pills">{audio_pill}{video_pill}</div>
 {audio_panel}
 </div>
 <div class="document-actions"><a href="{ident}.pdf" target="_blank" rel="noopener" type="application/pdf">Open PDF ↗</a><a href="{ident}.pdf" download>Download PDF ↓</a></div>
