@@ -4,7 +4,7 @@
   "episodes": [
     {
       "order": 1,
-      "title": "The Logos \u00b7 The World Is Language",
+      "title": "The Logos · The World Is Language",
       "sources": [
         "the-designers-reading.html",
         "the-world-is-language.html"
@@ -147,7 +147,7 @@
     },
     {
       "order": 8,
-      "title": "The Spin\u2013Orbit Settlement Ledger",
+      "title": "The Spin–Orbit Settlement Ledger",
       "sources": [
         "spin-orbit-settlement-ledger.html"
       ],
@@ -425,7 +425,7 @@
     },
     {
       "order": 19,
-      "title": "Land\u00e9",
+      "title": "Landé",
       "sources": [
         "lande-from-twist-writhe.html"
       ],
@@ -652,7 +652,7 @@
     },
     {
       "order": 30,
-      "title": "The Spin\u2013Orbit Settlement Ledger",
+      "title": "The Spin–Orbit Settlement Ledger",
       "sources": [
         "spin-orbit-settlement-ledger.html#galaxy-case"
       ],
@@ -1287,7 +1287,7 @@
       ],
       "approved": true,
       "audio_sha256": "41ddb7fd5b753235bd3ccddb84f25d9b2d42216272bd240c77fe25291266ca86",
-      "source_content_sha256": "24d929c83378283192b982a3aeeed6e50a0ee7708663c0d57aa664dd78e72b6c",
+      "source_content_sha256": "57ff47bcbfba408c9ee8d5b4441847d7ac9c1f92ce523d006ec95d6252704d2d",
       "script_source_sha256": {
         "optical-information-link.html": "94637c01aab8f2a4c67981aa0865502498cfdbfd5180a3869ee9a895dab62786"
       },
@@ -1296,14 +1296,27 @@
       },
       "source_dependency_sha256": {
         "optical-information-link/DATA-VERIFICATION.json": "f8b7ed15c97970fb28c9e557c7fa5a7cdb2f5810df561ce63b02aedce2415476",
-        "optical-information-link/ENGINEERING-MANIFEST.json": "fa7856bc29408277cd166aadbc94de4aea1c2398c80f8cba4793d043d73931a4",
-        "optical-information-link/data/NORMATIVE-DEPENDENCIES.json": "139fa330a17449d867db442bea0d175e637fed4ee216cc8b0bc0aab98667e6e8",
-        "optical-information-link/data/acquisition-una65.json": "6318a8047fe20718d7c767e040443f06a91e6b577fdb4eb6788fc9fd7873698a",
-        "optical-information-link/data/complete-accounts.json": "42e07c3d2f3815b8092b71c1f6f975037f2d5ec0e99a74e10a48883befa59522",
-        "optical-information-link/data/guide-rom.json": "b49c26ec06e852ffe203380de0fb8152accd5e084d382c0ec92ffe6771545ed4",
-        "podcast-listen.js": "5a4a6628d673aa9bdcbd4e11c44839816ad618a81bd9a1b1f72a066f82f2fb3e"
+        "optical-information-link/ENGINEERING-MANIFEST.json": "fa7856bc29408277cd166aadbc94de4aea1c2398c80f8cba4793d043d73931a4"
       },
-      "audio_url": "https://audio.resonantmachines.us/podcasts/58/41ddb7fd5b753235bd3ccddb84f25d9b2d42216272bd240c77fe25291266ca86.mp3"
+      "audio_url": "https://audio.resonantmachines.us/podcasts/58/41ddb7fd5b753235bd3ccddb84f25d9b2d42216272bd240c77fe25291266ca86.mp3",
+      "source_adoption": {
+        "kind": "reviewed-material-source-adoption",
+        "receipt_sha256": "91cb74b6ef97971919bba30dcb302477b1ecfd3b61815157f1d8756304f860f8",
+        "original_source_receipt_sha256": "fa03b6ecf7362355519f586685e22b27be80f3a1893b98f9f27927c3f97db7e5",
+        "old_semantic_sha256": "24d929c83378283192b982a3aeeed6e50a0ee7708663c0d57aa664dd78e72b6c",
+        "reviewed_semantic_sha256": "57ff47bcbfba408c9ee8d5b4441847d7ac9c1f92ce523d006ec95d6252704d2d",
+        "source_review_sha256": "c95eeef111e207efc2f3cca71b9bf1ed0f28865d972b0584607fce9678d1599a",
+        "listener_review_sha256": "19ede65c847f6ece3dcf04717bafb83aa8f7b0f42cb45906dfdf6c8c70924896",
+        "script_sha256": "2c75055c14b8e421bb9e5600798a57936a159efbc971b0decf93f814fa1b725b",
+        "audio_sha256": "41ddb7fd5b753235bd3ccddb84f25d9b2d42216272bd240c77fe25291266ca86",
+        "model": "gpt-5.6-sol",
+        "voices": {
+          "Hope": "tnSpp4vdxKPjI9w0GnoV",
+          "Jon": "Cz0K1kOv9tD8l0b5Qu53"
+        },
+        "tempo": 1.1,
+        "pitch_semitones": 0
+      }
     },
     {
       "order": 59,
