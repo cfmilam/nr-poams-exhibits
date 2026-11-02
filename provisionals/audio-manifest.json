@@ -131,6 +131,16 @@
       "source_pdf_sha256": "ddec5949fdcf3247c6a98409bb23fd9ecbffcd7ea3e69ffc8634d9f0540a9fdd",
       "audio_url": "https://audio.resonantmachines.us/provisionals/PROV-N/9271b0f0232aba04ef14151ab1582a3e88ac09985f89f316649da4a804ba74ab.mp3",
       "audio_sha256": "9271b0f0232aba04ef14151ab1582a3e88ac09985f89f316649da4a804ba74ab"
+    },
+    {
+      "id": "PROV-O",
+      "order": 14,
+      "title": "Work-Compensated Fiber Communications System and Methods",
+      "approved": true,
+      "source_pdf": "provisionals/PROV-O.pdf",
+      "source_pdf_sha256": "a13435693fac96e3a9f16cb455cac1c68aca2eeadc883d673437b73489991d9c",
+      "audio_url": "https://audio.resonantmachines.us/provisionals/PROV-O/ae447046f789aa6c624b2fb0431ca7593ad7010f4c6715077b47bfdb27822c6f.mp3",
+      "audio_sha256": "ae447046f789aa6c624b2fb0431ca7593ad7010f4c6715077b47bfdb27822c6f"
     }
   ]
 }
