@@ -1286,13 +1286,13 @@
         "optical-information-link.html"
       ],
       "approved": true,
-      "audio_sha256": "57f966fdbecb7ac9bb2fcbc90bd9f6360c34a6e93fe9ea59ad97d60e7e8e0d5c",
-      "source_content_sha256": "504673eb8f7d04c0d21f5b9565c0038d2e569b9ac121dc5aa16de4acff895739",
+      "audio_sha256": "41ddb7fd5b753235bd3ccddb84f25d9b2d42216272bd240c77fe25291266ca86",
+      "source_content_sha256": "24d929c83378283192b982a3aeeed6e50a0ee7708663c0d57aa664dd78e72b6c",
       "script_source_sha256": {
-        "optical-information-link.html": "c02fb6eceac73c8f7a95207e65c0bacb6b0e1971726df6247ed565bba73e0e96"
+        "optical-information-link.html": "94637c01aab8f2a4c67981aa0865502498cfdbfd5180a3869ee9a895dab62786"
       },
       "source_sha256": {
-        "optical-information-link.html": "83410928cb50c7bd3b1e780f756993f23333c983250406b4616aeddf246baadb"
+        "optical-information-link.html": "be7b224ffdd10e17adc424b4c6da461dc7acdd1e7d828c8cc40bce52ed9f3557"
       },
       "source_dependency_sha256": {
         "optical-information-link/DATA-VERIFICATION.json": "f8b7ed15c97970fb28c9e557c7fa5a7cdb2f5810df561ce63b02aedce2415476",
@@ -1303,25 +1303,7 @@
         "optical-information-link/data/guide-rom.json": "b49c26ec06e852ffe203380de0fb8152accd5e084d382c0ec92ffe6771545ed4",
         "podcast-listen.js": "5a4a6628d673aa9bdcbd4e11c44839816ad618a81bd9a1b1f72a066f82f2fb3e"
       },
-      "audio_url": "https://audio.resonantmachines.us/podcasts/58/57f966fdbecb7ac9bb2fcbc90bd9f6360c34a6e93fe9ea59ad97d60e7e8e0d5c.mp3?v=57f966fdbecb7ac9bb2fcbc90bd9f6360c34a6e93fe9ea59ad97d60e7e8e0d5c",
-      "source_adoption": {
-        "kind": "reviewed-material-source-adoption",
-        "receipt_sha256": "611c47a8f0f4a90b5d0e10d19f021c80f16749154281734da70927630459fd1c",
-        "original_source_receipt_sha256": "4a8faa3b5d39cb76d052004e528a1498212fb348679e8ad488bef409e72e574d",
-        "old_semantic_sha256": "a80b7508f1a32e1f00de6f43559bae0ce2d55589a9cd029e6596337fec35b763",
-        "reviewed_semantic_sha256": "504673eb8f7d04c0d21f5b9565c0038d2e569b9ac121dc5aa16de4acff895739",
-        "source_review_sha256": "6e226f35de90f28aad76cb24ceefb4e7644d146795321c8f77078c716c8f45a4",
-        "listener_review_sha256": "0d518135478748ca3f3fd5b7bd4e3ffa9ad0a134d2a444d90a54fbb76e577e5e",
-        "script_sha256": "c118d18324e858ca116c2d954760aabf90d3df0910f3fe4d09afeefc9afd4ae6",
-        "audio_sha256": "57f966fdbecb7ac9bb2fcbc90bd9f6360c34a6e93fe9ea59ad97d60e7e8e0d5c",
-        "model": "gpt-5.6-sol",
-        "voices": {
-          "Hope": "tnSpp4vdxKPjI9w0GnoV",
-          "Jon": "Cz0K1kOv9tD8l0b5Qu53"
-        },
-        "tempo": 1.1,
-        "pitch_semitones": 0
-      }
+      "audio_url": "https://audio.resonantmachines.us/podcasts/58/41ddb7fd5b753235bd3ccddb84f25d9b2d42216272bd240c77fe25291266ca86.mp3"
     },
     {
       "order": 59,
