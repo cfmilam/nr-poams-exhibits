@@ -895,14 +895,14 @@
         "time-rope.html"
       ],
       "approved": true,
-      "audio_url": "https://audio.resonantmachines.us/podcasts/40/bac99b1957aaf0bf3dda8aecaa25c3cb146ed6cf9266a19407f11c95296f0368.mp3",
-      "audio_sha256": "bac99b1957aaf0bf3dda8aecaa25c3cb146ed6cf9266a19407f11c95296f0368",
-      "source_content_sha256": "44497e7d58aa23b798f2596fc2268ec251f7bbce3127a2ecc99112e1f31654a8",
+      "audio_url": "https://audio.resonantmachines.us/podcasts/40/c5e4fe6ed7c8014c2ff184e141900fbe4f14c8e03728119e9ee91ddd8131cd69.mp3",
+      "audio_sha256": "c5e4fe6ed7c8014c2ff184e141900fbe4f14c8e03728119e9ee91ddd8131cd69",
+      "source_content_sha256": "cf8e731a220fa8458e331da2560c42261644645bc1e56b22305901afad60b188",
       "script_source_sha256": {
-        "time-rope.html": "f91d11fac1d37ad2fc635b1b01c74f735d3f348a9de32cd3a2eb724d8213a94f"
+        "time-rope.html": "f66a80674f452742ba041c6ccc7b2e48bf9e721adf40d1f378986e134dffed96"
       },
       "source_sha256": {
-        "time-rope.html": "f66a80674f452742ba041c6ccc7b2e48bf9e721adf40d1f378986e134dffed96"
+        "time-rope.html": "c6a6749b6739846483bac06ffa8a6b504101ffb4acd7e68b60bc08a89b4cfba0"
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
