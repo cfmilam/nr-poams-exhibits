@@ -1287,12 +1287,12 @@
       ],
       "approved": true,
       "audio_sha256": "41ddb7fd5b753235bd3ccddb84f25d9b2d42216272bd240c77fe25291266ca86",
-      "source_content_sha256": "57ff47bcbfba408c9ee8d5b4441847d7ac9c1f92ce523d006ec95d6252704d2d",
+      "source_content_sha256": "d520ba71da8f8ee7b6b990fbdf0bb081cf3a2ffbcc173ce6a1e070283176812f",
       "script_source_sha256": {
         "optical-information-link.html": "94637c01aab8f2a4c67981aa0865502498cfdbfd5180a3869ee9a895dab62786"
       },
       "source_sha256": {
-        "optical-information-link.html": "50228ef6d29cc2a3210fadb0177efc5558bb004a2861d25f703d5406e63dbfc1"
+        "optical-information-link.html": "5fd5aed1cf526aeb8dd3707ef26117294b0b6394b87270b3d6fce4d6c88b59fa"
       },
       "source_dependency_sha256": {
         "optical-information-link/DATA-VERIFICATION.json": "f8b7ed15c97970fb28c9e557c7fa5a7cdb2f5810df561ce63b02aedce2415476",
@@ -1327,12 +1327,30 @@
       "approved": true,
       "audio_url": "https://audio.resonantmachines.us/podcasts/59/1ee60fca86a190a8280d83f587d3a68149068fc5e06000b5587e7c6001c3713d.mp3",
       "audio_sha256": "1ee60fca86a190a8280d83f587d3a68149068fc5e06000b5587e7c6001c3713d",
-      "source_content_sha256": "a0ae22903edfa25c4943b01383e1346e7e4ad5b53fd4eb1591bef91247f188c3",
+      "source_content_sha256": "9d8c7405f0a34985d585b269adf68fb91bc1b916218659436f15059fe671733b",
       "script_source_sha256": {
         "coupled-circulations.html": "b75e0db0243bf76d33bc28e85d5082df93b845e56627c61da88db228c571eef5"
       },
       "source_sha256": {
-        "coupled-circulations.html": "46d7edeb3d288b6ce8fe6e6a14305cc27298ca248ab246562cfeb24bdbe3f9de"
+        "coupled-circulations.html": "dae36a9a07437c752f439976521e43ad05fa9ce135e72f3fbf28b1811bf4fcf4"
+      },
+      "source_dependency_sha256": {}
+    },
+    {
+      "order": 60,
+      "title": "Aging in Immutable Ledgers",
+      "sources": [
+        "on-aging-immutable-ledgers.html"
+      ],
+      "approved": true,
+      "audio_url": "https://audio.resonantmachines.us/podcasts/60/fe702055398383f7ee1162ae9bb947a452f3908415c969cd07eea0449add52e2.mp3",
+      "audio_sha256": "fe702055398383f7ee1162ae9bb947a452f3908415c969cd07eea0449add52e2",
+      "source_content_sha256": "99ec9a0a5c4c5b896cf3c2dd8b67da43da429dc74394a8c309c4f5019ce8740d",
+      "script_source_sha256": {
+        "on-aging-immutable-ledgers.html": "d2fb6540b09168c14649c4a430e46e07cb1717feae2f3e374ff73fe9b55a9cdd"
+      },
+      "source_sha256": {
+        "on-aging-immutable-ledgers.html": "8e6b30e4cde09f2dad9e9ebe9548aa3b67ee5baa9c844213fe605f13bda16215"
       },
       "source_dependency_sha256": {}
     }
