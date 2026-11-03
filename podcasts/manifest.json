@@ -1345,12 +1345,12 @@
       "approved": true,
       "audio_url": "https://audio.resonantmachines.us/podcasts/60/fe702055398383f7ee1162ae9bb947a452f3908415c969cd07eea0449add52e2.mp3",
       "audio_sha256": "fe702055398383f7ee1162ae9bb947a452f3908415c969cd07eea0449add52e2",
-      "source_content_sha256": "99ec9a0a5c4c5b896cf3c2dd8b67da43da429dc74394a8c309c4f5019ce8740d",
+      "source_content_sha256": "648c2754d6ae2757fc7d99e2def96504857092d839936031273274f3b213f2cf",
       "script_source_sha256": {
         "on-aging-immutable-ledgers.html": "d2fb6540b09168c14649c4a430e46e07cb1717feae2f3e374ff73fe9b55a9cdd"
       },
       "source_sha256": {
-        "on-aging-immutable-ledgers.html": "8e6b30e4cde09f2dad9e9ebe9548aa3b67ee5baa9c844213fe605f13bda16215"
+        "on-aging-immutable-ledgers.html": "e42671b0dbf323bf524a3a4395633b8500c587ef0f7718c3c29c60c81e78b2e7"
       },
       "source_dependency_sha256": {}
     }
