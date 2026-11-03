@@ -1334,7 +1334,24 @@
       "source_sha256": {
         "coupled-circulations.html": "dae36a9a07437c752f439976521e43ad05fa9ce135e72f3fbf28b1811bf4fcf4"
       },
-      "source_dependency_sha256": {}
+      "source_adoption": {
+        "kind": "reviewed-material-source-adoption",
+        "receipt_sha256": "36a08419eaf413fe529c0f59dccaf072896d7982f3fb52e5fe04240f3f7e5c2d",
+        "original_source_receipt_sha256": "a44191da444a7c45953a7941e63794ce09b2bf60bc5244c5c1f3afc06aed7c09",
+        "old_semantic_sha256": "a0ae22903edfa25c4943b01383e1346e7e4ad5b53fd4eb1591bef91247f188c3",
+        "reviewed_semantic_sha256": "9d8c7405f0a34985d585b269adf68fb91bc1b916218659436f15059fe671733b",
+        "source_review_sha256": "06d42c6ee16da6f02de1a60a0011df7bb0f1cf1faa941b6c94951500cb9e1704",
+        "listener_review_sha256": "178a5a3476d1da15d96cf36f859f6d6806681dc188c5f185541a64def9ecda47",
+        "script_sha256": "ebdb4f4edb018ab2cd59aaf95f2533dcd01dd1dab91b3fee37c9a9ea4d838a19",
+        "audio_sha256": "1ee60fca86a190a8280d83f587d3a68149068fc5e06000b5587e7c6001c3713d",
+        "model": "gpt-5.6-sol",
+        "voices": {
+          "Hope": "tnSpp4vdxKPjI9w0GnoV",
+          "Jon": "Cz0K1kOv9tD8l0b5Qu53"
+        },
+        "tempo": 1.1,
+        "pitch_semitones": 0
+      }
     },
     {
       "order": 60,
