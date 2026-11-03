@@ -915,15 +915,33 @@
       "approved": true,
       "audio_url": "https://audio.resonantmachines.us/podcasts/40/c5e4fe6ed7c8014c2ff184e141900fbe4f14c8e03728119e9ee91ddd8131cd69.mp3",
       "audio_sha256": "c5e4fe6ed7c8014c2ff184e141900fbe4f14c8e03728119e9ee91ddd8131cd69",
-      "source_content_sha256": "cf8e731a220fa8458e331da2560c42261644645bc1e56b22305901afad60b188",
+      "source_content_sha256": "08a160b5a1a80bcd2f85c15643f03ce2d1db9ef25035cbbf297568721057fbd8",
       "script_source_sha256": {
         "time-rope.html": "f66a80674f452742ba041c6ccc7b2e48bf9e721adf40d1f378986e134dffed96"
       },
       "source_sha256": {
-        "time-rope.html": "c6a6749b6739846483bac06ffa8a6b504101ffb4acd7e68b60bc08a89b4cfba0"
+        "time-rope.html": "1d6a7eefea25494ca7040a2c7d26827d4d4201d555862502ea4d37495389739a"
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      },
+      "source_adoption": {
+        "kind": "reviewed-material-source-adoption",
+        "receipt_sha256": "a2c7fc06244ddd39e50d7560a947bd284e775e78e59dad880d345a19cd9da241",
+        "original_source_receipt_sha256": "05bf9d015323e5362245b0e67e5e73f6cfd1b943b77182043486996a6334a53b",
+        "old_semantic_sha256": "cf8e731a220fa8458e331da2560c42261644645bc1e56b22305901afad60b188",
+        "reviewed_semantic_sha256": "08a160b5a1a80bcd2f85c15643f03ce2d1db9ef25035cbbf297568721057fbd8",
+        "source_review_sha256": "5e68fd66eafeab59f9fddc2d8bb398055a6e3c95cc6ad666d292ff3d7a8c03bf",
+        "listener_review_sha256": "ecd057a69b0343ff6afe71e9deaa74f6fc588c131cec287425c9fa7c1077bfb4",
+        "script_sha256": "45039a0d3c6fb8e3782c9f6291a8422becc2a4a40dd6afe707e1dca1432311c6",
+        "audio_sha256": "c5e4fe6ed7c8014c2ff184e141900fbe4f14c8e03728119e9ee91ddd8131cd69",
+        "model": "gpt-5.6-sol",
+        "voices": {
+          "Hope": "tnSpp4vdxKPjI9w0GnoV",
+          "Jon": "Cz0K1kOv9tD8l0b5Qu53"
+        },
+        "tempo": 1.1,
+        "pitch_semitones": 0
       }
     },
     {
