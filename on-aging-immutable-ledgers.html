@@ -1,0 +1,712 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>On Aging, Immutable Ledgers and the Impossibility of Loss — POAMS</title>
+<script>
+/* Paper reader preference; leaves the corpus's fixed-theme keys untouched. */
+(() => {
+  'use strict';
+  const key = 'poams-exhibit-theme';
+  const root = document.documentElement;
+  let initial = 'dark';
+  try {
+    const saved = localStorage.getItem(key);
+    if (saved === 'light' || saved === 'dark') initial = saved;
+  } catch (_) { /* Reading and switching still work without browser storage. */ }
+  root.dataset.theme = initial;
+  document.addEventListener('DOMContentLoaded', () => {
+    const button = document.getElementById('paper-theme-toggle');
+    const update = () => {
+      const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      button.textContent = next === 'light' ? 'Light mode' : 'Dark mode';
+      button.setAttribute('aria-label', `Switch to ${next} mode`);
+    };
+    button.hidden = false;
+    button.addEventListener('click', () => {
+      root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      try { localStorage.setItem(key, root.dataset.theme); } catch (_) {}
+      update();
+    });
+    update();
+  });
+})();
+</script>
+<style data-house-source="exhibit-presentation.css">
+/* Shared reader presentation for the three early interactive exhibits.
+   Scoped to opt-in pages; historical content and calculation code stay intact. */
+body.standard-exhibit {
+  --reader-bg: #0d0d18;
+  --reader-card: #131322;
+  --reader-inset: #10101e;
+  --reader-fg: #dfe0ea;
+  --reader-muted: #aaa8b7;
+  --reader-gold: #d4af37;
+  --reader-blue: #5bc8f5;
+  --reader-border: #303044;
+  margin: 0;
+  padding: 44px 0 0 !important;
+  background: var(--reader-bg);
+  color: var(--reader-fg);
+  font: 16px/1.65 Georgia, 'Times New Roman', serif;
+}
+[data-theme="light"] body.standard-exhibit,
+body.standard-exhibit[data-theme="light"] {
+  --reader-bg: #fff;
+  --reader-card: #fffdf8;
+  --reader-inset: #f6f4ee;
+  --reader-fg: #2a2a2a;
+  --reader-muted: #6f6655;
+  --reader-gold: #8b6914;
+  --reader-blue: #0369a1;
+  --reader-border: #ded8ca;
+}
+.standard-exhibit .container,
+.standard-exhibit > main,
+.standard-exhibit > .hero {
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 2.25rem 1.25rem 4rem;
+}
+.standard-exhibit > main { padding-top: 0; }
+.standard-exhibit > .hero { padding-bottom: 1.75rem; }
+.standard-exhibit .container > header {
+  margin: 0 0 1.75rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  -webkit-text-fill-color: currentColor;
+}
+.standard-exhibit header,
+.standard-exhibit .hero { text-align: center; }
+.standard-exhibit h1,
+.standard-exhibit .hero h1,
+.standard-exhibit .header h1 {
+  max-width: none;
+  margin: .45rem 0 .75rem;
+  color: var(--reader-gold);
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  font: 700 clamp(1.65rem, 3.2vw, 2rem)/1.22 Georgia, 'Times New Roman', serif;
+  letter-spacing: -.015em;
+}
+.standard-exhibit header p,
+.standard-exhibit .hero p,
+.standard-exhibit .subtitle {
+  max-width: 800px;
+  margin: .7rem auto;
+  color: var(--reader-muted);
+  font-size: .95rem;
+  line-height: 1.6;
+}
+.standard-exhibit .nr-provenance {
+  max-width: 800px;
+  margin: .6rem auto 1rem !important;
+  color: var(--reader-muted);
+  opacity: 1 !important;
+  font-size: .8rem !important;
+}
+.standard-exhibit .record-note {
+  margin: 1.2rem 0;
+  padding: 1rem 1.2rem;
+  border: 1px solid rgba(227,93,106,.45);
+  border-left: 3px solid #c66b72;
+  border-radius: 10px;
+  background: rgba(227,93,106,.045);
+  color: var(--reader-fg);
+  font-size: .85rem;
+  line-height: 1.65;
+  text-align: left;
+}
+.standard-exhibit a { color: var(--reader-blue); }
+.standard-exhibit .section,
+.standard-exhibit .panel {
+  min-width: 0;
+  margin: 0 0 1.4rem;
+  padding: 1.2rem 1.4rem;
+  background: var(--reader-card);
+  border: 1px solid var(--reader-border);
+  border-radius: 12px;
+  box-shadow: none;
+  scroll-margin-top: 64px;
+}
+.standard-exhibit h2,
+.standard-exhibit .section h2,
+.standard-exhibit .panel h2 {
+  display: block;
+  margin: 0 0 1rem;
+  padding: 0 0 .55rem;
+  color: var(--reader-gold);
+  border-bottom: 1px solid var(--reader-border);
+  font: 700 1.35rem/1.3 Georgia, 'Times New Roman', serif;
+}
+.standard-exhibit .section-title::before { content: none; }
+.standard-exhibit h3,
+.standard-exhibit .panel h3 {
+  margin: 1.15rem 0 .5rem;
+  color: var(--reader-blue);
+  font-size: 1.05rem;
+  line-height: 1.4;
+}
+.standard-exhibit .section p,
+.standard-exhibit .panel p { margin: .65rem 0; color: var(--reader-fg); }
+.standard-exhibit .section p:last-child,
+.standard-exhibit .panel p:last-child { margin-bottom: 0; }
+.standard-exhibit :is(.grid, .grid-3, .calc, .controls, .results, .split-screen, .force-comparison, .comparison-grid) > * { min-width: 0; }
+.standard-exhibit :is(.grid, .split-screen, .force-comparison, .comparison-grid) {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+.standard-exhibit :is(.controls, .split-screen, .force-comparison, .derivation-steps) { margin-bottom: 1.2rem; }
+.standard-exhibit .slider-container { min-width: 0; width: 100%; }
+.standard-exhibit .force-bar { max-width: 100%; }
+.standard-exhibit .section .controls {
+  padding: 1rem;
+  margin: 1rem 0;
+  border: 1px solid var(--reader-border);
+  border-radius: 8px;
+  background: var(--reader-inset);
+}
+.standard-exhibit .section button {
+  padding: .55rem .85rem;
+  border: 1px solid var(--reader-border);
+  border-radius: 8px;
+  background: var(--reader-card);
+  color: var(--reader-fg);
+}
+.standard-exhibit .section button:is(:hover, .active) { border-color: var(--reader-gold); color: var(--reader-gold); }
+.standard-exhibit :is(button, input, select, label, .badge, .eyebrow, .metric, .value-display, .step-header, .orbit-label, .legend, .timeline-year) {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+.standard-exhibit button { font-size: .85rem; }
+.standard-exhibit :is(input, select) { font-size: 1rem; }
+.standard-exhibit label { font-size: .85rem; }
+.standard-exhibit input[type="number"] {
+  width: 100%;
+  padding: .6rem .7rem;
+  border: 1px solid var(--reader-border);
+  border-radius: 8px;
+  color: var(--reader-fg);
+  background: var(--reader-bg);
+}
+.standard-exhibit :is(.concept-card, .theory-card, .metric, .callout, .math-explanation, .formula-box, .equation) {
+  border-radius: 8px;
+  box-shadow: none;
+}
+.standard-exhibit :is(.concept-card, .theory-card, .math-explanation, .formula-box, .equation) { padding: 1rem; }
+.standard-exhibit :is(.callout, .controls) h3:first-child { margin-top: 0; }
+.standard-exhibit .value-display { font-size: .9rem; }
+.standard-exhibit .metric .v { font-size: 1rem; }
+.standard-exhibit .bigmetric .v { font-size: clamp(1.15rem, 3vw, 1.55rem); }
+.standard-exhibit .quote { font-size: .95rem; }
+.standard-exhibit .timeline-item { padding: 1rem 0 1rem 1.6rem; }
+.standard-exhibit .timeline-year { font-size: 1rem; }
+.standard-exhibit .eyebrow { font-size: .7rem; letter-spacing: .14em; }
+.standard-exhibit .badge-row { margin-top: 1rem; justify-content: center; }
+.standard-exhibit .badge { font-size: .75rem; padding: .3rem .6rem; }
+.standard-exhibit :is(pre, .value-display, .metric .v) { font-family: 'SFMono-Regular', Menlo, Consolas, monospace; }
+.standard-exhibit pre { font-size: .82rem; border-radius: 8px; padding: .85rem; }
+.standard-exhibit .table-wrap { max-width: 100%; border-radius: 8px; }
+.standard-exhibit .table-scroll { max-width: 100%; overflow-x: auto; }
+.standard-exhibit .table-scroll table { min-width: 680px; }
+.standard-exhibit .table-scroll:focus-visible { outline: 2px solid var(--reader-blue); outline-offset: 3px; }
+.standard-exhibit table { font-size: .9rem; }
+.standard-exhibit :is(canvas, img, svg) { max-width: 100%; }
+.standard-exhibit .orbit-container { height: auto; aspect-ratio: 1; border-width: 1px; background: #0f1830; }
+.standard-exhibit .orbit-container[style] { height: auto !important; aspect-ratio: 4 / 3; }
+.standard-exhibit .orbit-label { font-size: .8rem; }
+.standard-exhibit .key-insight { font-size: .95rem; font-weight: 400; padding: 1rem; }
+.standard-exhibit .formula-box,
+.standard-exhibit .equation { max-width: 100%; overflow-x: auto; }
+.standard-exhibit mjx-container[display="true"] { max-width: 100%; overflow-x: auto; overflow-y: hidden; }
+.standard-exhibit #poams-hub-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  height: 44px;
+  min-height: 44px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: .4rem;
+  padding: 0 60px 0 12px;
+  background: rgba(13, 13, 24, .94);
+  border-bottom: 1px solid rgba(212, 175, 55, .25);
+  backdrop-filter: blur(10px);
+  font: 13px/1.2 -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+.standard-exhibit #poams-hub-nav > a:last-child { justify-self: end; }
+.standard-exhibit #poams-hub-nav .phn-center a { line-height: 1.2; }
+.standard-exhibit #poams-hub-nav .phn-title { font-size: 12px; }
+.standard-exhibit #poams-hub-nav .phn-pos { font-size: 10px; letter-spacing: .05em; }
+.standard-exhibit .theme-toggle,
+.standard-exhibit #theme-btn {
+  position: fixed;
+  top: 4px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  background: var(--reader-gold);
+  color: var(--reader-bg);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: none;
+  font-size: 1.1rem;
+}
+.standard-exhibit :is(button, summary, a):focus-visible { outline: 2px solid var(--reader-blue); outline-offset: 3px; }
+@media (max-width: 760px) {
+  .standard-exhibit :is(.grid, .grid-3, .calc, .split-screen, .force-comparison, .comparison-grid) { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  .standard-exhibit .container,
+  .standard-exhibit > main,
+  .standard-exhibit > .hero { padding-left: 1rem; padding-right: 1rem; }
+  .standard-exhibit :is(.container, .hero) { padding-top: 1.5rem; }
+  .standard-exhibit :is(.section, .panel) { padding: 1rem; }
+  .standard-exhibit h2,
+  .standard-exhibit .section h2,
+  .standard-exhibit .panel h2 { font-size: 1.2rem; }
+  .standard-exhibit .record-note { padding: .85rem 1rem; }
+  .standard-exhibit #poams-hub-nav { padding-left: 4px; padding-right: 52px; }
+  .standard-exhibit #poams-hub-nav a { padding: 5px 4px; }
+  .standard-exhibit #poams-hub-nav .phn-center a { padding: 4px 2px !important; }
+  .standard-exhibit #poams-hub-nav .phn-pos { font-size: 9px; letter-spacing: 0; }
+  .standard-exhibit .phn-hide-sm { display: none; }
+  .standard-exhibit .theme-toggle,
+  .standard-exhibit #theme-btn { right: 8px; }
+}
+
+</style>
+<style data-house-source="reader-standard.css">
+/* Corpus reader standard — Landé/Coulomb scale. Presentation only.
+   One fixed dark reading theme, independent of obsolete saved page preferences.
+   Existing scientific scripts, controls, plots and calculation geometry are retained. */
+html:has(body.reader-standard), body.reader-standard {
+ color-scheme: dark !important;
+ --bg:#0d0d18!important; --bg2:#11111f!important; --bg3:#151522!important;
+ --bg-dark:#0d0d18!important; --bg-darker:#090914!important;
+ --bg-primary:#0d0d18!important; --bg-secondary:#17172a!important; --bg-tertiary:#202036!important;
+ --card:#1c1c30!important; --card2:#202036!important; --card-bg:#1c1c30!important;
+ --panel:#1c1c30!important; --panel2:#202036!important; --surface:#1c1c30!important; --surface2:#202036!important; --in:#10101d!important;
+ --text:#e8e8f0!important; --fg:#e8e8f0!important; --ink:#e8e8f0!important; --text-light:#e8e8f0!important; --text-primary:#e8e8f0!important;
+ --muted:#aaaabd!important; --mut:#aaaabd!important; --dim:#aaaabd!important; --fg2:#aaaabd!important; --text-dim:#aaaabd!important; --text-secondary:#aaaabd!important;
+ --gold:#d4af37!important; --accent-gold:#d4af37!important; --blue:#5bc8f5!important; --accent-blue:#5bc8f5!important; --link:#5bc8f5!important;
+ --green:#66bb6a!important; --accent-green:#66bb6a!important; --red:#ef6b68!important; --accent-red:#ef6b68!important; --violet:#b68cff!important;
+ --edge:#303046!important; --line:#303046!important; --border:#303046!important; --border-color:#303046!important;
+ --reader-bg:#0d0d18!important; --reader-card:#1c1c30!important; --reader-inset:#10101d!important; --reader-fg:#e8e8f0!important; --reader-muted:#aaaabd!important; --reader-gold:#d4af37!important; --reader-blue:#5bc8f5!important; --reader-border:#303046!important;
+}
+body.reader-standard {
+ background:#0d0d18!important; color:#e8e8f0!important;
+ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif!important;
+ font-size:14.5px!important; line-height:1.65!important;
+}
+body.reader-standard :is(h1,h2,h3) {font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif!important;letter-spacing:normal!important;}
+body.reader-standard h1 {font-size:26px!important;line-height:1.3!important;font-weight:650!important;text-align:center!important;color:var(--gold)!important;background:none!important;-webkit-text-fill-color:currentColor!important;}
+body.reader-standard h1 span {font-size:inherit!important;}
+body.reader-standard h2 {font-size:19px!important;line-height:1.4!important;font-weight:650!important;}
+body.reader-standard h3 {font-size:15px!important;line-height:1.45!important;font-weight:650!important;}
+body.reader-standard :is(main,.container,.content,.wrap,.section,.panel) :is(p,li) {font-size:14.5px!important;line-height:1.65!important;}
+body.reader-standard :is(header,.hero,.header) {text-align:center!important;}
+body.reader-standard :is(header,.hero,.header) :is(p,.subtitle,.sub),
+body.reader-standard main > h1 + p {font-size:14px!important;line-height:1.6!important;max-width:820px;margin-left:auto;margin-right:auto;text-align:center!important;}
+body.reader-standard :is(.nr-provenance,.provenance,header .prov,.reader-attribution) {font-size:12.5px!important;line-height:1.6!important;color:#aaaabd!important;opacity:1!important;max-width:820px;margin-left:auto!important;margin-right:auto!important;text-align:center!important;font-style:italic;}
+body.reader-standard .reader-attribution {border:0!important;background:none!important;padding:0!important;}
+body.reader-standard :is(.theme-toggle,#theme-btn,button.theme,#themeToggle,#theme-toggle) {display:none!important;}
+body.reader-standard #poams-hub-nav {background:rgba(13,13,24,.96)!important;border-bottom-color:#303046!important;}
+body.reader-standard #poams-hub-nav a {color:#d4af37!important;}
+body.reader-standard #poams-hub-nav :is(.phn-title,.title) {color:#e8e8f0!important;}
+@media(max-width:640px) {body.reader-standard h1 {font-size:24px!important;} }
+/* Attribution remains quieter than the subtitle, including nested hero paragraphs. */
+body.reader-standard :is(header,.hero,.header) :is(.nr-provenance,.provenance,.prov) {font-size:12.5px!important;line-height:1.6!important;}
+/* Long equations scroll locally instead of widening the mobile document. */
+body.reader-standard :is(.eq,.eqbox,.equation,.math,.formula,.formula-box) {max-width:100%;min-width:0;overflow-x:auto;box-sizing:border-box;}
+body.reader-standard mjx-container[display="true"] {display:block!important;max-width:100%;overflow-x:auto;overflow-y:hidden;}
+/* Inline formula runs can also exceed a narrow phone viewport. */
+body.reader-standard mjx-container:not([display="true"]) {display:inline-block;max-width:100%;overflow-x:auto;overflow-y:hidden;vertical-align:middle;}
+/* The Polyverse's unwrapped comparison tables needs its own phone scroller. */
+@media(max-width:640px) {
+ body.reader-standard:has(#pagemap) table {display:block;max-width:100%;overflow-x:auto;}
+}
+
+</style>
+<style>
+/* Paper-only layout glue; shared corpus typography and colors remain authoritative. */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; }
+a { text-underline-offset: .18em; }
+h2, h3, [id] { scroll-margin-top: 64px; }
+.standard-exhibit #poams-hub-nav {
+  align-items: center;
+  padding: 0 16px;
+}
+#poams-hub-nav a {
+  min-width: 0;
+  text-decoration: none;
+  padding: 5px 8px;
+  border-radius: 6px;
+}
+#poams-hub-nav a:hover { background: rgba(212,175,55,.1); }
+#poams-hub-nav .phn-center {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+}
+#poams-hub-nav .phn-pos { color: var(--muted); }
+.hero .eyebrow { color: var(--muted); text-transform: uppercase; }
+.hero .provenance { margin-top: 1rem; font-weight: 400; }
+.hero .provenance strong { font-weight: 400; }
+.paper-contents {
+  margin: 0 0 1.4rem;
+  padding: .85rem 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--reader-inset);
+}
+summary { cursor: pointer; color: var(--gold); font-weight: 600; }
+#TOC ul { list-style: none; padding-left: 1.2rem; }
+#TOC > ul { padding-left: 0; }
+#TOC li { margin: .4rem 0; }
+#TOC a { text-decoration: none; }
+#TOC a:hover { text-decoration: underline; }
+.panel ul, .panel ol { padding-left: 1.45rem; }
+.panel li { margin: .45rem 0; }
+.panel > :last-child { margin-bottom: 0; }
+.table-scroll {
+  margin: 1rem 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overscroll-behavior-x: contain;
+}
+table { width: 100%; border-collapse: collapse; }
+th, td {
+  padding: .7rem .85rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+  overflow-wrap: break-word;
+}
+th { color: var(--gold); font-weight: 600; background: var(--reader-inset); }
+tr:last-child td { border-bottom: 0; }
+tr:nth-child(even) td { background: rgba(255,255,255,.018); }
+.math.display {
+  display: block;
+  padding: .85rem .75rem;
+  margin: 1.1rem 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--reader-inset);
+  overscroll-behavior-x: contain;
+}
+math[display="block"] {
+  width: max-content;
+  min-width: 100%;
+  margin: .1em 0;
+  font-size: 1.1em;
+}
+code { font-family: 'SFMono-Regular', Menlo, Consolas, monospace; font-size: .9em; overflow-wrap: anywhere; }
+pre { overflow-x: auto; background: var(--reader-inset); }
+blockquote { margin-left: 0; padding-left: 1.2rem; border-left: 3px solid var(--gold); color: var(--muted); }
+footer {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1.2rem 1rem 2rem;
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+}
+.skip-link { position: fixed; top: -60px; left: 8px; z-index: 10001; }
+.skip-link:focus { top: 6px; padding: 6px; background: var(--reader-card); }
+@media (max-width: 640px) {
+  .standard-exhibit #poams-hub-nav { padding: 0 4px; gap: 0; font-size: 11px; }
+  #poams-hub-nav a { padding: 5px 4px; }
+  #poams-hub-nav .phn-pos { display: none; }
+  .hero .eyebrow { font-size: 10px; letter-spacing: .07em; }
+  .paper-contents { padding: .8rem 1rem; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* Opt-in paper reader override. Shared corpus assets remain byte-identical. */
+html[data-theme]:has(body.coupled-circulations) { color-scheme: dark !important; }
+html[data-theme="light"]:has(body.coupled-circulations) { color-scheme: light !important; }
+html[data-theme] body.reader-standard.coupled-circulations {
+  --paper-bg: #0d0d18;
+  --paper-card: #1c1c30;
+  --paper-inset: #10101d;
+  --paper-fg: #e8e8f0;
+  --paper-muted: #aaaabd;
+  --paper-gold: #d4af37;
+  --paper-blue: #5bc8f5;
+  --paper-border: #303046;
+  --paper-nav: rgba(13,13,24,.96);
+  --bg: var(--paper-bg) !important;
+  --text: var(--paper-fg) !important;
+  --muted: var(--paper-muted) !important;
+  --gold: var(--paper-gold) !important;
+  --line: var(--paper-border) !important;
+  --reader-bg: var(--paper-bg) !important;
+  --reader-card: var(--paper-card) !important;
+  --reader-inset: var(--paper-inset) !important;
+  --reader-fg: var(--paper-fg) !important;
+  --reader-muted: var(--paper-muted) !important;
+  --reader-gold: var(--paper-gold) !important;
+  --reader-blue: var(--paper-blue) !important;
+  --reader-border: var(--paper-border) !important;
+  color-scheme: dark !important;
+  background: var(--paper-bg) !important;
+  color: var(--paper-fg) !important;
+}
+html[data-theme="light"] body.reader-standard.coupled-circulations {
+  --paper-bg: #ffffff;
+  --paper-card: #fffdf8;
+  --paper-inset: #f6f4ee;
+  --paper-fg: #2a2a2a;
+  --paper-muted: #6f6655;
+  --paper-gold: #806008;
+  --paper-blue: #075f91;
+  --paper-border: #ded8ca;
+  --paper-nav: rgba(255,255,255,.96);
+  color-scheme: light !important;
+}
+body.reader-standard.coupled-circulations #poams-hub-nav {
+  background: var(--paper-nav) !important;
+  border-bottom-color: var(--paper-border) !important;
+}
+body.reader-standard.coupled-circulations #poams-hub-nav a { color: var(--paper-gold) !important; }
+body.reader-standard.coupled-circulations #poams-hub-nav .phn-title { color: var(--paper-fg) !important; }
+body.reader-standard.coupled-circulations .hero .provenance { color: var(--paper-muted) !important; }
+.coupled-circulations .reader-actions { display: flex; justify-content: flex-end; margin: -.75rem 0 .75rem; }
+.coupled-circulations #paper-theme-toggle {
+  min-height: 36px;
+  padding: .4rem .75rem;
+  border: 1px solid var(--paper-border);
+  border-radius: 8px;
+  color: var(--paper-fg);
+  background: var(--paper-card);
+  cursor: pointer;
+}
+.coupled-circulations #paper-theme-toggle:hover { border-color: var(--paper-gold); }
+.coupled-circulations #paper-theme-toggle[hidden] { display: none; }
+@media print {
+  html[data-theme]:has(body.coupled-circulations) { color-scheme: light !important; }
+  html[data-theme] body.reader-standard.coupled-circulations {
+    --paper-bg: #ffffff;
+    --paper-card: #ffffff;
+    --paper-inset: #ffffff;
+    --paper-fg: #2a2a2a;
+    --paper-muted: #514a3e;
+    --paper-gold: #655000;
+    --paper-blue: #075f91;
+    --paper-border: #b5b5b5;
+    color-scheme: light !important;
+    padding: 0 !important;
+  }
+  body.coupled-circulations #poams-hub-nav,
+  body.coupled-circulations .reader-actions,
+  body.coupled-circulations .skip-link { display: none !important; }
+}
+</style>
+
+<style>
+
+.aging-ledgers .subtitle { max-width: 850px; margin-left: auto; margin-right: auto; }
+.aging-ledgers .thesis { font-size: clamp(1.3rem, 2.5vw, 1.7rem) !important; color: var(--gold) !important; line-height: 1.4 !important; }
+body.reader-standard.aging-ledgers .hero .subtitle { font-size: 1.15rem !important; }
+.aging-ledgers .section-number { text-transform: uppercase; letter-spacing: .09em; font-size: .78rem; color: var(--muted); }
+.aging-ledgers .claim-ref { font-size: .7em; vertical-align: super; white-space: nowrap; text-decoration: none; }
+.aging-ledgers .model-type { color: var(--muted); font-size: .8rem; font-weight: 400; display: block; margin: .3rem 0 .7rem; }
+.aging-ledgers .record-note { border-left: 3px solid var(--gold); background: var(--reader-inset); padding: 1rem 1.2rem; margin: 1.1rem 0; }
+.aging-ledgers .status-banner p { margin: .35rem 0; }
+.aging-ledgers .equation { background: var(--reader-inset); border: 1px solid var(--line); border-radius: 8px; padding: .85rem; overflow-wrap: anywhere; font-size: 1.08rem; }
+.aging-ledgers .table-scroll { overflow-x: auto; }
+.aging-ledgers .claim-table { min-width: 660px; font-size: .9rem; }
+.aging-ledgers .source-list li { margin: 1rem 0; }
+.aging-ledgers .hash { display: block; font: .72rem/1.6 monospace; overflow-wrap: anywhere; color: var(--muted); }
+.aging-ledgers .source-path { overflow-wrap: anywhere; }
+.aging-ledgers .signature-table { min-width: 570px; }
+.aging-ledgers .mechanism + .mechanism { border-top: 1px solid var(--line); padding-top: 1.2rem; margin-top: 1.5rem; }
+
+</style>
+</head>
+<body class="reader-standard standard-exhibit coupled-circulations aging-ledgers">
+<a class="skip-link" href="#paper">Skip to exhibit</a>
+<nav id="poams-hub-nav" aria-label="Exhibit navigation">
+<a href="./time-rope.html">← Time-Rope</a>
+<a class="phn-center" href="./index.html"><span class="phn-title">Return to Hub</span><span class="phn-pos">NR · POAMS · EXHIBIT SERIES</span></a>
+<a href="./optical-information-link.html">Retained Memory →</a>
+</nav>
+<header class="hero">
+<div class="reader-actions"><button id="paper-theme-toggle" type="button" hidden>Light mode</button></div>
+<div class="eyebrow">Completion · Retained organization</div>
+<h1>On Aging, Immutable Ledgers and the Impossibility of Loss</h1>
+<p class="subtitle">We age because we remember.</p>
+<p class="provenance">2 November 2026 · A POAMS interpretation and research question</p>
+</header>
+<main id="paper">
+<details class="paper-contents"><summary>Inside this exhibit</summary><nav id="TOC" aria-label="Contents"><ul>
+<li><a href="#preamble">Preamble · A perfect book can carry a growing burden</a></li>
+<li><a href="#ledger">1 · The ledger picture</a></li>
+<li><a href="#rope">2 · Schooling the Time-Rope</a></li>
+<li><a href="#mechanisms">3 · Three mechanisms, three survival signatures</a></li>
+<li><a href="#counterparty">4 · Death as counterparty change</a></li>
+<li><a href="#cave">5 · The shadow and the cave</a></li>
+<li><a href="#forget">6 · How to forget</a></li>
+<li><a href="#status">7 · Status and provenance</a></li>
+</ul></nav></details>
+<article aria-label="Aging and retained ledgers">
+<section class="panel" id="preamble" aria-labelledby="preamble-title">
+<p class="section-number">Preamble</p><h2 id="preamble-title">A perfect book can carry a growing burden.</h2>
+<p>Perfect ledgers do not forbid aging. They relocate the question. In the POAMS account, a completed closure is whole and its account exact: an old entry does not gradually become half an entry. What changes is the organization that must keep meeting the world. Its history lengthens; its next encounter may require distinctions that yesterday’s encounter did not. The book need not decay for carrying it to become a burden. <a class="claim-ref" href="#c01">[01]</a> <a class="claim-ref" href="#c02">[02]</a></p>
+<p class="thesis"><strong>We age because we remember.</strong></p>
+<p>Here, “remember” means retained physical organization, not recollection or the stories we tell ourselves. The proposition is that aging can be read as a growing difficulty of sustaining that organization while preserving the distinctions its future exchanges still need. A longer history and a heavier present burden are different things; discovering when the first compels the second is the heart of the inquiry. <a class="claim-ref" href="#c02">[02]</a> <a class="claim-ref" href="#c16">[16]</a></p>
+<p>Three pictures must be kept apart. An unchanged organization can face the same chance of ending on every turn. A counted register can run to a fixed terminus. Or the chance of losing the organization can rise as its retained obligations become harder to service. These yield different signatures: exponential survival, a sharp counted threshold, and rising hazard. None requires a spoiled entry. <a class="claim-ref" href="#c07">[07]</a> <a class="claim-ref" href="#c10">[10]</a> <a class="claim-ref" href="#c15">[15]</a></p>
+<p>The forward question is therefore not how to make what happened unhappen. It is how to change what must still be carried: settle it, compress its description where the future permits, or transfer its custody through an accounted reset. <strong>Let us figure out how to forget.</strong> <a class="claim-ref" href="#c20">[20]</a></p>
+</section>
+<section class="panel" id="ledger" aria-labelledby="ledger-title">
+<p class="section-number">01 · The ledger picture</p><h2 id="ledger-title">What’s been can never not be.</h2>
+<p>The ledger is a way of stating the ontology, not a second substance behind it. Its entries are completed relations of the one circulating activity. Whole closures are the units of the account; the smooth picture is their large-scale representation. “Exact” describes that account, not the accuracy of any instrument or the completeness of anyone’s knowledge. <a class="claim-ref" href="#c01">[01]</a></p>
+<p>Once an exchange belongs to completed history, an opposite exchange cannot make its occurrence false. It can settle a balance. It cannot convert “it happened” into “it never happened.” This is the exhibit’s <strong>impossibility of loss</strong>: the immutability of completed history. It does not promise that a local observer can retrieve every record, or that the same body, memory or personality persists indefinitely. <a class="claim-ref" href="#c03">[03]</a></p>
+<p>Think of a debit followed by its matching credit. The balance may be zero; the two entries are not no entries. In the rope’s notation, completed history <i>C</i> appends the transactions while net settlement <i>N</i> can return to zero. <em>The history remembers; the balance reconciles.</em> <a class="claim-ref" href="#c04">[04]</a></p>
+</section>
+<section class="panel" id="rope" aria-labelledby="rope-title">
+<p class="section-number">02 · Schooling the Time-Rope</p><h2 id="rope-title">Three accounts, not one growing weight.</h2>
+<p><a href="./time-rope.html#retained-memory">The Time-Rope’s “What must the rope remember?” bridge</a> already makes the essential distinction. This exhibit extends it by asking which kind of memory could matter to aging. <a class="claim-ref" href="#c03">[03]</a> <a class="claim-ref" href="#c04">[04]</a> <a class="claim-ref" href="#c05">[05]</a></p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Three ledger meanings"><table><caption>The rope, its settlement and its working memory</caption><thead><tr><th scope="col">Account</th><th scope="col">Question it answers</th><th scope="col">What may change</th></tr></thead><tbody>
+<tr><th scope="row">Completed history</th><td>What exchanges occurred?</td><td>New occurrences append; a later event does not un-occur an earlier one.</td></tr>
+<tr><th scope="row">Net settlement</th><td>What oriented balance remains?</td><td>An inverse settlement can reduce or cancel it.</td></tr>
+<tr><th scope="row">Predictive retained state</th><td>What distinctions can affect the declared future encounters?</td><td>Its sufficient description depends on the permitted operations and requested records.</td></tr>
+</tbody></table></div>
+<p>The third is neither a photograph of the entire past nor necessarily a running total. A phase relation, a correlation with an old recipient, or the identity of a contact that will be met again may matter where a simple count does not. In the adopted exchange-record model, two descriptions may be merged only if <strong>every admitted future operation and requested record gives identical probabilities</strong>. That is a criterion for a sufficient representation, not permission to delete a physical account. <a class="claim-ref" href="#c05">[05]</a> <a class="claim-ref" href="#c06">[06]</a></p>
+<p>The rope’s historical coordinate is monotone. The size of its smallest predictive description need not be. One can complete another exchange and leave less to carry locally, if the relevant obligation has been settled or its custody transferred. The research question is exactly where such reductions are lawful and where a later encounter exposes the missing distinction. <a class="claim-ref" href="#c06">[06]</a> <a class="claim-ref" href="#c20">[20]</a></p>
+</section>
+<section class="panel" id="mechanisms" aria-labelledby="mechanisms-title">
+<p class="section-number">03 · The core</p><h2 id="mechanisms-title">Three mechanisms, three survival signatures.</h2>
+<p>“How long does it last?” and “Does its risk rise with age?” are different questions. The signatures below separate them. Their common coordinate is the organization’s own completed turns; a laboratory-time display also needs its turn-rate calibration. <a class="claim-ref" href="#c07">[07]</a> <a class="claim-ref" href="#c08">[08]</a></p>
+<div class="mechanism" id="memoryless"><h3>A · Memoryless hazard <span class="model-type">Derived-in-model · finite lifetime without increasing age-risk</span></h3>
+<p>Give the organization one sufficient retained predictive state, a stationary apparatus and a fixed absorbing completion channel. After each survived turn it faces the same conditional terminating probability <i>p</i>. Surviving the last turn has not made the next one more dangerous. The <a href="./horizon-storage-ring-lifetime-extension.html">conditional hazard-form theorem, §5</a>, gives: <a class="claim-ref" href="#c07">[07]</a></p>
+<p class="equation"><i>S</i>(<i>n</i>) = (1 − <i>p</i>)<sup><i>n</i></sup>.</p>
+<p>For constant internal turn rate ν, its many-turn display is <i>S</i>(τ) = exp(−λτ), with λ = −ν ln(1 − <i>p</i>). This is geometric survival drawn as an exponential, not a continuum beneath the turns. A finite expected lifetime does not by itself establish aging: the hazard here is constant. <a class="claim-ref" href="#c08">[08]</a></p>
+</div>
+<div class="mechanism" id="timers"><h3>B · Set timers <span class="model-type">Derived-in-model · an independently witnessed count; biological resemblance analogical</span></h3>
+<p>A timer is a different construction: a prepared count, a receipted successor and a declared terminal class. For an ideal synchronized countdown ending on turn <i>N</i>, survival stays at one before <i>N</i> and falls at <i>N</i>. That sharp, modulus-locked threshold comes from a counted operation, not a stationary lottery. A distribution of starting counts would broaden the population signature. <a class="claim-ref" href="#c10">[10]</a></p>
+<p>To claim an exact finite modulus, the <a href="./horizon-storage-ring-lifetime-extension.html">observable-modulus identifiability theorem, §10</a>, demands an address-complete witness: <a class="claim-ref" href="#c09">[09]</a></p>
+<ol>
+<li><i>N</i> operationally distinguishable preparation/readout classes.</li>
+<li>A receipted action carrying each class to the next.</li>
+<li>Closure after <i>N</i> applications.</li>
+<li>Failure of closure for every smaller positive divisor—hence no shorter order for the declared cyclic action.</li>
+<li>The count and transition graph frozen before lifetime comparison.</li>
+</ol>
+<p>A beat, a repeating dial or a finite hidden state count alone is not that witness. Nor does return of a local phase label prove return of the full retained account. Telomere-linked division limits and developmental timing suggest timer-like questions in biology; they are analogies here, not certified examples of this exact five-part modulus witness. <a class="claim-ref" href="#c09">[09]</a> <a class="claim-ref" href="#c11">[11]</a></p>
+</div>
+<div class="mechanism" id="rising-hazard"><h3>C · Rising hazard <span class="model-type">Analogical synthesis · retained-record results in-model; biological mechanism OPEN</span></h3>
+<p>Now suppose the organization must sustain distinctions that its permitted encounters can still call upon, while its servicing capacity is limited. It may survive each exchange yet become less able to sustain the next. This is the proposed aging picture: not a fading ledger, but a widening mismatch between retained obligations and the means of servicing them. <a class="claim-ref" href="#c15">[15]</a> <a class="claim-ref" href="#c16">[16]</a></p>
+<p>The recent optical work supplies a concrete obstruction to easy forgetting. Its repeated contacts reuse site-labelled clock records, with ordered interactions and correlations intact. Three local clock labels do not collapse the entire guide into three global features. An exact reduced-family example has identical diagonal populations but later receiver counts of <strong>1/10 versus 9/10</strong>. A summary that looks sufficient now can fail at the next encounter. <a class="claim-ref" href="#c12">[12]</a> <a class="claim-ref" href="#c13">[13]</a></p>
+<p>Servicing the organization is itself an operation. In the <a href="./provisionals/PROV-O.html">PROV-O public reader</a>, each qualified guide crossing includes work accounts; returning the source does not restore consumed work, heat stock or measurement records. Reset retains old-state recipients and requires its own replenishment construction. This is the paper example behind “maintenance is paid”: maintenance does not stand outside the account it maintains. <a class="claim-ref" href="#c14">[14]</a></p>
+<p>The survival signature of increasing conditional risk is a curve that steepens with age. A familiar illustrative choice is the <strong>Gompertz-type</strong> display, with hazard <i>h</i>(<i>t</i>) = <i>h</i><sub>0</sub> exp(<i>b t</i>), <i>b</i> &gt; 0, and survival exp[−(<i>h</i><sub>0</sub>/<i>b</i>)(exp(<i>b t</i>) − 1)]. Here <i>h</i>(<i>t</i>) denotes hazard, not the action quantum. It names a possible shape, not a rate law derived from the optical calculation. <a class="claim-ref" href="#c15">[15]</a></p>
+<p>The constructive challenge is to specify the retained burden, the lawful maintenance operations and their capacities, and then derive a rising risk from them. A compression obstruction in one optical model does not yet supply that bridge for an organism. <a class="claim-ref" href="#c16">[16]</a></p>
+</div>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Survival signatures"><table class="signature-table"><caption>Three questions to keep separate</caption><thead><tr><th scope="col">Mechanism</th><th scope="col">Conditional risk</th><th scope="col">Ideal signature</th></tr></thead><tbody>
+<tr><th scope="row">Stationary hazard</th><td>Same on each survived turn</td><td>Geometric; exponential at constant calibrated turn rate</td></tr>
+<tr><th scope="row">Set timer</th><td>Terminal count decides</td><td>Sharp failure locked to the prepared count</td></tr>
+<tr><th scope="row">Retained-burden aging</th><td>Rises in the proposed mechanism</td><td>Steepening survival; Gompertz-type is one illustrative family</td></tr>
+</tbody></table></div>
+</section>
+<section class="panel" id="counterparty" aria-labelledby="counterparty-title">
+<p class="section-number">04 · Death as counterparty change</p><h2 id="counterparty-title">The account changes hands.</h2>
+<p>The <a href="./inertia.html">Inertia exhibit’s opening embodiment bridge</a> puts the identity plainly: <a class="claim-ref" href="#c17">[17]</a></p>
+<blockquote><p>“The ledger is not the paperwork for the body. The ledger, closed and retained, is the body. The grin is the cat.”</p></blockquote>
+<p>Read death in that frame. The closures that sustain this body’s recirculating organization cease to be renewed as that organization. Subsequent exchanges complete against other recipients: the environment’s books. The projection shows decline and dissolution; the account describes a change of counterparties and custody. <a class="claim-ref" href="#c18">[18]</a></p>
+<p>“Migration” belongs to those subsequent closures and their recipients, not to a rewriting of old entries. Nothing about a completed past occurrence becomes partial when its former organization ends. The history remains what it was; the organization that could answer as this body need not remain. Immutability of history is not immortality of the person. <a class="claim-ref" href="#c03">[03]</a> <a class="claim-ref" href="#c18">[18]</a></p>
+</section>
+<section class="panel" id="cave" aria-labelledby="cave-title">
+<p class="section-number">05 · The shadow and the cave</p><h2 id="cave-title">The information is the object.</h2>
+<p>In the POAMS perspective, the rendered body is the shadow on the cave wall: the observer’s presentation of completed relations. Information is not paperwork attached to a separate object. It is embodied transaction—the organization that the different senses and instruments read. To treat only the rendered appearance is, in this analogy, to treat the shadow. <a class="claim-ref" href="#c17">[17]</a> <a class="claim-ref" href="#c19">[19]</a></p>
+<p>The invitation is to ask a deeper question of the same body: what relations keep this appearance possible, what do they retain, and what would changing their lawful continuation require? The analogy redirects the research question; it does not make suffering unreal, turn tissue damage into an illusion, or dismiss the effects of existing care. <strong>This is an account of perspective, not medical advice.</strong> <a class="claim-ref" href="#c19">[19]</a></p>
+</section>
+<section class="panel" id="forget" aria-labelledby="forget-title">
+<p class="section-number">06 · How to forget</p><h2 id="forget-title">Change what must be carried.</h2>
+<p>We cannot unwrite completed history. We can ask whether a balance can settle, whether a future-inert distinction can leave the predictive description, or whether an old record can pass to another recipient while a fresh local state is prepared. <strong>The intervention surface is predictive retained state, not the truth of the past.</strong> <a class="claim-ref" href="#c03">[03]</a> <a class="claim-ref" href="#c04">[04]</a> <a class="claim-ref" href="#c20">[20]</a></p>
+<ul>
+<li><strong>Compression:</strong> prove which distinctions every declared future encounter treats as equivalent. A smaller description is not by itself a physically smaller organization.</li>
+<li><strong>Discharge:</strong> identify the settling exchange and its recipients, including work, heat and correlations.</li>
+<li><strong>Reset:</strong> construct the new usable state and retain the outgoing old state’s account; a clean local register is not an unwritten history.</li>
+</ul>
+<p>Those are research objectives, each with its own tariff and custody obligation—not three available techniques for changing a person’s age. <a class="claim-ref" href="#c06">[06]</a> <a class="claim-ref" href="#c14">[14]</a> <a class="claim-ref" href="#c20">[20]</a></p>
+<h3>Biology already distinguishes continuation from carrying everything forward.</h3>
+<p><strong>The germline resets age across generations</strong> in the ordinary sense that a new organism begins a new developmental life rather than starting at its parents’ somatic age. Extensive epigenetic reprogramming in the germline and early embryo supplies a concrete cellular basis for speaking of renewed state. This is not a claim that every inherited mark, mutation or age-associated feature is erased. <a class="claim-ref" href="#c21">[21]</a></p>
+<p><strong>Cellular reprogramming can partially reset cell state.</strong> Experimental cell work has reported shifts in age-associated epigenetic and functional features toward younger patterns. The motivating fact is state plasticity, not a demonstrated reset of a whole adult person. <a class="claim-ref" href="#c22">[22]</a></p>
+<p>These are established biological phenomena used as existence-proofs of renewed state, not POAMS results. Their relevance is that a changed present does not require an unchanged past to become false. Translating their operations into ledger terms remains work to do. <a class="claim-ref" href="#c23">[23]</a> <a class="claim-ref" href="#c16">[16]</a></p>
+<div class="record-note"><p><strong>The registered open question</strong></p><p>What is the smallest retained record sufficient for a declared set of future encounters?</p><p>The <a href="./time-rope.html#retained-memory">Time-Rope bridge</a> points to the same distinction; its private research memorandum, <code>poams-review/work/time-rope-retained-memory-20261102/MEMO.md</code>, §5 question 1, records the bounded form: the smallest sufficient “rope record” for a strictly bounded future-contact/readout family. <a class="claim-ref" href="#c24">[24]</a></p></div>
+<p>A successful answer must name the future family, construct the reduced state, prove its updates and readouts, and account for what was discharged and at what tariff. A single permitted later encounter that distinguishes two merged states defeats the proposed compression. That is where “forgetting” becomes a precise question instead of a wish. <a class="claim-ref" href="#c25">[25]</a></p>
+<p class="thesis">What’s been can never not be.<br>What must be carried next is the open question.</p>
+</section>
+<section class="panel" id="status" aria-labelledby="status-title">
+<p class="section-number">07 · Status and provenance</p><h2 id="status-title">One interpretation; distinct kinds of claim.</h2>
+<div class="record-note status-banner"><p><strong>Interpretation and synthesis · staged draft for owner ratification</strong></p><p>The ledger ontology is adopted in-frame. The cited hazard, modulus and retained-record results are conditional mathematics in their stated models. The aging, death and cave readings are analogical extensions, not new physics results. The biological examples motivate the question; no biological rate law, clinical outcome or medical intervention is derived or proposed.</p><p>RCM-1 remains acquisition-ready ON PAPER only, unperformed and physically unvalidated. AP-RCM/AP-M availability is unestablished; J1–J4 remain OPEN; no N2. The full CT1 computation is parked and its transport/count thresholds remain undecided. This exhibit neither changes those dispositions nor supplies a biological mechanism.</p></div>
+<p>The claim numbers in the prose resolve to the ledger below. “Derived-in-model” includes consequences of explicit supplied operations, not proof that those operations are physically realized. A “private” qualifier identifies the location of an adopted research record, not a lesser or greater level of empirical evidence.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Typed claim ledger"><table class="claim-table"><caption>Typed claim ledger</caption><thead><tr><th scope="col">ID · type</th><th scope="col">Claim and exact scope</th><th scope="col">Source</th></tr></thead><tbody>
+<tr id="c01" data-claim-type="definitional"><th scope="row">01 · definitional</th><td>Whole closures and exact accounts are the adopted ontology, not instrument-accuracy claims.</td><td><a href="#s-ground">GROUNDING §§1,3; Time-Rope full-turn normalization</a></td></tr>
+<tr id="c02" data-claim-type="analogical"><th scope="row">02 · analogical</th><td>“We age because we remember”: retained physical burden as an aging interpretation, not a proved universal cause.</td><td><a href="#s-seed">Owner seed §§A–C; bridge to biology OPEN</a></td></tr>
+<tr id="c03" data-claim-type="definitional"><th scope="row">03 · definitional</th><td>Impossibility of loss means completed-history immutability; no guarantee of local recovery or personal survival.</td><td><a href="#s-rope">Time-Rope, “Two ledgers, one completed relation”</a></td></tr>
+<tr id="c04" data-claim-type="derived-in-model"><th scope="row">04 · derived-in-model</th><td>Inverse settlement may return N to zero while C still records both occurrences.</td><td><a href="#s-rope">Time-Rope, “Two ledgers, one completed relation”</a></td></tr>
+<tr id="c05" data-claim-type="definitional"><th scope="row">05 · definitional</th><td>Predictive retained state is defined relative to allowed future operations and readouts, not all historical detail.</td><td><a href="#s-theory">Representation THEORY §7, equations (16)–(17)</a></td></tr>
+<tr id="c06" data-claim-type="derived-in-model"><th scope="row">06 · derived-in-model</th><td>Future-effect equivalence permits a sufficient representation; present marginals alone do not. Private controlling theorem.</td><td><a href="#s-theory">THEORY §7; representation DECISION, “What is now established”</a></td></tr>
+<tr id="c07" data-claim-type="derived-in-model"><th scope="row">07 · derived-in-model</th><td>One sufficient retained state, stationarity and an absorbing channel yield S(n)=(1−p)^n.</td><td><a href="#s-hazard">Storage-ring exhibit §5, “Conditional hazard-form theorem”</a></td></tr>
+<tr id="c08" data-claim-type="derived-in-model"><th scope="row">08 · derived-in-model</th><td>At fixed internal turn rate, geometric survival has the displayed exponential representation; constant hazard is not increasing age-risk.</td><td><a href="#s-hazard">Storage-ring exhibit §5</a></td></tr>
+<tr id="c09" data-claim-type="derived-in-model"><th scope="row">09 · derived-in-model</th><td>An identifiable exact modulus requires the five-part address-complete witness; a beat or hidden finite census is insufficient.</td><td><a href="#s-hazard">Storage-ring exhibit §10, “Observable-modulus identifiability theorem”</a></td></tr>
+<tr id="c10" data-claim-type="derived-in-model"><th scope="row">10 · derived-in-model</th><td>A prepared deterministic terminal count produces sharp ideal failure; variation in starting count broadens the ensemble.</td><td><a href="#s-ground">GROUNDING §1.3, “Successor-kernel correction”; the terminal rule is explicit here</a></td></tr>
+<tr id="c11" data-claim-type="analogical"><th scope="row">11 · analogical</th><td>Telomere/developmental timer resemblance is not certification of the five modulus-witness conditions.</td><td><a href="#s-seed">Seed §B item 2, narrowed to the comparison actually supportable</a></td></tr>
+<tr id="c12" data-claim-type="derived-in-model"><th scope="row">12 · derived-in-model</th><td>Repeated clock records and order/spatial histories survive local rank reductions. Private adoption.</td><td><a href="#s-exchange">Representation DECISION, established content and unresolved bounds</a></td></tr>
+<tr id="c13" data-claim-type="derived-in-model"><th scope="row">13 · derived-in-model</th><td>The 1/10 versus 9/10 counterexample defeats the named diagonal summaries; it is not a universal memory-growth lower bound. Private adoption.</td><td><a href="#s-candidate">Candidate DECISION, “Adopted diagnosis”</a></td></tr>
+<tr id="c14" data-claim-type="derived-in-model"><th scope="row">14 · derived-in-model</th><td>The supplied work-compensated construction retains spent work and old-state recipients; return is not whole-apparatus reset.</td><td><a href="#s-work">Public PROV-O reader: PDF p.2, Background 2–5; p.12, Reset and replenishment selections</a></td></tr>
+<tr id="c15" data-claim-type="analogical"><th scope="row">15 · analogical</th><td>Retained obligations outstripping servicing capacity motivate rising hazard; exponential hazard gives a Gompertz-type illustration only.</td><td><a href="#s-gompertz">Explicit survival template; OIL obstructions do not select its parameters or form</a></td></tr>
+<tr id="c16" data-claim-type="OPEN"><th scope="row">16 · OPEN</th><td>A finite biological organization’s predictive burden, servicing capacity and derived age-risk bridge remain to be constructed.</td><td><a href="#s-memo">MEMO §§1.1,3,5; candidate diagnosis excludes a universal physical no-go</a></td></tr>
+<tr id="c17" data-claim-type="definitional"><th scope="row">17 · definitional</th><td>Ledger embodiment, quoted exactly, is the Inertia exhibit’s in-frame identity.</td><td><a href="#s-inertia">Inertia, opening embodiment bridge, line 54</a></td></tr>
+<tr id="c18" data-claim-type="analogical"><th scope="row">18 · analogical</th><td>Death as change of counterparties/custody concerns future closures; it neither rewrites the past nor establishes personal immortality.</td><td><a href="#s-seed">Seed §B death paragraph; Inertia opening bridge; GROUNDING rope addendum</a></td></tr>
+<tr id="c19" data-claim-type="analogical"><th scope="row">19 · analogical</th><td>The cave image distinguishes rendered appearance from embodied transactions; not medical advice or denial of tissue damage.</td><td><a href="#s-seed">Seed §§A,C; Inertia opening bridge</a></td></tr>
+<tr id="c20" data-claim-type="OPEN"><th scope="row">20 · OPEN</th><td>Compression, discharge and reset are the proposed lawful intervention surfaces; physical compression is not proved by algebraic contraction.</td><td><a href="#s-theory">THEORY §7; representation DECISION; PROV-O PDF p.12</a></td></tr>
+<tr id="c21" data-claim-type="established-biology"><th scope="row">21 · established-biology</th><td>Generational developmental renewal and extensive germline/early-embryo epigenetic reprogramming; not erasure of every inherited feature.</td><td><a href="#s-bio1">B1 encyclopedic background only</a></td></tr>
+<tr id="c22" data-claim-type="established-biology"><th scope="row">22 · established-biology</th><td>Cellular reprogramming can partially reset age-associated cell-state features; no adult human rejuvenation claim.</td><td><a href="#s-bio2">B2 encyclopedic background only</a></td></tr>
+<tr id="c23" data-claim-type="analogical"><th scope="row">23 · analogical</th><td>Biological state renewal motivates “reset without unwriting”; it does not validate ledger ontology.</td><td><a href="#s-seed">Seed §C; B1–B2 used only as motivation</a></td></tr>
+<tr id="c24" data-claim-type="OPEN"><th scope="row">24 · OPEN</th><td>Smallest sufficient retained record for a bounded future-contact/readout family; a registered candidate question, not an adopted solution.</td><td><a href="#s-memo">MEMO §5, question 1; Time-Rope #retained-memory</a></td></tr>
+<tr id="c25" data-claim-type="OPEN"><th scope="row">25 · OPEN</th><td>Success requires update/readout closure and complete discharge accounts; a distinguishing allowed future encounter defeats a proposed merge.</td><td><a href="#s-theory">THEORY §7 equations (16)–(17); MEMO §5 question 1</a></td></tr>
+</tbody></table></div>
+<h3>Source identities</h3>
+<p>Public links resolve to companion exhibits. Private records are cited by workspace-relative path, not linked as though publicly hosted. SHA-256 identifies the bytes used for this draft, not physical truth. Source dates, sizes and the full pin register accompany the private staging receipt.</p>
+<ul class="source-list">
+<li id="s-ground"><strong>G · Governing ontology and premise boundaries</strong> — §§0–1.3,3; rope addendum. Companion: POAMS-FOUNDATION-WALL.md §§2–3,6–7.<br><code class="source-path">GROUNDING.md</code><span class="hash">SHA-256 134c1003a9bbad61020489e95fbbee3674574f13a49d8dcf573bfc0e5d5c2569</span></li>
+<li id="s-seed"><strong>S · Owner commission and paraphrase seed</strong> — 2 November 2026, 22:14 CST; §§A–E. Private authored seed, not a research proof.<br><code class="source-path">poams-review/work/aging-ledgers-exhibit-20261102/SOURCES-SEED.md</code><span class="hash">SHA-256 b0af1e2f434372cdea648b3e2ca078605c82e979b296b9fdfba53eaf0fa2d77a</span></li>
+<li id="s-rope"><a href="./time-rope.html#retained-memory">T · The Time-Rope</a> — Two-ledger distinction and “What must the rope remember?” bridge.<br><code class="source-path">poams-exhibits-public/time-rope.html</code><span class="hash">SHA-256 c6a6749b6739846483bac06ffa8a6b504101ffb4acd7e68b60bc08a89b4cfba0</span></li>
+<li id="s-hazard"><a href="./horizon-storage-ring-lifetime-extension.html">H · Storage-Ring Lifetime Extension</a> — §5 hazard theorem; §10 observable-modulus theorem; §12 retains Research Queue status. No section anchors are present for §§5/10.<br><code class="source-path">poams-exhibits-public/horizon-storage-ring-lifetime-extension.html</code><span class="hash">SHA-256 65ff7e8b97716ea5d6fcc6b6721f15bf96cc3718e912685a9619450832a6c92c</span></li>
+<li id="s-inertia"><a href="./inertia.html">I · Inertia</a> — Opening embodiment bridge, lines 43–54; quotation preserves the complete sentence group.<br><code class="source-path">poams-exhibits-public/inertia.html</code><span class="hash">SHA-256 a2f1c24b4ab293d37fd9a63a4428dbd6b1e75264914847978d925175a594eee2</span></li>
+<li id="s-oil"><a href="./optical-information-link.html#reassessment">O · Optical Information Link</a> — §3 retained-record diagnosis; §4 RCM-1; §5 status. Same-contact test is unperformed.<br><code class="source-path">poams-exhibits-public/optical-information-link.html</code><span class="hash">SHA-256 50228ef6d29cc2a3210fadb0177efc5558bb004a2861d25f703d5406e63dbfc1</span></li>
+<li id="s-exchange"><strong>E · Representation adoption</strong> — 31 October 2026; “What is now established” and “What remains unresolved.” Private record.<br><code class="source-path">poams-review/work/fiber-optics-integrated-program-2026-10-29/exchange-record-representation-20261031/DECISION.md</code><span class="hash">SHA-256 d3523b5a3178efe3f4651f597beb05f88a3a1f88595a690d9817b4e632320302</span></li>
+<li id="s-theory"><strong>ET · Future-effect theorem</strong> — §7 “Equivalence and closure,” equations (16)–(17); §§8–9 obstruction scope. Private record.<br><code class="source-path">poams-review/work/fiber-optics-integrated-program-2026-10-29/exchange-record-representation-20261031/research/THEORY.md</code><span class="hash">SHA-256 6d3f92f64395d574f3ca0b1921fdfd03ca931cff70568bbbb5e7e3c3a3aef36c</span></li>
+<li id="s-candidate"><strong>R · Diagnosis and RCM-1 selection</strong> — 1 November 2026; “Adopted diagnosis” and “Adopted discriminator.” Private record.<br><code class="source-path">poams-review/work/fiber-optics-integrated-program-2026-10-29/candidate-reassessment-20261101/DECISION.md</code><span class="hash">SHA-256 53db8763358d20fd8952181fa70533b7c0b2873b5997e4b6893242264391fb2b</span></li>
+<li id="s-freeze"><strong>Z · RCM-1 protocol adoption</strong> — 1 November 2026; “Conditional premises” and “Program position.” AP-RCM/AP-M remain conditional; J1–J4 OPEN. Private record.<br><code class="source-path">poams-review/work/fiber-optics-integrated-program-2026-10-29/rcm1-freeze-20261101/DECISION.md</code><span class="hash">SHA-256 3837b26af97daaeb478ba8ee10cd177e4b75df078d5d91d21e8b4ed64beb8ea8</span></li>
+<li id="s-work"><a href="./provisionals/PROV-O.html">W · Work-compensation public reader</a> — 48-page public PDF; PDF p.2 Background 2–5 and PDF p.12 Reset and replenishment selections. Cited as a supplied model, not proof of realization or filing status.<br><code class="source-path">poams-exhibits-public/provisionals/PROV-O.html</code><span class="hash">SHA-256 f3b45a9d7b3ef2d8cacc6dd66746b94952400a97a750c6dc3a212805184dc6ad</span></li>
+<li id="s-memo"><strong>M · Time-Rope retained-memory memorandum</strong> — 2 November 2026; §§1.1,3,5 question 1. Candidate interpretation / not adopted. Private record.<br><code class="source-path">poams-review/work/time-rope-retained-memory-20261102/MEMO.md</code><span class="hash">SHA-256 cde55dfedbbef50b0fda351dc9b780abe546dd91a5e9b6576572a223d652c8ad</span></li>
+<li id="s-bio1"><strong>B1 · Established biology, encyclopedic grounding.</strong> <a href="https://en.wikipedia.org/wiki/Germline#Epigenetic_alterations">Germline, “Epigenetic alterations”</a> and <a href="https://en.wikipedia.org/wiki/Reprogramming">Reprogramming, introductory developmental account</a>, checked 2 November 2026 (America/Chicago). Germline/early-embryo renewal of epigenetic state; not complete removal of inherited effects. No raw-data replay is claimed.</li>
+<li id="s-bio2"><strong>B2 · Established biology, encyclopedic grounding.</strong> <a href="https://en.wikipedia.org/wiki/Rejuvenation#Modern_developments">Rejuvenation, “Modern developments,” paragraph beginning “In 2020…”</a>, checked 2 November 2026 (America/Chicago). Used only for partial resetting of age-associated cellular features; no clinical claim or recommendation is imported.</li>
+<li id="s-gompertz"><strong>Gompertz-type illustration.</strong> The displayed pair is the standard mathematical definition <i>S</i>(<i>t</i>) = exp[−∫<sub>0</sub><sup><i>t</i></sup> <i>h</i>(<i>u</i>) d<i>u</i>] with the explicitly chosen exponential hazard. It is an imported survival-model template used analogically, not a fitted biological curve, an OIL consequence or a new physical law.</li>
+</ul>
+</section>
+</article>
+</main>
+<footer><p><strong>Normal Realism → Pope–Osborne Angular Momentum Synthesis (POAMS)</strong></p><p>This exhibit extends the foundational work of N. Vivian “Viv” Pope and Dr. Anthony D. Osborne. The retained-record results and the present aging interpretation are subsequent work.</p><p>2 November 2026 · Staged interpretation for review and owner ratification · No episode commissioned.</p><p><a href="#paper">Back to the exhibit ↑</a> · <a href="./index.html">Exhibit hub</a></p></footer>
+</body>
+</html>
