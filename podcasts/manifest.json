@@ -352,15 +352,33 @@
       "approved": true,
       "audio_url": "https://audio.resonantmachines.us/podcasts/16/439997ef0e53aed7c731ebf185344ef7a38ac24600a504405d681fb5a8e4a2e2.mp3",
       "audio_sha256": "439997ef0e53aed7c731ebf185344ef7a38ac24600a504405d681fb5a8e4a2e2",
-      "source_content_sha256": "d62a8e5355c6b4f79453aedc699f2ba7701c0bcbcec2d88cc0cb13e7d27d98fa",
+      "source_content_sha256": "41e5cc9b79c1ab4c30483fdf08c7c082512e867383c7f4ecd20598655380c0bd",
       "script_source_sha256": {
         "alpha-fine-structure-derivation.html": "88d3bb02be51c66d23aca786db8ff4999f1a0fff49946f856e01c6d9badcd77d"
       },
       "source_sha256": {
-        "alpha-fine-structure-derivation.html": "bd5ec83ce07b0ced1320220b2ddc9de561e41aa77e7222b3e583879e225060d3"
+        "alpha-fine-structure-derivation.html": "5e3c371f3f4dc7cb2d3a64279994147fee136defa2363273e8a3ec0b28e46604"
       },
       "source_dependency_sha256": {
         "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+      },
+      "source_adoption": {
+        "kind": "reviewed-material-source-adoption",
+        "receipt_sha256": "4f9fd4bf17a2f7a922b508d3a1fb9c7366b53c478ef52245820ae0a788232edc",
+        "original_source_receipt_sha256": "26046a1941cce33b73aa604bbeeb011c2eef1dfd96f6f10cf1d5df908398a0c4",
+        "old_semantic_sha256": "d62a8e5355c6b4f79453aedc699f2ba7701c0bcbcec2d88cc0cb13e7d27d98fa",
+        "reviewed_semantic_sha256": "41e5cc9b79c1ab4c30483fdf08c7c082512e867383c7f4ecd20598655380c0bd",
+        "source_review_sha256": "f19ea2f24615d5f7e448a385d4b3da2520af269265e61f2825aa47fa8d861631",
+        "listener_review_sha256": "6fba892bab75fbb95b383889d1e70efec22663f8999feb9c9457ca785b85629e",
+        "script_sha256": "c599f066a97e611ef8b1dbb40d6b293fca055450aba61615a10f7a178b48ae72",
+        "audio_sha256": "439997ef0e53aed7c731ebf185344ef7a38ac24600a504405d681fb5a8e4a2e2",
+        "model": "gpt-5.6-sol",
+        "voices": {
+          "Hope": "tnSpp4vdxKPjI9w0GnoV",
+          "Jon": "Cz0K1kOv9tD8l0b5Qu53"
+        },
+        "tempo": 1.1,
+        "pitch_semitones": 0
       }
     },
     {
