@@ -141,6 +141,16 @@
       "source_pdf_sha256": "acaa7fc98435f1b3cdfd37cae38c1c2c924821115afae5cbbbccc884242eaf81",
       "audio_url": "https://audio.resonantmachines.us/provisionals/PROV-O/ae447046f789aa6c624b2fb0431ca7593ad7010f4c6715077b47bfdb27822c6f.mp3",
       "audio_sha256": "ae447046f789aa6c624b2fb0431ca7593ad7010f4c6715077b47bfdb27822c6f"
+    },
+    {
+      "id": "PROV-P",
+      "order": 15,
+      "title": "Credit-Budgeted Maintenance and Verified Succession for Finite-Register Systems",
+      "approved": true,
+      "source_pdf": "provisionals/PROV-P.pdf",
+      "source_pdf_sha256": "3cab610c5089f8fd9e8b384a8f650d85e1a88893a2900336c9566863a0c6becc",
+      "audio_url": "https://audio.resonantmachines.us/provisionals/PROV-P/3fecfb9c80cf2ab359929bd26f4bce40dc6c6cfae9af0c2eb06f99a76577ab83.mp3",
+      "audio_sha256": "3fecfb9c80cf2ab359929bd26f4bce40dc6c6cfae9af0c2eb06f99a76577ab83"
     }
   ]
 }
