@@ -4,7 +4,7 @@
   "episodes": [
     {
       "order": 1,
-      "title": "The Logos \u00b7 The World Is Language",
+      "title": "The Logos · The World Is Language",
       "sources": [
         "the-designers-reading.html",
         "the-world-is-language.html"
@@ -147,7 +147,7 @@
     },
     {
       "order": 8,
-      "title": "The Spin\u2013Orbit Settlement Ledger",
+      "title": "The Spin–Orbit Settlement Ledger",
       "sources": [
         "spin-orbit-settlement-ledger.html"
       ],
@@ -443,7 +443,7 @@
     },
     {
       "order": 19,
-      "title": "Land\u00e9",
+      "title": "Landé",
       "sources": [
         "lande-from-twist-writhe.html"
       ],
@@ -670,7 +670,7 @@
     },
     {
       "order": 30,
-      "title": "The Spin\u2013Orbit Settlement Ledger",
+      "title": "The Spin–Orbit Settlement Ledger",
       "sources": [
         "spin-orbit-settlement-ledger.html#galaxy-case"
       ],
@@ -1378,16 +1378,34 @@
         "on-aging-immutable-ledgers.html"
       ],
       "approved": true,
-      "audio_url": "https://audio.resonantmachines.us/podcasts/60/e536c744c23c09db7df885bb85666e6e37fe00cb55f094476abbdc1b9cf7236c.mp3",
-      "audio_sha256": "e536c744c23c09db7df885bb85666e6e37fe00cb55f094476abbdc1b9cf7236c",
-      "source_content_sha256": "a3d915588e07447e1132fb4c4a55754abf31f82082dc8f8f936993ab6660dadb",
+      "audio_url": "https://audio.resonantmachines.us/podcasts/60/7a0f833581f5c630dc6cd8496607699fc5d02cac9493b4c4c92442056e67f038.mp3",
+      "audio_sha256": "7a0f833581f5c630dc6cd8496607699fc5d02cac9493b4c4c92442056e67f038",
+      "source_content_sha256": "bc472b125979f8aa31642a61858e476440a7332d066a093008201e6957532111",
       "script_source_sha256": {
-        "on-aging-immutable-ledgers.html": "167ed0a999277232078f94bf725a6ac8dee252ee87b857089c046c43b812d3eb"
-      },
-      "source_sha256": {
         "on-aging-immutable-ledgers.html": "0ad31e1b3db2e083bb918b8abc50253b64a0f4d386532fe7cb0b02c13f62e058"
       },
-      "source_dependency_sha256": {}
+      "source_sha256": {
+        "on-aging-immutable-ledgers.html": "96df2c70e0821ba693d72addc1ee6492117e199bd3c0eeed99951d43dc30bb0f"
+      },
+      "source_dependency_sha256": {},
+      "source_adoption": {
+        "kind": "reviewed-material-source-adoption",
+        "receipt_sha256": "b2888edfd3517941c56a87fab5b8183d94bc39f02bb24ec9b63e889a399fbc8c",
+        "original_source_receipt_sha256": "8f580c9da1221fb51673dd5f9e41ba63c57afd50b31827306dee770adfb5fdc0",
+        "old_semantic_sha256": "cf696bc3031af8aa50631e883d4b3d809d53c4c173cc221886e6051030df0458",
+        "reviewed_semantic_sha256": "bc472b125979f8aa31642a61858e476440a7332d066a093008201e6957532111",
+        "source_review_sha256": "2647c8012320d9156d64c6e4f448693341150090eb88310d74b3296b9566985d",
+        "listener_review_sha256": "3d60ae442ab57f35b1d8d574f503af72f856e7e220e190678fabb9c842f0e582",
+        "script_sha256": "ee5b97a92391503f5fe519359062336057c82b9cdf1484e9a0eeaa07860cf074",
+        "audio_sha256": "7a0f833581f5c630dc6cd8496607699fc5d02cac9493b4c4c92442056e67f038",
+        "model": "gpt-5.6-sol",
+        "voices": {
+          "Hope": "tnSpp4vdxKPjI9w0GnoV",
+          "Jon": "Cz0K1kOv9tD8l0b5Qu53"
+        },
+        "tempo": 1.1,
+        "pitch_semitones": 0
+      }
     }
   ]
 }
