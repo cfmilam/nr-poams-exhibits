@@ -1378,34 +1378,16 @@
         "on-aging-immutable-ledgers.html"
       ],
       "approved": true,
-      "audio_url": "https://audio.resonantmachines.us/podcasts/60/7a0f833581f5c630dc6cd8496607699fc5d02cac9493b4c4c92442056e67f038.mp3",
-      "audio_sha256": "7a0f833581f5c630dc6cd8496607699fc5d02cac9493b4c4c92442056e67f038",
-      "source_content_sha256": "bc472b125979f8aa31642a61858e476440a7332d066a093008201e6957532111",
+      "audio_url": "https://audio.resonantmachines.us/podcasts/60/11944ae270f9f551b6932442267321b56377d44fede26c6dc355021fd9299f80.mp3",
+      "audio_sha256": "11944ae270f9f551b6932442267321b56377d44fede26c6dc355021fd9299f80",
+      "source_content_sha256": "6d137453f3a275a3ac78e4ba2f1fa50d53ef83b624612664413cc9eef57c26cc",
       "script_source_sha256": {
-        "on-aging-immutable-ledgers.html": "0ad31e1b3db2e083bb918b8abc50253b64a0f4d386532fe7cb0b02c13f62e058"
-      },
-      "source_sha256": {
         "on-aging-immutable-ledgers.html": "8733d5ce70d6a0c5bf65a8604c4571a4198724804c1e791b5c22568e505d17ea"
       },
-      "source_dependency_sha256": {},
-      "source_adoption": {
-        "kind": "reviewed-material-source-adoption",
-        "receipt_sha256": "b2888edfd3517941c56a87fab5b8183d94bc39f02bb24ec9b63e889a399fbc8c",
-        "original_source_receipt_sha256": "8f580c9da1221fb51673dd5f9e41ba63c57afd50b31827306dee770adfb5fdc0",
-        "old_semantic_sha256": "cf696bc3031af8aa50631e883d4b3d809d53c4c173cc221886e6051030df0458",
-        "reviewed_semantic_sha256": "bc472b125979f8aa31642a61858e476440a7332d066a093008201e6957532111",
-        "source_review_sha256": "2647c8012320d9156d64c6e4f448693341150090eb88310d74b3296b9566985d",
-        "listener_review_sha256": "3d60ae442ab57f35b1d8d574f503af72f856e7e220e190678fabb9c842f0e582",
-        "script_sha256": "ee5b97a92391503f5fe519359062336057c82b9cdf1484e9a0eeaa07860cf074",
-        "audio_sha256": "7a0f833581f5c630dc6cd8496607699fc5d02cac9493b4c4c92442056e67f038",
-        "model": "gpt-5.6-sol",
-        "voices": {
-          "Hope": "tnSpp4vdxKPjI9w0GnoV",
-          "Jon": "Cz0K1kOv9tD8l0b5Qu53"
-        },
-        "tempo": 1.1,
-        "pitch_semitones": 0
-      }
+      "source_sha256": {
+        "on-aging-immutable-ledgers.html": "0beb26bb85d6048ce1c90c4089f27a91a2cff91573976ad97c1755b014617b0b"
+      },
+      "source_dependency_sha256": {}
     }
   ]
 }
