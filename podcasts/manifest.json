@@ -4,26 +4,44 @@
  "episodes": [
   {
    "order": 1,
-   "title": "The Logos \u00b7 The World Is Language",
+   "title": "The Logos",
    "sources": [
-    "the-designers-reading.html",
-    "the-world-is-language.html"
+    "the-designers-reading.html"
    ],
    "approved": true,
-   "audio_url": "https://audio.resonantmachines.us/podcasts/01/1da74f9c44f5388d6dea56ceef34544724833e325e2e7cf4e123b1f66021e093.mp3",
-   "audio_sha256": "1da74f9c44f5388d6dea56ceef34544724833e325e2e7cf4e123b1f66021e093",
-   "source_content_sha256": "55767c91435eec4c8b484e3dfdbd5b6b07ef4f18feda711aec64783002acd628",
+   "audio_url": "https://audio.resonantmachines.us/podcasts/01/ff05e4d4a8cf73c746e657675d6c9db6d32f15efca8477e60eab05fe9773c8a2.mp3",
+   "audio_sha256": "ff05e4d4a8cf73c746e657675d6c9db6d32f15efca8477e60eab05fe9773c8a2",
+   "source_content_sha256": "47bf47d7e2a29b52fdae56f39a8e78fdb665bddfa178cbada625f2a6de2baf56",
    "script_source_sha256": {
-    "the-designers-reading.html": "789c5513c30021a420d31a0fde82d6372465cdc1a6d9010e1eed2ed821f89efb",
-    "the-world-is-language.html": "f6618c5116e989428621cfa848e64e6ee3396939ce765534008a75819e4cbd70"
+    "the-designers-reading.html": "e5d8a5372304b84625b7a0303668f20a73207bc1ca87cf241e9b9ff8f9abacb7"
    },
    "source_sha256": {
-    "the-designers-reading.html": "e5d8a5372304b84625b7a0303668f20a73207bc1ca87cf241e9b9ff8f9abacb7",
-    "the-world-is-language.html": "806b0d81bc907ae785923f432eea455f2ae2fae0dcafa88de1c667aebf0a8667"
+    "the-designers-reading.html": "7ec4985a664d539bfa5917fb32f0f94f87f2b5249653988ac1f3fda6d4035e14"
    },
    "source_dependency_sha256": {
     "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
    }
+  },
+  {
+   "order": 61,
+   "title": "The World Is Language",
+   "sources": [
+    "the-world-is-language.html"
+   ],
+   "approved": true,
+   "audio_url": "https://audio.resonantmachines.us/podcasts/61/a60ee9408b47166be757c95e1807dda96ea042e37ee3798728d8a44f4ae81d3d.mp3",
+   "audio_sha256": "a60ee9408b47166be757c95e1807dda96ea042e37ee3798728d8a44f4ae81d3d",
+   "source_content_sha256": "b4f15a2190fb2d9506142d76547ed34171d4d13d131c13f04028534771aebb7f",
+   "script_source_sha256": {
+    "the-world-is-language.html": "806b0d81bc907ae785923f432eea455f2ae2fae0dcafa88de1c667aebf0a8667"
+   },
+   "source_sha256": {
+    "the-world-is-language.html": "1c3c8c0a09d9e08e60dd8cf5801e0989ec886b4ef7442f535b1371eeab1e599b"
+   },
+   "source_dependency_sha256": {
+    "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
+   },
+   "hub_position_after": 1
   },
   {
    "order": 2,
