@@ -938,7 +938,7 @@
     "time-rope.html": "f66a80674f452742ba041c6ccc7b2e48bf9e721adf40d1f378986e134dffed96"
    },
    "source_sha256": {
-    "time-rope.html": "1d6a7eefea25494ca7040a2c7d26827d4d4201d555862502ea4d37495389739a"
+    "time-rope.html": "8057a6f84da77481e60eaa44a54677728738fe61ee2f923131a0ce0a8d77f943"
    },
    "source_dependency_sha256": {
     "reader-theme.js": "6e35f8010b1273f0e1287f94e2bc62965b47a87918e64154990d5d3bd75f812e"
@@ -1334,27 +1334,6 @@
    "source_dependency_sha256": {}
   },
   {
-   "order": 58,
-   "title": "An Optical-Information Link",
-   "sources": [
-    "optical-information-link.html"
-   ],
-   "approved": true,
-   "audio_sha256": "81df8bd8dffcafbf2ca6a1cf571e6b0ec316334df849ac69e9312ae612a4c562",
-   "source_content_sha256": "d520ba71da8f8ee7b6b990fbdf0bb081cf3a2ffbcc173ce6a1e070283176812f",
-   "script_source_sha256": {
-    "optical-information-link.html": "5fd5aed1cf526aeb8dd3707ef26117294b0b6394b87270b3d6fce4d6c88b59fa"
-   },
-   "source_sha256": {
-    "optical-information-link.html": "30e493ee979d776e9744367a8dbf4a27aba33d69b1b8bfd3acae6b75ad3a9335"
-   },
-   "source_dependency_sha256": {
-    "optical-information-link/DATA-VERIFICATION.json": "f8b7ed15c97970fb28c9e557c7fa5a7cdb2f5810df561ce63b02aedce2415476",
-    "optical-information-link/ENGINEERING-MANIFEST.json": "fa7856bc29408277cd166aadbc94de4aea1c2398c80f8cba4793d043d73931a4"
-   },
-   "audio_url": "https://audio.resonantmachines.us/podcasts/58/81df8bd8dffcafbf2ca6a1cf571e6b0ec316334df849ac69e9312ae612a4c562.mp3"
-  },
-  {
    "order": 59,
    "title": "Coupled Circulations",
    "sources": [
@@ -1403,7 +1382,7 @@
     "on-aging-immutable-ledgers.html": "8733d5ce70d6a0c5bf65a8604c4571a4198724804c1e791b5c22568e505d17ea"
    },
    "source_sha256": {
-    "on-aging-immutable-ledgers.html": "0beb26bb85d6048ce1c90c4089f27a91a2cff91573976ad97c1755b014617b0b"
+    "on-aging-immutable-ledgers.html": "72d2c74bb4754d76ec5f9648b115a9ce9cbe117ae64a14a7848b85aca7e38da2"
    },
    "source_dependency_sha256": {}
   }
