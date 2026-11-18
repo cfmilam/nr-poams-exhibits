@@ -15,7 +15,6 @@ REPO = Path(__file__).resolve().parents[1]
 WORKSPACE = REPO.parent
 PAGE = REPO / "the-canon.html"
 MANIFEST = REPO / "canon" / "SOURCE-MANIFEST.json"
-CANON_VIDEO_URL = "https://notebook.google.com/notebook/5174836c-294f-471a-9ebf-f55426c9eb34"
 FORBIDDEN = (
     "Changes from Draft 5", "Effects proposed and not demonstrated",
     "Content owner-ratified on 2026-11-17", "I strongly support the approach",
@@ -60,8 +59,6 @@ class Structure(HTMLParser):
         self.h1 = 0
         self.h2s = []
         self.in_h2 = False
-        self.pending = 0
-        self.players = 0
         self.links = []
         self.ids: list[str] = []
         self.majors: list[str] = []
@@ -75,8 +72,6 @@ class Structure(HTMLParser):
             self.h2s.append("")
             self.in_h2 = True
         classes = (values.get("class") or "").split()
-        self.pending += int("canon-media-pending" in classes)
-        self.players += int("poams-listen" in classes)
         if tag == "a":
             self.links.append(values)
         if tag == "h1":
@@ -150,20 +145,23 @@ def main() -> None:
     assert structure.h1 == 1
     assert structure.h2s == HEADINGS, structure.h2s
     assert re.findall(r'<(?:section class="recital"|details class="major") id="([^"]+)"', page) == ["recital"] + MAJORS
-    if not (REPO / "canon/audio-binding.json").exists():
-        assert structure.pending == 1 and structure.players == 0
-        assert not re.search(r'<script[^>]+src="[^"]*podcast-listen.js', page)
-        assert page.count('aria-disabled="true" title=') == 1
-    else:
-        assert structure.players == 1 and structure.pending == 0
-        assert '<script defer src="./podcast-listen.js"></script>' in page
-    assert sum(
-        a.get("href") == CANON_VIDEO_URL
-        and a.get("target") == "_blank"
-        and a.get("rel") == "noopener noreferrer"
-        and a.get("aria-label") == "Video in NotebookLM: The Canon (opens in a new tab)"
-        for a in structure.links
-    ) == 1
+    for retired_media in (
+        "poams-listen",
+        "canon-media-pending",
+        "podcast-listen.css",
+        "podcast-listen.js",
+        'data-podcast="62"',
+        "pl-pills",
+        "pl-pill",
+        "pl-video",
+        "pl-player-62",
+        "Audio: The Canon",
+        "Audio under consideration",
+        "Video in NotebookLM: The Canon",
+        "https://notebook.google.com/notebook/5174836c-294f-471a-9ebf-f55426c9eb34",
+    ):
+        assert retired_media not in page, retired_media
+    assert not re.search(r"<audio(?:\s|>)", page, re.I)
     for row in manifest["sources"]:
         assert "canon/" + row["snapshot"] in structure.refs
     assert "canon/SOURCE-MANIFEST.json" in structure.refs
@@ -183,7 +181,6 @@ def main() -> None:
     assert structure.cards == 20
     assert len(structure.ids) == len(set(structure.ids))
     assert {unquote(a) for a in structure.local_anchors} <= set(structure.ids)
-    assert 'data-podcast="62"' in page
     for ref in structure.refs:
         parsed = urlsplit(ref)
         if parsed.scheme or parsed.netloc or ref.startswith("#"):
