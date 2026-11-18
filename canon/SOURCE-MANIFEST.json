@@ -1,0 +1,175 @@
+{
+  "schema": 2,
+  "title": "The Canon source snapshot",
+  "note": "canonical_sha256 identifies the workspace input; sha256 identifies the public payload",
+  "sources": [
+    {
+      "key": "recital",
+      "snapshot": "00-recital.md",
+      "canonical": "Owner-approved main-session recital, 15 November 2026",
+      "sha256": "7054199e84e95df252e4e6eb7f32e41bd10d370288be7ad364c35d4e25c03df7",
+      "bytes": 1837
+    },
+    {
+      "key": "canon-core",
+      "snapshot": "01-core.md",
+      "canonical": "poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/CORE-CANDIDATE.md",
+      "canonical_sha256": "eb6a0dbd6a6b66e62b670a8336aa69f831a7aa1bb112a4b5d7d64bb38009c47e",
+      "sha256": "eb6a0dbd6a6b66e62b670a8336aa69f831a7aa1bb112a4b5d7d64bb38009c47e",
+      "bytes": 36652
+    },
+    {
+      "key": "grounding",
+      "snapshot": "02-grounding.md",
+      "canonical": "GROUNDING.md",
+      "canonical_sha256": "7a289d3fc995872fd1607b9e3df85a283986988b7e7c579a8926bc5f457d742c",
+      "sha256": "7a289d3fc995872fd1607b9e3df85a283986988b7e7c579a8926bc5f457d742c",
+      "bytes": 61679
+    },
+    {
+      "key": "foundation-wall",
+      "snapshot": "02-foundation-wall.md",
+      "canonical": "POAMS-FOUNDATION-WALL.md",
+      "canonical_sha256": "3e74192f2e8907611461c8c710ff9b3d27e755d9fd58d4854ae47b191d5a5e0b",
+      "sha256": "3e74192f2e8907611461c8c710ff9b3d27e755d9fd58d4854ae47b191d5a5e0b",
+      "bytes": 12216
+    },
+    {
+      "key": "canon-c01",
+      "snapshot": "03-C01-normal-realism-constitution-and-reversal.md",
+      "canonical": "poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/dossiers/C01-normal-realism-constitution-and-reversal.md",
+      "canonical_sha256": "73643fc539e787a6e826d402d5fde950eac41627e18f7ecbfc024d0495f2199a",
+      "sha256": "73643fc539e787a6e826d402d5fde950eac41627e18f7ecbfc024d0495f2199a",
+      "bytes": 12759
+    },
+    {
+      "key": "canon-c02",
+      "snapshot": "03-C02-language-logos-logic-and-mathematics.md",
+      "canonical": "poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/dossiers/C02-language-logos-logic-and-mathematics.md",
+      "canonical_sha256": "e317be793fdd21e011c929bfeb4ac9bc1ad181a46e7a2afa7ee609528db3f1ab",
+      "sha256": "e317be793fdd21e011c929bfeb4ac9bc1ad181a46e7a2afa7ee609528db3f1ab",
+      "bytes": 13823
+    },
+    {
+      "key": "canon-c03",
+      "snapshot": "03-C03-observer-objectivity-information-and-projection.md",
+      "canonical": "poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/dossiers/C03-observer-objectivity-information-and-projection.md",
+      "canonical_sha256": "870f44c870551c2764815f1a7aa303477b475df117b2936ecc5558b86fee14bb",
+      "sha256": "870f44c870551c2764815f1a7aa303477b475df117b2936ecc5558b86fee14bb",
+      "bytes": 12318
+    },
+    {
+      "key": "canon-c04",
+      "snapshot": "03-C04-method-discipline-critique-and-lineage.md",
+      "canonical": "poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/dossiers/C04-method-discipline-critique-and-lineage.md",
+      "canonical_sha256": "6c5c979d63f0e0428b8fb166e91ae218244ae8453ca049452622e2e0231d4001",
+      "sha256": "6c5c979d63f0e0428b8fb166e91ae218244ae8453ca049452622e2e0231d4001",
+      "bytes": 12898
+    },
+    {
+      "key": "canon-c05",
+      "snapshot": "03-C05-light-c-time-relativity-and-material-media.md",
+      "canonical": "poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/dossiers/C05-light-c-time-relativity-and-material-media.md",
+      "canonical_sha256": "17e3ddb95bd1dfaf8b948c5362a6e9407d3c727f69ed32101341d7dc51f949c2",
+      "sha256": "17e3ddb95bd1dfaf8b948c5362a6e9407d3c727f69ed32101341d7dc51f949c2",
+      "bytes": 22190
+    },
+    {
+      "key": "canon-c06",
+      "snapshot": "03-C06-angular-momentum-action-discreteness-and-statistical-causality.md",
+      "canonical": "poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/dossiers/C06-angular-momentum-action-discreteness-and-statistical-causality.md",
+      "canonical_sha256": "778bc5cc1fd95b0475f3b6885f213fafe6bcfddb6484a86ff40047b1ae985906",
+      "sha256": "778bc5cc1fd95b0475f3b6885f213fafe6bcfddb6484a86ff40047b1ae985906",
+      "bytes": 15444
+    },
+    {
+      "key": "canon-c07",
+      "snapshot": "03-C07-orbits-and-gravity.md",
+      "canonical": "poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/dossiers/C07-orbits-and-gravity.md",
+      "canonical_sha256": "7edb9eb77a41d331a5162cfeb4579181e918269aa12bf7d35d306cdf49c0023d",
+      "sha256": "7edb9eb77a41d331a5162cfeb4579181e918269aa12bf7d35d306cdf49c0023d",
+      "bytes": 15541
+    },
+    {
+      "key": "canon-c08",
+      "snapshot": "03-C08-inertia-mass-and-mach.md",
+      "canonical": "poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/dossiers/C08-inertia-mass-and-mach.md",
+      "canonical_sha256": "790092d46d73567bb8e44eae907e8750fe67e4c1f5b82471647188b65acb5ee6",
+      "sha256": "790092d46d73567bb8e44eae907e8750fe67e4c1f5b82471647188b65acb5ee6",
+      "bytes": 9472
+    },
+    {
+      "key": "canon-c09",
+      "snapshot": "03-C09-atom-charge-electricity-magnetism-particle-labels-and-nuclear-status.md",
+      "canonical": "poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/dossiers/C09-atom-charge-electricity-magnetism-particle-labels-and-nuclear-status.md",
+      "canonical_sha256": "b1c55542a3989c56819c4c9b93f14028fe6145aa236b0a5c2369a4f92b50cfed",
+      "sha256": "b1c55542a3989c56819c4c9b93f14028fe6145aa236b0a5c2369a4f92b50cfed",
+      "bytes": 11092
+    },
+    {
+      "key": "canon-c10",
+      "snapshot": "03-C10-instantaneity-two-slits-epr-polarization-and-statistics.md",
+      "canonical": "poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/dossiers/C10-instantaneity-two-slits-epr-polarization-and-statistics.md",
+      "canonical_sha256": "73c5265c068142f1f187d35ea6da6f3c7fff3b0777eba654e950f5bf975e1bf4",
+      "sha256": "73c5265c068142f1f187d35ea6da6f3c7fff3b0777eba654e950f5bf975e1bf4",
+      "bytes": 10986
+    },
+    {
+      "key": "canon-c11",
+      "snapshot": "03-C11-cosmology-thermodynamics-and-chemistry.md",
+      "canonical": "poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/dossiers/C11-cosmology-thermodynamics-and-chemistry.md",
+      "canonical_sha256": "b2d1202872adf57252e915400f95f52c1efd86c196aa4887dde85e0205cbdfe5",
+      "sha256": "b2d1202872adf57252e915400f95f52c1efd86c196aa4887dde85e0205cbdfe5",
+      "bytes": 9076
+    },
+    {
+      "key": "canon-c12",
+      "snapshot": "03-C12-life-and-mind.md",
+      "canonical": "poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/dossiers/C12-life-and-mind.md",
+      "canonical_sha256": "68bb0369f2d2ff396750e0c58ed680d0eae96ebbfceacbfe6e99b328cea76c7e",
+      "sha256": "68bb0369f2d2ff396750e0c58ed680d0eae96ebbfceacbfe6e99b328cea76c7e",
+      "bytes": 10211
+    },
+    {
+      "key": "canon-c13",
+      "snapshot": "03-C13-ethics-society-and-religion.md",
+      "canonical": "poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/dossiers/C13-ethics-society-and-religion.md",
+      "canonical_sha256": "bde15317070e72b640935dd2ab18efaf6ddcda59cec0a22f5642988055a92a21",
+      "sha256": "bde15317070e72b640935dd2ab18efaf6ddcda59cec0a22f5642988055a92a21",
+      "bytes": 10590
+    },
+    {
+      "key": "project-start-protocol",
+      "snapshot": "04-project-start-protocol.md",
+      "canonical": "poams-review/work/grounding-2026-11-14/drafts/PROTOCOL-v3.md",
+      "canonical_sha256": "ea1d7dfe16916591b7240c20b7a010f0a69403715a9170c1491c95c1a61f281f",
+      "sha256": "745dcb39c11b321f3715b29b7a03f40e6a37b7020481832a2df32c296714b9ee",
+      "bytes": 6387
+    },
+    {
+      "key": "opening-context",
+      "snapshot": "05-opening-context.md",
+      "canonical": "poams-review/work/grounding-2026-11-14/rig/GROUNDING-BLOCK.md",
+      "canonical_sha256": "a308189c33dd8318f1b2e62e6ad69e26edd2075078cfbcd162fbaaeb152dd130",
+      "sha256": "568b81c5c95c44cc4b7b7ae487cc1e2e0eeea0f709d785a3315c3d0c0754fbd6",
+      "bytes": 6587
+    },
+    {
+      "key": "project-context",
+      "snapshot": "05-project-context-template.md",
+      "canonical": "poams-exhibits-public/canon/05-project-context-template.md",
+      "canonical_sha256": null,
+      "sha256": "b5a6021b501cafc6c9fc98988b708677da99dce60b5fcea8e2b11032cbe2cc0f",
+      "bytes": 1027
+    },
+    {
+      "key": "canon-notes",
+      "snapshot": "06-canon-notes.md",
+      "canonical": "poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/CANON-NOTES-CANDIDATE.md",
+      "canonical_sha256": "4ed83f61b78d4c8ae854a4828f2c5b3c0ae6203beccfb72a0f726364679eb6e3",
+      "sha256": "4ed83f61b78d4c8ae854a4828f2c5b3c0ae6203beccfb72a0f726364679eb6e3",
+      "bytes": 3098
+    }
+  ],
+  "source_set_sha256": "53568824496405bcb5887a3c96c5bb6fa479fb3f7f029b45aab832190161af84"
+}
