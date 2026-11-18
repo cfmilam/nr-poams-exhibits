@@ -14,6 +14,7 @@ REPO = Path(__file__).resolve().parents[1]
 WORKSPACE = REPO.parent
 PAGE = REPO / "the-canon.html"
 MANIFEST = REPO / "canon" / "SOURCE-MANIFEST.json"
+CANON_VIDEO_URL = "https://notebook.google.com/notebook/5174836c-294f-471a-9ebf-f55426c9eb34"
 FORBIDDEN = ("Changes from Draft 5", "Effects proposed and not demonstrated")
 MAJORS = ["core", "grounding", "canon", "project-start-protocol", "opening-context-block", "canon-notes"]
 HEADINGS = ["Recital", "Core", "Grounding", "Canon", "Project Start Protocol", "Opening Context Block", "Canon Notes"]
@@ -145,10 +146,17 @@ def main() -> None:
     if not (REPO / "canon/audio-binding.json").exists():
         assert structure.pending == 1 and structure.players == 0
         assert not re.search(r'<script[^>]+src="[^"]*podcast-listen.js', page)
-        assert page.count('aria-disabled="true" title=') == 2
+        assert page.count('aria-disabled="true" title=') == 1
     else:
         assert structure.players == 1 and structure.pending == 0
         assert '<script defer src="./podcast-listen.js"></script>' in page
+    assert sum(
+        a.get("href") == CANON_VIDEO_URL
+        and a.get("target") == "_blank"
+        and a.get("rel") == "noopener noreferrer"
+        and a.get("aria-label") == "Video in NotebookLM: The Canon (opens in a new tab)"
+        for a in structure.links
+    ) == 1
     for row in manifest["sources"]:
         assert "canon/" + row["snapshot"] in structure.refs
     assert "canon/SOURCE-MANIFEST.json" in structure.refs
@@ -185,7 +193,14 @@ def main() -> None:
     subprocess.run(["node", "--check", "-"], input="\n".join(scripts), text=True, check=True)
 
     hub = (REPO / "index.html").read_text()
-    assert hub.index(">The Canon<") < hub.index(">The Rules of Persistence<")
+    foundation_positions = [
+        hub.index(">The Logos<"),
+        hub.index(">The World Is Language<"),
+        hub.index(">The Rules of Persistence<"),
+        hub.index(">POAMS Historical Framework<"),
+        hub.index(">The Canon<"),
+    ]
+    assert foundation_positions == sorted(foundation_positions)
     hub_structure = Structure()
     hub_structure.feed(hub)
     pages = {

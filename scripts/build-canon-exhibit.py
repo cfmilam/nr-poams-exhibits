@@ -17,6 +17,7 @@ REPO = Path(__file__).resolve().parents[1]
 WORKSPACE = REPO.parent
 SNAPSHOTS = REPO / "canon"
 OUTPUT = REPO / "the-canon.html"
+CANON_VIDEO_URL = "https://notebook.google.com/notebook/5174836c-294f-471a-9ebf-f55426c9eb34"
 
 DOSSIERS = [
     ("C01", "normal-realism-constitution-and-reversal", "Normal Realism: constitution and reversal"),
@@ -219,19 +220,20 @@ def group(number: str, anchor: str, title: str, lead: str, cards: list[str], ope
 
 
 def listen_block() -> str:
+    video = f'''<a class="pl-video" href="{html.escape(CANON_VIDEO_URL, quote=True)}" target="_blank" rel="noopener noreferrer" aria-label="Video in NotebookLM: The Canon (opens in a new tab)">VIDEO</a>'''
     binding_path = SNAPSHOTS / "audio-binding.json"
     if binding_path.is_file():
         binding = json.loads(binding_path.read_text())
         if binding.get("order") != 62 or not binding.get("audio_url"):
             raise SystemExit("canon/audio-binding.json has an invalid order or URL")
         body = f'''<div class="pl-pills"><button class="pl-pill" type="button" aria-label="Audio: The Canon" aria-expanded="false" aria-controls="pl-player-62">AUDIO</button>
-<span class="pl-video" aria-disabled="true" title="Video under consideration">VIDEO</span>
+{video}
 </div>
 <div id="pl-player-62" class="pl-player" hidden><button class="pl-play" type="button" aria-label="Play podcast" disabled>▶</button><input class="pl-seek" type="range" min="0" max="100" step="0.1" value="0" aria-label="Seek podcast" disabled><span class="pl-timer">0:00 / 0:00</span></div>
 <p class="pl-error" role="status" hidden></p><audio preload="none" src="{html.escape(binding['audio_url'], quote=True)}"></audio>'''
     else:
-        body = '''<div class="pl-pills"><span class="pl-pill" aria-disabled="true" title="Audio under consideration">AUDIO</span>
-<span class="pl-video" aria-disabled="true" title="Video under consideration">VIDEO</span></div>'''
+        body = f'''<div class="pl-pills"><span class="pl-pill" aria-disabled="true" title="Audio under consideration">AUDIO</span>
+{video}</div>'''
     wrapper = "poams-listen" if binding_path.is_file() else "canon-media-pending"
     return f'''<!-- POAMS LISTEN BEGIN -->
 <div class="{wrapper}" data-podcast="62" data-podcast-title="The Canon">{body}</div>
@@ -302,7 +304,7 @@ __PLAYER_SCRIPT__
 .nav{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.88rem;margin-top:2.5rem;border-top:1px solid var(--edge);padding-top:1rem}
 @media(max-width:820px){.primer{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:600px){#poams-hub-nav{padding-left:4px;padding-right:4px}#poams-hub-nav a{padding:5px 4px}.hide-sm{display:none}.primer{grid-template-columns:1fr}.source-tools{align-items:flex-start;flex-direction:column}.major>summary{padding:.9rem}.major-body,.recital{padding:.9rem}.source-document{font-size:.94rem}}
 @media print{#poams-hub-nav,.poams-listen,.canon-media-pending,.copybar,#copy-status,.source-tools button{display:none!important}body{padding-top:0!important}details.major>summary::after{display:none}.major-body{border-top:1px solid #bbb}.recital,.major{box-shadow:none;break-inside:auto}}
-[id]{scroll-margin-top:64px}.major>summary>div{min-width:0}.major-number{flex-shrink:0}.source-status{font-family:system-ui,sans-serif;font-size:.72rem!important}.canon-media-pending .pl-pills{display:flex;justify-content:center;gap:.6rem}.canon-media-pending .pl-pill,.canon-media-pending .pl-video{display:inline-block;border:1px solid var(--gold);border-radius:99px;padding:.3rem .8rem;color:var(--gold);font:600 .7rem/1.4 system-ui,sans-serif}
+[id]{scroll-margin-top:64px}.major>summary>div{min-width:0}.major-number{flex-shrink:0}.source-status{font-family:system-ui,sans-serif;font-size:.72rem!important}.canon-media-pending .pl-pills{display:flex;justify-content:center;gap:.6rem}.canon-media-pending .pl-pill,.canon-media-pending .pl-video{display:inline-block;border:1px solid var(--gold);border-radius:99px;padding:.3rem .8rem;color:var(--gold);font:600 .7rem/1.4 system-ui,sans-serif}.canon-media-pending a.pl-video{background:#6543a5;color:#fff;border-color:#6543a5;text-decoration:none}.canon-media-pending a.pl-video:hover{filter:brightness(1.15)}
 /* Canon-only theme control. The standard dark palette and print rules stay intact. */
 #canon-theme-toggle{min-height:44px;min-width:44px;border:1px solid var(--gold);border-radius:8px;background:var(--card);color:var(--gold);font:600 12px/1.2 system-ui,sans-serif;cursor:pointer;padding:.45rem .65rem;white-space:nowrap}
 #canon-theme-toggle:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
