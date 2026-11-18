@@ -80,25 +80,6 @@ The birthday-cake analogy following this sentence illustrates intended preparati
 
 ## Sources and scope
 
-Primary quotations: Pope, *The Eye of the Beholder*; Pope and Osborne, *Einstein's Lost Legacy*. Relevant source routes: OD-C12-02; B2a life/mind and meeting-report routes; B2c's continuous Theological Discussion package; B3a Q28, S04 and S08. The completed source map's former C12 is split under the owner's amendment: life and mind remain here; ethics, society and religion move to C13.
+Primary quotations: Pope, *The Eye of the Beholder*; Pope and Osborne, *Einstein's Lost Legacy*. Relevant source routes: OD-C12-02; B2a life/mind and meeting-report routes; B2c's continuous Theological Discussion package; B3a Q28, S04 and S08. The completed source map's former C12 is split in this edition: life and mind remain here; ethics, society and religion move to C13.
 
 This is a source-controlled philosophical account, not a biology, neuroscience or consciousness theory. No later program claims or Exhibits supply evidence. Reported occurrences and author assertions are not measurement receipts.
-
-## Version receipt
-
-Edition: **private owner-review edition**, November 16, 2026. Status integration: CANON-OWNER-REVIEW-EDITION-1.
-
-Integrated substantive Verification passed under CANON-INTEGRATED-SUBSTANTIVE-REVIEW-1-R2. Receipt: `poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/verification/integrated-canon-1-r2/REVIEW.md`.
-
-The PASS accepts source fidelity and completeness for this edition; it does not validate the physics, convert source reports into measurements, or close stated disagreements and open rules. Owner acceptance, live-context migration and publication remain separate decisions.
-
-Producer history: source-first draft 1; November 16, 2026; task CANON-C07-C13-SOURCE-FIRST-DRAFT-1. Implements the thirteenth-dossier amendment. Four-digit stable holding/test IDs and exact corrected-corpus quotations. Mechanical checks accompany this edition. No maintained Canon/Core or public changes.
-
-Verification receipt: 10/10 quotations passed both the strict corpus/quarantine checker and exact, unnormalized substring matching. The assigned-file structural check passed. The companion .quotes.json is the strict-check sidecar; neither check is original-page authentication or substantive acceptance.
-
-Quoted corpus-file SHA-256 values (observed November 16, 2026; paths are corpus-text/books or corpus-text/papers under the grounding root):
-
-- einsteins-lost-legacy: `f406d7d824fbdc5efa7030a07358bd2b08fbc9c78ab2a2d6209626ea9ce1c70f`.
-- eye-of-beholder: `464f5d6428205e8ea78a7b68f316470866ed02a237efcf13cc1e0255aa3e4bc3`.
-
-

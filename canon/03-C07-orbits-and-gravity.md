@@ -97,24 +97,3 @@ The authors appeal to the actual many-body system to explain the limited accurac
 Primary quotations: Anthony D. Osborne's POAMS chapter in *Immediate Distant Action*; Pope and Osborne, *Einstein's Lost Legacy*; Osborne and Pope, *Light-Speed, Gravitation and Quantum Instantaneity*. The multi-author volume is not a single joint-author declaration. The source map, B1A-R09, B2a orbital routes and B3c lecture routes/QUESTION-REVIEW provide the source-use qualifications above. The accepted B3b index is navigation only.
 
 No numerical orbital reconstruction, new mechanism, experiment design or later Exhibit is used as author evidence. Original equation debts remain open where noted. Source assertions and reported observations are not measurement receipts.
-
-## Version receipt
-
-Edition: **private owner-review edition**, November 16, 2026. Status integration: CANON-OWNER-REVIEW-EDITION-1.
-
-Integrated substantive Verification passed under CANON-INTEGRATED-SUBSTANTIVE-REVIEW-1-R2. Receipt: `poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/verification/integrated-canon-1-r2/REVIEW.md`.
-
-The PASS accepts source fidelity and completeness for this edition; it does not validate the physics, convert source reports into measurements, or close stated disagreements and open rules. Owner acceptance, live-context migration and publication remain separate decisions.
-
-Producer history: source-first draft 2; November 16, 2026; task CANON-R1-R2-BOUNDED-REWORK-1. Bounded revision of CANON-C07-C13-SOURCE-FIRST-DRAFT-1 for orbital time, precession and apparent light deflection. Written under the owner's thirteen-dossier amendment. Holdings and tests have stable IDs. Quotations are bounded excerpts of the corrected corpus, with exact work:block locators; mechanical rematching accompanies this edition. Maintained Canon pages remain unchanged; dependent private Core and Exhibit candidates are regenerated separately.
-
-Verification receipt: the companion .quotes.json records the current strict corpus/quarantine check, exact unnormalized substring matches, draft hash and source-file hashes. Neither textual check is original-page authentication or substantive acceptance.
-
-Quoted corpus-file SHA-256 values (observed November 16, 2026; paths are corpus-text/books or corpus-text/papers under the grounding root):
-
-- einsteins-lost-legacy: `f406d7d824fbdc5efa7030a07358bd2b08fbc9c78ab2a2d6209626ea9ce1c70f`.
-- immediate-distant-action: `6822188fe8a5deef2b24a08d3d14e5bff2b18bdd44550b1bb9564a2df380929e`.
-
-
-
-- light-speed-gravitation-and-quantum-instantaneity: `a91df9af81c5acda43b2c2fb12b569f56f55cfa481a58e1d993b3b1b158a386c`.

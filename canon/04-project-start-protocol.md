@@ -1,7 +1,5 @@
 # NR-POAMS Project-Start Protocol
 
-Draft 3 for Star Lord's approval — 14 November 2026
-
 Before a construction is chosen, set out its Normal Realist premises and show how the physics follows from them. No new mathematical construction starts until the approach has passed review and Star Lord has said go.
 
 This applies the discipline Pope describes in section 25 of A Synopsis of Normal Realism (Revised). A Normal Realist submits "to a discipline, which involves familiarising oneself with the full range of basic presuppositions and with their method of logical evolution." The system is to be preserved "from dilution in terms of foreign (incompatible) precepts and prejudices. Where these may be discovered in the course of argument they are signified by being declared unconstitutional."

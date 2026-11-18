@@ -40,7 +40,7 @@ SOURCES = [
         "key": "canon-core",
         "snapshot": "01-core.md",
         "canonical": "poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/CORE-CANDIDATE.md",
-        "status": "Compact thirteen-dossier Canon core · owner-ratified public edition",
+        "status": "Compact thirteen-dossier Canon core · public edition",
     },
     {
         "key": "grounding",
@@ -59,7 +59,7 @@ SOURCES = [
         "key": f"canon-{work_id.lower()}",
         "snapshot": f"03-{work_id}-{slug}.md",
         "canonical": f"poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/dossiers/{work_id}-{slug}.md",
-        "status": f"Source-grounded dossier {work_id} · {title} · owner-ratified public edition",
+        "status": f"Source-grounded dossier {work_id} · {title} · public edition",
     }
     for work_id, slug, title in DOSSIERS
 ] + [
@@ -67,7 +67,7 @@ SOURCES = [
         "key": "project-start-protocol",
         "snapshot": "04-project-start-protocol.md",
         "canonical": "poams-review/work/grounding-2026-11-14/drafts/PROTOCOL-v3.md",
-        "status": "Project-start gate · Draft 3 · operative public excerpt",
+        "status": "Project-start gate · operative public excerpt",
         "transform": "protocol",
     },
     {
@@ -87,7 +87,7 @@ SOURCES = [
         "key": "canon-notes",
         "snapshot": "06-canon-notes.md",
         "canonical": "poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/CANON-NOTES-CANDIDATE.md",
-        "status": "Reader-facing scope and change-control notes · thirteen-dossier owner-ratified public edition",
+        "status": "Reader-facing scope and change-control notes · thirteen-dossier public edition",
     },
 ]
 
@@ -96,14 +96,191 @@ def sha(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
 
+# Exact private-input markers: changes require a reviewed public-transform update.
+PUBLIC_REPLACEMENTS = {'canon-core': [(' — private owner-review edition', '', 1),
+                ('Generated from the thirteen source-grounded dossiers by `build_core_candidate.py`. Do not '
+                 'edit by hand.\n',
+                 '',
+                 1),
+                ('Integrated substantive Verification passed under CANON-INTEGRATED-SUBSTANTIVE-REVIEW-1-R2. '
+                 'Receipt: '
+                 '`poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/verification/integrated-canon-1-r2/REVIEW.md`.\n',
+                 '',
+                 1),
+                ('The PASS accepts source fidelity and completeness for this edition; it does not validate '
+                 'the physics, convert source reports into measurements, or close stated disagreements and '
+                 'open rules. Owner acceptance, live-context migration and publication remain separate '
+                 'decisions.\n',
+                 '',
+                 1),
+                ("Read `C01-normal-realism-constitution-and-reversal.md` for the authors' words, rejections, "
+                 'disagreements, open rules, sources, scope, and version receipt.',
+                 "Read `C01-normal-realism-constitution-and-reversal.md` for the authors' words, rejections, "
+                 'disagreements, open rules, sources and scope.',
+                 1),
+                ("Read `C02-language-logos-logic-and-mathematics.md` for the authors' words, rejections, "
+                 'disagreements, open rules, sources, scope, and version receipt.',
+                 "Read `C02-language-logos-logic-and-mathematics.md` for the authors' words, rejections, "
+                 'disagreements, open rules, sources and scope.',
+                 1),
+                ("Read `C03-observer-objectivity-information-and-projection.md` for the authors' words, "
+                 'rejections, disagreements, open rules, sources, scope, and version receipt.',
+                 "Read `C03-observer-objectivity-information-and-projection.md` for the authors' words, "
+                 'rejections, disagreements, open rules, sources and scope.',
+                 1),
+                ("Read `C04-method-discipline-critique-and-lineage.md` for the authors' words, rejections, "
+                 'disagreements, open rules, sources, scope, and version receipt.',
+                 "Read `C04-method-discipline-critique-and-lineage.md` for the authors' words, rejections, "
+                 'disagreements, open rules, sources and scope.',
+                 1),
+                ("Read `C05-light-c-time-relativity-and-material-media.md` for the authors' words, "
+                 'rejections, disagreements, open rules, sources, scope, and version receipt.',
+                 "Read `C05-light-c-time-relativity-and-material-media.md` for the authors' words, "
+                 'rejections, disagreements, open rules, sources and scope.',
+                 1),
+                ('Read `C06-angular-momentum-action-discreteness-and-statistical-causality.md` for the '
+                 "authors' words, rejections, disagreements, open rules, sources, scope, and version "
+                 'receipt.',
+                 'Read `C06-angular-momentum-action-discreteness-and-statistical-causality.md` for the '
+                 "authors' words, rejections, disagreements, open rules, sources and scope.",
+                 1),
+                ("Read `C07-orbits-and-gravity.md` for the authors' words, rejections, disagreements, open "
+                 'rules, sources, scope, and version receipt.',
+                 "Read `C07-orbits-and-gravity.md` for the authors' words, rejections, disagreements, open "
+                 'rules, sources and scope.',
+                 1),
+                ("Read `C08-inertia-mass-and-mach.md` for the authors' words, rejections, disagreements, "
+                 'open rules, sources, scope, and version receipt.',
+                 "Read `C08-inertia-mass-and-mach.md` for the authors' words, rejections, disagreements, "
+                 'open rules, sources and scope.',
+                 1),
+                ('Read `C09-atom-charge-electricity-magnetism-particle-labels-and-nuclear-status.md` for the '
+                 "authors' words, rejections, disagreements, open rules, sources, scope, and version "
+                 'receipt.',
+                 'Read `C09-atom-charge-electricity-magnetism-particle-labels-and-nuclear-status.md` for the '
+                 "authors' words, rejections, disagreements, open rules, sources and scope.",
+                 1),
+                ("Read `C10-instantaneity-two-slits-epr-polarization-and-statistics.md` for the authors' "
+                 'words, rejections, disagreements, open rules, sources, scope, and version receipt.',
+                 "Read `C10-instantaneity-two-slits-epr-polarization-and-statistics.md` for the authors' "
+                 'words, rejections, disagreements, open rules, sources and scope.',
+                 1),
+                ("Read `C11-cosmology-thermodynamics-and-chemistry.md` for the authors' words, rejections, "
+                 'disagreements, open rules, sources, scope, and version receipt.',
+                 "Read `C11-cosmology-thermodynamics-and-chemistry.md` for the authors' words, rejections, "
+                 'disagreements, open rules, sources and scope.',
+                 1),
+                ("Read `C12-life-and-mind.md` for the authors' words, rejections, disagreements, open rules, "
+                 'sources, scope, and version receipt.',
+                 "Read `C12-life-and-mind.md` for the authors' words, rejections, disagreements, open rules, "
+                 'sources and scope.',
+                 1),
+                ("Read `C13-ethics-society-and-religion.md` for the authors' words, rejections, "
+                 'disagreements, open rules, sources, scope, and version receipt.',
+                 "Read `C13-ethics-society-and-religion.md` for the authors' words, rejections, "
+                 'disagreements, open rules, sources and scope.',
+                 1)],
+ 'canon-notes': [('This private owner-review edition contains', 'This edition contains', 1),
+                 ('Integrated substantive Verification passed under '
+                  'CANON-INTEGRATED-SUBSTANTIVE-REVIEW-1-R2. Receipt: '
+                  '`poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/verification/integrated-canon-1-r2/REVIEW.md`.\n',
+                  '',
+                  1),
+                 ('The PASS accepts source fidelity and completeness for this edition; it does not validate '
+                  'the physics, convert source reports into measurements, or close stated disagreements and '
+                  'open rules. Owner acceptance, live-context migration and publication remain separate '
+                  'decisions.\n',
+                  '',
+                  1),
+                 ('This private owner-review edition and the integrated Exhibit remain private. Maintained '
+                  'legacy canon/CORE.md, canon/01 and canon/07, GROUNDING.md, the Foundation Wall and the '
+                  'live opening context remain unchanged. The bundled opening-context packet is a legacy '
+                  'compatibility snapshot; activation/migration against this edition is unreviewed. The '
+                  'source-first direction reset is recorded in `DIRECTION-RESET-2026-11-16.md`.\n',
+                  'The bundled opening-context packet is a legacy compatibility snapshot; '
+                  'activation/migration against this edition is unreviewed.\n',
+                  1)],
+ 'grounding': [("*Combined & committed 2026-07-19 at Star Lord's request, from the orbit-vs-spin / "
+                'vortex-ledger discussion and the prior spin-orbit thread. Updated 2026-07-19 (App-5 mea '
+                'culpa): the intrinsic-spin sign is resolved — channel-set, not a handedness convention '
+                '(App-5 → co-spin heavier); what stays deliberately open is the λ-partition of a driven '
+                'system, an empirical question the YIG program reads via the toggle comparison plus its '
+                'controls (sign alone necessary-not-sufficient; tightened 2026-11-10). Refusing to let a '
+                'relabel decide it is the point. Updated 2026-07-25: added the **speed → rate** ("eyewall '
+                'speed") trap — a rate of angular change is not a velocity through space; a rim-speed needs '
+                'a stage the vortex has none of, so ask rad/s, not m/s (§2, §5.3). Updated 2026-08-20: added '
+                'the ratified creed line **substance, not attribute — the grin is the cat** (§3) — the '
+                'attribute-ontology diagnosis (grins without cats / cats without grins) and its cure; '
+                'companion to "the momentum is the thing, not an attribute of the thing." Updated '
+                '2026-08-24: added the self-side corollary **you happen at the exchange** (§3) — '
+                'two-ended/co-signed exchanges dissolve "within" in both directions; a seat (pebble → human '
+                "→ LLM) is a census, not a vessel. Updated 2026-09-07 after Tier-A review and Star Lord's "
+                'ratification: regraded the microscopic fine-structure mechanism, α value, and macro/micro '
+                'identity from derived results to an open front; retained the α² scale only as an '
+                'identification given measured α. Updated 2026-09-19 after the '
+                "closure/action/boundary-transfer audit series and Star Lord's ratification: added §1.2, the "
+                '**boundary-transfer premise** — measured E, p are the same-account rest-calibrated '
+                'translation tariffs of a completed closure; adopted openly as constitutive (like §1.1) '
+                'after nine audits showed it cannot be derived from bookkeeping; foundations track closed as '
+                'conditional, coherent and explicitly bounded; effort redirected to distinguishing fronts. '
+                "Updated 2026-09-19 at Star Lord's instruction: added §4.0, the universal **co-sense "
+                'settlement rule** — dynamically coupled anti-sense spin is the higher-energy organization '
+                'and settles co-sense when an exchange path is available; the orientation rule is '
+                'ontological across scales, while coupling strength, path, timescale, and orbital magnitude '
+                'remain quantities to derive or measure.*\n',
+                '',
+                1),
+               (' (ratified by Star Lord)', '', 1),
+               (' (ratified by Christopher F. Milam)', '', 1),
+               (' (standard tightened 2026-11-10, owner-ratified, aligned with the program package)', '', 1)],
+ 'foundation-wall': [('**Ratified:** 2026-09-24 by Christopher F. Milam  \n', '', 1)],
+ 'project-start-protocol': [("Draft 3 for Star Lord's approval — 14 November 2026\n\n", '', 1)],
+ 'canon-c04': [("The owner's present writing conventions", 'Present writing conventions', 1)],
+ 'canon-c05': [('this draft has not newly authenticated', 'this dossier has not newly authenticated', 1)],
+ 'canon-c10': [('later owner prose', 'later editorial prose', 1)],
+ 'canon-c12': [("under the owner's amendment", 'in this edition', 1)],
+ 'canon-c13': [("The owner's thirteenth-dossier amendment assigns", 'This edition assigns', 1),
+               ('owner prose', 'editorial prose', 1)]}
+
+
+def require_count(key: str, text: str, marker: str, expected: int = 1) -> None:
+    actual = text.count(marker)
+    if actual != expected:
+        raise SystemExit(f"{key}: public transform expected {expected} occurrence(s) of {marker!r}, found {actual}")
+
+
+def public_reading_copy(key: str, text: str) -> str:
+    """Reduce private inputs only at reviewed, count-checked boundaries.
+
+    This is intentionally not idempotent: cleaned snapshots are build inputs,
+    never substitutes for private canonical inputs to --sync.
+    """
+    if key in {f"canon-{work_id.lower()}" for work_id, _, _ in DOSSIERS}:
+        marker = "\n## Version receipt\n"
+        require_count(key, text, marker)
+        text = text.split(marker, 1)[0].rstrip() + "\n"
+    for old, new, count in PUBLIC_REPLACEMENTS.get(key, []):
+        require_count(key, text, old, count)
+        text = text.replace(old, new)
+    while "\n\n\n" in text:
+        text = text.replace("\n\n\n", "\n\n")
+    if key == "grounding":
+        require_count(key, text, "---\n\n---")
+        text = text.replace("---\n\n---", "---")
+    return text
+
+
 def public_payload(spec: dict, source_text: str) -> str:
     """Make only the documented public-reading reductions."""
+    source_text = public_reading_copy(spec["key"], source_text)
     if spec.get("transform") == "protocol":
         marker = "\n## The fiber program, replayed\n"
-        if marker not in source_text:
-            raise SystemExit("protocol replay boundary is missing")
+        require_count(spec["key"], source_text, marker)
         return source_text.split(marker, 1)[0].rstrip() + "\n"
     if spec.get("transform") == "opening":
+        for marker in ("<!-- GROUNDING:BEGIN ", "<!-- GROUNDING:END -->", "**Current work and its state:**"):
+            require_count(spec["key"], source_text, marker)
+        require_count(spec["key"], source_text, "<!-- GROUNDING:", 2)
         lines = [
             line
             for line in source_text.splitlines(keepends=True)
@@ -124,11 +301,12 @@ def sync_sources() -> None:
         {
             "key": "recital",
             "snapshot": recital.name,
-            "canonical": "Owner-approved main-session recital, 15 November 2026",
+            "canonical": "poams-exhibits-public/canon/00-recital.md",
             "sha256": sha(recital.read_bytes()),
             "bytes": recital.stat().st_size,
         }
     )
+    pending = []
     for spec in SOURCES:
         target = SNAPSHOTS / spec["snapshot"]
         canonical = spec.get("canonical")
@@ -139,19 +317,24 @@ def sync_sources() -> None:
                 raise SystemExit(f"missing canonical source: {source}")
             source_bytes = source.read_bytes()
             canonical_sha = sha(source_bytes)
-            target.write_text(public_payload(spec, source_bytes.decode()))
+            payload = public_payload(spec, source_bytes.decode()).encode()
+            pending.append((target, payload))
         elif not target.is_file():
             raise SystemExit(f"missing maintained public source: {target}")
+        if not canonical:
+            payload = target.read_bytes()
         rows.append(
             {
                 "key": spec["key"],
                 "snapshot": spec["snapshot"],
                 "canonical": canonical or f"poams-exhibits-public/canon/{spec['snapshot']}",
                 "canonical_sha256": canonical_sha,
-                "sha256": sha(target.read_bytes()),
-                "bytes": target.stat().st_size,
+                "sha256": sha(payload),
+                "bytes": len(payload),
             }
         )
+    for target, payload in pending:
+        target.write_bytes(payload)
     joined = "\n".join(f"{row['sha256']}  {row['snapshot']}" for row in rows) + "\n"
     manifest = {
         "schema": 2,
@@ -204,12 +387,12 @@ def source_card(key: str, status: str, payloads: dict[str, str]) -> str:
 
 def group(number: str, anchor: str, title: str, lead: str, cards: list[str], opened: bool = False) -> str:
     statuses = {
-        "core": "Compact Core · thirteen source-grounded dossiers · owner-ratified public edition",
+        "core": "Compact Core · thirteen source-grounded dossiers · public edition",
         "grounding": "Grounding · adopted premises; Foundation Wall · amended October 18, 2026",
-        "canon": "Source-grounded · thirteen-dossier owner-ratified public edition",
-        "project-start-protocol": "Project-start gate · Draft 3 · public excerpt",
+        "canon": "Source-grounded · thirteen-dossier public edition",
+        "project-start-protocol": "Project-start gate · public excerpt",
         "opening-context-block": "Generated workspace context · unfilled editorial project fields",
-        "canon-notes": "Editorial · owner-ratified public edition · scope and change control",
+        "canon-notes": "Editorial · public edition · scope and change control",
     }
     aliases = {"canon": "canon-pages", "project-start-protocol": "project-start", "opening-context-block": "opening-context"}
     alias = f'<span id="{aliases[anchor]}"></span>' if anchor in aliases else ""
@@ -252,7 +435,7 @@ def build() -> None:
         for work_id, _slug, _title in DOSSIERS
     ]
     sections = [
-        f'''<section class="recital" id="recital"><div class="section-heading"><span>1</span><div><h2>Recital</h2><p>The approved reason this work comes first.</p></div></div><div class="source-tools"><span>Owner-approved 15 November 2026</span><a href="canon/00-recital.md">Read Markdown</a><button type="button" data-copy-source="recital" data-copy-label="recital">Copy exact Markdown</button></div><div class="source-document">{recital}</div></section>''',
+        f'''<section class="recital" id="recital"><div class="section-heading"><span>1</span><div><h2>Recital</h2><p>The reason this work comes first.</p></div></div><div class="source-tools"><span>Recital</span><a href="canon/00-recital.md">Read Markdown</a><button type="button" data-copy-source="recital" data-copy-label="recital">Copy exact Markdown</button></div><div class="source-document">{recital}</div></section>''',
         group("2", "core", "Core", "The compact thirteen-dossier orientation.", [source_card("canon-core", source_specs["canon-core"]["status"], payloads)], True),
         group("3", "grounding", "Grounding", "The program touchstone and its governing evidential wall.", [source_card("grounding", source_specs["grounding"]["status"], payloads), source_card("foundation-wall", source_specs["foundation-wall"]["status"], payloads)]),
         group("4", "canon", "Canon", "The authors’ words behind the thirteen source-grounded dossiers.", canon_cards),
@@ -327,9 +510,9 @@ __PLAYER_SCRIPT__
 <body class="reader-standard">
 <div id="poams-hub-nav"><a href="./index.html" aria-label="Previous: Hub">&larr; <span class="hide-sm">Hub</span></a><button type="button" id="canon-theme-toggle" aria-label="Light mode" aria-pressed="false">Light mode: <span class="theme-off">Off</span><span class="theme-on">On</span></button><div class="center"><a href="./index.html" style="display:flex;flex-direction:column;align-items:center;text-decoration:none"><span class="title">Return to Hub</span><span class="pos">NR · POAMS · CANON</span></a></div><a href="./the-rules-of-persistence.html" aria-label="Next: The Rules of Persistence"><span class="hide-sm">Rules of Persistence</span> &rarr;</a></div>
 <main>
-<header class="hero"><p class="kicker">Normal Realism first · POAMS follows</p><h1>The Canon</h1><p class="subtitle">Thirteen source-grounded dossiers, the program grounding built from them, and the compact tools that place both at the beginning of every new project.</p>__LISTEN_BLOCK__<p class="edition">Thirteen-dossier owner-ratified public edition &nbsp;·&nbsp; source set <code>__SOURCE_SET__</code></p><p class="edition">Content owner-ratified on 2026-11-17 · Integrated substantive Verification: PASS. Publication authorized on 2026-11-17; live-context migration remains separate. Frozen source snapshots and dossier receipts retain their historical status wording and are not current publication-status notices.</p></header>
+<header class="hero"><p class="kicker">Normal Realism first · POAMS follows</p><h1>The Canon</h1><p class="subtitle">Thirteen source-grounded dossiers, the program grounding built from them, and the compact tools that place both at the beginning of every new project.</p>__LISTEN_BLOCK__<p class="edition">Thirteen-dossier public edition &nbsp;·&nbsp; source set <code>__SOURCE_SET__</code></p></header>
 <section class="primer" aria-label="Document roles"><article><h3>Canon</h3><p>The versioned, source-backed account of what Pope and Osborne hold.</p></article><article><h3>Grounding</h3><p>The canon applied with later adopted premises, provenance rules and measurement discipline.</p></article><article><h3>Opening context</h3><p>The compact generated package delivered into a working session. It does not create authority.</p></article><article><h3>Project start</h3><p>The gate that fixes the question, sources, premises, alternatives and failure test before construction.</p></article></section>
-<section class="use-card"><h3>Workspace context</h3><p>This packet preserves workspace paths and <code>bin/corpus</code> commands. The bundled Markdown snapshots linked below are public reading copies of the frozen sources. Full source reading remains required; corpus locators are source locations, not public links. <a href="canon/SOURCE-MANIFEST.json">Source manifest</a>.</p><ol><li>The bundled <strong>Opening Context Block</strong> is a <strong>legacy compatibility snapshot</strong>. Its activation/migration against the thirteen-dossier edition is unreviewed; this owner-ratified public edition does not authorize activation.</li><li>For broad orientation, begin with the <strong>Canon Core</strong>.</li><li>For a project, use the order: <strong>Core → Grounding and Foundation Wall → relevant Canon dossier → Project-Start Protocol</strong>.</li><li>Use the full packet for reconciliation, amendment or review—not as the default context landslide.</li></ol><div class="copybar"><button type="button" id="copy-opening">Copy Workspace context</button><button type="button" data-copy-source="canon-core" data-copy-label="canon-core">Copy Canon Core</button><button type="button" id="copy-full">Copy Full Canon reference</button><button type="button" id="expand-all">Open all sections</button><button type="button" id="collapse-all">Collapse details</button></div><div id="copy-status" role="status" aria-live="polite"></div></section>
+<section class="use-card"><h3>Workspace context</h3><p>This packet preserves workspace paths and <code>bin/corpus</code> commands. The bundled Markdown snapshots linked below are public reading copies of the frozen sources. Full source reading remains required; corpus locators are source locations, not public links. <a href="canon/SOURCE-MANIFEST.json">Source manifest</a>.</p><ol><li>The bundled <strong>Opening Context Block</strong> is a <strong>legacy compatibility snapshot</strong>. Its activation/migration against the thirteen-dossier edition is unreviewed; this public edition does not authorize activation.</li><li>For broad orientation, begin with the <strong>Canon Core</strong>.</li><li>For a project, use the order: <strong>Core → Grounding and Foundation Wall → relevant Canon dossier → Project-Start Protocol</strong>.</li><li>Use the full packet for reconciliation, amendment or review—not as the default context landslide.</li></ol><div class="copybar"><button type="button" id="copy-opening">Copy Workspace context</button><button type="button" data-copy-source="canon-core" data-copy-label="canon-core">Copy Canon Core</button><button type="button" id="copy-full">Copy Full Canon reference</button><button type="button" id="expand-all">Open all sections</button><button type="button" id="collapse-all">Collapse details</button></div><div id="copy-status" role="status" aria-live="polite"></div></section>
 <nav class="contents" aria-label="Canon contents"><a href="#recital">1 · Recital</a><a href="#core">2 · Core</a><a href="#grounding">3 · Grounding</a><a href="#canon">4 · Canon</a><a href="#project-start-protocol">5 · Project Start Protocol</a><a href="#opening-context-block">6 · Opening Context Block</a><a href="#canon-notes">7 · Canon Notes</a></nav>
 __SECTIONS__
 <div class="nav"><a href="./index.html" aria-label="Previous: Hub">&larr; Hub</a><a href="./index.html">Return to the Hub</a><a href="./the-rules-of-persistence.html" aria-label="Next: The Rules of Persistence">The Rules of Persistence &rarr;</a></div>

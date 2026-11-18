@@ -140,7 +140,7 @@ The material-refraction proposal, formal angular comparison and later informatio
 > "c1/c = tR/tR1" — refraction-in-optic-fibres:P0006
 > "It is scarcely coincidental that this ratio is the same as the refractive index, μ" — refraction-in-optic-fibres:P0010
 
-It also identifies the index as c/c1. Those ratios are reciprocals. P0012 says both that the index increased with flow and that the effective conduction rate increased in that direction. Under one fixed index definition those statements conflict. P0014's proper-time velocity multiplies where the stated time relation requires division. These are corpus-witness issues retained from legacy page 07; this draft has not newly authenticated the printed fiber original. B3a separately records a dimensional problem in the related refraction appendix of *Wondering in the Wilderness*. Neither witness silently repairs the other.
+It also identifies the index as c/c1. Those ratios are reciprocals. P0012 says both that the index increased with flow and that the effective conduction rate increased in that direction. Under one fixed index definition those statements conflict. P0014's proper-time velocity multiplies where the stated time relation requires division. These are corpus-witness issues retained from legacy page 07; this dossier has not newly authenticated the printed fiber original. B3a separately records a dimensional problem in the related refraction appendix of *Wondering in the Wilderness*. Neither witness silently repairs the other.
 
 **Period, readiness and material laws.** The source distinguishes the nonzero cycle from zero transition-time (C06), but supplies no complete operational relation between that cycle, selection of a partner and the statistical succession of exchanges. No quantitative law for index, its frequency dependence, dispersion or material residence times follows merely from the effective-rms analogy. The wire/open-end difference remains the author's stated open question.
 
@@ -166,15 +166,3 @@ It also identifies the index as c/c1. Those ratios are reciprocals. P0012 says b
 Primary witnesses are the three principal books, the revised Synopsis and the papers identified by exact work IDs above, particularly the definitive c paper, the space-in-light paper, the radar precis and the fiber paper. The completed 324-work read-in is navigated through SOURCE-COVERAGE-MAP.md/json and accepted B1A–B3c comparisons; their acceptance is bounded source evidence, not blanket physical or quotation clearance. B3b is navigation only.
 
 Legacy page 07 Draft 7 is partitioned as follows: direct exchange, times, relativity and media remain here; observer/analytical-terminal claims go to C03; action units, cycles and nontransitivity go to C06; two-slit, EPR and polarization details and their parity/probability defects go to C10. Its cosmological redshift interpretation goes to C11. No experiment-specific conflict is resolved by omission from this dossier. Later Exhibits and program premises do not ground its holdings.
-
-## Version receipt
-
-Edition: **private owner-review edition**, November 16, 2026. Status integration: CANON-OWNER-REVIEW-EDITION-1.
-
-Integrated substantive Verification passed under CANON-INTEGRATED-SUBSTANTIVE-REVIEW-1-R2. Receipt: `poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/verification/integrated-canon-1-r2/REVIEW.md`.
-
-The PASS accepts source fidelity and completeness for this edition; it does not validate the physics, convert source reports into measurements, or close stated disagreements and open rules. Owner acceptance, live-context migration and publication remain separate decisions.
-
-The accompanying `.quotes.json` binds this draft's bytes and the cited corpus-file hashes; its strict statuses and literal-substring checks are textual evidence only.
-
-Producer history: Draft 2, November 16, 2026; CANON-R1-R2-BOUNDED-REWORK-1. Bounded apparent-deflection revision of CANON-C01-C06-SOURCE-FIRST-DRAFT-1. Source-first/thirteen-dossier producer history. Legacy input: page 07 Draft 7, SHA-256 30ae0af47b29958071b7e071b438e4cb7f428ea7eb2c9795472abc985ab1c629. Quotations preserve the corpus witness. No new original-page or physical measurement certification is claimed. Clock-identification premises, global-time variants, fiber defects, material laws and partner selection remain explicit limits. No publication or operational claim is authorized by this edition.

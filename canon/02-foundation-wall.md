@@ -1,6 +1,5 @@
 # POAMS Foundational Wall
 
-**Ratified:** 2026-09-24 by Christopher F. Milam  
 **Status:** amended 2026-10-18; governing provenance, measurement and paper-first research discipline for POAMS work  
 **Control rule:** if another working document conflicts with this wall, this wall controls until Christopher F. Milam explicitly amends it.
 

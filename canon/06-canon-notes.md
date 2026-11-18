@@ -2,7 +2,7 @@
 
 ## Scope and order
 
-This private owner-review edition contains thirteen source-grounded dossiers, C01–C13. Normal Realism comes first. POAMS is the physics that follows from it.
+This edition contains thirteen source-grounded dossiers, C01–C13. Normal Realism comes first. POAMS is the physics that follows from it.
 
 The source authority is the completed in-scope authored corpus: the books, papers and lectures of Pope and Osborne. Later Exhibits, provisional patents and Engineering documents are downstream work. They do not supply or complete the authors' holdings.
 
@@ -28,11 +28,7 @@ Each dossier separates source attribution from editorial synthesis, later progra
 
 Legacy page 01 and legacy page 07 remain preserved as historical compatibility snapshots. Their content has been routed into the thirteen-dossier edition; they are not additional current dossiers.
 
-Integrated substantive Verification passed under CANON-INTEGRATED-SUBSTANTIVE-REVIEW-1-R2. Receipt: `poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/verification/integrated-canon-1-r2/REVIEW.md`.
-
-The PASS accepts source fidelity and completeness for this edition; it does not validate the physics, convert source reports into measurements, or close stated disagreements and open rules. Owner acceptance, live-context migration and publication remain separate decisions.
-
-This private owner-review edition and the integrated Exhibit remain private. Maintained legacy canon/CORE.md, canon/01 and canon/07, GROUNDING.md, the Foundation Wall and the live opening context remain unchanged. The bundled opening-context packet is a legacy compatibility snapshot; activation/migration against this edition is unreviewed. The source-first direction reset is recorded in `DIRECTION-RESET-2026-11-16.md`.
+The bundled opening-context packet is a legacy compatibility snapshot; activation/migration against this edition is unreviewed.
 
 ## How to use the set
 

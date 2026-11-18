@@ -129,15 +129,3 @@ This does not reject conservation. It states the limit of what conservation alon
 Primary quotations come from *POAMS and the Atom (Synopsis)*, Osborne's chapter in *Immediate Distant Action*, *The Eye of the Beholder*, *Einstein's Lost Legacy*, *Light-Speed, Gravitation and Quantum Instantaneity*, *Lines from Einstein - An Intellectual Odyssey by Viv Pope*, the 1996 action-at-distance paper and Pope's replies in the Challenges correspondence. The source-map and accepted B1A–B3c packages preserve source voice, symbol and disagreement boundaries. The B3c later lectures remain source testimony; their staged status grants no posting authority.
 
 Legacy page 01's discreteness holding 8, angular-momentum orientation and holistic-balance paragraph belong here. Its atomic labels remain C09's subject. Legacy page 07's action units, nontransitivity, cycle/transition distinction and general statistical succession are routed here; direct-exchange timing remains C05, and experimental interference/EPR/polarization remains C10. Mind and responsibility remain C12, not deductions from a mechanical scheme here.
-
-## Version receipt
-
-Edition: **private owner-review edition**, November 16, 2026. Status integration: CANON-OWNER-REVIEW-EDITION-1.
-
-Integrated substantive Verification passed under CANON-INTEGRATED-SUBSTANTIVE-REVIEW-1-R2. Receipt: `poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/verification/integrated-canon-1-r2/REVIEW.md`.
-
-The PASS accepts source fidelity and completeness for this edition; it does not validate the physics, convert source reports into measurements, or close stated disagreements and open rules. Owner acceptance, live-context migration and publication remain separate decisions.
-
-The accompanying `.quotes.json` binds this draft's bytes and the cited corpus-file hashes; its strict statuses and literal-substring checks are textual evidence only.
-
-Producer history: Draft 1, November 16, 2026; CANON-C01-C06-SOURCE-FIRST-DRAFT-1. Source-first producer history within the amended thirteen-dossier scope. The legacy denial of all every-body wording has not been retained: actual assertions and local qualifications are recorded together. Quotations are corpus-witness evidence, not measurements. No added science, physical premise, public-file edit or publication is included. All-body reconciliation, timing vocabulary and quantitative statistical rules remain explicit open questions.

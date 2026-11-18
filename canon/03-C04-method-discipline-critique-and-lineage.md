@@ -93,16 +93,4 @@ The different emphases in “normal” remain in C01-H0004. A later website date
 
 Primary quotations come from the revised Synopsis, *POAMS and the Atom (Synopsis)*, the Phenomenalism paper identified by locator, the joint books, Pope's autobiography and Osborne's chapter in *Immediate Distant Action*. The accepted B1A/B1B/B2a/B2b/B2c/B3a/B3c ledgers and corresponding reviews supply the contextual routing and source-condition record; SOURCE-COVERAGE-MAP.md/json supplies the subject inventory. B3b remains navigation only.
 
-This is the primary home for legacy page 01's discipline, holdings 18–20, its observational-method clause in 17, practical retention of mathematics and its lineage. C03 owns analytical whole/part priority. C02 owns logic and mathematical representation, not repeated here as independent holdings. C05 owns the specific conversion-factor interpretation, and C06 owns conservation and discreteness. Mind and responsibility are routed to C12; ethics, society and religion to C13. The owner's present writing conventions are editorial requirements, not quotations or historical claims about Pope's prose.
-
-## Version receipt
-
-Edition: **private owner-review edition**, November 16, 2026. Status integration: CANON-OWNER-REVIEW-EDITION-1.
-
-Integrated substantive Verification passed under CANON-INTEGRATED-SUBSTANTIVE-REVIEW-1-R2. Receipt: `poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/verification/integrated-canon-1-r2/REVIEW.md`.
-
-The PASS accepts source fidelity and completeness for this edition; it does not validate the physics, convert source reports into measurements, or close stated disagreements and open rules. Owner acceptance, live-context migration and publication remain separate decisions.
-
-The accompanying `.quotes.json` binds this draft's bytes and the cited corpus-file hashes; its strict statuses and literal-substring checks are textual evidence only.
-
-Producer history: Draft 1, November 16, 2026; CANON-C01-C06-SOURCE-FIRST-DRAFT-1. Producer history under the source-first/thirteen-dossier amendment. No publication or public-file change is implied. Quotations preserve the corpus witness; historical allegations and philosophical claims remain source testimony. Pure-deduction/postulate tension and naming chronology remain unresolved. No later Exhibit or program premise has been used to develop an author holding.
+This is the primary home for legacy page 01's discipline, holdings 18–20, its observational-method clause in 17, practical retention of mathematics and its lineage. C03 owns analytical whole/part priority. C02 owns logic and mathematical representation, not repeated here as independent holdings. C05 owns the specific conversion-factor interpretation, and C06 owns conservation and discreteness. Mind and responsibility are routed to C12; ethics, society and religion to C13. Present writing conventions are editorial requirements, not quotations or historical claims about Pope's prose.

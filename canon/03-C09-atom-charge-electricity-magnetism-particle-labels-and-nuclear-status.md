@@ -89,24 +89,3 @@ Pope and Osborne retain real work required to separate macroscopic charged bodie
 Pope, *POAMS and Electricity (Synopsis)* and *PIRT 2004 Proc. paper*; Pope and Osborne, *Einstein's Lost Legacy*; Osborne's POAMS chapter in *Immediate Distant Action*. Titles above follow the corpus. B1A-R11, OD-C09-01/02, B2a atomic routes, B2b P13-18/P14-08/P14-11/P14-23 and the B3c Lecture 21 review qualify the scope.
 
 No source equation dependent on a disputed figure is used for a new calculation. Source assertions, model reconstructions and reports remain distinct from measurement receipts. No later Exhibit, patent or program premise supplies author evidence.
-
-## Version receipt
-
-Edition: **private owner-review edition**, November 16, 2026. Status integration: CANON-OWNER-REVIEW-EDITION-1.
-
-Integrated substantive Verification passed under CANON-INTEGRATED-SUBSTANTIVE-REVIEW-1-R2. Receipt: `poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/verification/integrated-canon-1-r2/REVIEW.md`.
-
-The PASS accepts source fidelity and completeness for this edition; it does not validate the physics, convert source reports into measurements, or close stated disagreements and open rules. Owner acceptance, live-context migration and publication remain separate decisions.
-
-Producer history: source-first draft 1; November 16, 2026; task CANON-C07-C13-SOURCE-FIRST-DRAFT-1. Stable IDs and corrected-corpus work:block quotation locators. This lean subject dossier follows the thirteen-dossier amendment; its status is not independent acceptance of the physics. Mechanical quotation checks accompany this edition. Maintained Canon and public files are unchanged.
-
-Verification receipt: 14/14 quotations passed both the strict corpus/quarantine checker and exact, unnormalized substring matching. The assigned-file structural check passed. The companion .quotes.json is the strict-check sidecar; neither check is original-page authentication or substantive acceptance.
-
-Quoted corpus-file SHA-256 values (observed November 16, 2026; paths are corpus-text/books or corpus-text/papers under the grounding root):
-
-- einsteins-lost-legacy: `f406d7d824fbdc5efa7030a07358bd2b08fbc9c78ab2a2d6209626ea9ce1c70f`.
-- immediate-distant-action: `6822188fe8a5deef2b24a08d3d14e5bff2b18bdd44550b1bb9564a2df380929e`.
-- pirt-2004-proc-paper: `21cb4698ed05fe67189bb407806267f7e7799f0673210dc30048047bc333d06e`.
-- poams-and-electricity-synopsis: `ad271fbac2b60f9cbcd424bda1b9083edcdcd2aa845fcf40b61aedefad52613d`.
-
-

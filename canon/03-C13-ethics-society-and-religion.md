@@ -88,25 +88,4 @@ This is Turner's dialogue speech in A. M. and N. V. Pope's book. It is not an un
 
 Pope, *The Eye of the Beholder*, *The Odyssey* and *The Constant ‘c’ and Society*; *Theological Discussion*, with its separate correspondents; A. M. and N. V. Pope, *Wondering in the Wilderness*. The accepted B1b, B2a, B2b, B2c and B3a packages preserve the scope, speaker and original-page qualifications used here. B1A-R14 concerns Pope's report of Smart and does not establish joint author theology.
 
-The owner's thirteenth-dossier amendment assigns ethics, society and religion here. Life and mind remain C12; logos as language belongs C02. No later Exhibit, owner prose or program premise grounds these holdings.
-
-## Version receipt
-
-Edition: **private owner-review edition**, November 16, 2026. Status integration: CANON-OWNER-REVIEW-EDITION-1.
-
-Integrated substantive Verification passed under CANON-INTEGRATED-SUBSTANTIVE-REVIEW-1-R2. Receipt: `poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/verification/integrated-canon-1-r2/REVIEW.md`.
-
-The PASS accepts source fidelity and completeness for this edition; it does not validate the physics, convert source reports into measurements, or close stated disagreements and open rules. Owner acceptance, live-context migration and publication remain separate decisions.
-
-Producer history: source-first draft 1; November 16, 2026; task CANON-C07-C13-SOURCE-FIRST-DRAFT-1. Implements the new C13 subject boundary. Stable four-digit IDs and strict work:block quotation lines. The corpus title block was checked; strict quotation rematching passed at handoff. Integrated substantive Verification is recorded above. No maintained/public-file writes or publication.
-
-Verification receipt: 12/12 quotations passed both the strict corpus/quarantine checker and exact, unnormalized substring matching. The assigned-file structural check passed. The companion .quotes.json is the strict-check sidecar; neither check is original-page authentication or substantive acceptance.
-
-Quoted corpus-file SHA-256 values (observed November 16, 2026; paths are corpus-text/books or corpus-text/papers under the grounding root):
-
-- eye-of-beholder: `464f5d6428205e8ea78a7b68f316470866ed02a237efcf13cc1e0255aa3e4bc3`.
-- the-constant-c-and-society: `1579b9d3826a55894ae70708b1fbe6edb71544805b3debf8d81433b9a26547b3`.
-- theological-discussion: `e0bcd4ad4c1db463256ab608bf55aa7a74480c7de03af960557dee292f9fa302`.
-- wondering-wilderness: `29504c1721c4d2973cffda9e205258d53df8a17b6b9706cdf0c7c394a47ee561`.
-
-
+This edition assigns ethics, society and religion here. Life and mind remain C12; logos as language belongs C02. No later Exhibit, editorial prose or program premise grounds these holdings.

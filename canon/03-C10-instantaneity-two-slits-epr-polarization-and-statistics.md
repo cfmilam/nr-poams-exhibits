@@ -68,7 +68,7 @@ Editorial analysis: an event's occurrence or nonoccurrence does not restrict its
 
 **Polarization and joint outcomes.** H0005 supplies orientation language; the cited passages do not determine the full setting-dependent joint distribution, loss treatment or analyzer response. Conservation of an opposed pair is not, without further mathematical assumptions, a derivation of all analyzer-angle statistics.
 
-**Witness and attribution limits.** The published, draft and later two-slit versions must remain separate; later owner prose is not Pope's. The source-map warning about Lecture 11:P0014's reversed Bell wording remains a specific original-page question, not a sentence to adopt. No damaged EPR equation or later coherent-completion premise is used to repair the author account.
+**Witness and attribution limits.** The published, draft and later two-slit versions must remain separate; later editorial prose is not Pope's. The source-map warning about Lecture 11:P0014's reversed Bell wording remains a specific original-page question, not a sentence to adopt. No damaged EPR equation or later coherent-completion premise is used to repair the author account.
 
 **Vocabulary changes.** The 1996 paper P0066/P0069 uses a statistical ether analogy. Later direct-exchange descriptions deny a medium. The analogy must be read at its stated statistical level, while the difference in wording remains recorded.
 
@@ -87,26 +87,3 @@ Editorial analysis: an event's occurrence or nonoccurrence does not restrict its
 Pope's *A Commonsense Look at the Two-Slit Experiment*, *Action-at-a-Distance - Oct. 1996*, *The Eye of the Beholder* and *The Odyssey*; joint *Einstein's Lost Legacy* and *Light-Speed, Gravitation and Quantum Instantaneity*. Source locators above identify the precise corpus versions. Legacy canon page 07 supplied navigation only; experiment-specific content is housed here rather than repeated in C05.
 
 Source-use controls include B1A-R12, OD-C10-01, B2a slit routes, B2b P13-14/P14-24 and B2c V06. Their acceptance is bounded source evidence, not independent acceptance of this dossier. No later Exhibit grounds a holding.
-
-## Version receipt
-
-Edition: **private owner-review edition**, November 16, 2026. Status integration: CANON-OWNER-REVIEW-EDITION-1.
-
-Integrated substantive Verification passed under CANON-INTEGRATED-SUBSTANTIVE-REVIEW-1-R2. Receipt: `poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/verification/integrated-canon-1-r2/REVIEW.md`.
-
-The PASS accepts source fidelity and completeness for this edition; it does not validate the physics, convert source reports into measurements, or close stated disagreements and open rules. Owner acceptance, live-context migration and publication remain separate decisions.
-
-Producer history: source-first draft 1; November 16, 2026; task CANON-C07-C13-SOURCE-FIRST-DRAFT-1. Stable IDs; exact corrected-corpus quotations; source differences retained. Mechanical rematching accompanies this edition. Original-use limitations above remain open. No publication or maintained-file edit.
-
-Verification receipt: 12/12 quotations passed both the strict corpus/quarantine checker and exact, unnormalized substring matching. The assigned-file structural check passed. The companion .quotes.json is the strict-check sidecar; neither check is original-page authentication or substantive acceptance.
-
-Quoted corpus-file SHA-256 values (observed November 16, 2026; paths are corpus-text/books or corpus-text/papers under the grounding root):
-
-- a-commonsense-look-at-the-two-slit-experiment: `8db8ab2ee968c5581efc0acca132f28eb175c60735bedc9af0301ea134f77917`.
-- action-at-a-distance---oct-1996: `ec2e9e7c2b6e761b17d0acebe72f94b00a8d1864a7167f382a1aac613bcee6a7`.
-- einsteins-lost-legacy: `f406d7d824fbdc5efa7030a07358bd2b08fbc9c78ab2a2d6209626ea9ce1c70f`.
-- eye-of-beholder: `464f5d6428205e8ea78a7b68f316470866ed02a237efcf13cc1e0255aa3e4bc3`.
-- light-speed-gravitation-and-quantum-instantaneity: `a91df9af81c5acda43b2c2fb12b569f56f55cfa481a58e1d993b3b1b158a386c`.
-- the-odyssey: `a50954fffe2ecdd6c1eed8fa6ad0dba1163499283063f81e6b59792c576b7d56`.
-
-

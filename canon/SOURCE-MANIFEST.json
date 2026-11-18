@@ -6,145 +6,145 @@
     {
       "key": "recital",
       "snapshot": "00-recital.md",
-      "canonical": "Owner-approved main-session recital, 15 November 2026",
-      "sha256": "7054199e84e95df252e4e6eb7f32e41bd10d370288be7ad364c35d4e25c03df7",
-      "bytes": 1837
+      "canonical": "poams-exhibits-public/canon/00-recital.md",
+      "sha256": "7c44635f9793612afb6356de06863e972b44d8e580f3a69d8f471471ff00c31e",
+      "bytes": 1533
     },
     {
       "key": "canon-core",
       "snapshot": "01-core.md",
       "canonical": "poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/CORE-CANDIDATE.md",
       "canonical_sha256": "eb6a0dbd6a6b66e62b670a8336aa69f831a7aa1bb112a4b5d7d64bb38009c47e",
-      "sha256": "eb6a0dbd6a6b66e62b670a8336aa69f831a7aa1bb112a4b5d7d64bb38009c47e",
-      "bytes": 36652
+      "sha256": "11513afb61db61d1111114d637e6135edc250d9e0b8ee9ed8d74611a7e1ad77b",
+      "bytes": 35791
     },
     {
       "key": "grounding",
       "snapshot": "02-grounding.md",
       "canonical": "GROUNDING.md",
       "canonical_sha256": "7a289d3fc995872fd1607b9e3df85a283986988b7e7c579a8926bc5f457d742c",
-      "sha256": "7a289d3fc995872fd1607b9e3df85a283986988b7e7c579a8926bc5f457d742c",
-      "bytes": 61679
+      "sha256": "74d4d5bc1ff537878127cdf50ac69f976a4a48c4af64daec9b6898a7405e05ab",
+      "bytes": 59132
     },
     {
       "key": "foundation-wall",
       "snapshot": "02-foundation-wall.md",
       "canonical": "POAMS-FOUNDATION-WALL.md",
       "canonical_sha256": "3e74192f2e8907611461c8c710ff9b3d27e755d9fd58d4854ae47b191d5a5e0b",
-      "sha256": "3e74192f2e8907611461c8c710ff9b3d27e755d9fd58d4854ae47b191d5a5e0b",
-      "bytes": 12216
+      "sha256": "17a2f8980e845ae76fd781a26ecd9f1fe2ea938df478faa9bf030628c3e3f851",
+      "bytes": 12165
     },
     {
       "key": "canon-c01",
       "snapshot": "03-C01-normal-realism-constitution-and-reversal.md",
       "canonical": "poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/dossiers/C01-normal-realism-constitution-and-reversal.md",
       "canonical_sha256": "73643fc539e787a6e826d402d5fde950eac41627e18f7ecbfc024d0495f2199a",
-      "sha256": "73643fc539e787a6e826d402d5fde950eac41627e18f7ecbfc024d0495f2199a",
-      "bytes": 12759
+      "sha256": "f1e4e95e532995f70cde31e9d45246ba35d8ca3f3baffd52a3df7995b65484e5",
+      "bytes": 11341
     },
     {
       "key": "canon-c02",
       "snapshot": "03-C02-language-logos-logic-and-mathematics.md",
       "canonical": "poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/dossiers/C02-language-logos-logic-and-mathematics.md",
       "canonical_sha256": "e317be793fdd21e011c929bfeb4ac9bc1ad181a46e7a2afa7ee609528db3f1ab",
-      "sha256": "e317be793fdd21e011c929bfeb4ac9bc1ad181a46e7a2afa7ee609528db3f1ab",
-      "bytes": 13823
+      "sha256": "7e47b4ad3745e8686199d41681eb32a1d038a812985bdbb4b499287985b94a54",
+      "bytes": 12503
     },
     {
       "key": "canon-c03",
       "snapshot": "03-C03-observer-objectivity-information-and-projection.md",
       "canonical": "poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/dossiers/C03-observer-objectivity-information-and-projection.md",
       "canonical_sha256": "870f44c870551c2764815f1a7aa303477b475df117b2936ecc5558b86fee14bb",
-      "sha256": "870f44c870551c2764815f1a7aa303477b475df117b2936ecc5558b86fee14bb",
-      "bytes": 12318
+      "sha256": "ce3e79b6e7e419224589c48f05d0384f5df8cc577dbd1c5be5bb42ef91c756d2",
+      "bytes": 11094
     },
     {
       "key": "canon-c04",
       "snapshot": "03-C04-method-discipline-critique-and-lineage.md",
       "canonical": "poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/dossiers/C04-method-discipline-critique-and-lineage.md",
       "canonical_sha256": "6c5c979d63f0e0428b8fb166e91ae218244ae8453ca049452622e2e0231d4001",
-      "sha256": "6c5c979d63f0e0428b8fb166e91ae218244ae8453ca049452622e2e0231d4001",
-      "bytes": 12898
+      "sha256": "5a18cd64f82b9c92a1624a6bee4009fe34ffaf8850cf17afd431fdb50f6c4ab5",
+      "bytes": 11626
     },
     {
       "key": "canon-c05",
       "snapshot": "03-C05-light-c-time-relativity-and-material-media.md",
       "canonical": "poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/dossiers/C05-light-c-time-relativity-and-material-media.md",
       "canonical_sha256": "17e3ddb95bd1dfaf8b948c5362a6e9407d3c727f69ed32101341d7dc51f949c2",
-      "sha256": "17e3ddb95bd1dfaf8b948c5362a6e9407d3c727f69ed32101341d7dc51f949c2",
-      "bytes": 22190
+      "sha256": "ba4fa968b055c5ff177045642096702c94ea12794eb13b073b125d744d3bafa1",
+      "bytes": 20787
     },
     {
       "key": "canon-c06",
       "snapshot": "03-C06-angular-momentum-action-discreteness-and-statistical-causality.md",
       "canonical": "poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/dossiers/C06-angular-momentum-action-discreteness-and-statistical-causality.md",
       "canonical_sha256": "778bc5cc1fd95b0475f3b6885f213fafe6bcfddb6484a86ff40047b1ae985906",
-      "sha256": "778bc5cc1fd95b0475f3b6885f213fafe6bcfddb6484a86ff40047b1ae985906",
-      "bytes": 15444
+      "sha256": "75b5ed55243531dfeab049b000e029694f313952256762555ab05ad775e71131",
+      "bytes": 14113
     },
     {
       "key": "canon-c07",
       "snapshot": "03-C07-orbits-and-gravity.md",
       "canonical": "poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/dossiers/C07-orbits-and-gravity.md",
       "canonical_sha256": "7edb9eb77a41d331a5162cfeb4579181e918269aa12bf7d35d306cdf49c0023d",
-      "sha256": "7edb9eb77a41d331a5162cfeb4579181e918269aa12bf7d35d306cdf49c0023d",
-      "bytes": 15541
+      "sha256": "ca6dce657cec4f538525d5ae696eab3cdb4b82d5f1e4ce2875a62b547b4414db",
+      "bytes": 13653
     },
     {
       "key": "canon-c08",
       "snapshot": "03-C08-inertia-mass-and-mach.md",
       "canonical": "poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/dossiers/C08-inertia-mass-and-mach.md",
       "canonical_sha256": "790092d46d73567bb8e44eae907e8750fe67e4c1f5b82471647188b65acb5ee6",
-      "sha256": "790092d46d73567bb8e44eae907e8750fe67e4c1f5b82471647188b65acb5ee6",
-      "bytes": 9472
+      "sha256": "f037807301434b7f22296a785520eff804511657d2462fce6e07a4bc5d42b93d",
+      "bytes": 7780
     },
     {
       "key": "canon-c09",
       "snapshot": "03-C09-atom-charge-electricity-magnetism-particle-labels-and-nuclear-status.md",
       "canonical": "poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/dossiers/C09-atom-charge-electricity-magnetism-particle-labels-and-nuclear-status.md",
       "canonical_sha256": "b1c55542a3989c56819c4c9b93f14028fe6145aa236b0a5c2369a4f92b50cfed",
-      "sha256": "b1c55542a3989c56819c4c9b93f14028fe6145aa236b0a5c2369a4f92b50cfed",
-      "bytes": 11092
+      "sha256": "a6cbc6c1120a23129fdfa517c094caad2397e857436d696597d8a234b7332b6d",
+      "bytes": 9247
     },
     {
       "key": "canon-c10",
       "snapshot": "03-C10-instantaneity-two-slits-epr-polarization-and-statistics.md",
       "canonical": "poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/dossiers/C10-instantaneity-two-slits-epr-polarization-and-statistics.md",
       "canonical_sha256": "73c5265c068142f1f187d35ea6da6f3c7fff3b0777eba654e950f5bf975e1bf4",
-      "sha256": "73c5265c068142f1f187d35ea6da6f3c7fff3b0777eba654e950f5bf975e1bf4",
-      "bytes": 10986
+      "sha256": "dd822fe37cbce82317a6877ef5e32e29048a429e580c28f2ec30eb0479927373",
+      "bytes": 9003
     },
     {
       "key": "canon-c11",
       "snapshot": "03-C11-cosmology-thermodynamics-and-chemistry.md",
       "canonical": "poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/dossiers/C11-cosmology-thermodynamics-and-chemistry.md",
       "canonical_sha256": "b2d1202872adf57252e915400f95f52c1efd86c196aa4887dde85e0205cbdfe5",
-      "sha256": "b2d1202872adf57252e915400f95f52c1efd86c196aa4887dde85e0205cbdfe5",
-      "bytes": 9076
+      "sha256": "bfd7148cded27a9dcfbe311c6a96a57f94dd2790116d3f3e66ba9df22eebbbc5",
+      "bytes": 7473
     },
     {
       "key": "canon-c12",
       "snapshot": "03-C12-life-and-mind.md",
       "canonical": "poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/dossiers/C12-life-and-mind.md",
       "canonical_sha256": "68bb0369f2d2ff396750e0c58ed680d0eae96ebbfceacbfe6e99b328cea76c7e",
-      "sha256": "68bb0369f2d2ff396750e0c58ed680d0eae96ebbfceacbfe6e99b328cea76c7e",
-      "bytes": 10211
+      "sha256": "8eb39a8ef001963b1e6e85af1440fb6b89650ad5cb59202372ea69e4f2a7df56",
+      "bytes": 8639
     },
     {
       "key": "canon-c13",
       "snapshot": "03-C13-ethics-society-and-religion.md",
       "canonical": "poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/dossiers/C13-ethics-society-and-religion.md",
       "canonical_sha256": "bde15317070e72b640935dd2ab18efaf6ddcda59cec0a22f5642988055a92a21",
-      "sha256": "bde15317070e72b640935dd2ab18efaf6ddcda59cec0a22f5642988055a92a21",
-      "bytes": 10590
+      "sha256": "f42f5df924072ec00d59778c5347b9eb83547db158be1d25b58122b99416124d",
+      "bytes": 8731
     },
     {
       "key": "project-start-protocol",
       "snapshot": "04-project-start-protocol.md",
       "canonical": "poams-review/work/grounding-2026-11-14/drafts/PROTOCOL-v3.md",
       "canonical_sha256": "ea1d7dfe16916591b7240c20b7a010f0a69403715a9170c1491c95c1a61f281f",
-      "sha256": "745dcb39c11b321f3715b29b7a03f40e6a37b7020481832a2df32c296714b9ee",
-      "bytes": 6387
+      "sha256": "f4168b9e3bf5610cf37b6b7267b268ddb1014f68dbe8dd2eca9ee2cd4a960d34",
+      "bytes": 6332
     },
     {
       "key": "opening-context",
@@ -167,9 +167,9 @@
       "snapshot": "06-canon-notes.md",
       "canonical": "poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/CANON-NOTES-CANDIDATE.md",
       "canonical_sha256": "4ed83f61b78d4c8ae854a4828f2c5b3c0ae6203beccfb72a0f726364679eb6e3",
-      "sha256": "4ed83f61b78d4c8ae854a4828f2c5b3c0ae6203beccfb72a0f726364679eb6e3",
-      "bytes": 3098
+      "sha256": "7b9e885ca76c4547b0809087791bc43a0318af008ba8beae7a29300aa959048d",
+      "bytes": 2290
     }
   ],
-  "source_set_sha256": "53568824496405bcb5887a3c96c5bb6fa479fb3f7f029b45aab832190161af84"
+  "source_set_sha256": "de61edd681c9232bedf5ad6e1027e622403cd0dd633acdd543ec60b3e2407365"
 }

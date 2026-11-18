@@ -1,11 +1,8 @@
-# The Canon Core — private owner-review edition
+# The Canon Core
 
-Generated from the thirteen source-grounded dossiers by `build_core_candidate.py`. Do not edit by hand.
 Normal Realism is the philosophy and comes first. POAMS is the physics that follows from it.
 This Core is an orientation, not a substitute for the dossiers or the authors' texts. Read the controlling dossier before relying on a holding.
 All tests for new work are editorial synthesis, not author axioms or additional physical premises.
-Integrated substantive Verification passed under CANON-INTEGRATED-SUBSTANTIVE-REVIEW-1-R2. Receipt: `poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/verification/integrated-canon-1-r2/REVIEW.md`.
-The PASS accepts source fidelity and completeness for this edition; it does not validate the physics, convert source reports into measurements, or close stated disagreements and open rules. Owner acceptance, live-context migration and publication remain separate decisions.
 
 ---
 
@@ -31,7 +28,7 @@ The PASS accepts source fidelity and completeness for this edition; it does not 
 - **C01-T0004:** Keep philosophical starting points, physical postulates and demonstrated consequences separate. Compatibility with a starting point is not derivation from it.
 - **C01-T0005:** Preserve contrary author passages. Reject a stated incompatibility with reasons; do not claim that absence from this dossier alone refutes a premise.
 
-Read `C01-normal-realism-constitution-and-reversal.md` for the authors' words, rejections, disagreements, open rules, sources, scope, and version receipt.
+Read `C01-normal-realism-constitution-and-reversal.md` for the authors' words, rejections, disagreements, open rules, sources and scope.
 
 ---
 
@@ -59,7 +56,7 @@ Read `C01-normal-realism-constitution-and-reversal.md` for the authors' words, r
 - **C02-T0005:** Separate continuous calculation from a claim of continuous nature. Identify imported tools without attributing them retrospectively to the authors.
 - **C02-T0006:** Treat a revision of language as revisable too. Neither a checklist nor this dossier is an oracle of truth.
 
-Read `C02-language-logos-logic-and-mathematics.md` for the authors' words, rejections, disagreements, open rules, sources, scope, and version receipt.
+Read `C02-language-logos-logic-and-mathematics.md` for the authors' words, rejections, disagreements, open rules, sources and scope.
 
 ---
 
@@ -86,7 +83,7 @@ Read `C02-language-logos-logic-and-mathematics.md` for the authors' words, rejec
 - **C03-T0005:** Preserve ordinary temporal experience while distinguishing analytical priority from chronological causation. Do not insert an unobserved universal clock.
 - **C03-T0006:** Keep differences of observer vocabulary, information scale and polar/public dependence visible where they affect a claim.
 
-Read `C03-observer-objectivity-information-and-projection.md` for the authors' words, rejections, disagreements, open rules, sources, scope, and version receipt.
+Read `C03-observer-objectivity-information-and-projection.md` for the authors' words, rejections, disagreements, open rules, sources and scope.
 
 ---
 
@@ -115,7 +112,7 @@ Read `C03-observer-objectivity-information-and-projection.md` for the authors' w
 - **C04-T0006:** Preserve author, contributor, dialogue speaker, genre, work version and date. Do not turn reported agreement or an edited debate into consensus.
 - **C04-T0007:** Apply the same evidential distinction to favored and adverse results. A source statement is not a measurement receipt.
 
-Read `C04-method-discipline-critique-and-lineage.md` for the authors' words, rejections, disagreements, open rules, sources, scope, and version receipt.
+Read `C04-method-discipline-critique-and-lineage.md` for the authors' words, rejections, disagreements, open rules, sources and scope.
 
 ---
 
@@ -147,7 +144,7 @@ Read `C04-method-discipline-critique-and-lineage.md` for the authors' words, rej
 - **C05-T0007:** Keep reported observations, proposed tests, mathematical checks and complete measurement receipts distinct. Instantaneity alone establishes no operational communication performance.
 - **C05-T0008:** Preserve source formulas and conflicts. Authenticate consequential damaged equations before using them; do not repair them by inserting a familiar result.
 
-Read `C05-light-c-time-relativity-and-material-media.md` for the authors' words, rejections, disagreements, open rules, sources, scope, and version receipt.
+Read `C05-light-c-time-relativity-and-material-media.md` for the authors' words, rejections, disagreements, open rules, sources and scope.
 
 ---
 
@@ -176,7 +173,7 @@ Read `C05-light-c-time-relativity-and-material-media.md` for the authors' words,
 - **C06-T0006:** Separate conservation from the dynamics used with it. Neither conserved totals nor agreement with a target establish the missing operation.
 - **C06-T0007:** Distinguish author thesis, conditional calculation and measurement. Check damaged units against the relevant original witness before consequential use.
 
-Read `C06-angular-momentum-action-discreteness-and-statistical-causality.md` for the authors' words, rejections, disagreements, open rules, sources, scope, and version receipt.
+Read `C06-angular-momentum-action-discreteness-and-statistical-causality.md` for the authors' words, rejections, disagreements, open rules, sources and scope.
 
 ---
 
@@ -201,7 +198,7 @@ Read `C06-angular-momentum-action-discreteness-and-statistical-causality.md` for
 - **C07-T0004:** State the constraint that makes a force measurable. Do not erase measured work by rejecting a vacuum-force picture.
 - **C07-T0005:** Attach source version, orientation, fixed quantities and evidential status to every spin-effect claim. Do not resolve a source disagreement with a later program premise.
 
-Read `C07-orbits-and-gravity.md` for the authors' words, rejections, disagreements, open rules, sources, scope, and version receipt.
+Read `C07-orbits-and-gravity.md` for the authors' words, rejections, disagreements, open rules, sources and scope.
 
 ---
 
@@ -225,7 +222,7 @@ Read `C07-orbits-and-gravity.md` for the authors' words, rejections, disagreemen
 - **C08-T0004:** Specify whose clock and reference frame are used; retain the source's universal-time tensions.
 - **C08-T0005:** Name the contributor and version of any proposed inertial law. Label later additions as additions, not recovered author doctrine.
 
-Read `C08-inertia-mass-and-mach.md` for the authors' words, rejections, disagreements, open rules, sources, scope, and version receipt.
+Read `C08-inertia-mass-and-mach.md` for the authors' words, rejections, disagreements, open rules, sources and scope.
 
 ---
 
@@ -250,7 +247,7 @@ Read `C08-inertia-mass-and-mach.md` for the authors' words, rejections, disagree
 - **C09-T0004:** Keep action, angular momentum, charge, energy and voltage dimensionally distinct; identify every proposed equivalence.
 - **C09-T0005:** Preserve version-specific factors and source defects. Label magnetic and nuclear extrapolations as proposals until the missing law is supplied and separately evaluated.
 
-Read `C09-atom-charge-electricity-magnetism-particle-labels-and-nuclear-status.md` for the authors' words, rejections, disagreements, open rules, sources, scope, and version receipt.
+Read `C09-atom-charge-electricity-magnetism-particle-labels-and-nuclear-status.md` for the authors' words, rejections, disagreements, open rules, sources and scope.
 
 ---
 
@@ -275,7 +272,7 @@ Read `C09-atom-charge-electricity-magnetism-particle-labels-and-nuclear-status.m
 - **C10-T0004:** Do not infer a universal clock from instantaneous pair relations or a Bell law from conservation alone.
 - **C10-T0005:** Preserve edition and speaker distinctions. Keep source-reported experiments separate from raw measurement receipts.
 
-Read `C10-instantaneity-two-slits-epr-polarization-and-statistics.md` for the authors' words, rejections, disagreements, open rules, sources, scope, and version receipt.
+Read `C10-instantaneity-two-slits-epr-polarization-and-statistics.md` for the authors' words, rejections, disagreements, open rules, sources and scope.
 
 ---
 
@@ -299,7 +296,7 @@ Read `C10-instantaneity-two-slits-epr-polarization-and-statistics.md` for the au
 - **C11-T0004:** Define the system boundary before asserting entropy increase, decrease or compensation; do not infer a measured global balance from a local example.
 - **C11-T0005:** Identify chemical analogies as analogies. Do not present absent reaction or bonding rules as author-derived results.
 
-Read `C11-cosmology-thermodynamics-and-chemistry.md` for the authors' words, rejections, disagreements, open rules, sources, scope, and version receipt.
+Read `C11-cosmology-thermodynamics-and-chemistry.md` for the authors' words, rejections, disagreements, open rules, sources and scope.
 
 ---
 
@@ -323,7 +320,7 @@ Read `C11-cosmology-thermodynamics-and-chemistry.md` for the authors' words, rej
 - **C12-T0004:** Give the assumptions behind a probability claim. An analogy or an assertion of impossibility is not a calculation.
 - **C12-T0005:** Preserve character, participant and author distinctions, including objections. Do not turn speculative survival or paranormal reports into physical laws.
 
-Read `C12-life-and-mind.md` for the authors' words, rejections, disagreements, open rules, sources, scope, and version receipt.
+Read `C12-life-and-mind.md` for the authors' words, rejections, disagreements, open rules, sources and scope.
 
 ---
 
@@ -348,7 +345,7 @@ Read `C12-life-and-mind.md` for the authors' words, rejections, disagreements, o
 - **C13-T0004:** Do not derive a social program or mandatory creed from a physical formula.
 - **C13-T0005:** Treat claims about survival, providence or extraordinary experience as the source states them; require independent evidence before any physical promotion.
 
-Read `C13-ethics-society-and-religion.md` for the authors' words, rejections, disagreements, open rules, sources, scope, and version receipt.
+Read `C13-ethics-society-and-religion.md` for the authors' words, rejections, disagreements, open rules, sources and scope.
 
 ---
 

@@ -79,23 +79,3 @@ This is the relevant philosophical boundary. It does not establish the magnitude
 Pope, *The Eye of the Beholder*; Pope and Osborne, *Einstein's Lost Legacy*; Osborne and Pope, *Light-Speed, Gravitation and Quantum Instantaneity*. Relevant source-map and accepted-package routes: B1A-R10; OD-C08-01; B2A-093; B2b P14-27 through P14-32; B3a S03; B3c Lecture 18 and Q06. B3a's dialogue and other contributors' constructions are not direct evidence for joint author consensus.
 
 This compact dossier states the mass/inertia distinction and relational interpretation. C07 owns orbital dynamics, C06 owns common action units, and C11 owns cosmological time. No new mass law or experimental result is asserted.
-
-## Version receipt
-
-Edition: **private owner-review edition**, November 16, 2026. Status integration: CANON-OWNER-REVIEW-EDITION-1.
-
-Integrated substantive Verification passed under CANON-INTEGRATED-SUBSTANTIVE-REVIEW-1-R2. Receipt: `poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/verification/integrated-canon-1-r2/REVIEW.md`.
-
-The PASS accepts source fidelity and completeness for this edition; it does not validate the physics, convert source reports into measurements, or close stated disagreements and open rules. Owner acceptance, live-context migration and publication remain separate decisions.
-
-Producer history: source-first draft 1; November 16, 2026; task CANON-C07-C13-SOURCE-FIRST-DRAFT-1. Thirteen-dossier owner amendment controls scope. Stable holding/test IDs; exact corrected-corpus excerpts and locators. Mechanical quotation checks accompany this edition. No public or maintained Canon file changed.
-
-Verification receipt: 10/10 quotations passed both the strict corpus/quarantine checker and exact, unnormalized substring matching. The assigned-file structural check passed. The companion .quotes.json is the strict-check sidecar; neither check is original-page authentication or substantive acceptance.
-
-Quoted corpus-file SHA-256 values (observed November 16, 2026; paths are corpus-text/books or corpus-text/papers under the grounding root):
-
-- einsteins-lost-legacy: `f406d7d824fbdc5efa7030a07358bd2b08fbc9c78ab2a2d6209626ea9ce1c70f`.
-- eye-of-beholder: `464f5d6428205e8ea78a7b68f316470866ed02a237efcf13cc1e0255aa3e4bc3`.
-- light-speed-gravitation-and-quantum-instantaneity: `a91df9af81c5acda43b2c2fb12b569f56f55cfa481a58e1d993b3b1b158a386c`.
-
-

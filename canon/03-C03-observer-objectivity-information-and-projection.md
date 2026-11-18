@@ -97,15 +97,3 @@ Indubitable occurrence is not infallible description. That distinction is a usef
 Quoted authority is the corpus text at the displayed work:block locations: the joint books, *The Eye of the Beholder*, the Phenomenalism papers, the revised Synopsis, and the identified observer and combinatorics papers. Exact work IDs distinguish near-duplicate versions. The completed source read-in is used through SOURCE-COVERAGE-MAP.md/json and the accepted B1A–B3c evidence packages; their selective original checks do not certify every possible quotation or equation.
 
 Legacy page 01 holdings 5 and 9–11 and its whole/part claim in 17 have their primary home here. Legacy page 07's observer and analytical-terminal orientation is routed here; C05 keeps only the light-specific application. C01 owns the one-world constitution and underpinning conflict; C02 owns language and logos; C04 owns interpretive method; C06 owns physical discreteness. Neither later program premises nor Exhibits are evidence of the authors' holdings.
-
-## Version receipt
-
-Edition: **private owner-review edition**, November 16, 2026. Status integration: CANON-OWNER-REVIEW-EDITION-1.
-
-Integrated substantive Verification passed under CANON-INTEGRATED-SUBSTANTIVE-REVIEW-1-R2. Receipt: `poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/verification/integrated-canon-1-r2/REVIEW.md`.
-
-The PASS accepts source fidelity and completeness for this edition; it does not validate the physics, convert source reports into measurements, or close stated disagreements and open rules. Owner acceptance, live-context migration and publication remain separate decisions.
-
-The accompanying `.quotes.json` binds this draft's bytes and the cited corpus-file hashes; its strict statuses and literal-substring checks are textual evidence only.
-
-Producer history: Draft 1, November 16, 2026; CANON-C01-C06-SOURCE-FIRST-DRAFT-1. Thirteen-dossier source-first producer history. Corpus quotations retain spelling. Textual matches establish the cited witness, not a new measurement, original-page campaign or completed projection theory. Broad/narrow observer, polar/public dependence, bare sensation/description and ordinary-time/analytical-priority differences remain explicit.

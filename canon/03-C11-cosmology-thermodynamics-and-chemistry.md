@@ -79,22 +79,3 @@ These statements are not made equivalent by calling the first merely a reunion c
 Primary quotations: *Einstein's Lost Legacy* and *The Odyssey*. Routing and qualification: B1A-R13; OD-C11-01/02/03; B2a cosmology/entropy routes; B2b P13-20/P13-22/P13-23/P14-12/P14-16/POST-90; B3a thermodynamic dialogue routes. The accepted B3b index supplies navigation only.
 
 This dossier has three compact subject subsections. It uses no later Exhibit or program premise as author evidence and makes no new cosmological, thermal or chemical prediction.
-
-## Version receipt
-
-Edition: **private owner-review edition**, November 16, 2026. Status integration: CANON-OWNER-REVIEW-EDITION-1.
-
-Integrated substantive Verification passed under CANON-INTEGRATED-SUBSTANTIVE-REVIEW-1-R2. Receipt: `poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/verification/integrated-canon-1-r2/REVIEW.md`.
-
-The PASS accepts source fidelity and completeness for this edition; it does not validate the physics, convert source reports into measurements, or close stated disagreements and open rules. Owner acceptance, live-context migration and publication remain separate decisions.
-
-Producer history: source-first draft 1; November 16, 2026; task CANON-C07-C13-SOURCE-FIRST-DRAFT-1. Stable four-digit holding/test IDs. Exact corrected-corpus excerpts; mechanical rematching accompanies this edition. Source conflicts and bounded absence statements remain explicit. No maintained-file change or publication is authorized by this edition.
-
-Verification receipt: 9/9 quotations passed both the strict corpus/quarantine checker and exact, unnormalized substring matching. The assigned-file structural check passed. The companion .quotes.json is the strict-check sidecar; neither check is original-page authentication or substantive acceptance.
-
-Quoted corpus-file SHA-256 values (observed November 16, 2026; paths are corpus-text/books or corpus-text/papers under the grounding root):
-
-- einsteins-lost-legacy: `f406d7d824fbdc5efa7030a07358bd2b08fbc9c78ab2a2d6209626ea9ce1c70f`.
-- the-odyssey: `a50954fffe2ecdd6c1eed8fa6ad0dba1163499283063f81e6b59792c576b7d56`.
-
-

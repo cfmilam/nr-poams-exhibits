@@ -103,15 +103,3 @@ Primary authority is the authored text at each work:block locator. *Einstein's L
 Read-in basis: SOURCE-COVERAGE-MAP.md/json; accepted B1A, B1B, B2a, B2b, B2c, B3a and B3c route packages and their bounded reviews. B3b is index/navigation support only. The 324-work acceptance records coverage, not agreement among sources or physical confirmation. No later Exhibit, program premise, patent or engineering claim grounds a holding here.
 
 Legacy page 01 holdings 1–4, 6–7 and 23 have their primary constitutional home here. Holdings 5, 9–11 and the whole/part aspect of 17 belong to C03; 12–16 and 21–22 to C02; method to C04; discreteness and angular momentum to C06. Atomic labels go to C09, mind to C12, ethics and religion to C13. C13 supersedes the legacy compression that the texts contain no theology: the source record includes moral argument, personal faith, affirmative religious claims, doubts and no single settled creed. Those routes prevent constitutional compression from deleting consequential material.
-
-## Version receipt
-
-Edition: **private owner-review edition**, November 16, 2026. Status integration: CANON-OWNER-REVIEW-EDITION-1.
-
-Integrated substantive Verification passed under CANON-INTEGRATED-SUBSTANTIVE-REVIEW-1-R2. Receipt: `poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/verification/integrated-canon-1-r2/REVIEW.md`.
-
-The PASS accepts source fidelity and completeness for this edition; it does not validate the physics, convert source reports into measurements, or close stated disagreements and open rules. Owner acceptance, live-context migration and publication remain separate decisions.
-
-The accompanying `.quotes.json` binds this draft's bytes and the cited corpus-file hashes; its strict statuses and literal-substring checks are textual evidence only.
-
-Producer history: Draft 1, November 16, 2026. Task CANON-C01-C06-SOURCE-FIRST-DRAFT-1. Producer history retained; this edition is not owner acceptance or publication. The owner's thirteen-dossier/source-first instruction supersedes the earlier twelve-dossier ceiling and Exhibit-first dependency. Legacy page 01 Draft 4 is a starting input, not authority over contrary authored sources. Quotations retain source spelling; locators identify the corpus witnesses. Corpus matching establishes textual identity, not fresh original-page authentication or a measurement receipt. The projection/underpinning conflict remains open.

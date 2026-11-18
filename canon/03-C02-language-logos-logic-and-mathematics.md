@@ -114,15 +114,3 @@ Primary evidence: *A Synopsis of Normal Realism (Revised)*; *Existence, Science 
 SOURCE-COVERAGE-MAP.md/json and the accepted B1A/B1B/B2a/B2b/B2c/B3a/B3c comparisons retain the certainty, logos, calculus and axiom disputes. B3b is an index, not evidence for definitions. Fictional speakers in *Wondering in the Wilderness* and correspondents in *Theological Discussion* are not automatically Pope or Osborne speaking without qualification. No passage from them has been silently promoted to joint doctrine here.
 
 Legacy page 01 holdings 12–16 and 21–22 have their primary home here. Observer usage belongs to C03, practical theory permission to C04, physical discreteness to C06, and ethical/theological argument to C13. Source statements and original-page matches are not physical measurement receipts.
-
-## Version receipt
-
-Edition: **private owner-review edition**, November 16, 2026. Status integration: CANON-OWNER-REVIEW-EDITION-1.
-
-Integrated substantive Verification passed under CANON-INTEGRATED-SUBSTANTIVE-REVIEW-1-R2. Receipt: `poams-review/work/grounding-2026-11-14/canon/_completion-2026-11-16/verification/integrated-canon-1-r2/REVIEW.md`.
-
-The PASS accepts source fidelity and completeness for this edition; it does not validate the physics, convert source reports into measurements, or close stated disagreements and open rules. Owner acceptance, live-context migration and publication remain separate decisions.
-
-The accompanying `.quotes.json` binds this draft's bytes and the cited corpus-file hashes; its strict statuses and literal-substring checks are textual evidence only.
-
-Producer history: Draft 1, November 16, 2026; CANON-C01-C06-SOURCE-FIRST-DRAFT-1. Source-first producer history under the thirteen-dossier instruction. No Exhibit develops or grounds this dossier. Quoted spelling is preserved; corpus verification is textual, not independent confirmation of author arguments. Four disagreement families remain open: certainty, logos, calculus/continuity and axioms. The original-only *What Is Logic* issue is retained rather than repaired from expectation. Parzival remains integration owner.
